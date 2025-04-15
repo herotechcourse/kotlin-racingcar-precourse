@@ -25,7 +25,7 @@ class Cars(private val cars: List<Car>) {
         fun fromNames(input: String): Cars {
             val carList = input.split(",")
                 .map { it.trim() }
-                .map { Car(it) }
+                .map { Car(it) } // exception thrown here if invalid
             return Cars(carList)
         }
     }
