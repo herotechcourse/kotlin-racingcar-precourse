@@ -1,5 +1,12 @@
 package racingcar
 
+import racingcar.validation.CarNameValidator
+
 fun main() {
-    println("Racing Car App Starting...")
+    try {
+        val carNames = CarNameValidator.getAndValidateCarNames()
+        println("Valid car names: $carNames")
+    } catch (e: IllegalArgumentException) {
+        println("Error: ${e.message}")
+    }
 }
