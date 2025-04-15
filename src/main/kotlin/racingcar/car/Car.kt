@@ -6,14 +6,13 @@ class Car(val carName: String) {
     init {
         require(carName.length < 5)
     }
-    private var position: Int = 0
-    fun drive() {
+    private var position: String = ""
+
+    fun drive(): String {
         val randomNumber = Random.nextInt(10)
         if (randomNumber > 3) {
-            position++
+            position += "-"
         }
-    }
-    fun getPosition(): Int{
         return position
     }
 }
