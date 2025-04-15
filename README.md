@@ -1,7 +1,7 @@
 # kotlin-racingcar-precourse
 
 ## Planned Features
-- [ ] Get car names (separated by commas) and the number of rounds from the user
+- [x] Get car names (separated by commas) and the number of rounds from the user
 - [ ] Validate car name input
     - Car name must NOT be empty
     - Each name must NOT exceed **5** characters
