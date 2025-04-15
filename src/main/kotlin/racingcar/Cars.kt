@@ -1,10 +1,12 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Randoms
+
 class Cars(private val cars: List<Car>) {
 
     fun moveAll() {
         cars.forEach { car ->
-            val number = camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(0, 9)
+            val number = Randoms.pickNumberInRange(0, 9)
             car.move(number >= 4)
         }
     }
@@ -17,7 +19,7 @@ class Cars(private val cars: List<Car>) {
     }
 
     fun getWinners(): List<Car> {
-        val maxPosition = cars.maxOf { it.position }
+        val maxPosition = cars.maxOfOrNull { it.position } ?: return emptyList()
         return cars.filter { it.position == maxPosition }
     }
 
@@ -25,7 +27,7 @@ class Cars(private val cars: List<Car>) {
         fun fromNames(input: String): Cars {
             val carList = input.split(",")
                 .map { it.trim() }
-                .map { Car(it) } // exception thrown here if invalid
+                .map { Car.create(it) }
             return Cars(carList)
         }
     }
