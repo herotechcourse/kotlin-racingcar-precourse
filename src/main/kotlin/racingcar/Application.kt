@@ -4,8 +4,10 @@ import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
 class Games(var challengers: String, var rounds: String) {
+}
 
-
+class Car(val name: String) {
+    var currentPosition: Int = 0
 }
 
 fun main() {
@@ -19,15 +21,34 @@ fun main() {
     println("Race Results")
 
     val challengerList = challengers.split(",") // [pobi, woni, jun]
+    // make Car object
+    var challengerGroup = mutableListOf<Car>()
+    for (challenger in challengerList) {
+        challengerGroup.add(Car(challenger))
+    }
 
 //    Games()
     var currentRound = 0
     while (currentRound != rounds.toInt()) {
-        for (i in 1..challengerList.size) {
+        for (challenger in challengerGroup) {
             val diceNumber = Randoms.pickNumberInRange(0, 9)
             if (diceNumber >= 4) {
-                // todo 전진한 count 저장 필요
+                challenger.currentPosition += 1
             }
         }
+
+//        print current racing status
+        for (challenger in challengerGroup) {
+            print("${challenger.name} : ")
+            for (p in 1..challenger.currentPosition) {
+                print("-")
+            }
+            println()
+        }
+        println()
+
+        currentRound += 1
     }
+
+
 }
