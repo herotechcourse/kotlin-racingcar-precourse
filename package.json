@@ -1,0 +1,24 @@
+{
+  "name": "kotlin-racingcar-precourse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimpeter2018/kotlin-racingcar-precourse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimpeter2018/kotlin-racingcar-precourse/issues"
+  },
+  "homepage": "https://github.com/kimpeter2018/kotlin-racingcar-precourse#readme",
+  "devDependencies": {
+    "standard-version": "^9.5.0"
+  }
+}
