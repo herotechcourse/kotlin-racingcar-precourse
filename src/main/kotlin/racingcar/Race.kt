@@ -1,10 +1,10 @@
 package racingcar
 
 class Race(
-    val rounds: int,
-    val cars: list<Car>,
+    val rounds: Int,
+    val cars: List<Car>,
 ) {
     fun run() {
-        // TODO: To be defined
+       println("race is running")
     }
 }

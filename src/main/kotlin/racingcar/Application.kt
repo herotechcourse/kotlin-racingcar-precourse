@@ -20,4 +20,7 @@ fun main() {
         throw IllegalArgumentException()
     }
     
+    val race=Race(rounds,cars)
+    race.run()
+
 }
