@@ -17,8 +17,9 @@ class RacingGame(private val cars: List<Car>, private val round: Int) {
             }
             printProcess(process)
         }
-        //after the loop, calculate who's the winner(s)
-        //print winner(s)
+
+        val winners = findWinners(process)
+        printWinners(winners)
 
     }
 
@@ -29,5 +30,16 @@ class RacingGame(private val cars: List<Car>, private val round: Int) {
     private fun printProcess(process: List<Process>) {
         process.forEach { proc -> println("${proc.carName} : ${proc.movement}") }
         println()
+    }
+
+    private fun findWinners(process: List<Process>): List<String> {
+        val maxMovement = process.maxOf { proc -> proc.movement.length }
+        val winners = process.filter { proc -> proc.movement.length == maxMovement }.map { proc -> proc.carName }
+
+        return winners
+    }
+
+    private fun printWinners(winners: List<String>) {
+        println("Winners : ${winners.joinToString(",")}")
     }
 }
