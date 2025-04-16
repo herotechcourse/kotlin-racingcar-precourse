@@ -114,7 +114,7 @@ class ApplicationTest : NsTest() {
 
     @Test
     fun `(TEST_10) number of cars exceed maximum`() {
-        val cars = (1..101).joinToString(",") { "car$it" }
+        val cars = (1..101).joinToString(",") { "c$it" }
         assertSimpleTest {
             assertThrows<IllegalArgumentException>{
                 runException(cars, "1")
