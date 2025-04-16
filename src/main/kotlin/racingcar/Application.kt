@@ -10,12 +10,10 @@ fun main() {
         .split(",")
         .map { it.trim() };
     validateCarNames(carNames);
-
     println("How many rounds will be played?")
     val raceRoundsInput = Console.readLine();
     val raceRounds = raceRoundsInput.toInt();
     validateRaceRounds(raceRounds);
-
     runRace(carNames, raceRounds);
 }
 
