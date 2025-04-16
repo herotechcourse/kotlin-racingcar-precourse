@@ -16,5 +16,12 @@ class Car(val name: String) {
         return num >= 4
     }
 
+    fun display() {
+        val positionString = buildString {
+            if (position>0)
+                for (num in 1 until position) append("-")}
+        println("$name : $positionString")
+    }
+
 
 }
