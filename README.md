@@ -30,6 +30,11 @@ pobi,woni,jun
 Enter the names of the cars (comma-separated):
 ```
 
+- [x] Print prompt to enter number of rounds
+```kotlin
+How many rounds will be played?
+```
+
 - [ ] Race results by round:
 ```kotlin
 pobi : --
