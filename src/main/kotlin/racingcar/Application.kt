@@ -24,6 +24,6 @@ fun main() {
         Output.printWinners(winners)
 
     } catch (e: IllegalArgumentException) {
-        println("Error: ${e.message}")
+        throw e
     }
 }
