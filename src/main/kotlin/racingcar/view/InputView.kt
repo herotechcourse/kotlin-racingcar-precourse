@@ -7,10 +7,9 @@ object InputView{
     fun enterCarNames(): List<String> {
         println("Enter the names of the cars (comma-separated):")
         val input=Console.readLine()
-        if(input.isBlank()){
-            throw IllegalArgumentException(ExceptionMessage.EMPTY_CAR_NAME.message)
-        }
-        return input.split(",").map{it.trim()}
+        val carNames = input.split(",")
+        Validator.validateCarNames(carNames)
+        return carNames
     }
 
     fun enterRoundCount():Int {
@@ -20,7 +19,7 @@ object InputView{
         if(roundCount == null){
             throw IllegalArgumentException(ExceptionMessage.INVALID_ROUND_COUNT.message)
         }
-        require(roundCount > 0) { ExceptionMessage.INVALID_ROUND_COUNT.message }
+        Validator.validateRoundCount(roundCount)
         return roundCount
     }
 }
