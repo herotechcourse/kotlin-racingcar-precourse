@@ -5,6 +5,7 @@ class Race(
     val cars: List<Car>,
 ) {
     fun run() {
+        println("Race Results")
         for (r in 1..rounds) {
             for (car in cars) {
                 car.luckyMove()
@@ -17,6 +18,7 @@ class Race(
         for (car in cars) {
             println(car.getProgress())
         }
+        println()
     }
 
     fun displayWinners() {
