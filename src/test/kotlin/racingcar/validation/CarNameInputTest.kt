@@ -2,6 +2,7 @@ package racingcar.validation
 
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Test
+import racingcar.input.processUserInput
 
 class CarNameInputTest {
 
@@ -13,18 +14,16 @@ class CarNameInputTest {
     }
 
     @Test
-    fun `test invalid car names input with special characters`() {
-        val input = "Tesla. BMW. Ford"
-        assertThatThrownBy { processUserInput(input) }
-            .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessageContaining("Invalid character detected")
+    fun `test car names with extra spaces`() {
+        val input = " Tesla , BMW , Ford "
+        val carNames = processUserInput(input)
+        assertThat(carNames).containsExactly("Tesla", "BMW", "Ford")
     }
 
     @Test
-    fun `test invalid car names input with spaces`() {
-        val input = "Tes la, BMW, Ford Mustang"
-        assertThatThrownBy { processUserInput(input) }
-            .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessageContaining("contains spaces in-between")
+    fun `test single car name`() {
+        val input = "Tesla"
+        val carNames = processUserInput(input)
+        assertThat(carNames).containsExactly("Tesla")
     }
 }
