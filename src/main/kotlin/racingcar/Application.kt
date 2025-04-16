@@ -20,3 +20,17 @@ fun getCarNames(): List<String> {
 
     } while (true)
 }
+
+fun getNumberOfRounds(): Int {
+    while (true) {
+        println("Number of rounds:")
+        val numberOfRoundsInput = readLine()
+        val numberOfRounds = numberOfRoundsInput?.toIntOrNull()
+
+        if(numberOfRounds != null && numberOfRounds > 0) {
+            return numberOfRounds
+        } else {
+            throw IllegalArgumentException("Invalid input: enter a positive number")
+        }
+    }
+}
