@@ -1,11 +1,25 @@
 package racingcar.ui
 
+import camp.nextstep.edu.missionutils.Console
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.io.ByteArrayInputStream
+import java.io.InputStream
 import java.lang.IllegalArgumentException
 
 class InputViewTest {
+    private lateinit var originalIn: InputStream
+    @BeforeEach
+    fun beforeEach() {
+        originalIn = System.`in`
+    }
+    @AfterEach
+    fun afterEach() {
+        System.setIn(originalIn)
+        Console.close()
+    }
     private fun setInput(input:String){
         System.setIn(ByteArrayInputStream(input.toByteArray()))
     }
