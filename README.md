@@ -19,9 +19,9 @@
 
 ### Input/Output Features
 
-* [ ] If the user inputs invalid data, the program must throw an `IllegalArgumentException`.
-    * [ ] Input data cannot be empty.
-* [ ] Car names must be entered as a comma-separated list.
+* [x] If the user inputs invalid data, the program must throw an `IllegalArgumentException`.
+    * [x] Input data cannot be empty.
+* [x] Car names must be entered as a comma-separated list.
 * [ ] When printing the progress of each car, the car's name must be displayed alongside its movement.
 * [ ] After the race is complete, the winners must be displayed.
 * [ ] If there are multiple winners, their names must be separated by commas.
