@@ -9,9 +9,9 @@ object InputView {
 
         if (names.isEmpty()) throw IllegalArgumentException("At least one car name must be provided")
 
-        names.forEach{ name ->
-            if (name.isEmpty()) throw IllegalArgumentException("Cars name cannot be empty")
-            if (name.length > 5) throw IllegalArgumentException("Car names cannot exceed 5 characters. Car '$name' has ${name.length} characters")
+        names.forEach{
+            if (it.isEmpty()) throw IllegalArgumentException("Cars name cannot be empty")
+            if (it.length > 5) throw IllegalArgumentException("Car names cannot exceed 5 characters. Car '$it' has ${it.length} characters")
         }
         return names
     }
