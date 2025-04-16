@@ -25,14 +25,15 @@ fun runRace(carNames: List<String>, raceRounds: Int) {
         .toMutableMap();
     announceRace(carNames, raceRounds);
     repeat(raceRounds) {
-        continueAnotherRound(distanceScores);
+        val movementThreshold = 4;
+        continueAnotherRound(distanceScores, movementThreshold);
     }
 }
 
-fun continueAnotherRound(distanceScores: MutableMap<String, Int>) {
+fun continueAnotherRound(distanceScores: MutableMap<String, Int>, movementThreshold: Int) {
     for ((name, score) in distanceScores) {
         val movementScore = Randoms.pickNumberInRange(0, 9);
-        if (movementScore >= 4) distanceScores[name] = score + 1;
+        if (movementScore >= movementThreshold) distanceScores[name] = score + 1;
     }
 }
 
