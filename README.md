@@ -30,6 +30,16 @@ This program simulates a car race where one or more cars win the race based on t
      - `simulateRace(Cars: List<Car>, rounds: Int)`: This function proceeds with the rounds and prints the process of the race.
      - `determineWinners(cars: List<Car>): List<Car>`: This function determines the winner of the race and returns it as a List 
    - **Reasoning**: The user needs to see the progress of each rounds and they are represented with a '-' character. At the end of the race, the winner is printed out.
+
+### 4. **Error Handling**
+   - **Goal**: Throw error when user enters invalid input
+   - **Function to Implement**:
+     - IllegalArgumentException when at invalid input
+   - **Reasoning**: Input validation ensures the program behaves predictably and prevents unexpected crashes. Throwing IllegalArgumentException helps notify the user early when inputs like empty names, overly long names, or non-numeric rounds are entered.
+
+### 5. **Refactoring**
+   - **Goal**: Refactor used Classes and function within the program
+   - **Reasoning**: Good code often means good readability. In order to increase readability of the code, separating some functions and classes can be a good idea. Trying to reduce too much raw code in main function can also be helpful.
 ---
 
 ## Implementation Progress
@@ -55,4 +65,10 @@ This program simulates a car race where one or more cars win the race based on t
      - The funuction to determine the winner will be implemented
      - All the progress will be printed
    - **Next Step**: Implement error handling through IllegalArgumentException
+
+### Phase 4: **Error Handling**
+   - **Goal**: Implement Error Handling through IllegalArgumentException
+   - **Current Status**:
+     - An IllegalArgumentException error will be thrown at invalid input from the user
+   - **Next Step**: Refactor Car class and some functions if possible
 ---
