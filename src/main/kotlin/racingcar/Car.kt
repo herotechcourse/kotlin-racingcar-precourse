@@ -2,7 +2,7 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class Car(val name: String) {
+class Car(private val name: String) {
 
     var position = 0
 
@@ -19,7 +19,7 @@ class Car(val name: String) {
     fun display() {
         val positionString = buildString {
             if (position>0)
-                for (num in 1 until position) append("-")}
+                for (num in 1..position) append("-")}
         println("$name : $positionString")
     }
 
