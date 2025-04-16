@@ -11,7 +11,7 @@ Users input car names and number of rounds, and each car moves forward based on 
 
 ## Features
 
-- [ ] Prompt user for car names (comma-separated)
+- [x] Prompt user for car names (comma-separated)
 - [ ] Validate that all car names are non-empty and max 5 characters
 - [ ] Prompt user for number of rounds
 - [ ] Validate that round count is a positive number
