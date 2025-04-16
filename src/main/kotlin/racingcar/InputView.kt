@@ -20,11 +20,23 @@ object InputView {
         val names = input.split(",").map { it.trim() }
 
         // Validate that all names are not empty and up to 5 characters
-        require(names.all { it.isNotBlank() && it.length <= 5}) {
+        require(names.all { it.isNotBlank() && it.length <= 5 }) {
             "Each car name must be not empty and up to 5 characters."
         }
 
         return names
+
+    }
+
+    // Read and return the number of rounds from user input
+    fun readRoundCount(): String? {
+
+        // Prompt user to enter the number of rounds
+        println("How many rounds?")
+
+        // Read input and convert to integer if valid
+        return Console.readLine()
+
 
     }
 }

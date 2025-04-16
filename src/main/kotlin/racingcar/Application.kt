@@ -8,4 +8,7 @@ fun main() {
     // Get user input for car names
     val carNames = InputView.readCarNames()
 
+    // Get user input for number of race rounds
+    val roundCount = InputView.readRoundCount()
+
 }
