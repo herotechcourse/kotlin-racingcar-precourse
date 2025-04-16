@@ -10,8 +10,15 @@ fun main() {
         },)
     val carNames = Console.readLine()
     // To do: Call a function that validates the input.
-    // To do: Call the function to populate an array of strings containing the car names.
     println("Enter the number of rounds to race:")
     val numberOfRounds = Console.readLine()
+
+    // To test the carSeparator function
+    //   val separatedCarNames = carSeparator(carNames)
+    //   println(separatedCarNames)
 }
 
+fun carSeparator(carNames: String): List<String> {
+    val listOfCars = carNames.split(",").map { it.trim() }
+    return listOfCars
+}
