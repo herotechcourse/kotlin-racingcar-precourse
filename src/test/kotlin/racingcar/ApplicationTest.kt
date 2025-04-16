@@ -72,8 +72,8 @@ class ApplicationTest : NsTest() {
     fun `multiple winners`() {
         assertRandomNumberInRangeTest(
             {
-                run("car,car,car", "1")
-                assertThat(output()).contains("Winners : car, car")
+                run("aaa,bbb,ccc", "1")
+                assertThat(output()).contains("Winners : aaa, bbb")
             },
             MOVING_FORWARD, MOVING_FORWARD, STOP
         )
