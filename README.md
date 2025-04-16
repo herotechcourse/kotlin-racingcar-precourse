@@ -21,6 +21,9 @@
 
 * [x] If the user inputs invalid data, the program must throw an `IllegalArgumentException`.
     * [x] Input data cannot be empty.
+    * [ ] Only one number of rounds can be entered.
+    * [ ] The round number input should be larger than zero.
+    * [ ] The Round number input is not possible, not numbers.
 * [x] Car names must be entered as a comma-separated list.
 * [ ] When printing the progress of each car, the car's name must be displayed alongside its movement.
 * [ ] After the race is complete, the winners must be displayed.
