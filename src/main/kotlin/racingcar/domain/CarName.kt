@@ -5,5 +5,8 @@ class CarName(val name: String) {
         if (name.isEmpty()) {
             throw IllegalArgumentException("Car names must not be empty.")
         }
+        if (name.length > 5) {
+            throw IllegalArgumentException("Car names must not exceed 5 characters.")
+        }
     }
 }
