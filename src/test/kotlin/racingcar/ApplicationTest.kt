@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 class ApplicationTest : NsTest() {
+
     @Test
     fun `feature test`() {
         assertRandomNumberInRangeTest(
@@ -21,9 +22,31 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `exception test`() {
+    fun `exception test for invalid car name`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `input test for valid car names`() {
+        assertSimpleTest {
+            run("abc,de,fgh")
+            assertThat(output()).contains("Car names: [abc, de, fgh]")
+        }
+    }
+
+    @Test
+    fun `input test for car name longer than 5 characters`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("superman", "1") }
+        }
+    }
+
+    @Test
+    fun `input test for empty car name`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,,java", "1") }
         }
     }
 
