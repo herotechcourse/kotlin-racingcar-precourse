@@ -1,5 +1,7 @@
 package racingcar.domain
 
+import kotlin.math.max
+
 class Cars(val cars: List<Car>) {
     init {
         validateUniqueNames()
@@ -16,5 +18,13 @@ class Cars(val cars: List<Car>) {
         for (car in cars) {
             car.move()
         }
+    }
+
+    fun winners(): List<Car> {
+        var maxPosition = 0
+        for (car in cars) {
+            maxPosition = max(maxPosition, car.position)
+        }
+        return cars.filter { car -> car.position == maxPosition }.toList()
     }
 }

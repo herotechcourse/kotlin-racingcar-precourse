@@ -14,8 +14,8 @@
     * [x] In each round, every car attempts to move once.
     * [ ] The result of each round (car positions) must be recorded.
 * [ ] After all rounds, determine the winner(s).
-    * [ ] The winner is the car(s) that has moved the farthest.
-    * [ ] If there are multiple cars with the same farthest position, all are winners.
+    * [x] The winner is the car(s) that has moved the farthest.
+    * [x] If there are multiple cars with the same farthest position, all are winners.
 
 ### Input/Output Features
 
