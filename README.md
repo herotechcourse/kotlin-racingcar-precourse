@@ -3,7 +3,7 @@
 ## Feature List
 - Car
   - [x] Car has a name that does not exceed 5 characters
-  - [ ] Car can move forward
+  - [x] Car can move forward
   - [ ] Car can stay still
 
 ## Functional Requirements
