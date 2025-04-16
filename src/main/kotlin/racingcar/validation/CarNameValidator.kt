@@ -25,14 +25,10 @@ object CarNameValidator {
         validateLength(carName)
     }
 
-    // Prompt user for input and validate data
-    fun getAndValidateCarNames(): String {
-        println("Enter car name: ")
-        val carName = camp.nextstep.edu.missionutils.Console.readLine() ?: ""
-
-        // Validate car name
-        validate(carName)
-
-        return carName
+    // Validate the list of car names
+    fun validateAll(carNames: List<String>) {
+        carNames.forEach { name ->
+            validate(name)
+        }
     }
 }
