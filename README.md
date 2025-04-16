@@ -6,7 +6,9 @@ Features to implement:
     * Parse user input
     * Implement IllegalArgumentException
   * Create messages to the user
-* Car state calculation per round
+* Race and Car classes implementation
+  * Car state calculation per round
+  * Create output for the user
 * Unit Tests
 
 Example Execution:
