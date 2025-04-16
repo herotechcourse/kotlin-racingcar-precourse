@@ -13,15 +13,7 @@ fun main() {
     val numberOfRounds =  readNumberOfRounds()
 
     moveCars(carList, numberOfRounds)
-    findWinners(carList)
-}
-
-fun findWinners(carList: List<Car>) {
-    val maxPosition = carList.maxOf { it.position }
-    val winners = carList.filter { it.position == maxPosition }
-    val winnersName = winners.joinToString(", ") { it.name }
-    
-    print("Winners : $winnersName")
+    printWinners(carList)
 }
 
 fun moveCars(carList: List<Car>, numberOfRounds: Int) {
@@ -39,6 +31,14 @@ fun moveCars(carList: List<Car>, numberOfRounds: Int) {
 fun printCarPositions(car: Car) {
     val positionBar = "-".repeat(car.position)
     print("${car.name} : $positionBar")
+}
+
+fun printWinners(carList: List<Car>) {
+    val maxPosition = carList.maxOf { it.position }
+    val winners = carList.filter { it.position == maxPosition }
+    val winnersName = winners.joinToString(", ") { it.name }
+    
+    print("Winners : $winnersName")
 }
 
 fun randomCarMovement(): String{
