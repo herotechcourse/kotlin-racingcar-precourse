@@ -4,8 +4,8 @@
 
 - [x] Read names of the cars, separated by commas
     - [x] Throw an `IllegalArgumentException` if the value is null or blank
-- [] Read number of rounds
-    - [] Throw an `IllegalArgumentException` if the value is null or blank
+- [x] Read number of rounds
+    - [x] Throw an `IllegalArgumentException` if the value is null or blank
 
 ## Output
 

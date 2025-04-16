@@ -10,6 +10,12 @@ class InputView {
         return input
     }
 
+    fun readTotalRounds(): String {
+        println(READ_TOTAL_ROUNDS_MESSAGE)
+        val input = readInput()
+        return input
+    }
+
     private fun readInput(): String {
         val input = Console.readLine()
         require(input.trim().isNotBlank()) { INVALID_INPUT_ERROR }
@@ -18,6 +24,7 @@ class InputView {
 
     companion object {
         private const val READ_CAR_NAMES_MESSAGE = "Enter the names of the cars (comma-separated):"
+        private const val READ_TOTAL_ROUNDS_MESSAGE = "How many rounds will be played?"
         private const val INVALID_INPUT_ERROR = "Input value does not exist."
     }
 }
