@@ -10,8 +10,12 @@
 * [x] A car can move only when the power condition is satisfied.
     * [x] The power is a random number between 0 and 9.
     * [x] The car moves forward if the power is 4 or greater.
-* [ ] Each car must attempt to move in every round.
-* [ ] The result of each round must be recorded.
+* [ ] The game must proceed for a given number of rounds.
+    * [ ] In each round, every car attempts to move once.
+    * [ ] The result of each round (car positions) must be recorded.
+* [ ] After all rounds, determine the winner(s).
+    * [ ] The winner is the car(s) that has moved the farthest.
+    * [ ] If there are multiple cars with the same farthest position, all are winners.
 
 ### Input/Output Features
 
