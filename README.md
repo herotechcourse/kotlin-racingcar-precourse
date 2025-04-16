@@ -8,8 +8,8 @@
     - Each name must NOT exceed **5** characters
     - If the input is invalid, throw an IllegalArgumentException and terminate
 - [x] Run the race for the number of rounds
-- [ ] Move each car per round based on a random value
+- [x] Move each car per round based on a random value
     - A car moves forward if a randomly generated number between 0 and 9 is **4 or greater**
-- [ ] Print the race progress each round (car name & moves shown as '-')
+- [x] Print the race progress each round (car name & moves shown as '-')
 - [ ] Display the winner(s) after the race ends
     - For the multiple winners, separate their names with commas
