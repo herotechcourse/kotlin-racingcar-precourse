@@ -21,6 +21,11 @@ object InputValidator {
         checkDuplicateCarNames(carNames)
     }
 
+    fun validateRoundCount(roundCount: String) {
+        checkEmptyInput(roundCount)
+        checkValidNumber(roundCount)
+    }
+
     private fun checkMaxCarLimit(cars: List<String>) {
         if (cars.size > MAX_CAR_COUNT) {
             throw IllegalArgumentException("[ERROR] A maximum of $MAX_CAR_COUNT cars can be entered.\n")
@@ -42,6 +47,13 @@ object InputValidator {
     private fun checkDuplicateCarNames(carNames: List<String>) {
         if (carNames.size != carNames.toSet().size) {
             throw IllegalArgumentException("[ERROR] Duplicate car names are not allowed\n")
+        }
+    }
+
+    private fun checkValidNumber(input: String) {
+        val number = input.toIntOrNull()
+        if (number == null || number <= 0) {
+            throw IllegalArgumentException("[ERROR] Number of rounds must be a positive integer\n")
         }
     }
 }

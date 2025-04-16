@@ -34,7 +34,7 @@
 - [x] cheek car name length is not within 1–5 characters
 - [x] Check car name contains only letters and digits
 - [x] check duplicate car names
-- [ ] check number of rounds is not a valid positive integer
+- [x] check number of rounds is not a valid positive integer
 
 ### ❌ Exceptions
 
