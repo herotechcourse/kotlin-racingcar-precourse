@@ -2,10 +2,12 @@ package racingcar.domain.car
 
 class Car(
     private val name: Name,
-    private val position: Position
+    private var position: Int
 ) {
+    constructor(name: Name) : this(name, 0)
+
     fun move() {
-        position.increase()
+        position++
     }
 
     fun getName(): String {
@@ -13,7 +15,7 @@ class Car(
     }
 
     fun getPosition(): Int {
-        return position.getPosition()
+        return position
     }
 
     override fun equals(other: Any?): Boolean {
