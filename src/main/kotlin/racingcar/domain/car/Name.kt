@@ -11,6 +11,19 @@ class Name(private val name: String) {
         return name
     }
 
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Name) return false
+
+        if (name != other.name) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return name.hashCode()
+    }
+
     companion object {
         private const val MIN_LENGTH: Int = 1
         private const val MAX_LENGTH: Int = 5

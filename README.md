@@ -16,9 +16,9 @@
 
 ## Domain
 
-- [] Validate the total number of cars must be between 2 and 20
+- [x] Validate the total number of cars must be between 2 and 20
     - Throw an `IllegalArgumentException` if the value is out of range
-- [] Validate car names are not duplicated
+- [x] Validate car names are not duplicated
     - Throw an `IllegalArgumentException` if any name is duplicated
 
 - [x] Validate car name must be between 1 and 5 characters
