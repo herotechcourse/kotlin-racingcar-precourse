@@ -3,26 +3,26 @@ package racingcar
 import camp.nextstep.edu.missionutils.Randoms
 
 object GameLogic {
-    fun logicRace(cars: List<Car>, rounds: Int): List<RaceResult> {
-        val results =   mutableListOf<RaceResult>()
+    fun logicRace(cars: List<Car>, rounds: Int): List<List<RaceResult>> {
+        val results =   mutableListOf<List<RaceResult>>()
 
         repeat(rounds) {
-            playOneRound(cars, results)
+            results.add(playOneRound(cars))
         }
         return results
     }
 
-    private fun playOneRound(cars: List<Car>, allResults: MutableList<RaceResult>) {
-        val roundResult = mutableListOf<RaceResult>()
-
+    private fun playOneRound(cars: List<Car>): List<RaceResult> {
         for (car in cars) {
             moveCar(car)
         }
+
+        val roundResults = mutableListOf<RaceResult>()
         for (car in cars) {
-            val currentResult = RaceResult(car.name, car.position)
-            roundResult.add(currentResult)
+            roundResults.add(RaceResult(car.name, car.position))
         }
-        allResults.addAll(roundResult)
+
+        return roundResults
     }
 
     fun moveCar(car: Car): Unit {
@@ -34,9 +34,14 @@ object GameLogic {
     }
 
     fun searchWinners(cars: List<Car>): List<String> {
-        val maxPosition = cars.maxOf { car -> car.position }
-        val winner = mutableListOf<String>()
+        var maxPosition = 0
+        for (car in cars) {
+            if (car.position > maxPosition) {
+                maxPosition = car.position
+            }
+        }
 
+        val winner = mutableListOf<String>()
         for (car in cars) {
             if (car.position == maxPosition) {
                 winner.add(car.name)
