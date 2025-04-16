@@ -14,4 +14,8 @@ class Car(
             return name.length <= 5
         }
     }
+    
+    override fun toString(): String {
+        return "Car(name='$name', position=$position)"
+    }
 }

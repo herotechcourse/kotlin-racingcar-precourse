@@ -5,6 +5,12 @@ class Race(
     val cars: List<Car>,
 ) {
     fun run() {
-       println("race is running")
+       for(r in 1..rounds)
+       {
+            for(car in cars)
+            {
+                println("round: $r -> $car")
+            }
+        }
     }
 }
