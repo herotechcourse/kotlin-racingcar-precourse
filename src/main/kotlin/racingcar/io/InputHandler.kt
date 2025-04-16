@@ -1,8 +1,10 @@
 package racingcar.io
 
-class InputHandler {
-    fun readInput(prompt: String): String? {
+import camp.nextstep.edu.missionutils.Console
+
+object InputHandler {
+    fun readInput(prompt: String): String {
         println(prompt)
-        return readlnOrNull()
+        return Console.readLine()
     }
 }
