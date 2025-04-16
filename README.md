@@ -9,7 +9,7 @@ A Simple Car Racing Game Application built with Kotlin.
 - ✅ User Validation of car names (maximum of 5 characters)
 - ✅ Input Handling for car names (comma-separated)
 - ✅ User Validation for number of rounds (must be positive)
-- ✅ Car object with name and position of the race
+- ✅ Car and Race models for race simulation
 - ✅ Random movement logic per each round (0–9)
 - ✅ Game engine to simulate rounds and update positions
 - ✅ Output race progress per round
@@ -27,7 +27,7 @@ A Simple Car Racing Game Application built with Kotlin.
 | User Validation of car names                                     | ✅ Done    | `feature/car-name-validation`  |
 | Input Handling for car names                                     | ✅ Done    | `feature/car-name-input`       |
 | User Validation for number of rounds                             | ✅ Done    | `feature/rounds-validation`    |
-| Car object with name and position of the race                    | ✅ Done    | `feature/car-object`           |
+| Car and Race models for race simulation                          | ✅ Done    | `feature/car-object`           |
 | Random movement logic per each round                             | ⏳ Planned | `feature/random-movement`      |
 | Game engine to simulate rounds and update positions              | ⏳ Planned | `feature/game-engine`          |
 | Output race progress per round                                   | ⏳ Planned | `feature/output-round-results` |
