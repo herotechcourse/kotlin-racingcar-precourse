@@ -2,17 +2,20 @@ package racingcar
 
 object Input {
     fun parseCarNames(names: String): List<String> {
-        val carNames = names.split(",").map { name -> name.trim() }
-        if (carNames.any { name -> name.length > 5 || name.isEmpty() || !name.all { char -> char.isLetter() } }) {
+        if (names.isBlank()) {
             throw IllegalArgumentException()
         }
-        if (carNames.size <= 1) {
+        val carNames = names.split(",").map { name -> name.trim() }
+        if (carNames.any { name -> name.length > 5 || name.isEmpty() || !name.all { char -> char.isLetter() } }) {
             throw IllegalArgumentException()
         }
         return carNames
     }
 
     fun parseNumberOfRounds(number: String): Int {
+        if (number.isBlank()) {
+            throw IllegalArgumentException()
+        }
         val parseNumber = number.toIntOrNull()
         if (parseNumber == null) {
             throw IllegalArgumentException()

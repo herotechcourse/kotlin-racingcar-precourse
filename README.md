@@ -2,7 +2,8 @@
 ## Application.kt
 #### Entry point
 - `main()`
-  Entry point of the program.
+  Entry point of the program
+- `run()`
     - Prompts the user for car names and round count.
     - Parses and validates inputs.
     - Runs the race and displays results.
