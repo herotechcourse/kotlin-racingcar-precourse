@@ -31,7 +31,7 @@ A Simple Car Racing Game Application built with Kotlin.
 | Random movement logic per each round                             | ✅ Done    | `feature/random-movement`      |
 | Game engine to simulate rounds and update positions              | ✅ Done    | `feature/game-engine`          |
 | Store Output race progress per round                             | ✅ Done    | `feature/output-round-results` |
-| Determine winners based on distance covered                      | ⏳ Planned | `feature/determine-winners`    |
+| Determine winners based on distance covered                      | ✅ Done    | `feature/determine-winners`    |
 | Display winners                                                  | ⏳ Planned | `feature/display-winners`      |
 | Error handling with `IllegalArgumentException` for invalid input | 🚧 WIP    | `feature/error-handling`       |
 | Unit tests using **JUnit 5** + **AssertJ**                       | 🚧 WIP    | `test/unit-tests`              |
