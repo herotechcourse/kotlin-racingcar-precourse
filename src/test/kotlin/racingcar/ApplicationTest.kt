@@ -103,7 +103,7 @@ class ApplicationTest : NsTest() {
     @Test
     fun `throws exception for empty string in rounds input`() {
         assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("", "5") }
+            assertThrows<IllegalArgumentException> { runException("", "10") }
         }
     }
 
