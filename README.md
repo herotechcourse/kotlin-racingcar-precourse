@@ -19,7 +19,7 @@
 pobi,woni,jun
 ```
 
-- [ ] Number of rounds:
+- [x] Number of rounds:
 ```kotlin
 5
 ```
