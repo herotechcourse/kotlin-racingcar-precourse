@@ -5,13 +5,14 @@
 ### 1. Input parsing and check valid
 - Input car names (use Console API)
   - [ ] split car names by **comma**  
-  - [ ] check length **over 5 characters** or **blank**
+  - [ ] check length **over 5 characters** or **blank** 
     - if over 5 characters ->  **throw IllegalArguemtException**
     - if blank ->  **throw IllegalArguemtException**
 - Input number of rounds (use Console API)
-  - [ ] check input type is integer and too large number
+  - [ ] check input **type is integer**, **too large number** and **round <= 0**
     - if is not integer -> **throw IllegalArguemtException**
     - if over 10000 -> **throw IllegalArguemtException**
+    - if round <= 0 -> **throw IllegalArguemtException**
 
 ### 2. Game start
 - Use Randoms API to generated number **N** between 0 and 9 of each car
