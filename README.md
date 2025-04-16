@@ -30,9 +30,9 @@
 **validator**
 
 - [x] check empty input
-- [ ] check too many car names entered(100 or more)
+- [x] check too many car names entered(100 or more)
 - [ ] cheek car name length is not within 1–5 characters
-- [ ] check car name contains characters other than English letters or digits
+- [ ] Check car name contains only letters and digits
 - [ ] check duplicate car names
 - [ ] check number of rounds is not a valid positive integer
 
@@ -43,7 +43,7 @@ If any of the following invalid inputs are entered, the program must throw an `I
 - Car names
     - Empty input.
     - Car name is not within 1–5 characters.
-    - Car name contains characters other than English letters or digits.
+    - Car name contains characters other than letters or digits.
     - Duplicate car names are not allowed.
     - Too many car names entered(100 or more).
 - Number of rounds
