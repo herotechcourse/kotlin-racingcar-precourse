@@ -9,6 +9,11 @@ object Output {
         println()
     }
 
+    fun printWinner(cars: List<Car>) {
+        val winners = cars.joinToString(",") { car -> car.name }
+        print("Winners : $winners")
+    }
+
     private fun printPosition(car: Car) {
         print("${car.name}: ")
         repeat(car.position) {
