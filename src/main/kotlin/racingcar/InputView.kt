@@ -18,4 +18,13 @@ object InputView {
         println("Enter the names of the cars (comma-separated):")
         return readln()
     }
+
+    fun readAndParseRoundCountInput(): Int {
+
+        println("Number of rounds:")
+        val roundCount = readln().toIntOrNull() ?: throw IllegalArgumentException("Please enter a valid positive number")
+        if (roundCount<=0) throw IllegalArgumentException("Number of rounds must be positive")
+        return roundCount
+
+    }
 }
