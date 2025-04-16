@@ -13,6 +13,9 @@ fun main() {
         cars.forEach { println("${it.name} : ${"-".repeat(it.position)}") }
         println()
     }
+
+    val winners = findWinners(cars)
+    println("Winners : ${winners.joinToString(", ")}")
 }
 
 fun readCarNames(): List<String> {
@@ -37,4 +40,10 @@ fun readRaceCount(): Int {
     }
 
     return number
+}
+
+fun findWinners(cars: List<Car>): List<String> {
+    val maxPosition = cars.maxOf { it.position }
+    return cars.filter { it.position == maxPosition }
+        .map { it.name }
 }
