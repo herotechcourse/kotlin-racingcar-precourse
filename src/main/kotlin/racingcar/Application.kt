@@ -1,6 +1,7 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
     println("Enter the names of the cars (comma-separated):")
@@ -19,7 +20,20 @@ fun main() {
 }
 
 fun runRace(carNames: List<String>, raceRounds: Int) {
+    val distanceScores: MutableMap<String, Int> = carNames
+        .associateWith { 0 }
+        .toMutableMap();
     announceRace(carNames, raceRounds);
+    repeat(raceRounds) {
+        continueAnotherRound(distanceScores);
+    }
+}
+
+fun continueAnotherRound(distanceScores: MutableMap<String, Int>) {
+    for ((name, score) in distanceScores) {
+        val movementScore = Randoms.pickNumberInRange(0, 9);
+        if (movementScore >= 4) distanceScores[name] = score + 1;
+    }
 }
 
 fun announceRace(carNames: List<String>, raceRounds: Int) {
