@@ -18,10 +18,23 @@ class Cars private constructor(
         return cars.filter { it.position() == maxPosition }
     }
 
+    fun all(): List<Car> = cars.toList()
+
+    fun snapshot(): Cars {
+        val copied = cars.map { copyCar(it) }
+        return Cars(copied)
+    }
+
     companion object {
         fun of(carNames: List<CarName>): Cars {
             val cars = carNames.map { Car.from(it) }
             return Cars(cars)
+        }
+    }
+
+    private fun copyCar(original: Car): Car {
+        return Car.from(CarName.from(original.name())).apply {
+            repeat(original.position()) { forward() }
         }
     }
 }
