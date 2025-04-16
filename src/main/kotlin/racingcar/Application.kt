@@ -19,21 +19,16 @@ fun main() {
 }
 
 fun runRace(carNames: List<String>, raceRounds: Int) {
-    val announcer1 = """
-        PREPARING ANOTHER EPIC CAR RACE
-        THE RACE WILL TAKE
-         => $raceRounds ROUND(S)      
-        TODAY'S CARS ARE
-    """.trimIndent()
-    val announcer2 = """
-        GET READY!!
-        AND..
-        GOOOO##        
-    """.trimIndent()
+    announceRace(carNames, raceRounds);
+}
 
-    println(announcer1);
-    for (car in carNames) println(" => $car");
-    println(announcer2);
+fun announceRace(carNames: List<String>, raceRounds: Int) {
+    println("PREPARING ANOTHER EPIC CAR RACE");
+    println("THE RACE WILL TAKE");
+    println(" => $raceRounds ROUND(S)");
+    println("TODAY'S CARS ARE");
+    println(carNames.joinToString(separator = "\n") { " => $it" });
+    println("GET READY!!\nAND..\nGOOO##");
 }
 
 fun validateCarNames(carNames: List<String>) {
