@@ -10,65 +10,43 @@ import org.junit.jupiter.api.assertThrows
 class ApplicationTest : NsTest() {
 
     @Test
-    fun `feature test`() {
+    fun `feature test - race progress and winner`() {
         assertRandomNumberInRangeTest(
             {
-                run("pobi,woni", "1")
-                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+                run("pobi,woni,jun", "3")
+                assertThat(output()).contains(
+                    "pobi : -",
+                    "woni : ",
+                    "jun : -",
+                    "Winners : pobi, jun"
+                )
             },
-            MOVING_FORWARD,
-            STOP,
+            MOVING_FORWARD, STOP, MOVING_FORWARD,
+            MOVING_FORWARD, STOP, MOVING_FORWARD,
+            STOP, STOP, STOP
         )
     }
 
     @Test
-    fun `exception test for invalid car name`() {
-        assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
-        }
+    fun `print single winner when only one car reaches max position`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni,jun", "1")
+                assertThat(output()).contains("Winners : pobi")
+            },
+            MOVING_FORWARD, STOP, STOP
+        )
     }
 
     @Test
-    fun `input test for valid car names`() {
-        assertSimpleTest {
-            run("abc,de,fgh", "5")
-            assertThat(output()).contains("Car names: [abc, de, fgh]", "Race count: 5")
-        }
-    }
-
-    @Test
-    fun `input test for car name longer than 5 characters`() {
-        assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("superman", "1") }
-        }
-    }
-
-    @Test
-    fun `input test for empty car name`() {
-        assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,,java", "1") }
-        }
-    }
-
-    @Test
-    fun `input test for non-numeric race count`() {
-        assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,woni", "three") }
-        }
-    }
-
-    @Test
-    fun `input test for zero race count`() {
-        assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,woni", "0") }
-        }
-    }
-
-    @Test
-    fun `input test for negative race count`() {
-        assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,woni", "-5") }
-        }
+    fun `print all as winners when all cars tie`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni,jun", "1")
+                assertThat(output()).contains("Winners : pobi, woni, jun")
+            },
+            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        )
     }
 
     @Test
@@ -96,6 +74,68 @@ class ApplicationTest : NsTest() {
             },
             MOVING_FORWARD, STOP
         )
+    }
+
+    @Test
+    fun `input test for valid car names`() {
+        assertSimpleTest {
+            run("abc,de,fgh", "2")
+            assertThat(output()).contains("Race Results")
+        }
+    }
+
+    @Test
+    fun `exception test for car name longer than 5 characters`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("superman", "1")
+            }
+        }
+    }
+
+    @Test
+    fun `exception test for empty car name`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,,java", "1")
+            }
+        }
+    }
+
+    @Test
+    fun `exception test for invalid car name`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,javaji", "1")
+            }
+        }
+    }
+
+    @Test
+    fun `exception test for non-numeric race count`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,woni", "three")
+            }
+        }
+    }
+
+    @Test
+    fun `exception test for zero race count`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,woni", "0")
+            }
+        }
+    }
+
+    @Test
+    fun `exception test for negative race count`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,woni", "-3")
+            }
+        }
     }
 
     override fun runMain() {

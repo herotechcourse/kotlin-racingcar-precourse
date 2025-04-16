@@ -14,8 +14,8 @@ fun main() {
         println()
     }
 
-    val winners = findWinners(cars)
-    println("Winners : ${winners.joinToString(", ")}")
+    val winners = cars.filter { it.position == cars.maxOf { c -> c.position } }
+    println("Winners : ${winners.joinToString(", ") { it.name }}")
 }
 
 fun readCarNames(): List<String> {
