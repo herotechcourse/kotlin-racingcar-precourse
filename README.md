@@ -3,8 +3,8 @@
 ## Features to Implement
 
 ### Input Handling
-- [ ] Read and parse comma-separated car names from user input
-- [ ] Validate that car names are 5 or under 5 characters and not blank
+- [x] Read and parse comma-separated car names from user input
+- [x] Validate that car names are 5 or under 5 characters and not blank
 - [ ] Read and validate number of rounds whether it's positive integer
 
 ### Car and Racing Logic
