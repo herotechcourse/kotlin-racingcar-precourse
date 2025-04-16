@@ -6,7 +6,6 @@ fun main() {
 }
 
 fun getCarNames(): List<String> {
-    var isFinished = false;
 
     do {
         println("Enter car names, must be separated by commas!:")
@@ -16,8 +15,8 @@ fun getCarNames(): List<String> {
         if(carNames.all { it.isNotEmpty() && it.length <= 5 }) {
             return carNames
         } else {
-            throw IllegalArgumentException()
+            throw IllegalArgumentException("Name must not be empty and only 5 characters. Try again!")
         }
 
-    } while (!isFinished)
+    } while (true)
 }
