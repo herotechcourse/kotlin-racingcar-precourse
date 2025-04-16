@@ -11,5 +11,13 @@ fun main() {
             throw IllegalArgumentException()
         }
     }
-    println("$cars")
+
+    println("How many rounds will be played?")
+    val roundStr=readLine()
+    val rounds=roundStr?.toIntOrNull()
+    if(rounds==null)
+    {
+        throw IllegalArgumentException()
+    }
+    
 }
