@@ -2,10 +2,11 @@
 
 - [ ] Implement a simple car racing game
 
-- [ ] The user should be able to specify car names and the number of rounds.
+- [x] The user should be able to specify car names and the number of rounds.
   - [x] Car names should be comma-separated when entered by the user.
   - [x] Each car must have a name
   - [x] names cannot exceed 5 characters.
+  - [x] Round count must be a numeric input and be parsed correctly.
 - [ ] Each of the n cars can either move forward or stay still during a given number of rounds.
   - [x] A car can move forward.
   - [x] Cars can move forward based on a given condition
