@@ -9,6 +9,14 @@ class GameLogic (
             carsList.forEach{it.move()}
         }
         ResultView.displayEndPositions(carsList)
+        val listWinners = getWinners()
+        ResultView.printFinalWinners(listWinners)
     }
 
+    private fun getWinners(): List<Car> {
+        val winnersPosition = carsList.maxOf { it.position }
+        val listWinners = carsList.filter { it.position == winnersPosition }
+        return listWinners
+
+    }
 }
