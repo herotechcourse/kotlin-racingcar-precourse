@@ -13,7 +13,7 @@ class CarTest {
     fun `car moves if power is 4 or greater`(power: Int) {
         val car = Car(carName, FixedPowerGenerator(power))
         car.move()
-        assertEquals(1, car.distance)
+        assertEquals(1, car.position)
     }
 
     @ParameterizedTest
@@ -21,6 +21,6 @@ class CarTest {
     fun `car cannot moves if power is under 4`(power: Int) {
         val car = Car(carName, FixedPowerGenerator(power))
         car.move()
-        assertEquals(0, car.distance)
+        assertEquals(0, car.position)
     }
 }

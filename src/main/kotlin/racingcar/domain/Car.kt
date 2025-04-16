@@ -1,11 +1,11 @@
 package racingcar.domain
 
 class Car(val name: CarName, private val powerGenerator: PowerGenerator) {
-    var distance = 0
+    var position = 0
 
     fun move() {
         if (canMove()) {
-            distance++
+            position++
         }
     }
 
