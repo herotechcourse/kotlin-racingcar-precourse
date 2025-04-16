@@ -1,5 +1,8 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
-}
+    println("Enter the names of the cars (comma-separated):")
+    val carsStr = readLine() ?: ""
+    val carList = carsStr.split(',').map { it.trim() }
+    val cars = carList.map { Car(it) }
+   }
