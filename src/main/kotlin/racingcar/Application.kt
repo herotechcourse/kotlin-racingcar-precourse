@@ -33,10 +33,10 @@ fun continueAnotherRound(distanceScores: MutableMap<String, Int>, movementThresh
         val movementScore = Randoms.pickNumberInRange(0, 9);
         if (movementScore >= movementThreshold) distanceScores[name] = score + 1;
     }
-    printCurrentRace(distanceScores);
+    printCurrentResults(distanceScores);
 }
 
-fun printCurrentRace(distanceScores: Map<String, Int>) {
+fun printCurrentResults(distanceScores: Map<String, Int>) {
     val maxNameLength = maxOf("Race".length, distanceScores.keys.maxOf { it.length })
     val title = "Race".padEnd(maxNameLength)
 
