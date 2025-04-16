@@ -38,9 +38,9 @@ Handles input parsing and validation.
 Handles the core race logic.
 
 **Methods:**
-- `logicRace(cars: List<Car>, rounds: Int): List<RaceResult>`
+- `logicRace(cars: List<Car>, rounds: Int): List<List<RaceResult>>`
   Executes the race logic for the specified number of rounds.
-- `playOneRound(cars: List<Car>, allResults: MutableList<RaceResult>)`
+- `fun playOneRound(cars: List<Car>): List<RaceResult>`
    Handles one round of the race. Moves each car if the condition is met and records the round results. Used internally by `logicRace`.
 - `moveCar(car: Car): Unit`
   Randomly decides if a car should move forward (random number ≥ 4).
@@ -51,7 +51,7 @@ Handles the core race logic.
 Handles output formatting and printing.
 
 **Methods:**
-- `printResultsRound(results: List<RaceResult>)`
+- `printResultsRound(results: List<List<RaceResult>>)`
   Prints the progress of each car after each round.
 - `printWinners(winners: List<String>)`
   Prints the final list of winners in the required format.
