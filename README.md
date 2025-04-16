@@ -3,12 +3,12 @@
 Hero Tech Course 2025 Precourse Week 1 Mission
 
 ## Features
-* [ ] Race configurations
+1. [ ] Race configurations
   * Properties
-    1. Car names
+    - Car names
       * At least one name must be given.
       * 0 < length of name <= 5
-    2. Number of rounds
+    - Number of rounds
       * 0 < number of rounds <= 2,147,483,647
   * Design decisions
     - Use factory function to instantiate (private primary constructor)
