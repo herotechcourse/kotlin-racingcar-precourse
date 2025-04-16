@@ -8,50 +8,43 @@ class CarsTest {
 
     @Test
     fun `Car names must be unique`() {
-        val carName1 = CarName("pobi")
-        val car1 = Car(carName1, RandomPowerGenerator())
-        val carName2 = CarName("pobi")
-        val car2 = Car(carName2, RandomPowerGenerator())
+        val carName = CarName("pobi")
+        val pobiFirst = Car(carName, RandomPowerGenerator())
+        val pobiSecond = Car(carName, RandomPowerGenerator())
 
         val exception = assertThrows<IllegalArgumentException> {
-            Cars(listOf(car1, car2))
+            Cars(listOf(pobiFirst, pobiSecond))
         }
         assertEquals("Car names must be unique.", exception.message)
     }
 
     @Test
     fun `every car attempts to move`() {
-        val carName1 = CarName("pobi")
-        val carPobi = Car(carName1, FixedPowerGenerator(4))
-        val carName2 = CarName("tebah")
-        val carTebah = Car(carName2, FixedPowerGenerator(3))
-        val carName3 = CarName("anna")
-        val carAnna = Car(carName3, FixedPowerGenerator(5))
-        val cars = Cars(listOf(carPobi, carTebah, carAnna))
+        val pobi = Car(CarName("pobi"), FixedPowerGenerator(4))
+        val tebah = Car(CarName("tebah"), FixedPowerGenerator(3))
+        val anna = Car(CarName("anna"), FixedPowerGenerator(5))
+        val cars = Cars(listOf(pobi, tebah, anna))
 
         cars.move()
 
-        assertEquals(1, carPobi.position)
-        assertEquals(0, carTebah.position)
-        assertEquals(1, carAnna.position)
+        assertEquals(1, pobi.position)
+        assertEquals(0, tebah.position)
+        assertEquals(1, anna.position)
     }
 
     @Test
     fun `returns all cars that moved the farthest as winners`() {
-        val carName1 = CarName("pobi")
-        val carPobi = Car(carName1, FixedPowerGenerator(4))
-        val carName2 = CarName("tebah")
-        val carTebah = Car(carName2, FixedPowerGenerator(3))
-        val carName3 = CarName("anna")
-        val carAnna = Car(carName3, FixedPowerGenerator(5))
-        val cars = Cars(listOf(carPobi, carTebah, carAnna))
+        val pobi = Car(CarName("pobi"), FixedPowerGenerator(4))
+        val tebah = Car(CarName("tebah"), FixedPowerGenerator(3))
+        val anna = Car(CarName("anna"), FixedPowerGenerator(5))
+        val cars = Cars(listOf(pobi, tebah, anna))
 
         cars.move()
 
         val winners = cars.winners()
         assertEquals(2, winners.size)
-        assertTrue(carPobi in winners)
-        assertTrue(carAnna in winners)
-        assertFalse(carTebah in winners)
+        assertTrue(pobi in winners)
+        assertTrue(anna in winners)
+        assertFalse(tebah in winners)
     }
 }
