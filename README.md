@@ -5,7 +5,7 @@
 ### Input Handling
 - [x] Read and parse comma-separated car names from user input
 - [x] Validate that car names are 5 or under 5 characters and not blank
-- [ ] Read and validate number of rounds whether it's positive integer
+- [x] Read and validate number of rounds whether it's positive integer
 
 ### Car and Racing Logic
 - [ ] Create a car class that has name and position
