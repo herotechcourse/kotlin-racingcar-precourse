@@ -3,7 +3,7 @@
 - [ ] Implement a simple car racing game
 
 - [ ] The user should be able to specify car names and the number of rounds.
-  - [ ] Car names should be comma-separated when entered by the user.
+  - [x] Car names should be comma-separated when entered by the user.
   - [ ] Each car must have a name
   - [x] names cannot exceed 5 characters.
 - [ ] Each of the n cars can either move forward or stay still during a given number of rounds.
