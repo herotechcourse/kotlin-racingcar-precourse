@@ -17,42 +17,48 @@
 ### 🧩 Game flow manager Module
 | Feature | Description | Test code | Refactored | Done |
 |:---|:---|:---:|:---:|:---:|
-| Start game | - | - | - | - |
-| Initialize game | ex) make cars by the input | - | - | - |
-| Run game loop | as many as the Num of rounds | - | - | - |
-| Track game progress | Moniter each rounds, check the winner | - | - | - |
-| End game | - | - | - | - |
+| game-start | Start game execution from main() | - | - | - |
+| game-init | Make cars based on user input | - | - | - |
+| game-loop | Repeat game as many as rounds | - | - | - |
+| game-track-progress | Moniter each round's result and check the winner(s) | - | - | - |
+| game-end | Terminate the game | - | - | - |
 
 ### 🧩 Input Module
 | Feature | Description | Test code | Refactored | Done |
 |:---|:---|:---:|:---:|:---:|
-| Request inputs | Display a message prompting the user for inputs | - | - | - |
-| Read input(1) | Read car names | - | - | - |
-| Read input(2) | Read the number of rounds | - | - | - |
+| input-request | Display a message prompting the user for inputs | - | - | - |
+| input-read-car-names | Read input(1): car names from user | - | - | - |
+| input-read-rounds | Read input(2): the number of rounds from user | - | - | - |
 
 ### 🧩 Validation Module
 | Feature | Description | Test code | Refactored | Done |
 |:---|:---|:---:|:---:|:---:|
-| Validate input(1) | Validate car names | - | - | - |
-| Validate input(2) | Validate the number of rounds | - | - | - |
+| validate-car-names | Validate car names for length, emptiness, and format | - | - | - |
+| validate-rounds | Validate number of rounds for positivity and format | - | - | - |
 
 ### 🧩 Race execution Module
 | Feature | Description | Test code | Refactored | Done |
 |:---|:---|:---:|:---:|:---:|
-| Start racing | Execute the race logic | - | - | - |
-| Generate random number | Generate random number | - | - | - |
+| race-start | Execute race based on number of rounds | - | - | - |
+| race-generate-random-number | Random number between 0 - 9 | - | - | - |
+| race-is-move-condition-met | Return true if the random number meets or exceeds the moveable condition | - | - | - |
+| race-move-cars | Move cars forward only if they pass the random check condition | - | - | - |
+| race-update-track | Update track state after each round | - | - | - |
 
 ### 🧩 Error handling Module
 | Feature | Description | Test code | Refactored | Done |
 |:---|:---|:---:|:---:|:---:|
-| Error for input | - | - | - | - |
-| Error for output | - | - | - | - |
+| error-input | - | - | - | - |
+| error-output | - | - | - | - |
+
+    ⚠️ Internal logic only, no output to user.
 
 ### 🧩 Output Module
 | Feature | Description | Test code | Refactored | Done |
 |:---|:---|:---:|:---:|:---:|
-| Print round result | - | - | - | - |
-| Print final winner | - | - | - | - |
+| output-round-result | - | - | - | - |
+| output-final-winner | - | - | - | - |
+| output-error-message | - | - | - | - |
 
 <br>
 Option for status columns (Test, Refactored, Done)<br>
