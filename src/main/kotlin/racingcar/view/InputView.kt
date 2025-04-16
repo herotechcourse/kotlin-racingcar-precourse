@@ -6,4 +6,8 @@ class InputView {
     fun readCarNames(): String {
         return Console.readLine()
     }
+
+    fun readNumberOfPlayRound(): String {
+        return Console.readLine()
+    }
 }
