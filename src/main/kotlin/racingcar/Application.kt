@@ -3,17 +3,7 @@ package racingcar
 import camp.nextstep.edu.missionutils.Randoms
 import camp.nextstep.edu.missionutils.Console
 
-class Car(val name: String, var progress: Int = 0) {
-    fun move() {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
-            progress++
-        }
-    }
-
-    fun getProgress(): String {
-        return "-".repeat(progress)
-    }
-}
+import racingcar.model.Car
 
 fun simulateRace(Cars: List<Car>, rounds: Int) {
     for (i in 0 until rounds) {
