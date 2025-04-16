@@ -40,10 +40,10 @@
    - mutableMapOf<String, Int> score에 저장하기 - 스코어 저장용
 2. 사용자로부터 라운드 수(round) 입력
 3. round만큼 반복문
-   3-1. 차 수만큼 반복문
-      3-1-1. 차마다 `Random.pickNumberInRange(0, 9)`호출
-      3-1-2. 4이상일 경우 해당 차에 점수+1
-      3-1-3. 마지막 round라면 max값 갱신
+   3-1. 차 수만큼 반복문<br>
+      3-1-1. 차마다 `Random.pickNumberInRange(0, 9)`호출<br>
+      3-1-2. 4이상일 경우 해당 차에 점수+1<br>
+      3-1-3. 마지막 round라면 max값 갱신<br>
       3-1-4. `차이름 : -`형식으로 출력
 4. cars만큼 반복문
    4-1. max값과 같은 차 이름  Queue<String> winners에 저장
