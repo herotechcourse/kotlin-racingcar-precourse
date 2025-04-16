@@ -9,4 +9,9 @@ class InputView {
         val input = Console.readLine()
         return parser.parseCarNames(input)
     }
+
+    fun readNumberOfRounds(): Int {
+        val input = Console.readLine()
+        return parser.parseNumberOfRounds(input)
+    }
 }
