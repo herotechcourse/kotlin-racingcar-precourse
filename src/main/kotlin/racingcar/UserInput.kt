@@ -1,9 +1,11 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Console
+
 object UserInput {
     fun getCarNames(): Set<String> {
         println("Enter the names of the cars (comma-separated):")
-        val carNames = readlnOrNull()?.split(",")?.map { it.trim() }
+        val carNames = Console.readLine()?.split(",")?.map { it.trim() }
             ?: throw IllegalArgumentException("You need to provide car names")
 
         if (carNames.any { it.isEmpty() }) throw IllegalArgumentException("Each car name must not be empty")
@@ -15,7 +17,8 @@ object UserInput {
 
     fun getNumberOfRounds(): Int {
         println("How many rounds will be played?")
-        val numberOfRounds = readlnOrNull()?.toIntOrNull() ?: throw IllegalArgumentException("Invalid rounds number")
+        val numberOfRounds =
+            Console.readLine()?.toIntOrNull() ?: throw IllegalArgumentException("Invalid rounds number")
 
         return numberOfRounds
     }
