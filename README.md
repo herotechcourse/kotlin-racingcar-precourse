@@ -9,8 +9,8 @@
     - [x] Must be a positive integer
 - [x] Move cars forward randomly each round
     - [x] Move if random number (0~9) is 4 or more
-- [ ] Print each car’s progress each round
-    - [ ] Use `-` to indicate progress
+- [x] Print each car’s progress each round
+    - [x] Use `-` to indicate progress
 - [ ] Print winners at the end
     - [ ] Show all cars with the maximum distance
     - [ ] Join multiple names with commas

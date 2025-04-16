@@ -87,6 +87,17 @@ class ApplicationTest : NsTest() {
         assertThat(car.position).isEqualTo(0)
     }
 
+    @Test
+    fun `car should print progress with correct number of dashes`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi", "2")
+                assertThat(output()).contains("pobi : -")
+            },
+            MOVING_FORWARD, STOP
+        )
+    }
+
     override fun runMain() {
         main()
     }
