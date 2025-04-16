@@ -15,50 +15,50 @@
 
 ## 👾 Feature Modules
 ### 🧩 Game flow manager Module
-| Feature | Description | Test code | Refactored | Done |
-|:---|:---|:---:|:---:|:---:|
-| game-start | Start game execution from main() | - | - | - |
-| game-init | Make cars based on user input | - | - | - |
-| game-loop | Repeat game as many as rounds | - | - | - |
-| game-track-progress | Moniter each round's result and check the winner(s) | - | - | - |
-| game-end | Terminate the game | - | - | - |
+| Feature | Description | Test code | Green | Refactored | Done |
+|:---|:---|:---:|:----------------:|:---:|:---:|
+| game-start | Start game execution from main() | - |        -         | - | - |
+| game-init | Make cars based on user input | - |        -         | - | - |
+| game-loop | Repeat game as many as rounds | - |        -         | - | - |
+| game-track-progress | Moniter each round's result and check the winner(s) | - |        -         | - | - |
+| game-end | Terminate the game | - |        -         | - | - |
 
 ### 🧩 Input Module
-| Feature | Description | Test code | Refactored | Done |
-|:---|:---|:---:|:---:|:---:|
-| input-request | Display a message prompting the user for inputs | - | - | - |
-| input-read-car-names | Read input(1): car names from user | - | - | - |
-| input-read-rounds | Read input(2): the number of rounds from user | - | - | - |
+| Feature | Description | Test code | Green | Refactored | Done |
+|:---|:---|:---------:|:---:|:----:|:---:|
+| input-request | Display a message prompting the user for inputs |     ✅     | ✅ | - | - |
+| input-read-car-names | Read input(1): car names from user |     ✅     | ✅ | - | - |
+| input-read-rounds | Read input(2): the number of rounds from user |     ✅     | ✅ | - | - |
 
 ### 🧩 Validation Module
-| Feature | Description | Test code | Refactored | Done |
-|:---|:---|:---:|:---:|:---:|
-| validate-car-names | Validate car names for length, emptiness, and format | - | - | - |
-| validate-rounds | Validate number of rounds for positivity and format | - | - | - |
+| Feature | Description | Test code | Green | Refactored | Done |
+|:---|:---|:---------:|:---:|:----:|:---:|
+| validate-car-names | Validate car names for length, emptiness, and format |     ✅     | - | - | - |
+| validate-rounds | Validate number of rounds for positivity and format |     ✅      | - | - | - |
 
 ### 🧩 Race execution Module
-| Feature | Description | Test code | Refactored | Done |
-|:---|:---|:---:|:---:|:---:|
-| race-start | Execute race based on number of rounds | - | - | - |
-| race-generate-random-number | Random number between 0 - 9 | - | - | - |
-| race-is-move-condition-met | Return true if the random number meets or exceeds the moveable condition | - | - | - |
-| race-move-cars | Move cars forward only if they pass the random check condition | - | - | - |
-| race-update-track | Update track state after each round | - | - | - |
+| Feature | Description | Test code | Green | Refactored | Done |
+|:---|:---|:---------:|:---:|:----:|:---:|
+| race-start | Execute race based on number of rounds | - | - | - | - |
+| race-generate-random-number | Random number between 0 - 9 | - | - | - | - |
+| race-is-move-condition-met | Return true if the random number meets or exceeds the moveable condition | - | - | - | - |
+| race-move-cars | Move cars forward only if they pass the random check condition | - | - | - | - |
+| race-update-track | Update track state after each round | - | - | - | - |
 
 ### 🧩 Error handling Module
-| Feature | Description | Test code | Refactored | Done |
-|:---|:---|:---:|:---:|:---:|
-| error-input | - | - | - | - |
-| error-output | - | - | - | - |
+| Feature | Description | Test code | Green | Refactored | Done |
+|:---|:---|:---------:|:---:|:----:|:---:|
+| error-input | - | - | - | - | - |
+| error-output | - | - | - | - | - |
 
     ⚠️ Internal logic only, no output to user.
 
 ### 🧩 Output Module
-| Feature | Description | Test code | Refactored | Done |
-|:---|:---|:---:|:---:|:---:|
-| output-round-result | - | - | - | - |
-| output-final-winner | - | - | - | - |
-| output-error-message | - | - | - | - |
+| Feature | Description | Test code | Green | Refactored | Done |
+|:---|:---|:---:|:---:|:---:|:---:|
+| output-round-result | - | - | - | - | - |
+| output-final-winner | - | - | - | - | - |
+| output-error-message | - | - | - | - | - |
 
 <br>
 Option for status columns (Test, Refactored, Done)<br>
