@@ -1,8 +1,12 @@
 # kotlin-racingcar-precourse
 
 - [] Car
-    - [] name
     - [] status
+        - [] name
+        - [] status
+    - [] behavior
+        - [] go
+            - [] check if fuel is enough
 - [] Fuel
     - [] Random Number Generator
         - [] make random number between 0~9
