@@ -12,15 +12,32 @@
         - [x] make random number between 0~9
         - [x] fuel is enough when 4 or greater
 
-- [] input
-    - [] carNamesInput
-        - [] split car names input with (,)
-        - [] each slices must not be null, "", " "
-    - [] tryCountInput
-        - [] must not be null, "", " '
-        - [] must be number
+- [x] input
+    - [x] carNamesInput
+        - [x] split car names input with (,)
+        - [x] each slices must not be null, "", " "
+    - [x] tryCountInput
+        - [x] must not be null, "", " '
+        - [x] must be number
 
-- [] CarNameDto
-    - [] names cannot exceed 5 characters
-- [] TryCountDto
-    - [] try count cannot exceed 1000
+- [x] CarNameDto
+    - [x] names cannot exceed 5 characters
+- [x] TryCountDto
+    - [x] try count cannot exceed 1000
+
+- [x] Round
+    - [x] status
+        - [x] round count
+        - [x] participating cars
+    - [x] behavior
+        - [x] each car races
+
+
+- [] Referee
+    - [] status
+        - [] winner Car status
+        - [] winner Car List
+    - [] behavior
+        - [] judge winner
+
+- [] output
