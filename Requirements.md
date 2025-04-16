@@ -1,7 +1,9 @@
 ### Input
 - [ ] Get car names from user input 
   - [ ] Names are separated by commas, and input ends with Enter
-  - [ ] Each name must be 5 characters or less <br>
+  - [ ] Each name must be between 1 (custom) and 5 characters.
+  - [ ] At least two car names must be entered to proceed with the race. (custom) <br>
+  - [ ] Check for uniqueness of names (custom) <br>
   ⁕ Every car must have a name ⇒ the name represents the car 
 
 - [ ] Get number of rounds 
@@ -25,7 +27,9 @@
 ### 입력
 - [ ] 사용자로부터 차 이름 입력받기
   - [ ] 콤마 기준으로 구분 / 입력의 끝은 엔터
-  - [ ] 이름은 <= 5글자 <br>
+  - [ ] 1글자 (custom) <= 이름 <= 5글자
+  - [ ] 적어도 2개 이상의 이름 입력이 필요함 => 그래야 경기 진행이 되기 때문 (custom)
+  - [ ] 중복되는 이름이 없는지 확인 (custom)<br>
   ⁕ 모든 차는 이름을 가지고 있어야 함 => 이름 = 차
 
 - [ ] round 수 입력 받기
