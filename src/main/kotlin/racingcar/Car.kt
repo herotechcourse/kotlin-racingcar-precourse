@@ -1,4 +1,5 @@
 package racingcar
+import camp.nextstep.edu.missionutils.Randoms
 
 class Car(
     val name: String,
@@ -10,12 +11,16 @@ class Car(
     }
 
     companion object {
-        fun isValidName(name: String): Boolean {
-            return name.length <= 5
-        }
+        fun isValidName(name: String): Boolean = name.length <= 5
     }
-    
-    override fun toString(): String {
-        return "Car(name='$name', position=$position)"
+
+    override fun toString(): String = "Car(name='$name', position=$position)"
+
+    fun luckyMove() {
+        val randomNumber = Randoms.pickNumberInRange()
+        val threashold = 4
+        if (randomNumber > threashold) {
+            move()
+        }
     }
 }

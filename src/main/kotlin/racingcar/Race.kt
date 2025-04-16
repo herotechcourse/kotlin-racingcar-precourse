@@ -9,6 +9,7 @@ class Race(
        {
             for(car in cars)
             {
+                car.luckyMove()
                 println("round: $r -> $car")
             }
         }
