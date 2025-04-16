@@ -2,16 +2,16 @@ package racingcar.view
 
 class OutputView {
 
-    fun printIntroInputCarNamesMessage() {
-        println(INTRO_INPUT_CARNAMES_MESSAGE)
+    fun printCarNamesPrompt() {
+        println(CAR_NAME_PROMPT)
     }
 
-    fun printAskPlayRoundPrompt() {
-        println(ASK_PLAY_ROUND_PROMPT)
+    fun printRoundCountPrompt() {
+        println(ROUND_COUNT_PROMPT)
     }
 
     companion object {
-        private val INTRO_INPUT_CARNAMES_MESSAGE = "Enter the names of the cars (comma-separated):"
-        private val ASK_PLAY_ROUND_PROMPT = "How many rounds will be played?"
+        private val CAR_NAME_PROMPT = "Enter the names of the cars (comma-separated):"
+        private val ROUND_COUNT_PROMPT = "How many rounds will be played?"
     }
 }
