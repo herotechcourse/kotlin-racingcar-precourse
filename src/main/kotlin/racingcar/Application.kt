@@ -1,5 +1,7 @@
 package racingcar
 
+import racingcar.view.InputView
+
 fun main() {
-    // TODO: Implement the program
+    val splitCarNames = InputView().inputCarNames()
 }

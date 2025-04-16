@@ -6,13 +6,13 @@
 
 ### Prompt the user to enter the car names to race
 
-- [ ]  Display input message: “Enter the names of the cars (comma-separated):”
-- [ ]  Car names should be comma-separated when entered by the user.
+- [X]  Display input message: “Enter the names of the cars (comma-separated):”
+- [X]  Car names should be comma-separated when entered by the user.
 
-- [ ]  Throw an `IllegalArgumentException`and terminate the program when the user inputs invalid data.
-    - [ ]  Each car must have a name.
-    - [ ]  Each car must not exceed 5 characters.
-    - [ ]  [Add] The number of car names must be two or more.
+- [X]  Throw an `IllegalArgumentException`and terminate the program when the user inputs invalid data.
+    - [X]  Each car must have a name.
+    - [X]  Each car must not exceed 5 characters.
+    - [X]  [Add] The number of car names must be two or more.
     - [ ]  [Add] Car names must not contain duplicates.
     - [ ]  [Add] The delimiter must be a comma.
 
