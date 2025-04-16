@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console
 
 fun main() {
     val carNames = readCarNames()
-
+    val numberOfRounds =  readNumberOfRounds()
 }
 
 fun readCarNames(): List<String>{
@@ -18,4 +18,19 @@ fun readCarNames(): List<String>{
 
 
     return carNames
+}
+
+fun readNumberOfRounds(): Int{
+    print("How many rounds will be played?")
+    val input = Console.readLine();
+
+    try {
+        val round = input.toInt()
+        if (round <= 0) {
+            throw IllegalArgumentException("Number of rounds must be a positive integer.")
+        }
+        return round
+    } catch (e: NumberFormatException) {
+        throw IllegalArgumentException("Invalid input. Please enter a valid integer.")
+    }
 }
