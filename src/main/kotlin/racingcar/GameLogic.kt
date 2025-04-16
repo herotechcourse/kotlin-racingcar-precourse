@@ -8,7 +8,7 @@ class GameLogic (
         for (round in 1..numberOfRounds) {
             carsList.forEach{it.move()}
         }
-        carsList.forEach { it.display() }
+        ResultView.displayEndPositions(carsList)
     }
 
 }
