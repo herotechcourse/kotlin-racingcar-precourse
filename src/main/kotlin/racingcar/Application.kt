@@ -8,6 +8,8 @@ fun main() {
 
     val numberRounds = InputView.readAndParseRoundCountInput()
 
+    GameLogic(carsList, numberRounds).play()
+
 }
 
 
