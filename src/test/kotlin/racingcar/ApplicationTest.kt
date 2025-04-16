@@ -8,26 +8,24 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 class ApplicationTest : NsTest() {
-    // Disabling test for now
-    
-    // @Test
-    // fun `feature test`() {
-    //     assertRandomNumberInRangeTest(
-    //         {
-    //             run("pobi,woni", "1")
-    //             assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
-    //         },
-    //         MOVING_FORWARD,
-    //         STOP,
-    //     )
-    // }
+    @Test
+    fun `feature test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+            },
+            MOVING_FORWARD,
+            STOP,
+        )
+    }
 
-    // @Test
-    // fun `exception test`() {
-    //     assertSimpleTest {
-    //         assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
-    //     }
-    // }
+    @Test
+    fun `exception test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
 
     // Car names test
     @Test
