@@ -33,6 +33,20 @@ fun continueAnotherRound(distanceScores: MutableMap<String, Int>, movementThresh
         val movementScore = Randoms.pickNumberInRange(0, 9);
         if (movementScore >= movementThreshold) distanceScores[name] = score + 1;
     }
+    printCurrentRace(distanceScores);
+}
+
+fun printCurrentRace(distanceScores: Map<String, Int>) {
+    val maxNameLength = maxOf("Race".length, distanceScores.keys.maxOf { it.length })
+    val title = "Race".padEnd(maxNameLength)
+
+    println("$title % Results")
+    for ((carName, distance) in distanceScores) {
+        val paddedName = carName.padEnd(maxNameLength)
+        val distanceString = "-".repeat(distance)
+        println("$paddedName : $distanceString")
+    }
+    println();
 }
 
 fun announceRace(carNames: List<String>, raceRounds: Int) {
