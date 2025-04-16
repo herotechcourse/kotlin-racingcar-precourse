@@ -14,7 +14,7 @@
 
 ## Input
 
-- [ ] Names of the cars (comma-separated):
+- [x] Names of the cars (comma-separated):
 ```kotlin
 pobi,woni,jun
 ```
