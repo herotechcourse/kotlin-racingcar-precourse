@@ -34,12 +34,14 @@ Handles input parsing and validation.
 - `parseNumberOfRounds(number: String): Int`
   Parses and validates the number of rounds. Throws `IllegalArgumentException` for invalid input.
 ## GameLogic.kt
-### Class || Object: `GameLogic`
+### Object: `GameLogic`
 Handles the core race logic.
 
 **Methods:**
 - `logicRace(cars: List<Car>, rounds: Int): List<RaceResult>`
   Executes the race logic for the specified number of rounds.
+- `playOneRound(cars: List<Car>, allResults: MutableList<RaceResult>)`
+   Handles one round of the race. Moves each car if the condition is met and records the round results. Used internally by `logicRace`.
 - `moveCar(car: Car): Unit`
   Randomly decides if a car should move forward (random number ≥ 4).
 - `searchWinners(cars: List<Car>): List<String>`
