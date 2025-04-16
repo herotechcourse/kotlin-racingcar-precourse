@@ -18,6 +18,7 @@ object InputValidator {
             checkCarNameLength(carName)
             checkCarNameOnlyLetterAndNumber(carName)
         }
+        checkDuplicateCarNames(carNames)
     }
 
     private fun checkMaxCarLimit(cars: List<String>) {
@@ -35,6 +36,12 @@ object InputValidator {
     private fun checkCarNameOnlyLetterAndNumber(carName: String) {
         if (!carName.all { it.isLetterOrDigit() }) {
             throw IllegalArgumentException("[ERROR] Car names can only contain letters and numbers.\n")
+        }
+    }
+
+    private fun checkDuplicateCarNames(carNames: List<String>) {
+        if (carNames.size != carNames.toSet().size) {
+            throw IllegalArgumentException("[ERROR] Duplicate car names are not allowed\n")
         }
     }
 }
