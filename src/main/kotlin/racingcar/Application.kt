@@ -9,9 +9,12 @@ fun main() {
         .split(",")
         .map { it.trim() };
     validateCarNames(carNames);
+
     println("How many rounds will be played?")
     val raceRoundsInput = Console.readLine();
     val raceRounds = raceRoundsInput.toInt();
+    validateRaceRounds(raceRounds);
+
     runRace(carNames, raceRounds);
 }
 
@@ -38,5 +41,11 @@ fun validateCarNames(carNames: List<String>) {
         if (car.isEmpty() || car.length > 4) {
             throw IllegalArgumentException("Car name must be 1-4 characters long")
         }
+    }
+}
+
+fun validateRaceRounds(raceRounds: Int) {
+    if (raceRounds < 1) {
+        throw IllegalArgumentException("Race rounds must be at least 1")
     }
 }
