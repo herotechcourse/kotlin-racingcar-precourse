@@ -11,7 +11,7 @@ class Car(
 
     companion object {
         fun isValidName(name: String): Boolean {
-            return name.length <= 4
+            return name.length <= 5
         }
     }
 }
