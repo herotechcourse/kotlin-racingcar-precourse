@@ -2,6 +2,7 @@
 
 This is a simple command-line car racing game built in Kotlin as part of a pre-course mission.  
 The project aims to simulate a race between user-named cars over a number of rounds, using basic logic and random behavior.
+
 ---
 
 ## Features
