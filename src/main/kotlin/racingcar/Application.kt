@@ -33,7 +33,7 @@ fun main() {
     val mostLine = cars.maxOf { car -> car.result }
     val winners = cars.filter{ car -> car.result == mostLine }.joinToString(", "){it.name}
 
-    println("Winners: $winners")
+    println("Winners : $winners")
 }
 
 // one round of racing per car
