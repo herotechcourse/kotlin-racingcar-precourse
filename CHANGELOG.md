@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/kimpeter2018/kotlin-racingcar-precourse/compare/v1.2.0...v1.3.0) (2025-04-16)
+
+
+### Features
+
+* add llegalArgumentException() when invalid input is entered by user ([bc007cb](https://github.com/kimpeter2018/kotlin-racingcar-precourse/commit/bc007cbd288db8d69144f1b0a38b6d38c4a5e851))
+
 ## [1.2.0](https://github.com/kimpeter2018/kotlin-racingcar-precourse/compare/v1.1.0...v1.2.0) (2025-04-16)
 
 
