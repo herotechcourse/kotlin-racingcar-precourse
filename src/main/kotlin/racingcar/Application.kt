@@ -1,6 +1,7 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
 
 const val FORWARD = "Forward"
 const val STAY = "Stay"
@@ -41,7 +42,7 @@ fun printCarPositions(car: Car) {
 }
 
 fun randomCarMovement(): String{
-    val randomNumber = (0..9).random()
+    val randomNumber = Randoms.pickNumberInRange(0, 9)
     return if (randomNumber >= 4) {
         FORWARD
     } else {
