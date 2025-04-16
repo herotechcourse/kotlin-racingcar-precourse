@@ -23,6 +23,10 @@ class InputView {
     }
     fun getAttempts(): Int {
         println("How many rounds will be played?")
-        return Console.readLine()?.toIntOrNull() ?: throw IllegalArgumentException("Invalid attempts")
+        val attempts = Console.readLine()?.toIntOrNull() ?: throw IllegalArgumentException("Invalid attempts")
+        if (attempts <= 0) {
+            throw IllegalArgumentException("Number of attempts must be a positive integer")
+        }
+        return attempts
     }
 }
