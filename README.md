@@ -24,8 +24,8 @@
 - [x]  Run the race for the given number of rounds
 - [x]  Implement car movement logic (random number check)
 - [x]  Display the movement of each car after every round
-- [ ]  Determine winner
-- [ ]  Display winner
+- [x]  Determine winner
+- [x]  Display winner
 
 **validator**
 

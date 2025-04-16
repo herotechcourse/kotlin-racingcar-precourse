@@ -28,5 +28,10 @@ fun main() {
             println("${car.name} : $movement")
         }
         println()
+
     }
+
+    val maxPosition = cars.maxOf { it.position }
+    val winners = cars.filter { it.position == maxPosition }
+    println("Winners : ${winners.joinToString(", ") { it.name }}")
 }
