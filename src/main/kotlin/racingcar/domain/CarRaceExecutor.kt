@@ -6,11 +6,13 @@ class CarRaceExecutor(
     private val round: Int,
     private val racePolicy: RacePolicy
 ) {
-    fun runRace(): Cars {
+    fun runRace(): List<Cars> {
+        val snapshots = mutableListOf<Cars>()
         repeat(round) {
             cars.moveIf(this::canMoveCar)
+            snapshots.add(cars.snapshot())
         }
-        return cars
+        return snapshots
     }
 
     private fun canMoveCar(car: Car): Boolean {
