@@ -5,7 +5,7 @@
 ### Domain Features
 
 * [ ] Each car must have a name, and names must not exceed 5 characters.
-* [ ] Car names must not be empty.
+* [x] Car names must not be empty.
 * [ ] Car names must be unique.
 * [ ] A car must move forward if a random number (0~9) is 4 or greater.
 * [ ] Each car must attempt to move in every round.
