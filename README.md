@@ -47,7 +47,7 @@ Handles the core race logic.
 - `searchWinners(cars: List<Car>): List<String>`
   Returns the list of car names that have the maximum position.
 ## Output.kt
-### Object: `ResultPrinter`
+### Object: `Output`
 Handles output formatting and printing.
 
 **Methods:**

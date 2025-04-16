@@ -8,12 +8,20 @@ fun main() {
         println("Enter the names of the cars (comma-separated):")
         val carNamesInput = Console.readLine()
         val carNames = Input.parseCarNames(carNamesInput)
-        println("$carNames")
+
+        val cars = carNames.map { carName -> Car(carName) }
 
         println("How many rounds will be played?")
-        val numberOfRoundsInput = Console.readLine()
-        val numberOfRounds = Input.parseNumberOfRounds(numberOfRoundsInput)
-        println("$numberOfRounds")
+        val roundsInput = Console.readLine()
+        val numberOfRounds = Input.parseNumberOfRounds(roundsInput)
+
+        val raceResults = GameLogic.logicRace(cars, numberOfRounds)
+
+        Output.printResultsRound(raceResults)
+
+        val winners = GameLogic.searchWinners(cars)
+
+        Output.printWinners(winners)
 
     } catch (e: IllegalArgumentException) {
         println("Error: ${e.message}")
