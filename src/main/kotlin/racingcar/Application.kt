@@ -4,14 +4,13 @@ import camp.nextstep.edu.missionutils.Randoms
 
 var cars: List<String> = emptyList()
 var rounds: Int = 0
+var move: Boolean = false
 
 fun main() {
-    // Populate the global cars and rounds variables
     validateCarName()
     rounds = inputRoundCount()
-    // Example usage of Randoms.pickNumberInRange()
-    val randomValue = Randoms.pickNumberInRange(0, 9)
-    println("Random value: $randomValue")
+    println(movement())
+
 }
 
 fun inputCarNames(): List<String> {
@@ -39,6 +38,7 @@ fun inputRoundCount(): Int {
 
 fun movement(): Boolean {
     val randomValue = Randoms.pickNumberInRange(0, 9)
-    if (randomValue >= 4);
-        return true
+    if (randomValue >= 4) {
+        move = true}
+    return move
 }
