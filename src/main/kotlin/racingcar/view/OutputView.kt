@@ -19,6 +19,10 @@ class OutputView {
         println()
     }
 
+    fun printWinners(winnerMessage: String) {
+        println(winnerMessage)
+    }
+
     companion object {
         private const val CAR_NAME_PROMPT = "Enter the names of the cars (comma-separated):"
         private const val ROUND_COUNT_PROMPT = "How many rounds will be played?"
