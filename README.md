@@ -7,7 +7,5 @@
 - [x] Parse and validate number of rounds
 - [x] Generate random number per car per round
 - [x] Move car forward if number ≥ 4
-- [ ] Display progress after each round
+- [x] Display progress after each round
 - [ ] Determine and print winners
-- [ ] Handle invalid inputs with exceptions
-- [ ] Unit test core logic (e.g., car movement, winner determination)
