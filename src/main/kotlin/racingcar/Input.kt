@@ -22,4 +22,16 @@ object Input {
         return carNames
     }
 
+    fun readNumberOfRound(): Int {
+        print("How many rounds will be played? ")
+        val input = Console.readLine()
+
+        val round= input.toIntOrNull()
+        if(round == null || round <= 0) {
+            throw IllegalArgumentException("Invalid number of round")
+        }
+
+        return round
+    }
+
 }
