@@ -8,7 +8,7 @@
 * [x] Car names must not be empty.
 * [ ] Car names must be unique.
 * [ ] A car can move only when the power condition is satisfied.
-    * [ ] The power is a random number between 0 and 9.
+    * [x] The power is a random number between 0 and 9.
     * [ ] The car moves forward if the power is 4 or greater.
 * [ ] Each car must attempt to move in every round.
 * [ ] The result of each round must be recorded.
