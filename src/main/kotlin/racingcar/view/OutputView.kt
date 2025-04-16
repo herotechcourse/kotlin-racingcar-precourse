@@ -14,6 +14,11 @@ class OutputView {
         println(RACE_RESULT_PROMPT)
     }
 
+    fun printProgress(lines: List<String>) {
+        lines.forEach { println(it) }
+        println()
+    }
+
     companion object {
         private const val CAR_NAME_PROMPT = "Enter the names of the cars (comma-separated):"
         private const val ROUND_COUNT_PROMPT = "How many rounds will be played?"
