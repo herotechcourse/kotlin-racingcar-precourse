@@ -14,8 +14,15 @@ fun main() {
     // racing start introducing comment
     println("Enter the names of the cars (comma-separated):")
     val challengers = Console.readLine()
+    if (challengers.isEmpty()) {
+        throw IllegalArgumentException("Car name can't be empty.")
+    }
+
     println("How many rounds will be played?")
     val rounds = Console.readLine()
+    if (rounds.toInt() < 2) {
+        throw IllegalArgumentException("Race round is more than 1")
+    }
 
     println()
     println("Race Results")
