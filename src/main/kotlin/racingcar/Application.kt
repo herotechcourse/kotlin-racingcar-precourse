@@ -60,7 +60,7 @@ fun announceRace(carNames: List<String>, raceRounds: Int) {
 
 fun validateCarNames(carNames: List<String>) {
     for (car in carNames) {
-        if (car.isEmpty() || car.length > 4) {
+        if (car.isEmpty() || car.length > 5) {
             throw IllegalArgumentException("Car name must be 1-4 characters long")
         }
     }
