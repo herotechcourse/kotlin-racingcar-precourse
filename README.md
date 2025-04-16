@@ -29,11 +29,11 @@ A Simple Car Racing Game Application built with Kotlin.
 | User Validation for number of rounds                             | ✅ Done    | `feature/rounds-validation`    |
 | Car and Race models for race simulation                          | ✅ Done    | `feature/car-object`           |
 | Random movement logic per each round                             | ✅ Done    | `feature/random-movement`      |
-| Game engine to simulate rounds and update positions              | ⏳ Planned | `feature/game-engine`          |
+| Game engine to simulate rounds and update positions              | ✅ Done    | `feature/game-engine`          |
 | Output race progress per round                                   | ⏳ Planned | `feature/output-round-results` |
 | Determine winners based on distance covered                      | ⏳ Planned | `feature/determine-winners`    |
 | Display winners                                                  | ⏳ Planned | `feature/display-winners`      |
-| Error handling with `IllegalArgumentException` for invalid input | ⏳ Planned | `feature/error-handling`       |
+| Error handling with `IllegalArgumentException` for invalid input | 🚧 WIP    | `feature/error-handling`       |
 | Unit tests using **JUnit 5** + **AssertJ**                       | 🚧 WIP    | `test/unit-tests`              |
 
 ---
