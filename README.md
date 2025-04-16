@@ -15,11 +15,7 @@
     
 ### RacingGame
 
-- The user is prompted to enter a **comma-separated list of car names**.
-- The user is prompted to enter the **number of rounds**.
-- If any input is invalid, the program throws an `IllegalArgumentException` and terminates.
 - The game runs for the specified number of rounds, and in each round, all cars move.
-- After each round, the movement result of each car is printed.
 - Once all rounds are completed, the **winner(s)** are determined and displayed.
     - If multiple cars have the same final position, they are considered **joint winners**, and their names are displayed separated by commas.  
       Example: `Winners : pobi, jun`
@@ -27,6 +23,10 @@
 ---
 
 ### Input
+
+- The user is prompted to enter a **comma-separated list of car names**.
+- The user is prompted to enter the **number of rounds**.
+- If any input is invalid, the program throws an `IllegalArgumentException` and terminates.
 
 - Car Names: A comma-separated list of car names (each name up to 5 characters).
   - Example input: "pobi, jun, alice"
