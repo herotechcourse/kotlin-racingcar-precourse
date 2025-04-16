@@ -86,11 +86,20 @@ fun inputRounds(): Int {
     return input.toInt()
 }
 
+fun findWinners(raceData: MutableMap<String, MutableList<Int>>): List<String> {
+    val scores = raceData.mapValues { it.value.sum() } // total moves for each car
+    val maxScore = scores.maxOf { it.value } // highest score
+
+    return scores.filterValues { it == maxScore }.keys.toList()
+}
+
 fun main() {
     try {
         val names = getValidatedCarNames()
         val rounds = inputRounds()
         val raceResults = startRace(names, rounds)
+        val winners = findWinners(raceResults)
+        println("Winners : ${winners.joinToString(", ")}")
     } catch (e: IllegalArgumentException) {
         println(e.message)
     }
