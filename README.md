@@ -43,6 +43,11 @@ Enter the names of the cars (comma-separated):
 How many rounds will be played?
 ```
 
+- [x] Print prompt Race Results
+```kotlin
+Race Results
+```
+
 - [ ] Race results by round:
 ```kotlin
 pobi : --
