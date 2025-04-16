@@ -1,1 +1,12 @@
 # kotlin-racingcar-precourse
+- user is propempet to input information (The user should be able to specify car names and the number of rounds.)
+- user information is validated according to paramenters (Car names should be comma-separated when entered by the user.+ Each car must have a name, and names cannot exceed 5 characters.)
+- interpret user text
+- save variables
+- implement random generator
+- logic test for random number
+- create loop  for untill n rounds (as per user input)
+- car moves or not
+- movement is saved and displayed
+- display winner or winners
+- implement error message
