@@ -28,7 +28,7 @@ A Simple Car Racing Game Application built with Kotlin.
 | Input Handling for car names                                     | ✅ Done    | `feature/car-name-input`       |
 | User Validation for number of rounds                             | ✅ Done    | `feature/rounds-validation`    |
 | Car object with name and position of the race                    | ✅ Done    | `feature/car-object`           |
-| Random movement logic per each round                             | ⏳ Planned | `feature/random-movement`      |
+| Random movement logic per each round                             | ✅ Done    | `feature/random-movement`      |
 | Game engine to simulate rounds and update positions              | ⏳ Planned | `feature/game-engine`          |
 | Output race progress per round                                   | ⏳ Planned | `feature/output-round-results` |
 | Determine winners based on distance covered                      | ⏳ Planned | `feature/determine-winners`    |
