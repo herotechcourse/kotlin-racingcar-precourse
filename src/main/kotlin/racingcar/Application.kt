@@ -3,11 +3,11 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 
 fun main() {
-    val carNames = readCarName()
+    val carNames = readCarNames()
 
 }
 
-fun readCarName(): List<String>{
+fun readCarNames(): List<String>{
     print("Enter the names of the cars (comma-separated): ")
     val input = Console.readLine();
     val carNames = input.split(",")
