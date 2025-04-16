@@ -17,6 +17,12 @@ This program simulates a car race where one or more cars win the race based on t
      - `createCars(String carNames)`: This function will take a single string containing car names, split the names, and create `Car` objects for each name. Each `Car` object will store an integer that tracks how many times the car has advanced during the race.
    - **Reasoning**: The user will enter car names in a single string (with commas separating each name). This function will handle extracting the car names, creating `Car` objects, and storing them in an array or list. The function will also initialize each car’s progress counter to zero, allowing the program to track how many rounds each car advances.
 
+### 2. **Race Implementation**
+   - **Goal**: Implement functions to advance the cars each round with a random chance
+   - **Function to Implement**:
+     - `Car() { move() }`: This function with move the car with a random chance and update the progress.
+     - `Car() { getProgress() }`: This function with move the car with a random 
+   - **Reasoning**: The created cars will participate in a race with a random chance. Implementing the progress functions within the class helps the code to be more concise and reduce boiler plate codes in the main function.
 ---
 
 ## Implementation Progress
@@ -26,6 +32,13 @@ This program simulates a car race where one or more cars win the race based on t
    - **Current Status**:
      - Car object will be created
      - The `createCars` function will be implemented.
-   - **Next Step**: 
+   - **Next Step**: Implement movement and progress recorder functions for the cars
+
+### Phase 2: **Car Movement and Progress**
+   - **Goal**: Implement the function to move cars and record its progress.
+   - **Current Status**:
+     - Car movement features will be implemented
+     - The progress of the cars will be recorded.
+   - **Next Step**: Implement movement and progress recorder functions for the cars
 
 ---
