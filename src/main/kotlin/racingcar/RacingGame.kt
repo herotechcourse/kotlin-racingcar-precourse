@@ -41,6 +41,6 @@ class RacingGame(private val cars: List<Car>, private val round: Int) {
     }
 
     private fun printWinners(winners: List<String>) {
-        println("Winners : ${winners.joinToString(",")}")
+        println("Winners : ${winners.joinToString(", ")}")
     }
 }
