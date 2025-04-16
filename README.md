@@ -12,10 +12,15 @@
   - [ ] Must be a positive integer
 
 ## Data structure
-- [ ] Create `Carr` class with:
-  - [ ] `name` attribute
-  - [ ] `position` attribute - starting at 0
-  - [ ] `move()` (based in a random number)
+- [x] Create `Carr` class with:
+  - [x] `name` attribute
+  - [x] `steps` attribute - starting at 0
+  - [x] `move()` (based in a random number)
+  - [x] `printRound()` method (prints the car's name followed by - symbols based on its position)
+  - [x] `getSteps()` method (returns the current position of the car)
+  - [x] Validation: The name attribute must not exceed 5 characters. If it does, an `IllegalArgumentException` is thrown.
+
+
 - [ ] Create `Race` class in order to:
   - [ ] Store list of `Car` instances
   - [ ] Store number of rounds
