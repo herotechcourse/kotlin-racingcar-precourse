@@ -6,6 +6,10 @@ object Input {
             throw IllegalArgumentException()
         }
         val carNames = names.split(",").map { name -> name.trim() }
+        val uniqueCarNames = carNames.toSet()
+        if (uniqueCarNames.size != carNames.size) {
+            throw IllegalArgumentException()
+        }
         if (carNames.any { name -> name.length > 5 || name.isEmpty() || !name.all { char -> char.isLetter() } }) {
             throw IllegalArgumentException()
         }
