@@ -18,12 +18,12 @@
 ### ✅ Feature List
 
 - [x]  Receive car names input
-- [ ]  Validate car name format (length, characters, duplicates)
-- [ ]  Receive round count input
-- [ ]  Validate round count
-- [ ]  Run the race for the given number of rounds
-- [ ]  Implement car movement logic (random number check)
-- [ ]  Display the movement of each car after every round
+- [x]  Validate car name format (length, characters, duplicates)
+- [x]  Receive round count input
+- [x]  Validate round count
+- [x]  Run the race for the given number of rounds
+- [x]  Implement car movement logic (random number check)
+- [x]  Display the movement of each car after every round
 - [ ]  Determine winner
 - [ ]  Display winner
 
