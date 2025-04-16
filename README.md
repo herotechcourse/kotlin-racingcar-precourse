@@ -40,6 +40,21 @@ This program simulates a car race where one or more cars win the race based on t
 ### 5. **Refactoring**
    - **Goal**: Refactor used Classes and function within the program
    - **Reasoning**: Good code often means good readability. In order to increase readability of the code, separating some functions and classes can be a good idea. Trying to reduce too much raw code in main function can also be helpful.
+
+### 6. **Add Test Cases**
+   - **Goal**: Add different test cases to ensure functionality of the app and implement more Error handling if needed
+   - **Test Cases to Implement**: 
+      - Multiple winners
+      - No winner
+      - One player
+      - Invalid Car names: regex("^[A-Za-z_]{1,5}$")
+         - white space
+         - too long names
+         - empty input
+         - duplicate names
+      - Invalid Round number
+         - zero or negative
+   - **Reasoning**: Comprehensive test cases help ensure the program behaves correctly under various scenarios and edge cases. They also allow early detection of bugs and improve the reliability of the application.
 ---
 
 ## Implementation Progress
@@ -71,4 +86,16 @@ This program simulates a car race where one or more cars win the race based on t
    - **Current Status**:
      - An IllegalArgumentException error will be thrown at invalid input from the user
    - **Next Step**: Refactor Car class and some functions if possible
+
+### Phase 5: **Refactoring**
+   - **Goal**: Refactor Code for better readability
+   - **Current Status**:
+     - Add files (Car.kt, InputHandler.kt, OutputHandler.kt, RaceManager.kt) and refactor code
+   - **Next Step**: Add different Test Cases to secure app's performance
+
+### Phase 6: **Test Cases**
+   - **Goal**: Add vital test cases for the app
+   - **Current Status**:
+     - Adding Test cases
+   - **Next Step**: double check the app and submit
 ---
