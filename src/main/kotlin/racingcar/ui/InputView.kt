@@ -8,14 +8,18 @@ class InputView {
     fun getCars(): List<Car> {
         println("Enter the names of the cars (comma-separated):")
         val carsString: String? = Console.readLine()
-        return if (carsString.isNullOrBlank()) {
+
+        if (carsString.isNullOrBlank()) {
             throw IllegalArgumentException("Invalid car names")
-        } else {
-            carsString.split(",")
-                .map { it.trim() }
-                .filter { it.isNotEmpty() }
-                .map { Car(it) }
         }
+
+        val names = carsString.split(",").map { it.trim() }
+
+        if (names.any { it.isEmpty() }) {
+            throw IllegalArgumentException("Car names cannot be blank")
+        }
+
+        return names.map { Car(it) }
     }
     fun getAttempts(): Int {
         println("How many rounds will be played?")
