@@ -12,6 +12,18 @@ fun validateCarNames(names: List<String>) {
     }
 }
 
+fun validateRounds(rounds: String) {
+    if (rounds.isBlank() || rounds.any { !it.isDigit() }) {
+        throw IllegalArgumentException("Number of rounds must be a positive number.")
+    }
+
+    val value = rounds.toInt()
+    if (value < 1) {
+        throw IllegalArgumentException("Number of rounds must be at least 1.")
+    }
+}
+
+
 fun splitInputToCarNames(input: String): List<String> {
     return input.split(",").map { it.trim() }
 }
@@ -24,9 +36,17 @@ fun getValidatedCarNames(): List<String> {
     return names
 }
 
+fun inputRounds(): Int {
+    println("How many rounds will be played?")
+    val input = readln()
+    validateRounds(input)
+    return input.toInt()
+}
+
 fun main() {
     try {
-        getValidatedCarNames()
+        val names = getValidatedCarNames()
+        val rounds = inputRounds()
     } catch (e: IllegalArgumentException) {
         println(e.message)
     }
