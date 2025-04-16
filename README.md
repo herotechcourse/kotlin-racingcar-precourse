@@ -33,11 +33,11 @@
         - [x] each car races
 
 
-- [] Referee
-    - [] status
-        - [] winner Car status
-        - [] winner Car List
-    - [] behavior
-        - [] judge winner
+- [x] Referee
+    - [x] status
+        - [x] participants
+        - [x] winners
+    - [x] behavior
+        - [x] judge winner
 
 - [] output
