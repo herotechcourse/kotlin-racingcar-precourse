@@ -5,13 +5,17 @@ class Race(
     val cars: List<Car>,
 ) {
     fun run() {
-       for(r in 1..rounds)
-       {
-            for(car in cars)
-            {
+        for (r in 1..rounds) {
+            for (car in cars) {
                 car.luckyMove()
-                println("round: $r -> $car")
             }
+            displayCarsProgress()
+        }
+    }
+
+    fun displayCarsProgress() {
+        for (car in cars) {
+            println(car.getProgress())
         }
     }
 }

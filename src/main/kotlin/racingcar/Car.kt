@@ -17,10 +17,19 @@ class Car(
     override fun toString(): String = "Car(name='$name', position=$position)"
 
     fun luckyMove() {
-        val randomNumber = Randoms.pickNumberInRange()
         val threashold = 4
+
+        val randomNumber = Randoms.pickNumberInRange()
         if (randomNumber > threashold) {
             move()
         }
+    }
+
+    fun getProgress(): String {
+        var path = ""
+        for (i in 1..position) {
+            path += '-'
+        }
+        return "$name : $path"
     }
 }
