@@ -46,9 +46,25 @@ fun main() {
             println()
         }
         println()
-
         currentRound += 1
     }
 
+    // search winners
+    var winnerGroup = mutableListOf<String>()
+    var tmp = 0
+    challengerGroup.forEach {
+        challenger ->
+        if (challenger.currentPosition > tmp) {
+            winnerGroup = mutableListOf<String>()
+            winnerGroup.add(challenger.name)
+            tmp = challenger.currentPosition
+        }
+        else if (challenger.currentPosition == tmp) {
+            winnerGroup.add(challenger.name)
+        }
+    }
 
+    // print winners
+    print("Winners : ")
+    println(winnerGroup.joinToString(", "))
 }
