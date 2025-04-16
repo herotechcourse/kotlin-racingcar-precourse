@@ -1,12 +1,19 @@
 # kotlin-racingcar-precourse 
 ## Application.kt
-#### Entry point
 - `main()`
   Entry point of the program
-- `run()`
-    - Prompts the user for car names and round count.
-    - Parses and validates inputs.
-    - Runs the race and displays results.
+- `runRace()`
+  - Prompts the user for car names and the number of rounds.
+  - Validates the inputs by calling helper functions `getCarNames()` and `getNumberOfRounds()`.
+  - Initializes the list of cars and then runs the race logic by calling `GameLogic.logicRace()`.
+  - Finally, it displays the results for each round and the winners by calling `Output.printResultsRound()` and `Output.printWinners()`.
+- `getCarNames()`
+  - Prompts the user to enter a comma-separated list of car names.
+  - Uses `Input.parseCarNames()` to parse and validate the input, ensuring that only valid car names are accepted.
+
+- `getNumberOfRounds()`
+  - Prompts the user for the number of rounds to be played.
+  - Uses `Input.parseNumberOfRounds()` to parse and validate the input, ensuring that the number of rounds is a valid integer.
 ## Car.kt
 ### Class: `Car`
 Represents a car participating in the race.
@@ -59,3 +66,23 @@ Handles output formatting and printing.
 ## ApplicationTest
 ### Additional tests
     A test helper functions to simulate race with predetermined random values.
+
+## Custom Validations and Race Constraints
+
+In this project, I have implemented several custom validations and constraints for the car racing game. These are designed  improve clarity, and prevent potential errors or confusion. Below are the key limitations I introduced:
+
+1. **Car Name Validation**:
+  - **Only Letters Allowed**: Car names can only contain alphabetic characters (i.e., `isLetter`). This ensures that the names are meaningful and readable, and prevents special characters or numbers that might interfere with the race logic or cause confusion.
+
+2. **Unique Car Names**:
+  - **No Duplicate Names**: Duplicate car names are not allowed. If the same name is entered more than once, an `IllegalArgumentException` will be thrown. This prevents confusion about which car is which and ensures that each participant is uniquely identifiable throughout the race.
+
+3. **Maximum Number of Rounds**:
+  - **Max Limit for Rounds**: To avoid excessive computations and maintain performance, I decided to introduce a limit on the number of rounds. The maximum value for rounds is set to the maximum `Int` value in Kotlin. This ensures that no excessively large number of rounds can be entered, which could potentially cause performance issues or make the game too lengthy.
+
+4. **Maximum Number of Cars**:
+  - **Limiting the Number of Cars**: Although I initially considered restricting the number of cars in the race, I couldn't finalize a hard limit. The program might be tested with various numbers of cars, and while it's possible to set a limit, I need further insights into the testing conditions to make an informed decision.
+
+5. **One Car Race**:
+  - **Single-Car Race Consideration**: I thought about implementing a restriction that prevents a race from having just one car, but I ultimately left this out. It is theoretically possible to race with a single car, though the race outcome would be obvious. However, I believe the game should allow for such cases if desired.
+
