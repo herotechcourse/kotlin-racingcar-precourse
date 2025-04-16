@@ -1,11 +1,18 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Randoms
+
 fun main() {
     val carNames = readCarNames()
     val raceCount = readRaceCount()
+    val cars = carNames.map { Car(it) }
 
-    println("Car names: $carNames")
-    println("Race count: $raceCount")
+    println("\nRace Results")
+    repeat(raceCount) {
+        cars.forEach { it.move(Randoms.pickNumberInRange(0, 9)) }
+        cars.forEach { println("${it.name} : ${"-".repeat(it.position)}") }
+        println()
+    }
 }
 
 fun readCarNames(): List<String> {
