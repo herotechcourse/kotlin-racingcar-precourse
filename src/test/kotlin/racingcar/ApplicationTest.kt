@@ -8,22 +8,66 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 class ApplicationTest : NsTest() {
+    // Disabling test for now
+    
+    // @Test
+    // fun `feature test`() {
+    //     assertRandomNumberInRangeTest(
+    //         {
+    //             run("pobi,woni", "1")
+    //             assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+    //         },
+    //         MOVING_FORWARD,
+    //         STOP,
+    //     )
+    // }
+
+    // @Test
+    // fun `exception test`() {
+    //     assertSimpleTest {
+    //         assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+    //     }
+    // }
+
+    // Car names test
     @Test
-    fun `feature test`() {
+    fun `car name input test`() {
         assertRandomNumberInRangeTest(
             {
-                run("pobi,woni", "1")
-                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+                run("pobi,won", "1")
+                assertThat(output()).contains("pobi : -", "won : ", "Winners : pobi")
             },
             MOVING_FORWARD,
-            STOP,
+            STOP
         )
     }
 
     @Test
-    fun `exception test`() {
+    fun `car name length test`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `car name empty test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,", "1") }
+        }
+    }
+
+    // Rounds input test
+    @Test
+    fun `round number input test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,won", "0") }
+        }
+    }
+
+    @Test
+    fun `round number negative test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,won", "-1") }
         }
     }
 
