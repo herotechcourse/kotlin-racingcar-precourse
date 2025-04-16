@@ -2,7 +2,7 @@ package racingcar.util
 
 object Validator {
 
-    fun validateNames(names: List<String>){
+    fun validateNames(names: List<String>) {
         if (names.any { it.isEmpty() }) {
             throw IllegalArgumentException("Car names cannot be empty.")
         }
@@ -14,7 +14,7 @@ object Validator {
         }
     }
 
-    fun validateRoundNumber(input: String): Int{
+    fun validateRoundNumber(input: String): Int {
         val number = input.toIntOrNull()
         if (number != null && number > 0) {
             return number
