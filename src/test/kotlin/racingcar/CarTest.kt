@@ -18,7 +18,7 @@ class CarTest {
     @ParameterizedTest
     @ValueSource(ints = [4, 9])
     fun `car can move forward`(randomNumber: Int) {
-        val car  = Car("hero")
+        val car = Car("hero")
         car.move(randomNumber)
         assertThat(car.position()).isEqualTo(1)
     }
