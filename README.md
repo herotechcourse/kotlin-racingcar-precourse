@@ -12,7 +12,7 @@ A Simple Car Racing Game Application built with Kotlin.
 - ✅ Car and Race models for race simulation
 - ✅ Random movement logic per each round (0–9)
 - ✅ Game engine to simulate rounds and update positions
-- ✅ Output race progress per round
+- ✅ Store Output race progress per round
 - ✅ Determine winners based on distance covered
 - ✅ Display winners (comma-separated if multiple)
 - ✅ Error handling with `IllegalArgumentException` for invalid input
@@ -30,7 +30,7 @@ A Simple Car Racing Game Application built with Kotlin.
 | Car and Race models for race simulation                          | ✅ Done    | `feature/car-object`           |
 | Random movement logic per each round                             | ✅ Done    | `feature/random-movement`      |
 | Game engine to simulate rounds and update positions              | ✅ Done    | `feature/game-engine`          |
-| Output race progress per round                                   | ⏳ Planned | `feature/output-round-results` |
+| Store Output race progress per round                             | ✅ Done    | `feature/output-round-results` |
 | Determine winners based on distance covered                      | ⏳ Planned | `feature/determine-winners`    |
 | Display winners                                                  | ⏳ Planned | `feature/display-winners`      |
 | Error handling with `IllegalArgumentException` for invalid input | 🚧 WIP    | `feature/error-handling`       |

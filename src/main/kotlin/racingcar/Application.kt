@@ -9,6 +9,7 @@ import racingcar.engine.GameEngine
 //import racingcar.engine.Race
 
 fun main() {
+
     println("Racing Car App Starting...")
 
     // Create a list of cars
@@ -28,9 +29,16 @@ fun main() {
     // Start the race
     gameEngine.startRace()
 
-    // Output the round results
-    gameEngine.getRoundResults().forEachIndexed { round, cars ->
-        println("Round ${round + 1}:")
-        cars.forEach { println("${it.name}: ${it.position}") }
+    // Get the Rounds results
+    val results = gameEngine.getRoundResults()
+
+    // Print results ( For Testing Purposes )
+    results.forEachIndexed { roundIndex, round ->
+        println("Round ${roundIndex + 1}:")
+        round.forEach { car ->
+            println("${car.name} : ${"-".repeat(car.position)}")
+        }
+        println()
     }
+
 }
