@@ -2,8 +2,8 @@
 
 ## Planned Features
 
-- [ ] Parse car names from user input
-- [ ] Validate car names (non-empty, max 5 characters)
+- [x] Parse car names from user input
+- [x] Validate car names (non-empty, max 5 characters)
 - [ ] Parse and validate number of rounds
 - [ ] Generate random number per car per round
 - [ ] Move car forward if number ≥ 4
