@@ -97,4 +97,56 @@ class InputViewTest {
             inputView.getCars()
         }
     }
+    @Test
+    fun `attempt input is valid number`() {
+        // given
+        val input = "5\n"
+        setInput(input)
+        val inputView = InputView()
+
+        // when
+        val attempts = inputView.getAttempts()
+
+        // then
+        assertEquals(5, attempts)
+    }
+
+    @Test
+    fun `attempt input is not a number`() {
+        // given
+        val input = "five\n"
+        setInput(input)
+        val inputView = InputView()
+
+        // when & then
+        assertThrows(IllegalArgumentException::class.java){
+            inputView.getAttempts()
+        }
+    }
+
+    @Test
+    fun `attempt input is blank`() {
+        // given
+        val input = "\n"
+        setInput(input)
+        val inputView = InputView()
+
+        // when & then
+        assertThrows(IllegalArgumentException::class.java){
+            inputView.getAttempts()
+        }
+    }
+
+    @Test
+    fun `attempt input is negative number`() {
+        // given
+        val input = "-3\n"
+        setInput(input)
+        val inputView = InputView()
+
+        // when & then
+        assertThrows(IllegalArgumentException::class.java){
+            inputView.getAttempts()
+        }
+    }
 }
