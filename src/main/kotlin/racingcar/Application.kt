@@ -32,11 +32,22 @@ fun main() {
     // receive car names from user
     println("Enter the names of the cars (comma-separated):")
     val carNames = Console.readLine();
+    if (carNames.isBlank()) {
+        throw IllegalArgumentException()
+    }
+    
     val carNamesList = carNames.split(",").map { it.trim() }
+    if (carNamesList.any { it.length < 1 || it.length > 5 }) {
+        throw IllegalArgumentException()
+    }
 
     // receive round count from user
     val roundCount = Console.readLine().toInt()
     println("How many rounds will be played?")
+    
+    if (roundCount <= 0) {
+        throw IllegalArgumentException()
+    }
     
     // generate Cars
     val cars = carNamesList.map { Car(it) }
@@ -46,8 +57,7 @@ fun main() {
     simulateRace(cars, roundCount)
 
     // determine and declare winners
-    println("Winner(s):")
     val winners = determineWinners(cars)
-    println(winners.joinToString(", ") { it.name }) 
+    println("Winners : " + winners.joinToString(", ") { it.name }) 
 
 }
