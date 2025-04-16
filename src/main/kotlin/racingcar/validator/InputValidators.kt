@@ -16,6 +16,7 @@ object InputValidator {
 
         carNames.forEach { carName ->
             checkCarNameLength(carName)
+            checkCarNameOnlyLetterAndNumber(carName)
         }
     }
 
@@ -28,6 +29,12 @@ object InputValidator {
     private fun checkCarNameLength(carName: String) {
         if (carName.length < MIN_CAR_NAME_LENGTH || carName.length > MAX_CAR_NAME_LENGTH) {
             throw IllegalArgumentException("[ERROR] Car names must be within $MIN_CAR_NAME_LENGTH–$MAX_CAR_NAME_LENGTH characters.\n")
+        }
+    }
+
+    private fun checkCarNameOnlyLetterAndNumber(carName: String) {
+        if (!carName.all { it.isLetterOrDigit() }) {
+            throw IllegalArgumentException("[ERROR] Car names can only contain letters and numbers.\n")
         }
     }
 }
