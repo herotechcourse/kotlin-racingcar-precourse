@@ -19,7 +19,7 @@ object UserInput {
         println("How many rounds will be played?")
         val numberOfRounds =
             Console.readLine()?.toIntOrNull() ?: throw IllegalArgumentException("Invalid rounds number")
-
+        println()
         return numberOfRounds
     }
 }

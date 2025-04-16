@@ -9,6 +9,7 @@ class RacingGame(private val cars: List<Car>, private val round: Int) {
 
         val process = cars.map { Process(it.carName, "") }
 
+        println("Race Results")
         repeat(round) {
             cars.forEach { car ->
                 if (goingForward()) process.find { proc -> proc.carName == car.carName }?.apply {
