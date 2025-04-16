@@ -9,17 +9,13 @@ fun main() {
 
 class Application {
     fun run() {
-        try {
-            val carNames = inputCarNames()
-            val rounds = inputRounds()
+        val carNames = inputCarNames()
+        val rounds = inputRounds()
 
-            val cars = createCars(carNames)
-            val race = Race(cars, rounds)
+        val cars = createCars(carNames)
+        val race = Race(cars, rounds)
 
-            race.start()
-        } catch (e: IllegalArgumentException) {
-            println(e.message)
-        }
+        race.start()
     }
 
     private fun inputCarNames(): List<String> {
