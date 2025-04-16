@@ -8,4 +8,12 @@ class Car(name: String) {
             "Car name cannot exceed 5 characters, current name length: ${name.length} "
         }
     }
+
+    private var position = 0
+
+    fun move() {
+        position++
+    }
+
+    fun position() : Int = position
 }
