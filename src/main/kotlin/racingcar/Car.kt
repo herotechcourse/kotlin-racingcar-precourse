@@ -8,4 +8,10 @@ class Car(
     fun move() {
         position += 1
     }
+
+    companion object {
+        fun isValidName(name: String): Boolean {
+            return name.length <= 4
+        }
+    }
 }
