@@ -52,6 +52,25 @@ class CarsTest {
 
             assertThat(winners.map { it.name() }).containsExactly("a", "b")
         }
+
+        @Test
+        fun `snapshot should return a deep copied state of cars`() {
+            val names = listOf("a", "b", "c").map { CarName.from(it) }
+            val cars = Cars.of(names)
+
+            cars.moveIf { it.name() == "a" || it.name() == "b" }
+
+            val snapshot = cars.snapshot()
+
+            assertThat(cars.positions()).containsExactly(1, 1, 0)
+            assertThat(snapshot.positions()).containsExactly(1, 1, 0)
+
+            cars.moveIf { it.name() == "a" }
+
+            assertThat(cars.positions()).containsExactly(2, 1, 0)
+            assertThat(snapshot.positions()).containsExactly(1, 1, 0)
+        }
+
     }
 
     @Nested
