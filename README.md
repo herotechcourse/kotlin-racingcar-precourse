@@ -33,6 +33,8 @@
   - result has winners
   - features
     - print winners
+- Exception
+  - IllegalArgumentException and terminate. when inputs are invalid data.
 
 # Programming Requirements 1
 - Do not use System.exit() or exitProcess() to terminate the program.
