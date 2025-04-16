@@ -1,5 +1,7 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Console
+
 object InputView {
 
     fun parseCarNamesInput(carNamesInput: String): List<String> {
@@ -16,13 +18,13 @@ object InputView {
 
     fun readCarNamesInput(): String {
         println("Enter the names of the cars (comma-separated):")
-        return readln()
+        return Console.readLine()
     }
 
     fun readAndParseRoundCountInput(): Int {
 
         println("Number of rounds:")
-        val roundCount = readln().toIntOrNull() ?: throw IllegalArgumentException("Please enter a valid positive number")
+        val roundCount = Console.readLine().toIntOrNull() ?: throw IllegalArgumentException("Please enter a valid positive number")
         if (roundCount<=0) throw IllegalArgumentException("Number of rounds must be positive")
         return roundCount
 
