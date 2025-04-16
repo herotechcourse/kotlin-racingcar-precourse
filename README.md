@@ -24,6 +24,12 @@ pobi,woni,jun
 5
 ```
 ## Output
+
+- [x] Print prompt to enter car names (comma-separated)
+```kotlin
+Enter the names of the cars (comma-separated):
+```
+
 - [ ] Race results by round:
 ```kotlin
 pobi : --
