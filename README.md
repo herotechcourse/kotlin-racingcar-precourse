@@ -1,13 +1,26 @@
 # kotlin-racingcar-precourse
 
-- [] Car
-    - [] status
+- [x] Car
+    - [x] status
         - [x] name
         - [x] status
-    - [] behavior
+    - [x] behavior
         - [x] go
-            - [] check if fuel is enough
-- [] Fuel
-    - [] Random Number Generator
-        - [] make random number between 0~9
-        - [] fuel is enough when 4 or greater
+            - [x] check if fuel is enough
+- [x] Fuel
+    - [x] Random Number Generator
+        - [x] make random number between 0~9
+        - [x] fuel is enough when 4 or greater
+
+- [] input
+    - [] carNamesInput
+        - [] split car names input with (,)
+        - [] each slices must not be null, "", " "
+    - [] tryCountInput
+        - [] must not be null, "", " '
+        - [] must be number
+
+- [] CarNameDto
+    - [] names cannot exceed 5 characters
+- [] TryCountDto
+    - [] try count cannot exceed 1000
