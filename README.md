@@ -17,7 +17,7 @@
 
 ### ✅ Feature List
 
-- [ ]  Receive car names input
+- [x]  Receive car names input
 - [ ]  Validate car name format (length, characters, duplicates)
 - [ ]  Receive round count input
 - [ ]  Validate round count
@@ -26,6 +26,15 @@
 - [ ]  Display the movement of each car after every round
 - [ ]  Determine winner
 - [ ]  Display winner
+
+**validator**
+
+- [x] check empty input
+- [ ] check too many car names entered(100 or more)
+- [ ] cheek car name length is not within 1–5 characters
+- [ ] check car name contains characters other than English letters or digits
+- [ ] check duplicate car names
+- [ ] check number of rounds is not a valid positive integer
 
 ### ❌ Exceptions
 
