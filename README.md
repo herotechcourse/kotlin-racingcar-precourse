@@ -16,9 +16,8 @@
 ### RacingGame
 
 - The game runs for the specified number of rounds, and in each round, all cars move.
-- Once all rounds are completed, the **winner(s)** are determined and displayed.
-    - If multiple cars have the same final position, they are considered **joint winners**, and their names are displayed separated by commas.  
-      Example: `Winners : pobi, jun`
+- Once all rounds are completed, the **winner(s)** are determined.
+
 
 ---
 
@@ -36,10 +35,13 @@
 ---
 
 ### Output
-For each round, display the movement result of each car in the following format:
+- For each round, display the movement result of each car in the following format:
 ```
 pobi : ---
 jun  : ----
 alice: ---
 ```
+
+- If multiple cars have the same final position, they are considered **joint winners**, and their names are displayed separated by commas.  
+  Example: `Winners : pobi, jun`
 
