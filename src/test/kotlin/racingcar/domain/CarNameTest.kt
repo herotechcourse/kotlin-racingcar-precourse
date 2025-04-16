@@ -28,7 +28,7 @@ class CarNameTest {
             val exception = assertThrows<IllegalArgumentException> {
                 CarName.from(input)
             }
-            assertThat(exception.message).isEqualTo("[ERROR] Car Name cannot exceed 5 characters.")
+            assertThat(exception.message).isEqualTo(CarName.ERROR_EXCEED_LENGTH)
         }
     }
 }
