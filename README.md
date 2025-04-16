@@ -6,6 +6,7 @@
     - [x] Throw an `IllegalArgumentException` if the value is null or blank
 - [x] Read number of rounds
     - [x] Throw an `IllegalArgumentException` if the value is null or blank
+    - [x] Throw an `IllegalArgumentException` if the value is not a number
 
 ## Output
 
@@ -25,7 +26,6 @@
 
 - [] Validate the number of rounds must be betweem 1 and 10
     - [] Throw an `IllegalArgumentException` if the value is out of range
-    - [] Throw an `IllegalArgumentException` if the value is not a number
 
 - [] Generate a random number between 0 and 9 (use `Randoms.pickNumberInRange()`)
 - [] Move a car forward only if the randomly generated number is 4 or greater
