@@ -24,7 +24,7 @@ class Cars(names: List<String>){
 
     fun moveAll(){
         cars.forEach { car ->
-            val random=Randoms.pickNumberInRange(0,9)
+            val random=Randoms.pickNumberInRange(Rules.RANDOM_MIN, Rules.RANDOM_MAX)
             car.move(random)
         }
     }

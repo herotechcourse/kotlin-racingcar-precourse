@@ -2,12 +2,13 @@ package racingcar.view
 
 import camp.nextstep.edu.missionutils.Console
 import racingcar.exception.ExceptionMessage
+import racingcar.model.Rules
 
 object InputView{
     fun enterCarNames(): List<String> {
         println("Enter the names of the cars (comma-separated):")
         val input=Console.readLine()
-        val carNames = input.split(",")
+        val carNames = input.split(Rules.NAME_DELIMETER)
         Validator.validateCarNames(carNames)
         return carNames
     }

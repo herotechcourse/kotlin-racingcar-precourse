@@ -4,7 +4,7 @@ class Car(private val carName: CarName){
     private var position: Int=0
 
     fun move(random: Int){
-        if(random>=4){
+        if(random>=Rules.MOVE_THRESHOLD){
             position++
         }
     }

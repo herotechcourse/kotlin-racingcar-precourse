@@ -7,6 +7,6 @@ object Rules {
     const val RANDOM_MIN=0
     const val RANDOM_MAX=9
     const val MOVE_THRESHOLD=4
-    const val OUTPUT_SYMBOL='-'
-    const val NAME_DELIMETER=','
+    const val OUTPUT_SYMBOL="-"
+    const val NAME_DELIMETER=","
 }

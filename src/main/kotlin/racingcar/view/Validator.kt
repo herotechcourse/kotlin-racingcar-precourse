@@ -1,10 +1,11 @@
 package racingcar.view
 
 import racingcar.exception.ExceptionMessage
+import racingcar.model.Rules
 
 object Validator {
-    private const val MAX_CAR_COUNT = 100
-    private const val MAX_ROUND_COUNT = 500
+    private const val MAX_CAR_COUNT = Rules.MAX_CAR_COUNT
+    private const val MAX_ROUND_COUNT = Rules.MAX_ROUND_COUNT
     private val validCarNameRegex = Regex("^[a-zA-Z0-9]+$")
 
     fun validateCarNames(carNames: List<String>) {
@@ -50,7 +51,7 @@ object Validator {
         names.any { it.contains(" ") }
 
     private fun exceedsMaxLength(names: List<String>) =
-        names.any { it.length > 5 }
+        names.any { it.length > Rules.CAR_NAME_MAX_LENGTH }
 
     private fun hasDuplicate(names: List<String>) =
         names.toSet().size != names.size

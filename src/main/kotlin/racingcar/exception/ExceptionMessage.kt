@@ -1,5 +1,7 @@
 package racingcar.exception
 
+import racingcar.model.Rules
+
 enum class ExceptionMessage(val message: String) {
     EMPTY_CAR_NAME("[ERROR] Car name can't be blank."),
     INVALID_NAME_FORMAT("[ERROR] Car names must be comma-separated."),

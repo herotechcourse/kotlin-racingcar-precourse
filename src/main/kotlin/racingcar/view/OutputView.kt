@@ -1,6 +1,7 @@
 package racingcar.view
 
 import racingcar.model.Car
+import racingcar.model.Rules
 
 object OutputView {
     fun printRaceIntro() {
@@ -9,7 +10,7 @@ object OutputView {
 
     fun printRoundResult(cars: List<Car>){
         cars.forEach{
-            println("${it.name()} : ${"-".repeat(it.position())}")
+            println("${it.name()} : ${Rules.OUTPUT_SYMBOL.repeat(it.position())}")
         }
         println()
     }
