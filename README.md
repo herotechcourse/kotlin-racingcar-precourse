@@ -20,6 +20,7 @@
   - [x] `getSteps()` method (returns the current position of the car)
   - [x] Validation: The name attribute must not exceed 5 characters. If it does, an `IllegalArgumentException` is thrown.
 
+
 - [ ] Create `Race` class in order to:
   - [ ] Store list of `Car` instances
   - [ ] Store number of rounds
