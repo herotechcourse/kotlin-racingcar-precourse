@@ -42,6 +42,14 @@ fun generateRandomNumber(): Int {
     return Randoms.pickNumberInRange(0, 9)
 }
 
+fun customPrint(raceData: MutableMap<String, MutableList<Int>>) {
+    for ((car, progressList) in raceData) {
+        val progress = progressList.joinToString("") { if (it == 1) "-" else "" }
+        println("$car : $progress")
+    }
+    println("\n")
+}
+
 fun startRace(cars: List<String>, rounds: Int): MutableMap<String, MutableList<Int>> {
     val carMap = mutableMapOf<String, MutableList<Int>>()
 
@@ -57,6 +65,7 @@ fun startRace(cars: List<String>, rounds: Int): MutableMap<String, MutableList<I
                 carMap[car]?.set(i, 1) // Move forward in this round
             }
         }
+        customPrint(carMap)
     }
 
     return carMap
