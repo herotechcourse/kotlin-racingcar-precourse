@@ -1,4 +1,4 @@
-package racingcar.input
+package racingcar.ui
 
 import racingcar.car.Car
 import java.lang.IllegalArgumentException
