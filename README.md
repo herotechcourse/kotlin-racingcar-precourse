@@ -8,7 +8,7 @@ the pre-work missions.
 Here you can find the list of features proposed for implementation. This list may change over time while iterating 
 during the mission.
 
-- Display an input for the user to send the list of cars.
+- Display an input for the user to send the list of cars and rounds to race.
 - Create a function that stores the list of car names input by the user.
 - Create a validation function that checks if the car names are no longer than **five** characters and separated by a
 comma.
