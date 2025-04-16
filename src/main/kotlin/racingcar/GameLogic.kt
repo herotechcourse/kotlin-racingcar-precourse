@@ -25,7 +25,7 @@ object GameLogic {
         return roundResults
     }
 
-    fun moveCar(car: Car): Unit {
+    fun moveCar(car: Car) {
         val randomNumber =  Randoms.pickNumberInRange(0, 9)
 
         if (randomNumber >= 4) {

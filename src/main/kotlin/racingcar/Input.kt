@@ -17,10 +17,7 @@ object Input {
             throw IllegalArgumentException()
         }
         val parseNumber = number.toIntOrNull()
-        if (parseNumber == null) {
-            throw IllegalArgumentException()
-        }
-        if (parseNumber <= 0) {
+        if (parseNumber == null || parseNumber <= 0) {
             throw IllegalArgumentException()
         }
         return parseNumber

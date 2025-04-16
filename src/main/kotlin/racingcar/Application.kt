@@ -11,21 +11,24 @@ fun main() {
 }
 
 fun runRace() {
-    println("Enter the names of the cars (comma-separated):")
-    val carNamesInput = Console.readLine()
-    val carNames = Input.parseCarNames(carNamesInput)
+    val carNames = getCarNames()
+    val numberOfRounds = getNumberOfRounds()
 
     val cars = carNames.map { carName -> Car(carName) }
-
-    println("How many rounds will be played?")
-    val roundsInput = Console.readLine()
-    val numberOfRounds = Input.parseNumberOfRounds(roundsInput)
-
     val raceResults = GameLogic.logicRace(cars, numberOfRounds)
 
     Output.printResultsRound(raceResults)
+    Output.printWinners(GameLogic.searchWinners(cars))
+}
 
-    val winners = GameLogic.searchWinners(cars)
+fun getCarNames(): List<String> {
+    println("Enter the names of the cars (comma-separated):")
+    val carNamesInput = Console.readLine()
+    return Input.parseCarNames(carNamesInput)
+}
 
-    Output.printWinners(winners)
+fun getNumberOfRounds(): Int {
+    println("How many rounds will be played?")
+    val roundsInput = Console.readLine()
+    return Input.parseNumberOfRounds(roundsInput)
 }
