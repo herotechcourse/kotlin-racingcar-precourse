@@ -19,6 +19,11 @@ object InputView {
         // Split the input string by commas and trim whitespace
         val names = input.split(",").map { it.trim() }
 
+        // Validate that all names are not empty and up to 5 characters
+        require(names.all { it.isNotBlank() && it.length <= 5}) {
+            "Each car name must be not empty and up to 5 characters."
+        }
+
         return names
 
     }
