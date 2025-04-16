@@ -21,4 +21,28 @@ class InputViewTest {
         assertEquals(inputCarNames[1].name, "woni")
         assertEquals(inputCarNames[2].name, "jun")
     }
+
+    @Test
+    fun inputCarNamesTest_lengthExceed5_throwsException() {
+        assertThrows(IllegalArgumentException::class.java) {
+            inputView.inputCarNames("poooobi, wonnnni, juuuuun")
+        }
+    }
+
+    @Test
+    fun inputTryCountTest_rightCase() {
+        val inputTryCount = inputView.inputTryCount("3")
+        assertEquals(inputTryCount.count, 3)
+    }
+
+    @Test
+    fun inputTryCountTest_notInValidRange_throwsException() {
+
+        assertThrows(IllegalArgumentException::class.java) {
+            inputView.inputTryCount("0")
+        }
+        assertThrows(IllegalArgumentException::class.java) {
+            inputView.inputTryCount("1001")
+        }
+    }
 }

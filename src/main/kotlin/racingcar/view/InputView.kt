@@ -6,7 +6,7 @@ class InputView {
     fun input(): String {
         val input: String = Console.readLine()
         if (input.isBlank()) throw IllegalArgumentException("Input cannot be empty")
-        return input
+        return input.trim()
     }
 
     fun inputCarNames(input: String): List<CarNameDto> {
@@ -16,4 +16,13 @@ class InputView {
             .map { CarNameDto(it) }
     }
 
+    fun inputTryCount(input: String): TryCountDto {
+        val tryCount: Int
+        try {
+            tryCount = Integer.parseInt(input)
+        } catch (e: NumberFormatException) {
+            throw IllegalArgumentException("Input must be a valid integer")
+        }
+        return TryCountDto(tryCount)
+    }
 }
