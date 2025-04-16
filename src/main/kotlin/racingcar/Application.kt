@@ -1,5 +1,5 @@
 package racingcar
 
 fun main() {
-    println("Hello World")
+    println("ًRacing car project")
 }
