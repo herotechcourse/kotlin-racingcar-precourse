@@ -71,6 +71,22 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `car should move forward when random number is 4 or more`() {
+        val car = Car("test")
+        car.move(4)
+        car.move(5)
+        assertThat(car.position).isEqualTo(2)
+    }
+
+    @Test
+    fun `car should not move when random number is less than 4`() {
+        val car = Car("test")
+        car.move(3)
+        car.move(0)
+        assertThat(car.position).isEqualTo(0)
+    }
+
     override fun runMain() {
         main()
     }
