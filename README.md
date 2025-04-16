@@ -77,3 +77,35 @@ jun : --
   - To generate random values, use Randoms.pickNumberInRange() from camp.nextstep.edu.missionutils.Randoms.
   - To receive user input, use Console.readLine() from camp.nextstep.edu.missionutils.Console.
 - ex) `Randoms.pickNumberInRange(0, 9)`
+
+
+
+***
+## 📜 Test
+### 📌 Input Test
+#### Car Name Input
+- if the input is over 5 letters, throw IllegalArgumentException
+- if the input is empty, throw IllegalArgumentException
+- if the names are seperated with comma, get list names
+- if the names are duplicated, throw IllegalArgumentException
+
+#### Round Input
+- if the input is 0 or negative, throw IllegalArgumentException
+- if the input is not Integer, throw IllegalArgumentException
+
+### 📌 Car Move Test
+- Random value is equal or greater than 4, position bar get new bar("-")
+- Random value is less than 4, position does not change
+
+### 📌 Race Progress Test
+- Repeat the race as many times as the input number of rounds
+- Print the movement result of all cars in each round
+
+### 📌 Winner Decision Test
+- Select the cars that moved the farthest as the winner(s)
+- If there are multiple winners, print their names separated by commas
+- Check if the winner's name(s) are printed correctly
+
+### 📌 Exception Handling Test
+- Terminate the program when invalid input is entered
+- Check if IllegalArgumentException is thrown as expected
