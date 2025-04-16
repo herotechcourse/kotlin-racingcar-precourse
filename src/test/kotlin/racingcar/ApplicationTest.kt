@@ -31,8 +31,8 @@ class ApplicationTest : NsTest() {
     @Test
     fun `input test for valid car names`() {
         assertSimpleTest {
-            run("abc,de,fgh")
-            assertThat(output()).contains("Car names: [abc, de, fgh]")
+            run("abc,de,fgh", "5")
+            assertThat(output()).contains("Car names: [abc, de, fgh]", "Race count: 5")
         }
     }
 
@@ -47,6 +47,27 @@ class ApplicationTest : NsTest() {
     fun `input test for empty car name`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,,java", "1") }
+        }
+    }
+
+    @Test
+    fun `input test for non-numeric race count`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,woni", "three") }
+        }
+    }
+
+    @Test
+    fun `input test for zero race count`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,woni", "0") }
+        }
+    }
+
+    @Test
+    fun `input test for negative race count`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,woni", "-5") }
         }
     }
 

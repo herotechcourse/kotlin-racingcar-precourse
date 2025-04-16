@@ -1,9 +1,11 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
     val carNames = readCarNames()
+    val raceCount = readRaceCount()
+
     println("Car names: $carNames")
+    println("Race count: $raceCount")
 }
 
 fun readCarNames(): List<String> {
@@ -16,4 +18,16 @@ fun readCarNames(): List<String> {
     }
 
     return names
+}
+
+fun readRaceCount(): Int {
+    println("How many rounds will be played?")
+    val input = readLine() ?: throw IllegalArgumentException("Input cannot be null")
+
+    val number = input.toIntOrNull() ?: throw IllegalArgumentException("Must be a valid number.")
+    if (number <= 0) {
+        throw IllegalArgumentException("Must be a positive integer.")
+    }
+
+    return number
 }
