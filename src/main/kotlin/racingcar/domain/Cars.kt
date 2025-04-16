@@ -11,4 +11,10 @@ class Cars(val cars: List<Car>) {
             throw IllegalArgumentException("Car names must be unique.")
         }
     }
+
+    fun move() {
+        for (car in cars) {
+            car.move()
+        }
+    }
 }

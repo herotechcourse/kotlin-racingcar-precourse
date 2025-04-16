@@ -11,7 +11,7 @@
     * [x] The power is a random number between 0 and 9.
     * [x] The car moves forward if the power is 4 or greater.
 * [ ] The game must proceed for a given number of rounds.
-    * [ ] In each round, every car attempts to move once.
+    * [x] In each round, every car attempts to move once.
     * [ ] The result of each round (car positions) must be recorded.
 * [ ] After all rounds, determine the winner(s).
     * [ ] The winner is the car(s) that has moved the farthest.
