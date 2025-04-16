@@ -1,6 +1,8 @@
 package racingcar
 
 fun main() {
-    UserInput.getCarNames()
-    UserInput.getNumberOfRounds()
+    val carNames = UserInput.getCarNames()
+    val rounds = UserInput.getNumberOfRounds()
+
+    val cars = carNames.map { Car(it) }
 }

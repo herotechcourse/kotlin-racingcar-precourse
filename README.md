@@ -2,7 +2,7 @@
 
 ## Planned Features
 - [x] Get car names (separated by commas) and the number of rounds from the user
-- [ ] Validate car name input
+- [x] Validate car name input
     - Car name must NOT be empty
     - Each name must NOT exceed **5** characters
     - If the input is invalid, throw an IllegalArgumentException and terminate
