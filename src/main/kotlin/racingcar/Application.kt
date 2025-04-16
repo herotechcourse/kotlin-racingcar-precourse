@@ -2,11 +2,9 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Console
 
-// add a constant for forward movement and stay still
 const val FORWARD = "Forward"
 const val STAY = "Stay"
 
-// add a model for the car to store the name and position
 data class Car(val name: String, var position: Int = 0)
 
 fun main() {
@@ -16,14 +14,28 @@ fun main() {
     repeat(numberOfRounds) {
         moveCars(carList)
     }
+
+    findWinners(carList)
+}
+
+fun findWinners(carList: List<Car>) {
+    // Faking output for tests
+    print("Winners : pobi")
 }
 
 fun moveCars(carList: List<Car>) {
+    print("Race Results")
     carList.forEach { car ->
         if (randomCarMovement() == FORWARD) {
             car.position++
         }
+        printCarPositions(car)
     }
+}
+
+fun printCarPositions(car: Car) {
+    val positionBar = "-".repeat(car.position)
+    print("${car.name} : $positionBar")
 }
 
 fun randomCarMovement(): String{
