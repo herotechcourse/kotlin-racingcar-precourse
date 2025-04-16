@@ -7,7 +7,7 @@ var rounds: Int = 0
 
 fun main() {
     // Populate the global cars and rounds variables
-    cars = inputCarNames()
+    validateCarName()
     rounds = inputRoundCount()
     // Example usage of Randoms.pickNumberInRange()
     val randomValue = Randoms.pickNumberInRange(0, 9)
@@ -18,6 +18,17 @@ fun inputCarNames(): List<String> {
     println("Enter the names of the cars (comma-separated):")
     val cars = Console.readLine()
     return cars.split(",").map { it.trim() }
+}
+
+fun validateCarName() {
+    cars = inputCarNames()
+    for (i in cars) {
+        if (i.length > 5){
+
+     throw IllegalArgumentException("Car name cannot be more than 5 characters")
+        }
+    }
+    return
 }
 
 fun inputRoundCount(): Int {
