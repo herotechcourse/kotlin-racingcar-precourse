@@ -1,5 +1,12 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+
+    val carNamesInput = readCarNamesInput()
+
+}
+
+fun readCarNamesInput(): String {
+    println("Enter the names of the cars (comma-separated):")
+    return readln()
 }
