@@ -3,6 +3,7 @@ package racingcar
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.car.Car
 import racingcar.io.InputHandler
+import racingcar.io.OutputPrinter
 import racingcar.validator.InputValidator
 
 fun main() {
@@ -24,14 +25,12 @@ fun main() {
             if (randomNumber >= 4) {
                 car.moveForward()
             }
-            val movement = "-".repeat(car.position)
-            println("${car.name} : $movement")
+            OutputPrinter.printCarPosition(car.name, car.position)
         }
-        println()
-
+        OutputPrinter.printRoundSeparator()
     }
 
     val maxPosition = cars.maxOf { it.position }
     val winners = cars.filter { it.position == maxPosition }
-    println("Winners : ${winners.joinToString(", ") { it.name }}")
+    OutputPrinter.printWinners(winners.map { it.name })
 }

@@ -1,8 +1,10 @@
 package racingcar.io
 
+const val MOVEMENT_SYMBOL = "-"
+
 object OutputPrinter {
     fun printCarPosition(carName: String, position: Int) {
-        val movement = "-".repeat(position)
+        val movement = MOVEMENT_SYMBOL.repeat(position)
         println("$carName : $movement")
     }
 

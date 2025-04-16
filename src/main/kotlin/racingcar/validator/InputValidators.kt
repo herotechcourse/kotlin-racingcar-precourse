@@ -1,8 +1,8 @@
 package racingcar.validator
 
-val MAX_CAR_COUNT = 100
-val MAX_CAR_NAME_LENGTH = 5
-val MIN_CAR_NAME_LENGTH = 1
+const val MAX_CAR_COUNT = 100
+const val MAX_CAR_NAME_LENGTH = 5
+const val MIN_CAR_NAME_LENGTH = 1
 
 object InputValidator {
     fun checkEmptyInput(input: String?) {
@@ -57,6 +57,3 @@ object InputValidator {
         }
     }
 }
-
-
-
