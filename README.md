@@ -14,4 +14,4 @@ Hero Tech Course 2025 Precourse Week 1 Mission
     - Use factory function to instantiate (private primary constructor)
     - Car name: Ignore leading and trailing spaces
     - Number of rounds: Throw `IllegalArgumentException` for errors during converting (e.g., `NumberFormatException`)
-    - Number of rounds: Max acceptable value: max signed 32-bit integer (= 2,147,483,647)
+    - Number of rounds: Max acceptable value: Int.MAX_VALUE (= 2,147,483,647)
