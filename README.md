@@ -2,10 +2,10 @@
 
 - [] Car
     - [] status
-        - [] name
-        - [] status
+        - [x] name
+        - [x] status
     - [] behavior
-        - [] go
+        - [x] go
             - [] check if fuel is enough
 - [] Fuel
     - [] Random Number Generator

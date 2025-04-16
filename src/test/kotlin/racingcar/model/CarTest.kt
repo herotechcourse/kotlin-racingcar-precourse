@@ -7,10 +7,12 @@ import org.junit.jupiter.api.Test
 class CarTest {
 
     private lateinit var car: Car
+    private lateinit var fuel: Fuel
 
     @BeforeEach
     fun setUp() {
-        car = Car("avant")
+        fuel = GasStation()
+        car = Car("avant", fuel = fuel)
     }
 
 
