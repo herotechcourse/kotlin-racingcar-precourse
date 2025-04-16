@@ -4,7 +4,7 @@
 
 - [x] Parse car names from user input
 - [x] Validate car names (non-empty, max 5 characters)
-- [ ] Parse and validate number of rounds
+- [x] Parse and validate number of rounds
 - [ ] Generate random number per car per round
 - [ ] Move car forward if number ≥ 4
 - [ ] Display progress after each round
