@@ -1,9 +1,10 @@
 # kotlin-racingcar-precourse
 
 ## Feature List
-- Car has a name that does not exceed 5 characters
-- Car can move forward
-- Car can stay still
+- Car
+  - [x] Car has a name that does not exceed 5 characters
+  - [ ] Car can move forward
+  - [ ] Car can stay still
 
 ## Functional Requirements
 Implement a simple car racing game with the following rules:
