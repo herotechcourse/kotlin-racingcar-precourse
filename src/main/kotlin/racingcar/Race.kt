@@ -18,4 +18,20 @@ class Race(
             println(car.getProgress())
         }
     }
+
+    fun displayWinners() {
+        val sortedCars = cars.sortedByDescending { it.position }
+
+        val bestPosition = sortedCars[0].position
+        var winners = mutableListOf(sortedCars[0].name)
+        for (i in 1 until sortedCars.size) {
+            if (sortedCars[i].position == bestPosition) {
+                winners.add(sortedCars[i].name)
+            } else {
+                break
+            }
+        }
+        val winnersStr=winners.joinToString(", ")
+        println("Winners : $winnersStr")
+    }
 }

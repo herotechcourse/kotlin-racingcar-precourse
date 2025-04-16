@@ -22,5 +22,6 @@ fun main() {
     
     val race=Race(rounds,cars)
     race.run()
+    race.displayWinners()
 
 }
