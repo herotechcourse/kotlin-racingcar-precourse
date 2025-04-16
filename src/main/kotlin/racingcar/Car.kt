@@ -2,7 +2,7 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class Car(private val name: String) {
+class Car(val name: String) {
 
     var position = 0
 
