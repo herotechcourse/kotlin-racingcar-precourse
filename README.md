@@ -22,19 +22,19 @@ A Simple Car Racing Game Application built with Kotlin.
 
 ## 🔄 Progress Log
 
-| Feature                                                          | Status    | Branch                         |
-|------------------------------------------------------------------|-----------|--------------------------------|
-| User Validation of car names                                     | ✅ Done    | `feature/car-name-validation`  |
-| Input Handling for car names                                     | ✅ Done    | `feature/car-name-input`       |
-| User Validation for number of rounds                             | ✅ Done    | `feature/rounds-validation`    |
-| Car and Race models for race simulation                          | ✅ Done    | `feature/car-object`           |
-| Random movement logic per each round                             | ✅ Done    | `feature/random-movement`      |
-| Game engine to simulate rounds and update positions              | ✅ Done    | `feature/game-engine`          |
-| Store Output race progress per round                             | ✅ Done    | `feature/output-round-results` |
-| Determine winners based on distance covered                      | ✅ Done    | `feature/determine-winners`    |
-| Display winners                                                  | ⏳ Planned | `feature/display-winners`      |
-| Error handling with `IllegalArgumentException` for invalid input | 🚧 WIP    | `feature/error-handling`       |
-| Unit tests using **JUnit 5** + **AssertJ**                       | 🚧 WIP    | `test/unit-tests`              |
+| Feature                                                          | Status  | Branch                         |
+|------------------------------------------------------------------|---------|--------------------------------|
+| User Validation of car names                                     | ✅ Done  | `feature/car-name-validation`  |
+| Input Handling for car names                                     | ✅ Done  | `feature/car-name-input`       |
+| User Validation for number of rounds                             | ✅ Done  | `feature/rounds-validation`    |
+| Car and Race models for race simulation                          | ✅ Done  | `feature/car-object`           |
+| Random movement logic per each round                             | ✅ Done  | `feature/random-movement`      |
+| Game engine to simulate rounds and update positions              | ✅ Done  | `feature/game-engine`          |
+| Store Output race progress per round                             | ✅ Done  | `feature/output-round-results` |
+| Determine winners based on distance covered                      | ✅ Done  | `feature/determine-winners`    |
+| Display winners                                                  | ✅ Done  | `feature/display-winners`      |
+| Error handling with `IllegalArgumentException` for invalid input | 🚧 WIP  | `feature/error-handling`       |
+| Unit tests using **JUnit 5** + **AssertJ**                       | 🚧 WIP  | `test/unit-tests`              |
 
 ---
 
