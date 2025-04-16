@@ -25,13 +25,13 @@
 ### Input
 
 - The user is prompted to enter a **comma-separated list of car names**.
+  - Car Names: A comma-separated list of car names (each name up to 5 characters).
+  - Example input: ```"pobi, jun, alice"```
 - The user is prompted to enter the **number of rounds**.
+  - Rounds: A positive integer representing the number of rounds to play.
+  - Example input: ```5```
 - If any input is invalid, the program throws an `IllegalArgumentException` and terminates.
 
-- Car Names: A comma-separated list of car names (each name up to 5 characters).
-  - Example input: "pobi, jun, alice"
-- Rounds: A positive integer representing the number of rounds to play.
-  - Example input: 5
 
 ---
 
