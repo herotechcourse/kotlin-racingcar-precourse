@@ -10,8 +10,8 @@ class CarsTest {
     inner class `Success` {
 
         @Test
-        fun `create cars from list of names`() {
-            val names = listOf("pobi", "woni", "jun")
+        fun `create cars from list of CarNames`() {
+            val names = listOf("pobi", "woni", "jun").map { CarName.from(it) }
             val cars = Cars.of(names)
 
             assertThat(cars.names()).containsExactly("pobi", "woni", "jun")
@@ -20,7 +20,7 @@ class CarsTest {
 
         @Test
         fun `move cars conditionally`() {
-            val names = listOf("pobi", "woni", "jun")
+            val names = listOf("pobi", "woni", "jun").map { CarName.from(it) }
             val cars = Cars.of(names)
 
             cars.moveIf { it.name() == "woni" }
@@ -31,7 +31,7 @@ class CarsTest {
 
         @Test
         fun `return winners with max position`() {
-            val names = listOf("a", "b", "c")
+            val names = listOf("a", "b", "c").map { CarName.from(it) }
             val cars = Cars.of(names)
 
             cars.moveIf { it.name() == "b" || it.name() == "c" }
@@ -44,7 +44,7 @@ class CarsTest {
 
         @Test
         fun `multiple cars can win if they have the same position`() {
-            val names = listOf("a", "b")
+            val names = listOf("a", "b").map { CarName.from(it) }
             val cars = Cars.of(names)
 
             cars.moveIf { true }
