@@ -1,8 +1,9 @@
 package racingcar
 
-class Car(private val name: String) {
+class Car(val name: String) {
 
-    private var position = 0
+    var position = 0
+        private set
 
     companion object {
         const val MAX_NAME_LENGTH = 5
