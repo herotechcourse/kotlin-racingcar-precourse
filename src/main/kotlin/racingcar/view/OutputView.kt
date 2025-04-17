@@ -15,4 +15,9 @@ object OutputView {
         }
         println()
     }
+
+    fun displayWinner(winners: List<Car>) {
+        print("Winners : ")
+        print(winners.joinToString(", ") { it.name })
+    }
 }
