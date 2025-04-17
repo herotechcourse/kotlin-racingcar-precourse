@@ -12,13 +12,15 @@ fun main() {
 
     //3. function: make random result (carNames, numbersOfRounds)
     println("\nRace Results")
-    playRace(carNames,numberOfRounds)
+    val carPositions = playRace(carNames, numberOfRounds)
 
     //4. print racing result (player names, random function)
+    //TODO: refactoring ?
 
     //5. calculate who wins
-
+    //TODO: refactoring ?
     //6. print winner
+    printWinners(carPositions)
 }
 
 fun readCarNames(): List<String>? {
@@ -57,7 +59,7 @@ fun readNumberOfRounds(): Int {
     return number
 }
 
-fun playRace(carNames: List<String>?, numberOfRounds: Int) {
+fun playRace(carNames: List<String>?, numberOfRounds: Int): Map<String, Int> {
     // where cars at, Map
     val carPositions = mutableMapOf<String, Int>()
     carNames?.forEach { carPositions[it] = 0 }
@@ -76,4 +78,17 @@ fun playRace(carNames: List<String>?, numberOfRounds: Int) {
         }
         println()
     }
+    return carPositions
+}
+
+
+fun printWinners(carPositions: Map<String, Int>) {
+    val maxPosition = carPositions.values.maxOrNull()
+        ?: throw IllegalArgumentException("No cars to evaluate.")
+
+    val winners = carPositions.filter { it.value == maxPosition }
+        .keys
+        .joinToString(", ")
+
+    println("Winners : $winners")
 }
