@@ -13,4 +13,9 @@ class Cars(private val cars: List<Car>) {
             }
         }
     }
+
+    // returns a copy of the car list so the outside can't change the original
+    fun getCars(): List<Car> {
+        return cars.toList()
+    }
 }
