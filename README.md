@@ -8,10 +8,11 @@ You will implement a console-based racing car game where users input car names a
 ## ✅ Feature Checklist
 
 ### 🚗 Input Handling
-- [ ] Receive car names input (comma-separated string)
-- [ ] Validate car names  
-  - [ ] Each name must be at least 1 and at most **5 characters long**  
-  - [ ] Names must not be empty or contain only whitespace
+- [X] Receive car names input ('InputCarNames')
+  - [X] comma-separated string (,)
+- [X] Validate car names  
+  - [X] Each name must be at least 1 and at most **5 characters long**  
+  - [X] Names must not be empty or contain only whitespace
 - [ ] Receive number of attempts input
 - [ ] Validate number of attempts  
   - [ ] Trim leading/trailing spaces before validation  

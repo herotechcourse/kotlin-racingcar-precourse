@@ -9,13 +9,17 @@ data class Car(
     }
 
     private fun isMovable(): Boolean {
-
         return false
     }
 
     companion object {
         fun validateCar(name: String) {
-
+            if (name.isBlank()) {
+                throw IllegalArgumentException("Car name cannot be blank.")
+            }
+            if (name.length > 5) {
+                throw IllegalArgumentException("Car name must be 5 characters or fewer.")
+            }
         }
     }
 }
