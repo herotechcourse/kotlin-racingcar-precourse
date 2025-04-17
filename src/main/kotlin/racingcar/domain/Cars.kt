@@ -4,9 +4,11 @@ class Cars private constructor(
     private val cars: List<Car>
 ) {
 
-    fun moveIfSatisfied(condition: (Car) -> Boolean): Cars {
-        cars.filter(condition).forEach { it.forward() }
-        return this
+    fun movedIfSatisfied(condition: (Car) -> Boolean): Cars {
+        val movedCars = cars.map { car ->
+            if (condition(car)) car.forwarded() else car
+        }
+        return Cars(movedCars)
     }
 
     fun names(): List<String> = cars.map { it.name() }
@@ -21,11 +23,6 @@ class Cars private constructor(
 
     fun formatEachCarWith(formatter: (String, Int) -> String): List<String> {
         return cars.map { formatter(it.name(), it.position()) }
-    }
-
-    fun roundResult(): Cars {
-        val copied = cars.map { it.copy() }
-        return Cars(copied)
     }
 
     companion object {

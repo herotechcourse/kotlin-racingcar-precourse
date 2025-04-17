@@ -23,9 +23,9 @@ class CarsTest {
         @Test
         fun `move cars conditionally`() {
             val names = listOf("pobi", "woni", "jun").map { CarName.from(it) }
-            val cars = Cars.of(names)
+            var cars = Cars.of(names)
 
-            cars.moveIfSatisfied { it.name() == "woni" }
+            cars = cars.movedIfSatisfied { it.name() == "woni" }
 
             assertThat(cars.names()).containsExactly("pobi", "woni", "jun")
             assertThat(cars.positions()).containsExactly(0, 1, 0)
@@ -34,10 +34,10 @@ class CarsTest {
         @Test
         fun `return winners with max position`() {
             val names = listOf("a", "b", "c").map { CarName.from(it) }
-            val cars = Cars.of(names)
+            var cars = Cars.of(names)
 
-            cars.moveIfSatisfied { it.name() == "b" || it.name() == "c" }
-            cars.moveIfSatisfied { it.name() == "c" }
+            cars = cars.movedIfSatisfied { it.name() == "b" || it.name() == "c" }
+            cars = cars.movedIfSatisfied { it.name() == "c" }
 
             val winners = cars.winners()
 
@@ -47,9 +47,10 @@ class CarsTest {
         @Test
         fun `multiple cars can win if they have the same position`() {
             val names = listOf("a", "b").map { CarName.from(it) }
-            val cars = Cars.of(names)
+            var cars = Cars.of(names)
 
-            cars.moveIfSatisfied { true }
+            cars = cars.movedIfSatisfied { true }
+
             val winners = cars.winners()
 
             assertThat(winners.map { it.name() }).containsExactly("a", "b")
@@ -58,21 +59,17 @@ class CarsTest {
         @Test
         fun `roundResult should return a deep copied state of cars`() {
             val names = listOf("a", "b", "c").map { CarName.from(it) }
-            val cars = Cars.of(names)
+            var cars = Cars.of(names)
 
-            cars.moveIfSatisfied { it.name() == "a" || it.name() == "b" }
+            cars = cars.movedIfSatisfied { it.name() == "a" || it.name() == "b" }
 
-            val roundResult = cars.roundResult()
+            val roundResult = cars
 
-            assertThat(cars.positions()).containsExactly(1, 1, 0)
-            assertThat(roundResult.positions()).containsExactly(1, 1, 0)
-
-            cars.moveIfSatisfied { it.name() == "a" }
+            cars = cars.movedIfSatisfied { it.name() == "a" }
 
             assertThat(cars.positions()).containsExactly(2, 1, 0)
             assertThat(roundResult.positions()).containsExactly(1, 1, 0)
         }
-
     }
 
     @Nested
