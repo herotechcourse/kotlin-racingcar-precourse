@@ -1,6 +1,7 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
     Application().run()
@@ -10,7 +11,14 @@ class Application {
     fun run() {
         val carNames = readCarNames()
         val roundCount = readRoundCount()
-        println("Round count: $roundCount") // Temporary debug output
+        val cars = carNames.map { Car(it) }
+
+        println("\nRace Results (first round only)")
+        raceOnce(cars)
+
+        for (car in cars) {
+            println("${car.name} : ${"-".repeat(car.position)}")
+        }
     }
 
     private fun readCarNamesInput(): String {
@@ -38,5 +46,13 @@ class Application {
         val input = readRoundCountInput().trim()
         return input.toIntOrNull()?.takeIf { it > 0 }
             ?: throw IllegalArgumentException("Number of rounds must be a positive integer.")
+    }
+
+    private fun raceOnce(cars: List<Car>) {
+        for (car in cars) {
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                car.move()
+            }
+        }
     }
 }
