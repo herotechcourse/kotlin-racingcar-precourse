@@ -8,7 +8,7 @@ object Simulation {
       println("\n--- Round $round")
       runSingleRound(cars)
     }
-    declareWinner(cars)
+    println("${raceResult(cars)}")
   }
 
   private fun runSingleRound(cars: List<Car>) {
@@ -18,10 +18,14 @@ object Simulation {
     }
   }
 
-  private fun declareWinner(cars: List<Car>){
-    val longestRun = cars.maxOf { it.position } // TODO: if max is 0, should i return an error or something else?
-    val winner = cars.filter { it.position == longestRun }
-    val winnerNames = winner.joinToString(", ") { it.name }
-    println("\nWinner${if (winner.size > 1) "s" else ""}: $winnerNames")
+  private fun raceResult(cars: List<Car>): String {
+    val longestRun = cars.maxOf { it.position }
+    if (longestRun == 0) {
+      return "Probability struck: no car moved and no winner could be declared!"
+    } else {
+      val winners = cars.filter { it.position == longestRun }
+      val winnerNames = winners.joinToString(", ") { it.name }
+      return "Winner${if (winners.size > 1) "s" else ""}: $winnerNames"
+    }
   }
 }
