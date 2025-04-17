@@ -20,5 +20,5 @@
 
 ### Game tracker Features:
 
-- After each round the game shows ∏e current progress of each car.
+- After each round the game shows the current progress of each car.
 - When the racing ends (no more rounds) display the winner(s).
