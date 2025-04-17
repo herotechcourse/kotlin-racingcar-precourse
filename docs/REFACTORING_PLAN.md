@@ -24,4 +24,5 @@
 - [x] MOVE_SYM='-'
 
 ### Thoughts
-- [x] What if car's moving strategy changes in the future? Right now, 'Cars' have too many role: Car list + generating random number + handling movement. I think it would be better to seperate the concerns of managing Car list and apply the movement strategy.  
+- [x] What if car's moving strategy changes in the future? Right now, 'Cars' have too many role: Car list + generating random number + handling movement. I think it would be better to seperate the concerns of managing Car list and apply the movement strategy. 
+- [x] What if winner selection strategy changes in teh future? Right now, 'Cars' decides the winners based on the highest position. If the rule changes, the logic must be changed inside Cars. I think it would be better to seperate winner selection logic.

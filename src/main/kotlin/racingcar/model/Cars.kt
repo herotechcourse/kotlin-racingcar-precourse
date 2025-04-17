@@ -2,7 +2,8 @@ package racingcar.model
 
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.exception.ExceptionMessage
-import racingcar.strategy.MoveStrategy
+import racingcar.strategy.move.MoveStrategy
+import racingcar.strategy.winner.WinnerStrategy
 
 class Cars(names: List<String>){
     private val rawNames: List<String> = names
@@ -29,8 +30,7 @@ class Cars(names: List<String>){
 
     fun getAll(): List<Car> = cars
 
-    fun findWinners():List<Car>{
-        val max=cars.maxOf{it.position()}
-        return cars.filter{it.isWinner(max)}
+    fun findWinners(strategy: WinnerStrategy):List<Car>{
+        return strategy.selectWinners(cars)
     }
 }

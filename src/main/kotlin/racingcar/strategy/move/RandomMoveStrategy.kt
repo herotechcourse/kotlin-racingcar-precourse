@@ -1,4 +1,4 @@
-package racingcar.strategy
+package racingcar.strategy.move
 
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.model.Rules

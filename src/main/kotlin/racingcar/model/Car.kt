@@ -1,6 +1,6 @@
 package racingcar.model
 
-import racingcar.strategy.MoveStrategy
+import racingcar.strategy.move.MoveStrategy
 
 class Car(private val carName: CarName){
     private var position: Int=0
@@ -14,8 +14,4 @@ class Car(private val carName: CarName){
     fun name(): String = carName.toString()
 
     fun position(): Int = position
-
-    fun isWinner(maxPosition: Int):Boolean {
-        return position==maxPosition
-    }
 }
