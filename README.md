@@ -5,7 +5,7 @@
 - [x] Validate that input isn't empty or weird ( 5 chars max per name, or empty), if it is throw an IllegalArgumentException and terminate.
 - [x] Ask how many rounds to run
 - [x] Validate the rounds input ensure its a number
-- [ ] Implement logic to randomly determine if a car moves in each round (based on a random number between 4 and 9).
+- [x] Implement logic to randomly determine if a car moves in each round (based on a random number between 4 and 9).
 - [ ] If a car moves, show it with a `-` next to its name
 - [ ] Show the race progress after each round
 - [ ] At the end, show the winner(s) — can be more than one

@@ -25,13 +25,28 @@ fun validateRounds(input: String): Int {
     return rounds
 }
 
+fun race(cars:List<String>, carProgress:MutableMap<String, Int>){
+    cars.forEach { car ->
+        val randomNumber = Randoms.pickNumberInRange(0, 9)
+        if (randomNumber in 4..9){
+            carProgress[car] = (carProgress[car] ?: 0) + 1
+        }
+    }
+}
+
+fun startRace(cars:List<String>, rounds: Int){
+    val carProgress = mutableMapOf<String, Int>()
+    cars.forEach { car -> carProgress[car] = 0 }
+    for (i in 1..rounds) {
+        race(cars, carProgress)
+    }
+}
+
 fun main() {
     val namesInput = prompt("Enter names of cars (max 5 chars): e.g. mike,mary,mo: ")
-    val names = validateCarNames(namesInput)
+    val cars = validateCarNames(namesInput)
 
     val roundsInput = prompt("Enter number of rounds to race: ")
     val rounds = validateRounds(roundsInput)
-
-    names.forEach { println(it) }
-    println(rounds)
+    startRace(cars, rounds)
 }
