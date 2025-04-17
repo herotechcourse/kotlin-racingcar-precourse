@@ -11,8 +11,7 @@ class RaceProgressFormatterTest {
     fun `format cars into progress strings`() {
         val carNames = listOf("pobi", "woni", "jun").map { CarName.from(it) }
         val cars = Cars.of(carNames)
-
-        cars.moveIfSatisfied { it.name() != "jun" }
+            .movedIfSatisfied { it.name() != "jun" }
 
         val formatter = RaceProgressFormatter()
         val result = formatter.format(cars)
@@ -24,3 +23,4 @@ class RaceProgressFormatterTest {
         )
     }
 }
+
