@@ -10,6 +10,7 @@
 - print, Number of rounds
 - print, playerCar state
 - print, blank line
+- print, winners
 
 # PlayerCar-Domain
 - define PlayerCar property
