@@ -33,8 +33,7 @@ class CarRace(private val cars: List<Car>, private val rounds: Int) {
     private fun moveOrStand() {
         for (car in cars) {
             val move = Randoms.pickNumberInRange(0,9)
-            if (move >= 4)
-                car.position++
+            car.move((move >= 4))
         }
     }
 
