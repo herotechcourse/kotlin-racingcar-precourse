@@ -14,5 +14,9 @@ class Car private constructor(
         fun from(carName: CarName): Car {
             return Car(carName, Position.from())
         }
+
+        fun copyOf(car: Car): Car {
+            return Car(car.carName, car.position)
+        }
     }
 }
