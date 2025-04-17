@@ -1,8 +1,8 @@
 package racingcar
 
 fun main() {
-  var carList = getCarNames()
-  var totalRounds = getTotalRounds()
-  val cars = carList.map { Car(it) }
-  Simulation.race(cars, totalRounds)
+  val carNames = InputHandler.getCarNames()
+  val totalRounds = InputHandler.getTotalRounds()
+  val carList = carNames.map { Car(it) }
+  Simulation.race(carList, totalRounds)
 }
