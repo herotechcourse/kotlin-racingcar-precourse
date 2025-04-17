@@ -25,17 +25,24 @@ fun validateRounds(input: String): Int {
     return rounds
 }
 
+fun printDashes(number: Int): String {
+    return "-".repeat(number)
+}
+
 fun race(cars:List<String>, carProgress:MutableMap<String, Int>){
     cars.forEach { car ->
         val randomNumber = Randoms.pickNumberInRange(0, 9)
         if (randomNumber in 4..9){
             carProgress[car] = (carProgress[car] ?: 0) + 1
         }
+        println("$car : ${printDashes(carProgress[car]?:0)}")
     }
+    println()
 }
 
 fun startRace(cars:List<String>, rounds: Int){
     val carProgress = mutableMapOf<String, Int>()
+    println("Race Results")
     cars.forEach { car -> carProgress[car] = 0 }
     for (i in 1..rounds) {
         race(cars, carProgress)
