@@ -62,5 +62,22 @@ class CarRacing {
             throw IllegalArgumentException("Invalid number of rounds")
         }
     }
+    private fun moveAllCars(cars: List<Car>) {
+        cars.forEach { car ->
+            val randomNumber = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM)
+            if (randomNumber >= FORWARD_THRESHOLD) {
+                car.moveForward()
+            }
+        }
+    }
     
+}
+
+class Car(val name: String) {
+    var position: Int = 0
+        private set
+
+    fun moveForward() {
+        position++
+    }
 }
