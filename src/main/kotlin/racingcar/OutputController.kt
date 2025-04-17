@@ -23,5 +23,9 @@ object OutputController {
         println()
     }
 
+    fun printBlankLine() {
+        println()
+    }
+
 
 }
