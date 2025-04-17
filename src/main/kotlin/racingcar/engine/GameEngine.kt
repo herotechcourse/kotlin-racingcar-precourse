@@ -1,7 +1,7 @@
 package racingcar.engine
 
-import racingcar.race.Race
 import racingcar.car.Car
+import racingcar.race.Race
 
 import racingcar.results.CarResult
 
@@ -29,5 +29,22 @@ class GameEngine(private val race: Race, private val randomMovement: (Car) -> Un
 
     // Get the round results after the race has finished
     fun getRoundResults(): List<List<CarResult>> = roundResults
+
+    // Companion object for Game Engine
+    companion object {
+        // Initialize Game Engine and start the race
+        fun startGameEngine(cars: List<Car>, totalRounds: Int, randomMovement: (Car) -> Unit): GameEngine {
+
+            // Create a race with a total number of rounds
+            val race = Race(cars, totalRounds)
+
+            // Create a GameEngine instance
+            val gameEngine = GameEngine(race, randomMovement)
+
+            // Start the race
+            gameEngine.startRace()
+            return gameEngine
+        }
+    }
 
 }
