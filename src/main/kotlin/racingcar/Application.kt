@@ -3,8 +3,6 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
-class Games(var challengers: String, var rounds: String) {
-}
 
 class Car(val name: String) {
     var currentPosition: Int = 0
