@@ -14,7 +14,7 @@ Users input car names and number of rounds, and each car moves forward based on 
 - [x] Prompt user for car names (comma-separated)
 - [x] Validate that all car names are non-empty and max 5 characters
 - [x] Prompt user for number of rounds
-- [ ] Validate that round count is a positive number
+- [x] Validate that round count is a positive number
 - [ ] Each round:
     - [ ] Cars move forward only if random number (0–9) ≥ 4
     - [ ] Display each car's progress using `-`
