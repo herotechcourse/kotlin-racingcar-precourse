@@ -26,7 +26,13 @@ class Race {
         }
     }
 
-    fun advanceRounds() {
+    fun run() {
+        while (this.rounds > 0) {
+            this.advanceRounds()
+        }
+    }
+
+    private fun advanceRounds() {
         for (car in cars) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 car.increaseProgress()
