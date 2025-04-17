@@ -1,12 +1,12 @@
 ## Project Definition
 Implement a simple car racing game.
 
-## Functional Requirements
+## Feature Requirements
 ### Input data
-- [ ] The user can input car names.  
-  - [ ] Car names are separated by commas.  
-  - [ ] Each car must have a name, and the name must not exceed 5 characters.  
-- [ ] The user can input the number of rounds.
+- [x] The user can input car names.  
+  - [x] Car names are separated by commas.  
+  - [x] Each car must have a name, and the name must not exceed 5 characters.  
+- [x] The user can input the number of rounds.
 
 ### Output data
 - [ ] After each round, print the car’s name and its progress.  
