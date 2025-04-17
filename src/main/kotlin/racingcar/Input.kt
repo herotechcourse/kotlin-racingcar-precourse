@@ -28,4 +28,12 @@ class Input {
         }
         return names
     }
+
+    fun getRound(input: String): Int {
+        val round: Int = input.toInt()
+        if (round < 1) {
+            throw IllegalArgumentException("round should be positive number")
+        }
+        return round
+    }
 }

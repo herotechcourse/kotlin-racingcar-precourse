@@ -16,32 +16,71 @@ import org.junit.jupiter.api.Test
 class InputTest {
     private val input = Input()
 
+    // Name Input Case
     @Test
-    fun successCase() {
+    fun nameInputSuccessCase() {
         val names = input.getNames("alex, bob, kate")
         assertEquals(listOf("alex", "bob", "kate"), names)
     }
 
     @Test
     @DisplayName("if some names are same, throw exception")
-    fun failCase1() {
+    fun nameInputFailCase1() {
         assertThatThrownBy { input.getNames("alex, bob, alex") }
             .hasMessage("There is duplicated name")
     }
 
     @Test
     @DisplayName("if the car name's letter is under 5, get name list")
-    fun failCase2() {
+    fun nameInputFailCase2() {
         assertThatThrownBy { input.getNames("alex, bobby, kate") }
             .hasMessage("name should be under 5 letters")
     }
 
     @Test
     @DisplayName("name is empty")
-    fun failCase3() {
+    fun nameInputFailCase3() {
         assertThatThrownBy { input.getNames(" , bob, kate") }
             .hasMessage("name is empty")
     }
 
+
+    // Round Input Case
+    @Test
+    fun roundInputSeccessCase() {
+        val round = input.getRound("3");
+        assertEquals(3, round)
+    }
+
+    @Test
+    @DisplayName("round cannot be converted to Integer")
+    fun roundInputFailCase1() {
+        assertThatThrownBy {
+            input.getRound("0.1")
+        }.isInstanceOf(NumberFormatException::class.java)
+    }
+
+    @Test
+    @DisplayName("round cannot be converted to Integer")
+    fun roundInputFailCase2() {
+        assertThatThrownBy {
+            input.getRound("Not number")
+        }.isInstanceOf(NumberFormatException::class.java)
+
+    }
+
+    @Test
+    @DisplayName("round is 0")
+    fun roundInputFailCase3() {
+        assertThatThrownBy { input.getRound("0") }
+            .hasMessage("round should be positive number")
+    }
+
+    @Test
+    @DisplayName("round should be positive number")
+    fun nameInputFailCase4() {
+        assertThatThrownBy { input.getRound("-2") }
+            .hasMessage("round should be positive number")
+    }
 
 }
