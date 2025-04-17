@@ -96,6 +96,19 @@ This program simulates a car race where one or more cars win the race based on t
 ### Phase 6: **Test Cases**
    - **Goal**: Add vital test cases for the app
    - **Current Status**:
-     - Adding Test cases
+     - Add Test cases
+     - Add corresponding situation handling
    - **Next Step**: double check the app and submit
 ---
+
+## 💡 Project Reflection
+
+Through the development of this program, I gained valuable experience in various aspects of software development beyond simply writing code that works. This project challenged me to focus on writing **clean, maintainable code** and to consider how test cases can reflect **real user scenarios** and behaviors.
+
+One of the most eye-opening parts of this experience was **working primarily through test files** rather than relying on the `main()` function. This approach required me to **think ahead**, design the program structure first, and then implement the logic to match those test cases. It significantly shifted my perspective on program design and highlighted the importance of **test-driven development**.
+
+In addition, spending effort on writing **clear Git commit messages** and maintaining an updated **README file** helped me understand the value of good documentation and project history. Setting up **automated changelogs** was also a new but fascinating experience.
+
+Learning the **Kotlin language** was equally rewarding. I enjoyed discovering its rich set of iteration functions and how object-oriented programming in Kotlin can be both **readable and concise**.
+
+Lastly, I invested a great deal of time in laying a **solid foundation** before writing any code. While this process took time, I’m confident that these habits will become more efficient with practice. I'm excited to continue improving and see how these efforts pay off in future projects.
