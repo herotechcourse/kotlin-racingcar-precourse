@@ -27,6 +27,32 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `empty name input test`()
+    {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { run("    ,car2", "1") } }
+    }
+
+    @Test
+    fun `accepting and trimming spaces in name input test`()
+    {
+        run("   car1, car2  ", "1")
+        assertThat(output()).contains("car1", "car2")
+    }
+
+    @Test
+    fun `input round is zero test`()
+    {
+        assertSimpleTest { assertThrows<IllegalArgumentException> { run("car1,car2", "0") } }
+    }
+
+    @Test
+    fun `input round is non-numeric test`()
+    {
+        assertSimpleTest { assertThrows<IllegalArgumentException> { run("car1,car2", "two") } }
+    }
+
     override fun runMain() {
         main()
     }
