@@ -10,11 +10,12 @@
 ### Car and Racing Logic
 - [x] Create a car class that has name and position
 - [x] Implement moving logic (moves forward when randomly generated number between 0 and 9 is 4 or greater)
-- [ ] Save the position of the car when each round is over
 
 ### Game Flow
 - [ ] Start the game via the `Application.main()` entry point
-- [ ] Start each round until the number of rounds reaches the limit
+- [x] Start each round until the number of rounds reaches the limit
+- [ ] Show how far the car reached every round
+- [x] Make car move each round and return result
 - [ ] Find the Winner of the race after the race is complete.
 
 ### Output
