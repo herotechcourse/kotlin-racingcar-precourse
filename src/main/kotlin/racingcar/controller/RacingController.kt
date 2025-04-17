@@ -16,17 +16,19 @@ class RacingController(
         val cars = carNames.map { Car(it) }
 
         resultView.printResultHeader()
-        repeat(carRounds) {
-            cars.forEach {
-                it.moveForward()
-                resultView.printResultRounds(it)
-            }
-            println()
-        }
+        repeat(carRounds) { runRounds(cars) }
         val maxProgress = cars.maxByOrNull { it.progress }?.progress
         val carWinner = cars.filter { it.progress == maxProgress }.joinToString(", ") { it.carName }
         resultView.printResultWinner(carWinner)
 
+    }
+
+    private fun runRounds(cars: List<Car>) {
+        cars.forEach {
+            it.moveForward()
+            resultView.printResultRounds(it)
+        }
+        println()
     }
 
     private fun readValidCarName(): List<String> {
