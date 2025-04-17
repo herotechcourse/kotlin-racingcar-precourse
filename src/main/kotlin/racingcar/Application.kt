@@ -5,7 +5,7 @@ fun main() {
     // TODO: Implement the program
 
     //1. get inputs of player names - readCarNames()
-
+    val carNames = readCarNames()
 
 
 
