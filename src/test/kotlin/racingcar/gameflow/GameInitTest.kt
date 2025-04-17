@@ -25,9 +25,9 @@ data class Car(val name: String, var position: Int = 0)
 data class GameInitResult(val cars: List<Car>, val rounds: Int)
 
 // Not yet implemented (RED)
-fun gameInit(input: GameStartResult): GameInitResult {
-    TODO("Not yet implemented")
-}
+//fun gameInit(input: GameStartResult): GameInitResult {
+//    TODO("Not yet implemented")
+//}
 
 class GameInitTest {
 
