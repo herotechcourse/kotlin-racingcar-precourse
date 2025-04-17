@@ -4,7 +4,7 @@
 - Car
   - [x] Car has a name that does not exceed 5 characters
   - [x] Car can move forward
-  - [ ] Car can stay still
+  - [x] Car can stay still
 
 ## Functional Requirements
 Implement a simple car racing game with the following rules:

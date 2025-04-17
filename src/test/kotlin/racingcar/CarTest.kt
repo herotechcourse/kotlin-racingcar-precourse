@@ -22,4 +22,13 @@ class CarTest {
         car.move(randomNumber)
         assertThat(car.position()).isEqualTo(1)
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = [0, 3]) // 0~3 사이의 값일 경우 정지
+    fun `car can stay still`(randomNumber: Int) {
+        val car = Car("hero")
+        car.move(randomNumber)
+        // 정지했으므로 position은 0이어야 합니다.
+        assertThat(car.position()).isEqualTo(0)
+    }
 }
