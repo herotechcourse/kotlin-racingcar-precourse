@@ -1,12 +1,8 @@
 # Feature Checklist
 
----
-
 ## Core Feature
 
 - [x] Implement a simple car racing game
-
----
 
 ## Car Movement Requirements
 
@@ -18,8 +14,6 @@
 - [x] A car moves forward if a randomly generated number between 0 and 9 is 4 or greater.
   - [x] Can generate a number between 0 and 9.
   - [x] RacePolicy determines if a car can move based on the number.
-
----
 
 ## Input Requirements
 
@@ -38,8 +32,6 @@ pobi,woni,jun
 ```text
 5
 ```
-
----
 
 ## Output Requirements
 
@@ -79,7 +71,6 @@ Winners : pobi
 ```text
 Winners : pobi, jun
 ```
----
 
 ## Exception Handling
 
@@ -89,8 +80,6 @@ Winners : pobi, jun
   - [x] [ERROR] Car Name cannot exceed 5 characters.
   - [x] [ERROR] Round must be a number.
   - [x] [ERROR] No cars available to determine winner.
-
----
 
 ## Example Execution
 
