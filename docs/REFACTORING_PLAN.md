@@ -21,4 +21,4 @@
 - [x] MOVE_SYM='-'
 
 ### Thoughts
-- [ ] What if car's moving strategy changes in the future? Right now, 'Cars' have too many role: Car list + generating random number + handling movement. I think it would be better to seperate the concerns of managing Car list and apply the movement strategy.  
+- [x] What if car's moving strategy changes in the future? Right now, 'Cars' have too many role: Car list + generating random number + handling movement. I think it would be better to seperate the concerns of managing Car list and apply the movement strategy.  

@@ -1,10 +1,12 @@
 package racingcar.model
 
+import racingcar.strategy.MoveStrategy
+
 class Car(private val carName: CarName){
     private var position: Int=0
 
-    fun move(random: Int){
-        if(random>=Rules.MOVE_THRESHOLD){
+    fun move(strategy: MoveStrategy){
+        if(strategy.shouldMove()){
             position++
         }
     }

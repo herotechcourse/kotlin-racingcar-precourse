@@ -2,6 +2,7 @@ package racingcar.model
 
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.exception.ExceptionMessage
+import racingcar.strategy.MoveStrategy
 
 class Cars(names: List<String>){
     private val rawNames: List<String> = names
@@ -22,11 +23,8 @@ class Cars(names: List<String>){
         }
     }
 
-    fun moveAll(){
-        cars.forEach { car ->
-            val random=Randoms.pickNumberInRange(Rules.RANDOM_MIN, Rules.RANDOM_MAX)
-            car.move(random)
-        }
+    fun moveAll(strategy: MoveStrategy){
+        cars.forEach { car -> car.move(strategy) }
     }
 
     fun getAll(): List<Car> = cars
