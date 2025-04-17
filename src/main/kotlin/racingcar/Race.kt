@@ -19,39 +19,57 @@ class Race {
     }
 
     fun initializeCars() {
-        for (carName in carNames) {
+        for (carName in this.carNames) {
             val car = Car()
             car.setCarName(carName)
-            cars.add(car)
+            this.cars.add(car)
         }
     }
 
-    fun run() {
-        while (this.rounds > 0) {
-            this.advanceRounds()
+    fun start() {
+        while (areRoundsRemaining()) {
+            this.processRound()
         }
     }
 
-    private fun advanceRounds() {
-        for (car in cars) {
-            if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                car.increaseProgress()
-            }
+    fun areRoundsRemaining(): Boolean {
+        return this.rounds > 0
+    }
 
-            var progressBar = ""
-            for (i in 1..car.progress) {
-                progressBar += "-"
-            }
-
-            println(car.name + " : " + progressBar)
+    private fun processRound() {
+        for (car in this.cars) {
+            updateCarProgress(car)
+            displayCarProgress(car)
         }
         println()
-        rounds--
+        proceedToNextRound()
+    }
+
+    fun updateCarProgress(car: Car) {
+        if (isCarAdvancing()) {
+            car.increasePosition()
+        }
+    }
+
+    fun isCarAdvancing(): Boolean {
+        return Randoms.pickNumberInRange(0, 9) >= 4
+    }
+
+    fun displayCarProgress(car: Car) {
+        var progressBar = ""
+        for (i in 1..car.position) {
+            progressBar += "-"
+        }
+        println(car.name + " : " + progressBar)
+    }
+
+    fun proceedToNextRound() {
+        this.rounds--
     }
 
     fun announceWinners() {
-        val maxProgress = cars.maxOf { it.progress }
-        val winners: String = cars.filter { it.progress == maxProgress }
+        val maxProgress = this.cars.maxOf { it.position }
+        val winners: String = this.cars.filter { it.position == maxProgress }
                                     .map { it.name }.joinToString(", ")
         println("Winners : $winners")
     }

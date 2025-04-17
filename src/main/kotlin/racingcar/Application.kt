@@ -6,7 +6,7 @@ fun main() {
     val userInput = obtainUserInput()
     printRaceResultsHeader()
     val race = setupRace(userInput)
-    race.run()
+    race.start()
     race.announceWinners()
 }
 
