@@ -1,4 +1,6 @@
-package racingcar.domain
+package racingcar.formatter
+
+import racingcar.domain.Cars
 
 class WinnerFormatter {
     fun format(cars: Cars): String {
