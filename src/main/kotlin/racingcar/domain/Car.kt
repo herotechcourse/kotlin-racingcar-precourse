@@ -9,4 +9,10 @@ data class Car(val name: String, var position: Int = 0) {
             "Car name must be 1-5 characters long"
         }
     }
+
+    fun move() {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            position++
+        }
+    }
 }
