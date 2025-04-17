@@ -1,5 +1,11 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    val carNames = UserInput.getCarNames()
+    val rounds = UserInput.getNumberOfRounds()
+
+    val cars = carNames.map { Car(it) }
+    val game = RacingGame(cars, rounds)
+
+    game.play()
 }

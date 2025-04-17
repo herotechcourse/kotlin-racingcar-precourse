@@ -21,6 +21,18 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `feature test or multiple winner test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("pobi : -", "woni : -", "Winners : pobi, woni")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD,
+        )
+    }
+
+    @Test
     fun `exception test`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
