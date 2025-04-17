@@ -27,6 +27,48 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    // Car names test
+    @Test
+    fun `car name input test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,won", "1")
+                assertThat(output()).contains("pobi : -", "won : ", "Winners : pobi")
+            },
+            MOVING_FORWARD,
+            STOP
+        )
+    }
+
+    @Test
+    fun `car name length test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `car name empty test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,", "1") }
+        }
+    }
+
+    // Rounds input test
+    @Test
+    fun `round number input test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,won", "0") }
+        }
+    }
+
+    @Test
+    fun `round number negative test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,won", "-1") }
+        }
+    }
+
     override fun runMain() {
         main()
     }
