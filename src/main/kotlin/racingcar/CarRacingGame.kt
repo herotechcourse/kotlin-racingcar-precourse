@@ -1,7 +1,7 @@
 package racingcar
 
 class CarRacingGame(
-    private val playersName: List<String>,
+    playersName: List<String>,
     private val limitRound: Int
 ) {
     private var currentRound = 0
@@ -9,9 +9,7 @@ class CarRacingGame(
     private val playerCars = mutableListOf<PlayerCar>()
 
     init {
-        playersName.forEach { name ->
-            playerCars.add(PlayerCar(name))
-        }
+        playersName.forEach { name -> playerCars.add(PlayerCar(name)) }
     }
 
 
@@ -22,6 +20,7 @@ class CarRacingGame(
             OutputController.printBlankLine()
         }
         updateWinners()
+        OutputController.printWinners(winners)
     }
 
     private fun racePlayerCarsByRound() {
