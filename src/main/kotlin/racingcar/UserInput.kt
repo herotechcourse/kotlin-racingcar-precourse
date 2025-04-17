@@ -14,7 +14,7 @@ class UserInput {
             require(name.length <= 5) { "Car name '$name' is too long (max 5 characters)" }
         }
 
-        carNames = names.toMutableList()
+        this.carNames = names.toMutableList()
     }
 
     fun setRoundsFromInput(input: String) {
@@ -23,6 +23,6 @@ class UserInput {
         require(parsedRounds != null) { "Input must be a valid number" }
         require(parsedRounds >= 1) { "Round value must be at least 1" }
 
-        rounds = parsedRounds
+        this.rounds = parsedRounds
     }
 }
