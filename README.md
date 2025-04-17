@@ -19,10 +19,10 @@
 - [x] Find the Winner of the race after the race is complete.
 
 ### Output
-- [ ] Print the progress of each car with "-" for one movement
-- [ ] Print the winner(or winners) of the race separated by commas
+- [x] Print the progress of each car with "-" for one movement
+- [x] Print the winner(or winners) of the race separated by commas
 
 ### Testing
-- [ ] Test Car class
-- [ ] Test Game logic
+- [x] Test Car class
+- [x] Test Game logic
 - [ ] Test validations
