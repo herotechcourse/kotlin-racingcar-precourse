@@ -14,22 +14,22 @@ class CarTest {
     @Test
     fun `progress should be 0 when initialized`() {
         val car = Car()
-        assertThat(car.progress).isEqualTo(0)
+        assertThat(car.position).isEqualTo(0)
     }
 
     @Test
     fun `progress should be 1 when increased once`() {
         val car = Car()
-        car.increaseProgress()
-        assertThat(car.progress).isEqualTo(1)
+        car.increasePosition()
+        assertThat(car.position).isEqualTo(1)
     }
 
     @Test
     fun `progress should be 3 when increased 3 times`() {
         val car = Car()
-        car.increaseProgress()
-        car.increaseProgress()
-        car.increaseProgress()
-        assertThat(car.progress).isEqualTo(3)
+        car.increasePosition()
+        car.increasePosition()
+        car.increasePosition()
+        assertThat(car.position).isEqualTo(3)
     }
 }
