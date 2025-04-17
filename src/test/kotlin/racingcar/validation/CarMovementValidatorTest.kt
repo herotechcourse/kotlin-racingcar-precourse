@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Test
 import org.assertj.core.api.Assertions.*
+
 import racingcar.movement.CarAdapter
 import racingcar.validation.CarMovementValidator
-//import racingcar.movement.Car
 import racingcar.model.Car
 
 class CarMovementValidatorTest {

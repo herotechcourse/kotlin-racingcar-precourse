@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test
+
 import racingcar.engine.GameEngine
-import racingcar.engine.Car
+import racingcar.model.Car
 import racingcar.results.RaceResultPrinter
 
 class RaceResultPrinterTest {

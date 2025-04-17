@@ -1,7 +1,8 @@
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+
 import racingcar.engine.GameEngine
-import racingcar.engine.Car
+import racingcar.model.Car
 
 class GameEngineTest {
 

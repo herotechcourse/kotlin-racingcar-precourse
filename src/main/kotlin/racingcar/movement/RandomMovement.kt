@@ -3,9 +3,6 @@ package racingcar.movement
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.model.Car
 
-// Temp Car variable (For Testing)
-// data class Car(var name: String, var position: Int)
-
 class CarAdapter(private val car: Car, private val randomValue: Int = Randoms.pickNumberInRange(0, 9)) {
 
     // Function to decide whether the car can move

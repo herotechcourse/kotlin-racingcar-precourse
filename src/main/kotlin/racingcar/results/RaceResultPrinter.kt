@@ -1,6 +1,6 @@
 package racingcar.results
 
-import racingcar.engine.CarResult
+import racingcar.results.CarResult
 import racingcar.engine.GameEngine
 
 class RaceResultPrinter(private val gameEngine: GameEngine) {

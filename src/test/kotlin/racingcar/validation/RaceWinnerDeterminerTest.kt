@@ -1,7 +1,8 @@
-package racingcar.results
-
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+
+import racingcar.results.RaceWinnerDeterminer
+import racingcar.results.CarResult
 
 class RaceWinnerDeterminerTest {
 

@@ -2,8 +2,6 @@ package racingcar.results
 
 import racingcar.results.CarResult
 
-//data class CarResult(val name: String, val position: Int)
-
 // Class to determine the race
 class RaceWinnerDeterminer {
 

@@ -1,14 +1,9 @@
 package racingcar.engine
 
-import racingcar.car.Car
-import racingcar.race.Race
+import racingcar.model.Car
+import racingcar.model.Race
 
 import racingcar.results.CarResult
-
-// Temp Class definition (For Testing purposes)
-// data class Car(val name: String, var position: Int = 0)
-// data class Race(val cars: List<Car>, val totalRounds: Int)
-// data class CarResult(val name: String, val position: Int)
 
 class GameEngine(private val race: Race, private val randomMovement: (Car) -> Unit) {
 
