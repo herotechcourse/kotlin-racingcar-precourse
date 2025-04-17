@@ -7,21 +7,19 @@ import java.lang.IllegalArgumentException
 fun main() {
     // TODO: Implement the program
 
-    //Step One: We need to get user input for car names and rounds. We will use ReadLine to achieve this.
-    println("Please enter the names of cars (separated by commas):")
-    val namesOfCars = Console.readLine().split(",").map {it.trim()}
+    //Step One: We need to get user input for car names and rounds.
+    // We will use ReadLine to achieve this.(refactored for modularity and clarity)
 
-    /*We also need to validate user input and throw errors(IllegalArgumentException) if input does not meet req:
-    1.1 No car name  should be longer than 5 characters
-    1.2 Convert user input rounds to a positive integer (greater than 1)
-    1.3 Validate user input and make sure it is greater than 0
-    */
+    fun readValidatedCarNames(): List<String> {
+        println("Please enter the names of cars (separated by commas):")
+        val namesOfCars = Console.readLine().split(",").map {it.trim()}
 
-
-    // 1.1 No car name  should be longer than 5 characters
-    if(namesOfCars.any {it.length > 5}) {
-        throw IllegalArgumentException("Name of car must not exceed 5 characters")
+        if(namesOfCars.any {it.length > 5}) {
+            throw IllegalArgumentException("Name of car must not exceed 5 characters")
+        }
+        return namesOfCars
     }
+
 
     // 1.2 Convert user input rounds to a positive integer (greater than 1)
     println("How many rounds will be played?")
