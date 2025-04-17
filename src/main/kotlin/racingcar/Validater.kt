@@ -17,5 +17,9 @@ object InputValidator {
 
 
 
-
+    private fun validateNameLength(name: String) {
+        if (name.length > MAX_NAME_LENGTH) {
+            throw IllegalArgumentException("$ERROR_NAME_TOO_LONG (input: '$name')")
+        }
+    }
 }
