@@ -16,7 +16,13 @@ fun main() {
             throw IllegalArgumentException("Name must be between 1 and 5")
         }
     }
+    print("Enter number of rounds to race:")
+    val roundsInput = Console.readLine()
+
+
+
     names.forEach { name ->
         println(name)
     }
+    println(roundsInput)
 }
