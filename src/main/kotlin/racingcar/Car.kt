@@ -1,8 +1,18 @@
 package racingcar
+import camp.nextstep.edu.missionutils.Randoms
 
-class Car (private val name:String){
-    private var movesForward = 0;
-//    fun printCar(){
-//        println("Car name: $name rounds ran: $movesForward")
-//    }
+class Car (val name:String){
+    var movesForward = 0
+        private set
+
+    private fun printCar(){
+        println("$name : ${"-".repeat(movesForward)}")
+    }
+
+    fun runRound(){
+        val rand = Randoms.pickNumberInRange(0, 9)
+        if (rand >= 4)
+            ++movesForward
+        printCar()
+    }
 }

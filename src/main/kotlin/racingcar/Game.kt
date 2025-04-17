@@ -20,4 +20,24 @@ class Game{
         if (numberOfRounds < 1)
             throw IllegalArgumentException("Less than one round")
     }
+
+    // main game loop: inits the game: prints start message, runs the number of rounds entered y user,
+// prints result message
+    fun runGame(){
+        initGame()
+        println("\nRace Results")
+        for (i in 1..numberOfRounds){
+            for(car in cars)
+                car.runRound()
+            println()
+        }
+        println("Winners : ${getWinner().joinToString (", ") { it.name } }")
+    }
+
+    //gets the biggest result and forms the list of cars that finished with this result
+    private fun getWinner():List<Car>{
+        val topResult = cars.maxOf{it.movesForward}
+        val winners = cars.filter{it.movesForward == topResult}
+        return winners
+    }
 }
