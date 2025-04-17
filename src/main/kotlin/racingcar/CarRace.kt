@@ -76,16 +76,17 @@ private fun splitCarNames(userInput: String): List<String> {
 
     if (userInput.contains(',')) {
         names = userInput.split(',').map { it.trim() }
+        names.forEach() { if (it.contains(' ')) throw IllegalArgumentException("Names must be properly separated by commas!") }
     } else {
         names = userInput.trim().split(' ')
-        if (names.size > 1) throw IllegalArgumentException("Names must be separated by commas!")
+        require(names.size < 1) { "Names must be separated by commas!" }
     }
     return names
 }
 
 private fun validateNamesSize(names: List<String>) {
     for (name in names) {
-        if (name.length > 5) throw IllegalArgumentException("Names must not be longer than 5 characters!")
+        require(name.length < 5) { "Names must not be longer than 5 characters!" }
     }
 }
 
@@ -99,7 +100,7 @@ private fun getRounds(): Int {
     }
 
     val rounds = input.toIntOrNull() ?: throw IllegalArgumentException("Rounds must be a natural number!")
-    if (rounds <= 0) throw IllegalArgumentException("Rounds must be a number bigger than zero!")
+    require(rounds > 0) { "Rounds must be a number bigger than zero!" }
 
     return rounds
 }
