@@ -86,7 +86,7 @@ private fun splitCarNames(userInput: String): List<String> {
 
 private fun validateNamesSize(names: List<String>) {
     for (name in names) {
-        require(name.length < 5) { "Names must not be longer than 5 characters!" }
+        require(name.length <= 5) { "Names must not be longer than 5 characters!" }
     }
 }
 
