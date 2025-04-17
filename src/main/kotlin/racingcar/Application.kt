@@ -21,13 +21,23 @@ class CarRacing {
             // Get car names from user
             println("Enter the names of the cars (comma-separated):")
             val carNames = readCarNames()
-            val cars = createCars(carNames)
-
             
             // Get number of rounds from user
             println("How many rounds will be played?")
             val rounds = readRounds()
             
+            // Create cars
+            val cars = createCars(carNames)
+            
+            // Run the race
+            println("\nRace Results")
+            runRace(cars, rounds)
+            
+            // Display winners
+            displayWinners(cars)
+        } catch (e: IllegalArgumentException) {
+            println(e.message)
+        }
     }
     
     private fun readCarNames(): List<String> {
@@ -52,6 +62,7 @@ class CarRacing {
             }
         }
     }
+    
     private fun readRounds(): Int {
         val input = Console.readLine()
         try {
@@ -64,20 +75,18 @@ class CarRacing {
             throw IllegalArgumentException("Invalid number of rounds")
         }
     }
+    
     private fun createCars(carNames: List<String>): List<Car> {
         return carNames.map { Car(it) }
     }
-
-    // [COMMIT 3: Race Execution]
+    
     private fun runRace(cars: List<Car>, rounds: Int) {
         repeat(rounds) {
-            // [COMMIT 2: Car Movement Logic]
             moveAllCars(cars)
-
-            // [COMMIT 4: Result Display]
             displayRaceStatus(cars)
         }
     }
+    
     private fun moveAllCars(cars: List<Car>) {
         cars.forEach { car ->
             val randomNumber = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM)
@@ -87,12 +96,25 @@ class CarRacing {
         }
     }
     
+    private fun displayRaceStatus(cars: List<Car>) {
+        cars.forEach { car ->
+            println("${car.name} : ${"-".repeat(car.position)}")
+        }
+        println()
+    }
+    
+    private fun displayWinners(cars: List<Car>) {
+        val maxPosition = cars.maxOfOrNull { it.position } ?: 0
+        val winners = cars.filter { it.position == maxPosition }.map { it.name }
+        
+        println("Winners : ${winners.joinToString(", ")}")
+    }
 }
 
 class Car(val name: String) {
     var position: Int = 0
         private set
-
+    
     fun moveForward() {
         position++
     }
