@@ -9,17 +9,17 @@ class InputView {
         return input.trim()
     }
 
-    fun inputCarNames(input: String): List<CarNameDto> {
-        return input.split(",")
+    fun inputCarNames(): List<CarNameDto> {
+        return input().split(",")
             .map { it.trim() }
             .filter { it.isNotBlank() }
             .map { CarNameDto(it) }
     }
 
-    fun inputTryCount(input: String): TryCountDto {
+    fun inputTryCount(): TryCountDto {
         val tryCount: Int
         try {
-            tryCount = Integer.parseInt(input)
+            tryCount = Integer.parseInt(input())
         } catch (e: NumberFormatException) {
             throw IllegalArgumentException("Input must be a valid integer")
         }
