@@ -1,4 +1,4 @@
-package racingcar.view
+package racingcar.utils
 
 import racingcar.exception.ExceptionMessage
 import racingcar.model.Rules

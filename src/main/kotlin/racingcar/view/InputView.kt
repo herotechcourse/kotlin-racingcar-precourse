@@ -3,6 +3,7 @@ package racingcar.view
 import camp.nextstep.edu.missionutils.Console
 import racingcar.exception.ExceptionMessage
 import racingcar.model.Rules
+import racingcar.utils.Validator
 
 object InputView{
     fun enterCarNames(): List<String> {
