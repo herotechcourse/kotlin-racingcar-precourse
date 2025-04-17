@@ -1,10 +1,10 @@
-package racingcar.domain
+package racingcar.domain.numbergenerator
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class RandomNumberGenerator {
+class RandomNumberGenerator : NumberGenerator {
 
-    fun generateNumber(): Int {
+    override fun generate(): Int {
         return Randoms.pickNumberInRange(START_RANGE, END_RANGE)
     }
 

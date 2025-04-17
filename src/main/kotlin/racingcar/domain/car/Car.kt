@@ -1,11 +1,12 @@
 package racingcar.domain.car
 
-import racingcar.domain.RandomNumberGenerator
+import racingcar.domain.numbergenerator.NumberGenerator
+import racingcar.domain.numbergenerator.RandomNumberGenerator
 
 class Car(
     private val name: Name,
     private var position: Int,
-    private val randomNumberGenerator: RandomNumberGenerator
+    private val numberGenerator: NumberGenerator
 ) {
     constructor(name: Name) : this(name, 0, RandomNumberGenerator())
 
@@ -16,7 +17,7 @@ class Car(
     }
 
     private fun canMove(): Boolean {
-        return randomNumberGenerator.generateNumber() >= MOVEMENT_THRESHOLD
+        return numberGenerator.generate() >= MOVEMENT_THRESHOLD
     }
 
     fun getName(): String {
