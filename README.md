@@ -35,8 +35,8 @@ Hero Tech Course 2025 Precourse Week 1 Mission
   * Use factory function to instantiate (private primary constructor)
   * *Car name*
     - Ignore leading and trailing spaces
-    - Validate right after input (before getting number of rounds)
-      -> Put validation functions inside companion object rather than class body
+    - Validate right after input (before getting number of rounds)<br>
+      &rarr; Put validation functions inside companion object rather than class body
   * *Number of rounds*
     - Throw `IllegalArgumentException` for errors during converting (e.g., `NumberFormatException`)
 
