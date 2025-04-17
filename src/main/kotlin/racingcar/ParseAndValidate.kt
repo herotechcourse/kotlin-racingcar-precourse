@@ -1,20 +1,28 @@
 package racingcar
 
-object ValidationUtils {
+object ParseAndValidate {
     private fun checkLength(input: String) {
         if (input.length > 5) {
             throw IllegalArgumentException("Length exceeds 5")
         }
     }
 
-    fun checkEmpty(input: String) {
+    private fun checkEmpty(input: String) {
         if (input.isEmpty()) {
                 throw IllegalArgumentException("String is empty")
         }
     }
 
-    fun requireValidName(name: String) {
+    private fun requireValidName(name: String) {
         checkEmpty(name)
         checkLength(name)
+    }
+
+    fun parseAndValidateNames(input: String): List<String> {
+        checkEmpty(input)
+        return input
+            .split(",")
+            .map { it.trim() }
+            .onEach  { requireValidName(it) }
     }
 }
