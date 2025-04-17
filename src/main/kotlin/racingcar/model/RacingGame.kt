@@ -10,6 +10,7 @@ class RacingGame(val cars: List<Car>, val rounds: Int) {
         repeat(rounds) {
             moveCars()
         }
+        OutputView.displayWinner(selectWinners())
     }
 
     private fun moveCars() {
@@ -18,5 +19,10 @@ class RacingGame(val cars: List<Car>, val rounds: Int) {
             car.move(randomNumber >= 4)
         }
         OutputView.displayRound(cars)
+    }
+
+    private fun selectWinners(): List<Car> {
+        val winnerPosition = cars.maxOf { it.position }
+        return cars.filter { it.position == winnerPosition }
     }
 }
