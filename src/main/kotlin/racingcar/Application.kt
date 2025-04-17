@@ -6,34 +6,36 @@ import camp.nextstep.edu.missionutils.Randoms
 const val FORWARD = "Forward"
 const val STAY = "Stay"
 
-data class Car(val name: String, var position: Int = 0)
-
 fun main() {
     val carList = readCars()
     val numberOfRounds =  readNumberOfRounds()
 
-    moveCars(carList, numberOfRounds)
-    printWinners(carList)
+    startRace(carList, numberOfRounds)
+    displayWinners(carList)
 }
 
-fun moveCars(carList: List<Car>, numberOfRounds: Int) {
+fun startRace(carList: List<Car>, numberOfRounds: Int) {
     print("Race Results")
+
     repeat(numberOfRounds) {
         carList.forEach { car ->
-            if (randomCarMovement() == FORWARD) {
-                car.position++
-            }
-            printCarPositions(car)
+            moveCar(car)
+            dispalyStats(car)
         }
     }
 }
 
-fun printCarPositions(car: Car) {
-    val positionBar = "-".repeat(car.position)
-    print("${car.name} : $positionBar")
+fun moveCar(car: Car) {
+    if (randomCarMovement() == FORWARD) {
+        car.moveForward()
+    }
 }
 
-fun printWinners(carList: List<Car>) {
+fun dispalyStats(car: Car) {
+    print("${car.name} : ${car.getPositionBar()}")
+}
+
+fun displayWinners(carList: List<Car>) {
     val maxPosition = carList.maxOf { it.position }
     val winners = carList.filter { it.position == maxPosition }
     val winnersName = winners.joinToString(", ") { it.name }
