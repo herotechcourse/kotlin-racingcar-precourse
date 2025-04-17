@@ -14,3 +14,24 @@ At the end of the race, the winners are determined based on the car's final posi
  - The program determines the winner(s) at the end of the race and prints their names.
  - Input validation ensures that car names and rounds are valid.
  - Invalid inputs throw `IllegalArgumentsException` to terminate game
+
+## How to Run Project
+ 1. Clone this repository to your local machine.
+ 2. Run the program in your preferred Kotlin IDE or run via the command line.
+
+To run:
+<pre>
+# Run in Kotlin environment 
+
+  ./gradlew run 
+</pre>
+
+## Example Execution
+
+### Input:
+````
+Enter the names of the cars (comma-separated):
+pobi,woni,jun
+How many rounds will be played?
+5
+````
