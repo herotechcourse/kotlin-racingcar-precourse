@@ -25,7 +25,7 @@ class ValidatorTest {
         @ValueSource(strings = ["0", "-1", "-2147483647"])
         @DisplayName("Should throw IllegalArgumentException when round count is zero or negative")
         fun validateNonPositiveRounds(input: String) {
-            assertThatThrownBy { validator.validateRounds(input) }
+            assertThatThrownBy { Validator.validateRounds(input) }
                 .isInstanceOf(IllegalArgumentException::class.java)
                 .hasMessage("Round count must be positive")
         }
@@ -34,8 +34,8 @@ class ValidatorTest {
         @ValueSource(strings = ["foo", "1.5", "3a", " "])
         @DisplayName("Should throw when round count is not a number")
         fun validateNonNumberRounds(input: String) {
-            assertThatThrownBy { validator.validateRounds(input) }
-                .isInstance(IllegalArgumentException::class.java)
+            assertThatThrownBy { Validator.validateRounds(input) }
+                .isInstanceOf(IllegalArgumentException::class.java)
                 .hasMessage("Round count must be a number")
         }
     }
@@ -44,12 +44,12 @@ class ValidatorTest {
     @DisplayName("Car name validation tests")
     inner class CarNameValidationTests {
         @ParameterizedTest
-        @CsvSource("car1|car1", "car1,car2|car1,car2", "pobi,woni,jun|pobi,woni,jun")
+        @CsvSource("car1|car1", "car1,car2|car1,car2", "pobi,woni,jun|pobi,woni,jun", delimiter = '|')
         @DisplayName("Should return valid car names when input is correct")
         fun validateCorrectCarNames(input: String, expectedString: String) {
             val expected = expectedString.split(",")
             val result = Validator.validateCarNames(input)
-            assertThat(result).containsExaclyElementsOf(expected)
+            assertThat(result).containsExactlyElementsOf(expected)
         }
 
         @Test
@@ -64,7 +64,7 @@ class ValidatorTest {
         fun validateEmptyInput() {
             assertThatThrownBy { Validator.validateCarNames("") }
                 .isInstanceOf(IllegalArgumentException::class.java)
-                .hasMessage("At least one car name must be provider")
+                .hasMessage("At least one car name must be provided")
         }
 
         @ParameterizedTest
@@ -88,7 +88,7 @@ class ValidatorTest {
         @Test
         @DisplayName("Should throw when one car name in list exceeds 5 characters")
         fun validateOneInvalidLenCarName() {
-            assertThatThrownBy { Validator.validatehcaranames("car1,123456,car3") }
+            assertThatThrownBy { Validator.validateCarNames("car1,123456,car3") }
                 .isInstanceOf(IllegalArgumentException::class.java)
                 .hasMessage("Car name cannot exceed 5 characters")
         }
