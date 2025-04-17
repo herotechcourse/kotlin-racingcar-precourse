@@ -21,9 +21,30 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `exception test`() {
+    fun `exception test car name length exited 5`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `exception test empty input`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("", "1") }
+        }
+    }
+
+    @Test
+    fun `exception test blank input`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("           ", "1") }
+        }
+    }
+
+    @Test
+    fun `exception test empty car name`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,,jaji", "1") }
         }
     }
 
