@@ -10,13 +10,11 @@ class RacingController(
     private val validator: InputValidator,
 ) {
     fun run() {
-
     }
 
-    fun readValidCarName(): String {
+    fun readValidCarName(): List<String> {
         val carNames = inputView.readCarName()
-        validator.validateCarName(carNames)
-        return carNames
+        return validator.validateCarName(carNames)
     }
 
     fun readValidRounds(): Int {
