@@ -10,7 +10,7 @@
 - [x] Show the race progress after each round
 - [x] At the end, show the winner(s) — can be more than one
 
-
+- [x] Change to oo design for easier more modular solution
 Display a - next to the name of any car that moves in a round.
 
 Output the progress of the race after each round, showing the movement of the cars.
