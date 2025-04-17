@@ -12,42 +12,42 @@ class RacingController(
     private val outputView: OutputView
 ) {
     fun run() {
-        val carNames = getCarNames()
-        val cars = createCars(carNames)
-        val round = getRound()
-        while (round.isRemaining()) {
-            moveCars(cars)
-            round.decrement()
-        }
-        val winner = cars.drawWinner()
-        outputView.printWinner(winner)
+        val cars = initCars()
+        val round = initRound()
+        playRace(round, cars)
+        drawWinner(cars)
     }
 
-    private fun getCarNames(): List<Name> {
+    private fun initCars(): Cars {
         val carNames = inputView.readCarNames()
 
-        val names = carNames.split(",")
-            .map { Name(it) }
+        val cars = carNames.map { Name(it) }
+            .map { Car(it) }
             .toList()
-        return names
+        return Cars(cars)
     }
 
-    private fun createCars(names: List<Name>) = Cars(
-        names.stream()
-            .map { createCar(it) }
-            .toList())
-
-    private fun createCar(it: Name) = Car(it)
-
-    private fun getRound(): Round {
+    private fun initRound(): Round {
         val totalRounds = inputView.readTotalRounds()
 
         val round = Round(totalRounds)
         return round
     }
 
+    private fun playRace(round: Round, cars: Cars) {
+        while (round.isRemaining()) {
+            moveCars(cars)
+            round.decrement()
+        }
+    }
+
     private fun moveCars(cars: Cars) {
         cars.moveCar()
         outputView.printEachRound(cars)
+    }
+
+    private fun drawWinner(cars: Cars) {
+        val winner = cars.drawWinner()
+        outputView.printWinner(winner)
     }
 }
