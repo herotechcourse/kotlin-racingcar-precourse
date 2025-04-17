@@ -1,40 +1,37 @@
 package racingcar
 
-
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
-fun readCarNames(): List<String> {
-    print("Enter names of cars (max 5 chars):e.g mike,mary,mo")
+fun prompt(message: String): String {
+    print(message)
     val input = Console.readLine()
-    if (input.isNullOrBlank()) {
-        throw IllegalArgumentException("Input is Empty")
-    }
+    require(!input.isNullOrBlank()) { "Input is empty." }
+    return input
+}
+
+fun validateCarNames(input: String): List<String> {
     val names = input.split(",").map { it.trim() }
     names.forEach { name ->
-        if (name.length !in 1..5) {
-            throw IllegalArgumentException("Name must be between 1 and 5")
-        }
+        require(name.length in 1..5) { "Each name must be 1 to 5 characters." }
     }
     return names
 }
 
-fun readRounds(): Int {
-    print("Enter number of rounds to race:")
-    val roundsInput = Console.readLine()
-    val rounds = roundsInput?.toInt() ?: throw IllegalArgumentException("Input is not a valid number.")
-    if (rounds <= 0) {
-        throw IllegalArgumentException("Rounds must be a positive number.")
-    }
+fun validateRounds(input: String): Int {
+    val rounds = input.toIntOrNull()
+    require(rounds != null) { "Input must be a valid number." }
+    require(rounds > 0) { "Rounds must be a positive number." }
     return rounds
 }
 
 fun main() {
-    val names = readCarNames()
-    val rounds = readRounds()
+    val namesInput = prompt("Enter names of cars (max 5 chars): e.g. mike,mary,mo: ")
+    val names = validateCarNames(namesInput)
 
-    names.forEach { name ->
-        println(name)
-    }
+    val roundsInput = prompt("Enter number of rounds to race: ")
+    val rounds = validateRounds(roundsInput)
+
+    names.forEach { println(it) }
     println(rounds)
 }
