@@ -8,15 +8,7 @@ class Car private constructor(
     fun name(): String = carName.value()
     fun position(): Int = position.value()
 
-    fun forward() {
-        position.forward()
-    }
-
-    fun copy(): Car {
-        val copied = Car.from(CarName.from(name()))
-        repeat(position()) { copied.forward() }
-        return copied
-    }
+    fun forwarded(): Car = Car(carName, position.forwarded())
 
     companion object {
         fun from(carName: CarName): Car {
