@@ -33,6 +33,28 @@ fun racing_func(names:List<String>,rounds:String)
         PrintRoundResults(carPos)
         println()
     }
+    /* Each car's position has one or more '-', so now let's count the number of '-'
+    to know the rank of the car */
+    for (key in carPos.keys) {
+        carPos[key] = carPos[key]?.count().toString()
+    }
+    //Get the winners
+    GetRaceWinners(carPos)
+}
+
+//Get the top scorer from the cars. Print all the car names that have the max value
+fun GetRaceWinners(carPos: MutableMap<String, String>){
+    val maxValue = carPos.values.maxOfOrNull { it.toInt() }
+
+    //Filter all entries that match the max value
+    val topScorers = carPos.filter { it.value.toInt() == maxValue }
+
+    //Print winners
+    if (topScorers.isNotEmpty()) {
+        print("Winners : ")
+        val winners = topScorers.keys.joinToString(", ")
+        println("$winners")
+    }
 }
 
 //This function prints every round results
