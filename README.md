@@ -8,7 +8,7 @@
 - [x] Implement logic to randomly determine if a car moves in each round (based on a random number between 4 and 9).
 - [x] If a car moves, show it with a `-` next to its name
 - [x] Show the race progress after each round
-- [ ] At the end, show the winner(s) — can be more than one
+- [x] At the end, show the winner(s) — can be more than one
 
 
 Display a - next to the name of any car that moves in a round.

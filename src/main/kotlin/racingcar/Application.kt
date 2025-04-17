@@ -40,12 +40,23 @@ fun race(cars:List<String>, carProgress:MutableMap<String, Int>){
     println()
 }
 
+fun filterWinners(carProgress: MutableMap<String, Int>): List<String>{
+    val maxProgress = carProgress.values.maxByOrNull { it:Int -> it ?:0 }
+    return carProgress.filter { it.value == maxProgress }.map {it.key}
+}
+
 fun startRace(cars:List<String>, rounds: Int){
     val carProgress = mutableMapOf<String, Int>()
     println("Race Results")
     cars.forEach { car -> carProgress[car] = 0 }
     for (i in 1..rounds) {
         race(cars, carProgress)
+    }
+    val winners = filterWinners(carProgress)
+    if (winners.size == 1) {
+        println("Winner: ${winners.first()}")
+    } else {
+        println("Winners: ${winners.joinToString(", ")}")
     }
 }
 
