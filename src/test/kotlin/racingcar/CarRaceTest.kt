@@ -2,10 +2,8 @@ package racingcar
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.DisplayName
 import camp.nextstep.edu.missionutils.test.NsTest
 import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
-import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
