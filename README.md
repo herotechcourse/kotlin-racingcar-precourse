@@ -21,5 +21,7 @@
 
 # CarRacingGame-Domain
 - define CarRacingGame property
+- make player names to player Cars 
 - process Game total Round
 - race player cars by one round
+- 
