@@ -24,15 +24,19 @@ fun main()
     RoundsValidation(rounds)
 
     //Car racing logic
-    racing_func(names,rounds)
+    val carPos = racing_func(names,rounds)
+
+    //Get the winners
+    GetRaceWinners(carPos)
 }
 
 //This function is where the car racing is programmed
-fun racing_func(names:List<String>,rounds:String)
+fun racing_func(names:List<String>,rounds:String) : MutableMap<String, String>
 {
     val size = names.size //size = number of cars
     // carPos shows the car name and its position at each round.
     var carPos = mutableMapOf<String, String>()
+
     for(i in 0 until size){
         carPos[names[i]] = ""
     }
@@ -48,23 +52,24 @@ fun racing_func(names:List<String>,rounds:String)
     for (key in carPos.keys) {
         carPos[key] = carPos[key]?.count().toString()
     }
-    //Get the winners
-    GetRaceWinners(carPos)
+    return carPos
 }
 
 //Get the top scorer from the cars. Print all the car names that have the max value
-fun GetRaceWinners(carPos: MutableMap<String, String>){
+fun GetRaceWinners(carPos: MutableMap<String, String>) : String{
     val maxValue = carPos.values.maxOfOrNull { it.toInt() }
 
     //Filter all entries that match the max value
     val topScorers = carPos.filter { it.value.toInt() == maxValue }
+    var winners = ""
 
     //Print winners
     if (topScorers.isNotEmpty()) {
         print("Winners : ")
-        val winners = topScorers.keys.joinToString(", ")
+        winners = topScorers.keys.joinToString(", ")
         println("$winners")
     }
+    return winners
 }
 
 //This function prints every round results
