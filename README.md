@@ -38,14 +38,36 @@
 
 # Plan 
 
-## Input Functions
+I'm gonna make it in MVC Strategy + Validation 
 
-## Output Functions
+## Model
+- Car(val carName: String, var progress: Int = 0)
 
-## Verify Functions
+## View 
+- InputView: read user inputs 
+- ResultVIew: print game results 
 
-## Random Functions
+## Controller
+- RacingController: do something logical thing 
 
-## Display Functions 
+## Validator 
+- InputValidator: validate user's input 
 
+# Specific Plans
+
+- [ ] make Car Model
+- [ ] make InputView
+  - [ ] make two input functions (car name, num of rounds)
+- [ ] make ResultView 
+  - [ ] make three result function (Header, Rounds, Winner)
+- [ ] make Validator 
+  - make two validate function (car name, num of round) 
+- [ ] make Controller 
+  - [ ] combine input and validator
+  - [ ] make run function 
+
+
+_I was planning to make it in object, but I've learned that objects are difficult to test_
+
+_So I decided to make it in class + interface way-to make test easily_
 
