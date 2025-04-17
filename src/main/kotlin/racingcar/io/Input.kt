@@ -1,11 +1,12 @@
-package racingcar
+package racingcar.io
 
 import camp.nextstep.edu.missionutils.Console
+import racingcar.Car
 
 object Input {
 
     fun readCarNames(): List<Car> {
-        print("Enter the names of the cars (comma-separated): ")
+        println("Enter the names of the cars (comma-separated): ")
         val input = Console.readLine()
 
         if (input.isBlank()) {
@@ -23,8 +24,9 @@ object Input {
     }
 
     fun readNumberOfRound(): Int {
-        print("How many rounds will be played? ")
+        println("How many rounds will be played? ")
         val input = Console.readLine()
+        println()
 
         val round= input.toIntOrNull()
         if(round == null || round <= 0) {

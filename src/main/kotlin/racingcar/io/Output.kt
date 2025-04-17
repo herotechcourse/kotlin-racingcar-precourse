@@ -1,4 +1,6 @@
-package racingcar
+package racingcar.io
+
+import racingcar.Car
 
 object Output {
 
@@ -10,12 +12,16 @@ object Output {
     }
 
     fun printWinner(cars: List<Car>) {
-        val winners = cars.joinToString(",") { car -> car.name }
+        val winners = cars.joinToString(", ") { car -> car.name }
         print("Winners : $winners")
     }
 
+    fun printStartMessage() {
+        println("Race Results")
+    }
+
     private fun printPosition(car: Car) {
-        print("${car.name}: ")
+        print("${car.name} : ")
         repeat(car.position) {
             print("-")
         }
