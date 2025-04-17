@@ -12,6 +12,7 @@ A simple Kotlin implementation of a car racing game with name validation.
   * Empty or blank names are ignored.
 
   * Throws `IllegalArgumentException` if user inputs invalid data as per the requirements.
+  * Add input and checks for number of rounds for the race.
 
 ## Tests
 ### Input Handler Tests

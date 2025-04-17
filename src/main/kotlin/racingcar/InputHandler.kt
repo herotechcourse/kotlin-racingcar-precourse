@@ -17,4 +17,13 @@ object InputHandler {
             throw IllegalArgumentException("Each car name must be at most 5 characters.")
         }
     }
+
+    fun parseRounds(input: String): Int {
+        val rounds = input.toIntOrNull()
+        if (rounds == null || rounds <= 0) {
+            throw IllegalArgumentException("Rounds must be a positive integer.")
+        }
+
+        return rounds
+    }
 }
