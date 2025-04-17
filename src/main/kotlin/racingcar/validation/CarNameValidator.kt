@@ -12,16 +12,33 @@ object CarNameValidator {
         }
     }
 
-    // 2. Data Validation - Exceed Maximum Length
+    // 2. Data Validation - Validate Invalid Characters
+    fun validateSeparator(input: String) {
+        if (input.contains(Regex("[^a-zA-Z0-9, ]"))) {
+            throw IllegalArgumentException("Invalid character detected")
+        }
+    }
+
+    // 3. Data Validation - Exceed Maximum Length
     private fun validateLength(carName: String) {
         if (carName.length > MAX_LENGTH) {
             throw IllegalArgumentException("Car name '$carName' exceeds max length of $MAX_LENGTH.")
         }
     }
 
-    // Call Data Validation Functions
+
+    // 4. Data Validation - Validate Car Name for Internal Spaces
+    fun validateCarName(name: String) {
+        if (name.contains(" ")) {
+            throw IllegalArgumentException("Car name '$name' contains spaces in-between which is not allowed")
+        }
+    }
+
+    // Validate a single car name with all rules
     fun validate(carName: String) {
         validateNotNullOrBlank(carName)
+        validateSeparator(carName)
+        validateCarName(carName)
         validateLength(carName)
     }
 
