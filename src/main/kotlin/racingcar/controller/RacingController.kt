@@ -13,11 +13,11 @@ class RacingController(
     fun run() {
         val carNames = readValidCarName()
         val carRounds = readValidRounds()
-        val cars = carNames.map { Car(it) }
+        val cars: List<Car> = carNames.map { Car(it) }
 
         resultView.printResultHeader()
         repeat(carRounds) { runRounds(cars) }
-        val maxProgress = cars.maxByOrNull { it.progress }?.progress
+        val maxProgress = cars.maxByOrNull { it.progress }?.progress ?: 0
         val carWinner = cars.filter { it.progress == maxProgress }.joinToString(", ") { it.carName }
         resultView.printResultWinner(carWinner)
 
