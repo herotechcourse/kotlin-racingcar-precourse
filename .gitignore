@@ -38,3 +38,6 @@ out/
 
 ### Mac OS ###
 .DS_Store
+
+### node.js ###
+/node_modules

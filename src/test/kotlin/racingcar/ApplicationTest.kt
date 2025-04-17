@@ -9,7 +9,7 @@ import org.junit.jupiter.api.assertThrows
 
 class ApplicationTest : NsTest() {
     @Test
-    fun `feature test`() {
+    fun `TEST1 feature test`() {
         assertRandomNumberInRangeTest(
             {
                 run("pobi,woni", "1")
@@ -19,11 +19,77 @@ class ApplicationTest : NsTest() {
             STOP,
         )
     }
+    
+    @Test
+    fun `TEST2 multiple winners`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni,lori", "1")
+                assertThat(output()).contains("pobi : -", "woni : -", "Winners : pobi, woni")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD,
+        )
+    }
 
     @Test
-    fun `exception test`() {
+    fun `TEST3 no winner`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("pobi : ", "woni : ", "Winners : none")
+            },
+            STOP,
+            STOP,
+        )
+    }
+
+    @Test
+    fun `TEST4 one player`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi", "1")
+                assertThat(output()).contains("pobi : ", "Winners : pobi")
+            },
+            MOVING_FORWARD,
+        )
+    }
+
+
+    @Test
+    fun `TEST5 too long name`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `TEST6 white space`() {
+        assertSimpleTest {
+            run("pobi , woni", "1")
+            assertThat(output()).contains("pobi : ", "woni : ")   
+        }
+    }
+
+
+    @Test
+    fun `TEST7 empty input`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("\n") }
+        }
+    }
+
+    @Test
+    fun `TEST8 duplicate names`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi ,woni,pobi", "1") }
+        }
+    }
+
+    @Test
+    fun `TEST9 invalid round number`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi , woni", "0") }
         }
     }
 
