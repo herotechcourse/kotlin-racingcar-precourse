@@ -8,19 +8,36 @@ class Car(val name: String) {
     var currentPosition: Int = 0
 }
 
-fun main() {
-        // racing start introducing comment
+class OutputView {
+    fun welcome() {
         println("Enter the names of the cars (comma-separated):")
-        val challengers = Console.readLine()
-        if (challengers.isEmpty()) {
+    }
+
+    fun roundNumber() {
+        println("How many rounds will be played?")
+    }
+}
+
+class InputView {
+    fun input(): String {
+        val input = Console.readLine()
+        validateInput(input)
+        return input
+    }
+
+    private fun validateInput(input: String) {
+        if (input.isEmpty()) {
             throw IllegalArgumentException("Car name can't be empty.")
         }
+    }
+}
 
-        println("How many rounds will be played?")
-        val rounds = Console.readLine()
-//    if (rounds.toInt() < 2) {
-//        throw IllegalArgumentException("Race round is more than 1")
-//    }
+class RacingCar {
+    fun execute() {
+        OutputView().welcome()
+        val challengers = InputView().input()
+        OutputView().roundNumber()
+        val rounds = InputView().input()
 
         println()
         println("Race Results")
@@ -73,4 +90,9 @@ fun main() {
         // print winners
         print("Winners : ")
         println(winnerGroup.joinToString(", "))
+    }
+}
+
+fun main() {
+    RacingCar().execute()
 }
