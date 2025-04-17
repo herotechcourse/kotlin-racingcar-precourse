@@ -1,12 +1,16 @@
-# kotlin-racingcar-precourse
+# kotlin-racingcar-precourse: A Car Racing Game
 
-I have been tasked by DeliveryHero with a mission to implement a simple car racing game with the following rules/features:  
+## Overview
+This project is a simple car racing game where the user can input car names and the number of rounds for the race.
+The cars will randomly move forward or stay still during each round, and the progress will be displayed after each game round.
+At the end of the race, the winners are determined based on the car's final positions, and multiple winners can be displayed if there is a tie.
 
 ## Features
 
-1. Accept user input for car names (comma-separated) and number of rounds.
-2. Validate the input from user (car names should not exceed 5 characters, number of rounds must be greater than 0).
-3. Each car moves forward or stays stationary based on a randomly generated number.
-4. We display progress of cars in each round.
-5. We find and display winner(s) when the game ends.
-6. We handle user invalid input by throwing an IllegalArgumentsException
+ - User can input a list of car names, separated by commas(max 5 characters per car name).
+ - User can specify the number of rounds for the race.
+ - Each round, cars will eitther move forward or stay still, based on a random number generator.
+ - The progress of each car is displayed after every round.
+ - The program determines the winner(s) at the end of the race and prints their names.
+ - Input validation ensures that car names and rounds are valid.
+ - Invalid inputs throw `IllegalArgumentsException` to terminate game

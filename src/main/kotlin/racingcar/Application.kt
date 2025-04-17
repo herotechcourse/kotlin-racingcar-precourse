@@ -16,7 +16,7 @@ fun main() {
     }
 
     val winners = determineWinners(cars)
-    println("Winner : ${winners.joinToString(", ")}")
+    println("Winners : ${winners.joinToString(", ")}")
 }
 
 // --- Input Fns ---
