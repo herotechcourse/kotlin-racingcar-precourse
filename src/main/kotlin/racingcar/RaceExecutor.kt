@@ -12,14 +12,17 @@ object RaceExecutor {
     }
 
     fun startRace(carList: List<Car>, numberOfRounds: Int) {
-        print("Race Results")
+        println()
+        println("Race Results")
 
         repeat(numberOfRounds) {
             carList.forEach { car ->
                 moveCar(car)
                 dispalyStats(car)
             }
+            println()
         }
+        println()
     }
 
     fun moveCar(car: Car) {
@@ -29,7 +32,7 @@ object RaceExecutor {
     }
 
     fun dispalyStats(car: Car) {
-        print("${car.name} : ${car.getPositionBar()}")
+        println("${car.name} : ${car.getPositionBar()}")
     }
 
     fun displayWinners(carList: List<Car>) {
@@ -37,7 +40,7 @@ object RaceExecutor {
         val winners = carList.filter { it.position == maxPosition }
         val winnersName = winners.joinToString(", ") { it.name }
         
-        print("Winners : $winnersName")
+        println("Winners : $winnersName")
     }
 
     fun randomCarMovement(): String{
