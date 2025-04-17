@@ -8,4 +8,8 @@ class Car(
     fun goForward() {
         position += engine.move()
     }
+
+    fun getPosition(): Int {
+        return position
+    }
 }
