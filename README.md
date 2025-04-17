@@ -16,7 +16,7 @@
 - Define start, end number
 - pick random number
 
-# Validater
+# Validator
 - Define IllegalArgumentException message
 - validate, names not empty
 - validate, name not blank
