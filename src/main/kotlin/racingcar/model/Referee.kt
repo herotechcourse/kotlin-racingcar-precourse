@@ -1,5 +1,7 @@
 package racingcar.model
 
+import java.util.*
+
 class Referee(
     private val participants: List<Car>,
     private val winners: MutableList<Car> = mutableListOf()
@@ -20,5 +22,9 @@ class Referee(
             }
         }
         return winners
+    }
+
+    fun getWinners(): List<Car> {
+        return Collections.unmodifiableList(winners)
     }
 }

@@ -3,15 +3,17 @@ package racingcar.view
 import racingcar.model.Round
 
 data class RoundResultDto(
-    private val round: Round,
-    private val roundResultForOutput: MutableList<String> = mutableListOf()
+    val roundResultForOutput: List<String>
 ) {
-    init {
-        round.getRoundResult().forEach { (car, status) ->
-            val dashes = "-".repeat(status)
-            roundResultForOutput.add("${car.name} : $dashes")
+    companion object {
+        private val roundResult: MutableList<String> = mutableListOf()
+
+        fun of(round: Round): RoundResultDto {
+            round.getRoundResult().forEach { (car, status) ->
+                val dashes = "-".repeat(status)
+                roundResult.add("${car.name} : $dashes")
+            }
+            return RoundResultDto(roundResult)
         }
     }
-
-    fun getRoundResultForOutput(): List<String> = roundResultForOutput
 }

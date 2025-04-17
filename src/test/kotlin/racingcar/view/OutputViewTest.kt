@@ -4,10 +4,7 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import racingcar.model.Car
-import racingcar.model.Fuel
-import racingcar.model.GasStation
-import racingcar.model.Round
+import racingcar.model.*
 import java.io.ByteArrayOutputStream
 import java.io.OutputStream
 import java.io.PrintStream
@@ -52,6 +49,16 @@ class OutputViewTest {
         round.race()
         outputView.printRoundResult(round)
         assertEquals(output(), "pobi : -\nwoni : -\njun : -\n")
+    }
 
+    @Test
+    fun printWinnersTest() {
+        for (i: Int in 1..5) car1.go()
+        for (i: Int in 1..5) car2.go()
+        for (i: Int in 1..2) car3.go()
+        val referee = Referee(listOf(car1, car2, car3))
+        referee.judge()
+        outputView.printWinners(referee)
+        assertEquals(output(), "Winners : pobi, woni\n")
     }
 }
