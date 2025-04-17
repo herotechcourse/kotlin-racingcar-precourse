@@ -12,9 +12,8 @@ fun prompt(message: String): String {
 
 fun validateCarNames(input: String): List<String> {
     val names = input.split(",").map { it.trim() }
-    names.forEach { name ->
-        require(name.length in 1..5) { "Each name must be 1 to 5 characters." }
-    }
+    require(names.all { it.length in 1..5}) {"Each name must be between 1 and 5"}
+    require(names.toSet().size == names.size) {"Cars name must be unique."}
     return names
 }
 
