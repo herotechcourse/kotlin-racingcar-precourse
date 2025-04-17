@@ -21,9 +21,16 @@ class OutputView {
         }
     }
 
+    fun printWinner(winner: List<String>) {
+        println(PRINT_WINNER_MESSAGE + winner.joinToString(WINNER_SEPARATOR))
+    }
+
     companion object {
         private const val PRINT_RESULT_MESSAGE = "\nRace Results"
+        private const val PRINT_WINNER_MESSAGE = "Winners : "
+
         private const val RESULT_FORMAT = "%s : %s"
         private const val POSITION_SYMBOL = "-"
+        private const val WINNER_SEPARATOR = ", "
     }
 }

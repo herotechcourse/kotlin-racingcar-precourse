@@ -11,8 +11,8 @@
 ## Output
 
 - [x] Show race results for each round
-- [] Show winner(s)
-    - [] comma-separated if there are multiple winners
+- [x] Show winner(s)
+    - [x] comma-separated if there are multiple winners
 
 ## Domain
 
