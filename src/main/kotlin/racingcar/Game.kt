@@ -1,15 +1,26 @@
 package racingcar
 
-import racingcar.Utils.getRandomNumber
+import racingcar.Printer.printRound
 
-class Game(val cars: MutableList<Car>,val rounds: Int) {
+class Game(val cars: MutableList<Car>, val rounds: Int) {
 
   fun startRace() {
+    println("Race Results:")
     repeat(rounds) {
-      cars.forEach { car ->
-        val shouldMove = getRandomNumber() >= 4
-        if (shouldMove) car.move()
-      }
+      cars.forEach(Car::tryMove)
+      printRoundResult()
     }
   }
+
+  private fun printRoundResult() {
+    println()
+    printRound(cars)
+  }
+
+  fun getWinners(): List<Car> {
+    val maxLevel = cars.maxOf { it.currLevel }
+    return cars.filter { it.currLevel == maxLevel }
+  }
+
+
 }
