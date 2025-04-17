@@ -41,7 +41,7 @@ class CarRace(private val cars: List<Car>, private val rounds: Int) {
     private fun displayState() {
         for (car in cars) {
             val visualProgress = '-'.toString().repeat(car.position)
-            println("${car.name} :  $visualProgress")
+            println("${car.name} : $visualProgress")
         }
     }
 
