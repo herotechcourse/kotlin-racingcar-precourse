@@ -52,3 +52,55 @@ A Simple Car Racing Game Application built with Kotlin.
 ```bash
 ./gradlew run
 ```
+
+### Running Tests
+
+To execute unit test, run the following command:
+
+```bash
+./gradlew test
+```
+
+## 🧩 Example Usage
+
+When you run the program, you will be prompted to enter the following inputs:
+
+1. **Enter the names of the cars (comma-separated):**
+
+   Example input:
+
+   ```text
+   benz, audi
+
+2. **Enter how many rounds will be played?**
+
+   Example input:
+
+   ```text
+   5
+
+After the inputs are provided, the program simulates the race. Below is the expected race progress for each round
+
+    Enter the names of the cars (comma-separated):
+    benz, audi
+    
+    How many rounds will be played?
+    5
+    
+    Race Results
+    benz : -
+    audi : -
+    
+    benz : -
+    audi : -
+    
+    benz : -
+    audi : --
+    
+    benz : --
+    audi : ---
+    
+    benz : --
+    audi : ---
+    
+    Winners : audi
