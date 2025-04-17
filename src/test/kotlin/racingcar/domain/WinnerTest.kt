@@ -1,9 +1,10 @@
 package racingcar.domain
 
-import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import racingcar.car.AlwaysMoveStrategy
 import racingcar.car.Car
+import racingcar.car.NeverMoveStrategy
 
 class WinnerTest  {
     private val winner = Winner()
@@ -11,41 +12,31 @@ class WinnerTest  {
     fun `single winner`() {
         // given
         val cars = listOf(
-            Car("car1"),
-            Car("car2"),
-            Car("car3")
+            Car("car1", NeverMoveStrategy()),
+            Car("car2", AlwaysMoveStrategy()),
+            Car("car3", NeverMoveStrategy())
         )
         // when & then
-        assertRandomNumberInRangeTest(
-            {
-                cars.forEach{car->
-                    car.drive()
-                }
-                val result:String = winner.determineWinners(cars)
-                assertEquals("car2",result)
-            },3,4,3
-
-        )
+        cars.forEach{car->
+            car.drive()
+        }
+        val result:String = winner.determineWinners(cars)
+        assertEquals("car2",result)
     }
 
     @Test
     fun `multiple winners`() {
         // given
         val cars = listOf(
-            Car("car1"),
-            Car("car2"),
-            Car("car3")
+            Car("car1", AlwaysMoveStrategy()),
+            Car("car2", AlwaysMoveStrategy()),
+            Car("car3", NeverMoveStrategy())
         )
         // when & then
-        assertRandomNumberInRangeTest(
-            {
-                cars.forEach{car->
-                    car.drive()
-                }
-                val result:String = winner.determineWinners(cars)
-                assertEquals("car1, car2",result)
-            },4,4,3
-
-        )
+        cars.forEach{car->
+            car.drive()
+        }
+        val result:String = winner.determineWinners(cars)
+        assertEquals("car1, car2",result)
     }
 }

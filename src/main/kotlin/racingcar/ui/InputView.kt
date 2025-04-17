@@ -2,6 +2,7 @@ package racingcar.ui
 
 import racingcar.car.Car
 import camp.nextstep.edu.missionutils.Console
+import racingcar.car.RandomMoveStrategy
 import java.lang.IllegalArgumentException
 
 class InputView {
@@ -19,7 +20,7 @@ class InputView {
             throw IllegalArgumentException("Car names cannot be blank")
         }
 
-        return names.map { Car(it) }
+        return names.map { Car(it, RandomMoveStrategy()) }
     }
     fun getRounds(): Int {
         println("How many rounds will be played?")

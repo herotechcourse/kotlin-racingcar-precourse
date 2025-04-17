@@ -1,6 +1,5 @@
 package racingcar.car
 
-import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import java.lang.IllegalArgumentException
@@ -16,29 +15,22 @@ class CarTest{
 
     @Test
     fun `drive success`() {
-
-        assertRandomNumberInRangeTest(
-            {
-                // given
-                val car = Car("car")
-                // when
-                car.drive()
-                // then
-                assertEquals("-",car.position)
-            }, 4
-        )
+        // given
+        val car = Car("car", AlwaysMoveStrategy())
+        // when
+        car.drive()
+        // then
+        assertEquals("-",car.position)
     }
 
     @Test
     fun `drive fail`() {
-        assertRandomNumberInRangeTest(
-            {
-                // given
-                val car = Car("car")
-                // when & then
-                assertEquals("",car.position)
-            },3
-        )
+        // given
+        val car = Car("car",NeverMoveStrategy())
+        // when
+        car.drive()
+        // then
+        assertEquals("",car.position)
     }
 
     @Test

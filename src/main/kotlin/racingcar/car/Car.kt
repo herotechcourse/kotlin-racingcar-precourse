@@ -1,16 +1,14 @@
 package racingcar.car
 
-import camp.nextstep.edu.missionutils.Randoms
-
-class Car(val carName: String) {
+class Car(val carName: String,
+          private val moveStrategy: MoveStrategy = RandomMoveStrategy()) {
     init {
         require(carName.length < 6)
     }
     var position: String = ""
 
     fun drive(): String {
-        val randomNumber = Randoms.pickNumberInRange(0,9)
-        if (randomNumber > 3) {
+        if(moveStrategy.shouldMove()){
             position += "-"
         }
         return position
