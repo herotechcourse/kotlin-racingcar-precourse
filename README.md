@@ -34,3 +34,34 @@ Implement a simple car racing game with the following rules:
     - [ ] positive number
     - [ ] integer (No decimals, strings, or special characters)
 - [ ] **Test Code**
+
+## Example Execution
+```
+Enter the names of the cars (comma-separated):
+pobi,woni,jun
+How many rounds will be played?
+5
+
+Race Results
+pobi : -
+woni :
+jun : -
+
+pobi : --
+woni : -
+jun : --
+
+pobi : ---
+woni : --
+jun : ---
+
+pobi : ----
+woni : ---
+jun : ----
+
+pobi : -----
+woni : ----
+jun : -----
+
+Winners : pobi, jun
+```
