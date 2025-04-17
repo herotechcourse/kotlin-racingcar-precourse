@@ -9,8 +9,6 @@ class UserInput {
     fun setCarNamesFromInput(input: String) {
         val names = input.split(",").map { it.trim() }
 
-        require(names.isNotEmpty()) { "At least one car name must be provided" }
-
         for (name in names) {
             require(name.isNotBlank()) { "Car names cannot be blank" }
             require(name.length <= 5) { "Car name '$name' is too long (max 5 characters)" }
