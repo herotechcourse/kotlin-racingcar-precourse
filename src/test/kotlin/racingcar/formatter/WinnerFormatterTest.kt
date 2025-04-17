@@ -11,7 +11,7 @@ class WinnerFormatterTest {
     fun `should format single winner correctly`() {
         val carNames = listOf("pobi", "woni").map { CarName.from(it) }
         val cars = Cars.of(carNames)
-        cars.moveIfSatisfied { it.name() == "pobi" }
+            .movedIfSatisfied { it.name() == "pobi" }
 
         val formatter = WinnerFormatter()
         val result = formatter.format(cars)
@@ -23,7 +23,7 @@ class WinnerFormatterTest {
     fun `should format multiple winners correctly`() {
         val carNames = listOf("pobi", "woni", "jun").map { CarName.from(it) }
         val cars = Cars.of(carNames)
-        cars.moveIfSatisfied { it.name() != "jun" }
+            .movedIfSatisfied { it.name() != "jun" }
 
         val formatter = WinnerFormatter()
         val result = formatter.format(cars)
@@ -31,3 +31,4 @@ class WinnerFormatterTest {
         assertThat(result).isEqualTo("Winners : pobi, woni")
     }
 }
+
