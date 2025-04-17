@@ -32,6 +32,10 @@ fun main() {
         return gameRounds
     }
 
+    val namesOfCars = readValidatedCarNames()
+    val gameRounds = readValidatedGameRounds()
+
+
 
     //2. Create Car obj.
     val cars = namesOfCars.map {Car(it)}
