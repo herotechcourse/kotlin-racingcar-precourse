@@ -8,10 +8,10 @@ class ResultViewImpl: ResultView {
     }
 
     override fun printResultRounds(car: Car) {
-        print("${car.carName} : ${Car.progressChar.toString().repeat(car.progress)}")
+        println("${car.carName} : ${Car.progressChar.toString().repeat(car.progress)}")
     }
 
     override fun printResultWinner(carWinner: String) {
-        println("Winner : $carWinner")
+        println("Winners : $carWinner")
     }
 }

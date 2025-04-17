@@ -1,5 +1,6 @@
 package racingcar.controller
 
+import racingcar.model.Car
 import racingcar.utils.InputValidator
 import racingcar.view.InputView
 import racingcar.view.ResultView
@@ -10,14 +11,30 @@ class RacingController(
     private val validator: InputValidator,
 ) {
     fun run() {
+        val carNames = readValidCarName()
+        val carRounds = readValidRounds()
+        val cars = carNames.map { Car(it) }
+
+        resultView.printResultHeader()
+        repeat(carRounds) {
+            cars.forEach {
+                it.moveForward()
+                resultView.printResultRounds(it)
+            }
+            println()
+        }
+        val maxProgress = cars.maxByOrNull { it.progress }?.progress
+        val carWinner = cars.filter { it.progress == maxProgress }.joinToString(", ") { it.carName }
+        resultView.printResultWinner(carWinner)
+
     }
 
-    fun readValidCarName(): List<String> {
+    private fun readValidCarName(): List<String> {
         val carNames = inputView.readCarName()
         return validator.validateCarName(carNames)
     }
 
-    fun readValidRounds(): Int {
+    private fun readValidRounds(): Int {
         val rounds = inputView.readRounds()
         return validator.validateRounds(rounds)
     }

@@ -2,7 +2,7 @@ package racingcar.model
 
 import camp.nextstep.edu.missionutils.Randoms
 
-data class Car(val carName: String, var progress: Int) {
+data class Car(val carName: String, var progress: Int = 0) {
     companion object {
         var progressChar = '-'
     }
