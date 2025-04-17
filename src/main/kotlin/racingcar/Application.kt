@@ -10,6 +10,4 @@ fun main() {
 
     val carRacingGame = CarRacingGame(nameOfCars, limitRound)
     carRacingGame.gameProcess()
-
-
 }
