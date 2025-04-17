@@ -7,10 +7,8 @@ fun main() {
     //1. get inputs of player names - readCarNames()
     val carNames = readCarNames()
 
-
-
-
     //2. get inputs of rounds
+    val numberOfRounds = readNumberOfRounds()
 
     //3. function: make random result
 
@@ -27,6 +25,7 @@ fun readCarNames(): List<String>? {
 
     val carNames = input.split(",").map { it.trim() }
 
+
     if (carNames.isEmpty() || carNames.any { it.isEmpty() }) {
         throw IllegalArgumentException("It can't be empty.")
     }
@@ -40,4 +39,18 @@ fun readCarNames(): List<String>? {
     }
 
     return carNames
+}
+
+fun readNumberOfRounds(): Int {
+    println("How many rounds will be played?")
+    val input = Console.readLine()
+
+    val number = input.toIntOrNull()
+        ?: throw IllegalArgumentException("Please enter a valid number.")
+
+    if (number <= 0) {
+        throw IllegalArgumentException("Number of rounds must be greater than 0.")
+    }
+
+    return number
 }
