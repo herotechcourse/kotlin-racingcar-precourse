@@ -3,8 +3,6 @@ package racingcar
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.ValueSource
 
 class CarTest {
     @Test
@@ -15,20 +13,19 @@ class CarTest {
             .hasMessage("Car name cannot exceed 5 characters, current name length: ${name.length}")
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = [4, 9])
-    fun `car can move forward`(randomNumber: Int) {
-        val car = Car("hero")
-        car.move(randomNumber)
-        assertThat(car.position()).isEqualTo(1)
+    @Test
+    fun `car can move forward`() {
+        val initialCar = Car("hero")
+        val movedCar = initialCar.move(true)
+        assertThat(initialCar).isEqualTo(Car("hero", 0))
+        assertThat(movedCar).isEqualTo(Car("hero", 1))
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = [0, 3]) // 0~3 사이의 값일 경우 정지
-    fun `car can stay still`(randomNumber: Int) {
-        val car = Car("hero")
-        car.move(randomNumber)
-        // 정지했으므로 position은 0이어야 합니다.
-        assertThat(car.position()).isEqualTo(0)
+    @Test
+    fun `car can stay still`() {
+        val initialCar = Car("hero")
+        val movedCar = initialCar.move(false)
+        assertThat(initialCar).isEqualTo(Car("hero", 0))
+        assertThat(movedCar).isEqualTo(Car("hero", 0))
     }
 }

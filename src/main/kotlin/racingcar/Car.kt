@@ -2,22 +2,16 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class Car(name: String) {
+data class Car(val name: String, val position: Int = 0) {
     init {
-        fun isValidNameLength(nameLength: Int): Boolean = nameLength <= 5
-
         require(isValidNameLength(name.length)) {
-            "Car name cannot exceed 5 characters, current name length: ${name.length} "
+            "Car name cannot exceed 5 characters, current name length: ${name.length}"
         }
     }
 
-    private var position = 0
+    private fun isValidNameLength(nameLength: Int): Boolean = nameLength <= 5
 
-    fun move(randomNumber: Int = Randoms.pickNumberInRange(0, 9)) {
-        if (randomNumber >= 4) {
-            position++
-        }
-    }
+    fun move(shouldMove: Boolean): Car = if (shouldMove) this.copy(position = position + 1) else this
 
-    fun position(): Int = position
+    val shouldMove: Boolean = Randoms.pickNumberInRange(0, 9) >= 4
 }
