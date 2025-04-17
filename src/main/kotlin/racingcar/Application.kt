@@ -9,7 +9,6 @@ class Car(val name: String) {
 }
 
 fun main() {
-    try {
         // racing start introducing comment
         println("Enter the names of the cars (comma-separated):")
         val challengers = Console.readLine()
@@ -74,7 +73,4 @@ fun main() {
         // print winners
         print("Winners : ")
         println(winnerGroup.joinToString(", "))
-    } catch (e: IllegalArgumentException) {
-        throw IllegalArgumentException("test")
-    }
 }
