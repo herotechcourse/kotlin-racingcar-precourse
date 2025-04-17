@@ -14,14 +14,14 @@
 <br>
 
 ## 👾 Feature Modules
-### 🧩 Game flow manager Module
+### 🧩 Game flow manager Module (MVC: "Controller")
 | Feature | Description | Test code | Green | Refactored | Done |
-|:---|:---|:---:|:----------------:|:---:|:---:|
-| game-start | Start game execution from main() | - |        -         | - | - |
-| game-init | Make cars based on user input | - |        -         | - | - |
-| game-loop | Repeat game as many as rounds | - |        -         | - | - |
-| game-track-progress | Moniter each round's result and check the winner(s) | - |        -         | - | - |
-| game-end | Terminate the game | - |        -         | - | - |
+|:---|:---|:---------:|:----------------:|:---:|:---:|
+| game-start | Start game execution from main() |     ⏳     |        -         | - | - |
+| game-init | Make cars based on user input |     ⏳     |        -         | - | - |
+| game-loop | Repeat game as many as rounds |     ⏳      |        -         | - | - |
+| game-track-progress | Moniter each round's result and check the winner(s) |     -     |        -         | - | - |
+| game-end | Terminate the game |     -     |        -         | - | - |
 
 ### 🧩 Input Module
 | Feature | Description | Test code | Green | Refactored | Done |
@@ -32,11 +32,11 @@
 
 ### 🧩 Validation Module
 | Feature | Description | Test code | Green | Refactored | Done |
-|:---|:---|:---------:|:---:|:----:|:---:|
-| validate-car-names | Validate car names for length, emptiness, and format |     ✅     | - | - | - |
-| validate-rounds | Validate number of rounds for positivity and format |     ✅      | - | - | - |
+|:---|:---|:---------:|:-----:|:----:|:---:|
+| validate-car-names | Validate car names for length, emptiness, and format |     ✅     |   ✅   | - | - |
+| validate-rounds | Validate number of rounds for positivity and format |     ✅      |   ✅   | - | - |
 
-### 🧩 Race execution Module
+### 🧩 Race execution Module (MVC: "Model")
 | Feature | Description | Test code | Green | Refactored | Done |
 |:---|:---|:---------:|:---:|:----:|:---:|
 | race-start | Execute race based on number of rounds | - | - | - | - |
@@ -53,7 +53,7 @@
 
     ⚠️ Internal logic only, no output to user.
 
-### 🧩 Output Module
+### 🧩 Output Module (MVC: "View")
 | Feature | Description | Test code | Green | Refactored | Done |
 |:---|:---|:---:|:---:|:---:|:---:|
 | output-round-result | - | - | - | - | - |
