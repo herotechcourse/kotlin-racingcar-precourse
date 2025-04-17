@@ -48,8 +48,8 @@ object InputValide {
 }
 
 class RacingGame {
-    private var rounds = 0 //init round
-    private lateinit var cars: List<Car> //list of car object
+    private var rounds = 0
+    private lateinit var cars: List<Car>
 
     fun start() {
 
@@ -58,7 +58,7 @@ class RacingGame {
             announceWinner()
     }
 
-    private fun initialize() // read the cars
+    private fun initialize()
     {
         cars = inputCarNameInit()
         rounds = inputRoundInit()
@@ -71,10 +71,8 @@ class RacingGame {
         val carRawNames = input.split(",").map { it.trim() }.map { it.replace("\\s+".toRegex(), "") }
         val carNames = carRawNames.filter { it.isNotEmpty() }
 
-        //validate the raw string names
         InputValide.valideCarsName(carNames)
 
-        // map each valid name to a Car instance
         return carNames.map { Car(it) }
     }
 
@@ -90,7 +88,7 @@ class RacingGame {
     private fun race() {
         println("Race results by round:")
         println()
-        for (i in 0 until rounds) { // repeat(rounds) is also fine
+        for (i in 0 until rounds) { // repeat(rounds) works as well
             moveAllCars()
             printStatus()
             println()
