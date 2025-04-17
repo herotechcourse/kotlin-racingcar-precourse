@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/kimpeter2018/kotlin-racingcar-precourse/compare/v1.3.0...v1.4.0) (2025-04-17)
+
+
+### Features
+
+* add error handling codes ([ec6d3fc](https://github.com/kimpeter2018/kotlin-racingcar-precourse/commit/ec6d3fce4a81275df04755790845a9eafb1d23d1))
+
 ## [1.3.0](https://github.com/kimpeter2018/kotlin-racingcar-precourse/compare/v1.2.0...v1.3.0) (2025-04-16)
 
 
