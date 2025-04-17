@@ -6,7 +6,7 @@ import camp.nextstep.edu.missionutils.Randoms
 class CarRace(private val cars: List<Car>, private val rounds: Int) {
     fun startRace() {
         println("Race Results")
-        for (i in rounds downTo 0) {
+        for (i in rounds downTo 1) {
             moveOrStand()
             displayState()
             println()
