@@ -4,14 +4,12 @@ class CarRacingGame(
     playersName: List<String>,
     private val limitRound: Int
 ) {
-    private var currentRound = 0
-    private val winners = mutableListOf<PlayerCar>()
-    private val playerCars = mutableListOf<PlayerCar>()
+    val winners = mutableListOf<PlayerCar>()
+    val playerCars = mutableListOf<PlayerCar>()
 
     init {
         playersName.forEach { name -> playerCars.add(PlayerCar(name)) }
     }
-
 
     fun gameProcess() {
         OutputController.printRaceResults()
@@ -31,7 +29,7 @@ class CarRacingGame(
         }
     }
 
-    private fun updateWinners() {
+    fun updateWinners() {
         val maxDistance = playerCars.maxOf { it.distance }
         playerCars.forEach { playerCar -> addWinner(playerCar, maxDistance) }
     }
