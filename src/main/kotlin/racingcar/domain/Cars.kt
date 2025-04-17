@@ -25,6 +25,10 @@ class Cars private constructor(
         return cars.map { formatter(it.name(), it.position()) }
     }
 
+    fun copyOfCurrent(): Cars {
+        return Cars(cars.map { Car.copyOf(it) })
+    }
+
     companion object {
         const val ERROR_NO_CARS = "[ERROR] No cars available to determine winner."
 
