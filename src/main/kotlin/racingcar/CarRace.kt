@@ -32,15 +32,14 @@ class CarRace(private val cars: List<Car>, private val rounds: Int) {
 
     private fun moveOrStand() {
         for (car in cars) {
-            val move = Randoms.pickNumberInRange(0,9)
+            val move = Randoms.pickNumberInRange(0, 9)
             car.move((move >= 4))
         }
     }
 
     private fun displayState() {
         for (car in cars) {
-            val visualProgress = '-'.toString().repeat(car.position)
-            println("${car.name} : $visualProgress")
+            println(car.toString())
         }
     }
 
@@ -75,10 +74,10 @@ private fun splitCarNames(userInput: String): List<String> {
 
     if (userInput.contains(',')) {
         names = userInput.split(',').map { it.trim() }
-        names.forEach() { if (it.contains(' ')) throw IllegalArgumentException("Names must be properly separated by commas!") }
+        names.forEach { if (it.contains(' ')) throw IllegalArgumentException("Names must be properly separated by commas!") }
     } else {
         names = userInput.trim().split(' ')
-        require(names.size < 1) { "Names must be separated by commas!" }
+        require(names.size == 1) { "Names must be separated by commas!" }
     }
     return names
 }
