@@ -14,6 +14,10 @@ class Round(private var leftRound: Int) {
         leftRound--
     }
 
+    fun getLeftRound(): Int {
+        return leftRound
+    }
+
     companion object {
         private const val MIN_ROUND: Int = 1
         private const val MAX_ROUND: Int = 10
