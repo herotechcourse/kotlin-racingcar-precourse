@@ -5,10 +5,13 @@ class GameLogic (
     private val numberOfRounds: Int) {
 
     fun play() {
+        println()
+        println("Race Result")
         for (round in 1..numberOfRounds) {
             carsList.forEach{it.move()}
+            ResultView.displayEndPositions(carsList)
+            println()
         }
-        ResultView.displayEndPositions(carsList)
         val listWinners = getWinners()
         ResultView.printFinalWinners(listWinners)
     }
