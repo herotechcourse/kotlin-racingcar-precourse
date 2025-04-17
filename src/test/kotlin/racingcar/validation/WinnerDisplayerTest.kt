@@ -13,7 +13,7 @@ class WinnerDisplayerTest {
 
         val result = displayer.formatWinners(winners)
 
-        assertEquals("Winners: audi", result)
+        assertEquals("Winners : audi", result)
     }
 
     @Test
@@ -22,7 +22,7 @@ class WinnerDisplayerTest {
 
         val result = displayer.formatWinners(winners)
 
-        assertEquals("Winners: audi, benz", result)
+        assertEquals("Winners : audi, benz", result)
     }
 
     @Test
@@ -31,6 +31,6 @@ class WinnerDisplayerTest {
 
         val result = displayer.formatWinners(winners)
 
-        assertEquals("Winners: ", result)
+        assertEquals("Winners : ", result)
     }
 }

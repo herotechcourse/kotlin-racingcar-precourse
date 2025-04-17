@@ -2,6 +2,7 @@ package racingcar.validation
 
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Test
+
 import racingcar.input.processUserInput
 
 class CarNameInputTest {
