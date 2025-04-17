@@ -30,6 +30,16 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `(TEST_0) car name is blank`() {
+        assertSimpleTest {
+            val exception = assertThrows<IllegalArgumentException>{
+                runException("", "1")
+            }
+            assertThat(exception.message).isEqualTo(ExceptionMessage.EMPTY_CAR_NAME.message)
+        }
+    }
+
+    @Test
     fun `(TEST_1) car name contains whitespace`() {
         assertSimpleTest {
             val exception = assertThrows<IllegalArgumentException>{
@@ -131,6 +141,19 @@ class ApplicationTest : NsTest() {
             }
             assertThat(exception.message).isEqualTo(ExceptionMessage.EXCEED_MAX_CAR_COUNT.message)
         }
+    }
+
+    @Test
+    fun `(TEST_11) no cars move`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("pobi : ", "woni : ")
+                assertThat(output()).contains("Winners : pobi, woni")
+            },
+            STOP,
+            STOP
+        )
     }
 
     override fun runMain() {

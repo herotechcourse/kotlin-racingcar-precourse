@@ -10,6 +10,9 @@
 - [x] Duplicate car names like "pobi, pobi"
 - [x] Test for round count exceeding upper limit. (Let max 500 round)
 - [x] Test for exceeding maximum number of cars. (Let max 100 cars)
+- [x] Car name is blank
+- [x] No cars move
+
 
 ### Seperate Rules.kt from model
 - [x] RANDOM_MIN=0, RANDOM_MAX=9
