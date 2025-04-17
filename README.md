@@ -20,12 +20,12 @@
   - [x] `getSteps()` method (returns the current position of the car)
   - [x] Validation: The name attribute must not exceed 5 characters. If it does, an `IllegalArgumentException` is thrown.
 
+- [x] Create `Race` class in order to:
+  - [x] Store list of `Car` instances
+  - [x] Store number of rounds
+  - [x] Run the race and show progress every round
+  - [x] Determine and display winner(s)
 
-- [ ] Create `Race` class in order to:
-  - [ ] Store list of `Car` instances
-  - [ ] Store number of rounds
-  - [ ] Run the race and show progress every round
-  - [ ] Determine and display winner(s)
 
 ## Game Logic
 - [ ] For each round:
@@ -38,8 +38,8 @@
   - [ ] If there's a tie, print all winners comma separated
 
 ## Error management
-- [ ] If the first user input (car names) is invalid → throw `IllegalArgumentException`
-- [ ] If the second user input (number of rounds) is invalid → throw  `IllegalArgumentException`
+- [x] If the first user input (car names) is invalid → throw `IllegalArgumentException`
+- [x] If the second user input (number of rounds) is invalid → throw  `IllegalArgumentException`
 
 ## Tests
 - [ ] Test if car moves forward when random number is 4 or bigger
