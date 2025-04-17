@@ -1,16 +1,9 @@
 package racingcar
 
 fun main() {
-    val theRace: CarRace
-
-    try {
-        theRace = CarRace.initializeRace()
-    } catch (e: Exception) {
-        println("Error: ${e.message}")
-        return
-    }
+    val theRace = CarRace.initializeRace()
 
     theRace.startRace()
     val winners = theRace.selectWinners()
-    println("Winners: $winners")
+    println("Winners : ${winners.joinToString(", ")}")
 }
