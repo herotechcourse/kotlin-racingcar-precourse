@@ -2,12 +2,6 @@ package racingcar.validation
 
 import camp.nextstep.edu.missionutils.Console
 
-// Read input from user
-fun readRoundsInput(): String {
-    println("Please enter the number of racing rounds:")
-    return Console.readLine() ?: ""
-}
-
 // 1. Check if the input is a valid integer
 fun parseToInteger(input: String): Int {
     return input.toIntOrNull()
@@ -21,8 +15,8 @@ fun validateNonNegative(number: Int) {
     }
 }
 
-// Process Input
-fun processRoundsInput(input: String): Int {
+// Validate Input
+fun validateRoundsInput(input: String): Int {
     val number = parseToInteger(input)
     validateNonNegative(number)
     return number

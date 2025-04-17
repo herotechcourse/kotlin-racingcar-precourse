@@ -8,14 +8,14 @@ class RoundsInputTest {
     @Test
     fun `test valid number of rounds`() {
         val input = "5"
-        val rounds = processRoundsInput(input)
+        val rounds = validateRoundsInput(input)
         assertThat(rounds).isEqualTo(5)
     }
 
     @Test
     fun `test invalid input with non-numeric characters`() {
         val input = "six"
-        assertThatThrownBy { processRoundsInput(input) }
+        assertThatThrownBy { validateRoundsInput(input) }
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessageContaining("valid integer")
     }
@@ -23,7 +23,7 @@ class RoundsInputTest {
     @Test
     fun `test invalid input with negative number`() {
         val input = "-5"
-        assertThatThrownBy { processRoundsInput(input) }
+        assertThatThrownBy { validateRoundsInput(input) }
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessageContaining("greater than 0")
     }
@@ -31,7 +31,7 @@ class RoundsInputTest {
     @Test
     fun `test invalid input with zero`() {
         val input = "0"
-        assertThatThrownBy { processRoundsInput(input) }
+        assertThatThrownBy { validateRoundsInput(input) }
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessageContaining("greater than 0")
     }
