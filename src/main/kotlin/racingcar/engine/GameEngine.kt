@@ -15,6 +15,9 @@ class GameEngine(private val race: Race, private val randomMovement: (Car) -> Un
     //Create a Mutable list to save state
     private val roundResults = mutableListOf<List<CarResult>>()
 
+    // Expose cars to others
+    val cars: List<Car> get() = race.cars
+
     // Start the race for the given rounds
     fun startRace() {
         repeat(race.totalRounds) {
