@@ -144,3 +144,15 @@ classDiagram
 ```
 
 ## 🔧 Implementation Details
+
+- Before testing, I thought about how to test input and output because they use `Console.readLine()`. I found `NsTest` can check the output and give input, but it was hard to control them one by one. So I made a simple `IOTest` class to help with that.
+
+```java
+public abstract class IOTest {
+    protected final <T> T run(String input, Supplier<T> supplier) { ... }
+
+    protected final <T> void runException(String input, Supplier<T> supplier) { ... }
+
+    protected final String run(Runnable runnable) { ... }
+}
+```
