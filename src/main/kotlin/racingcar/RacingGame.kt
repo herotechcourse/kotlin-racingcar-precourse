@@ -1,10 +1,13 @@
 package racingcar
 
+import racingcar.io.Output
+
 class RacingGame(val cars: List<Car>, val round: Int) {
 
-    fun startGame() {
+    fun startGame(gameService: GameService) {
+        Output.printStartMessage()
         repeat(round) {
-            playOneRound()
+            playOneRound(gameService)
             Output.printGame(cars)
         }
     }
@@ -14,10 +17,8 @@ class RacingGame(val cars: List<Car>, val round: Int) {
         return cars.filter { car -> car.position == max }
     }
 
-    private fun playOneRound() {
-        for (car in cars) {
-            car.move()
-        }
+    private fun playOneRound(gameService: GameService) {
+        gameService.playOneRound(cars)
     }
 
 }
