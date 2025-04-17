@@ -7,15 +7,17 @@ import racingcar.domain.RacePolicy
 
 class RaceExecutor(
     private val numberGenerator: NumberGenerator,
-    private val cars: Cars,
+    cars: Cars,
     private val round: Int,
     private val racePolicy: RacePolicy
 ) {
+    private var cars: Cars = cars
+
     fun execute(): List<Cars> {
         val roundResults = mutableListOf<Cars>()
         repeat(round) {
-            cars.moveIfSatisfied(this::canMoveCar)
-            roundResults.add(cars.roundResult())
+            cars = cars.movedIfSatisfied(this::canMoveCar)
+            roundResults.add(cars)
         }
         return roundResults
     }

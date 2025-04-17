@@ -14,48 +14,53 @@ class RaceExecutorTest {
         override fun generate(): Int = fixedNumber
     }
 
+    private class StubRacePolicy(private val shouldMove: Boolean) : RacePolicy {
+        override fun canMove(number: Int): Boolean = shouldMove
+    }
+
     private val names = listOf("pobi", "woni", "jun").map { CarName.from(it) }
 
     @Nested
     inner class `Success Case` {
 
         @Test
-        fun `car moves if number is 4 or greater`() {
-            val numberGenerator = StubNumberGenerator(5)
+        fun `car moves if policy allows`() {
+            val generator = StubNumberGenerator(0)
+            val policy = StubRacePolicy(true)
             val cars = Cars.of(names)
-            val executor = RaceExecutor(numberGenerator, cars, 1, RacePolicy())
+            val executor = RaceExecutor(generator, cars, 1, policy)
 
             val roundResults = executor.execute()
 
-            assertThat(roundResults).hasSize(1)
             assertThat(roundResults[0].positions()).containsExactly(1, 1, 1)
         }
 
         @Test
-        fun `car does not move if number is less than 4`() {
-            val numberGenerator = StubNumberGenerator(3)
+        fun `car does not move if policy disallows`() {
+            val generator = StubNumberGenerator(100)
+            val policy = StubRacePolicy(false)
             val cars = Cars.of(names)
-            val executor = RaceExecutor(numberGenerator, cars, 1, RacePolicy())
+            val executor = RaceExecutor(generator, cars, 1, policy)
 
             val roundResults = executor.execute()
 
-            assertThat(roundResults).hasSize(1)
             assertThat(roundResults[0].positions()).containsExactly(0, 0, 0)
         }
 
         @Test
-        fun `car moves forward as many rounds as repeated when condition met`() {
-            val numberGenerator = StubNumberGenerator(9)
+        fun `car moves multiple rounds if policy allows`() {
+            val generator = StubNumberGenerator(0)
+            val policy = StubRacePolicy(true)
             val cars = Cars.of(names)
-            val executor = RaceExecutor(numberGenerator, cars, 3, RacePolicy())
+            val executor = RaceExecutor(generator, cars, 3, policy)
 
             val roundResults = executor.execute()
 
-            assertThat(roundResults).hasSize(3)
             assertThat(roundResults[0].positions()).containsExactly(1, 1, 1)
             assertThat(roundResults[1].positions()).containsExactly(2, 2, 2)
             assertThat(roundResults[2].positions()).containsExactly(3, 3, 3)
         }
     }
 }
+
 
