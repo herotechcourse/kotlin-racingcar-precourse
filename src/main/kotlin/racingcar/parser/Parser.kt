@@ -1,4 +1,7 @@
-package racingcar
+package racingcar.parser
+
+import racingcar.utils.ErrorMessages
+import racingcar.model.Car
 
 object Parser {
   fun parseCars(input: String): MutableList<Car> {

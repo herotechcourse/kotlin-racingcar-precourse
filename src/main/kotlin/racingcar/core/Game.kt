@@ -1,6 +1,7 @@
-package racingcar
+package racingcar.core
 
-import racingcar.Printer.printRound
+import racingcar.utils.Printer.printRound
+import racingcar.model.Car
 
 class Game(val cars: MutableList<Car>, val rounds: Int) {
 
@@ -13,7 +14,6 @@ class Game(val cars: MutableList<Car>, val rounds: Int) {
   }
 
   private fun printRoundResult() {
-    println()
     printRound(cars)
   }
 

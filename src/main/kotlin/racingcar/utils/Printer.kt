@@ -1,4 +1,6 @@
-package racingcar
+package racingcar.utils
+
+import racingcar.model.Car
 
 object Printer {
 

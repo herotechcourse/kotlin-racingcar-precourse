@@ -1,8 +1,10 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
-import racingcar.Parser.parseCars
-import racingcar.Printer.printWinners
+import racingcar.core.Game
+import racingcar.parser.Parser.parseCars
+import racingcar.utils.ErrorMessages
+import racingcar.utils.Printer.printWinners
 
 fun main() {
 

@@ -1,6 +1,6 @@
-package racingcar
+package racingcar.model
 
-import racingcar.Utils.getRandomNumberFromZeroToNine
+import racingcar.utils.Utils.getRandomNumberFromZeroToNine
 
 
 data class Car(val name: String, var currLevel: Int = 0) {

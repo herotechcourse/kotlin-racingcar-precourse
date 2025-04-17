@@ -1,4 +1,4 @@
-package racingcar
+package racingcar.utils
 
 object ErrorMessages {
     const val ERROR_EMPTY_CAR_NAME = "Car names must not be empty."
