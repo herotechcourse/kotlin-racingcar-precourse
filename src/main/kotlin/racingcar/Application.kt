@@ -7,11 +7,11 @@ fun main() {
     println("Enter the names of the cars (comma-separated):")
     val carNamesInput = Console.readLine()
     val carNames = InputHandler.parseCarNames(carNamesInput)
-    println(carNames)
     println("How many rounds will be played?")
     val roundsInput = Console.readLine()
     val rounds = InputHandler.parseRounds(roundsInput)
-    println(rounds)
+    val game = RacingGame(carNames, rounds)
+    game.run()
 }
 
 
