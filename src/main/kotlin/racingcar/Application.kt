@@ -8,7 +8,17 @@ fun main() {
 
     val numberRounds = InputView.readAndParseRoundCountInput()
 
-    GameLogic(carsList, numberRounds).play()
+    val game = Game(carsList)
+
+    println("\nRace Result")
+    repeat(numberRounds) {
+        game.play()
+        ResultView.displayEndPositions(carsList)
+        println()
+    }
+
+    val winners = game.getWinners()
+    ResultView.printFinalWinners(winners)
 
 }
 
