@@ -5,13 +5,8 @@ import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 
 class InputOutputTest : IOTest() {
-    private fun readNameAndGreet(): String {
-        val name = Console.readLine() ?: return "No name"
-        return "Hello, $name"
-    }
-
     @Test
-    fun `input test`() {
+    fun `should return Hello Kotlin when input is Kotlin`() {
         // Given
         val input = "Kotlin"
 
@@ -23,11 +18,16 @@ class InputOutputTest : IOTest() {
     }
 
     @Test
-    fun `output test`() {
+    fun `should print Hello Kotlin message when println is called`() {
         // When
         val output = run { println("Hello, Kotlin!") }
 
         // Then
         Assertions.assertThat(output).isEqualTo("Hello, Kotlin!")
+    }
+
+    private fun readNameAndGreet(): String {
+        val name = Console.readLine() ?: return "No name"
+        return "Hello, $name"
     }
 }
