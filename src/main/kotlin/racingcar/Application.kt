@@ -1,5 +1,13 @@
 package racingcar
 
+
 fun main() {
-    // TODO: Implement the program
+    OutputController.printNamesOfCars()
+    val nameOfCars = InputController.readNamesOfCars()
+
+    OutputController.printPlayerRound()
+    val limitRound = InputController.readRounds()
+
+    val carRacingGame = CarRacingGame(nameOfCars, limitRound)
+    carRacingGame.gameProcess()
 }
