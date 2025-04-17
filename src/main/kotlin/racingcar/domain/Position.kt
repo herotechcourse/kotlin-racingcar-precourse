@@ -1,12 +1,10 @@
 package racingcar.domain
 
-class Position private constructor(private var value: Int) {
+class Position private constructor(private val value: Int) {
 
     fun value(): Int = value
 
-    fun forward() {
-        value += 1
-    }
+    fun forwarded(): Position = Position(value + 1)
 
     companion object {
         private const val INIT_POSITION = 0

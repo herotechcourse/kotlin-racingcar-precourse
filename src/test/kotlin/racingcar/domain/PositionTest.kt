@@ -22,15 +22,17 @@ class PositionTest {
         @Test
         fun `it should increase by 1`() {
             val position = Position.from()
-            position.forward()
-            assertThat(position.value()).isEqualTo(1)
+            val next = position.forwarded()
+            assertThat(next.value()).isEqualTo(1)
+            assertThat(position.value()).isEqualTo(0)
         }
 
         @Test
-        fun `it should increase by 3 after calling forward 3 times`() {
+        fun `it should increase by 3 after calling forwarded 3 times`() {
             val position = Position.from()
-            repeat(3) { position.forward() }
-            assertThat(position.value()).isEqualTo(3)
+            val moved = (1..3).fold(position) { acc, _ -> acc.forwarded() }
+            assertThat(moved.value()).isEqualTo(3)
+            assertThat(position.value()).isEqualTo(0)
         }
     }
 }
