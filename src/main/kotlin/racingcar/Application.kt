@@ -35,12 +35,25 @@ fun main() {
     val namesOfCars = readValidatedCarNames()
     val gameRounds = readValidatedGameRounds()
 
+    fun determineWinners(cars: List<Car>): List<String> {
+        val maxPosition = cars.maxOf { it.position }
+        return cars
+            .filter { it.position == maxPosition }
+            .map { it.name }
+    }
 
 
     //2. Create Car obj.
     val cars = namesOfCars.map {Car(it)}
 
     println("\nGame Results")
+    repeat(gameRounds) {
+        cars.forEach {it.moveCar()}
+        printGameRound(cars)
+    }
+
+    val winners = determineWinners(cars)
+    println("Winners: ${winners.joinToString(", ")}")
 
 }
 
