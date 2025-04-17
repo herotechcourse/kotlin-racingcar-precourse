@@ -2,6 +2,7 @@ package racingcar.view
 
 import camp.nextstep.edu.missionutils.Console
 import racingcar.validation.validateCarNames
+import racingcar.validation.validateTheNumberOfRounds
 
 class InputView {
     fun inputCarNames(): List<String> {
@@ -14,5 +15,16 @@ class InputView {
         }
 
         return emptyList()
+    }
+
+    fun inputTheNumberOfRounds(): String {
+        println("How many rounds will be played?")
+        val numberOfRoundsInput: String = Console.readLine()
+
+        if (validateTheNumberOfRounds(numberOfRoundsInput)) {
+            return numberOfRoundsInput
+        }
+
+        return numberOfRoundsInput
     }
 }

@@ -18,9 +18,9 @@
 
 ### Prompt the user to enter the number of rounds to race
 
-- [ ]  Display input message: “How many rounds will be played?”
-- [ ]  Throw an `IllegalArgumentException`and terminate the program when the user inputs invalid data.
-    - [ ]  The number of rounds must be a positive integer.
+- [X]  Display input message: “How many rounds will be played?”
+- [X]  Throw an `IllegalArgumentException`and terminate the program when the user inputs invalid data.
+    - [X]  The number of rounds must be a positive integer.
 
 ### Run the car racing game
 

@@ -13,3 +13,10 @@ object CarNamesError {
         Exit this program.
     """
 }
+
+object TheNumberOfRoundsError {
+    const val INVALID_TYPE: String = """
+        $ERROR_PREFIX You must enter type of Number.
+        Exit this program.
+    """
+}
