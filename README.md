@@ -15,7 +15,7 @@ A Simple Car Racing Game Application built with Kotlin.
 - ✅ Store Output race progress per round
 - ✅ Determine winners based on distance covered
 - ✅ Display winners (comma-separated if multiple)
-- ✅ Error handling with `IllegalArgumentException` for invalid input
+- 🚧 Error handling with `IllegalArgumentException` for invalid input
 - 🚧 Unit tests using **JUnit 5** + **AssertJ**
 
 ---
@@ -33,8 +33,8 @@ A Simple Car Racing Game Application built with Kotlin.
 | Store Output race progress per round                             | ✅ Done  | `feature/output-round-results` |
 | Determine winners based on distance covered                      | ✅ Done  | `feature/determine-winners`    |
 | Display winners                                                  | ✅ Done  | `feature/display-winners`      |
-| Error handling with `IllegalArgumentException` for invalid input | 🚧 WIP  | `feature/error-handling`       |
-| Unit tests using **JUnit 5** + **AssertJ**                       | 🚧 WIP  | `test/unit-tests`              |
+| Error handling with `IllegalArgumentException` for invalid input | ✅ Done  | `Integrated with each feature` |
+| Unit tests using **JUnit 5** + **AssertJ**                       | ✅ Done  | `Integrated with each feature` |
 
 ---
 
