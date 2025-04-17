@@ -8,26 +8,42 @@ import java.lang.IllegalArgumentException
 class InputView {
     fun getCars(): List<Car> {
         println("Enter the names of the cars (comma-separated):")
-        val carsString: String? = Console.readLine()
+        val carsString: String = Console.readLine()
+            .validateNotNullOrBlank("Invalid input")
+        val names = getCarNames(carsString)
+        return names.map { Car(it, RandomMoveStrategy()) }
+    }
 
-        if (carsString.isNullOrBlank()) {
-            throw IllegalArgumentException("Invalid car names")
+    private fun String?.validateNotNullOrBlank(errorMessage: String):String {
+        if (this.isNullOrBlank()) {
+            throw IllegalArgumentException(errorMessage)
         }
+        return this
+    }
 
+    private fun getCarNames(carsString: String): List<String> {
         val names = carsString.split(",").map { it.trim() }
+        validateCarNameIsNotEmpty(names)
+        return names
+    }
 
+    private fun validateCarNameIsNotEmpty(names: List<String>) {
         if (names.any { it.isEmpty() }) {
             throw IllegalArgumentException("Car names cannot be blank")
         }
-
-        return names.map { Car(it, RandomMoveStrategy()) }
     }
+
     fun getRounds(): Int {
         println("How many rounds will be played?")
-        val rounds = Console.readLine()?.toIntOrNull() ?: throw IllegalArgumentException("Invalid rounds")
+        val rounds = Console.readLine()?.toIntOrNull()
+            ?: throw IllegalArgumentException("Invalid rounds")
+        validatePositive(rounds)
+        return rounds
+    }
+
+    private fun validatePositive(rounds: Int) {
         if (rounds <= 0) {
             throw IllegalArgumentException("Number of rounds must be a positive integer")
         }
-        return rounds
     }
 }
