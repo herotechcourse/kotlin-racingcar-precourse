@@ -21,12 +21,16 @@ object InputView {
         return Console.readLine()
     }
 
+
     fun readAndParseRoundCountInput(): Int {
-
         println("Number of rounds:")
-        val roundCount = Console.readLine().toIntOrNull() ?: throw IllegalArgumentException("Please enter a valid positive number")
-        if (roundCount<=0) throw IllegalArgumentException("Number of rounds must be positive")
-        return roundCount
+        val input = Console.readLine()
+        return parseRoundCount(input)
+    }
 
+    internal fun parseRoundCount(input: String?): Int {
+        val roundCount = input?.toIntOrNull() ?: throw IllegalArgumentException("Please enter a valid positive number")
+        if (roundCount <= 0) throw IllegalArgumentException("Number of rounds must be positive")
+        return roundCount
     }
 }
