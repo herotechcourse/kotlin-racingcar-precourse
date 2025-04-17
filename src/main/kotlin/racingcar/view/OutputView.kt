@@ -14,8 +14,8 @@ class OutputView {
 
     private fun printRoundResult(roundResult: RoundResult) {
         for (entry in roundResult.results.entries) {
-            print(entry.key + " : ")
-            println("-".repeat(entry.value))
+            print(entry.key.name + " : ")
+            println("-".repeat(entry.value.toInt()))
         }
         println()
     }

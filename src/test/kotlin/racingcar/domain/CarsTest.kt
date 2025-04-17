@@ -27,9 +27,9 @@ class CarsTest {
 
         cars.move()
 
-        assertEquals(1, pobi.position)
-        assertEquals(0, tebah.position)
-        assertEquals(1, anna.position)
+        assertEquals(Position(1), pobi.position)
+        assertEquals(Position(0), tebah.position)
+        assertEquals(Position(1), anna.position)
     }
 
     @Test

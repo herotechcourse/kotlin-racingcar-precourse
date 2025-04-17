@@ -23,8 +23,8 @@ class Cars(val cars: List<Car>) {
     fun winners(): List<Car> {
         var maxPosition = 0
         for (car in cars) {
-            maxPosition = max(maxPosition, car.position)
+            maxPosition = max(maxPosition, car.position.toInt())
         }
-        return cars.filter { car -> car.position == maxPosition }.toList()
+        return cars.filter { car -> car.position.toInt() == maxPosition }.toList()
     }
 }
