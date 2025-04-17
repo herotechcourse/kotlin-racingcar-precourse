@@ -22,7 +22,7 @@
     - Throw an `IllegalArgumentException` if any name is duplicated
 
 - [x] Validate car name must be between 1 and 5 characters
-    - Throw an `IllegalArgumentException` if the name legnth is out of range
+    - Throw an `IllegalArgumentException` if the name length is out of range
 - [x] Validate car name must only contain alphabets
     - Throw an `IllegalArgumentException` if the name contains non-alphabet characters
 
