@@ -6,22 +6,39 @@
 3. Validate the inputs.
 4. Execute the race.
 5. Print out the result of each round and final winner(s).
-<br><br>
+
+
+    [game-start]                : request & validate input. 
+        ↓
+    [game-init]                 : split carNames, trim, create Car objects, parse nRounds.
+        ↓
+    [RaceExecution]             : move cars per round using random value >= 4.
+        ↓
+    [GameLoop / GameFlowManager]: repeat race-execution as many as nRounds, store each round states. 
+        ↓
+    [ProgressTracking]          : track car positions per round, store each progress
+        ↓
+    [GameEnd / Winners]         : check winners based on final position (! multiple winners)
+        ↓
+    [Output]                    : print round by round state and final result
+
+---
 
 ## 🏌️ Approach
     Break down the Game flow into small,
     testable feature modules like below.
-<br>
+
+---
 
 ## 👾 Feature Modules
 ### 🧩 Game flow manager Module (MVC: "Controller")
-| Feature | Description | Test code | Green | Refactored | Done |
-|:---|:---|:---------:|:----------------:|:---:|:---:|
-| game-start | Start game execution from main() |     ⏳     |        -         | - | - |
-| game-init | Make cars based on user input |     ⏳     |        -         | - | - |
-| game-loop | Repeat game as many as rounds |     ⏳      |        -         | - | - |
-| game-track-progress | Moniter each round's result and check the winner(s) |     -     |        -         | - | - |
-| game-end | Terminate the game |     -     |        -         | - | - |
+| Feature | Description | Test code |      Green      | Refactored | Done |
+|:---|:---|:---------:|:---------------:|:---:|:---:|
+| game-start | Start game execution from main() |     ✅     |        ✅        | - | - |
+| game-init | Make cars based on user input |     ✅     |        ✅         | - | - |
+| game-loop | Repeat game as many as rounds |     -      |        -        | - | - |
+| game-track-progress | Moniter each round's result and check the winner(s) |     -     |        -        | - | - |
+| game-end | Terminate the game |     -     |        -        | - | - |
 
 ### 🧩 Input Module
 | Feature | Description | Test code | Green | Refactored | Done |
@@ -39,11 +56,11 @@
 ### 🧩 Race execution Module (MVC: "Model")
 | Feature | Description | Test code | Green | Refactored | Done |
 |:---|:---|:---------:|:---:|:----:|:---:|
-| race-start | Execute race based on number of rounds | - | - | - | - |
-| race-generate-random-number | Random number between 0 - 9 | - | - | - | - |
-| race-is-move-condition-met | Return true if the random number meets or exceeds the moveable condition | - | - | - | - |
-| race-move-cars | Move cars forward only if they pass the random check condition | - | - | - | - |
-| race-update-track | Update track state after each round | - | - | - | - |
+| race-start | Execute race based on number of rounds |     ⏳      | - | - | - |
+| race-generate-random-number | Random number between 0 - 9 |     ⏳     | - | - | - |
+| race-is-move-condition-met | Return true if the random number meets or exceeds the moveable condition |     ⏳     | - | - | - |
+| race-move-cars | Move cars forward only if they pass the random check condition |     ⏳     | - | - | - |
+| race-update-track | Update track state after each round |     -     | - | - | - |
 
 ### 🧩 Error handling Module
 | Feature | Description | Test code | Green | Refactored | Done |
@@ -66,7 +83,7 @@ Option for status columns (Test, Refactored, Done)<br>
 ⏳ : In progress<br>
 —  : Not started or not applicable
 
-<br>
+---
 
 ## 🏷️ Variables
 | Variable | Role | Condition |
@@ -74,14 +91,14 @@ Option for status columns (Test, Refactored, Done)<br>
 | carName | - | 1. Each car must have a name<br> 2. Name can't exceed 5 characters |
 | nRounds | - | - |
 
-<br>
+---
 
 ## 📘 Classes
 | Class | Role |
 |:---|:---|
 | - | - |
 
-<br>
+---
 
 ## 🗒 Memo
 ### 1. Input
