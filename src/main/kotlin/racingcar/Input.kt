@@ -15,6 +15,11 @@ object Input {
     }
 
     fun readNumberOfRounds(): Int {
-        return Console.readLine().toInt()
+        val input = Console.readLine()
+        val regex = Regex("^[1-9][0-9]*$")
+
+        require(input.matches(regex))
+
+        return input.toInt()
     }
 }
