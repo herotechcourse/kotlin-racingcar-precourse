@@ -10,9 +10,9 @@ class Race {
     private val winner = Winner()
     fun race(){
         val cars:List<Car> = inputView.getCars()
-        val attempts = inputView.getAttempts()
+        val rounds = inputView.getRounds()
         outputView.printRaceStartMessage()
-        for (i in 0 until attempts) {
+        for (i in 0 until rounds) {
             for (car in cars) {
                 car.drive()
             }

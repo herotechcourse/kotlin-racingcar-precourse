@@ -105,7 +105,7 @@ class InputViewTest {
         val inputView = InputView()
 
         // when
-        val attempts = inputView.getAttempts()
+        val attempts = inputView.getRounds()
 
         // then
         assertEquals(5, attempts)
@@ -120,7 +120,7 @@ class InputViewTest {
 
         // when & then
         assertThrows(IllegalArgumentException::class.java){
-            inputView.getAttempts()
+            inputView.getRounds()
         }
     }
 
@@ -133,7 +133,7 @@ class InputViewTest {
 
         // when & then
         assertThrows(IllegalArgumentException::class.java){
-            inputView.getAttempts()
+            inputView.getRounds()
         }
     }
 
@@ -146,7 +146,7 @@ class InputViewTest {
 
         // when & then
         assertThrows(IllegalArgumentException::class.java){
-            inputView.getAttempts()
+            inputView.getRounds()
         }
     }
 }

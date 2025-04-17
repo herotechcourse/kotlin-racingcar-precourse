@@ -21,12 +21,12 @@ class InputView {
 
         return names.map { Car(it) }
     }
-    fun getAttempts(): Int {
+    fun getRounds(): Int {
         println("How many rounds will be played?")
-        val attempts = Console.readLine()?.toIntOrNull() ?: throw IllegalArgumentException("Invalid attempts")
-        if (attempts <= 0) {
-            throw IllegalArgumentException("Number of attempts must be a positive integer")
+        val rounds = Console.readLine()?.toIntOrNull() ?: throw IllegalArgumentException("Invalid rounds")
+        if (rounds <= 0) {
+            throw IllegalArgumentException("Number of rounds must be a positive integer")
         }
-        return attempts
+        return rounds
     }
 }
