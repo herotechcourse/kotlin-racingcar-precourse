@@ -70,3 +70,5 @@ I'm gonna make it in MVC Strategy + Validation
 _I was planning to make it in object, but I've learned that objects are difficult to test_
 
 _So I decided to make it in class + interface way-to make test easily_
+
+_Noticed that there are no specific limitation of car name (just 5 characters)
