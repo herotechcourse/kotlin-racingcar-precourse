@@ -13,8 +13,11 @@ class Application {
         val roundCount = readRoundCount()
         val cars = carNames.map { Car(it) }
 
-        println("\nRace Results (first round only)")
-        raceOnce(cars)
+        println("\nRace Results")
+        repeat(roundCount) {
+            raceOnce(cars)
+            printStatus(cars)
+        }
 
         for (car in cars) {
             println("${car.name} : ${"-".repeat(car.position)}")
@@ -54,5 +57,12 @@ class Application {
                 car.move()
             }
         }
+    }
+
+    private fun printStatus(cars: List<Car>) {
+        for (car in cars) {
+            println("${car.name} : ${"-".repeat(car.position)}")
+        }
+        println()
     }
 }
