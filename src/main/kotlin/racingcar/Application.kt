@@ -1,8 +1,8 @@
 package racingcar
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
-    // TODO: Implement the program
 
     //1. get inputs of player names - readCarNames()
     val carNames = readCarNames()
@@ -10,7 +10,9 @@ fun main() {
     //2. get inputs of rounds
     val numberOfRounds = readNumberOfRounds()
 
-    //3. function: make random result
+    //3. function: make random result (carNames, numbersOfRounds)
+    println("\nRace Results")
+    playRace(carNames,numberOfRounds)
 
     //4. print racing result (player names, random function)
 
@@ -53,4 +55,25 @@ fun readNumberOfRounds(): Int {
     }
 
     return number
+}
+
+fun playRace(carNames: List<String>?, numberOfRounds: Int) {
+    // where cars at, Map
+    val carPositions = mutableMapOf<String, Int>()
+    carNames?.forEach { carPositions[it] = 0 }
+
+    repeat(numberOfRounds) {
+        if (carNames != null) {
+            for (car in carNames) {
+                val randomNumber = Randoms.pickNumberInRange(0, 9)
+                if (randomNumber >= 4) {
+                    carPositions[car] = carPositions[car]!! + 1
+                }
+            }
+        }
+        for ((car, position) in carPositions) {
+            println("$car : ${"-".repeat(position)}")
+        }
+        println()
+    }
 }
