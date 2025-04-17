@@ -1,6 +1,6 @@
 package racingcar.domain
 
 interface RacePolicy {
-    fun canMove(number: Int): Boolean
+    fun canMove(car: Car, number: Int): Boolean
 }
 
