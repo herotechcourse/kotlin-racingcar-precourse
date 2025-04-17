@@ -19,9 +19,7 @@ class Application {
             printStatus(cars)
         }
 
-        for (car in cars) {
-            println("${car.name} : ${"-".repeat(car.position)}")
-        }
+        printWinners(cars)
     }
 
     private fun readCarNamesInput(): String {
@@ -64,5 +62,13 @@ class Application {
             println("${car.name} : ${"-".repeat(car.position)}")
         }
         println()
+    }
+
+    private fun printWinners(cars: List<Car>) {
+        val maxPosition = cars.maxOf { it.position }
+        val winners = cars.filter { it.position == maxPosition }
+            .joinToString(", ") { it.name }
+
+        println("Winners : $winners")
     }
 }
