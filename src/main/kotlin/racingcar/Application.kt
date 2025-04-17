@@ -1,20 +1,15 @@
 package racingcar
 
-import camp.nextstep.edu.missionutils.Randoms
-
 
 fun main() {
+    OutputController.printNamesOfCars()
+    val nameOfCars = InputController.readNamesOfCars()
 
-}
+    OutputController.printPlayerRound()
+    val limitRound = InputController.readRounds()
+
+    val carRacingGame = CarRacingGame(nameOfCars, limitRound)
+    carRacingGame.gameProcess()
 
 
-
-
-object RandomNumController {
-    private val startRandomNum = 0
-    private val endRandomNum = 9
-
-    fun getRandomNum(): Int {
-        return Randoms.pickNumberInRange(startRandomNum, endRandomNum)
-    }
 }

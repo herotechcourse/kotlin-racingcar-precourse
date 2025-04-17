@@ -15,6 +15,12 @@ class CarRacingGame(
     }
 
 
+    fun gameProcess() {
+        for (currentRound in 1..limitRound) {
+            racePlayerCarsByRound()
+            OutputController.printBlankLine()
+        }
+    }
 
     private fun racePlayerCarsByRound() {
         playerCars.forEach { playerCar ->
