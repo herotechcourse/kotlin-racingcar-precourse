@@ -9,7 +9,7 @@ Implement a simple car racing game.
 - [x] The user can input the number of rounds.
 
 ### Output data
-- [ ] After each round, print the car’s name and its progress.  
+- [x] After each round, print the car’s name and its progress.  
 ```
 pobi : --
 woni : ----
@@ -25,8 +25,8 @@ jun : ---
     Winners : pobi, jun
     ```
 ### Race Logic
-- [ ] Each car can either move forward or stay in place during each round.  
-- [ ] The car moves forward only if a randomly generated number between 0 and 9 is **greater than or equal to 4**.
+- [x] Each car can either move forward or stay in place during each round.  
+- [x] The car moves forward only if a randomly generated number between 0 and 9 is **greater than or equal to 4**.
 
 ### Exception Handling
 - [ ] If the user provides invalid input, the program should throw an `IllegalArgumentException` and terminate.
