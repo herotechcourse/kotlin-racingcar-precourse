@@ -16,6 +16,10 @@ object InputHandler {
         if (names.any { it.length > 5 }) {
             throw IllegalArgumentException("Each car name must be at most 5 characters.")
         }
+
+        if (names.toSet().size != names.size) {
+            throw IllegalArgumentException("Car names must be unique.")
+        }
     }
 
     fun parseRounds(input: String): Int {
