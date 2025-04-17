@@ -1,5 +1,7 @@
 package racingcar
 
+import racingcar.generator.RandomNumberGenerator
+
 class Car(val name: String) {
 
     var position = 0
@@ -16,8 +18,8 @@ class Car(val name: String) {
         }
     }
 
-    fun move() {
-        if (RandomNumberGenerator.generate() >= MOVE_THRESHOLD) {
+    fun move(randomGenerator: RandomNumberGenerator) {
+        if (randomGenerator.generate() >= MOVE_THRESHOLD) {
             position++
         }
     }
