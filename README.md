@@ -13,9 +13,9 @@
     - [x] A car moves forward if a randomly generated number between 0 and 9 is 4 or greater.
         - [x] make a move methods in car class
 
-- [ ] output
+- [x] output
     - [x] When printing the progress of each car, display the car's name alongside its movement.
-    - [ ] After the race is complete, display the winners. There can be multiple winners if they reach the same final
+    - [x] After the race is complete, display the winners. There can be multiple winners if they reach the same final
       position.
-        - [ ] if no one complete the length of rounds. how to determine the winner?
-    - [ ] If there are multiple winners, their names should be displayed and separated by commas.
+        - [x] if no one complete the length of rounds. how to determine the winner?
+    - [x] If there are multiple winners, their names should be displayed and separated by commas.

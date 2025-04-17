@@ -18,6 +18,7 @@ object InputView {
     fun readRoundCount(): Int {
         print("How many rounds will be played?\n")
         val rounds = Console.readLine() ?: ""
+        println()
         return rounds.toInt()
     }
 }
