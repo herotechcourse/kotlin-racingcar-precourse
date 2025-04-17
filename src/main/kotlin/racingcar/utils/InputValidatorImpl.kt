@@ -6,7 +6,7 @@ class InputValidatorImpl: InputValidator {
     }
 
     override fun validateRounds(rounds: String): Int {
-        TODO("Not yet implemented")
+        return rounds.toIntOrNull() ?: throw IllegalArgumentException("Invalid round input")
     }
 
 }

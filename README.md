@@ -70,4 +70,3 @@ I'm gonna make it in MVC Strategy + Validation
 _I was planning to make it in object, but I've learned that objects are difficult to test_
 
 _So I decided to make it in class + interface way-to make test easily_
-
