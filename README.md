@@ -12,18 +12,24 @@
 - print, blank line
 - print, winners
 
+# Random-Controller
+- Define start, end number
+- pick random number
+
+# Validater
+- Define IllegalArgumentException message
+- validate, names not empty
+- validate, name not blank
+- validate, name length
+
 # PlayerCar-Domain
 - define PlayerCar property
 - canMove: judge PlayerCar can move
 - moving: update distance property
 
-# Random-Controller
-- Define start, end number
-- pick random number
-
 # CarRacingGame-Domain
 - define CarRacingGame property
-- make player names to player Cars 
+- make player names to player Cars
 - process Game total Round
 - race player cars by one round
 - judge winners and add winner
