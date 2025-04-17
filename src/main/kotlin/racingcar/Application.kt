@@ -1,5 +1,10 @@
 package racingcar
 
+import racingcar.controller.RacingController
+import racingcar.view.InputView
+import racingcar.view.OutputView
+
 fun main() {
-    // TODO: Implement the program
+    val racingController = RacingController(InputView(), OutputView())
+    racingController.run()
 }
