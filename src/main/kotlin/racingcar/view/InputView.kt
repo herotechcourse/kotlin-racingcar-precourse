@@ -30,7 +30,7 @@ class InputView {
 
         private const val CAR_NAME_DELIMITER = ","
 
-        private const val INVALID_INPUT_ERROR = "Input value does not exist."
-        private const val INVALID_NUMBER_ERROR = "Input value must be a number."
+        private const val INVALID_INPUT_ERROR = "[ERROR] Input value does not exist."
+        private const val INVALID_NUMBER_ERROR = "[ERROR] Input value must be a number."
     }
 }

@@ -30,8 +30,9 @@ class Cars(val cars: List<Car>) {
     companion object {
         private const val MIN_SIZE: Int = 2
         private const val MAX_SIZE: Int = 20
+
         private const val SIZE_OUT_OF_RANGE_ERROR: String =
-            "Total number of cars range must be between ${MIN_SIZE} and ${MAX_SIZE}."
-        private const val CAR_NAMES_DUPLICATED_ERROR: String = "Car names are duplicated."
+            "[ERROR] Total number of cars range must be between ${MIN_SIZE} and ${MAX_SIZE}."
+        private const val CAR_NAMES_DUPLICATED_ERROR: String = "[ERROR] Car names are duplicated."
     }
 }

@@ -13,6 +13,7 @@ class FixedNumberGenerator(val numbers: Queue<Int>) : NumberGenerator {
         private const val START_RANGE: Int = 0
         private const val END_RANGE: Int = 9
 
-        private const val NUMBER_OUT_OF_RANGE_ERROR: String = "A number must be between ${START_RANGE} and ${END_RANGE}"
+        private const val NUMBER_OUT_OF_RANGE_ERROR: String =
+            "[ERROR] A number must be between ${START_RANGE} and ${END_RANGE}."
     }
 }
