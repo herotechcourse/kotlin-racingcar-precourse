@@ -10,6 +10,7 @@ class RacingGame(
     private val cars = carNames.map { Car(it) }
 
     fun run() {
+        printRaceStart()
         playRace(cars, rounds)
     }
 
@@ -31,6 +32,7 @@ class RacingGame(
         cars.forEach { car ->
             println("${car.name} : ${"-".repeat(car.position)}")
         }
+        println()
     }
 
     private fun printWinners(cars: List<Car>) {

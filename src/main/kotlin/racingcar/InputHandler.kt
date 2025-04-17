@@ -1,6 +1,6 @@
 package racingcar
 
-object InputHandler {
+class InputHandler {
     fun parseCarNames(input: String): List<String> {
         val names = input.split(",")
             .map { it.trim() }

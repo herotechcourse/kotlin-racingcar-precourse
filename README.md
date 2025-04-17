@@ -21,7 +21,7 @@ A simple Kotlin implementation of a car racing game with name validation.
 
   * Should attempt to move, depending on the boolean input
 
-### 3. Implement the RacingGame clas
+### 3. Implement the RacingGame class
 * read a class to handle:
   * Reading input
   * Initializing cars
@@ -34,7 +34,6 @@ A simple Kotlin implementation of a car racing game with name validation.
 Test cases to ensure proper name parsing and validation.
 They can be run individually with the command:
 
- `./gradlew test --tests "racingcar.InputHandlerTest"
-`
+ `./gradlew test --tests "racingcar.InputHandlerTest"`
 
 
