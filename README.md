@@ -4,6 +4,37 @@
 
 ## ✅ Feature Checklist
 
+### Input
+- [ ] Read comma-separated car names from `Console.readLine()`
+- [ ] Read number of rounds from `Console.readLine()`
+- [ ] Validate input (e.g., empty names, name length, invalid number)
+- [ ] Throw `IllegalArgumentException` on invalid input
+
+### Game
+- [ ] Implement movement rule (move forward if random number >= 4)
+- [ ] Simulate all rounds and update car positions
+- [ ] Determine winner(s) based on max position
+
+### Output
+- [ ] Print car progress after each round (e.g., `pobi : --`)
+- [ ] Print winners in the required format (e.g., `Winners : pobi, jun`)
+
+### Car
+- [ ] Represent each car with a name and position
+- [ ] Provide method to move forward
+- [ ] Provide string output for progress
+
+### Testing
+- [ ] Write tests for all methods
+- [ ] Cover edge cases and exception scenarios
+
+### Project
+- [ ] Follow the AngularJS Git Commit Message Conventions
+- [ ] Follow the Kotlin Coding Conventions
+- [ ] Keep indentation depth <= 2
+- [ ] Keep functions small and focused
+- [ ] Ensure each function does only one thing
+
 ## 📐 Requirement Analysis & Design
 
 ### 📓 Notes I wrote while reviewing the mission details
