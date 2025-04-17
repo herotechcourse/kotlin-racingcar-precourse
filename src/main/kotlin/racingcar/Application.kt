@@ -15,10 +15,10 @@ fun main() {
     val carPositions = playRace(carNames, numberOfRounds)
 
     //4. print racing result (player names, random function)
-    //TODO: refactoring ?
+    //TODO: refactoring
 
     //5. calculate who wins
-    //TODO: refactoring ?
+    //TODO: refactoring
     //6. print winner
     printWinners(carPositions)
 }
