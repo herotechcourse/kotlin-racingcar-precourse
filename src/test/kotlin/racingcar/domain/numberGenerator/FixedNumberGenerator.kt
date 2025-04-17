@@ -1,5 +1,6 @@
-package racingcar.domain.numbergenerator
+package racingcar.domain.numberGenerator
 
+import racingcar.domain.numbergenerator.NumberGenerator
 import java.util.*
 
 class FixedNumberGenerator(val numbers: Queue<Int>) : NumberGenerator {
@@ -14,6 +15,6 @@ class FixedNumberGenerator(val numbers: Queue<Int>) : NumberGenerator {
         private const val END_RANGE: Int = 9
 
         private const val NUMBER_OUT_OF_RANGE_ERROR: String =
-            "[ERROR] A number must be between ${START_RANGE} and ${END_RANGE}."
+            "[ERROR] A number must be between $START_RANGE and $END_RANGE."
     }
 }
