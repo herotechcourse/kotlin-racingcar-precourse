@@ -3,8 +3,8 @@
 ## Plan features
 
 ### 1. User Input
-	[ ] Prompt for car names (comma-separated)
-	[ ] Prompt for number of rounds
+	[*] Prompt for car names (comma-separated)
+	[*] Prompt for number of rounds
 
 ### 2. Validate User input
 	[ ] Parse car names
