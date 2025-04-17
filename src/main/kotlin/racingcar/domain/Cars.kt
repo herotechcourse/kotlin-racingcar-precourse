@@ -24,7 +24,7 @@ class Cars private constructor(
     }
 
     fun roundResult(): Cars {
-        val copied = cars.map { copyCar(it) }
+        val copied = cars.map { it.copy() }
         return Cars(copied)
     }
 
@@ -34,12 +34,6 @@ class Cars private constructor(
         fun of(carNames: List<CarName>): Cars {
             val cars = carNames.map { Car.from(it) }
             return Cars(cars)
-        }
-    }
-
-    private fun copyCar(original: Car): Car {
-        return Car.from(CarName.from(original.name())).apply {
-            repeat(original.position()) { forward() }
         }
     }
 }

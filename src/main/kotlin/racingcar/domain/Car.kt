@@ -12,6 +12,12 @@ class Car private constructor(
         position.forward()
     }
 
+    fun copy(): Car {
+        val copied = Car.from(CarName.from(name()))
+        repeat(position()) { copied.forward() }
+        return copied
+    }
+
     companion object {
         fun from(carName: CarName): Car {
             return Car(carName, Position.from())
