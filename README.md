@@ -9,7 +9,7 @@
 
 ### Car and Racing Logic
 - [x] Create a car class that has name and position
-- [ ] Implement moving logic (moves forward when randomly generated number between 0 and 9 is 4 or greater)
+- [x] Implement moving logic (moves forward when randomly generated number between 0 and 9 is 4 or greater)
 - [ ] Save the position of the car when each round is over
 
 ### Game Flow
