@@ -19,7 +19,9 @@ class Cars private constructor(
         return cars.filter { it.position() == max }
     }
 
-    fun all(): List<Car> = cars.toList()
+    fun formatEachCarWith(formatter: (String, Int) -> String): List<String> {
+        return cars.map { formatter(it.name(), it.position()) }
+    }
 
     fun roundResult(): Cars {
         val copied = cars.map { copyCar(it) }
