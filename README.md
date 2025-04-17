@@ -32,4 +32,4 @@
 - [x] Separate car names using comma
 - [x] Generate a random number between 0 and 9 (use `Randoms.pickNumberInRange()`)
 - [x] Move a car forward only if the randomly generated number is 4 or greater
-- [] draw the winner
+- [x] draw the winner

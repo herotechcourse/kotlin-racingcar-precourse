@@ -18,6 +18,15 @@ class Cars(val cars: List<Car>) {
             .forEach { it.move() }
     }
 
+    fun drawWinner(): List<String> {
+        val maxPosition = getMaxPosition()
+        return cars
+            .filter { it.getPosition() == maxPosition }
+            .map { it.getName() }
+    }
+
+    private fun getMaxPosition() = cars.maxOf { it.getPosition() }
+
     companion object {
         private const val MIN_SIZE: Int = 2
         private const val MAX_SIZE: Int = 20

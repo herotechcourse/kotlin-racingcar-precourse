@@ -19,6 +19,7 @@ class RacingController(
             moveCars(cars)
             round.decrement()
         }
+        val winner = cars.drawWinner()
     }
 
     private fun getCarNames(): List<Name> {
