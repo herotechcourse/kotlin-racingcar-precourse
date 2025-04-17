@@ -14,7 +14,7 @@ class RaceExecutor(
     fun execute(): List<Cars> {
         val roundResults = mutableListOf<Cars>()
         repeat(round) {
-            cars.moveIf(this::canMoveCar)
+            cars.moveIfSatisfied(this::canMoveCar)
             roundResults.add(cars.roundResult())
         }
         return roundResults

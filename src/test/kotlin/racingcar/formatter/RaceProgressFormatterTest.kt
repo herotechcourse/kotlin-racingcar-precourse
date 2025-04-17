@@ -12,7 +12,7 @@ class RaceProgressFormatterTest {
         val carNames = listOf("pobi", "woni", "jun").map { CarName.from(it) }
         val cars = Cars.of(carNames)
 
-        cars.moveIf { it.name() != "jun" }
+        cars.moveIfSatisfied { it.name() != "jun" }
 
         val formatter = RaceProgressFormatter()
         val result = formatter.format(cars)

@@ -23,7 +23,7 @@ class CarsTest {
             val names = listOf("pobi", "woni", "jun").map { CarName.from(it) }
             val cars = Cars.of(names)
 
-            cars.moveIf { it.name() == "woni" }
+            cars.moveIfSatisfied { it.name() == "woni" }
 
             assertThat(cars.names()).containsExactly("pobi", "woni", "jun")
             assertThat(cars.positions()).containsExactly(0, 1, 0)
@@ -34,8 +34,8 @@ class CarsTest {
             val names = listOf("a", "b", "c").map { CarName.from(it) }
             val cars = Cars.of(names)
 
-            cars.moveIf { it.name() == "b" || it.name() == "c" }
-            cars.moveIf { it.name() == "c" }
+            cars.moveIfSatisfied { it.name() == "b" || it.name() == "c" }
+            cars.moveIfSatisfied { it.name() == "c" }
 
             val winners = cars.winners()
 
@@ -47,7 +47,7 @@ class CarsTest {
             val names = listOf("a", "b").map { CarName.from(it) }
             val cars = Cars.of(names)
 
-            cars.moveIf { true }
+            cars.moveIfSatisfied { true }
             val winners = cars.winners()
 
             assertThat(winners.map { it.name() }).containsExactly("a", "b")
@@ -58,14 +58,14 @@ class CarsTest {
             val names = listOf("a", "b", "c").map { CarName.from(it) }
             val cars = Cars.of(names)
 
-            cars.moveIf { it.name() == "a" || it.name() == "b" }
+            cars.moveIfSatisfied { it.name() == "a" || it.name() == "b" }
 
             val roundResult = cars.roundResult()
 
             assertThat(cars.positions()).containsExactly(1, 1, 0)
             assertThat(roundResult.positions()).containsExactly(1, 1, 0)
 
-            cars.moveIf { it.name() == "a" }
+            cars.moveIfSatisfied { it.name() == "a" }
 
             assertThat(cars.positions()).containsExactly(2, 1, 0)
             assertThat(roundResult.positions()).containsExactly(1, 1, 0)

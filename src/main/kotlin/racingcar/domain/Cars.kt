@@ -4,7 +4,7 @@ class Cars private constructor(
     private val cars: List<Car>
 ) {
 
-    fun moveIf(condition: (Car) -> Boolean): Cars {
+    fun moveIfSatisfied(condition: (Car) -> Boolean): Cars {
         cars.filter(condition).forEach { it.forward() }
         return this
     }
