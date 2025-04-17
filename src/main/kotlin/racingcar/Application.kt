@@ -87,9 +87,9 @@ fun generateRandomNumber(): Int {
  * Prints the current race progress:
  * Each car is displayed with its name and movement (as '-' for each successful move).
  */
-fun customPrint(raceData: MutableMap<String, MutableList<Int>>) {
-    for ((car, progressList) in raceData) {
-        val progress = progressList.joinToString("") { if (it == 1) "-" else "" }
+fun customPrint(raceData: MutableMap<String, Int>) {
+    for ((car, steps) in raceData) {
+        val progress = "-".repeat(steps)
         println("$car : $progress")
     }
     println("\n")
@@ -100,19 +100,19 @@ fun customPrint(raceData: MutableMap<String, MutableList<Int>>) {
  * Each round, cars may move forward based on random number generation.
  * Prints the race state after each round and returns the full race data.
  */
-fun startRace(cars: List<String>, rounds: Int): MutableMap<String, MutableList<Int>> {
-    val carMap = mutableMapOf<String, MutableList<Int>>()
+fun startRace(cars: List<String>, rounds: Int): MutableMap<String, Int> {
+    val carMap = mutableMapOf<String, Int>()
 
     // Initialize each car's round data with 0s
     for (car in cars) {
-        carMap[car] = MutableList(rounds) { 0 }
+        carMap[car] = 0
     }
 
     // Simulate each round
     for (i in 0 until rounds) {
         for (car in cars) {
             if (generateRandomNumber() >= 4) {
-                carMap[car]?.set(i, 1) // Move forward in this round
+                carMap[car] = (carMap[car] ?: 0) + 1 // Move forward in this round
             }
         }
         customPrint(carMap) // Show progress after each round
@@ -125,8 +125,8 @@ fun startRace(cars: List<String>, rounds: Int): MutableMap<String, MutableList<I
  * Determines the winner(s) by checking which car(s) moved the most.
  * Returns a list of winner names.
  */
-fun findWinners(raceData: MutableMap<String, MutableList<Int>>): List<String> {
-    val scores = raceData.mapValues { it.value.sum() } // total moves for each car
+fun findWinners(raceData: MutableMap<String, Int>): List<String> {
+    val scores = raceData.mapValues { it.value } // moves for each car
     val maxScore = scores.maxOf { it.value } // highest score
 
     return scores.filterValues { it == maxScore }.keys.toList()
