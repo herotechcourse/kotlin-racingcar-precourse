@@ -20,4 +20,10 @@ class InputView {
         return names
     }
 
+    fun readRoundCount(): Int {
+        println("How many rounds will be played?")
+        return Console.readLine()?.toIntOrNull()?.takeIf { it > 0 }
+            ?: throw IllegalArgumentException("Rounds must be a positive number")
+    }
+
 }
