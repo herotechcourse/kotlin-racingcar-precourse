@@ -130,5 +130,5 @@ fun CarNamesLengthValidation(names:List<String>){
 //A function to check if the number of rounds is an integer
 fun RoundsValidation(rounds:String){
     if(rounds.isNullOrEmpty()) throw IllegalArgumentException("Number of rounds must be an integer")
-    if(rounds.toInt() == 0) throw IllegalArgumentException("Number of rounds should be a number greater than 0")
+    if(rounds.toInt() <= 0) throw IllegalArgumentException("Number of rounds should be a number greater than 0")
 }
