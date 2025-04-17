@@ -26,6 +26,7 @@
   - [x] Run the race and show progress every round
   - [x] Determine and display winner(s)
 
+
 ## Game Logic
 - [ ] For each round:
   - [ ] Generate random number between 0 and 9, inclusive
