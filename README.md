@@ -9,6 +9,7 @@
 - print, Names of the cars (comma-separated)
 - print, Number of rounds
 - print, playerCar state
+- print, blank line
 
 # PlayerCar-Domain
 - define PlayerCar property
