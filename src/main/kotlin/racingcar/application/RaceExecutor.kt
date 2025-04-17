@@ -17,13 +17,13 @@ class RaceExecutor(
         val roundResults = mutableListOf<Cars>()
         repeat(round) {
             cars = cars.movedIfSatisfied(this::canMoveCar)
-            roundResults.add(cars)
+            roundResults.add(cars.copyOfCurrent())
         }
         return roundResults
     }
 
     private fun canMoveCar(car: Car): Boolean {
         val number = numberGenerator.generate()
-        return racePolicy.canMove(number)
+        return racePolicy.canMove(car, number)
     }
 }

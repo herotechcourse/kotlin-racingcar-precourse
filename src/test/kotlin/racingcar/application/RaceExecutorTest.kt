@@ -3,22 +3,9 @@ package racingcar.application
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import racingcar.domain.CarName
-import racingcar.domain.Cars
-import racingcar.domain.NumberGenerator
-import racingcar.domain.RacePolicy
+import racingcar.domain.*
 
 class RaceExecutorTest {
-
-    private class StubNumberGenerator(private val fixedNumber: Int) : NumberGenerator {
-        override fun generate(): Int = fixedNumber
-    }
-
-    private class StubRacePolicy(private val shouldMove: Boolean) : RacePolicy {
-        override fun canMove(number: Int): Boolean = shouldMove
-    }
-
-    private val names = listOf("pobi", "woni", "jun").map { CarName.from(it) }
 
     @Nested
     inner class `Success Case` {
@@ -61,6 +48,16 @@ class RaceExecutorTest {
             assertThat(roundResults[2].positions()).containsExactly(3, 3, 3)
         }
     }
+
+    private class StubNumberGenerator(private val fixedNumber: Int) : NumberGenerator {
+        override fun generate(): Int = fixedNumber
+    }
+
+    private class StubRacePolicy(private val shouldMove: Boolean) : RacePolicy {
+        override fun canMove(car: Car, number: Int): Boolean = shouldMove
+    }
+
+    private val names = listOf("pobi", "woni", "jun").map { CarName.from(it) }
 }
 
 
