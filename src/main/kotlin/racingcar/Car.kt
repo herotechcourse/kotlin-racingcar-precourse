@@ -1,6 +1,7 @@
 package racingcar
 
-import racingcar.Utils.getRandomNumber
+import racingcar.Utils.getRandomNumberFromZeroToNine
+
 
 data class Car(val name: String, var currLevel: Int = 0) {
   private fun move() {
@@ -12,7 +13,7 @@ data class Car(val name: String, var currLevel: Int = 0) {
   }
 
   fun tryMove() {
-    if (getRandomNumber() >= 4) move()
+    if (getRandomNumberFromZeroToNine() >= 4) move()
   }
 
 }
