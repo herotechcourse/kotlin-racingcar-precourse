@@ -24,7 +24,7 @@ class RacingGame(
         val round = readRound()
         val roundResults = playRace(cars, round)
         printRoundResults(roundResults)
-        printWinners(cars)
+        printWinners(roundResults)
     }
 
     private fun readCars(): Cars {
@@ -52,8 +52,8 @@ class RacingGame(
             .forEach(outputView::printProgress)
     }
 
-    private fun printWinners(cars: Cars) {
-        val winnerMessage = winnerFormatter.format(cars)
+    private fun printWinners(roundResults: List<Cars>) {
+        val winnerMessage = winnerFormatter.format(roundResults.last())
         outputView.printWinners(winnerMessage)
     }
 }
