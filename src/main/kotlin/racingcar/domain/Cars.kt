@@ -2,7 +2,7 @@ package racingcar.domain
 
 import racingcar.domain.car.Car
 
-class Cars(private val cars: List<Car>) {
+class Cars(val cars: List<Car>) {
 
     init {
         require(cars.size in MIN_SIZE..MAX_SIZE) { SIZE_OUT_OF_RANGE_ERROR }
@@ -13,8 +13,9 @@ class Cars(private val cars: List<Car>) {
         return cars.distinct().size == cars.size
     }
 
-    fun getCars(): List<Car> {
-        return cars
+    fun moveCar() {
+        cars.stream()
+            .forEach { it.move() }
     }
 
     companion object {

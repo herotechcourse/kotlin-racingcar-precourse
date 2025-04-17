@@ -6,14 +6,17 @@ import racingcar.domain.car.Car
 import racingcar.domain.car.Name
 import racingcar.view.InputView
 
-class RacingController {
-
-    private val inputView = InputView()
-
+class RacingController(
+    private val inputView: InputView
+) {
     fun run() {
         val carNames = getCarNames()
         val cars = createCars(carNames)
         val round = getRound()
+        while (round.isRemaining()) {
+            moveCars(cars)
+            round.decrement()
+        }
     }
 
     private fun getCarNames(): List<Name> {
@@ -37,5 +40,9 @@ class RacingController {
 
         val round = Round(totalRounds)
         return round
+    }
+
+    private fun moveCars(cars: Cars) {
+        cars.moveCar()
     }
 }

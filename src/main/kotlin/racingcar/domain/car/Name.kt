@@ -1,14 +1,10 @@
 package racingcar.domain.car
 
-class Name(private val name: String) {
+class Name(val name: String) {
 
     init {
         require(NAME_CONDITION.toRegex().matches(name)) { INVALID_NAME_ERROR }
         require(name.length in MIN_LENGTH..MAX_LENGTH) { NAME_LENGTH_OUT_OF_RANGE_ERROR }
-    }
-
-    fun getName(): String {
-        return name
     }
 
     override fun equals(other: Any?): Boolean {
