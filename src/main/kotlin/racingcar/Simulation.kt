@@ -1,21 +1,27 @@
 package racingcar
 
 object Simulation {
-    fun run(cars: List<Car>, totalRounds: Int) {
-        println("--------------------------")
-        for (round in 1..totalRounds) { // todo: avoid +2 level nesting and split in more functions
-            println("Round $round")
-            for (car in cars) {
-                println("--- Car n${car.id} ---")
-                println(" Name: ${car.name}")
-                println(" Position: ${car.position}")
-                println(" Progress: ${car.progressBar()}")
-                val movement = car.attemptMovement()
-                println(" Movement: ${movement}")
-                println(" Position: ${car.position}")
-                println(" Progress: ${car.progressBar()}")
-            }
-            println("--------------------------")
-        }
+
+  fun race(cars: List<Car>, totalRounds: Int) {
+    println("Race Results:")
+    for (round in 1..totalRounds) {
+      println("\n--- Round $round")
+      runSingleRound(cars)
     }
+    declareWinner(cars)
+  }
+
+  private fun runSingleRound(cars: List<Car>) {
+    for (car in cars) {
+      car.attemptMovement()
+      println("${car.name}: ${car.progressBar()}")
+    }
+  }
+
+  private fun declareWinner(cars: List<Car>){
+    val longestRun = cars.maxOf { it.position } // TODO: if max is 0, should i return an error or something else?
+    val winner = cars.filter { it.position == longestRun }
+    val winnerNames = winner.joinToString(", ") { it.name }
+    println("\nWinner${if (winner.size > 1) "s" else ""}: $winnerNames")
+  }
 }
