@@ -41,3 +41,7 @@
         - [x] judge winner
 
 - [] output
+    - [x] print round result
+    - [] print winners
+
+- [x] RaceResultDto

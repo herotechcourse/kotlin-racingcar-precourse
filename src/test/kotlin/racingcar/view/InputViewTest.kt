@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 
 class InputViewTest {
 
-    lateinit var inputView: InputView
+    private lateinit var inputView: InputView
 
     @BeforeEach
     fun setup() {
