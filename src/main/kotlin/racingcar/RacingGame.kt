@@ -1,14 +1,12 @@
 package racingcar
 
-import racingcar.io.Output
+import racingcar.generator.RandomNumberGenerator
 
 class RacingGame(val cars: List<Car>, val round: Int) {
 
-    fun startGame(gameService: GameService) {
-        Output.printStartMessage()
+    fun startGame(randomGenerator: RandomNumberGenerator) {
         repeat(round) {
-            playOneRound(gameService)
-            Output.printGame(cars)
+            playOneRound(randomGenerator)
         }
     }
 
@@ -17,8 +15,10 @@ class RacingGame(val cars: List<Car>, val round: Int) {
         return cars.filter { car -> car.position == max }
     }
 
-    private fun playOneRound(gameService: GameService) {
-        gameService.playOneRound(cars)
+    private fun playOneRound(randomGenerator: RandomNumberGenerator) {
+        for (car in cars) {
+            car.move(randomGenerator)
+        }
     }
 
 }
