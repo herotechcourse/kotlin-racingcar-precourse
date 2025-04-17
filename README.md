@@ -7,10 +7,10 @@
 	[*] Prompt for number of rounds
 
 ### 2. Validate User input
-	[ ] Parse car names
-		[ ] Throw `IllegalArgumentException` for invalid input
-	[ ] Parse number of rounds
-		[ ] Throw `IllegalArgumentException` for invalid input
+	[*] Parse car names
+		[*] Throw `IllegalArgumentException` for invalid input
+	[*] Parse number of rounds
+		[*] Throw `IllegalArgumentException` for invalid input
 
 ### 3. Car Implementation
 	[ ] Create 'car' class with:
