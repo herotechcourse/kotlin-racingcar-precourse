@@ -1,4 +1,4 @@
-package racingcar.domain
+package racingcar.parser
 
 class RoundParser {
     fun parse(round: String): Int {
