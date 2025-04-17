@@ -1,0 +1,79 @@
+@startuml
+
+package controller {
+  class RaceController {
+    - moveStrategy: MoveStrategy
+    - winnerStrategy: WinnerStrategy
+    + play(): void
+  }
+}
+
+package view {
+  class InputView
+  class OutputView
+}
+
+package model {
+  class Car {
+    - name: CarName
+    - position: Int
+    + move(strategy: MoveStrategy): void
+    + position(): Int
+    + name(): String
+  }
+
+  class CarName {
+    - name: String
+  }
+
+  class Cars {
+    - cars: List<Car>
+    + moveAll(strategy: MoveStrategy): void
+    + findWinners(strategy: WinnerStrategy): List<Car>
+    + getAll(): List<Car>
+  }
+
+  class Rules
+}
+
+package strategy.move {
+  interface MoveStrategy {
+    + shouldMove(): Boolean
+  }
+
+  class RandomMoveStrategy implements MoveStrategy
+}
+
+package strategy.winner {
+  interface WinnerStrategy {
+    + selectWinners(cars: List<Car>): List<Car>
+  }
+
+  class MaxPositionStrategy implements WinnerStrategy
+}
+
+package utils {
+  class Validator {
+    + validateCarNames(names: List<String>): void
+    + validateRoundCount(count: Int): void
+  }
+}
+
+package exception {
+  enum ExceptionMessage
+}
+
+RaceController --> Cars
+RaceController --> MoveStrategy
+RaceController --> WinnerStrategy
+Cars --> Car
+Cars --> Validator
+Car --> CarName
+Cars --> MoveStrategy
+Cars --> WinnerStrategy
+CarName --> Rules
+Validator --> Rules
+RandomMoveStrategy --> Rules
+MaxPositionStrategy --> Rules
+
+@enduml
