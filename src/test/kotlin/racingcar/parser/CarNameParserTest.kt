@@ -1,4 +1,4 @@
-package racingcar.domain
+package racingcar.parser
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Nested
