@@ -29,7 +29,7 @@
 - [x] Validate the number of rounds must be between 1 and 10
     - Throw an `IllegalArgumentException` if the value is out of range
 
-- [] Separate car names using comma
+- [x] Separate car names using comma
 - [x] Generate a random number between 0 and 9 (use `Randoms.pickNumberInRange()`)
 - [] Move a car forward only if the randomly generated number is 4 or greater
 - [] draw the winner
