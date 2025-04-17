@@ -8,16 +8,22 @@ import java.lang.IllegalArgumentException
 class CarTest{
     @Test
     fun `generate car`() {
+        // given
         val car = Car("car")
+        // when & then
         assertEquals(0,car.position.length )
     }
 
     @Test
     fun `drive success`() {
+
         assertRandomNumberInRangeTest(
             {
+                // given
                 val car = Car("car")
+                // when
                 car.drive()
+                // then
                 assertEquals("-",car.position)
             }, 4
         )
@@ -27,7 +33,9 @@ class CarTest{
     fun `drive fail`() {
         assertRandomNumberInRangeTest(
             {
+                // given
                 val car = Car("car")
+                // when & then
                 assertEquals("",car.position)
             },3
         )
@@ -35,7 +43,9 @@ class CarTest{
 
     @Test
     fun `valid carName`() {
+        // given
         val car = Car("hello")
+        // when & then
         assertEquals("hello",car.carName)
     }
 
