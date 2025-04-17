@@ -15,7 +15,7 @@ class RaceExecutor(
         val roundResults = mutableListOf<Cars>()
         repeat(round) {
             cars.moveIf(this::canMoveCar)
-            roundResults.add(cars.snapshot())
+            roundResults.add(cars.roundResult())
         }
         return roundResults
     }

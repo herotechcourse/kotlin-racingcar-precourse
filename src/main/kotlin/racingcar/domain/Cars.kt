@@ -20,7 +20,7 @@ class Cars private constructor(
 
     fun all(): List<Car> = cars.toList()
 
-    fun snapshot(): Cars {
+    fun roundResult(): Cars {
         val copied = cars.map { copyCar(it) }
         return Cars(copied)
     }

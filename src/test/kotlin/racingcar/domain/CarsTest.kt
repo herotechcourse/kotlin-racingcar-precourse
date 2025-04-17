@@ -54,21 +54,21 @@ class CarsTest {
         }
 
         @Test
-        fun `snapshot should return a deep copied state of cars`() {
+        fun `roundResult should return a deep copied state of cars`() {
             val names = listOf("a", "b", "c").map { CarName.from(it) }
             val cars = Cars.of(names)
 
             cars.moveIf { it.name() == "a" || it.name() == "b" }
 
-            val snapshot = cars.snapshot()
+            val roundResult = cars.roundResult()
 
             assertThat(cars.positions()).containsExactly(1, 1, 0)
-            assertThat(snapshot.positions()).containsExactly(1, 1, 0)
+            assertThat(roundResult.positions()).containsExactly(1, 1, 0)
 
             cars.moveIf { it.name() == "a" }
 
             assertThat(cars.positions()).containsExactly(2, 1, 0)
-            assertThat(snapshot.positions()).containsExactly(1, 1, 0)
+            assertThat(roundResult.positions()).containsExactly(1, 1, 0)
         }
 
     }
