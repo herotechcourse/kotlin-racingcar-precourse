@@ -7,4 +7,8 @@ class ResultPrinter : Printer{
         }
         println()
     }
+
+    fun printWinner(winners: List<String>) {
+        println("Winners : " + winners.joinToString(", "))
+    }
 }

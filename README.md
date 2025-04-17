@@ -16,7 +16,7 @@
 - [x] Start each round until the number of rounds reaches the limit
 - [x] Show how far the car reached every round
 - [x] Make car move each round and return result
-- [ ] Find the Winner of the race after the race is complete.
+- [x] Find the Winner of the race after the race is complete.
 
 ### Output
 - [ ] Print the progress of each car with "-" for one movement
