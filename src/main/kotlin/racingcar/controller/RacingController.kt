@@ -5,9 +5,11 @@ import racingcar.domain.Round
 import racingcar.domain.car.Car
 import racingcar.domain.car.Name
 import racingcar.view.InputView
+import racingcar.view.OutputView
 
 class RacingController(
-    private val inputView: InputView
+    private val inputView: InputView,
+    private val outputView: OutputView
 ) {
     fun run() {
         val carNames = getCarNames()
@@ -44,5 +46,6 @@ class RacingController(
 
     private fun moveCars(cars: Cars) {
         cars.moveCar()
+        outputView.printEachRound(cars)
     }
 }

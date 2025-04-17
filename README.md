@@ -10,7 +10,7 @@
 
 ## Output
 
-- [] Show race results for each round
+- [x] Show race results for each round
 - [] Show winner(s)
     - [] comma-separated if there are multiple winners
 
