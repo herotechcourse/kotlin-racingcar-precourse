@@ -16,7 +16,7 @@ class RaceConfig {
         val carNameParser = CarNameParser()
         val roundParser = RoundParser()
         val numberGenerator = RandomNumberGenerator()
-        val racePolicy = RacePolicy()
+        val racePolicy = DefaultRacePolicy()
         val progressFormatter = RaceProgressFormatter()
         val winnerFormatter = WinnerFormatter()
 
