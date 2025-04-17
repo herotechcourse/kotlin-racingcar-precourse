@@ -21,6 +21,8 @@ class CarRacing {
             // Get car names from user
             println("Enter the names of the cars (comma-separated):")
             val carNames = readCarNames()
+            val cars = createCars(carNames)
+
             
             // Get number of rounds from user
             println("How many rounds will be played?")
@@ -60,6 +62,20 @@ class CarRacing {
             return rounds
         } catch (e: NumberFormatException) {
             throw IllegalArgumentException("Invalid number of rounds")
+        }
+    }
+    private fun createCars(carNames: List<String>): List<Car> {
+        return carNames.map { Car(it) }
+    }
+
+    // [COMMIT 3: Race Execution]
+    private fun runRace(cars: List<Car>, rounds: Int) {
+        repeat(rounds) {
+            // [COMMIT 2: Car Movement Logic]
+            moveAllCars(cars)
+
+            // [COMMIT 4: Result Display]
+            displayRaceStatus(cars)
         }
     }
     private fun moveAllCars(cars: List<Car>) {
