@@ -35,3 +35,39 @@ pobi,woni,jun
 How many rounds will be played?
 5
 ````
+
+### Output:
+````
+Race Results
+pobi : -
+woni : 
+jun : -
+
+pobi : --
+woni : -
+jun : --
+
+pobi : ---
+woni : --
+jun : ---
+
+pobi : ----
+woni : ---
+jun : ----
+
+pobi : -----
+woni : ----
+jun : -----
+
+Winners : pobi, jun
+````
+
+### Requirements
+
+ - Kotlin 1.9.24
+ - JUnit 5 and AssertJ for testing
+ - Use `camp.nextstep.edu.missionutils.Console` for input and  
+   `camp.nextstep.edu.missionutils.Randoms` for random number generation
+
+ 
+  
