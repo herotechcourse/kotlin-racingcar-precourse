@@ -88,7 +88,7 @@ class RacingGame {
     private fun race() {
         println("Race results by round:")
         println()
-        for (i in 0 until rounds) { // repeat(rounds) works as well
+        repeat(rounds) {
             moveAllCars()
             printStatus()
             println()
