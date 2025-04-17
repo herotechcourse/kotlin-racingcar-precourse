@@ -32,7 +32,28 @@ fun main() {
     if (gameRounds <= 0) {
         throw IllegalArgumentException("Number of Rounds Must Be Greater than 0")
     }
+
+
+    //2. Create Car obj.
+    val cars = namesOfCars.map {Car(it)}
+
+    println("\nGame Results")
+
 }
+
+//3.Create fn that takes the Car obj as param.
+//Loops through each car.
+// Prints Car.
+// Prints the cars name/progress.
+// add spacing after each round
+
+fun printGameRound(cars: List<Car>) {
+    for (car in cars) {
+        println("${car.name} : ${car.getGameProgress()}")
+    }
+    println()
+}
+
 
 //2.We need to create the cars:
 // 2.1 Cars need a name
