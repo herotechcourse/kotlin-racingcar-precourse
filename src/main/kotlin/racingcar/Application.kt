@@ -26,10 +26,19 @@ fun inputRoundNum(): Int {
     return round
 }
 
+
+
 fun main() {
     val carNames = inputCarNames()
     val round = inputRoundNum()
 
+    val cars= carNames.map{ Car(it)}
+    repeat(round){
+        cars.forEach {it.move()}
+        cars.forEach { it.printPosition() }
+        println()
+    }
     println("Car Names: ${carNames.joinToString(", ")}")
     println("Number of Rounds: $round")
+
 }
