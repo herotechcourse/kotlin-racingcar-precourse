@@ -1,7 +1,10 @@
 package racingcar.view
 
-import racingcar.view.exception.InputMessage.EXCEED_INT_RANGE
 import racingcar.view.exception.InputMessage.IS_NOT_NUMERIC
+import racingcar.view.exception.InputMessage.OUT_OF_VALID_RANGE
+
+const val MINIMUM_RANGE = 1
+const val MAXIMUM_RANGE = Int.MAX_VALUE
 
 fun parseAndValidateInt(input: String): Int {
     val numberInput = input.toLongOrNull()
@@ -17,7 +20,7 @@ private fun validateNumeric(input: Long?) {
 }
 
 private fun validateIntRange(input: Long) {
-    if (input < Int.MIN_VALUE || input > Int.MAX_VALUE) {
-        throw IllegalArgumentException(EXCEED_INT_RANGE)
+    if (input < MINIMUM_RANGE || input > MAXIMUM_RANGE) {
+        throw IllegalArgumentException(OUT_OF_VALID_RANGE)
     }
 }
