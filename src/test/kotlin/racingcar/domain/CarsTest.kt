@@ -3,6 +3,7 @@ package racingcar.domain
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class CarsTest {
 
@@ -77,11 +78,14 @@ class CarsTest {
     inner class `Failure` {
 
         @Test
-        fun `winners returns empty list when there are no cars`() {
+        fun `should throw exception when trying to get winners from empty cars`() {
             val cars = Cars.of(emptyList())
-            val winners = cars.winners()
 
-            assertThat(winners).isEmpty()
+            val exception = assertThrows<IllegalArgumentException> {
+                cars.winners()
+            }
+
+            assertThat(exception.message).isEqualTo(ERROR_NO_CARS)
         }
     }
 }

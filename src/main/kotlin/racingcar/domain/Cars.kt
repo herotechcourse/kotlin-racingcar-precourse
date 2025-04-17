@@ -14,8 +14,9 @@ class Cars private constructor(
     fun positions(): List<Int> = cars.map { it.position() }
 
     fun winners(): List<Car> {
-        val maxPosition = cars.maxOfOrNull { it.position() } ?: return emptyList()
-        return cars.filter { it.position() == maxPosition }
+        require(cars.isNotEmpty()) { ERROR_NO_CARS }
+        val max = cars.maxOf { it.position() }
+        return cars.filter { it.position() == max }
     }
 
     fun all(): List<Car> = cars.toList()
@@ -26,6 +27,8 @@ class Cars private constructor(
     }
 
     companion object {
+        const val ERROR_NO_CARS = "[ERROR] No cars available to determine winner."
+
         fun of(carNames: List<CarName>): Cars {
             val cars = carNames.map { Car.from(it) }
             return Cars(cars)
