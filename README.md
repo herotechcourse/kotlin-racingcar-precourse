@@ -13,11 +13,11 @@ You will implement a console-based racing car game where users input car names a
 - [X] Validate car names  
   - [X] Each name must be at least 1 and at most **5 characters long**  
   - [X] Names must not be empty or contain only whitespace
-- [ ] Receive number of attempts input
-- [ ] Validate number of attempts  
-  - [ ] Trim leading/trailing spaces before validation  
-  - [ ] Ensure the input is a **valid number**  
-  - [ ] Only **positive integers** are allowed (zero or negative numbers are invalid)
+- [X] Receive number of attempts input
+- [X] Validate number of attempts  
+  - [X] Trim leading/trailing spaces before validation  
+  - [X] Ensure the input is a **valid number**  
+  - [X] Only **positive integers** are allowed (zero or negative numbers are invalid)
 
 ### 🕹️ Game Execution
 - [ ] Repeat for the number of rounds entered by the user
