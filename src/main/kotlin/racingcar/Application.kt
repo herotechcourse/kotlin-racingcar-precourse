@@ -24,9 +24,7 @@ fun main() {
     val cars: MutableMap<String, String> = setCarData(carNamesInput)
 
     while (rounds > 0) {
-        // game logic here
-        println(rounds)
-        println(cars)
+        runRound(cars)
         rounds--
     }
 }
