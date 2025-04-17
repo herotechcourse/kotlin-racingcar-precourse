@@ -22,7 +22,11 @@ class Race(private val cars: List<Car>, private val rounds: Int) {
 
     // method should find the car(s) that have moved the furthest
     private fun determineWinners(): List<Car> {
-        // TODO
-        return emptyList()
+        val maxPosition = cars.maxOfOrNull { it.getPosition() } ?: 0
+        // goes through car elements and calls getPosition on each car
+        // returns max value or null if empty
+        return cars.filter { it.getPosition() == maxPosition }
+        // filter creates a new list that meets the condition
+        // the condition: if car pos is the max pos
     }
 }
