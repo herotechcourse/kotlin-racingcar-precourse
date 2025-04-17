@@ -1,5 +1,9 @@
 package racingcar
 
+import racingcar.config.RaceConfig
+
 fun main() {
-    // TODO: Implement the program
+    val game = RaceConfig().raceRunner()
+    game.run()
 }
+
