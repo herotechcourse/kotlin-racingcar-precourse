@@ -1,24 +1,22 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
-import racingcar.Utils.parseCars
-import racingcar.Utils.printResults
-import racingcar.Utils.printWinners
+import racingcar.Parser.parseCars
+import racingcar.Printer.printWinners
 
 fun main() {
 
-  print("Enter car names (comma-separated): ")
+  println("Enter car names (comma-separated): ")
   val carsString = Console.readLine()
-  print("How many rounds will be played?\n")
-  //TODO  make sure rounds is int
-  val rounds = Console.readLine().toInt()
+  println("How many rounds will be played?")
+  val rounds = Console.readLine().toIntOrNull()
+  require(rounds != null) { ErrorMessages.ERROR_INVALID_ROUNDS }
 
   val parsedCars = parseCars(carsString)
   val game = Game(parsedCars, rounds)
   game.startRace()
 
-  printResults(parsedCars)
-  printWinners(parsedCars)
+  printWinners(game.getWinners())
 
 
 }
