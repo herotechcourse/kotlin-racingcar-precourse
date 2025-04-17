@@ -1,4 +1,6 @@
-package racingcar.domain
+package racingcar.parser
+
+import racingcar.domain.CarName
 
 class CarNameParser {
     fun parse(carNames: String): List<CarName> {
