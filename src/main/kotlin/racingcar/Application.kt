@@ -20,15 +20,16 @@ fun main() {
         return namesOfCars
     }
 
-
     // 1.2 Convert user input rounds to a positive integer (greater than 1)
-    println("How many rounds will be played?")
-    val gameRounds = Console.readLine().toInt()
+    fun readValidatedGameRounds(): Int {
+        println("How many rounds will be played?")
+        val gameRounds = Console.readLine().toIntOrNull()
+            ?: throw IllegalArgumentException("Rounds must be a number")
 
-    //1.3 Validate user input and make sure it is greater than 0
-
-    if (gameRounds <= 0) {
-        throw IllegalArgumentException("Number of Rounds Must Be Greater than 0")
+        if (gameRounds <= 0) {
+            throw IllegalArgumentException("Number of Rounds Must Be Greater than 0")
+        }
+        return gameRounds
     }
 
 
