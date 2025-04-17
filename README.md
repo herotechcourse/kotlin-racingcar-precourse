@@ -78,3 +78,18 @@
 > This image was generated using [PlantUML](https://www.planttext.com/) based on the contents of `docs/racingcar.puml`.
 
 ![UML Diagram](docs/racingcar_uml.png)
+
+# 4. Additional Validation Logic
+In addition to the required constraints described in the mission specification, the following validations were added to ensure better robustness and UX.
+- Whitespace in car names is explicitly rejected.
+> This decision was made to prevent unintended input from being silently accepted. For example, `"pobi"` and `" pobi"` would be treated as the same after trimming. But to the user, they might appear different. Therefore I decided to reject names with whitespace. This improves transparency, predictability, and reduces the risk of subtle bugs.
+- Invalid characters are filtered via regex.
+> Car names are restricted to alphanumeric characters only ([a-zA-Z0-9]).
+- Upper limits are enforced.
+> - Maximum car count is limited to 100.
+> - Maximum round count is limited to 500.
+> - These constraints prevent abuse, performance degradation, or infinite game loops.
+- Duplicate car names are explicitly rejected.
+> If two cars have same name, it is unclear which one each movement refers to in the printed result. To avoid this confusion, duplicated names are not allowed.
+- Empty car names are explicitly rejected.
+> Assume the input `"pobi,,woni"` is given. It will be parsed as ["pobi", "", "woni"]. Every car must have a name. If the input includes a blank or missing name between commas, it indicates an invalid car name.
