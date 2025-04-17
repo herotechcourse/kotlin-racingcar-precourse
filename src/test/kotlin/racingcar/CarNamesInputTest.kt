@@ -16,8 +16,7 @@ class CarNamesInputTest : IOTest() {
         val carNames = run(input) { Input.readNamesOfTheCars() }
 
         // Then
-        val expected = listOf("pobi", "woni", "jun")
-        Assertions.assertThat(carNames).isEqualTo(expected)
+        Assertions.assertThat(carNames).isEqualTo(listOf("pobi", "woni", "jun"))
     }
 
     @Test

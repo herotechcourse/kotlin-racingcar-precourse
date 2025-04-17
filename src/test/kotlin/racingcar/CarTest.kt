@@ -54,9 +54,7 @@ class CarTest {
         var car = Car("woni")
 
         // When
-        repeat(2) {
-            car = car.movedForward()
-        }
+        repeat(2) { car = car.movedForward() }
 
         // Then
         assertThat(car.name).isEqualTo("woni")

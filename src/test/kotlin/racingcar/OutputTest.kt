@@ -8,7 +8,7 @@ class OutputTest : IOTest() {
     @Test
     fun `should print progress lines correctly when cars have different positions`() {
         // Given
-        var cars: List<Car> = listOf(Car("pobi", 1), Car("woni", 2), Car("jun", 3))
+        val cars: List<Car> = listOf(Car("pobi", 1), Car("woni", 2), Car("jun", 3))
 
         // When
         val output = run { Output.printProgress(cars) }
@@ -20,7 +20,7 @@ class OutputTest : IOTest() {
     @Test
     fun `should print single winner when only one car is in the lead`() {
         // Given
-        var winners: List<Car> = listOf(Car("pobi"))
+        val winners: List<Car> = listOf(Car("pobi"))
 
         // When
         val output = run { Output.printWinners(winners) }
@@ -32,7 +32,7 @@ class OutputTest : IOTest() {
     @Test
     fun `should print multiple winners when more than one car shares the lead`() {
         // Given
-        var winners: List<Car> = listOf(Car("woni"), Car("jun"))
+        val winners: List<Car> = listOf(Car("woni"), Car("jun"))
 
         // When
         val output = run { Output.printWinners(winners) }
