@@ -37,7 +37,19 @@ class InputViewTest {
      assertThrows<IllegalArgumentException> { InputView.parseCarNamesInput(input) }
     }
 
+    // parseRoundCountInput
+    // 1. Should read and parse the number of rounds correctly
+    @Test
+    fun testParseRoundCountInput() {
+        val input = "3"
+        val result = InputView.parseRoundCount(input)
+        assertEquals(3, result)
+    }
 
-@Test
- fun testReadAndParseRoundCountInput() {}
+    // 2. Should throw an exception if the input is not a valid positive number
+    @Test
+    fun testReadAndParseRoundCountInput_throwsExceptionIfNegativeInput() {
+        assertThrows<IllegalArgumentException> { InputView.parseRoundCount("0") }
+        assertThrows<IllegalArgumentException> { InputView.parseRoundCount("-1") }
+    }
 }
