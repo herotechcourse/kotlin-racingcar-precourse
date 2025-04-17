@@ -7,14 +7,14 @@
     - [x] If the user inputs invalid data, the program should throw an IllegalArgumentException and terminate.
 
 - [ ] game play
-    - [ ] Each of the n cars can either move forward or stay still during a given number of rounds.
-        - [ ] make a game class to control the program
-            - [ ] save the car's position
+    - [x] Each of the n cars can either move forward or stay still during a given number of rounds.
+        - [x] make a game class to control the program
+            - [x] save the car instance list
     - [x] A car moves forward if a randomly generated number between 0 and 9 is 4 or greater.
         - [x] make a move methods in car class
 
 - [ ] output
-    - [ ] When printing the progress of each car, display the car's name alongside its movement.
+    - [x] When printing the progress of each car, display the car's name alongside its movement.
     - [ ] After the race is complete, display the winners. There can be multiple winners if they reach the same final
       position.
     - [ ] If there are multiple winners, their names should be displayed and separated by commas.

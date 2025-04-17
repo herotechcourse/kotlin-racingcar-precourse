@@ -7,6 +7,9 @@ object Application {
     fun main(args: Array<String>) {
         val car = InputView.readCarName()
         val rounds = InputView.readRoundCount()
+
+        val game = RacingGame(car)
+        game.play(rounds)
     }
 }
 
