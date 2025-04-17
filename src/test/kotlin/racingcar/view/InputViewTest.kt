@@ -15,7 +15,8 @@ class InputViewTest {
 
     @Test
     fun inputCarNamesTest_rightCase() {
-        val inputCarNames = inputView.inputCarNames("pobi, woni, jun")
+        InputView.InputSource.inputProvider = { "pobi, woni, jun" }
+        val inputCarNames = inputView.inputCarNames()
         assertEquals(inputCarNames.size, 3)
         assertEquals(inputCarNames[0].name, "pobi")
         assertEquals(inputCarNames[1].name, "woni")
@@ -25,13 +26,15 @@ class InputViewTest {
     @Test
     fun inputCarNamesTest_lengthExceed5_throwsException() {
         assertThrows(IllegalArgumentException::class.java) {
-            inputView.inputCarNames("poooobi, wonnnni, juuuuun")
+            InputView.InputSource.inputProvider = { "pooooobi, wonnnnni, juuuuun" }
+            inputView.inputCarNames()
         }
     }
 
     @Test
     fun inputTryCountTest_rightCase() {
-        val inputTryCount = inputView.inputTryCount("3")
+        InputView.InputSource.inputProvider = { "3" }
+        val inputTryCount = inputView.inputTryCount()
         assertEquals(inputTryCount.count, 3)
     }
 
@@ -39,10 +42,12 @@ class InputViewTest {
     fun inputTryCountTest_notInValidRange_throwsException() {
 
         assertThrows(IllegalArgumentException::class.java) {
-            inputView.inputTryCount("0")
+            InputView.InputSource.inputProvider = { "0" }
+            inputView.inputTryCount()
         }
         assertThrows(IllegalArgumentException::class.java) {
-            inputView.inputTryCount("1001")
+            InputView.InputSource.inputProvider = { "1001" }
+            inputView.inputTryCount()
         }
     }
 }

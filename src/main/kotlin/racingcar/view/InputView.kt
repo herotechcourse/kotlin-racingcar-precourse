@@ -3,8 +3,12 @@ package racingcar.view
 import camp.nextstep.edu.missionutils.Console
 
 class InputView {
-    fun input(): String {
-        val input: String = Console.readLine()
+    object InputSource {
+        var inputProvider: () -> String = { Console.readLine() }
+    }
+
+    private fun input(): String {
+        val input: String = InputSource.inputProvider()
         if (input.isBlank()) throw IllegalArgumentException("Input cannot be empty")
         return input.trim()
     }
