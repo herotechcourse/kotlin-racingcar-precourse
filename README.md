@@ -42,6 +42,7 @@
 
 - [] output
     - [x] print round result
-    - [] print winners
+        - [] print participants in order to input order 
+    - [x] print winners
 
 - [x] RaceResultDto
