@@ -15,4 +15,8 @@ object OutputView {
         }
         println() // extra line between rounds
     }
+
+    fun printStartMessage() {
+        println("\nRace Results")
+    }
 }
