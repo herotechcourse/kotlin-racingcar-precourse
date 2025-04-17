@@ -9,7 +9,8 @@ fun main() {
 class Application {
     fun run() {
         val carNames = readCarNames()
-        println("Valid car names: $carNames") // Temporary debug output
+        val roundInput = readRoundCountInput()
+        println("Round input: $roundInput") // Temporary debug output
     }
 
     private fun readCarNamesInput(): String {
@@ -26,5 +27,10 @@ class Application {
         }
 
         return names
+    }
+
+    private fun readRoundCountInput(): String {
+        println("How many rounds will be played?")
+        return Console.readLine()
     }
 }
