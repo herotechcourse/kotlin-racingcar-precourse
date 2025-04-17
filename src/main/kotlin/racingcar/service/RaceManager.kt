@@ -15,6 +15,9 @@ object RaceManager {
 
     fun determineWinners(cars: List<Car>): List<Car> {
         val maxProgress = cars.maxOf { it.progress }
+
+        if (maxProgress == 0) return emptyList() // No winners if all cars have 0 progress
+
         return cars.filter { it.progress == maxProgress }
     }
 }
