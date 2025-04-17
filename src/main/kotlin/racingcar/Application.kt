@@ -6,5 +6,5 @@ import racingcar.ui.InputView
 fun main() {
     // TODO: Implement the program
     val race = Race()
-    race.race()
+    race.run()
 }

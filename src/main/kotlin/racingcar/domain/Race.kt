@@ -8,7 +8,7 @@ class Race {
     private val outputView = OutputView()
     private val inputView = InputView()
     private val winner = Winner()
-    fun race(){
+    fun run(){
         val cars:List<Car> = inputView.getCars()
         val rounds = inputView.getRounds()
         outputView.printRaceStartMessage()
