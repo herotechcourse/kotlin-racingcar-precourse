@@ -9,8 +9,8 @@ fun main() {
 class Application {
     fun run() {
         val carNames = readCarNames()
-        val roundInput = readRoundCountInput()
-        println("Round input: $roundInput") // Temporary debug output
+        val roundCount = readRoundCount()
+        println("Round count: $roundCount") // Temporary debug output
     }
 
     private fun readCarNamesInput(): String {
@@ -32,5 +32,11 @@ class Application {
     private fun readRoundCountInput(): String {
         println("How many rounds will be played?")
         return Console.readLine()
+    }
+
+    private fun readRoundCount(): Int {
+        val input = readRoundCountInput().trim()
+        return input.toIntOrNull()?.takeIf { it > 0 }
+            ?: throw IllegalArgumentException("Number of rounds must be a positive integer.")
     }
 }
