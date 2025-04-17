@@ -1,9 +1,10 @@
 # kotlin-racingcar-precourse
 ## Planned features!
 
-- [ ] Let users input car names (comma-separated)
+- [x] Let users input car names (comma-separated)
 - [ ] Validate that input isn't empty or weird ( 5 chars max per name, or empty), if it is throw an IllegalArgumentException and terminate.
 - [ ] Ask how many rounds to run
+- [ ] Validate the rounds input ensure its a number
 - [ ] For each round, randomly decide if each car moves (4–9 = move)
 - [ ] If a car moves, show it with a `-` next to its name
 - [ ] Show the race progress after each round
