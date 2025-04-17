@@ -1,3 +1,12 @@
 package racingcar.model
 
-data class Car(val carName: String, val progress: Int)
+import camp.nextstep.edu.missionutils.Randoms
+
+data class Car(val carName: String, var progress: Int) {
+    companion object {
+        var progressChar = '-'
+    }
+    fun moveForward() {
+        if (Randoms.pickNumberInRange(0,9) >= 4) progress++
+    }
+}

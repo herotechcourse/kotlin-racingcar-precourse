@@ -1,6 +1,6 @@
 package racingcar.view
 
 interface InputView {
-    fun readCarName(): List<String>
-    fun readRounds(): Int
+    fun readCarName(): String
+    fun readRounds(): String
 }
