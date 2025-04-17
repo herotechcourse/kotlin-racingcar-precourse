@@ -12,4 +12,8 @@ class Car(
     fun getPosition(): Int {
         return position
     }
+
+    fun getName(): String {
+        return name
+    }
 }
