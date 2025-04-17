@@ -38,3 +38,13 @@ out/
 
 ### Mac OS ###
 .DS_Store
+
+# Compile folder
+/build/
+/out/
+
+# Compile files
+*.class
+
+# Kotlin META
+**/META-INF/
