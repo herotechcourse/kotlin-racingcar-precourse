@@ -27,6 +27,13 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `car name should not be empty`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException(",jason", "1") }
+        }
+    }
+
     override fun runMain() {
         main()
     }
