@@ -5,7 +5,7 @@ object Output {
 
     fun printRoundInputMessage() = println("How many rounds will be played?")
 
-    fun printRaceStartMessage() = println("Race Results")
+    fun printRaceStartMessage() = println("\nRace Results")
 
     fun printProgress(cars: List<Car>) = println(cars.joinToString("\n") + "\n")
 
