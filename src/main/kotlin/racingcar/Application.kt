@@ -23,8 +23,23 @@ fun inputCars(): List<String> {
     return cars;
 }
 
+fun inputRound(): Int {
+    println("How many rounds will be played?");
+
+    // Read input from the console
+    val rounds = Console.readLine().toInt();
+
+    // Ensure the number of rounds is positive
+    if (rounds <= 0) {
+        throw IllegalArgumentException("Round must be positive.");
+    }
+
+    return rounds;
+}
+
 fun main() {
     val cars = inputCars();
+    val rounds = inputRound();
 }
 
 
