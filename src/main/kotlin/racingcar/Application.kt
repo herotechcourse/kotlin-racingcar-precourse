@@ -7,7 +7,26 @@ fun main() {
     // TODO: Implement the program
     val carNames = readNames
     val numRounds = getNumRounds
+
+    val cars = carNames.map{ Car(it) }
+
+     println("\nRace Results")
+     repeat(numRounds){
+        cars.forEach{ car -> 
+            val number = Randoms.pickNumberInRange(0,9)
+            if (number >= 4) car.move()    
+        }
+     }
     
+}
+
+class Car(val name: String) {
+    var position: Int=0
+    private set
+
+    fun move() {
+        position++
+    }
 }
 
 fun readNames() : List<String> {
