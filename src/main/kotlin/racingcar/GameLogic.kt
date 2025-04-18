@@ -6,20 +6,24 @@ fun moveForward(): Boolean {
     return n >= 4
 }
 
-fun getWinners(cars: MutableMap<String, String>): Map<String, String> {
-    val highestPosition = cars.values.maxOfOrNull { it.length } ?: 0
-    val winners = cars.filter { it.value.length == highestPosition }
-    return winners
+fun moveCars(cars: MutableMap<String, String>, car: MutableMap.MutableEntry<String, String>) {
+    if (moveForward()) {
+        cars[car.key] = car.value + "-"
+    }
 }
 
 fun runRound(cars: MutableMap<String, String>) {
     for (car in cars) {
-        if (moveForward()) {
-            cars[car.key] = car.value + "-"
-        }
+        moveCars(cars, car)
         printRound(car)
     }
     println()
+}
+
+fun getWinners(cars: MutableMap<String, String>): Map<String, String> {
+    val highestPosition = cars.values.maxOfOrNull { it.length } ?: 0
+    val winners = cars.filter { it.value.length == highestPosition }
+    return winners
 }
 
 fun game(cars: MutableMap<String, String>, rounds: Int) {
