@@ -17,4 +17,4 @@ using random numbers. 🚗🏁
   + number of rounds:
     + positive integer
     + 1 - 100 rounds
-  + if invalid input is provided, it prompts the user to re-enter input
+  + if invalid input is provided, the program throws IllegalArgumentException and terminates
