@@ -23,3 +23,12 @@ tasks {
         useJUnitPlatform()
     }
 }
+
+//tasks.test {
+//    useJUnitPlatform()
+//    jvmArgs = listOf(
+//        "-javaagent:${configurations.testRuntimeClasspath.get().find { it.name.contains("byte-buddy-agent") }?.absolutePath}"
+//    )
+//}
+//
+
