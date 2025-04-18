@@ -16,7 +16,7 @@ fun readAndValidateNames(): List<String> {
 }
 
 // Step 3: validate all names by checking the logic requirements
-// if they aren't a match for any requirement, it sends a correction warning
+// if they aren't a match for any requirement, it sends a correction warning message
 fun validateNames(names: List<String>) {
     require(names.size >= 2) { "Enter at least 2 car names!" }
     require(names.all { it.isNotEmpty() }) { "Car names cannot be empty" }
@@ -33,34 +33,39 @@ fun getNames(): List<String> {
             // if names matched all required rules, it returns the names
             return names
         } catch (e: IllegalArgumentException) {
-            // it names doesn't match any requirement, it prints the error
+            // if names doesn't match any requirement, it prints the error
             println("Error: ${e.message}\nPlease try again.")
         }
     }
 }
 
+// Step 5: ask user input for the number of rounds and validate it by calling Step 6
 fun readRoundNumber(): Int {
     // Interactive form for the number of round the race should take:
     println("Now, choose how many rounds the competitors should run:")
     val rounds = Console.readLine().toInt()
 
     // Validate the number isn't 0 or null
-    validateRound(rounds)
+    validateRound(rounds) // Calls Step 6
     return rounds
 }
 
+// Step 6: validate the number entered by checking the logic requirement
+// if the requirement isn't matched, it sends a correction warning message
 fun validateRound(number: Int) {
     require(number != 0) { "Number must be greater than zero!" }
 }
 
-// Step 4:
+// Step 4: take a integer number by calling the input function - Step 5
 fun getRound(): Int {
     // Loop true the number input until the requirement is reached
     while (true) {
         try {
-            val rounds: Int = readRoundNumber()
+            val rounds: Int = readRoundNumber() // Calls Step 5
+            // if it matches the requirement it returns the number
             return rounds
         } catch (e: IllegalArgumentException) {
+            // if the number doesn't match the requirement, it prints the error
             println("Error: ${e.message}\nPlease try again.")
         }
     }
@@ -84,17 +89,33 @@ fun main() {
         var position: Int = 0
 
         fun move() {
-            val randomNumber = Randoms.pickNumberInRange(0, 9)
-            val shouldMove = randomNumber >= 4
+            val randomNumber = Randoms.pickNumberInRange(0, 9) // pick a random number
+            val shouldMove = randomNumber >= 4 // check if the number represents a movement
 
             if (shouldMove) {
-                position++  // Update position
+                position++  // Adds 1 to the current position
             }
+        }
+
+        fun printPosition() {
+            print("$name : ")
+            repeat(position) { print("-") }
+            println()
         }
     }
 
+    // Save the car names as instances of the Competitors constructor.
     val competitors = carNames.map { Competitor(it) }
 
-    println(competitors)
+    // Function to print the cars progress in each round
+    repeat(rounds) { round ->
+        // Iterates with each competitor instance
+        competitors.forEach { competitor ->
+            competitor.move() // calls the instance move method to move the car
+            competitor.printPosition() // calls the instance print method to update user of the progress
+        }
+        // Prints an empty line to separate each round on the console
+        println()
+    }
 
 }
