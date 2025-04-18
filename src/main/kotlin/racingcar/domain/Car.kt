@@ -14,4 +14,9 @@ class Car(private val name: String) {
     }
 
     fun getName(): String = name
+    fun copy(): Car {
+        val copied = Car(this.name)
+        repeat(this.position) { copied.move(4) } // 같은 위치까지 전진시킴
+        return copied
+    }
 }

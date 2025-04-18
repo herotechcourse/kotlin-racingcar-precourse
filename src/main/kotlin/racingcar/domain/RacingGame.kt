@@ -1,16 +1,16 @@
 package racingcar.domain
 
+import camp.nextstep.edu.missionutils.Randoms
+
 class RacingGame(private val cars: List<Car>) {
 
-    fun play(rounds: Int, numberGenerator: () -> Int): List<List<Car>> {
-        val result = mutableListOf<List<Car>>()
+    fun play(rounds: Int, numberGenerator: () -> Int): List<List<Pair<String, Int>>> {
+        val result = mutableListOf<List<Pair<String, Int>>>()
 
         repeat(rounds) {
             cars.forEach { it.move(numberGenerator()) }
-            // 현재 상태 복사해서 저장 (참조 방지용)
-            result.add(cars.map { Car(it.getName()).apply { repeat(it.position) { move(4) } } })
+            result.add(cars.map { it.getName() to it.position })
         }
-
         return result
     }
 

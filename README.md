@@ -24,15 +24,18 @@
 - [x] Implement Car class with name and position
 - [x] Implement move() method: car moves forward when random number ≥ 4
 - [x] Write unit tests for Car class
-- [ ] Implement RacingGame class to manage game rounds
-- [ ] Print progress of each car after each round
-- [ ] Determine winner(s) after final round
-- [ ] Print winner(s), separated by commas
+- [ ] Implement RacingGame class to run each round
+- [ ] Loop over the number of rounds and move each car
+- [ ] Use Randoms.pickNumberInRange(0, 9) to generate movement number
+- [ ] Print each car's result after every round
+- [ ] Determine the car(s) with the highest position
+- [ ] Print winner(s) with names separated by commas
 - [ ] Throw IllegalArgumentException on invalid input
+- [ ] Add unit tests for RacingGame logic if possible
 
 ---
 
-## 🧪 Unit Testing
+## Unit Testing
 
 - All logic in the `Car` class is tested with JUnit5 + AssertJ:
     - Car moves forward when input is ≥ 4

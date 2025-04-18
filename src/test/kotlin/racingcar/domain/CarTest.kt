@@ -1,5 +1,5 @@
 package racingcar.domain
-import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 class CarTest {
@@ -16,5 +16,12 @@ class CarTest {
         val car = Car("pobi")
         car.move(3)
         assertThat(car.position).isEqualTo(0)
+    }
+
+    @Test
+    fun `이름이 5자 초과일 경우 예외 발생`() {
+        assertThatThrownBy { Car("abcdef") }
+            .isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessageContaining("5자 이하")
     }
 }
