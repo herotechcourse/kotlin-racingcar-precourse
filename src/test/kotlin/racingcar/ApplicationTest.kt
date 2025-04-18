@@ -33,18 +33,6 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `feature test 2`() {
-        assertRandomNumberInRangeTest(
-            {
-                run("po bi, woni,  woni ", "1")
-                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
-            },
-            MOVING_FORWARD,
-            STOP,
-        )
-    }
-
-    @Test
     fun `exception test`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
@@ -86,6 +74,12 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `exception test 6`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,pobi, java", "1") }
+        }
+    }
 
     override fun runMain() {
         main()
