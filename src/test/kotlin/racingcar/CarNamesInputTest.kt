@@ -20,7 +20,7 @@ class CarNamesInputTest : IOTest() {
     }
 
     @Test
-    fun `should throw IllegalArgumentException when car name is too long`() {
+    fun `should throw exception when car name is too long`() {
         // Given
         val input = "pobi,javaji"
 
@@ -31,7 +31,7 @@ class CarNamesInputTest : IOTest() {
     }
 
     @Test
-    fun `should throw IllegalArgumentException when car names are duplicated`() {
+    fun `should throw exception when car names are duplicated`() {
         // Given
         val input = "pobi,pobi"
 
@@ -42,7 +42,7 @@ class CarNamesInputTest : IOTest() {
     }
 
     @Test
-    fun `should throw IllegalArgumentException when input is blank`() {
+    fun `should throw exception when input is blank`() {
         // Given
         val input = "   "
 
@@ -53,7 +53,7 @@ class CarNamesInputTest : IOTest() {
     }
 
     @Test
-    fun `should throw IllegalArgumentException when input is empty`() {
+    fun `should throw exception when input is empty`() {
         // Given
         val input = "\n"
 
