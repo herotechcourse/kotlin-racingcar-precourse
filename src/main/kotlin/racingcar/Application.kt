@@ -17,6 +17,15 @@ fun main() {
 
 class Car(val name: String){
 
+    var position : Int = 0 // Assuming the car is stationary
+    fun move(){
+        if(Randoms.pickNumberInRange(0,9)>= 4){
+            position++
+        }
+    }
+
+    override fun toString(): String = "$name : ${"\uD83D\uDE97".repeat(position)}"
+
 }
 
 object CarRacingGame{
@@ -28,6 +37,7 @@ object CarRacingGame{
         val cars = inputCars()
         val rounds = inputRounds()
         println("the expected rounds $rounds")
+        race(cars, rounds)
     }
 
     private fun inputCars(): List<Car> {
@@ -55,6 +65,14 @@ object CarRacingGame{
 
         }
         return rounds
+    }
+
+    private fun race(cars: List<Car>, rounds:Int){
+        println("\nRace Results: ")
+        repeat(rounds){
+            cars.forEach {it.move()}
+            println(cars.joinToString("\n") + "\n")
+        }
     }
 
 
