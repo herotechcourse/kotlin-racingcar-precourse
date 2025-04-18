@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Assertions.assertTrue
 
 class GenerateRandomNumberTest {
     @RepeatedTest(100)
-    fun `Test1- should return true, if a number between 0 and 9`{
+    fun `Test1- should return true, if a number between 0 and 9`() {
         val generatedNumber = generateRandomNumber()
         assertTrue(generatedNumber >= 0 && generatedNumber <= 9, "generatedNumber($generatedNumber) is out of range")
     }
