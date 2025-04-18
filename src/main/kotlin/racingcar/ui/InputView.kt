@@ -24,12 +24,20 @@ class InputView {
     private fun getCarNames(carsString: String): List<String> {
         val names = carsString.split(",").map { it.trim() }
         validateCarNameIsNotEmpty(names)
+        validateCarNameIsNotDuplicate(names)
         return names
     }
 
     private fun validateCarNameIsNotEmpty(names: List<String>) {
         if (names.any { it.isEmpty() }) {
             throw IllegalArgumentException("Car names cannot be blank")
+        }
+    }
+
+    private fun validateCarNameIsNotDuplicate(names: List<String>) {
+        val duplicates = names.groupBy { it }.filter { it.value.size>1 }.keys
+        if (duplicates.isNotEmpty()) {
+            throw IllegalArgumentException("Duplicate car names found")
         }
     }
 

@@ -8,10 +8,10 @@ The following features are planned for implementation in this racing car game:
 
 * [x] **Car Name Input:** Implement functionality to receive comma-separated car names from the user.
 * [x] **Round Count Input:** Implement functionality to receive the total number of rounds for the race.
-* [ ] **Input Validation:** Implement robust validation for all user inputs. Throw an `IllegalArgumentException` for invalid cases, such as:
+* [x] **Input Validation:** Implement robust validation for all user inputs. Throw an `IllegalArgumentException` for invalid cases, such as:
   * [x] Empty car names.
   * [x] Car names exceeding a defined length limit(5).
-  * [ ] Duplicate car names.
+  * [x] Duplicate car names.
   * [x] Non-positive or non-numeric round count input.
 
 ### 2. Game Logic
