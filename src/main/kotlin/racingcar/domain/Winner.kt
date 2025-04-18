@@ -1,6 +1,6 @@
 package racingcar.domain
 
-class Winner {
+object Winner {
     fun findWinner(cars : List<Car>): List<String> {
         var max = 0
         var winners = mutableListOf<Car>()

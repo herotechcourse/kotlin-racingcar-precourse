@@ -18,8 +18,7 @@ class WinnerTest {
             Car("jun", 2, engine)
         )
 
-        val winner = Winner()
-        val result = winner.findWinner(cars)
+        val result = Winner.findWinner(cars)
 
         assertEquals(listOf("pobi"), result)
     }
@@ -34,8 +33,7 @@ class WinnerTest {
             Car("jun", 2, engine)
         )
 
-        val winner = Winner()
-        val result = winner.findWinner(cars)
+        val result = Winner.findWinner(cars)
 
         assertEquals(listOf("pobi", "woni"), result)
     }
@@ -50,8 +48,7 @@ class WinnerTest {
             Car("jun", 1, engine)
         )
 
-        val winner = Winner()
-        val result = winner.findWinner(cars)
+        val result = Winner.findWinner(cars)
 
         assertEquals(listOf("pobi", "woni", "jun"), result)
     }
