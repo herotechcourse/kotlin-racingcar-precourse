@@ -1,6 +1,7 @@
 package racingcar.controller
 
 import racingcar.model.Car
+import racingcar.model.findWinner
 import racingcar.utils.InputValidator
 import racingcar.view.InputView
 import racingcar.view.ResultView
@@ -17,9 +18,7 @@ class RacingController(
 
         resultView.printResultHeader()
         repeat(carRounds) { runRounds(cars) }
-        val maxProgress = cars.maxByOrNull { it.progress }?.progress ?: 0
-        val carWinner = cars.filter { it.progress == maxProgress }.joinToString(", ") { it.carName }
-        resultView.printResultWinner(carWinner)
+        resultView.printResultWinner(cars.findWinner())
 
     }
 
