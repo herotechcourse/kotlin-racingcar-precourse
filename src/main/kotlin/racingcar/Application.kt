@@ -29,4 +29,7 @@ fun main() {
     if (noOfRounds < 1 ){
         throw IllegalArgumentException("Number of rounds must be a non-negative integer")
     }
+
+    val game = RacingGame(carNames, noOfRounds)
+    game.startGame()
 }
