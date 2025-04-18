@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
-    println("Enter the names of the cars (comma-separated):")
+    println("Enter the names of the cars (comma separated):")
     val carNamesInput = Console.readLine();
     val carNames = carNamesInput
         .split(",")
@@ -63,8 +63,7 @@ fun announceWinner(distanceScores: Map<String, Int>) {
 
     val maxScore = distanceScores.values.maxOrNull() ?: return;
     val winners = distanceScores.filterValues { it == maxScore }.keys
-    val plural = if (winners.size > 1) "s" else "";
-    println("winner$plural : ${winners.joinToString(", ")}");
+    println("Winners : ${winners.joinToString(", ")}");
 }
 
 fun validateCarNames(carNames: List<String>) {
