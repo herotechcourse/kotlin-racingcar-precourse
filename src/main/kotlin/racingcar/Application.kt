@@ -1,6 +1,7 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
+import racingcar.input.RaceInputHandler
 
 fun main() {
 
@@ -10,7 +11,7 @@ fun main() {
     print (" How many rounds will be played?")
     val roundsInput = Console.readLine()
 
-    val race = RaceInputHandler.createRace(carsNamesInput, roundsInput)
+    val race = RaceInputHandler.createRace(carNamesInput, roundsInput)
     val raceResult = race.start()
 
     println("\nRace Results")
