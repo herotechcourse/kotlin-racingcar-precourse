@@ -12,6 +12,8 @@ class RacingGame(
     private var cars = Cars(carNames.map { Car(it) })
 
     fun play() {
+        println("\nRace Results")
+
         repeat(roundCnt) {
             cars.moveAll { RandomGenerator.generate() }
             ResultView.printRoundResult(cars.getPositions())

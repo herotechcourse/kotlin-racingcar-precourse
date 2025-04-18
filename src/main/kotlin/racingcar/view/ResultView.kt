@@ -4,7 +4,7 @@ object ResultView {
     fun printRoundResult(carResults: List<Pair<String, Int>>) {
         for ((name, position) in carResults) {
             val movement = "-".repeat(position)
-            println("$name: $movement")
+            println("$name : $movement")
         }
         println()
     }
