@@ -2,19 +2,17 @@ package racingcar.controller
 
 import racingcar.view.InputView
 import racingcar.view.OutputView
-import racingcar.model.findTheWinners
+import racingcar.model.findWinners
 import racingcar.model.makeRacingProgressList
 
 fun mainController() {
-    // TO-DO: Refactor rename (splitCarNames -> carNames)
-    val splitCarNames = InputView().inputCarNames()
-    val theNumberOfRounds = InputView().inputTheNumberOfRounds()
+    val carNames = InputView().getCarNamesInput()
+    val racingRounds = InputView().getRacingRoundsInput()
 
-    val progressList = makeRacingProgressList(splitCarNames, theNumberOfRounds)
+    val progressList = makeRacingProgressList(carNames, racingRounds)
     OutputView().printRacingStartMessage()
+    OutputView().printCarNamesAndProcess(carNames, progressList)
 
-    OutputView().printCarNamesAndProcess(splitCarNames, progressList)
-
-    val winners = findTheWinners(splitCarNames, progressList)
+    val winners = findWinners(carNames, progressList)
     OutputView().printWinners(winners)
 }

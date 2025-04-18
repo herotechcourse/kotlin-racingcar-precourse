@@ -14,7 +14,7 @@ object CarNamesError {
     """
 }
 
-object TheNumberOfRoundsError {
+object RacingRoundsError {
     const val INVALID_TYPE: String = """
         $ERROR_PREFIX You must enter type of Number.
         Exit this program.

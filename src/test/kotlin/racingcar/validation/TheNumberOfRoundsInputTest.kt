@@ -12,7 +12,7 @@ class TheNumberOfRoundsInputTest {
 
         // when & then
         assertDoesNotThrow {
-            validateTheNumberOfRounds(input)
+            validateRacingRounds(input)
         }
     }
 
@@ -23,7 +23,7 @@ class TheNumberOfRoundsInputTest {
 
         // when & then
         assertThrows<IllegalArgumentException> {
-            validateTheNumberOfRounds(input)
+            validateRacingRounds(input)
         }
     }
 }

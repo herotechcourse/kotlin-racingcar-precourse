@@ -2,7 +2,7 @@ package racingcar.model
 
 import camp.nextstep.edu.missionutils.Randoms
 
-fun decideMovement(): Boolean {
+fun decideProgress(): Boolean {
     val randomNumber = Randoms.pickNumberInRange(0, 9)
 
     return randomNumber >= 4
