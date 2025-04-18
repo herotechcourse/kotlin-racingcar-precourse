@@ -38,6 +38,16 @@ class InputParamsReaderTest {
     }
 
     @Test
+    fun `should throw an exception on no car names`() {
+        val input = " \n"
+        System.setIn(ByteArrayInputStream(input.toByteArray()))
+
+        val exception = assertThrows<IllegalArgumentException> { reader.retrieveCarNames() }
+
+        assertThat(exception.message).isEqualTo("No cars were added")
+    }
+
+    @Test
     fun `should return parser rounds number`() {
         val input = "5\n"
         System.setIn(ByteArrayInputStream(input.toByteArray()))
@@ -55,5 +65,25 @@ class InputParamsReaderTest {
         val exception = assertThrows<IllegalArgumentException> { reader.retrieveRoundsAmount() }
 
         assertThat(exception.message).isEqualTo("Invalid input round number")
+    }
+
+    @Test
+    fun `should throw an exception on negative rounds number`() {
+        val input = "-1\n"
+        System.setIn(ByteArrayInputStream(input.toByteArray()))
+
+        val exception = assertThrows<IllegalArgumentException> { reader.retrieveRoundsAmount() }
+
+        assertThat(exception.message).isEqualTo("Number of rounds can't be less than 1")
+    }
+
+    @Test
+    fun `should throw an exception on zero rounds number`() {
+        val input = "0\n"
+        System.setIn(ByteArrayInputStream(input.toByteArray()))
+
+        val exception = assertThrows<IllegalArgumentException> { reader.retrieveRoundsAmount() }
+
+        assertThat(exception.message).isEqualTo("Number of rounds can't be less than 1")
     }
 }
