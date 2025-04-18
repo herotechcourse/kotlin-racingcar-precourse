@@ -14,6 +14,18 @@ class RaceTest : NsTest() {
         assertThat(output()).contains("car1 : -", "car2 : --", "car3 : ", "car4 : ----")
     }
 
+    @Test
+    fun `get cars move `() {
+        for (i in 0 .. 3) {
+            val move: Int = getCarMove(i)
+            assertThat(move == 0)
+        }
+        for (i in 4 .. 9) {
+            val move: Int = getCarMove(i)
+            assertThat(move == 1)
+        }
+    }
+
     override fun runMain() {
         main()
     }
