@@ -12,7 +12,7 @@ class InputUtilsTest : NsTest() {
     @Test
     fun `read valid car names`() {
         assertSimpleTest {
-            run("lisa,jim,tommy")
+            run("lisa,jim,tommy", "5")
             assertThat(output()).contains("carNames: [lisa, jim, tommy]")
         }
     }
@@ -49,6 +49,48 @@ class InputUtilsTest : NsTest() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> {
                 runException("lisa,timothy,tommy")
+            }
+        }
+    }
+
+    @Test
+    fun `read valid number of rounds`() {
+        assertSimpleTest {
+            run("lisa,jim,tommy", "5")
+            assertThat(output()).contains("rounds: 5")
+        }
+    }
+
+    @Test
+    fun `throw exception when rounds input is empty`() {
+        assertThrows<IllegalArgumentException> {
+            runException("lisa,jim,tommy", "")
+        }
+    }
+
+    @Test
+    fun `throw exception when rounds input is not a number`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("lisa,jim,tommy", "abc")
+            }
+        }
+    }
+
+    @Test
+    fun `throw exception when rounds input is negative`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("lisa,jim,tommy", "-5")
+            }
+        }
+    }
+
+    @Test
+    fun `throw exception when rounds input is zero`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("lisa,jim,tommy", "0")
             }
         }
     }

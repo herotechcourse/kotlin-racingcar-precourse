@@ -9,4 +9,7 @@ fun main() {
 
     val carNames = InputUtils.readCarNames()
     println("carNames: $carNames") // TODO: delete before submission
+
+    val rounds = InputUtils.readRounds()
+    println("rounds: $rounds") // TODO: delete before submission
 }
