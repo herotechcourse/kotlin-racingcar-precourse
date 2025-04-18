@@ -10,4 +10,10 @@ object RoundValidator {
             throw IllegalArgumentException(RacingError.INVALID_ROUND.message)
         }
     }
+
+    fun validatePositiveRound(round: Int){
+        if(round < 1){
+            throw IllegalArgumentException(RacingError.INVALID_ROUND.message)
+        }
+    }
 }
