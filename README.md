@@ -15,9 +15,9 @@ Users input car names and number of rounds, and each car moves forward based on 
 - [x] Validate that all car names are non-empty and max 5 characters
 - [x] Prompt user for number of rounds
 - [x] Validate that round count is a positive number
-- [ ] Each round:
+- [x] Each round:
     - [x] Cars move forward only if random number (0–9) ≥ 4
-    - [ ] Display each car's progress using `-`
+    - [x] Display each car's progress using `-`
 - [ ] Determine and print final winner(s)
 - [ ] Handle invalid inputs with meaningful exceptions
 - [ ] All test cases should be passed using `./gradlew clean test`
