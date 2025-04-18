@@ -18,4 +18,10 @@ class Cars(private val cars: List<Car>) {
     fun getCars(): List<Car> {
         return cars.toList()
     }
+
+    // returns the list of cars that reached the farthest position
+    fun getWinners(): List<Car> {
+        val maxPosition = cars.maxOf { it.position }
+        return cars.filter { it.position == maxPosition }
+    }
 }
