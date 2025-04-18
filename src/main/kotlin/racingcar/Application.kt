@@ -29,4 +29,5 @@ fun main() {
         println()
         rounds--
     }
+    printWinners(cars)
 }
