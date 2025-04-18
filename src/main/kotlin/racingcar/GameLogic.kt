@@ -1,20 +1,15 @@
 package racingcar
 import camp.nextstep.edu.missionutils.Randoms
 
-fun moveForward(): Boolean {
-    val n: Int = Randoms.pickNumberInRange(0, 9)
-    return n >= 4
-}
-
-fun moveCars(cars: MutableMap<String, String>, car: MutableMap.MutableEntry<String, String>) {
-    if (moveForward()) {
+fun moveCars(cars: MutableMap<String, String>, car: MutableMap.MutableEntry<String, String>, n: Int) {
+    if (n >= 4) {
         cars[car.key] = car.value + "-"
     }
 }
 
 fun runRound(cars: MutableMap<String, String>) {
     for (car in cars) {
-        moveCars(cars, car)
+        moveCars(cars, car, Randoms.pickNumberInRange(0, 9))
         printRound(car)
     }
     println()
