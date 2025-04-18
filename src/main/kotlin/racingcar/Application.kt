@@ -1,5 +1,12 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    val ioConsole = IOConsole()
+    val inputHandler = InputHandler(
+        io = ioConsole
+    )
+    val names = inputHandler.readCarNames()
+    val rounds = inputHandler.readRoundCount()
+    val game = RacingGame(names, rounds, ioConsole)
+    game.start()
 }
