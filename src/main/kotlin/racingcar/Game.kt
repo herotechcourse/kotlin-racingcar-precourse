@@ -1,8 +1,9 @@
 package racingcar
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
 
 class Game {
-    private val cars = mutableListOf<Car>()
+    val cars = mutableListOf<Car>()
     var rounds: Int = 0
 
     fun addCar(car: Car) {
@@ -28,4 +29,20 @@ fun Game.inputRoundCount(){
     else if (input < 1)
         throw IllegalArgumentException("Number of rounds must be at least 1.")
     rounds = input
+}
+
+fun Game.playTurn(){
+    for (car in cars)
+        if (4 <= Randoms.pickNumberInRange(0, 9))
+            car.position++
+    for (car in cars)
+        car.printStatus()
+    println()
+}
+
+fun Game.race(){
+    println("\nRace Results")
+    repeat(rounds) {
+        playTurn()
+    }
 }
