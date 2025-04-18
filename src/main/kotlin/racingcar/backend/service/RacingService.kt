@@ -4,6 +4,7 @@ import racingcar.backend.domain.validator.RaceNameValidator
 import racingcar.backend.domain.validator.RoundValidator
 import racingcar.backend.dto.CarDto
 import racingcar.backend.dto.CarNameRequest
+import racingcar.backend.dto.RoundRequest
 import racingcar.backend.util.StringParser
 
 class RacingService {
@@ -26,6 +27,11 @@ class RacingService {
         return nameList.map { carName ->
             CarDto(carName = carName)
         }
+    }
+
+    fun convertRoundToNum(roundRequest: RoundRequest): Int {
+        validateRound(roundRequest.round)
+        return roundRequest.round.toInt()
     }
 
     private fun validateRound(round: String) {
