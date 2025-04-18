@@ -1,5 +1,7 @@
 package racingcar
 
+import racingcar.frontend.OutputView
+
 fun main() {
-    // TODO: Implement the program
+    OutputView.printCarNamesRequest()
 }
