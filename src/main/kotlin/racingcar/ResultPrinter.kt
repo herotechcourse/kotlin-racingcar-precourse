@@ -1,5 +1,7 @@
 package racingcar
 
+import racingcar.domain.Car
+
 class ResultPrinter : Printer{
     override fun printCurrentCarPosition(cars: List<Car>) {
         for (car in cars) {

@@ -1,5 +1,7 @@
 package racingcar
 
+import racingcar.domain.*
+
 fun main() {
     val inputHandler = InputHandler()
     val cars = prepareCars(inputHandler.readCarNames(), engine = RandomEngine())

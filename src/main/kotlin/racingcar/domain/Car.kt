@@ -1,9 +1,10 @@
-package racingcar
+package racingcar.domain
 
 class Car(
     private val name: String,
     private var position: Int,
-    private val engine: Engine) {
+    private val engine: Engine
+) {
 
     fun goForward() {
         position += engine.move()

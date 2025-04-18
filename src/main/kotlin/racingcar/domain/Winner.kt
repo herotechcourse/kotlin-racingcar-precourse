@@ -1,4 +1,4 @@
-package racingcar
+package racingcar.domain
 
 class Winner {
     fun findWinner(cars : List<Car>): List<String> {
