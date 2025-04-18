@@ -19,6 +19,7 @@ object OutputView {
         for (carPosition in result) {
             print("${carPosition.car.name} : ")
             printPosition(carPosition.position)
+            println()
         }
     }
 
