@@ -12,8 +12,12 @@ class CarRacing {
 
         val cars = initializeCars(carNames)
 
+         println("Race Results")
+
         repeat(rounds) {
+            println("Round: ${it + 1}")
             raceSingleRound(cars)
+            raceResult.raceDisplay(cars)
         }
 
         raceResult.announceWinners(cars)

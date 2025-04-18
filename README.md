@@ -23,12 +23,12 @@
 	[*] Run the race for specified number of rounds
 	    [*] Movement logic
 	[*] Determine winner(s) at the end of the race
-		[ ] Support multiple winners
+		[*] Support multiple winners
 
 ### 5. Race display
-    [ ] Display race progress after each round
-		[ ] Show cars names
-		[ ] Show current positions
+    [*] Display race progress after each round
+		[*] Show cars names
+		[*] Show current positions
 	[*] Display winner(s) when race end
 
 ### 6. Testing
