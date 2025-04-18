@@ -11,4 +11,15 @@ fun main() {
     // Get user input for number of race rounds
     val roundCount = InputView.readRoundCount()
 
+    // Initialise the racing game with the given car names
+    val racingGame = RacingGame(carNames)
+
+    // Run the game for the specified number of rounds
+    repeat(roundCount) { round ->
+
+        // Move all cars one step
+        racingGame.move()
+
+    }
+
 }
