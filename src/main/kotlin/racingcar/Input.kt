@@ -3,6 +3,16 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 
 object Input {
+    fun readCarNamesToRound(): Settings {
+        Output.printCarNameInputMessage()
+        val carNames = readNamesOfTheCars()
+
+        Output.printRoundInputMessage()
+        val round = readNumberOfRounds()
+
+        return Settings(carNames, round)
+    }
+
     fun readNamesOfTheCars(): List<String> {
         val input = Console.readLine()
         val regex = Regex("^[^\\s]{1,5}$")
