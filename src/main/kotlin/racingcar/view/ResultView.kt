@@ -6,4 +6,5 @@ interface ResultView {
     fun printResultHeader(): Unit
     fun printResultRounds(car: Car): Unit
     fun printResultWinner(carWinner: String): Unit
+    fun printNewLine(): Unit
 }

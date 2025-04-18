@@ -14,4 +14,8 @@ class ResultViewImpl: ResultView {
     override fun printResultWinner(carWinner: String) {
         println("Winners : $carWinner")
     }
+
+    override fun printNewLine() {
+        println()
+    }
 }

@@ -27,7 +27,7 @@ class RacingController(
             it.moveForward()
             resultView.printResultRounds(it)
         }
-        println()
+        resultView.printNewLine()
     }
 
     private fun readValidCarName(): List<String> {
