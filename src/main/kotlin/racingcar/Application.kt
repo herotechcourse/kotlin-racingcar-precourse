@@ -19,7 +19,9 @@ fun main() {
         cars.forEach { println(car.display)}
         println()
      }
-     
+     val max = cars.maxOf { it.position }
+     val winner = cars.filter { it.position == max }.map {it.name}
+     println("winners : ${winners.joinToString(", ")}")
     
 }
 
