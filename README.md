@@ -17,3 +17,10 @@
 - [ ] Add code linting
 - [ ] Dockerize application
 - [ ] Update documentation
+
+
+
+### Assumptions
+
+- Input car names should be unique, hence no validation/de-duplication logic is added
+- Winner names are printed in the order in which they are entered in the game
