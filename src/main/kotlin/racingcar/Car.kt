@@ -9,7 +9,11 @@ data class Car(val name: String, var distance: Int = 0) {
     }
 
     fun render(): String {
-        return "$name: ${"-".repeat(distance)}"
+        return "$name : ${"-".repeat(distance)}"
     }
 
+}
+
+fun makeCarList(carNames: List<String>): List<Car> {
+    return carNames.map { Car(it) }
 }
