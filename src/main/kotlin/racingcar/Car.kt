@@ -1,11 +1,10 @@
 package racingcar
 
-class Car {
+class Car(val name: String) {
 
-    var name: String = ""
     var raceposition:Int = 0
 
-    fun moveforward()
+    fun moveforward(randomnum: Int)
     {
 
     }

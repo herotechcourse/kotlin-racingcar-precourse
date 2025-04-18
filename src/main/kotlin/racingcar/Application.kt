@@ -37,5 +37,22 @@ fun main()
 
     //println(names)
     //println(numofrounds)
+fun createCarObjects(names: List<String>): List<Car>
+{
+    val cars = mutableListOf<Car>()
+    for (name in names)
+    {
+        cars.add(Car(name))
+    }
+    return cars
+}
+
+fun testPrintInput(cars: List<Car>)
+{
+    for (car in cars)
+    {
+        println(car.name)
+        println(car.raceposition)
+    }
 }
 
