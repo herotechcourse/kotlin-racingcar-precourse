@@ -3,13 +3,13 @@
 ## Feature List
 
 ### Input Handling
-- [ ] Prompt the user to enter car names (comma-separated, each name up to 5 characters).
-- [ ] Prompt the user to enter the number of race rounds.
-- [ ] Throw an IllegalArgumentException if any car name is empty or exceeds 5 characters.
-- [ ] Throw an IllegalArgumentException if the number of rounds is not a valid number.
+- [x] Prompt the user to enter car names (comma-separated, each name up to 5 characters).
+- [x] Prompt the user to enter the number of race rounds.
+- [x] Throw an IllegalArgumentException if any car name is empty or exceeds 5 characters.
+- [x] Throw an IllegalArgumentException if the number of rounds is not a valid number.
 
 ### Game Logic
-- [ ] Create car objects using the entered names.
+- [x] Create car objects using the entered names.
 - [ ] For each round, generate a random number (0–9) for each car.
 - [ ] Move the car forward if the number is 4 or higher.
 - [ ] Save and display the progress of each car for each round.
