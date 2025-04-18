@@ -34,11 +34,19 @@ fun readRound(): Int {
     return round
 }
 
-fun printResult(names: List<String>) {
-    for (name in names) {
-        if (racingResult()) {
-            println("$name : -")
-        } else println("$name :  ")
+fun printResult(names: List<String>, round: Int) {
+    val winTimes = MutableList(names.size) { 0 }
+    repeat(round) {
+        for ((i, name) in names.withIndex()) {
+            if (racingResult()) {
+                winTimes[i] += 1
+            }
+
+            print("$name : ")
+            repeat(winTimes[i]) { print("-") }
+            println()
+        }
+        println()
     }
 }
 
@@ -49,6 +57,6 @@ fun racingResult(): Boolean {
 
 fun main() {
     val carNames = readCarNames()
-    readRound()
-    printResult(carNames)
+    val round = readRound()
+    printResult(carNames, round)
 }
