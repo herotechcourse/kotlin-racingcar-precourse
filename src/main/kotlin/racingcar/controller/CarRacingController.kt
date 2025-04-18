@@ -10,7 +10,7 @@ class CarRacingController {
         val carNames = InputView.getCarNames()
         val totalRound = InputView.getTotalRound()
 
-        val race = Race(carNames.map { Car(it) }, totalRound)
+        val race = Race(Car.fromNames(carNames), totalRound)
         race.runRace()
 
         OutputView.showAllRoundResult(race)
