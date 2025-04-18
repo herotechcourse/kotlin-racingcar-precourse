@@ -1,5 +1,6 @@
 package racingcar.view
 
+import racingcar.model.Car
 import racingcar.model.CarPosition
 import racingcar.model.Race
 
@@ -25,5 +26,10 @@ object OutputView {
         for (i in 0..<position) {
             print("-")
         }
+    }
+
+    fun announceWinner(winners: List<Car>) {
+        print("Winners : ")
+        print(winners.joinToString())
     }
 }
