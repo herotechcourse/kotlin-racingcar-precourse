@@ -17,7 +17,6 @@ class RacingGame(private val carNames: List<String>) {
         }
         winnerString = determineWinner(cars).joinToString(", ")
         println("Winners : $winnerString")
-
     }
 
     fun determineWinner(cars: List<Car>): List<String> {

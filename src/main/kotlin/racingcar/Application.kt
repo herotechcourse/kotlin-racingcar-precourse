@@ -4,7 +4,7 @@ import racingcar.view.InputView
 
 //object Application {
 //    @JvmStatic
-//    fun main(args: Array<String>) {
+//    fun main() {
 //        val car = InputView.readCarName()
 //        val rounds = InputView.readRoundCount()
 //
@@ -13,13 +13,28 @@ import racingcar.view.InputView
 //    }
 //}
 
-fun main() {
-    val car = InputView.readCarName()
-    val rounds = InputView.readRoundCount()
+//fun main() {
+//    val car = InputView.readCarName()
+//    val rounds = InputView.readRoundCount()
+//
+//    val game = RacingGame(car)
+//    game.play(rounds)
+//}
 
-    val game = RacingGame(car)
-    game.play(rounds)
+class Application {
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            val car = InputView.readCarName()
+            val rounds = InputView.readRoundCount()
+
+            val game = RacingGame(car)
+            game.play(rounds)
+        }
+    }
 }
 
-
+fun main() {
+    Application.main(emptyArray())
+}
 
