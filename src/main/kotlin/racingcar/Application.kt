@@ -1,5 +1,10 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    val carNames = getCarNames()
+    val cars = makeCarList(carNames)
+    val roundNum = getNumberOfRounds()
+
+    runRace(cars, roundNum)
+    printWinners(cars)
 }
