@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.Randoms
 fun main() {
     // TODO: Implement the program
     val carNames = readNames
+    val numRounds = getNumRounds
     
 }
 
@@ -23,4 +24,16 @@ fun readNames() : List<String> {
         }
     }
     return names;
+}
+
+fun getNumRounds() : Int {
+    println("How many rounds will be played?")
+    val input = Console.readLine()
+    val count = input.toIntOrNull()
+        ?: throw IllegalArgumentException("Number of rounds should be an integer number")
+
+    if(count<=0){
+        throw IllegalArgumentException("number of rounds should be bigger than zero")
+    }
+    return count
 }
