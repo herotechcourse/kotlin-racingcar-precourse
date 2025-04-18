@@ -20,6 +20,8 @@ fun main() {
         // Move all cars one step
         racingGame.move()
 
+        // Display the result of the current round
+        ResultView.printRound(racingGame.cars, round + 1)
     }
 
 }
