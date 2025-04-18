@@ -26,7 +26,27 @@ class RaceTest : NsTest() {
         }
     }
 
+    @Test
+    fun `run round on mocked Random data`() {
+        assertRandomNumberInRangeTest(
+            {
+                val carsData = mapOf("pobi" to 0, "woni" to 0, "elly" to 0)
+                val round = startRound(carsData)
+                assertThat(output()).contains("pobi : -", "woni : ", "elly : -")
+                assertThat(round.contains("phobi") && round["phobi"] == 1)
+            },
+            MOVING_FORWARD,
+            STOP,
+            MOVING_FORWARD,
+        )
+    }
+
     override fun runMain() {
         main()
+    }
+
+    companion object {
+        private const val MOVING_FORWARD: Int = 4
+        private const val STOP: Int = 3
     }
 }
