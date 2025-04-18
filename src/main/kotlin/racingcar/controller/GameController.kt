@@ -8,6 +8,7 @@ class GameController (
     private val roundCount: Int
 ) {
     fun startGame() {
+        println("Race Results")
         repeat(roundCount) {
             startTurn()
         }
