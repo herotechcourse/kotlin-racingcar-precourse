@@ -21,9 +21,68 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `feature test2`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni,phan", "2")
+                assertThat(output()).contains(
+                    "pobi : -", "woni : ", "phan : -",
+                    "pobi : --", "woni : ", "phan : -",
+                    "Winners : pobi"
+                )
+            },
+            MOVING_FORWARD, STOP, MOVING_FORWARD,  // 1라운드 결과
+            MOVING_FORWARD, STOP, STOP   // 2라운드 결과
+        )
+    }
+
+    @Test
+    fun `feature test3`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni,phan", "2")
+                assertThat(output()).contains(
+                    "pobi : -", "woni : ", "phan : -",
+                    "pobi : --", "woni : -", "phan : --",
+                    "Winners : pobi, phan"
+                )
+            },
+            MOVING_FORWARD, STOP, MOVING_FORWARD,  // 1라운드 결과
+            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD   // 2라운드 결과
+        )
+    }
+
+    @Test
     fun `exception test`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `round num is too large number`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,woni", "10001")
+            }
+        }
+    }
+
+    @Test
+    fun `round num is under then 1`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,woni", "0")
+            }
+        }
+    }
+
+    @Test
+    fun `round num is not integer`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,woni", "one")
+            }
         }
     }
 
