@@ -1,11 +1,12 @@
 package racingcar
 
 fun main() {
-    print("Names of the cars (comma-separated): ")
-    val cars = readln().split(",").map { it.trim() }
+    println("Names of the cars (comma-separated):")
+    val cars = readln().split(",").map { require(it.trim().length <= 5) { "Each name should be up to 5 characters"} }
     println(cars)
 
-    print("Number of rounds: ")
+    println("How many rounds will be played?")
     val rounds = readln().toIntOrNull()
+    require(rounds != null) {"The number of rounds should be a valid number"}
     print(rounds)
 }
