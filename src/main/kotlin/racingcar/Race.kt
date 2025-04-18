@@ -9,3 +9,8 @@ fun printRound(carData: Map<String, Int>) {
     }
     println(" ")
 }
+
+fun getCarMove(rand: Int): Int {
+    println(rand)
+    return if (rand < 4) 0 else 1
+}
