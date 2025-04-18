@@ -24,15 +24,14 @@
 - [x] Implement Car class with name and position
 - [x] Implement move() method: car moves forward when random number ≥ 4
 - [x] Write unit tests for Car class
-- [ ] Implement RacingGame class to run each round
-- [ ] Loop over the number of rounds and move each car
-- [ ] Use Randoms.pickNumberInRange(0, 9) to generate movement number
-- [ ] Print each car's result after every round
-- [ ] Determine the car(s) with the highest position
-- [ ] Print winner(s) with names separated by commas
+- [x] Implement RacingGame class to run each round
+- [x] Loop over the number of rounds and move each car
+- [x] Use Randoms.pickNumberInRange(0, 9) to generate movement number
+- [x] Print each car's result after every round
+- [x] Determine the car(s) with the highest position
+- [x] Print winner(s) with names separated by commas
 - [ ] Throw IllegalArgumentException on invalid input
 - [ ] Add unit tests for RacingGame logic if possible
-
 ---
 
 ## Unit Testing
