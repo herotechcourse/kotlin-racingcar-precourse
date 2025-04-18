@@ -6,4 +6,8 @@ object InputView {
     fun getCarNames(): String {
         return Console.readLine()
     }
+
+    fun getRoundCount(): String {
+        return Console.readLine()
+    }
 }
