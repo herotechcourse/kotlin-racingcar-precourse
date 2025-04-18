@@ -1,0 +1,21 @@
+package racingcar
+import camp.nextstep.edu.missionutils.Randoms
+
+fun getRandomNumber(): Int {
+    return Randoms.pickNumberInRange(0, 9)
+}
+
+fun runRace(cars: List<Car>, round: Int) {
+    println("Race Results")
+    repeat (round) {
+        runRound(cars)
+        println()
+    }
+}
+
+fun runRound(cars: List<Car>) {
+    cars.forEach { car ->
+        car.moveIfPossible(getRandomNumber())
+        println(car.render())
+    }
+}
