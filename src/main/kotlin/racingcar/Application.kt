@@ -7,11 +7,11 @@ import racingcar.template.ConsoleRacingGameTemplate
 fun main() {
     // TODO: Implement the program
 
-    val carNames = Input.readCarNames()
-    val roundCount = Input.readNumberOfRound()
+    val carNames = Input.promptCarNames()
+    val roundCount = Input.promptNumberOfRound()
 
-    val racingGame = RacingGame(carNames, roundCount)
-    val gameRunner = ConsoleRacingGameTemplate(racingGame)
+    val racingGame = RacingGame(carNames)
+    val gameRunner = ConsoleRacingGameTemplate(racingGame, roundCount)
 
     gameRunner.execute(DefaultRandomNumberGenerator)
 }
