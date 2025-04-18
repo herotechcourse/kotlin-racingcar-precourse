@@ -32,3 +32,6 @@ This is a simple car racing game implemented in Kotlin where multiple cars race 
 #### Libraries Used
 - camp.nextstep.edu.missionutils.Randoms for random number generation
 - camp.nextstep.edu.missionutils.Console for user input
+
+![screenshot](screenshot/1.png)
+![screenshot](screenshot/2.png)

@@ -8,6 +8,30 @@ fun main() {
     carRacing.start()
 }
 
+fun main(args: Array<String>) {
+    val carRacing = CarRacing()
+    
+    if (args.isNotEmpty()) {
+        // Split command-line arguments and extract car names and rounds
+        val carNames = args[0].split(",")
+        val rounds = args.getOrNull(1)?.trim() ?: ""
+        
+        if (rounds.isEmpty()) {
+            throw IllegalArgumentException("Missing or invalid number of rounds")
+        }
+        
+        try {
+            val roundsValue = rounds.toInt()
+            carRacing.start(carNames, roundsValue)
+        } catch (e: NumberFormatException) {
+            throw IllegalArgumentException("Missing or invalid number of rounds")
+        }
+    } else {
+        // If no arguments are passed, ask for interactive input
+        carRacing.start()
+    }
+}
+
 class CarRacing {
     companion object {
         private const val MAX_NAME_LENGTH = 5
@@ -18,34 +42,47 @@ class CarRacing {
 
     fun start() {
         try {
-            // Get car names from user
             println("Enter the names of the cars (comma-separated):")
             val carNames = readCarNames()
             
-            // Get number of rounds from user
             println("How many rounds will be played?")
             val rounds = readRounds()
             
-            // Create cars
+            start(carNames, rounds)
+        } catch (e: IllegalArgumentException) {
+            println(e.message)
+            throw e // Re-throw to ensure test failures
+        }
+    }
+    
+    fun start(carNames: List<String>, rounds: Int) {
+        try {
+            validateCarNames(carNames)
+            
+            if (rounds <= 0) {
+                throw IllegalArgumentException("Number of rounds must be positive")
+            }
+            
             val cars = createCars(carNames)
             
-            // Run the race
             println("\nRace Results")
             runRace(cars, rounds)
             
-            // Display winners
             displayWinners(cars)
         } catch (e: IllegalArgumentException) {
             println(e.message)
+            throw e  // Re-throw to ensure test failures
         }
     }
     
     private fun readCarNames(): List<String> {
-        val input = Console.readLine()
-        val carNames = input.split(",").map { it.trim() }
+        val input = Console.readLine().trim()
         
-        validateCarNames(carNames)
-        return carNames
+        if (input.isEmpty()) {
+            throw IllegalArgumentException("Car names cannot be empty")
+        }
+        
+        return input.split(",").map { it.trim() }
     }
     
     private fun validateCarNames(carNames: List<String>) {
@@ -53,18 +90,23 @@ class CarRacing {
             throw IllegalArgumentException("Car names cannot be empty")
         }
         
-        carNames.forEach { name ->
+        for (name in carNames) {
             if (name.isEmpty()) {
                 throw IllegalArgumentException("Car name cannot be empty")
             }
             if (name.length > MAX_NAME_LENGTH) {
-                throw IllegalArgumentException("Car name cannot exceed 5 characters: $name")
+                throw IllegalArgumentException("Car name cannot exceed 5 characters")
             }
         }
     }
     
     private fun readRounds(): Int {
-        val input = Console.readLine()
+        val input = Console.readLine().trim()
+        
+        if (input.isEmpty()) {
+            throw IllegalArgumentException("Missing or invalid number of rounds")
+        }
+        
         try {
             val rounds = input.toInt()
             if (rounds <= 0) {
@@ -72,7 +114,7 @@ class CarRacing {
             }
             return rounds
         } catch (e: NumberFormatException) {
-            throw IllegalArgumentException("Invalid number of rounds")
+            throw IllegalArgumentException("Missing or invalid number of rounds")
         }
     }
     
@@ -88,7 +130,7 @@ class CarRacing {
     }
     
     private fun moveAllCars(cars: List<Car>) {
-        cars.forEach { car ->
+        for (car in cars) {
             val randomNumber = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM)
             if (randomNumber >= FORWARD_THRESHOLD) {
                 car.moveForward()
@@ -97,7 +139,7 @@ class CarRacing {
     }
     
     private fun displayRaceStatus(cars: List<Car>) {
-        cars.forEach { car ->
+        for (car in cars) {
             println("${car.name} : ${"-".repeat(car.position)}")
         }
         println()

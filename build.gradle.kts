@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.24"
+    application
 }
 
 group = "camp.nextstep.edu"
@@ -16,6 +17,9 @@ repositories {
 
 dependencies {
     implementation("com.github.woowacourse-projects:mission-utils:1.2.0")
+}
+application {
+    mainClass.set("racingcar.ApplicationKt")
 }
 
 tasks {

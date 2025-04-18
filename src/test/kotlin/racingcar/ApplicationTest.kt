@@ -21,14 +21,85 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `exception test`() {
+    fun `car name longer than 5 chars throws exception`() {
         assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,javaji", "1")
+            }
         }
     }
 
+    @Test
+    fun `multiple winners are displayed correctly`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("Winners : pobi, woni")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun `cars move correctly over multiple rounds`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi", "3")
+                assertThat(output()).contains("pobi : -")
+                assertThat(output()).contains("pobi : --")
+                assertThat(output()).contains("pobi : ---")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD,
+            MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun `empty car name list throws exception`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("", "3")
+            }
+        }
+    }
+
+    @Test
+    fun `blank name among inputs throws exception`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,,woni", "2")
+            }
+        }
+    }
+
+ 
+    @Test
+    fun `non-numeric round throws exception`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,woni", "abc")
+            }
+        }
+    }
+
+    @Test
+    fun `race progress prints correct number of lines per car`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "3")
+                val raceLines = output().lines().filter { it.contains("pobi :") }
+                assertThat(raceLines).hasSize(3)
+            },
+            MOVING_FORWARD, STOP,
+            MOVING_FORWARD, STOP,
+            MOVING_FORWARD, STOP
+        )
+    }
+
     override fun runMain() {
-        main()
+        main(arrayOf())
     }
 
     companion object {
