@@ -1,7 +1,7 @@
 package racingcar
 
 class Race(
-    val rounds: Int,
+    val rounds: Long,
     val cars: List<Car>,
 ) {
     fun run() {
