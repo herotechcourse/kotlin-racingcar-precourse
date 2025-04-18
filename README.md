@@ -19,3 +19,6 @@ A Kotlin implementation of a simple racing car game.
 	- Example: '5'
 	- Must be numeric (Int, not float)
 	- Must be positive
+
+- Strict requirements
+	- Program terminates on invalid input (per specification)
