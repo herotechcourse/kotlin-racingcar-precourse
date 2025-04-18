@@ -1,5 +1,11 @@
 package racingcar
 
+import racingcar.controller.RaceController
+
+/**
+ * Main entry point for the car racing application.
+ */
 fun main() {
-    // TODO: Implement the program
+    val controller = RaceController()
+    controller.start()
 }
