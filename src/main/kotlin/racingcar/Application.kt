@@ -8,5 +8,6 @@ fun main() {
     println("Enter the names of the cars (comma-separated):")
     val cars = Console.readLine().split(",").map(::Car)
     println("How many rounds will be played?")
-    Input(cars, Console.readLine().toInt())
+    var gameInput = Input(cars, Console.readLine().toInt())
+    Game(gameInput).run()
 }
