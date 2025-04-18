@@ -16,7 +16,10 @@ fun main() {
             val number = Randoms.pickNumberInRange(0,9)
             if (number >= 4) car.move()    
         }
+        cars.forEach { println(car.display)}
+        println()
      }
+     
     
 }
 
@@ -26,6 +29,9 @@ class Car(val name: String) {
 
     fun move() {
         position++
+    }
+    fun display():String {
+        return "$name : ${"-".repeat(position)}"
     }
 }
 
