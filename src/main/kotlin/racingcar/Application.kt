@@ -24,7 +24,7 @@ class Car(val name: String){
         }
     }
 
-    override fun toString(): String = "$name : ${"\uD83D\uDE97".repeat(position)}"
+    override fun toString(): String = "$name : ${"-".repeat(position)}"
 
 }
 
@@ -78,7 +78,7 @@ object CarRacingGame{
     private fun announceWinners(cars: List<Car>){
         val maxPosition = cars.maxOf {it.position}
         val winners = cars.filter {it.position == maxPosition}.map {it.name}
-        println("Final Winners: ${winners.joinToString(",")}")
+        println(" Winners: ${winners.joinToString(",")}")
     }
 
 
