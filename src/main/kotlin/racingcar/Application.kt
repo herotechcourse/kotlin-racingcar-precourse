@@ -5,7 +5,12 @@ import camp.nextstep.edu.missionutils.Console
 fun main() {
     println("Enter the names of the cars (comma-separated):")
     val carsStr = Console.readLine() ?: ""
-    val carList = carsStr.split(',').map { it.trim() }.filter { it.isNotEmpty() }
+    val carList =
+        carsStr
+            .split(',')
+            .map { it.trim() }
+            .filter { it.isNotEmpty() }
+            .toSet()
     val cars =
         if (carList.isEmpty()) {
             emptyList()
