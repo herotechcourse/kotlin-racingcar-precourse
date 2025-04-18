@@ -46,14 +46,21 @@ object InputValidate {
         return rounds
     }
 
-    // car name length is maximum 5 characters, otherwise throw Exception
+    // check car name length , duplicated car names, empty car name
     fun validateCarsName(carNames: List<String>) {
 
+        // car names can not be the same, otherwise throw exception
+        val carNamesSet = carNames.toSet()
+        if(carNames.size != carNamesSet.size)
+            throw IllegalArgumentException("car names can not be the same")
+
+        // car name length greater than 5, throw exception
         carNames.forEach {
             if (it.length > 5)
                 throw IllegalArgumentException("car name is more than 5 characters")
         }
 
+        // car name list is empty, throw exception
         if(carNames.isEmpty())
             throw IllegalArgumentException("car names is empty")
     }
