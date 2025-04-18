@@ -1,6 +1,9 @@
 package racingcar.model
 
-class Car(val name: String, private var position: Int = 0) {
+class Car(val name: String) {
+    var position: Int = 0
+        private set
+
     fun move() {
         position++
     }
