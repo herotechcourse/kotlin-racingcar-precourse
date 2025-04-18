@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Console
 class InputView {
     fun askCarNames(): String {
         println(ASKING_CAR_NAMES)
-        return Console.readLine()
+        return validateEmpty(Console.readLine())
     }
 
     fun askRounds(): Int {

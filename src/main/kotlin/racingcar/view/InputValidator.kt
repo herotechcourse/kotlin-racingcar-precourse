@@ -1,10 +1,16 @@
 package racingcar.view
 
+import racingcar.view.exception.InputMessage.IS_BLANK
 import racingcar.view.exception.InputMessage.IS_NOT_NUMERIC
 import racingcar.view.exception.InputMessage.OUT_OF_VALID_RANGE
 
 const val MINIMUM_RANGE = 1
 const val MAXIMUM_RANGE = Int.MAX_VALUE
+
+fun validateEmpty(input: String): String {
+    require(input.isNotBlank()) { IS_BLANK }
+    return input
+}
 
 fun parseAndValidateInt(input: String): Int {
     val numberInput = input.toLongOrNull()
