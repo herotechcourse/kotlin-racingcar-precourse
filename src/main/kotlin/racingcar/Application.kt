@@ -9,6 +9,7 @@ fun main() {
     val rounds = readRoundsFromConsole()
     performCarRace(cars, rounds)
     val winners = findWinners(cars)
+    printWinners(winners)
 }
 fun readCarNamesFromConsole(): List<Car> {
     println("Enter the names of the cars (comma-separated):")
@@ -42,7 +43,6 @@ fun readRoundsFromConsole(): Int {
     val rounds = input.trim().toIntOrNull() ?: throw IllegalArgumentException("Rounds must be a number")
     if (rounds >= 0) return rounds else throw IllegalArgumentException("Rounds must be a positive number.")
 }
-
 fun performCarRace(cars: List<Car>, rounds: Int) {
     println("\nRace Results")
     repeat(rounds) {
@@ -65,4 +65,8 @@ fun shouldMove(): Boolean = Randoms.pickNumberInRange(0, 9) >= 4
 fun findWinners(cars: List<Car>): List<Car> {
     val maxPosition = cars.maxOf { it.position }
     return cars.filter { it.position == maxPosition }
+}
+fun printWinners(winners: List<Car>) {
+    val winnerNames = winners.joinToString(", ") { it.name }
+    println("\nWinners : $winnerNames.")
 }
