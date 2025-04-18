@@ -49,7 +49,7 @@ class ApplicationTest : NsTest() {
     @Test
     fun `should throw exception for car name longer than 5 characters`() {
         val exception = assertThrows<IllegalArgumentException> { Car("pobiwoni") }
-        assertThat(exception.message).isEqualTo("Car name must be non-empty and up to 5 characters.")
+        assertThat(exception.message).isEqualTo("Car name must be non-empty and name cannot exceed 5 characters")
     }
     @Test
     fun `should move car when random number is 4 or greater`() {
