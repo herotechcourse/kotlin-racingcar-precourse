@@ -34,7 +34,9 @@ class InputHandlerTest {
     @Test
     fun `ignores empty or blank entries`() {
         val input = "Car1, , Max"
-        val result = InputHandler.parseCarNames(input)
-        assertThat(result).containsExactly("Car1", "Max")
+        assertThatThrownBy {
+            InputHandler.parseCarNames(input)
+        }.isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessage("Individual car name cannot be blank")
     }
 }

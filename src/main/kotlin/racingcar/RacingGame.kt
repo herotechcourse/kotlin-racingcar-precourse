@@ -3,7 +3,7 @@ package racingcar
 import camp.nextstep.edu.missionutils.Randoms
 
 class RacingGame(
-    private val carNames: List<String>,
+    carNames: List<String>,
     private val rounds: Int,
     private val outputHandler: OutputHandler
 ) {
