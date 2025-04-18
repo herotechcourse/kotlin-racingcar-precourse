@@ -5,35 +5,35 @@
 ## ✅ Feature Checklist
 
 ### Input
-- [ ] Read comma-separated car names from `Console.readLine()`
-- [ ] Read number of rounds from `Console.readLine()`
-- [ ] Validate input (e.g., empty names, name length, invalid number)
-- [ ] Throw `IllegalArgumentException` on invalid input
+- [x] Read comma-separated car names from `Console.readLine()`
+- [x] Read number of rounds from `Console.readLine()`
+- [x] Validate input (e.g., empty names, name length, invalid number)
+- [x] Throw `IllegalArgumentException` on invalid input
 
 ### Game
-- [ ] Implement movement rule (move forward if random number >= 4)
-- [ ] Simulate all rounds and update car positions
-- [ ] Determine winner(s) based on max position
+- [x] Implement movement rule (move forward if random number >= 4)
+- [x] Simulate all rounds and update car positions
+- [x] Determine winner(s) based on max position
 
 ### Output
-- [ ] Print car progress after each round (e.g., `pobi : --`)
-- [ ] Print winners in the required format (e.g., `Winners : pobi, jun`)
+- [x] Print car progress after each round (e.g., `pobi : --`)
+- [x] Print winners in the required format (e.g., `Winners : pobi, jun`)
 
 ### Car
-- [ ] Represent each car with a name and position
-- [ ] Provide method to move forward
-- [ ] Provide string output for progress
+- [x] Represent each car with a name and position
+- [x] Provide method to move forward
+- [x] Provide string output for progress
 
 ### Testing
-- [ ] Write tests for all methods
-- [ ] Cover edge cases and exception scenarios
+- [x] Write tests for all methods
+- [x] Cover edge cases and exception scenarios
 
 ### Project
-- [ ] Follow the AngularJS Git Commit Message Conventions
-- [ ] Follow the Kotlin Coding Conventions
-- [ ] Keep indentation depth <= 2
-- [ ] Keep functions small and focused
-- [ ] Ensure each function does only one thing
+- [x] Follow the AngularJS Git Commit Message Conventions
+- [x] Follow the Kotlin Coding Conventions
+- [x] Keep indentation depth <= 2
+- [x] Keep functions small and focused
+- [x] Ensure each function does only one thing
 
 ## 📐 Requirement Analysis & Design
 
@@ -118,8 +118,6 @@ classDiagram
 
 ```mermaid
 classDiagram
-    Game --> Car
-
     class Input {
         + readNamesOfTheCars() List~String~
         + readNumberOfRounds() Int
@@ -155,4 +153,91 @@ public abstract class IOTest {
 
     protected final String run(Runnable runnable) { ... }
 }
+```
+
+### ✅ TDD
+
+- I followed the TDD process as planned: writing tests first and then implementing each object or class.
+- I repeated this for `Input`, `Game`, `Output`, `Car`, and `Application`.
+
+```
+* e60da36 feat(racingcar): implement Game object
+* 69abc6a test(racingcar): add test for Game
+```
+
+### ♻️ Refactoring
+
+- Extracted `isMovable()` from `playOneRound` to separate movement decision.
+
+```kotlin
+    // Before
+    fun playOneRound(cars: List<Car>): List<Car> {
+        val moveThreshold = 4
+        val minRandom = 0
+        val maxRandom = 9
+
+        return cars.map {
+            val randomNumber = Randoms.pickNumberInRange(minRandom, maxRandom)
+            if (randomNumber >= moveThreshold) it.movedForward() else it
+        }
+    }
+    
+    // After
+    fun playOneRound(cars: List<Car>): List<Car> = cars.map { if (isMovable()) it.movedForward() else it }
+```
+
+- I tried to make smaller functions that each do one thing well.
+- I realized that the `main()` function was doing too much at once.
+
+```kotlin
+fun main() {
+    // 📥 Step 1: Read user input
+    Output.printCarNameInputMessage()
+    val carNames = Input.readNamesOfTheCars()
+
+    Output.printRoundInputMessage()
+    val round = Input.readNumberOfRounds()
+
+    // 🚗 Step 2: Initialize cars
+    var cars = carNames.map { Car(it) }
+
+    // 🏁 Step 3: Run game rounds
+    Output.printRaceStartMessage()
+    repeat(round) {
+        cars = Game.playOneRound(cars)
+        Output.printProgress(cars)
+    }
+
+    // 🏆 Step 4: Determine and print winners
+    val winners = Game.winnersFrom(cars)
+    Output.printWinners(winners)
+}
+```
+
+- I split responsibilities between input handling and game flow:
+
+1. `Input`: Handles user prompts and reads input values.
+2. `Game`: Runs the game loop and displays progress and final results.
+
+```kotlin
+fun main() {
+    val settings = Input.readSettings()
+    Game.play(settings)
+}
+```
+
+- also update file directory structure:
+
+```
+src/main/kotlin
+└── racingcar
+    ├── Application.kt          // Entry point
+    ├── console                 // Input/output handling
+    │   ├── Input.kt
+    │   └── Output.kt
+    ├── domain                  // Game logic
+    │   └── Game.kt
+    └── model                   // Data model
+        ├── Car.kt
+        └── Settings.kt
 ```
