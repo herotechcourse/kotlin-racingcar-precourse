@@ -31,9 +31,9 @@ fun fakeIsMoveConditionMet(num: Int): Boolean {
  *
  *  Format: "->"
  */
-fun moveCars(cars: List<Car>,  funcGenerateNum: () -> Int, funCheckMovable: (Int) -> Boolean) {
-    TODO("Not yet implemented");
-}
+//fun moveCars(cars: List<Car>,  funcGenerateNum: () -> Int, funCheckMovable: (Int) -> Boolean) {
+//    TODO("Not yet implemented");
+//}
 
 class MoveCarsTest() {
     @Test
