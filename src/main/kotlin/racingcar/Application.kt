@@ -46,11 +46,17 @@ fun performCarRace(cars: List<Car>, rounds: Int) {
     println("\nRace Results")
     repeat(rounds) {
         cars.forEach { moveCar(it) }
+        cars.forEach { printCarProgress(it) }
+        println()
     }
 }
 fun moveCar(car: Car) {
     if (shouldMove()) {
         car.position += 1
     }
+}
+fun printCarProgress(car: Car) {
+    val progress = "-".repeat(car.position)
+    println("${car.name} : $progress")
 }
 fun shouldMove(): Boolean = Randoms.pickNumberInRange(0, 9) >= 4
