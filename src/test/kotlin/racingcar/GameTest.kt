@@ -68,7 +68,7 @@ class GameTest {
         val cars: List<Car> = listOf(Car("pobi", 1), Car("woni", 2), Car("jun", 3))
 
         // When
-        val winners = Game.getWinners(cars)
+        val winners = Game.winnersFrom(cars)
 
         // Then
         assertThat(winners).contains(Car("jun", 3))
@@ -80,7 +80,7 @@ class GameTest {
         val cars: List<Car> = listOf(Car("pobi", 1), Car("woni", 2), Car("jun", 2))
 
         // When
-        val winners = Game.getWinners(cars)
+        val winners = Game.winnersFrom(cars)
 
         // Then
         assertThat(winners).contains(Car("woni", 2), Car("jun", 2))

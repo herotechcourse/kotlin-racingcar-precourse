@@ -23,7 +23,7 @@ object Game {
 
     fun playOneRound(cars: List<Car>): List<Car> = cars.map { if (isMovable()) it.movedForward() else it }
 
-    fun getWinners(cars: List<Car>): List<Car> = cars.filter { it.position == cars.maxOf { it.position } }
+    fun winnersFrom(cars: List<Car>): List<Car> = cars.filter { it.position == cars.maxOf { it.position } }
 
     fun isMovable(): Boolean = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM) >= MOVE_THRESHOLD
 }
