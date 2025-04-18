@@ -1,6 +1,7 @@
 package racingcar.parser
 
 object CarNameParser {
+    private const val MAX_CAR_NAME_LENGTH = 5
 
     private fun validateInputCarNames(input: String): List<String> {
         val trimmedInput = input.trim()
@@ -20,7 +21,7 @@ object CarNameParser {
 
         carNames.forEach { carName ->
             if (carName.isEmpty()) throw IllegalArgumentException("Car name cannot be blank")
-            if (carName.length > 5) throw IllegalArgumentException("Car name cannot exceed 5 characters")
+            if (carName.length > MAX_CAR_NAME_LENGTH) throw IllegalArgumentException("Car name cannot exceed $MAX_CAR_NAME_LENGTH characters")
             if (!uniqueCarNames.add(carName)) throw IllegalArgumentException(
                 "Duplicated car name : $carName"
             )
