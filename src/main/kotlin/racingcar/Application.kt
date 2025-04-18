@@ -1,10 +1,8 @@
 package racingcar
 
-import camp.nextstep.edu.missionutils.Console
 import racingcar.domain.RacingGame
-import racingcar.model.Car
-import racingcar.util.getCarNames
 import racingcar.util.createCars
+import racingcar.util.getCarNames
 import racingcar.util.getNumberOfRounds
 
 /**
