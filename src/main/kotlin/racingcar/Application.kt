@@ -7,6 +7,7 @@ fun main() {
     val carsStr = Console.readLine() ?: ""
     val carList =
         carsStr
+            .lowercase()
             .split(',')
             .map { it.trim() }
             .filter { it.isNotEmpty() }
