@@ -26,4 +26,6 @@ fun main() {
 
     val raceRequest = RaceRequest(carList = carList, roundCount = roundCount)
     val raceResult = racingController.outputRaceResults(raceRequest)
+
+    OutputView.printRaceResultResponse(raceResult)
 }
