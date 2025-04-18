@@ -5,13 +5,20 @@
   - [x] Car has a name that does not exceed 5 characters
   - [x] Car can move forward
   - [x] Car can stay still
+- Race
+  - [ ] Race Round: All cars move forward
+  - [ ] Race Round: All cars stay still
+  - [ ] Race Round: Cars move or stay based on random numbers (Test runRound with a predictable sequence from randomProvider)
+- Race (Input Validation)
+  - [ ] Race initialization throws IllegalArgumentException for invalid car names (empty, too long, invalid format like ",,")
+  - [ ] Race initialization throws IllegalArgumentException for invalid rounds (non-numeric, zero, negative)
+- Race (Full Race Execution)
+  - [ ] Race runs for the specified number of rounds (Test runRace orchestrates rounds correctly)
+- Race (Winning Logic)
+  - [ ] Race identifies a single winner (Test findWinners with one car at max position)
+  - [ ] Race identifies multiple winners (Test findWinners with multiple cars at max position)
 
 ## Functional Requirements
-Implement a simple car racing game with the following rules:
-
-- The user should be able to specify car names and the number of rounds.
-  - Car names should be comma-separated when entered by the user.
-  - Each car must have a name, and names cannot exceed 5 characters.
 - Each of the n cars can either move forward or stay still during a given number of rounds.
 - A car moves forward if a randomly generated number between 0 and 9 is 4 or greater.
 - When printing the progress of each car, display the car's name alongside its movement.
