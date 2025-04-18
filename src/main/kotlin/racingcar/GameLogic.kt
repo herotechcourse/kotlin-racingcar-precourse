@@ -19,4 +19,15 @@ fun runRound(cars: MutableMap<String, String>) {
         }
         printRound(car)
     }
+    println()
+}
+
+fun game(cars: MutableMap<String, String>, rounds: Int) {
+    var i = 0
+    println("Race Results")
+    while (i < rounds) {
+        runRound(cars)
+        i++
+    }
+    printWinners(cars)
 }
