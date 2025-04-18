@@ -3,91 +3,112 @@ package racingcar
 import camp.nextstep.edu.missionutils.Randoms
 import camp.nextstep.edu.missionutils.Console
 
+// program entry to start carRacing
 fun main() {
     val racingGame = RacingGame()
     racingGame.start()
 }
 
+// Car class define the car name, position, how car moves
 class Car(s: String) {
     val name: String = s
     private var position = 0
 
+    // when random number equal or greater than 4, car moves
     fun move(){
         if( Randoms.pickNumberInRange(0, 9) >=4) {
-            position += 1
+            position++
         }
     }
+    // get private variable position value
     fun getPosition(): Int = position
+
+    // create the move bar according position value
     fun getRacingResult():String = "-".repeat(position)
 }
 
-object InputValide {
+// object InputValidate verify input argument
+object InputValidate {
 
-    fun valideRound(input: String): Int {
-        val round = try {
+    // validate the input for rounds
+    fun validateRounds(input: String): Int {
+
+        // check rounds is integer
+        val rounds = try {
             input.toInt()
         } catch (e: NumberFormatException) {
-            throw IllegalArgumentException()
+            throw IllegalArgumentException("Input rounds are not integer")
         }
 
-        if (round <= 0)
-            throw IllegalArgumentException()
-        return round
+        // check rounds is positive
+        if (rounds <= 0)
+            throw IllegalArgumentException("Input rounds are smaller or equal to zero")
+        return rounds
     }
 
-    fun valideCarsName(carNames: List<String>) {
+    // car name length is maximum 5 characters, otherwise throw Exception
+    fun validateCarsName(carNames: List<String>) {
 
         carNames.forEach {
             if (it.length > 5)
-                throw IllegalArgumentException()
+                throw IllegalArgumentException("car name is more than 5 characters")
         }
 
         if(carNames.isEmpty())
-            throw IllegalArgumentException()
+            throw IllegalArgumentException("car names is empty")
     }
 }
 
+// RacingGame read input rounds from user to variable rounds,
+// create car objects list according to car names input
+// simulate racing n rounds, find the winner
 class RacingGame {
     private var rounds = 0
     private lateinit var cars: List<Car>
 
+    // function to parse input, start racing simulation, announce Winner
     fun start() {
-
             initialize()
             race()
             announceWinner()
     }
 
+    // parse input argument
     private fun initialize()
     {
         cars = inputCarNameInit()
         rounds = inputRoundInit()
-
     }
 
+    // parse and validate car names , return Car object list
     private fun inputCarNameInit(): List<Car> {
         println("Enter the names of the cars (comma-separated):")
         val input: String = Console.readLine()
+
+        // split the input , remove the pre and tailing space, remove car name which only contain spaces
         val carRawNames = input.split(",").map { it.trim() }.map { it.replace("\\s+".toRegex(), "") }
         val carNames = carRawNames.filter { it.isNotEmpty() }
 
-        InputValide.valideCarsName(carNames)
+        InputValidate.validateCarsName(carNames)
 
         return carNames.map { Car(it) }
     }
 
+    // parse and validate rounds input
     private fun inputRoundInit(): Int {
         println("How many rounds will be played?")
 
         val round = Console.readLine()
 
-        return InputValide.valideRound(round)
+        return InputValidate.validateRounds(round)
     }
 
-
+    // function to simulate car racing
     private fun race() {
         println("Race results by round:")
         println()
+
+        // start racing for rounds times
         repeat(rounds) {
             moveAllCars()
             printStatus()
@@ -95,14 +116,15 @@ class RacingGame {
         }
     }
 
+    // move each car
     private fun moveAllCars() {
         cars.forEach {
             it.move()
         }
     }
 
+    // print car position
     private fun printStatus() {
-
         cars.forEach {
             println("${it.name} : ${it.getRacingResult()}")
         }
