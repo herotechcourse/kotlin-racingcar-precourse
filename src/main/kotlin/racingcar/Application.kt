@@ -12,8 +12,13 @@ fun inputCars(): List<String> {
     for (car in cars) {
         // Prohibit each car name to exceed 5 characters
         if (car.length > 5) {
-            throw IllegalArgumentException("Each car name mush not exceed 5 characters.");
+            throw IllegalArgumentException("Each car name must not exceed 5 characters.");
         }
+    }
+
+    // Prohibit duplicate car names
+    if (cars.size != cars.distinct().size) {
+        throw IllegalArgumentException("Car name must be unique.");
     }
     return cars;
 }
