@@ -1,6 +1,7 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
 
 fun readCarNames(): List<String> {
     println("Enter the names of the cars (comma-separated):")
@@ -33,7 +34,21 @@ fun readRound(): Int {
     return round
 }
 
+fun printResult(names: List<String>) {
+    for (name in names) {
+        if (racingResult()) {
+            println("$name : -")
+        } else println("$name :  ")
+    }
+}
+
+fun racingResult(): Boolean {
+    val number = Randoms.pickNumberInRange(0, 9)
+    return number >= 4
+}
+
 fun main() {
-    readCarNames()
+    val carNames = readCarNames()
     readRound()
+    printResult(carNames)
 }
