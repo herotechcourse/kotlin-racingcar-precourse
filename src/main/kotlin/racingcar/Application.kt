@@ -1,5 +1,6 @@
 package racingcar
 
+import racingcar.models.Car
 import racingcar.utils.InputUtils
 
 fun main() {
@@ -12,4 +13,16 @@ fun main() {
 
     val rounds = InputUtils.readRounds()
     println("rounds: $rounds") // TODO: delete before submission
+
+    val cars = Car.createCars(carNames)
+    // TODO: delete below prints before submission
+    println("cars: $cars")
+    print("car.name: ")
+    for (car in cars) {
+        print(car.name)
+        print(" ")
+    }
+    println()
+
+    Car.raceCars(cars)
 }
