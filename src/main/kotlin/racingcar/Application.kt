@@ -26,6 +26,20 @@ class Application {
 				throw IllegalArgumentException("Car name must be unique.")
 			}
 			println("Car names: $cars_trim")
+
+			println("How many rounds will be played?")
+			val rounds_input = Console.readLine()
+			if (rounds_input.isBlank()) {
+				throw IllegalArgumentException("You must enter the number of rounds to race.")
+			}
+			val rounds_toInt = rounds_input.toIntOrNull()
+			if (rounds_toInt == null) {
+				throw IllegalArgumentException("The number of rounds must be an integer.")
+			}
+			if (rounds_toInt <= 0) {
+				throw IllegalArgumentException("The number of rounds must be at least 1 and positive.")
+			}
+			println("Number of rounds: $rounds_input")
 		}
 	}
 }
