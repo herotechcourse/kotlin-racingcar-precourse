@@ -14,6 +14,16 @@ class Input {
         return carNames;
     }
 
+    fun getRoundCount() : Int {
+        println("How many rounds will be played?");
+        val roundCountInput = Console.readLine();
+        validateNumber(roundCountInput);
+        validateNumberRange(roundCountInput);
+        val roundCount = roundCountInput.toInt();
+        validateNegativeNumberOrZero(roundCount);
+        return roundCount;
+    }
+
     fun validateSpecialCharacter(carNameInput: String) : Unit {
         val regex = Regex("[0-9a-zA-Zㄱ-ㅎ가-힣, ]");
         val removeCharacters = regex.replace(carNameInput, "");
@@ -46,6 +56,26 @@ class Input {
             if (carNames.contains(name)) {
                 throw IllegalArgumentException("중복된 이름은 사용할 수 없습니다.");
             }
+        }
+    }
+
+    fun validateNumber(roundCountInput: String) : Unit {
+        val regex = Regex("[0-9-]");
+        val removeCharacters = regex.replace(roundCountInput, "");
+        if (!removeCharacters.isEmpty()) {
+            throw IllegalArgumentException("숫자만 입력 가능합니다.");
+        }
+    }
+
+    fun validateNumberRange(roundCountInput: String) {
+        if (roundCountInput.toIntOrNull() == null) {
+            throw IllegalArgumentException("라운드는 최대 2,147,483,647이하의 자연수만 입력 가능합니다.");
+        }
+    }
+
+    fun validateNegativeNumberOrZero(roundCount: Int) {
+        if (roundCount <= 0) {
+            throw IllegalArgumentException("라운드는 최대 2,147,483,647이하의 자연수만 입력 가능합니다.");
         }
     }
 }
