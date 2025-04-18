@@ -13,14 +13,15 @@
 		[*] Throw `IllegalArgumentException` for invalid input
 
 ### 3. Car Implementation
-	[ ] Create 'car' class with:
-		[ ] Name property
-		[ ] Position tracking
-		[ ] Movement logic
+	[*] Create 'car' class with:
+		[*] Name property
+		[*] Position tracking
+
 
 ### 4. Race logic
 	[ ] Initialize cars
 	[ ] Run the race for specified number of rounds
+	    [ ] Movement logic
 	[ ] Determine winner(s) at the end of the race
 		[ ] Support multiple winners
 
