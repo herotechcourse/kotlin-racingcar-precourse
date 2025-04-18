@@ -6,6 +6,30 @@ import org.junit.jupiter.api.Test
 
 class GameTest {
     @Test
+    fun `should return true when random number is greater than or equal to threshold`() {
+        // Given & When & Then
+        assertRandomNumberInRangeTest(
+            {
+                val isMovable = Game.isMovable()
+                assertThat(isMovable).isEqualTo(true)
+            },
+            MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun `should return false when random number is less than threshold`() {
+        // Given & When & Then
+        assertRandomNumberInRangeTest(
+            {
+                val isMovable = Game.isMovable()
+                assertThat(isMovable).isEqualTo(false)
+            },
+            STOP
+        )
+    }
+
+    @Test
     fun `should move only specific cars forward in round 1 based on random values`() {
         // Given
         val cars = listOf(Car("pobi", 1), Car("woni", 2), Car("jun", 3))
