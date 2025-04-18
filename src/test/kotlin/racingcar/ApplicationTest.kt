@@ -21,11 +21,71 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `feature test 1`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("po bi,   ,woni ", "1")
+                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+            },
+            MOVING_FORWARD,
+            STOP,
+        )
+    }
+
+    @Test
+    fun `feature test 2`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("po bi, woni,  woni ", "1")
+                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+            },
+            MOVING_FORWARD,
+            STOP,
+        )
+    }
+
+    @Test
     fun `exception test`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
         }
     }
+
+    @Test
+    fun `exception test 1`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,java", "-1") }
+        }
+    }
+
+    @Test
+    fun `exception test 2`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,java", "a") }
+        }
+    }
+
+    @Test
+    fun `exception test 3`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,java", "0") }
+        }
+    }
+
+    @Test
+    fun `exception test 4`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("  ,   ,", "1") }
+        }
+    }
+
+    @Test
+    fun `exception test 5`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,java", " ") }
+        }
+    }
+
 
     override fun runMain() {
         main()
