@@ -1,6 +1,7 @@
 # kotlin-racingcar-precourse
 
 1. Car Setup
+
 ✅ Accept comma-separated car names as input
 Example: pobi,woni,jun
 
