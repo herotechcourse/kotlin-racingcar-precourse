@@ -16,7 +16,7 @@ fun main() {
 fun getCarNames(): List<String> {
 
     do {
-        println("Enter car names, must be separated by commas!:")
+        println("Enter the names of the cars (comma-separated):")
         val carNamesInput = Console.readLine()?.trim() ?: continue
         val carNames = carNamesInput.split(",").map { it.trim() }
 
@@ -31,8 +31,8 @@ fun getCarNames(): List<String> {
 
 fun getNumberOfRounds(): Int {
     while (true) {
-        println("Number of rounds:")
-        val numberOfRoundsInput = readLine()
+        println("How many rounds will be played?")
+        val numberOfRoundsInput = Console.readLine()
         val numberOfRounds = numberOfRoundsInput?.toIntOrNull()
 
         if(numberOfRounds != null && numberOfRounds > 0) {
