@@ -1,8 +1,6 @@
 package racingcar.backend.controller
 
-import racingcar.backend.dto.CarDto
-import racingcar.backend.dto.CarNameRequest
-import racingcar.backend.dto.RoundRequest
+import racingcar.backend.dto.*
 import racingcar.backend.service.RacingService
 
 class RacingController(
@@ -14,5 +12,9 @@ class RacingController(
 
     fun convertRoundToNum(roundRequest: RoundRequest) : Int{
         return racingService.convertRoundToNum(roundRequest)
+    }
+
+    fun outputRaceResults(raceRequest: RaceRequest) : RaceResponse {
+        return racingService.outputRaceResults(raceRequest)
     }
 }

@@ -2,6 +2,7 @@ package racingcar
 
 import racingcar.backend.controller.RacingController
 import racingcar.backend.dto.CarNameRequest
+import racingcar.backend.dto.RaceRequest
 import racingcar.backend.dto.RoundRequest
 import racingcar.backend.service.RacingService
 import racingcar.frontend.InputView
@@ -22,4 +23,7 @@ fun main() {
 
     val roundRequest = RoundRequest(round = round)
     val roundCount = racingController.convertRoundToNum(roundRequest)
+
+    val raceRequest = RaceRequest(carList = carList, roundCount = roundCount)
+    val raceResult = racingController.outputRaceResults(raceRequest)
 }

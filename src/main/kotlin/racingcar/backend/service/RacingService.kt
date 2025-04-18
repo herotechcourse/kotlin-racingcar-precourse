@@ -5,10 +5,7 @@ import racingcar.backend.domain.Car
 import racingcar.backend.domain.Race
 import racingcar.backend.domain.validator.RaceNameValidator
 import racingcar.backend.domain.validator.RoundValidator
-import racingcar.backend.dto.CarDto
-import racingcar.backend.dto.CarNameRequest
-import racingcar.backend.dto.RaceResponse
-import racingcar.backend.dto.RoundRequest
+import racingcar.backend.dto.*
 import racingcar.backend.util.StringParser
 
 class RacingService {
@@ -42,6 +39,16 @@ class RacingService {
         RoundValidator.validateRound(round)
         RoundValidator.validatePositiveRound(round.toInt())
     }
+
+    fun outputRaceResults(raceRequest: RaceRequest): RaceResponse {
+        val carList = convertToCarList(raceRequest.carList)
+        val raceList = raceStart(carList, raceRequest.roundCount)
+        val raceResultList = convertToRaceResultList(raceList)
+        val winnerList = calculateWinners(raceResultList)
+
+        return RaceResponse(roundNum = raceRequest.roundCount, raceResultList = raceResultList, winnerList = winnerList)
+    }
+
 
     private fun convertToCarList(carDtoList: List<CarDto>): List<Car> {
         return carDtoList.map { car ->
