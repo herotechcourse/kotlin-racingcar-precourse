@@ -1,5 +1,8 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    val cars = readCars()
+    val rounds = readRounds()
+    println()
+    race(cars, rounds)
 }
