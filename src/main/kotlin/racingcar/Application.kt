@@ -19,6 +19,10 @@ fun main() {
             println("$car: ${"-".repeat(carPositions[car]!!)}")
         }
     }
+
+    val maxPosition = carPositions.values.maxOrNull() ?: 0
+    val winners = carPositions.filterValues { it == maxPosition }.keys
+    println("Winner${if (winners.size > 1) "s" else ""}: ${winners.joinToString(", ")}")
 }
 
 fun getCarNames(): List<String> {
