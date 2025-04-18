@@ -1,8 +1,8 @@
-package view
+package racingcar.view
 
 import racingcar.model.Car
 
-class OutputView {
+object OutputView {
     fun printRoundResult(cars: List<Car>) {
         for (car in cars) {
             println("${car.name} : ${"-".repeat(car.position)}")    
