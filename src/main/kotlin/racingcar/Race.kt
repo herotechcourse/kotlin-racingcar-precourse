@@ -23,3 +23,9 @@ fun startRound(carsData: Map<String, Int>): Map<String, Int> {
     printRound(round)
     return round
 }
+
+fun getWinners(cars: Map<String, Int>) {
+    val maxMoves = cars.maxOfWith(compareBy { it }) { it.value }
+    val winners = cars.filter { it.value >= maxMoves }.keys
+    println("Winners : ${winners.joinToString(separator = ", ") { item -> item }}")
+}
