@@ -30,14 +30,14 @@ class RacingGame(
 
     private fun printRaceResult(cars: List<Car>) {
         cars.forEach { car ->
-            println("${car.name} : ${"-".repeat(car.position)}")
+            println("${car.name} : ${"-".repeat(car.getPosition())}")
         }
         println()
     }
 
     private fun printWinners(cars: List<Car>) {
-        val maxPosition = cars.maxOf { it.position }
-        val winners = cars.filter { it.position == maxPosition }.map { it.name }
+        val maxPosition = cars.maxOf { it.getPosition() }
+        val winners = cars.filter { it.getPosition() == maxPosition }.map { it.name }
         println("Winners : ${winners.joinToString(", ")}")
     }
 }
