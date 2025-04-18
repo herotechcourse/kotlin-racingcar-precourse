@@ -19,10 +19,15 @@ class RacingGame(
 
             OutputView.printRoundResult(cars.getCars())
         }
-    }
+    }git add src/main/kotlin/racingcar/model/Cars.kt
 
     // gets how many cars are in the race
     private fun carsSize(): Int {
         return cars.getCars().size
     }
+
+    fun getWinners() : List<Car>{
+        return cars.getWinners()
+    }
+
 }
