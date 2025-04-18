@@ -21,4 +21,11 @@ object RaceNameValidator {
             throw IllegalArgumentException(RacingError.CAR_NAME_DUPLICATE.message)
         }
     }
+
+
+    fun validateMinimumNumberOfCars(carNameList: List<String>) {
+        if (carNameList.size < 2) {
+            throw IllegalArgumentException(RacingError.INSUFFICIENT_CARS.message)
+        }
+    }
 }
