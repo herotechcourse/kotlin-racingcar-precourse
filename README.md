@@ -1,4 +1,12 @@
 # Kotlin Racing Car Precourse
+
+This project is part of the Tech Hero Course 2025.
+
+A simple command‑line car racing game written in Kotlin. Enter a set of cars and number of rounds, then watch them race. The app demonstrates clean, single‑responsibility functions, input validation, and unit testing with JUnit 5 & AssertJ.
+
+## Usage
+Run tests with `./gradlew test`.
+
 ## Feature List
 - Input Handling
   - Read comma‑separated car names and rounds
@@ -13,4 +21,4 @@
   - After all rounds, determine the car(s) at max position 
 - Winner Announcement 
   - If one winner: Winners : name 
-  - If multiple winners: Winners : name1, name2, … 
+  - If multiple winners: Winners : name1, name2, …
