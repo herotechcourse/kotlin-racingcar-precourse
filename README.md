@@ -1,6 +1,7 @@
 ## Project Definition
 Implement a simple car racing game.
 
+---
 ## Feature Requirements
 ### Input data
 - [x] The user can input car names.  
@@ -30,6 +31,7 @@ jun : ---
 
 ### Exception Handling
 - [ ] If the user provides invalid input, the program should throw an `IllegalArgumentException` and terminate.
+---
 
 ## Programming Requirements
 - [x] You must implement the solution only in Kotlin—Java code is not allowed.
@@ -48,6 +50,36 @@ jun : ---
 
 ---
 
+##  Architecture: MVC Pattern
+
+This project follows the **MVC (Model-View-Controller)** architectural pattern to achieve clear separation of concerns and improve maintainability and scalability.
+
+###  Model (Domain Logic)
+- **`domain/Car.kt`**
+  - Represents the core logic of the game.
+  - Manages each car's state (`name`, `position`) and behavior (`move`, `printPosition`).
+  - Determines car movement based on randomly generated numbers.
+
+###  View (Input/Output)
+- **`view/InputView.kt`**
+  - Handles all user inputs, such as receiving car names and number of rounds.
+- **`view/OutputView.kt`**
+  - Displays race results, winners, and formatted outputs to the console.
+- Decouples the UI logic from business logic to enhance testability.
+
+###  Controller (Game Flow)
+- **`controller/GameController.kt`**
+  - Controls the overall game flow by interacting with both the Model and the View.
+  - Collects inputs, executes the game logic, and displays the results.
+
+###  Entry Point
+- **`Application.kt`**
+  - Initializes the controller and starts the game.
+  
+
+
+
+---
 Example Execution
 ```
 Enter the names of the cars (comma-separated):
