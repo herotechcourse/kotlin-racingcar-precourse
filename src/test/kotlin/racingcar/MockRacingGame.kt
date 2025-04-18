@@ -1,15 +1,12 @@
 package racingcar
 
-import racingcar.generator.RandomNumberGenerator
-
 class MockRacingGame(val cars: List<Car>) {
 
     var moveCallCount = 0
         private set
 
-    fun startGame(randomGenerator: RandomNumberGenerator) {
+    fun startGame() {
         for (car in cars) {
-            car.move(randomGenerator)
             moveCallCount++
         }
     }
