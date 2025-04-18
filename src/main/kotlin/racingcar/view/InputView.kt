@@ -1,6 +1,7 @@
 package view
 
 import camp.nextstep.edu.missionutils.Console
+import racingcar.model.Car
 
 class InputView {
     fun readCarNames(): List<String> {
@@ -10,7 +11,7 @@ class InputView {
         val carNames = input.split(",")
 
         carNames.forEach { name ->
-            require(name.isNotBlank() && name.length <= 5) {
+            require(name.isNotBlank() && name.length <= Car.MAX_NAME_LENGTH) {
                 "Car must have a name, and names cannot exceed 5 characters."
             }
         }
