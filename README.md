@@ -2,6 +2,14 @@
 
 ## 📝 Overview
 
+This is a console-based car racing game built in Kotlin.
+- Players input car names and the number of rounds to race.
+- Each car moves forward if a randomly generated number is 4 or higher.
+- The game prints progress after each round and announces the winner(s) at the end.
+
+<image width="400" src="https://github.com/user-attachments/assets/727a8d53-2600-4ef0-ba11-b05f494bcbed">
+
+
 ## ✅ Feature Checklist
 
 ### Input
