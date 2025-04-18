@@ -12,7 +12,7 @@
 - [x] Implement moving logic (moves forward when randomly generated number between 0 and 9 is 4 or greater)
 
 ### Game Flow
-- [ ] Start the game via the `Application.main()` entry point
+- [x] Start the game via the `Application.main()` entry point
 - [x] Start each round until the number of rounds reaches the limit
 - [x] Show how far the car reached every round
 - [x] Make car move each round and return result
