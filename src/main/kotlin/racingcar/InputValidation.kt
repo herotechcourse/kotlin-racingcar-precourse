@@ -21,3 +21,18 @@ fun readCars(): Map<String, Int> {
     checkCarData((cars))
     return cars
 }
+
+fun checkRoundInput(data: String) {
+    require(data.isNotBlank()) { "Round should not be empty" }
+    require(data.all { it.isDigit() }) { "Round should be provided only by digits" }
+    require(data.toInt() > 0) { "Rounds should be bigger then 0" }
+}
+
+fun readRounds(): Int {
+    println("How many rounds will be played?")
+    val data = Console.readLine()
+    println("data: $data")
+    checkRoundInput(data)
+    return data.toInt()
+
+}
