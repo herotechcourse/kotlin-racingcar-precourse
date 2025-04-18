@@ -25,4 +25,8 @@ class RacingGame(val cars: List<Car>, val rounds: Int) {
         val winnerPosition = cars.maxOf { it.position }
         return cars.filter { it.position == winnerPosition }
     }
+
+    fun getWinners(): List<Car> {
+        return selectWinners()
+    }
 }
