@@ -11,16 +11,23 @@ fun validateCarsInput(input: String) {
         input.endsWith(",") -> throw IllegalArgumentException("Input cannot end with a comma")
     }
     checkInputLen(input)
+    checkDuplicates(input)
+}
+
+fun checkDuplicates(input: String) {
+    val cars = input.split(',')
+
+    if (cars.size != cars.toSet().size) {
+        throw IllegalArgumentException("Car names cannot contain duplicates")
+    }
 }
 
 fun checkInputLen(input: String) {
     val cars = input.split(',')
-
     for (car in cars) {
         if (car.length > 5) { throw IllegalArgumentException("Car name $car is longer than 5 characters") }
     }
 }
-
 
 fun validateRoundsInput(input: String) {
     val validChars = Regex("^[0-9]+$")
@@ -28,8 +35,7 @@ fun validateRoundsInput(input: String) {
     when {
         !validChars.matches(input) -> throw IllegalArgumentException("Please enter only digits")
         input.isBlank() -> throw IllegalArgumentException("Number of rounds cannot be empty")
-        input.toLong() > 10 -> throw IllegalArgumentException("Number of rounds cannot be greater than 10 (or the cars will be tired)")
-        // review limit of rounds later
+        input.toLong() > 10000 -> throw IllegalArgumentException("Number of rounds cannot be greater than 10000 (or the cars will be tired)")
         input.toInt() <= 0 -> throw IllegalArgumentException("Number of rounds cannot be zero or negative")
     }
 }
