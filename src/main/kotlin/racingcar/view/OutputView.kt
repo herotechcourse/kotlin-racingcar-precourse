@@ -31,6 +31,6 @@ object OutputView {
 
     fun announceWinner(winners: List<Car>) {
         print("Winners : ")
-        print(winners.joinToString())
+        print(winners.joinToString { winner -> winner.name })
     }
 }
