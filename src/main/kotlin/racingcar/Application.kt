@@ -15,4 +15,6 @@ fun main() {
 
     val carNameRequest = CarNameRequest(carNames = carNames)
     val carList = racingController.inputCarNames(carNameRequest)
+
+    OutputView.printRaceCountRequest()
 }
