@@ -1,5 +1,9 @@
 package racingcar
 
+import racingcar.console.Input
+import racingcar.domain.Game
+
 fun main() {
-    // TODO: Implement the program
+    val settings = Input.readSettings()
+    Game.play(settings)
 }
