@@ -1,24 +1,18 @@
 package racingcar.controller
 
 import racingcar.domain.Cars
-import racingcar.view.InputCarNames
-import racingcar.view.InputRoundCount
 import racingcar.view.OutputRaceProgress
 
-class GameController {
-
+class GameController (
+    private val cars: Cars,
+    private val roundCount: Int
+) {
     fun startGame() {
-        val carNames = InputCarNames.invoke()
-        val cars = Cars.from(carNames)
-        val roundCount = InputRoundCount.invoke()
-
-        repeat(roundCount) { // repoeat number of rounds
-            startTurn(cars)
+        repeat(roundCount) {
+            startTurn()
         }
-
     }
-
-    private fun startTurn(cars: Cars) {
+    private fun startTurn() {
         cars.raceOnce() // Race the car once
         OutputRaceProgress.showRace(cars) // Print the results of one round
     }

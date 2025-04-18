@@ -3,11 +3,11 @@ package racingcar.domain
 class Cars(private val cars: List<Car>) {
 
     fun raceOnce() {
-        cars.forEach { car ->
-            car.moveForward()
-        }
+        cars.forEach { it.moveForward() }
     }
-
+    fun getCarStates(): List<Pair<String, Int>> {
+        return cars.map { it.name to it.position }
+    }
     fun getWinners(): List<Car> {
         return emptyList()
     }

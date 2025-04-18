@@ -20,13 +20,13 @@ You will implement a console-based racing car game where users input car names a
   - [X] Only **positive integers** are allowed (zero or negative numbers are invalid)
 
 ### 🕹️ Game Execution
-- [ ] Repeat for the number of rounds entered by the user
+- [X] Repeat for the number of rounds entered by the user
 - [X] For each round, generate a random number (0–9) for each car
 - [X] If the number is **4 or higher**, the car moves forward; otherwise, it stays still
 - [ ] Each move adds a `-` to represent progress
 
 ### 📣 Output
-- [ ] Display the progress of all cars after each round  
+- [X] Display the progress of all cars after each round  
   - Format: `pobi : --`
 - [ ] Display the final winner(s) at the end  
   - Single winner: `Winners : pobi`  
