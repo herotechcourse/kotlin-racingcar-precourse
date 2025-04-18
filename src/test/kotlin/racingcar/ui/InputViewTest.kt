@@ -97,6 +97,19 @@ class InputViewTest {
             inputView.getCars()
         }
     }
+
+    @Test
+    fun `car name input is duplicated`() {
+        // given
+        val input = "car1, car1\n"
+        setInput(input)
+        val inputView = InputView()
+
+        // when & then
+        assertThrows(IllegalArgumentException::class.java){
+            inputView.getCars()
+        }
+    }
     @Test
     fun `attempt input is valid number`() {
         // given
