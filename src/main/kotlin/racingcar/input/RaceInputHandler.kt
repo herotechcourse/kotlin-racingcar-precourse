@@ -14,6 +14,10 @@ object RaceInputHandler {
         return Game(race, rounds)
     }
 
+    fun validateCarNames(input: String) {
+        parseCarNames(input)
+    }
+
 
     private fun parseCarNames(input: String): List<String> {
         val names = input.split(",").map { it.trim() }
