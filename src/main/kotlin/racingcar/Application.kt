@@ -1,5 +1,11 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    val carNames = InputHandler.readCarNames()
+    val rounds = InputHandler.readRoundCount()
+
+    val cars = carNames.map { Car(it) }
+    RaceSimulator.runRace(cars, rounds)
+
+    WinnerAnnouncer.announceWinners(cars)
 }

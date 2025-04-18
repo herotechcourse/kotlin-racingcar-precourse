@@ -4,26 +4,84 @@ import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeT
 import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 class ApplicationTest : NsTest() {
+
     @Test
-    fun `feature test`() {
+    @DisplayName("one round test")
+    fun oneRoundTest() {
         assertRandomNumberInRangeTest(
             {
-                run("pobi,woni", "1")
-                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+                run("pobi,duc", "1")
+                assertThat(output()).contains("pobi : -", "duc : ", "Winners : pobi")
             },
             MOVING_FORWARD,
-            STOP,
+            STOP
         )
     }
 
     @Test
-    fun `exception test`() {
+    @DisplayName("multiple rounds test")
+    fun multipleRoundsTest() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,duc", "2")
+                assertThat(output()).contains(
+                    "pobi : -",
+                    "duc : ",
+                    "pobi : --",
+                    "duc : ",
+                    "Winners : pobi"
+                )
+            },
+            MOVING_FORWARD,
+            STOP,
+            MOVING_FORWARD,
+            STOP
+        )
+    }
+
+    // test name empty
+    @Test
+    @DisplayName("exception if name empty")
+    fun exceptionIfNameEmpty() {
         assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+            assertThrows<IllegalArgumentException> {
+                runException("", "1")
+            }
+        }
+    }
+
+    @Test
+    @DisplayName("exception if name too long")
+    fun exceptionIfNameTooLong() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,javaji", "1")
+            }
+        }
+    }
+
+    @Test
+    @DisplayName("exception if round non integer")
+    fun exceptionIfRoundNonInteger() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,duc", "one")
+            }
+        }
+    }
+
+    @Test
+    @DisplayName("exception if round less than 1")
+    fun exceptionIfRoundLessThan1() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,duc", "0")
+            }
         }
     }
 
