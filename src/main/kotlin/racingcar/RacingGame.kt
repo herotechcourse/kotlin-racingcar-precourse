@@ -20,7 +20,8 @@ class RacingGame (
      */
     fun startRace() {
         setupCars()
-        setupRound()
+        setupRounds()
+        playRaceRounds()
     }
 
     /**
@@ -33,11 +34,22 @@ class RacingGame (
     }
 
     /**
-     * Sets the number of race round.
+     * Sets the number of race rounds.
      */
-    private fun setupRound() {
+    private fun setupRounds() {
         val roundInput = input.getRound()
         validator.validateRound(roundInput)
         round = roundInput.toInt()
+    }
+
+    /**
+     * Runs the race for the specified number of rounds.
+     */
+    private fun playRaceRounds() {
+        output.printRaceHeader()
+        repeat(round) {
+            cars.move()
+            output.printRaceProgress(cars.getAll())
+        }
     }
 }
