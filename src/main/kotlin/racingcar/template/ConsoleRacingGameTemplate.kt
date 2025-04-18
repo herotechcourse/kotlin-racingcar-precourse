@@ -4,7 +4,7 @@ import racingcar.Car
 import racingcar.RacingGame
 import racingcar.io.Output
 
-class ConsoleRacingGameTemplate(racingGame: RacingGame) : RacingGameTemplate(racingGame) {
+class ConsoleRacingGameTemplate(racingGame: RacingGame, round: Int) : RacingGameTemplate(racingGame, round) {
 
     override fun printStartMessage() {
         Output.printStartMessage()

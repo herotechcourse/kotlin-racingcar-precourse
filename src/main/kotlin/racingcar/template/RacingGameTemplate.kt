@@ -4,11 +4,11 @@ import racingcar.Car
 import racingcar.RacingGame
 import racingcar.generator.RandomNumberGenerator
 
-abstract class RacingGameTemplate(private val racingGame: RacingGame) {
+abstract class RacingGameTemplate(private val racingGame: RacingGame, private val round: Int) {
 
     fun execute(randomGenerator: RandomNumberGenerator) {
         printStartMessage()
-        repeat(racingGame.round) {
+        repeat(round) {
             racingGame.startGame(randomGenerator)
             printGame(racingGame.cars)
         }
