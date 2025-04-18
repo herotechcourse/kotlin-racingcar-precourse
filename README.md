@@ -15,12 +15,12 @@ pobi : --
 woni : ----
 jun : ---
 ```
-- [ ] After all rounds, display the final winner(s).
-    - [ ] If there is a single winner:
+- [x] After all rounds, display the final winner(s).
+    - [x] If there is a single winner:
     ```
     Winners : pobi
     ```
-    - [ ] If there are multiple winners:
+    - [x] If there are multiple winners:
     ```
     Winners : pobi, jun
     ```
@@ -32,10 +32,10 @@ jun : ---
 - [ ] If the user provides invalid input, the program should throw an `IllegalArgumentException` and terminate.
 
 ## Programming Requirements
-- [ ] You must implement the solution only in Kotlin—Java code is not allowed.
-- [ ] The entry point of the application must be the main() function in the Application class.
-- [ ] Do not use System.exit() or exitProcess() to terminate the program.
-- [ ] The indentation depth must not exceed 2. A maximum of 2 levels is allowed.
+- [x] You must implement the solution only in Kotlin—Java code is not allowed.
+- [x] The entry point of the application must be the main() function in the Application class.
+- [x] Do not use System.exit() or exitProcess() to terminate the program.
+- [x] The indentation depth must not exceed 2. A maximum of 2 levels is allowed.
     - For example, an if statement inside a while loop is acceptable, but nesting beyond that is not.
     - Tip: To reduce indentation depth, extract logic into functions.
 - [ ] Keep functions as small and focused as possible—each should do only one thing.
