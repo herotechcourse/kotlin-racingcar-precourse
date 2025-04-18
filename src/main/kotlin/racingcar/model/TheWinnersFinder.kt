@@ -1,11 +1,14 @@
 package racingcar.model
 
-fun findTheWinnersIndex(finalResultProgressInt: List<Int>): List<Int> {
-    val maxIntProgression = finalResultProgressInt.max()
+fun findTheWinners(carNames: List<String>, progressList: List<List<Int>>): List<String> {
+    val finalRacingProgressList = progressList[progressList.size - 1]
 
-    val maxIntIndex: List<Int> = finalResultProgressInt.withIndex()
+    val maxIntProgression = finalRacingProgressList.max()
+    val maxIntIndex: List<Int> = finalRacingProgressList.withIndex()
         .filter { it.value == maxIntProgression }
         .map { it.index }
 
-    return maxIntIndex
+    val winnersList = maxIntIndex.map { carNames[it] }
+
+    return winnersList
 }

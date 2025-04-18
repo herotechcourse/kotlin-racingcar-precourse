@@ -7,4 +7,3 @@ fun decideMovement(): Boolean {
 
     return randomNumber >= 4
 }
-
