@@ -7,9 +7,9 @@ The project aims to simulate a race between user-named cars over a number of rou
 
 ## Features
 
-- [ ] Ask the user for car names
-- [ ] Validate the input (comma-separated and max 5 characters per name)
-- [ ] Ask the user for the number of rounds
+- [X] Ask the user for car names
+- [X] Validate the input (comma-separated and max 5 characters per name)
+- [X] Ask the user for the number of rounds
 - [ ] Simulate each round using a loop
 - [ ] Use random numbers to determine car movement
 - [ ] Track and update car positions
