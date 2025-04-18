@@ -23,3 +23,11 @@ The following features are planned for implementation in this racing car game:
 ### 3. Output
 
 * [x] **Final Winner(s) Display:** Implement functionality to clearly display the name(s) of the final winner(s) after the race concludes.
+
+## Class Diagram
+
+### 1. `main` Class Diagram
+![src class diagram](https://github.com/user-attachments/assets/da7ff477-d0ce-40ee-84c1-eb9113541707)
+
+### 2. `test` Class Diagram
+![test class diagram](https://github.com/user-attachments/assets/49067da5-e884-4a72-b7aa-0dc8a2d06023)
