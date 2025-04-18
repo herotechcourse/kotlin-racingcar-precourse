@@ -11,10 +11,10 @@ class Car(val name: String) {
             racePosition++
         }
     }
-    fun countProgress(): String
+    fun formatProgress(): String
     {
         var movementBar: String = ""
-        var carProgress: String = ""
+        var carProgress: String
         for (i in 0 until racePosition)
         {
             movementBar = movementBar +"-"

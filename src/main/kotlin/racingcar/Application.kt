@@ -9,7 +9,11 @@ fun main()
     val carNames = readInputNames()
     val numOfRounds = readInputRounds()
     val carObjects = createCarObjects(carNames)
+
     manageRace(carObjects, numOfRounds)
+
+    var winners = determineWinner(carObjects)
+    printWinner(winners)
 }
 
 fun readInputNames (): List<String>
@@ -89,20 +93,38 @@ fun printRoundProgress(cars: List<Car>, numOfRounds: Int)
 {
     for (car in cars)
     {
-        var movementBar = car.countProgress()
-        println("${car.name} : $movementBar ")
+        var movementBar = car.formatProgress()
+        println(movementBar)
     }
     println()
 }
 
-//fun testPrintInput(cars: List<Car>)
-//{
-//    for (car in cars)
-//    {
-//        println(car.name)
-//        println(car.racePosition)
-//    }
-//}
+fun determineWinner(cars: List<Car>): List<String>
+{
+    var maxScore: Int = 0
+    for (car in cars)
+    {
+        if (car.racePosition > maxScore)
+        {
+            maxScore = car.racePosition
+        }
+    }
+    var winners = mutableListOf<String>()
+    for (car in cars)
+    {
+        if (car.racePosition == maxScore)
+        {
+            winners.add(car.name)
+        }
+    }
+    return winners
+}
+
+fun printWinner(winners: List<String>)
+{
+    println("Winners : ${winners.joinToString(", ")}")
+}
+
 
 
 
