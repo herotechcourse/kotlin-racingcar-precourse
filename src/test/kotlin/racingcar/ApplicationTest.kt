@@ -53,6 +53,13 @@ class ApplicationTest : NsTest() {
         assertSimpleTest { assertThrows<IllegalArgumentException> { run("car1,car2", "two") } }
     }
 
+    @Test
+    fun `initialization of car objects from user input`()
+    {
+        run ("car1, car2, car3", "1")
+        assertThat(output()).contains("car1", "car2", "car3")
+    }
+
     override fun runMain() {
         main()
     }

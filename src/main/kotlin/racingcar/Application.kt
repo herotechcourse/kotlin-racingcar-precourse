@@ -6,12 +6,20 @@ import camp.nextstep.edu.missionutils.Randoms
 
 fun main()
 {
-    var numofrounds: Int = 0
+    var carNames = readInputNames()
+    val numOfRounds = readInputRounds()
+    val carObjects = createCarObjects(carNames)
+    testPrintInput(carObjects)
 
+
+}
+
+fun readInputNames (): List<String>
+{
     println("Enter the name of the car(comma-separated):")
-    var inputname = Console.readLine()
-    var namelist = inputname.replace(" ","")
-    var names = namelist.split(",")
+    var input = Console.readLine()
+    var nameList = input.replace(" ","")
+    var names = nameList.split(",")
 
     for (name in names)
     {
@@ -23,20 +31,21 @@ fun main()
         {
             throw IllegalArgumentException("Car name cannot exceed 5 characters")
         }
-        else
-        {
-            //println(name)
-        }
     }
+    return names
+}
+
+fun readInputRounds(): Int
+{
     println("How many rounds will be played?")
-    numofrounds = Console.readLine().toInt()
-    if (numofrounds == 0)
+    var numOfRounds = Console.readLine().toInt()
+    if (numOfRounds == 0)
     {
         throw IllegalArgumentException("Number of rounds must be greater than zero")
     }
+    return numOfRounds
+}
 
-    //println(names)
-    //println(numofrounds)
 fun createCarObjects(names: List<String>): List<Car>
 {
     val cars = mutableListOf<Car>()
