@@ -42,4 +42,29 @@ class ValidatorTest {
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessageContaining("Car name cannot exceed 5 characters")
     }
+
+    @Test
+    @DisplayName("Should accept valid round count")
+    fun acceptValidRoundCount() {
+        // No exception expected
+        validator.validateRoundCount("5")
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["0", "-1", "-5"])
+    @DisplayName("Should reject non-positive round count")
+    fun rejectNonPositiveRoundCount(input: String) {
+        assertThatThrownBy { validator.validateRoundCount(input) }
+            .isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessageContaining("Number of rounds must be positive")
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["", " ", "abc", "1.5"])
+    @DisplayName("Should reject invalid integer format")
+    fun rejectInvalidIntegerFormat(input: String) {
+        assertThatThrownBy { validator.validateRoundCount(input) }
+            .isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessageContaining("Number of rounds must be a valid integer")
+    }
 }
