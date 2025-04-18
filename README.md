@@ -10,8 +10,8 @@
 
 ### Game Logic
 - [x] Create car objects using the entered names.
-- [ ] For each round, generate a random number (0–9) for each car.
-- [ ] Move the car forward if the number is 4 or higher.
+- [x] For each round, generate a random number (0–9) for each car.
+- [x] Move the car forward if the number is 4 or higher.
 - [ ] Save and display the progress of each car for each round.
 
 ### Result Output
