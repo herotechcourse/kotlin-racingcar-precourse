@@ -5,11 +5,14 @@ data class Car(
     var position: Int = 0
 ) {
     fun moveForward() {
-
+        val randomNumber = NumberGenerator.createRandomNumber()
+        if (isMovable(randomNumber)) {
+            position++
+        }
     }
 
-    private fun isMovable(): Boolean {
-        return false
+    private fun isMovable(number: Int): Boolean {
+        return number >= 4
     }
 
     companion object {

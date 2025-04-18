@@ -21,8 +21,8 @@ You will implement a console-based racing car game where users input car names a
 
 ### 🕹️ Game Execution
 - [ ] Repeat for the number of rounds entered by the user
-- [ ] For each round, generate a random number (0–9) for each car
-- [ ] If the number is **4 or higher**, the car moves forward; otherwise, it stays still
+- [X] For each round, generate a random number (0–9) for each car
+- [X] If the number is **4 or higher**, the car moves forward; otherwise, it stays still
 - [ ] Each move adds a `-` to represent progress
 
 ### 📣 Output

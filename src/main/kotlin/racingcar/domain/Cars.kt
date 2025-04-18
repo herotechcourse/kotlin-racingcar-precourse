@@ -3,7 +3,9 @@ package racingcar.domain
 class Cars(private val cars: List<Car>) {
 
     fun raceOnce() {
-
+        cars.forEach { car ->
+            car.moveForward()
+        }
     }
 
     fun getWinners(): List<Car> {
