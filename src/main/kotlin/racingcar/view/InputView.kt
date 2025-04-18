@@ -1,0 +1,29 @@
+package racingcar.view
+import camp.nextstep.edu.missionutils.Console
+
+object InputView {
+    fun inputCarNames(): List<String>{
+        print("Enter the names of the cars (comma-separated): ")
+        val userInput = Console.readLine()
+        val carNames = userInput.split(",").map { it.trim() }
+
+        carNames.forEach {
+            require(it.isNotEmpty()) { "Each car must have a name." }
+            require(it.length <= 5) { "Car name must not exceed 5 characters." }
+        }
+
+        return carNames
+
+    }
+
+    fun inputRoundNum(): Int {
+        print("How many rounds will be played? ")
+        val userInput = Console.readLine()
+        val round = userInput.toIntOrNull() ?: throw IllegalArgumentException("Please enter a valid number.")
+
+        require(round > 0) { "Round must be greater than 0." }
+
+        return round
+    }
+
+}
