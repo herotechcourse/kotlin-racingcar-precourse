@@ -6,20 +6,8 @@ import racingcar.ui.InputView
 import racingcar.ui.OutputView
 
 class AppConfig {
-    private fun inputView() : InputView {
-        return InputView()
-    }
-    private fun outputView() : OutputView{
-        return OutputView()
-    }
-    private fun winner(): Winner{
-        return Winner()
-    }
-    fun race():Race{
-        return Race(
-            outputView = outputView(),
-            inputView = inputView(),
-            winner = winner(),
-        )
-    }
+    private fun inputView() = InputView()
+    private fun outputView() = OutputView()
+    private fun winner() = Winner()
+    fun race() = Race(inputView(), outputView(), winner())
 }

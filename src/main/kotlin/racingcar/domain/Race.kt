@@ -5,8 +5,8 @@ import racingcar.ui.InputView
 import racingcar.ui.OutputView
 
 class Race (
-    private val outputView: OutputView,
     private val inputView: InputView,
+    private val outputView: OutputView,
     private val winner: Winner
 ){
     fun run(){
