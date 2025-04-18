@@ -1,6 +1,40 @@
 # kotlin-racingcar-precourse
 ## 🚗 Racing Car Game
 
+## 🧱 Project Structure
+
+This project follows a layered structure to separate concerns and improve maintainability.
+
+```
+└── racingcar
+    ├── Application.kt          // Entry point of the program
+    ├── domain
+    │   ├── Car.kt              // Represents a car and its movement logic
+    │   └── Cars.kt             // Manages a collection of cars and determines winners
+    ├── view
+    │   ├── InputView.kt        // Handles user input
+    │   └── ResultView.kt       // Displays game results
+    ├── controller
+    │   └── RacingGame.kt       // Manages game rounds and progression
+    └── util
+        └── RandomGenerator.kt  // Generates random numbers (used for car movement)
+```
+
+## 🧪 Test Structure
+
+```
+└── test
+    └── racingcar
+        ├── domain
+        │   ├── CarTest.kt          // Unit tests for Car movement logic
+        │   └── CarsTest.kt         // Unit tests for Cars winner logic
+        ├── controller
+        │   └── RacingGameTest.kt   // Tests full round progression and game flow
+        └── util
+            └── RandomGeneratorTest.kt // Verifies random number logic or fakes
+```
+
+
 ### ✅ Feature Requirements
 
 - [ ] **Receive car names and number of rounds from the user**
@@ -35,10 +69,10 @@
 
 ---
 
-### 🚫 Restrictions
-- Only Kotlin is allowed (no Java).
-- Do not modify `build.gradle.kts`.
-- Do not use any external libraries other than those provided.
-- Do not use `System.exit()` or `exitProcess()` to terminate the program.
-- Maximum indentation depth: 2 levels.
-- Entry point must be `main()` in the `Application` class.
+>### 🚫 Restrictions
+>- Only Kotlin is allowed (no Java).
+>- Do not modify `build.gradle.kts`.
+>- Do not use any external libraries other than those provided.
+>- Do not use `System.exit()` or `exitProcess()` to terminate the program.
+>- Maximum indentation depth: 2 levels.
+>- Entry point must be `main()` in the `Application` class.
