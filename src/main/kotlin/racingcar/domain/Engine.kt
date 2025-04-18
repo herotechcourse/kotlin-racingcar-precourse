@@ -1,5 +1,5 @@
 package racingcar.domain
 
 interface Engine {
-    fun move() : Int
+    fun move(): Int
 }

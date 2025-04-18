@@ -1,7 +1,7 @@
 package racingcar.domain
 
 object Winner {
-    fun findWinner(cars : List<Car>): List<String> {
+    fun findWinner(cars: List<Car>): List<String> {
         var max = 0
         var winners = mutableListOf<Car>()
         for (car in cars) {
@@ -14,6 +14,6 @@ object Winner {
                 max = car.getPosition()
             }
         }
-        return winners.stream().map {car -> car.getName()}.toList()
+        return winners.stream().map { car -> car.getName() }.toList()
     }
 }
