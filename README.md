@@ -2,11 +2,11 @@
 
 ## Features
 
-- [ ] Accept user input for car names (comma-separated)
-- [ ] Validate each car name:
-    - [ ] Not empty
-    - [ ] Max 5 characters
-- [ ] Accept user input for number of rounds
+- [✅] Accept user input for car names (comma-separated)
+- [✅] Validate each car name:
+    - [✅] Not empty
+    - [✅] Max 5 characters
+- [✅] Accept user input for number of rounds
 - [ ] Each round:
     - [ ] Generate random number (0–9) for each car
     - [ ] Move car forward if number >= 4
