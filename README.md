@@ -2,11 +2,12 @@
 
 ## 🚀 Features to Implement
 
-### 1. Input Handling and Validation ✅
-- Read car names as comma-separated input
-- Validate that each car name is non-empty and doesn't exceed 5 characters
-- Implement error handling for invalid car names (`throw IllegalArgumentException`)
-- Read and validate the number of rounds for the race
+### 1. Input Handling and Validation ⚠️ (Partially implemented)
+- Read car names as comma-separated input ✅
+- Validate that each car name is non-empty and doesn't exceed 5 characters ❌
+- Implement error handling for invalid car names (`throw IllegalArgumentException`) ❌
+- Read and validate the number of rounds for the race ✅
+- Validate that number of rounds is a positive integer ❌
 
 ### 2. Domain Model ✅
 - Create a `Car` class to represent racing cars
@@ -37,6 +38,15 @@
 - Tests for input validation
 - Integration tests for the complete race workflow
 
+## 🚨 Immediate Todos
+1. Create a `Validator` class to handle input validation
+  - Implement method to validate car names
+  - Implement method to validate round count
+2. Modify `Application` class to use the validator
+3. Improve exception handling to match requirements
+4. Create tests for the validation logic
+5. Create integration tests for the complete workflow
+
 ## 📁 Project Structure
 ```
 src/
@@ -46,14 +56,14 @@ src/
 │   │   │   ├── Car.kt         ✅
 │   │   │   └── Race.kt        ✅
 │   │   ├── ui/
-│   │   │   ├── InputView.kt
-│   │   │   └── OutputView.kt
+│   │   │   ├── InputView.kt   ✅
+│   │   │   └── OutputView.kt  ✅
 │   │   └── Application.kt
 └── test/kotlin/
     └── racingcar/
         ├── domain/
-        │   ├── CarTest.kt
-        │   └── RaceTest.kt
+        │   ├── CarTest.kt     ✅
+        │   └── RaceTest.kt    ✅
         └── ApplicationTest.kt
 ```
 
@@ -71,7 +81,7 @@ I will follow these principles in my implementation:
 1. 🏗️ Set up basic project structure ✅
 2. 🚗 Create the domain model classes ✅
 3. ⌨️ Implement input handling and validation
-4. ⚙️ Implement the core game logic
+4. ⚙️ Implement the core game logic ✅
 5. 🖼️ Add output formatting
 6. 🧪 Write tests for all components
 7. 🔄 Refactor as needed to improve code quality
@@ -79,10 +89,11 @@ I will follow these principles in my implementation:
 ## 🔄 Progress Tracker
 - [x] Project setup
 - [x] Domain model
-- [ ] Input handling
-- [ ] Game logic
-- [ ] Output formatting
-- [ ] Unit tests
+- [ ] Input validation (missing name and round validation)
+- [x] Game logic
+- [x] Basic Output formatting (missing details)
+- [x] Tests for Car and Race
+- [ ] Tests for input validation
 - [ ] Integration tests
 - [ ] Final review and refactoring
 
