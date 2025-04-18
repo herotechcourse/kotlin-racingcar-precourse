@@ -12,6 +12,14 @@ class CarTest : NsTest() {
         assertThat(car.position == 1)
     }
 
+    @Test
+    fun `car print result test`() {
+        val car = Car("car")
+        car.move(true)
+        car.toString()
+        assertThat(output().contains("car : -"))
+    }
+
     override fun runMain() {
         main()
     }

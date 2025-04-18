@@ -35,6 +35,22 @@ class RaceTest : NsTest()   {
         )
     }
 
+    @Test
+    fun `round result test`() {
+        assertRandomNumberInRangeTest(
+            {
+                val cars = listOf(Car("pobi"), Car("woni"), Car("jido"))
+                val race = Race(cars)
+                race.runRound { randomNumber() }
+                race.printProgress()
+                assertThat(output()).contains("pobi : -", "woni : -", "jido :")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD,
+            STOP
+        )
+    }
+
     override fun runMain() {
         main()
     }
