@@ -1,6 +1,6 @@
 package racingcar.domain
 
-import racingcar.io.InputValidator
+import racingcar.InputValidator
 
 class Car(
     private val name: String,
@@ -11,15 +11,10 @@ class Car(
         InputValidator.validateCarName(name)
     }
 
+    fun getPosition(): Int = position
+    fun getName(): String = name
+
     fun goForward() {
         position += engine.move()
-    }
-
-    fun getPosition(): Int {
-        return position
-    }
-
-    fun getName(): String {
-        return name
     }
 }

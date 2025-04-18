@@ -1,6 +1,7 @@
 package racingcar.io
 
 import camp.nextstep.edu.missionutils.Console
+import racingcar.InputValidator
 
 class InputHandler {
 

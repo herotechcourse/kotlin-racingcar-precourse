@@ -1,9 +1,9 @@
+package racingcar.domain
+
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import racingcar.domain.Car
-import racingcar.domain.Engine
 
 class CarTest {
 
