@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 
 data class Car(val name: String, val position: Int) // Later merge
 
-class OutputRoundResultTest {
+class OutputEachRoundResultTest {
     @Test
     fun `should return string as given format`() {
         val cars = listOf ( Car("pobi", 1),
