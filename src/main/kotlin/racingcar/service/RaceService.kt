@@ -6,7 +6,7 @@ import racingcar.service.movement.MovementStrategy
 class RaceService(
     private val strategy: MovementStrategy
 ) {
-    fun play(race: Race, rounds: Int): List<List<String>> {
+    fun play(race: Race, rounds: Int): Pair<List<List<String>>, Race> {
         var currentRace = race
         val history = mutableListOf<List<String>>()
 
@@ -15,6 +15,6 @@ class RaceService(
             history.add(currentRace.display())
         }
 
-        return history
+        return Pair(history, currentRace)
     }
 }

@@ -15,10 +15,8 @@ fun main() {
     val race = Race(cars)
 
     val raceService = RaceService(RandomMovementStrategy())
-    val history = raceService.play(race, rounds)
-
+    val (history, finalRace) = raceService.play(race, rounds)
 
     OutputView.printProgress(history)
-    OutputView.printWinners(race.winners())
+    OutputView.printWinners(finalRace.winners())
 }
-

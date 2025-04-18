@@ -19,7 +19,7 @@ class RaceServiceTest {
         val raceService = RaceService(alwaysMoveStrategy)
         
         // When
-        val history = raceService.play(race, 3)
+        val (history, _) = raceService.play(race, 3)
         
         // Then
         assertThat(history).hasSize(3) // 3 rounds
@@ -45,7 +45,7 @@ class RaceServiceTest {
         val raceService = RaceService(strategy)
         
         // When
-        val history = raceService.play(race, 0)
+        val (history, _) = raceService.play(race, 0)
         
         // Then
         assertThat(history).isEmpty()
@@ -79,7 +79,7 @@ class RaceServiceTest {
         val raceService = RaceService(predictableStrategy)
         
         // When
-        val history = raceService.play(race, 2)
+        val (history, _) = raceService.play(race, 2)
         
         // Then
         // First round: first car moves, second car doesn't

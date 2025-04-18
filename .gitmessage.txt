@@ -1,0 +1,55 @@
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+# ----------------------------------------------------------------------
+# <type> can be:
+#   feat     (new feature)
+#   fix      (bug fix)
+#   docs     (documentation)
+#   style    (formatting, missing semi colons, etc)
+#   refactor (code change that neither fixes a bug nor adds a feature)
+#   test     (adding missing tests)
+#   chore    (maintenance)
+#
+# <scope> can be anything specifying the place of the commit change
+#
+# <subject> should use imperative, present tense: "change" not "changed" nor "changes"
+# <subject> should not capitalize the first letter
+# <subject> should not end with a period (.)
+#
+# <body> should use imperative, present tense
+# <body> should include motivation for the change and contrast with previous behavior
+#
+# <footer> should contain any information about BREAKING CHANGES
+# <footer> should reference GitHub issues that this commit closes
+# BREAKING CHANGE: isolate scope bindings definition has changed and
+#   the inject option for the directive controller injection was removed.
+#
+#   To migrate the code follow the example below:
+#
+#   Before:
+#
+#   scope: {
+#     myAttr: 'attribute',
+#     myBind: 'bind',
+#     myExpression: 'expression',
+#     myEval: 'evaluate',
+#     myAccessor: 'accessor'
+#   }
+#
+#   After:
+#
+#   scope: {
+#     myAttr: '@',
+#     myBind: '@',
+#     myExpression: '&',
+#     // myEval - usually not useful, but in cases where the expression is assignable, you can use '='
+#     myAccessor: '=' // in directive's template change myAccessor() to myAccessor
+#   }
+#
+# Closed bugs should be listed on a separate line in the footer prefixed with "Closes" keyword:
+# Closes #234
+# or in case of multiple issues:
+# Closes #123, #245, #992
