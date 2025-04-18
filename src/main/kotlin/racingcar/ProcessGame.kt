@@ -1,8 +1,8 @@
 package racingcar
 import camp.nextstep.edu.missionutils.Randoms
 
-fun initializeGame(nameList: List<String>): HashMap<String, Int> {
-    return HashMap(nameList.associateWith { 0 })
+fun initializeGame(nameList: List<String>): LinkedHashMap<String, Int> {
+    return java.util.LinkedHashMap(nameList.associateWith { 0 })
 }
 
 fun processGame(gameProcess: HashMap<String, Int>) {

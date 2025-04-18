@@ -12,7 +12,7 @@ fun main() {
 
     val carNameList: List<String> = carNamesUserInput.split(",")
     val roundNumber: Int = numberOfRoundUserInput.toInt()
-    val progressOfGame:HashMap<String, Int> = initializeGame(carNameList)
+    val progressOfGame:LinkedHashMap<String, Int> = initializeGame(carNameList)
 
     println("Race Results")
     repeat(roundNumber) {
