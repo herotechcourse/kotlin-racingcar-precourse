@@ -38,6 +38,7 @@ object CarRacingGame{
         val rounds = inputRounds()
         println("the expected rounds $rounds")
         race(cars, rounds)
+        announceWinners(cars)
     }
 
     private fun inputCars(): List<Car> {
@@ -73,6 +74,11 @@ object CarRacingGame{
             cars.forEach {it.move()}
             println(cars.joinToString("\n") + "\n")
         }
+    }
+    private fun announceWinners(cars: List<Car>){
+        val maxPosition = cars.maxOf {it.position}
+        val winners = cars.filter {it.position == maxPosition}.map {it.name}
+        println("Final Winners: ${winners.joinToString(",")}")
     }
 
 
