@@ -1,54 +1,49 @@
 package racingcar
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
 
 class InputValidationTest {
 
-    private fun iterateInputs(inputs: List<String>, function: (String) -> Unit) {
-        for (input in inputs) {
-            assertThrows<IllegalArgumentException> { function(input) }
-        }
+    @ParameterizedTest
+    @ValueSource(strings = ["     ", "", " ", "\t", "\n", "         ", ""])
+    fun `shout throw IllegalArgumentException if input is blank`(input: String) {
+        assertThrows<IllegalArgumentException> { checkBlank(input) }
     }
 
-    @Test
-    fun `shout throw IllegalArgumentException if input is blank`() {
-        val inputs = listOf("     ", "", " ", "\t", "\n", "         ")
-        iterateInputs(inputs, ::checkBlank)
+    @ParameterizedTest
+    @ValueSource(strings = ["boni,lucia,paul#", "mario paulo jose", "pedro.eva", "ana!,mari"])
+    fun `shout throw IllegalArgumentException if input contains invalid characters`(input: String) {
+        assertThrows<IllegalArgumentException> { checkInvalidChars(input) }
     }
 
-    @Test
-    fun `shout throw IllegalArgumentException if input contains invalid characters`() {
-        val inputs = listOf("boni,lucia,paul#", "mario paulo jose", "pedro.eva", "ana!,mari")
-        iterateInputs(inputs, ::checkInvalidChars)
+    @ParameterizedTest
+    @ValueSource(strings = ["bmwaudivw", "bmw,audi,,vw", "bmw,audi,vw,"])
+    fun `shout throw IllegalArgumentException if input is not correctly separated by commas`(input: String) {
+        assertThrows<IllegalArgumentException> { checkCommas(input) }
     }
 
-    @Test
-    fun `shout throw IllegalArgumentException if input is not correctly separated by commas`() {
-        val inputs = listOf("bmwaudivw", "bmw,audi,,vw", "bmw,audi,vw,")
-        iterateInputs(inputs, ::checkCommas)
-    }
-
-    @Test
-    fun `shout throw IllegalArgumentException if input is longer than 5 characters`() {
-        val input = "hotwheels"
+    @ParameterizedTest
+    @ValueSource(strings = ["hotwheels", "mercedes", "ferrari", "fusquinha"])
+    fun `shout throw IllegalArgumentException if input is longer than 5 characters`(input: String) {
         assertThrows<IllegalArgumentException> { checkLength(input) }
     }
 
-    @Test
-    fun `shout throw IllegalArgumentException if input contains duplicates`() {
-        val inputs = listOf("ana,mari,pedro,mari", "bmw,audi,audi")
-        iterateInputs(inputs, ::checkDuplicates)
+    @ParameterizedTest
+    @ValueSource(strings = ["ana,mari,pedro,mari", "bmw,audi,audi"])
+    fun `shout throw IllegalArgumentException if input contains duplicates`(input: String) {
+        assertThrows<IllegalArgumentException> { checkDuplicates(input) }
     }
 
-    @Test
-    fun `should throw IllegalArgumentException if input does not contain only digits`() {
-        val inputs = listOf("banana", "10$", "1million", "three", "#25")
-        iterateInputs(inputs, ::checkDigits)
+    @ParameterizedTest
+    @ValueSource(strings = ["banana", "10$", "1million", "three", "#25"])
+    fun `should throw IllegalArgumentException if input does not contain only digits`(input: String) {
+        assertThrows<IllegalArgumentException> { checkDigits(input) }
     }
 
-    @Test
-    fun `should throw IllegalArgumentException if input is 0, negative or higher than 10000`() {
-        val inputs = listOf("${Int.MAX_VALUE}", "-1", "0", "1000000", "10001")
-        iterateInputs(inputs, ::checkLimits)
+    @ParameterizedTest
+    @ValueSource(strings = ["${Int.MAX_VALUE}", "-1", "0", "1000000", "10001"])
+    fun `should throw IllegalArgumentException if input is 0, negative or higher than 10000`(input: String) {
+        assertThrows<IllegalArgumentException> { checkLimits(input) }
     }
 }
