@@ -32,14 +32,14 @@
 
 ## 👾 Feature Modules
 ### 🧩 Game flow manager Module (MVC: "Controller")
-| Feature | Description | Test code |      Green      | Refactored | Done |
-|:---|:---|:---------:|:---------------:|:---:|:---:|
-| game-start | Start game execution from main() |     ✅     |        ✅        | - | - |
-| game-init | Make cars based on user input |     ✅     |        ✅         | - | - |
-| game-loop | Repeat game as many as rounds |     -      |        -        | - | - |
-| game-track-progress | Moniter each round's result and check the winner(s) |     -     |        -        | - | - |
-| game-end | Terminate the game |     -     |        -        | - | - |
-
+| Feature               | Description                                    | Test code |     Green      | Refactored | Done |
+|:----------------------|:-----------------------------------------------|:---------:|:--------------:|:----------:|:----:|
+| game-start            | Start game execution from main()               |     ✅     |       ✅        |     -      |  -   |
+| game-init             | Make cars based on user input                  |     ✅     |       ✅        |     -      |  -   |
+| game-loop             | Repeat game as many as rounds                  |     ✅     |       ✅        |     -      |  -   |
+| ❌ game-track-progress | Replaced with outputEachRoundResult() function |     ❌     |       ❌        |     ❌      |   ❌   |
+| ❌ game-end            | Replaced with outputFinalWinner() function     |     ❌     |       ❌        |     ❌      |   ❌   |
+Z
 ### 🧩 Input Module
 | Feature | Description | Test code | Green | Refactored | Done |
 |:---|:---|:---------:|:---:|:----:|:---:|
@@ -60,22 +60,20 @@
 | race-generate-random-number | Random number between 0 - 9                                               |     ✅     |   ✅   |     -      |  -   |
 | race-is-move-condition-met  | Return true if the random number meets or exceeds the movable condition   |     ✅     |   ✅   |     -      |  -   |
 | race-move-cars              | Move cars forward only if they pass the random check condition            |     ✅     |   ✅   |     -      |  -   |
-| race-update-track           | Update track state after each round                                       |     ✅     |   ❌    |     -      |  -   |
+| race-update-track           | Update track state after each round                                       |     ❌      |   ❌    |     -      |  -   |
 
 ### 🧩 Error handling Module
-| Feature | Description | Test code | Green | Refactored | Done |
-|:---|:---|:---------:|:---:|:----:|:---:|
-| error-input | - | - | - | - | - |
-| error-output | - | - | - | - | - |
-
-    ⚠️ Internal logic only, no output to user.
+| Feature        | Description                                                                                                     | Test code | Green | Refactored | Done |
+|:---------------|:----------------------------------------------------------------------------------------------------------------|:---------:|:---:|:----:|:---:|
+| ❌ error-input  | Replaced with IllegalArgumentException & println()                                                              | ❌ | ❌ | ❌ | ❌ |
+| ❌ error-output | Replaced with IllegalArgumentException & println()                                                              | ❌ | ❌ | ❌ | ❌ |
 
 ### 🧩 Output Module (MVC: "View")
-| Feature | Description | Test code | Green | Refactored | Done |
-|:---|:---|:---:|:---:|:---:|:---:|
-| output-round-result | - | - | - | - | - |
-| output-final-winner | - | - | - | - | - |
-| output-error-message | - | - | - | - | - |
+| Feature                | Description                                            | Test code | Green | Refactored | Done |
+|:-----------------------|:-------------------------------------------------------|:---------:|:-----:|:----------:|:----:|
+| output-round-result    | Prints race results for each round                     |     ✅     |   ✅   |     -      |  -   |
+| output-final-winner    | Chcek who the winner(s) is based on the final position |     ✅     |   ✅   |     -      |  -   |
+| ❌ output-error-message | Replaced with IllegalArgumentException & println()     |     ❌     |   ❌   |      ❌      |   ❌   |
 
 <br>
 Option for status columns (Test, Refactored, Done)<br>
@@ -121,15 +119,3 @@ Option for status columns (Test, Refactored, Done)<br>
     
 - Message for multiple winners <br>
     ex) `Winners : pobi, jun`
-
-### 3. To be organized
-- Each of the n cars can either move forward or stay still during a given number of rounds.
-
-- A car moves forward if a randomly generated number between 0 and 9 is 4 or greater.
-
-- When printing the progress of each car, display the car's name alongside its movement.
-
-- After the race is complete, display the winners. There can be multiple winners if they reach the same final position. <br>
-    - If there are multiple winners, their names should be displayed and separated by commas.
-
-- If the user inputs invalid data, the program should throw an IllegalArgumentException and terminate.
