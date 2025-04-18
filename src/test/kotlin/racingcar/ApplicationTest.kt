@@ -6,8 +6,22 @@ import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
+import camp.nextstep.edu.missionutils.Console
 
 class ApplicationTest : NsTest() {
+
+    @BeforeEach
+    fun setUp() {
+        Console.close()
+    }
+
+    @AfterEach
+    fun tearDown() {
+        Console.close()
+    }
+
     @Test
     fun `feature test`() {
         assertRandomNumberInRangeTest(
