@@ -24,12 +24,12 @@
 
 ### Run the car racing game
 
-- [ ]  Display start message: “Race Results”
+- [X]  Display start message: “Race Results”
 - Repeat the game for the number of rounds entered by the users.
-    - [ ]  Randomly generate a number between 0 and 9.
-    - [ ]  If the number is 4 or greater, the car moves forward.
-    - [ ]  If the number is less than 4, the car stays still.
-- [ ]  Display the car's name alongside its movement.
+    - [X]  Randomly generate a number between 0 and 9.
+    - [X]  If the number is 4 or greater, the car moves forward.
+    - [X]  If the number is less than 4, the car stays still.
+- [X]  Display the car's name alongside its movement.
     - e.g)
       pobi : -
       woni :

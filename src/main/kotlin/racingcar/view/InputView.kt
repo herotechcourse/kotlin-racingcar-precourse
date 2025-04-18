@@ -5,6 +5,7 @@ import racingcar.validation.validateCarNames
 import racingcar.validation.validateTheNumberOfRounds
 
 class InputView {
+    // TO-DO: Refactor inputCarNames -> getCarNamesInput
     fun inputCarNames(): List<String> {
         println("Enter the names of the cars (comma-separated):")
         val carNamesInput = Console.readLine()
@@ -17,14 +18,15 @@ class InputView {
         return emptyList()
     }
 
-    fun inputTheNumberOfRounds(): String {
+    fun inputTheNumberOfRounds(): Int {
         println("How many rounds will be played?")
         val numberOfRoundsInput: String = Console.readLine()
 
         if (validateTheNumberOfRounds(numberOfRoundsInput)) {
-            return numberOfRoundsInput
+            return numberOfRoundsInput.toInt()
         }
 
-        return numberOfRoundsInput
+        // TO-DO: Refactor
+        return 0
     }
 }
