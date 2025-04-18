@@ -16,7 +16,7 @@ Users input car names and number of rounds, and each car moves forward based on 
 - [x] Prompt user for number of rounds
 - [x] Validate that round count is a positive number
 - [ ] Each round:
-    - [ ] Cars move forward only if random number (0–9) ≥ 4
+    - [x] Cars move forward only if random number (0–9) ≥ 4
     - [ ] Display each car's progress using `-`
 - [ ] Determine and print final winner(s)
 - [ ] Handle invalid inputs with meaningful exceptions
