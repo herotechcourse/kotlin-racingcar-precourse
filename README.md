@@ -91,7 +91,7 @@ jun : --
 
 #### Round Input
 - if the input is 0 or negative, throw IllegalArgumentException
-- if the input is not Integer, throw IllegalArgumentException
+- if the input is not Integer, throw NumberFormatException
 
 ### 📌 Car Move Test
 - Random value is equal or greater than 4, position bar get new bar("-")
