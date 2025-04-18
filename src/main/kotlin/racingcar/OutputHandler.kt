@@ -1,6 +1,7 @@
 package racingcar
 
 val RACE_RESULT_HEADER = "Race Results"
+val RACE_WINNER_MESSAGE = "Winners : "
 val MOVEMENT_MARK = "-"
 
 /**
@@ -30,5 +31,15 @@ class OutputHandler () {
             println()
         }
         println()
+    }
+
+    /**
+     * Prints the winners of the race.
+     *
+     * @param winners a list of the names of the winning cars
+     */
+    fun printWinners(winners: List<String>) {
+        print(RACE_WINNER_MESSAGE)
+        println(winners.joinToString(", "))
     }
 }

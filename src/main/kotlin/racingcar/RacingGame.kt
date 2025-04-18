@@ -22,6 +22,7 @@ class RacingGame (
         setupCars()
         setupRounds()
         playRaceRounds()
+        announceWinners()
     }
 
     /**
@@ -51,5 +52,13 @@ class RacingGame (
             cars.move()
             output.printRaceProgress(cars.getAll())
         }
+    }
+
+    /**
+     * Displays the final winners of the race.
+     */
+    private fun announceWinners() {
+        val winners = cars.findWinners()
+        output.printWinners(winners)
     }
 }

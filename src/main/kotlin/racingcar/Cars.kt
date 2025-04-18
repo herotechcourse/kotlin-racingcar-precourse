@@ -20,4 +20,14 @@ class Cars(private val cars: List<Car>) {
      * @return the list of cars
      */
     fun getAll(): List<Car> = cars
+
+    /**
+     * Finds the names of the car(s) that have moved the farthest.
+     *
+     * @return a list of winner names
+     */
+    fun findWinners(): List<String> {
+        val max = cars.maxOf { it.movement }
+        return cars.filter { it.movement == max }.map { it.name }
+    }
 }
