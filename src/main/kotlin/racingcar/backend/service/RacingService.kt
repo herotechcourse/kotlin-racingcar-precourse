@@ -1,5 +1,6 @@
 package racingcar.backend.service
 
+import racingcar.backend.domain.Car
 import racingcar.backend.domain.validator.RaceNameValidator
 import racingcar.backend.domain.validator.RoundValidator
 import racingcar.backend.dto.CarDto
@@ -37,5 +38,11 @@ class RacingService {
     private fun validateRound(round: String) {
         RoundValidator.validateRound(round)
         RoundValidator.validatePositiveRound(round.toInt())
+    }
+
+    private fun convertToCarList(carDtoList: List<CarDto>): List<Car> {
+        return carDtoList.map { car ->
+            Car(name = car.carName)
+        }
     }
 }
