@@ -7,9 +7,7 @@ class Car(val name: String) {
 
     val position get() = distance
     fun move() {
-        val number = Randoms.pickNumberInRange(0, 9)
-        if (number >= 4) {
-            distance += 1
-        }
+        if (Randoms.pickNumberInRange(0, 9) < 4) return
+        distance += 1
     }
 }

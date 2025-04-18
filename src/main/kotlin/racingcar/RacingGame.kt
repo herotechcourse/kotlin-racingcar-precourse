@@ -1,7 +1,8 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
-import racingcar.view.ResultView.printRoundResult
+import racingcar.view.printResult
+import racingcar.view.printRoundResult
 import kotlin.math.max
 
 class RacingGame(private val carNames: List<String>) {
@@ -9,14 +10,9 @@ class RacingGame(private val carNames: List<String>) {
 
     fun play(rounds: Int) {
         var winnerString = ""
-        repeat(rounds) {
-            cars.forEach {
-                it.move()
-            }
-            printRoundResult(cars)
-        }
+        repeatRounds(rounds, cars)
         winnerString = determineWinner(cars).joinToString(", ")
-        println("Winners : $winnerString")
+        printResult(winnerString)
     }
 
     fun determineWinner(cars: List<Car>): List<String> {
@@ -24,3 +20,5 @@ class RacingGame(private val carNames: List<String>) {
         return cars.filter { it.position == maxPosition }.map { it.name }
     }
 }
+
+

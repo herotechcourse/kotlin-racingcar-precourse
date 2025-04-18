@@ -23,6 +23,7 @@
 - programming requirements
     - [ ] The entry point of the application must be the main() function in the Application class.
     - [ ] The indentation depth must not exceed 2. A maximum of 2 levels is allowed.
+        - early return
     - [ ] Keep functions as small and focused as possible—each should do only one thing.
     - [ ] Use JUnit 5 and AssertJ to test the functionality according to your feature list.
     - [ ] You must use the Randoms and Console APIs provided by the camp.nextstep.edu.missionutils package.
