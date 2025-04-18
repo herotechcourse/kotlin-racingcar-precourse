@@ -1,5 +1,7 @@
 package racingcar
 
+ import camp.nextstep.edu.missionutils.Console
+
 fun main() {
     // TODO: Implement the program
 
@@ -9,7 +11,7 @@ fun getCarNames(): List<String> {
 
     do {
         println("Enter car names, must be separated by commas!:")
-        val carNamesInput = readLine()?.trim() ?: continue
+        val carNamesInput = Console.readLine()?.trim() ?: continue
         val carNames = carNamesInput.split(",").map { it.trim() }
 
         if(carNames.all { it.isNotEmpty() && it.length <= 5 }) {
