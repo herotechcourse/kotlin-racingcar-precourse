@@ -4,15 +4,6 @@ import racingcar.Car
 
 object InputParser {
 
-    fun readRound(input: String): Int {
-        val round = input.toIntOrNull()
-        if (round == null || round <= 0) {
-            throw IllegalArgumentException("Invalid number of round")
-        }
-
-        return round
-    }
-
     fun readCarNames(input: String): List<Car> {
         if (input.isBlank()) {
             throw IllegalArgumentException("Empty car names")
@@ -26,6 +17,15 @@ object InputParser {
         }
 
         return carNames
+    }
+
+    fun readRound(input: String): Int {
+        val round = input.toIntOrNull()
+        if (round == null || round <= 0) {
+            throw IllegalArgumentException("Invalid number of round")
+        }
+
+        return round
     }
 
 }
