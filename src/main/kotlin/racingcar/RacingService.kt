@@ -11,18 +11,36 @@ import camp.nextstep.edu.missionutils.Randoms
  */
 class RacingService(val names: List<String>, val round: Int) {
     private val cars: List<Car> = names.map { Car(it) }
+    private val output = Output()
 
     fun play() {
         println("Race Results")
         for (i in 0 until round) {
-            cars.forEach { car ->
-                car.move(getRandomNumberForMovement())
-            }
-            OutPut().displayRaceResults(cars)
+            val nums: List<Int> = getRandomNumber(3)
+            moveCarForward(nums)
+            val roundRaceResult = getRaceResultString()
+            output.displayRaceResults(roundRaceResult)
+        }
+        val maxPosition = cars.maxOf { it.getPositionBar() }
+        val winners: String = cars.filter { it.getPositionBar() == maxPosition }.joinToString(", ") {it.name}
+        output.displayWinners(winners)
+    }
+
+    fun getRaceResultString(): String {
+        return cars.joinToString("\n") { car ->
+            "${car.name}: ${car.getPositionBar()}"
         }
     }
 
-    fun getRandomNumberForMovement(): Int {
-        return Randoms.pickNumberInRange(0, 9)
+    fun moveCarForward(numList: List<Int>) {
+        for(i in 0 until numList.size) {
+            cars[i].move(numList[i])
+        }
+    }
+
+    fun getRandomNumber(carsCount: Int): List<Int> {
+        return List(carsCount){
+            Randoms.pickNumberInRange(0, 9)
+        }
     }
 }
