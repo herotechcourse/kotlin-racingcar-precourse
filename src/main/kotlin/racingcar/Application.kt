@@ -5,6 +5,12 @@ package racingcar
 fun main() {
     // TODO: Implement the program
 
+    val cars = getCarNames()
+    val rounds = getNumberOfRounds()
+
+    val carPositions = mutableMapOf<String, Int>()
+    cars.forEach { carPositions[it] = 0 }
+
 }
 
 fun getCarNames(): List<String> {
