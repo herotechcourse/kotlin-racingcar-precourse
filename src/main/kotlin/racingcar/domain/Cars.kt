@@ -9,7 +9,8 @@ class Cars(private val cars: List<Car>) {
         return cars.map { it.name to it.position }
     }
     fun getWinners(): List<Car> {
-        return emptyList()
+        val maxPosition = cars.maxOfOrNull { it.position } ?: return emptyList()
+        return cars.filter { it.position == maxPosition }
     }
     fun printAllCars() {
         cars.forEach { car ->

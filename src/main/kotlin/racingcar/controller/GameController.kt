@@ -2,6 +2,7 @@ package racingcar.controller
 
 import racingcar.domain.Cars
 import racingcar.view.OutputRaceProgress
+import racingcar.view.OutputResult
 
 class GameController (
     private val cars: Cars,
@@ -12,6 +13,7 @@ class GameController (
         repeat(roundCount) {
             startTurn()
         }
+        OutputResult.showResult(cars)
     }
     private fun startTurn() {
         cars.raceOnce() // Race the car once

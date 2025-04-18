@@ -28,10 +28,10 @@ You will implement a console-based racing car game where users input car names a
 ### 📣 Output
 - [X] Display the progress of all cars after each round  
   - Format: `pobi : --`
-- [ ] Display the final winner(s) at the end  
+- [X] Display the final winner(s) at the end  
   - Single winner: `Winners : pobi`  
   - Multiple winners: `Winners : pobi, jun`
-- [ ] Ensure the output format **exactly matches** the requirements
+- [X] Ensure the output format **exactly matches** the requirements
 
 ---
 
