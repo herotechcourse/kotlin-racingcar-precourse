@@ -13,12 +13,12 @@ class Cars(val cars: List<Car>) {
         return cars.distinct().size == cars.size
     }
 
-    fun moveCar() {
+    fun moveAll() {
         cars.stream()
             .forEach { it.move() }
     }
 
-    fun drawWinner(): List<String> {
+    fun determineWinner(): List<String> {
         val maxPosition = getMaxPosition()
         return cars
             .filter { it.getPosition() == maxPosition }

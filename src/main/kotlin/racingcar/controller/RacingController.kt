@@ -15,7 +15,7 @@ class RacingController(
         val cars = initCars()
         val round = initRound()
         playRace(round, cars)
-        drawWinner(cars)
+        determineWinner(cars)
     }
 
     private fun initCars(): Cars {
@@ -42,12 +42,12 @@ class RacingController(
     }
 
     private fun moveCars(cars: Cars) {
-        cars.moveCar()
+        cars.moveAll()
         outputView.printEachRound(cars)
     }
 
-    private fun drawWinner(cars: Cars) {
-        val winner = cars.drawWinner()
+    private fun determineWinner(cars: Cars) {
+        val winner = cars.determineWinner()
         outputView.printWinner(winner)
     }
 }

@@ -46,7 +46,7 @@ class CarsTest {
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessage("[ERROR] Car names are duplicated.")
     }
-    
+
     @Test
     fun `move cars based on threshold`() {
         // given
@@ -61,7 +61,7 @@ class CarsTest {
 
         val cars = Cars(listOf(car1, car2))
         // when
-        cars.moveCar()
+        cars.moveAll()
         // then
         assertAll(
             { assertThat(cars.cars.first().getPosition()).isEqualTo(0) },
@@ -82,9 +82,9 @@ class CarsTest {
         val car2 = createCar("b", queueForCarB)
 
         val cars = Cars(listOf(car1, car2))
-        cars.moveCar()
+        cars.moveAll()
         // when
-        val winner = cars.drawWinner()
+        val winner = cars.determineWinner()
         // then
         assertThat(winner.first()).isEqualTo("b")
     }
@@ -102,9 +102,9 @@ class CarsTest {
         val car2 = createCar("b", queueForCarB)
 
         val cars = Cars(listOf(car1, car2))
-        cars.moveCar()
+        cars.moveAll()
         // when
-        val winner = cars.drawWinner()
+        val winner = cars.determineWinner()
         // then
         assertAll(
             { assertThat(winner).hasSize(2) },
