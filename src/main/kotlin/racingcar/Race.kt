@@ -25,8 +25,9 @@ class Race(
     fun displayWinners() {
         val sortedCars = cars.sortedByDescending { it.position }
 
-        val bestPosition = sortedCars[0].position
-        var winners = mutableListOf(sortedCars[0].name)
+        val bestCar = sortedCars.firstOrNull()
+        val bestPosition = bestCar?.position
+        var winners = if (bestCar !== null) mutableListOf(bestCar.name) else mutableListOf()
         for (i in 1 until sortedCars.size) {
             if (sortedCars[i].position == bestPosition) {
                 winners.add(sortedCars[i].name)
