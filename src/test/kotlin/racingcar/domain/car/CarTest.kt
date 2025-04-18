@@ -11,7 +11,7 @@ class CarTest {
     fun `move car when the threshold is reached`() {
         // given
         val queue = LinkedList<Int>()
-        queue.offer(4)
+        queue.add(4)
         val car = createCar(queue)
         // when
         car.move()
@@ -23,7 +23,7 @@ class CarTest {
     fun `stay car when the threshold is not reached`() {
         // given
         val queue = LinkedList<Int>()
-        queue.offer(3)
+        queue.add(3)
         val car = createCar(queue)
         // when
         car.move()
