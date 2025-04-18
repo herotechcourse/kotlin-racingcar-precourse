@@ -6,11 +6,11 @@ import camp.nextstep.edu.missionutils.Randoms
 
 fun main()
 {
-    var carNames = readInputNames()
+    val carNames = readInputNames()
     val numOfRounds = readInputRounds()
     val carObjects = createCarObjects(carNames)
-    testPrintInput(carObjects)
-
+    manageRace(carObjects, numOfRounds)
+    //testPrintInput(carObjects)
 
 }
 
@@ -56,12 +56,44 @@ fun createCarObjects(names: List<String>): List<Car>
     return cars
 }
 
-fun testPrintInput(cars: List<Car>)
+fun generateRandomNumber(): Int
+{
+    var num = Randoms.pickNumberInRange(0,9)
+    return num
+}
+
+fun manageRace(cars: List<Car>, numOfRounds: Int)
+{
+    var roundsLeft = numOfRounds
+    while (roundsLeft > 0)
+    {
+        move(cars)
+        printRoundProgress()
+        roundsLeft--
+    }
+}
+
+fun move(cars: List<Car>)
 {
     for (car in cars)
     {
-        println(car.name)
-        println(car.raceposition)
+        var moveNumber = generateRandomNumber()
+        car.moveForward(moveNumber)
     }
 }
+fun printRoundProgress()
+{
+
+}
+
+//fun testPrintInput(cars: List<Car>)
+//{
+//    for (car in cars)
+//    {
+//        println(car.name)
+//        println(car.racePosition)
+//    }
+//}
+
+
 
