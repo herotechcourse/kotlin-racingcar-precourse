@@ -1,12 +1,10 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
-    val inputParser = InputParser()
-    val carNames = inputParser.getCarNames()
-    val roundNumber = inputParser.getRounds()
-
-    // Temporary use
-    println("Display cars list $carNames")
-    println("Display number of rounds $roundNumber")
+    try {
+        val start = CarRacing()
+        start.race()
+    } catch (e: IllegalArgumentException) {
+        println(e.message)
+    }
 }

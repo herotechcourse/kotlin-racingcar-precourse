@@ -19,14 +19,14 @@
 
 
 ### 4. Race logic
-	[ ] Initialize cars
-	[ ] Run the race for specified number of rounds
-	    [ ] Movement logic
+	[*] Initialize cars
+	[*] Run the race for specified number of rounds
+	    [*] Movement logic
 	[ ] Determine winner(s) at the end of the race
 		[ ] Support multiple winners
 
 ### 5. Race display
-	[ ]	Display race progress after each round
+    [ ] Display race progress after each round
 		[ ] Show cars names
 		[ ] Show current positions
 	[ ] Display winner(s) when race end
