@@ -42,8 +42,8 @@
 
 ### Display the winners.
 
-- [ ]  If there is only one winner, display the message: “Winners : pobi”.
-- [ ]  If there are multiple winners, display their names separated by commas.
+- [X]  If there is only one winner, display the message: “Winners : pobi”.
+- [X]  If there are multiple winners, display their names separated by commas.
 - e.g) Winners : pobi, jun
 
 ### Error Handling

@@ -3,7 +3,6 @@ package racingcar.view
 import racingcar.model.decideMovement
 import racingcar.model.makeRacingDistanceList
 
-
 class OutputView {
     fun printCarRacingStartMessage() {
         println("")
@@ -11,7 +10,7 @@ class OutputView {
     }
 
     // TO-DO: Refactor structure
-    fun printCarNamesAndProcess(carNames: List<String>, theNumberOfRound: Int) {
+    fun printCarNamesAndProcess(carNames: List<String>, theNumberOfRound: Int): List<Int> {
         val processInitialList: MutableList<Int> = makeRacingDistanceList(carNames)
 
         repeat(theNumberOfRound) {
@@ -24,9 +23,15 @@ class OutputView {
             }
             println("")
         }
+        return processInitialList
+    }
 
+    fun printWinners(splitCarNames: List<String>, maxIntIndex: List<Int>) {
+        val winnerList = maxIntIndex.map { splitCarNames[it] }.joinToString()
+        println("Winners : $winnerList")
     }
 }
+
 
 
 

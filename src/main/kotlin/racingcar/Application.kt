@@ -12,6 +12,7 @@ fun main() {
 
     val finalResultPregressList = OutputView().printCarNamesAndProcess(splitCarNames, theNumberOfRounds)
     val maxIntIndex = findTheWinnersIndex(finalResultPregressList)
+    OutputView().printWinners(splitCarNames, maxIntIndex)
 }
 
 
