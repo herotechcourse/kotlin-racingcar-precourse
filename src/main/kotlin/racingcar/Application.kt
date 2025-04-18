@@ -34,4 +34,12 @@ fun main() {
         println() // spacing between rounds
     }
 
+    val maxPosition = cars.maxOf { it.getPosition() }
+
+    val winners = cars
+        .filter { it.getPosition() == maxPosition }
+        .joinToString(", ") { it.getName() }
+
+    println("Winners : $winners")
+
 }
