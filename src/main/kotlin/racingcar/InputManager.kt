@@ -17,6 +17,7 @@ object InputManager {
 
     fun carNames(): List<String> {
         // input car names
+        println("Enter the names of the cars (comma-separated):")
         val carNamesInputVal: String = Console.readLine()
 
         val setOfCarName: List<String> = carNamesInputVal.split(',')
@@ -32,6 +33,7 @@ object InputManager {
     }
 
     fun rounds(): Int {
+        println("How many rounds will be played?")
         val roundInputVal = Console.readLine()
 
         val rounds = validateRoundNumAndToInt(roundInputVal)
