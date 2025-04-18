@@ -8,13 +8,7 @@ class Car(val name: String) {
     var position = 0
     private set
 
-    init {
-        require(name.isNotBlank() && name.length <= MAX_NAME_LENGTH) {
-            "Car must have a name, and names cannot exceed 5 characters."
-        }
-    }
-
     fun move() {
-    position++
+        position++
     }
 }
