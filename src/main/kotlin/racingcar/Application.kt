@@ -5,14 +5,25 @@ import racingcar.io.InputHandler
 import racingcar.io.ResultPrinter
 
 fun main() {
+    val cars = createCars()
+    val roundNumber = readRoundNumber()
+    val raceGame = RaceGame(cars, roundNumber, ResultPrinter())
+
+    startRace(raceGame)
+}
+
+fun createCars(): List<Car> {
     val inputHandler = InputHandler()
-    val cars = prepareCars(inputHandler.readCarNames(), engine = RandomEngine())
-    val roundNumbers = inputHandler.readRoundNumber()
+    val carNames = inputHandler.readCarNames()
+    return prepareCars(carNames, RandomEngine())
+}
 
+fun readRoundNumber(): Int {
+    return InputHandler().readRoundNumber()
+}
+
+fun startRace(raceGame: RaceGame) {
     val resultPrinter = ResultPrinter()
-
-    val raceGame = RaceGame(cars, roundNumbers, resultPrinter)
-
     resultPrinter.printRaceResult()
     val resultCars = raceGame.raceAllRound()
     resultPrinter.printWinner(Winner.findWinner(resultCars))
