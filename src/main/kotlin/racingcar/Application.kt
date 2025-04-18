@@ -39,7 +39,7 @@ fun main() {
 
     println("How many rounds will be played?")
     val roundStr = Console.readLine()
-    val rounds = roundStr?.toIntOrNull()
+    val rounds = roundStr?.toLongOrNull()
     if (rounds == null || rounds <= 0) {
         throw IllegalArgumentException()
     }
