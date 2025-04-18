@@ -28,4 +28,5 @@ fun main() {
     val raceResult = racingController.outputRaceResults(raceRequest)
 
     OutputView.printRaceResultResponse(raceResult)
+    OutputView.printWinnersResponse(raceResult)
 }

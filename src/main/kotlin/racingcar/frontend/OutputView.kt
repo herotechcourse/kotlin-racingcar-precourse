@@ -21,4 +21,8 @@ object OutputView {
             println()
         }
     }
+
+    fun printWinnersResponse(raceResponse: RaceResponse) {
+        println("Winners : ${raceResponse.winnerList.joinToString(", ")}")
+    }
 }
