@@ -25,4 +25,4 @@
 ### Testing
 - [x] Test Car class
 - [x] Test Game logic
-- [ ] Test validations
+- [x] Test validations

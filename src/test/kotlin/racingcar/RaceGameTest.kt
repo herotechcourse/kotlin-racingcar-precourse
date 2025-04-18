@@ -1,8 +1,8 @@
 package racingcar
-
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import racingcar.domain.Car
 import racingcar.domain.Engine
 import racingcar.domain.RaceGame
@@ -11,48 +11,53 @@ import racingcar.io.Printer
 class RaceGameTest {
 
     @Test
-    @DisplayName("All Cars move by the fixed engine for given round")
-    fun raceAllRound() {
+    @DisplayName("All cars move forward by engine output * round number")
+    fun raceAllRoundMovesAllCarsCorrectly() {
         // given
         val engine = FixedEngine(1)
-        val dummyPrinter = DummyPrinter()
-
+        val printer = DummyPrinter()
         val cars = listOf(
             Car("pobi", 0, engine),
             Car("woni", 0, engine)
         )
-        val roundNumber = 3
-        val raceGame = RaceGame(cars, roundNumber, dummyPrinter)
+        val raceGame = RaceGame(cars, roundNumber = 3, resultPrinter = printer)
 
         // when
-        val movedCars = raceGame.raceAllRound()
+        val result = raceGame.raceAllRound()
 
         // then
-        for (car in movedCars) {
-            assertEquals(3, car.getPosition(), "${car.getName()} should have moved 3 positions")
+        for (car in result) {
+            assertEquals(3, car.getPosition(), "${car.getName()} should have moved 3 steps")
         }
     }
 
     @Test
-    @DisplayName("Cars do not move if round number is 0")
-    fun noMovementWhenRoundZero() {
-        // given
+    @DisplayName("Should throw an exception when round number is zero")
+    fun shouldThrowWhenRoundNumberIsZero() {
         val engine = FixedEngine(1)
-        val dummyPrinter = DummyPrinter()
-
+        val printer = DummyPrinter()
         val cars = listOf(
             Car("pobi", 0, engine),
             Car("woni", 0, engine)
         )
-        val roundNumber = 0
-        val raceGame = RaceGame(cars, roundNumber, dummyPrinter)
 
-        // when
-        val movedCars = raceGame.raceAllRound()
+        assertThrows<IllegalArgumentException> {
+            RaceGame(cars, roundNumber = 0, resultPrinter = printer)
+        }
+    }
 
-        // then
-        for (car in movedCars) {
-            assertEquals(0, car.getPosition(), "${car.getName()} should not have moved")
+    @Test
+    @DisplayName("Should throw an exception when round number is negative")
+    fun shouldThrowWhenRoundNumberIsNegative() {
+        val engine = FixedEngine(1)
+        val printer = DummyPrinter()
+        val cars = listOf(
+            Car("pobi", 0, engine),
+            Car("woni", 0, engine)
+        )
+
+        assertThrows<IllegalArgumentException> {
+            RaceGame(cars, roundNumber = -1, resultPrinter = printer)
         }
     }
 }

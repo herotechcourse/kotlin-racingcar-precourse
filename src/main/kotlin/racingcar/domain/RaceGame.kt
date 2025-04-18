@@ -7,6 +7,9 @@ class RaceGame(
     private val roundNumber : Int,
     private val resultPrinter: Printer
 ) {
+    init {
+        require(roundNumber > 0)
+    }
 
     fun raceAllRound() : List<Car> {
         for (i in 1..roundNumber) {
