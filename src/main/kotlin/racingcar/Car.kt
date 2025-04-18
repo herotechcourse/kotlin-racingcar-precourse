@@ -19,7 +19,7 @@ class Car(
     fun luckyMove() {
         val threashold = 4
 
-        val randomNumber = Randoms.pickNumberInRange()
+        val randomNumber = Randoms.pickNumberInRange(0, 9)
         if (randomNumber > threashold) {
             move()
         }
