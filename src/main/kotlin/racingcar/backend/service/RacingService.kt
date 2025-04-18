@@ -7,6 +7,7 @@ import racingcar.backend.domain.validator.RaceNameValidator
 import racingcar.backend.domain.validator.RoundValidator
 import racingcar.backend.dto.CarDto
 import racingcar.backend.dto.CarNameRequest
+import racingcar.backend.dto.RaceResponse
 import racingcar.backend.dto.RoundRequest
 import racingcar.backend.util.StringParser
 
@@ -56,5 +57,11 @@ class RacingService {
             }
         }
         return raceList
+    }
+
+    private fun convertToRaceResultList(raceList: List<Race>): List<RaceResponse.RaceResult> {
+        return raceList.map {
+            RaceResponse.RaceResult(carName = it.car.name, positions = it.position)
+        }
     }
 }
