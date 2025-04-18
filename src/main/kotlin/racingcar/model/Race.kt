@@ -30,4 +30,9 @@ class Race(
         val roundSnapshot = cars.map { car -> CarPosition(car, car.position) }
         results.add(roundSnapshot)
     }
+
+    fun getWinner(): List<Car> {
+        val maxPosition = cars.maxOf { it.position }
+        return cars.filter { it.position == maxPosition }
+    }
 }
