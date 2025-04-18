@@ -1,6 +1,7 @@
 package racingcar
 
- import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
     // TODO: Implement the program
@@ -11,6 +12,13 @@ fun main() {
     val carPositions = mutableMapOf<String, Int>()
     cars.forEach { carPositions[it] = 0 }
 
+    repeat(rounds) { round ->
+        println("Race Results")
+        for (car in cars) {
+            carPositions[car] = generateRandomNumbers(carPositions[car]!!)
+            println("$car: ${"-".repeat(carPositions[car]!!)}")
+        }
+    }
 }
 
 fun getCarNames(): List<String> {
@@ -41,4 +49,9 @@ fun getNumberOfRounds(): Int {
             throw IllegalArgumentException("Invalid input: enter a positive number")
         }
     }
+}
+
+fun generateRandomNumbers(currentPosition: Int): Int {
+    val randomNumber = Randoms.pickNumberInRange(0, 9)
+    return if (randomNumber >= 4) currentPosition + 1 else currentPosition
 }
