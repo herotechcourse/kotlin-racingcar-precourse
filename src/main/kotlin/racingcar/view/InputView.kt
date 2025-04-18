@@ -9,4 +9,10 @@ object InputView {
         val input = Console.readLine()
         return input.split(",")
     }
+
+    fun getTotalRound(): Int {
+        println("How many rounds will be played?")
+        val input = Console.readLine().toInt()
+        return input
+    }
 }
