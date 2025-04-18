@@ -2,7 +2,7 @@ package racingcar.ui
 
 class OutputView {
     fun printRaceResults(cars: List<racingcar.domain.Car>) {
-        println("\nRace Results")
+        //println("\nRace Results")
         cars.forEach { println(it) }
         println()
     }

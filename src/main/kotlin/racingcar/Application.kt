@@ -27,6 +27,7 @@ class Application {
             val race = Race(cars, rounds)
 
             // Execute each round and show progress
+            println("\nRace Results")
             for (round in 1..rounds) {
                 // Move cars for this round
                 race.executeRound()
