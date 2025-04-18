@@ -2,6 +2,7 @@ package racingcar
 
 import racingcar.domain.Car
 import racingcar.domain.Race
+import racingcar.domain.Validator
 import racingcar.ui.InputView
 import racingcar.ui.OutputView
 
@@ -10,38 +11,44 @@ fun main() {
 }
 
 class Application {
+    private val validator = Validator()
+    private val inputView = InputView()
+    private val outputView = OutputView()
+
     fun run() {
         try {
-            val inputView = InputView()
-            val outputView = OutputView()
+            val cars = createValidatedCars()
+            val rounds = readValidatedRounds()
 
-            // Get input from user
-            val carNames = inputView.readCarNames()
-            val roundCount = inputView.readRounds()
+            runRaceAndShowResults(cars, rounds)
 
-            // Create cars and validate
-            val cars = carNames.split(",").map { Car(it.trim()) }
-            val rounds = roundCount.toInt()
-
-            // Create and run the race
-            val race = Race(cars, rounds)
-
-            // Execute each round and show progress
-            println("\nRace Results")
-            for (round in 1..rounds) {
-                // Move cars for this round
-                race.executeRound()
-
-                // Display results after this round
-                outputView.printRaceResults(cars)
-            }
-
-            // Determine and show winners
-            val winners = race.determineWinners()
-            outputView.printWinners(winners)
-
-        } catch (e: Exception) {
-            println("Error occurred: ${e.message}")
+        } catch (e: IllegalArgumentException) {
+            println(e.message)
         }
+    }
+
+    private fun createValidatedCars(): List<Car> {
+        val carNamesInput = inputView.readCarNames()
+        validator.validateCarNames(carNamesInput)
+        return carNamesInput.split(",").map { Car(it.trim()) }
+    }
+
+    private fun readValidatedRounds(): Int {
+        val roundsInput = inputView.readRounds()
+        validator.validateRoundCount(roundsInput)
+        return roundsInput.toInt()
+    }
+
+    private fun runRaceAndShowResults(cars: List<Car>, rounds: Int) {
+        val race = Race(cars, rounds)
+
+        println("\nRace Results")
+        for (round in 1..rounds) {
+            race.executeRound()
+            outputView.printRaceResults(cars)
+        }
+
+        val winners = race.determineWinners()
+        outputView.printWinners(winners)
     }
 }
