@@ -16,7 +16,7 @@ fun main() {
 }
 
 fun readCarNamesInput(): String {
-    print("Enter the names of the cars (comma-separated): ")
+    print("Enter the names of the cars (comma-separated, each name 1-5 characters): ")
     val input = Console.readLine()
     RaceInputHandler.validateCarNames(input)
     return input
