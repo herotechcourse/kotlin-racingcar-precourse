@@ -11,5 +11,6 @@ fun runRound(cars: MutableMap<String, String>) {
         if (moveForward()) {
             cars[car.key] = car.value + "-"
         }
+        printRound(car)
     }
 }

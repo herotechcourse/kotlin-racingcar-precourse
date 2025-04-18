@@ -23,8 +23,10 @@ fun main() {
     var rounds: Int = roundsInput.toInt()
     val cars: MutableMap<String, String> = setCarData(carNamesInput)
 
+    println("Race Results")
     while (rounds > 0) {
         runRound(cars)
+        println()
         rounds--
     }
 }
