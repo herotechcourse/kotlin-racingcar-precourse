@@ -1,5 +1,8 @@
 package racingcar
 
+/**
+ * Validates input data for the racing game, including car names and the number of rounds.
+ */
 class Validator {
 
     /**
@@ -11,6 +14,16 @@ class Validator {
         validateCarsNameLength(carsName)
         validateNumberOfCar(carsName)
         validateDuplicateCarNames(carsName)
+    }
+
+    /**
+     * Validates the round input.
+     *
+     * @param round the round input to validate
+     */
+    fun validateRound(round: String) {
+        validateRoundType(round)
+        validateNumberOfRound(round.toInt())
     }
 
     /**
@@ -48,6 +61,30 @@ class Validator {
     private fun validateDuplicateCarNames(carNames: List<String>) {
         if (carNames.toSet().size != carNames.size) {
             throw IllegalArgumentException("Car names must be unique to start the race.")
+        }
+    }
+
+    /**
+     * Validates that the round input is a valid integer.
+     *
+     * @param round the round input to validate
+     * @throws IllegalArgumentException if the round input is not a valid number
+     */
+    private fun validateRoundType(round: String) {
+        if (round.toIntOrNull() == null) {
+            throw IllegalArgumentException("Round must be a number.")
+        }
+    }
+
+    /**
+     * Validates that the number of rounds is at least 1.
+     *
+     * @param round the round input to validate
+     * @throws IllegalArgumentException if the number of rounds is less than 1
+     */
+    private fun validateNumberOfRound(round: Int) {
+        if (round < 1) {
+            throw IllegalArgumentException("Number of rounds must be at least 1 to start the race.")
         }
     }
 }
