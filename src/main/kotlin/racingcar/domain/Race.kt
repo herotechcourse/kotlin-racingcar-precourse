@@ -13,7 +13,7 @@ class Race(private val cars: List<Car>, private val rounds: Int) {
 
     // method should move each car based on the random number generation rule
     // cars move if a random number between 0-9 is 4 or greater
-    private fun executeRound() {
+    fun executeRound() {
         cars.forEach { car ->
             val randomNumber = Randoms.pickNumberInRange(0, 9)
             car.move(randomNumber)
@@ -21,7 +21,7 @@ class Race(private val cars: List<Car>, private val rounds: Int) {
     }
 
     // method should find the car(s) that have moved the furthest
-    private fun determineWinners(): List<Car> {
+    fun determineWinners(): List<Car> {
         val maxPosition = cars.maxOfOrNull { it.getPosition() } ?: 0
         // goes through car elements and calls getPosition on each car
         // returns max value or null if empty
