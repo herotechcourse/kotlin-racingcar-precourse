@@ -31,8 +31,8 @@ class ApplicationTest : NsTest() {
                     "Winners : pobi"
                 )
             },
-            MOVING_FORWARD, STOP, MOVING_FORWARD,  // 1라운드 결과
-            MOVING_FORWARD, STOP, STOP   // 2라운드 결과
+            MOVING_FORWARD, STOP, MOVING_FORWARD,
+            MOVING_FORWARD, STOP, STOP
         )
     }
 
@@ -47,8 +47,8 @@ class ApplicationTest : NsTest() {
                     "Winners : pobi, phan"
                 )
             },
-            MOVING_FORWARD, STOP, MOVING_FORWARD,  // 1라운드 결과
-            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD   // 2라운드 결과
+            MOVING_FORWARD, STOP, MOVING_FORWARD,
+            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
         )
     }
 
