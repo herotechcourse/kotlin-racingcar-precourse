@@ -1,6 +1,8 @@
 package racingcar.backend.service
 
+import camp.nextstep.edu.missionutils.Randoms
 import racingcar.backend.domain.Car
+import racingcar.backend.domain.Race
 import racingcar.backend.domain.validator.RaceNameValidator
 import racingcar.backend.domain.validator.RoundValidator
 import racingcar.backend.dto.CarDto
@@ -44,5 +46,15 @@ class RacingService {
         return carDtoList.map { car ->
             Car(name = car.carName)
         }
+    }
+
+    private fun raceStart(carList: List<Car>, roundCount: Int): List<Race> {
+        val raceList = carList.map { Race(it) }
+        repeat(roundCount) {
+            raceList.forEach { race ->
+                if (Randoms.pickNumberInRange(0, 9) >= 4) race.move() else race.stay()
+            }
+        }
+        return raceList
     }
 }
