@@ -29,9 +29,12 @@ class ApplicationTest : NsTest() {
 
     @Test
     fun `car name should not be empty`() {
-        assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException(",jason", "1") }
-        }
+        assertThrows<IllegalArgumentException> { runException(",jason", "1") }
+    }
+
+    @Test
+    fun `number of cars should be more than 1`() {
+        assertThrows<IllegalArgumentException> { runException("jason", "1") }
     }
 
     @Test

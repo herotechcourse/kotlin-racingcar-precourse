@@ -11,6 +11,9 @@ fun readCarNames(): List<String> {
     if (isInvalid) {
         throw IllegalArgumentException("Each car name must be 1–5 characters long.")
     }
+    if (names.size < 2) {
+        throw IllegalArgumentException("Number of cars must be more than 1")
+    }
     return names
 }
 
