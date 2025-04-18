@@ -17,6 +17,7 @@ object Output {
     }
 
     fun printStartMessage() {
+        println()
         println("Race Results")
     }
 
