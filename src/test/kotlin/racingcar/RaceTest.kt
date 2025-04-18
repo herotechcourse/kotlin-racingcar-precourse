@@ -48,6 +48,40 @@ class RaceTest : NsTest() {
         assertThat(output()).contains("Winners : woni, elly")
     }
 
+    @Test
+    fun `run race on mocked Random data 1 round`() {
+        assertRandomNumberInRangeTest(
+            {
+                val carsData = mapOf("pobi" to 0, "woni" to 0, "elly" to 0)
+                val rounds = 1
+                race(carsData, rounds)
+                assertThat(output()).contains("Race Results", "pobi : -", "woni : ", "elly : -", "Winners : pobi, elly")
+            },
+            MOVING_FORWARD,
+            STOP,
+            MOVING_FORWARD,
+        )
+    }
+
+    @Test
+    fun `race 2 round mocked random`() {
+        assertRandomNumberInRangeTest(
+            {
+                val carsData = mapOf("pobi" to 0, "woni" to 0, "elly" to 0)
+                race(carsData, 2)
+                assertThat(output()).contains("Race Results", "pobi : -", "woni : ", "elly : -", "Winners : pobi, elly")
+            },
+            MOVING_FORWARD,
+            STOP,
+            MOVING_FORWARD,
+            STOP,
+            STOP,
+            STOP,
+
+            )
+    }
+
+
     override fun runMain() {
         main()
     }

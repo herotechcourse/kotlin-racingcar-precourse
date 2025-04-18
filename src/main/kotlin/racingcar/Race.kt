@@ -29,3 +29,12 @@ fun getWinners(cars: Map<String, Int>) {
     val winners = cars.filter { it.value >= maxMoves }.keys
     println("Winners : ${winners.joinToString(separator = ", ") { item -> item }}")
 }
+
+fun race(cars: Map<String, Int>, rounds: Int) {
+    println("Race Results")
+    var raceState = cars
+    for (i in 1 .. rounds) {
+        raceState = startRound(raceState)
+    }
+    getWinners(raceState)
+}
