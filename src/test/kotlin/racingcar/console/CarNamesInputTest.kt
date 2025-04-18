@@ -1,9 +1,8 @@
-package racingcar
+package racingcar.console
 
-import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
-import org.assertj.core.api.Assertions
-import org.junit.jupiter.api.Test
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.assertThrows
+import org.junit.jupiter.api.Test
 import support.IOTest
 
 class CarNamesInputTest : IOTest() {
@@ -16,7 +15,7 @@ class CarNamesInputTest : IOTest() {
         val carNames = run(input) { Input.readNamesOfTheCars() }
 
         // Then
-        Assertions.assertThat(carNames).isEqualTo(listOf("pobi", "woni", "jun"))
+        assertThat(carNames).isEqualTo(listOf("pobi", "woni", "jun"))
     }
 
     @Test
@@ -25,7 +24,7 @@ class CarNamesInputTest : IOTest() {
         val input = "pobi,javaji"
 
         // When & Then
-        assertSimpleTest {
+        camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest {
             assertInvalidCarNamesFor(input)
         }
     }
@@ -36,7 +35,7 @@ class CarNamesInputTest : IOTest() {
         val input = "pobi,pobi"
 
         // When & Then
-        assertSimpleTest {
+        camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest {
             assertInvalidCarNamesFor(input)
         }
     }
@@ -47,7 +46,7 @@ class CarNamesInputTest : IOTest() {
         val input = "   "
 
         // When & Then
-        assertSimpleTest {
+        camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest {
             assertInvalidCarNamesFor(input)
         }
     }
@@ -58,7 +57,7 @@ class CarNamesInputTest : IOTest() {
         val input = "\n"
 
         // When & Then
-        assertSimpleTest {
+        camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest {
             assertInvalidCarNamesFor(input)
         }
     }

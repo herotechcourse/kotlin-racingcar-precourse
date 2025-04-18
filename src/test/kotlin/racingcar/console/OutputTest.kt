@@ -1,7 +1,8 @@
-package racingcar
+package racingcar.console
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import racingcar.model.Car
 import support.IOTest
 
 class OutputTest : IOTest() {

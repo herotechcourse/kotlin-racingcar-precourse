@@ -1,9 +1,10 @@
-package racingcar
+package racingcar.console
 
 import camp.nextstep.edu.missionutils.Console
+import racingcar.model.Settings
 
 object Input {
-    fun readCarNamesToRound(): Settings {
+    fun readSettings(): Settings {
         Output.printCarNameInputMessage()
         val carNames = readNamesOfTheCars()
 

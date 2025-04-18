@@ -1,8 +1,8 @@
-package racingcar
+package racingcar.domain
 
 import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import racingcar.model.Car
 
 class GameTest {
     @Test
@@ -11,7 +11,7 @@ class GameTest {
         assertRandomNumberInRangeTest(
             {
                 val isMovable = Game.isMovable()
-                assertThat(isMovable).isEqualTo(true)
+                org.assertj.core.api.Assertions.assertThat(isMovable).isEqualTo(true)
             },
             MOVING_FORWARD
         )
@@ -23,7 +23,7 @@ class GameTest {
         assertRandomNumberInRangeTest(
             {
                 val isMovable = Game.isMovable()
-                assertThat(isMovable).isEqualTo(false)
+                org.assertj.core.api.Assertions.assertThat(isMovable).isEqualTo(false)
             },
             STOP
         )
@@ -38,7 +38,8 @@ class GameTest {
         assertRandomNumberInRangeTest(
             {
                 val updated = Game.playOneRound(cars)
-                assertThat(updated).contains(Car("pobi", 2), Car("woni", 2), Car("jun", 3))
+                org.assertj.core.api.Assertions.assertThat(updated)
+                    .contains(Car("pobi", 2), Car("woni", 2), Car("jun", 3))
             },
             MOVING_FORWARD, STOP, STOP
         )
@@ -53,7 +54,7 @@ class GameTest {
         assertRandomNumberInRangeTest(
             {
                 repeat(2) { cars = Game.playOneRound(cars) }
-                assertThat(cars).contains(Car("pobi", 3), Car("woni", 2), Car("jun", 4))
+                org.assertj.core.api.Assertions.assertThat(cars).contains(Car("pobi", 3), Car("woni", 2), Car("jun", 4))
             },
             // 1st round
             MOVING_FORWARD, STOP, STOP,
@@ -71,7 +72,7 @@ class GameTest {
         val winners = Game.winnersFrom(cars)
 
         // Then
-        assertThat(winners).contains(Car("jun", 3))
+        org.assertj.core.api.Assertions.assertThat(winners).contains(Car("jun", 3))
     }
 
     @Test
@@ -83,7 +84,7 @@ class GameTest {
         val winners = Game.winnersFrom(cars)
 
         // Then
-        assertThat(winners).contains(Car("woni", 2), Car("jun", 2))
+        org.assertj.core.api.Assertions.assertThat(winners).contains(Car("woni", 2), Car("jun", 2))
     }
 
     companion object {

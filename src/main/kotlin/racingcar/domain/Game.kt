@@ -1,6 +1,9 @@
-package racingcar
+package racingcar.domain
 
 import camp.nextstep.edu.missionutils.Randoms
+import racingcar.console.Output
+import racingcar.model.Car
+import racingcar.model.Settings
 
 object Game {
     private const val MOVE_THRESHOLD = 4

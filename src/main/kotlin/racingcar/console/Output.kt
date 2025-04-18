@@ -1,4 +1,6 @@
-package racingcar
+package racingcar.console
+
+import racingcar.model.Car
 
 object Output {
     fun printCarNameInputMessage() = println("Enter the names of the cars (comma-separated):")
