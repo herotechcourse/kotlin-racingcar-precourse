@@ -2,12 +2,13 @@ package racingcar.domain
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class Car(val name: String, rounds: Int) {
-    val moveHistory= BooleanArray(rounds) {false}
+class Car(val name: String) {
+    var progression: Int = 0
+      private set
 
-    fun progress(round: Int) {
+    fun progress() {
         if (canMove()) {
-            moveHistory[round] = true
+            ++progression
         }
     }
 

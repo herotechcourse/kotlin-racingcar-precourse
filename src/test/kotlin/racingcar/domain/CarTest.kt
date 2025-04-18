@@ -1,22 +1,45 @@
-import org.junit.jupiter.api.Test
+package racingcar.domain
+
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
-import racingcar.domain.Car
-import org.assertj.core.api.Assertions.*
+import org.junit.jupiter.api.RepeatedTest
+import org.junit.jupiter.api.Test
 
 class CarTest {
+
     @Nested
-    @DisplayName("Initialization tests")
-    inner class InitializationTests() {
+    @DisplayName("Car initialization")
+    inner class CarInitialization {
+
         @Test
-        @DisplayName("Should initialize Car with a name as read-only and a zero initialized IntArray with size == rounds")
-        fun initializeCar() {
-            val car = Car("car1", 5)
-            assertThat(car.name).isEqualTo("car1")
-            assertThat(car.moveHistory.size).isEqualTo(5)
-            assertThat(car.moveHistory.all { !it }).isTrue()
+        @DisplayName("should initialize car with correct name")
+        fun initializeWithName() {
+            val carName = "TestCar"
+            val car = Car(carName)
+            assertThat(car.name).isEqualTo(carName)
+        }
+
+        @Test
+        @DisplayName("should initialize car with zero progression")
+        fun initializeWithZeroProgression() {
+            val car = Car("TestCar")
+            assertThat(car.progression).isZero()
         }
     }
 
     @Nested
+    @DisplayName("Car progression")
+    inner class CarProgression {
+
+        @RepeatedTest(10)
+        @DisplayName("progression should increase by at most 1 per call")
+        fun progressionIncreasesByAtMostOne() {
+            val car = Car("TestCar")
+            val initialProgression = car.progression
+
+            car.progress()
+            assertThat(car.progression).isLessThanOrEqualTo(initialProgression + 1)
+        }
+    }
 }
