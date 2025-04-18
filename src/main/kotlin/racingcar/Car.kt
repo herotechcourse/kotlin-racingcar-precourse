@@ -7,4 +7,8 @@ class Car(val name: String) {
     fun move(shouldMove: Boolean) {
         if (shouldMove) position++
     }
+
+    override fun toString(): String {
+        return "$name : ${"-".repeat(position)}"
+    }
 }

@@ -14,6 +14,8 @@ fun main() {
     println("\nRace Results")
     repeat(rounds) {
         race.runRound { randomNumber() }
+        race.printProgress()
     }
     val winners = race.getWinners()
+    println("Winners : ${winners.joinToString(", ")}")
 }
