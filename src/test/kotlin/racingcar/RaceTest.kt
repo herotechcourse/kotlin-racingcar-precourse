@@ -41,6 +41,13 @@ class RaceTest : NsTest() {
         )
     }
 
+    @Test
+    fun `get winners of race`() {
+        val carsData = mapOf("pobi" to 0, "woni" to 1, "elly" to 1)
+        getWinners(carsData)
+        assertThat(output()).contains("Winners : woni, elly")
+    }
+
     override fun runMain() {
         main()
     }
