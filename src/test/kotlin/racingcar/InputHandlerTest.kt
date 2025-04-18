@@ -92,4 +92,28 @@ class InputHandlerTest {
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessage("Round count must be positive.")
     }
+
+    @Test
+    fun `readCarNames should throw when only one car name is provided`() {
+        // Given
+        val io = FakeIO("car1")
+        val handler = InputHandler(io)
+
+        // Then
+        assertThatThrownBy { handler.readCarNames() }
+            .isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessage("There must be more than one car.")
+    }
+
+    @Test
+    fun `readCarNames should throw when car names are not unique`() {
+        // Given
+        val io = FakeIO("car1,car1,car2")
+        val handler = InputHandler(io)
+
+        // Then
+        assertThatThrownBy { handler.readCarNames() }
+            .isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessage("Car names must be unique.")
+    }
 }

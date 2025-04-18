@@ -10,6 +10,14 @@ class InputHandler(private val io: IOInterface) {
             "Each car name must be non-empty and up to 5 characters."
         }
 
+        require(names.size > 1) {
+            "There must be more than one car."
+        }
+
+        require(names.distinct().size == names.size) {
+            "Car names must be unique."
+        }
+
         return names
     }
 
