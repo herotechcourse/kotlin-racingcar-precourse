@@ -54,13 +54,13 @@
 | validate-rounds | Validate number of rounds for positivity and format |     ✅      |   ✅   | - | - |
 
 ### 🧩 Race execution Module (MVC: "Model")
-| Feature | Description | Test code | Green | Refactored | Done |
-|:---|:---|:---------:|:---:|:----:|:---:|
-| race-start | Execute race based on number of rounds |     ⏳      | - | - | - |
-| race-generate-random-number | Random number between 0 - 9 |     ⏳     | - | - | - |
-| race-is-move-condition-met | Return true if the random number meets or exceeds the moveable condition |     ⏳     | - | - | - |
-| race-move-cars | Move cars forward only if they pass the random check condition |     ⏳     | - | - | - |
-| race-update-track | Update track state after each round |     -     | - | - | - |
+| Feature                     | Description                                                               | Test code | Green | Refactored | Done |
+|:----------------------------|:--------------------------------------------------------------------------|:---------:|:-----:|:----------:|:----:|
+| ❌ race-start                | Omitted because it is already handled in gameInit()                       |     ❌     |   ❌   |     ❌      | ❌    |
+| race-generate-random-number | Random number between 0 - 9                                               |     ✅     |   ✅   |     -      |  -   |
+| race-is-move-condition-met  | Return true if the random number meets or exceeds the movable condition   |     ✅     |   ✅   |     -      |  -   |
+| race-move-cars              | Move cars forward only if they pass the random check condition            |     ✅     |   ✅   |     -      |  -   |
+| race-update-track           | Update track state after each round                                       |     ✅     |   ❌    |     -      |  -   |
 
 ### 🧩 Error handling Module
 | Feature | Description | Test code | Green | Refactored | Done |
@@ -81,7 +81,8 @@
 Option for status columns (Test, Refactored, Done)<br>
 ✅ : Finished<br>
 ⏳ : In progress<br>
-—  : Not started or not applicable
+—  : Not started or not applicable <br>
+❌ : Don't need to make
 
 ---
 
