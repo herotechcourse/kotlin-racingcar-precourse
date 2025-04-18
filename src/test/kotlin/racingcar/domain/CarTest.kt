@@ -21,5 +21,12 @@ class CarTest {
             val containingSpace = "d d"
             assertThrows<IllegalArgumentException> { Car(containingSpace) }
         }
+
+        @Test
+        @DisplayName("[Exception] name is not alphanumeric")
+        fun `test alphanumeric name`() {
+            val noneAlphanumericName = "al3^3"
+            assertThrows<IllegalArgumentException> { Car(noneAlphanumericName) }
+        }
     }
 }

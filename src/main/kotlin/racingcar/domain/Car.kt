@@ -4,8 +4,9 @@ class Car(private val name: String) {
     private var distance: Int
 
     init {
-        validateNameLength(name)
         validateContainingSpaces(name)
+        validateNameFormat(name)
+        validateNameLength(name)
         this.distance = 0
     }
 
@@ -20,6 +21,14 @@ class Car(private val name: String) {
             throw IllegalArgumentException("car name must not contains spaces")
         }
     }
+
+    private fun validateNameFormat(name: String) {
+        require(isAlphaNumericOnly(name)) {
+            "car name must contain only letters and digits"
+        }
+    }
+
+    private fun isAlphaNumericOnly(name: String): Boolean = name.all { it.isLetterOrDigit() }
 
     companion object {
         private const val VALID_NAME_LENGTH: Int = 5
