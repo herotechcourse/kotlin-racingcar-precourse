@@ -1,10 +1,10 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
+import racingcar.domain.RacingGame
+import racingcar.model.Car
 
-object Application {
-  @JvmStatic
-  fun main(args: Array<String>) {
+  fun main() {
     println("Enter the names of the cars (comma-separated):")
     val inputNames = Console.readLine()
     val carNames = inputNames.split(",").map { it.trim() }
@@ -23,4 +23,3 @@ object Application {
     val game = RacingGame(cars, rounds)
     game.startRace()
   }
-}

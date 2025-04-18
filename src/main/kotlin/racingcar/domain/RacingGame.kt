@@ -1,5 +1,6 @@
-package racingcar
+package racingcar.domain
 import camp.nextstep.edu.missionutils.Randoms
+import racingcar.model.Car
 
 class RacingGame(private val cars: List<Car>, private val rounds: Int) {
 
