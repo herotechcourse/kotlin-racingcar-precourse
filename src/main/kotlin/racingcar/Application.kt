@@ -26,6 +26,7 @@ fun runRace(carNames: List<String>, raceRounds: Int) {
         val movementThreshold = 4;
         continueAnotherRound(distanceScores, movementThreshold);
     }
+    announceWinner(distanceScores);
 }
 
 fun continueAnotherRound(distanceScores: MutableMap<String, Int>, movementThreshold: Int) {
@@ -37,14 +38,10 @@ fun continueAnotherRound(distanceScores: MutableMap<String, Int>, movementThresh
 }
 
 fun printCurrentResults(distanceScores: Map<String, Int>) {
-    val maxNameLength = maxOf("Race".length, distanceScores.keys.maxOf { it.length })
-    val title = "Race".padEnd(maxNameLength)
-
-    println("$title % Results")
+    println("Race % Results")
     for ((carName, distance) in distanceScores) {
-        val paddedName = carName.padEnd(maxNameLength)
         val distanceString = "-".repeat(distance)
-        println("$paddedName : $distanceString")
+        println("$carName : $distanceString")
     }
     println();
 }
@@ -52,10 +49,22 @@ fun printCurrentResults(distanceScores: Map<String, Int>) {
 fun announceRace(carNames: List<String>, raceRounds: Int) {
     println("PREPARING ANOTHER EPIC CAR RACE");
     println("THE RACE WILL TAKE");
-    println(" => $raceRounds ROUND(S)");
+    println("=> $raceRounds ROUND(S)");
     println("TODAY'S CARS ARE");
-    println(carNames.joinToString(separator = "\n") { " => $it" });
+    println(carNames.joinToString(separator = "\n") { "=> $it" });
     println("GET READY!!\nAND..\nGOOO##");
+}
+
+fun announceWinner(distanceScores: Map<String, Int>) {
+    if (distanceScores.isEmpty()) {
+        println("No scores provided — cannot determine winner.")
+        return;
+    }
+
+    val maxScore = distanceScores.values.maxOrNull() ?: return;
+    val winners = distanceScores.filterValues { it == maxScore }.keys
+    val plural = if (winners.size > 1) "s" else "";
+    println("winner$plural : ${winners.joinToString(", ")}");
 }
 
 fun validateCarNames(carNames: List<String>) {
