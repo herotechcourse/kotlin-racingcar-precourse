@@ -21,10 +21,13 @@ class Car(val name: String){
 
 object CarRacingGame{
     private const val MAX_NAME_LENGTH = 5
+    private const val  MIN_Rounds = 1
 
 
     fun run (){
         val cars = inputCars()
+        val rounds = inputRounds()
+        println("the expected rounds $rounds")
     }
 
     private fun inputCars(): List<Car> {
@@ -42,6 +45,16 @@ object CarRacingGame{
                 throw IllegalArgumentException("Car names must be between 1 and 5 characters long")
             }
         }
+    }
+
+    private fun inputRounds(): Int{
+        println("How many rounds would you like to play?")
+        val rounds = Console.readLine().toIntOrNull()?: throw IllegalArgumentException("Number of rounds must be a numeric value")
+        if (rounds < MIN_Rounds){
+            throw IllegalArgumentException("Number of rounds must be at least 1")
+
+        }
+        return rounds
     }
 
 
