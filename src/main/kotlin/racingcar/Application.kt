@@ -1,13 +1,16 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
 import kotlin.IllegalArgumentException
 
 fun main() {
     val cars = readCarNamesFromConsole()
     val rounds = readRoundsFromConsole()
+    performCarRace(cars, rounds)
 }
 fun readCarNamesFromConsole(): List<Car> {
+    println("Enter the names of the cars (comma-separated):")
     val input = Console.readLine() ?: throw IllegalArgumentException("Input cannot be null")
     return parseCarNames(input)
 }
@@ -33,7 +36,21 @@ fun validateName(name: String) {
 }
 
 fun readRoundsFromConsole(): Int {
+    println("How many rounds will be played?")
     val input = Console.readLine() ?: throw IllegalArgumentException("Input cannot be null")
     val rounds = input.trim().toIntOrNull() ?: throw IllegalArgumentException("Rounds must be a number")
     if (rounds >= 0) return rounds else throw IllegalArgumentException("Rounds must be a positive number.")
 }
+
+fun performCarRace(cars: List<Car>, rounds: Int) {
+    println("\nRace Results")
+    repeat(rounds) {
+        cars.forEach { moveCar(it) }
+    }
+}
+fun moveCar(car: Car) {
+    if (shouldMove()) {
+        car.position += 1
+    }
+}
+fun shouldMove(): Boolean = Randoms.pickNumberInRange(0, 9) >= 4
