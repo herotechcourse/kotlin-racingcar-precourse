@@ -37,6 +37,9 @@ A simple Kotlin implementation of a car racing game with name validation.
 ### 4. Restructure the RacingGame class to handle concerns separately
 
 * Implement the OutputHandler class to handle the output, maintaining the code functionality
+    * prints race start
+    * Prints race results
+    * prints race winners
 
 ## Tests
 

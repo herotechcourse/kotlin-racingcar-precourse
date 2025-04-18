@@ -4,7 +4,6 @@ class InputHandler {
     fun parseCarNames(input: String): List<String> {
         val names = input.split(",")
             .map { it.trim() }
-            .filter { it.isNotEmpty() }
         validateCarNames(names)
         return names
     }
@@ -12,6 +11,9 @@ class InputHandler {
     private fun validateCarNames(names: List<String>) {
         if (names.isEmpty()) {
             throw IllegalArgumentException("No car names were entered.")
+        }
+        if (names.any { it.isEmpty() }) {
+            throw IllegalArgumentException("Car names cannot be blank")
         }
         if (names.any { it.length > 5 }) {
             throw IllegalArgumentException("Each car name must be at most 5 characters.")
@@ -23,7 +25,8 @@ class InputHandler {
     }
 
     fun parseRounds(input: String): Int {
-        val rounds = input.toIntOrNull()
+        val rounds = input.trim()
+            .toIntOrNull()
         if (rounds == null || rounds <= 0) {
             throw IllegalArgumentException("Rounds must be a positive integer.")
         }

@@ -11,7 +11,7 @@ fun main() {
     println("How many rounds will be played?")
     val roundsInput = Console.readLine()
     val rounds = validator.parseRounds(roundsInput)
-    val game = RacingGame(carNames, rounds)
+    val game = RacingGame(carNames, rounds, outputHandler = OutputHandler())
     game.run()
 }
 
