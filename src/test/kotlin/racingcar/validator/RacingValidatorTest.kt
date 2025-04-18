@@ -1,5 +1,6 @@
 package racingcar.validator
 
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
@@ -20,9 +21,11 @@ class RacingValidatorTest {
     @ParameterizedTest
     @MethodSource("invalidCarNames")
     fun `invalid car names should throw an exception`(names: List<String>) {
-        assertThrows<IllegalArgumentException> {
+        val exception = assertThrows<IllegalArgumentException> {
             racingValidator.validateCarNames(names)
         }
+
+        assertThat(exception.message).isEqualTo("Car name should not exceed 5 characters")
     }
     
     companion object {
