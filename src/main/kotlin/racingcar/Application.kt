@@ -11,16 +11,17 @@ fun main() {
             .map { it.trim() }
             .filter { it.isNotEmpty() }
             .toSet()
+    if (carList.isEmpty()) {
+        throw IllegalArgumentException()
+    }
+
     val cars =
-        if (carList.isEmpty()) {
-            emptyList()
-        } else {
-            carList.map { carName ->
-                if (Car.isValidName(carName)) {
-                    Car(carName)
-                } else {
-                    throw IllegalArgumentException()
-                }
+
+        carList.map { carName ->
+            if (Car.isValidName(carName)) {
+                Car(carName)
+            } else {
+                throw IllegalArgumentException()
             }
         }
 
