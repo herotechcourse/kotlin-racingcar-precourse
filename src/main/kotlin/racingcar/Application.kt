@@ -9,5 +9,10 @@ fun main() {
     println("How many rounds will be played?")
     val roundsInput = Console.readLine()
     val rounds = ParseAndValidate.parseAndValidateRounds(roundsInput)
-
+    val cars = carNames.map { Car(it) }
+    val race = Race(cars)
+    println("\nRace Results")
+    repeat(rounds) {
+        race.runRound { randomNumber() }
+    }
 }
