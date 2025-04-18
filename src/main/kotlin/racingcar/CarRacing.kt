@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms
 
 class CarRacing {
     private val inputParser = InputParser()
+    private val raceResult = RaceOutput()
 
     fun race() {
         val carNames = inputParser.getCarNames()
@@ -15,6 +16,7 @@ class CarRacing {
             raceSingleRound(cars)
         }
 
+        raceResult.announceWinners(cars)
     }
 
     private fun initializeCars(carNames: List<String>): List<Car> {
