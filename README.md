@@ -37,8 +37,8 @@
 
 ### Find the winners
 
-- [ ]  Find the cars with maximum position.
-- [ ]  Return the names of the cars with the maximum position.
+- [X]  Find the cars with maximum position.
+- [X]  Return the names of the cars with the maximum position.
 
 ### Display the winners.
 
