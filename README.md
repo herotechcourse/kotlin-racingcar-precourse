@@ -2,8 +2,8 @@
 
 IMPLEMENTATION ROADMAP:
 
-1. Ask the user to enter the names of the cars
-2. Validate the input
+1. Ask the user to enter the names of the cars ---> DONE
+2. Validate the input ---> DONE
 3. Ask the user how many rounds will be played
 4. Validate the input
 5. Generate a random number for each car
