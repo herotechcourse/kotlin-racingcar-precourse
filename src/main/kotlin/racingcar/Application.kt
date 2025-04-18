@@ -2,7 +2,16 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
-
+/**
+ * Entry point of the application.
+ *
+ * Handles the following flow:
+ * 1. Prompts user to input car names and number of rounds.
+ * 2. Validates inputs and creates Car instances.
+ * 3. Simulates the race round by round.
+ * 4. Prints race progress after each round.
+ * 5. Determines and prints the winner(s).
+ */
 fun main() {
     println("Start your engines! Please enter the names of the cars that are about to race and remember to keep them short and separate them by a comma...Let's go!:")
     val carNamesInput = Console.readLine()
