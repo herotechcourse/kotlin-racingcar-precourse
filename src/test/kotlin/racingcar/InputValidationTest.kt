@@ -27,6 +27,34 @@ class InputValidationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `invalid rounds - NaN test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("car1,car2", "[") }
+        }
+    }
+
+    @Test
+    fun `invalid rounds - negative number test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("car1,car2", "-1") }
+        }
+    }
+
+    @Test
+    fun `invalid rounds - 0 test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("car1, car2", "0") }
+        }
+    }
+
+    @Test
+    fun `invalid rounds - several 0 test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("car1, car2", "00") }
+        }
+    }
+
     override fun runMain() {
         main()
     }
