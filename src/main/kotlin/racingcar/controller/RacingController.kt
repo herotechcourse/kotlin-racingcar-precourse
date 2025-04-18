@@ -1,6 +1,7 @@
 package racingcar.controller
 
 import racingcar.domain.Cars
+import racingcar.domain.Referee
 import racingcar.domain.Round
 import racingcar.domain.car.Car
 import racingcar.domain.car.Name
@@ -47,7 +48,8 @@ class RacingController(
     }
 
     private fun determineWinner(cars: Cars) {
-        val winner = cars.determineWinner()
+        val referee = Referee(cars)
+        val winner = referee.determineWinner()
         outputView.printWinner(winner)
     }
 }

@@ -70,7 +70,7 @@ class CarsTest {
     }
 
     @Test
-    fun `determine winner when winner is only one`() {
+    fun `should return max position after cars move`() {
         // given
         val queueForCarA = LinkedList<Int>()
         queueForCarA.add(1)
@@ -84,13 +84,13 @@ class CarsTest {
         val cars = Cars(listOf(car1, car2))
         cars.moveAll()
         // when
-        val winner = cars.determineWinner()
+        val maxPosition = cars.getMaxPosition()
         // then
-        assertThat(winner.first()).isEqualTo("b")
+        assertThat(maxPosition).isEqualTo(1)
     }
 
     @Test
-    fun `determine winner when winner is multiple`() {
+    fun `should find the cars at the specified position`() {
         // given
         val queueForCarA = LinkedList<Int>()
         queueForCarA.add(5)
@@ -103,12 +103,14 @@ class CarsTest {
 
         val cars = Cars(listOf(car1, car2))
         cars.moveAll()
+        val maxPosition = 1
         // when
-        val winner = cars.determineWinner()
+        val carsAtMaxPosition = cars.findAllAtPosition(maxPosition)
         // then
+        val carNames = carsAtMaxPosition.map { it.getName() }
         assertAll(
-            { assertThat(winner).hasSize(2) },
-            { assertThat(winner.containsAll(listOf("a", "b"))) }
+            { assertThat(carsAtMaxPosition).hasSize(2) },
+            { assertThat(carNames.containsAll(listOf("a", "b"))) }
         )
     }
 

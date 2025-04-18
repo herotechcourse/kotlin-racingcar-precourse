@@ -34,4 +34,6 @@
     - [x] Generate a random number between 0 and 9 (use `Randoms.pickNumberInRange()`)
     - [x] Generate a fixed number between 0 and 9
 - [x] Move a car forward only if the randomly generated number is 4 or greater
-- [x] draw the winner
+- [x] Determine the winner
+    - [x] Calculate the max position of racing cars
+    - [x] Find the cars at the specified position
