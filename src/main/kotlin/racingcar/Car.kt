@@ -11,4 +11,15 @@ class Car(val name: String) {
             racePosition++
         }
     }
+    fun countProgress(): String
+    {
+        var movementBar: String = ""
+        var carProgress: String = ""
+        for (i in 0 until racePosition)
+        {
+            movementBar = movementBar +"-"
+        }
+        carProgress = "$name : $movementBar"
+        return carProgress
+    }
 }

@@ -10,8 +10,6 @@ fun main()
     val numOfRounds = readInputRounds()
     val carObjects = createCarObjects(carNames)
     manageRace(carObjects, numOfRounds)
-    //testPrintInput(carObjects)
-
 }
 
 fun readInputNames (): List<String>
@@ -64,11 +62,12 @@ fun generateRandomNumber(): Int
 
 fun manageRace(cars: List<Car>, numOfRounds: Int)
 {
+    printRaceResultHeading()
     var roundsLeft = numOfRounds
     while (roundsLeft > 0)
     {
         move(cars)
-        printRoundProgress()
+        printRoundProgress(cars,numOfRounds)
         roundsLeft--
     }
 }
@@ -81,9 +80,19 @@ fun move(cars: List<Car>)
         car.moveForward(moveNumber)
     }
 }
-fun printRoundProgress()
+fun printRaceResultHeading()
 {
+    println("Race Results")
+}
 
+fun printRoundProgress(cars: List<Car>, numOfRounds: Int)
+{
+    for (car in cars)
+    {
+        var movementBar = car.countProgress()
+        println("${car.name} : $movementBar ")
+    }
+    println()
 }
 
 //fun testPrintInput(cars: List<Car>)
