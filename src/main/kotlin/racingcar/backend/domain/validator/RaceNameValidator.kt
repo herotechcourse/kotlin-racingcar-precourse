@@ -14,4 +14,11 @@ object RaceNameValidator {
             throw IllegalArgumentException(RacingError.CAR_NAME_TOO_LONG.message)
         }
     }
+
+    fun validateDuplicateCarNames(carNameList: List<String>) {
+        val distinctCount = carNameList.distinct().size
+        if (distinctCount != carNameList.size) {
+            throw IllegalArgumentException(RacingError.CAR_NAME_DUPLICATE.message)
+        }
+    }
 }
