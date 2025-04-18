@@ -1,13 +1,19 @@
 package racingcar.controller
 
+import racingcar.model.Car
+import racingcar.model.Race
+import racingcar.view.InputView
+import racingcar.view.OutputView
+
 class CarRacingController {
     fun run() {
-        // car names input
+        val carNames = InputView.getCarNames()
+        val totalRound = InputView.getTotalRound()
 
-        // number of rounds input
+        val race = Race(carNames.map { Car(it) }, totalRound)
+        race.runRace()
 
-        // run race
-
-        // announce winner
+        OutputView.showAllRoundResult(race)
+        OutputView.announceWinner(race.getWinner())
     }
 }
