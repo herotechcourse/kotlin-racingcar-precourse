@@ -8,6 +8,7 @@ fun main() {
     val cars = readCarNamesFromConsole()
     val rounds = readRoundsFromConsole()
     performCarRace(cars, rounds)
+    val winners = findWinners(cars)
 }
 fun readCarNamesFromConsole(): List<Car> {
     println("Enter the names of the cars (comma-separated):")
@@ -60,3 +61,8 @@ fun printCarProgress(car: Car) {
     println("${car.name} : $progress")
 }
 fun shouldMove(): Boolean = Randoms.pickNumberInRange(0, 9) >= 4
+
+fun findWinners(cars: List<Car>): List<Car> {
+    val maxPosition = cars.maxOf { it.position }
+    return cars.filter { it.position == maxPosition }
+}
