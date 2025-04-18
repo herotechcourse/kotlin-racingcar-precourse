@@ -4,7 +4,7 @@ fun main() {
     var carNames: List<String> = listOf()
 
     while (true) {
-        print("Enter car names separated by commas (each name max 5 characters): ")
+        print("Names of the cars (comma-separated): ")
         val input = readLine()?.trim() ?: ""
 
         carNames = input.split(",").map { it.trim() }
@@ -14,7 +14,8 @@ fun main() {
         break
     }
 
-    println("Car names: $carNames")
+    print("Number of rounds: ")
+    val rounds = readLine()!!.toInt()
 }
 
 
