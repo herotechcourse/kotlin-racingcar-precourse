@@ -1,10 +1,11 @@
 package racingcar
 
-data class Input (
-    val Cars: Array<Car>,
-    val TotalRounds: Int
-)
-
+data class Input(val cars: List<Car>, var totalRounds: Int) {
+    init {
+        require(cars.size == 0) {"cars cannot be empty"}
+        require(totalRounds <= 0) {"total rounds should be at-least one"}
+    }
+}
 
 data class Car(val name: String, var position: Int = 0) {
     init {
