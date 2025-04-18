@@ -18,4 +18,15 @@ class Validator {
             }
         }
     }
+    fun validateRoundCount(input: String) {
+        try {
+            val rounds = input.toInt()
+
+            if (rounds <= 0) {
+                throw IllegalArgumentException("Number of rounds must be positive")
+            }
+        } catch (e: NumberFormatException) {
+            throw IllegalArgumentException("Number of rounds must be a valid integer")
+        }
+    }
 }
