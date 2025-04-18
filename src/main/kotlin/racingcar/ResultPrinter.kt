@@ -8,6 +8,10 @@ class ResultPrinter : Printer{
         println()
     }
 
+    fun printRaceResult() {
+        println("Race Results")
+    }
+
     fun printWinner(winners: List<String>) {
         println("Winners : " + winners.joinToString(", "))
     }
