@@ -59,6 +59,31 @@ class ApplicationTest : NsTest() {
         run ("car1, car2, car3", "1")
         assertThat(output()).contains("car1", "car2", "car3")
     }
+    @Test
+    fun `multiple winners with a tie`()
+    {
+        assertRandomNumberInRangeTest({
+            run ("car1, car2, car3", "1")
+            assertThat(output()).contains("Winners : car1, car2")
+        },4, 4, 3)
+    }
+    @Test
+    fun `cars do not move`()
+    {
+        assertRandomNumberInRangeTest({
+            run ("car1, car2, car3", "1")
+            assertThat(output()).contains("Winners : car1, car2, car3")
+        },1, 2, 3)
+    }
+
+    @Test
+    fun `cars race multiple rounds`()
+    {
+        assertRandomNumberInRangeTest({
+            run ("car1, car2, car3", "2")
+            assertThat(output()).contains("Winners : car1, car3")
+        },1, 2, 3, 5, 2, 4)
+    }
 
     override fun runMain() {
         main()
