@@ -19,4 +19,14 @@ fun parseCarNames(input: String): List<Car> {
     return names.map { Car(it) }
 }
 
-data class Car(val name: String, var position: Int = 0)
+data class Car(val name: String, var position: Int = 0) {
+    init {
+        validateName(name)
+    }
+}
+
+fun validateName(name: String) {
+    if (name.isBlank() || name.length > 5) {
+        throw IllegalArgumentException("Car name must be non-empty and name cannot exceed 5 characters")
+    }
+}
