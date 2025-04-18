@@ -5,8 +5,8 @@ import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
     // TODO: Implement the program
-    val carNames = readNames
-    val numRounds = getNumRounds
+    val carNames = readNames()
+    val numRounds = getNumRounds()
 
     val cars = carNames.map{ Car(it) }
 
@@ -16,12 +16,12 @@ fun main() {
             val number = Randoms.pickNumberInRange(0,9)
             if (number >= 4) car.move()    
         }
-        cars.forEach { println(car.display)}
+        cars.forEach { println(it.display())}
         println()
      }
      val max = cars.maxOf { it.position }
-     val winner = cars.filter { it.position == max }.map {it.name}
-     println("winners : ${winners.joinToString(", ")}")
+     val winners = cars.filter { it.position == max }.map {it.name}
+     println("Winners : ${winners.joinToString(", ")}")
     
 }
 
