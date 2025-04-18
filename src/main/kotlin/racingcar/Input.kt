@@ -52,8 +52,8 @@ class Input {
     }
 
     fun validateDuplicateName(carNames: List<String>) : Unit {
-        for (name in carNames) {
-            if (carNames.contains(name)) {
+        for ((index, name) in carNames.withIndex()) {
+            if (carNames.indexOf(name) != index) {
                 throw IllegalArgumentException("중복된 이름은 사용할 수 없습니다.");
             }
         }
