@@ -64,4 +64,12 @@ class RacingService {
             RaceResponse.RaceResult(carName = it.car.name, positions = it.position)
         }
     }
+
+    private fun calculateWinners(resultList: List<RaceResponse.RaceResult>): List<String> {
+        val maxPosition = resultList.maxOf { raceResult ->
+            raceResult.positions.last().length
+        }
+
+        return resultList.filter { it.positions.last().length == maxPosition }.map { it.carName }
+    }
 }
