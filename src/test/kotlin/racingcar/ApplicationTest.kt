@@ -35,6 +35,12 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `test car movement`() {
+        Car("pobi", 0).move().displayProgress()
+        assertThat(output()).contains("pobi : -")
+    }
+
     override fun runMain() {
         main()
     }
