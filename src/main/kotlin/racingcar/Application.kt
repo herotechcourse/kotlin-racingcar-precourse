@@ -15,4 +15,5 @@ fun main() {
     repeat(rounds) {
         race.runRound { randomNumber() }
     }
+    val winners = race.getWinners()
 }

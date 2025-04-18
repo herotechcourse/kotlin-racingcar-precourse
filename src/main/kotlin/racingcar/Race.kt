@@ -6,4 +6,9 @@ class Race(private val cars: List<Car>) {
             car.move(randomProvider() >= 4)
         }
     }
+
+    fun getWinners(): List<String> {
+        val maxPosition = cars.maxOfOrNull { it.position } ?: 0
+        return cars.filter { it.position == maxPosition }.map { it.name }
+    }
 }
