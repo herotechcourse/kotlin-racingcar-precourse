@@ -2,7 +2,11 @@ package racingcar.model
 
 import racingcar.util.RandomNumberGenerator
 
-class RaceGame(private val cars: List<Car>, private var rounds: Int) {
+class RaceGame(
+    private val cars: List<Car>,
+    private var rounds: Int,
+    private val randomNumberGenerator: () -> Int = { RandomNumberGenerator.generateRandomNumber() }
+) {
     private var currentRound: Int = 0
     fun startRace() {
         while (!isRaceEnd()) {
@@ -18,7 +22,7 @@ class RaceGame(private val cars: List<Car>, private var rounds: Int) {
         currentRound++
     }
 
-    private fun canMoveCar(): Boolean = RandomNumberGenerator.generateRandomNumber() > MIN_NUMBER_TO_MOVE_CAR
+    private fun canMoveCar(): Boolean = randomNumberGenerator() >= MIN_NUMBER_TO_MOVE_CAR
 
     private fun isRaceEnd(): Boolean = currentRound >= rounds
 
