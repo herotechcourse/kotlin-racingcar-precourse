@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.24"
+    application // TODO remove later
 }
 
 group = "camp.nextstep.edu"
@@ -22,4 +23,9 @@ tasks {
     test {
         useJUnitPlatform()
     }
+}
+
+//TODO remove before submit
+application {
+    mainClass.set("racingcar.ApplicationKt")
 }
