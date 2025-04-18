@@ -34,6 +34,17 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `round should be an integer`() {
+        assertThrows<IllegalArgumentException> { runException("ariel,jason", "not integer") }
+    }
+
+    @Test
+    fun `round should be an positive integer`() {
+        assertThrows<IllegalArgumentException> { runException("ariel,jason", "0") }
+        assertThrows<IllegalArgumentException> { runException("ariel,jason", "-1") }
+    }
+
     override fun runMain() {
         main()
     }

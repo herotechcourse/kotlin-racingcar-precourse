@@ -14,6 +14,23 @@ fun readCarNames(): List<String> {
     return names
 }
 
+fun readRound(): Int {
+    println("How many rounds will be played?")
+    val input = Console.readLine()
+    val round: Int
+    try {
+        round = input.toInt()
+    } catch (_: NumberFormatException) {
+        throw IllegalArgumentException("Round must be an integer.")
+    }
+
+    if (round <= 0) {
+        throw IllegalArgumentException("Round must be positive.")
+    }
+    return round
+}
+
 fun main() {
     readCarNames()
+    readRound()
 }
