@@ -1,4 +1,10 @@
 # kotlin-racingcar-precourse
+## Goals
+### Learning Objectives
+
+- Get comfortable with tools used in real-world development, such as Git, GitHub, and an IDE.
+- Break down large functions that handle multiple responsibilities into smaller functions that each do one thing well.
+- Learn how to use testing tools and verify that your program works correctly.
 
 ## Features to Implement
 
