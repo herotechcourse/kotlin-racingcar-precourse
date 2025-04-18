@@ -44,5 +44,6 @@
     - [x] print round result
         - [] print participants in order to input order 
     - [x] print winners
+    - [x] RaceResultDto
 
-- [x] RaceResultDto
+- [] race controller
