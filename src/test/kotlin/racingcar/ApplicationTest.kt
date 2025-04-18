@@ -9,21 +9,54 @@ import org.junit.jupiter.api.assertThrows
 
 class ApplicationTest : NsTest() {
     @Test
-    fun `feature test`() {
+    fun `should determine winner correctly for single round`() {
         assertRandomNumberInRangeTest(
             {
                 run("pobi,woni", "1")
                 assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
             },
-            MOVING_FORWARD,
-            STOP,
+            MOVING_FORWARD, STOP
         )
     }
 
     @Test
-    fun `exception test`() {
+    fun `should throw exception for invalid car names`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `should handle multiple rounds correctly`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni,jun", "3")
+                assertThat(output()).contains(
+                    "pobi : -",
+                    "woni : -",
+                    "jun : -",
+                    "Winners : pobi, woni, jun"
+                )
+            },
+            MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP
+        )
+    }
+
+    @Test
+    fun `should handle single car race`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi", "2")
+                assertThat(output()).contains("pobi : --", "Winners : pobi")
+            },
+            MOVING_FORWARD, MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun `should throw exception for invalid input format`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,,woni", "2") }
         }
     }
 
