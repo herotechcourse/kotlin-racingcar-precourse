@@ -1,8 +1,8 @@
-package racingcar
+package racingcar.io
 
 import racingcar.domain.Car
 
-class ResultPrinter : Printer{
+class ResultPrinter : Printer {
     override fun printCurrentCarPosition(cars: List<Car>) {
         for (car in cars) {
             println(car.getName() + " : " + "-".repeat(car.getPosition()))

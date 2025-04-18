@@ -1,6 +1,6 @@
 package racingcar.domain
 
-import racingcar.Printer
+import racingcar.io.Printer
 
 class RaceGame(
     private val cars: List<Car>,

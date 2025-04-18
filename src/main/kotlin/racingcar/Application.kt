@@ -1,6 +1,8 @@
 package racingcar
 
 import racingcar.domain.*
+import racingcar.io.InputHandler
+import racingcar.io.ResultPrinter
 
 fun main() {
     val inputHandler = InputHandler()

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test
 import racingcar.domain.Car
 import racingcar.domain.Engine
 import racingcar.domain.RaceGame
+import racingcar.io.Printer
 
 class RaceGameTest {
 
