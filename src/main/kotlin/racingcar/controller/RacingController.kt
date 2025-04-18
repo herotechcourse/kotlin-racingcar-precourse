@@ -20,9 +20,12 @@ class RacingController(
 
         val roundCount = roundCountInput.toInt()
 
-        OutputView.printStartMessage()
+        outputView.printStartMessage()
         val game = RacingGame(cars, roundCount)
         game.start()
+
+        val winners = game.getWinners()
+        outputView.printWinners(winners)
 
     }
 
