@@ -32,13 +32,17 @@ fun main() {
     val carNames = inputCarNames()
     val round = inputRoundNum()
 
+    println()
+    println("Race Results")
     val cars= carNames.map{ Car(it)}
     repeat(round){
         cars.forEach {it.move()}
         cars.forEach { it.printPosition() }
         println()
     }
-    println("Car Names: ${carNames.joinToString(", ")}")
-    println("Number of Rounds: $round")
+    val maxPosition = cars.maxOf {it.position}
+    val winners = cars.filter{ it.position == maxPosition}.map{it.name}
 
+
+    println("Winners : ${winners.joinToString(", " )}")
 }
