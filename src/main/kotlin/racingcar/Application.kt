@@ -34,4 +34,6 @@ fun validateName(name: String) {
 
 fun readRoundsFromConsole(): Int {
     val input = Console.readLine() ?: throw IllegalArgumentException("Input cannot be null")
+    val rounds = input.trim().toIntOrNull() ?: throw IllegalArgumentException("Rounds must be a number")
+    return if (rounds >= 0) return rounds else throw IllegalArgumentException("Rounds must be a positive number.")
 }
