@@ -4,10 +4,11 @@ import racingcar.car.Car
 import racingcar.ui.InputView
 import racingcar.ui.OutputView
 
-class Race {
-    private val outputView = OutputView()
-    private val inputView = InputView()
-    private val winner = Winner()
+class Race (
+    private val outputView: OutputView,
+    private val inputView: InputView,
+    private val winner: Winner
+){
     fun run(){
         val cars:List<Car> = inputView.getCars()
         val rounds = inputView.getRounds()

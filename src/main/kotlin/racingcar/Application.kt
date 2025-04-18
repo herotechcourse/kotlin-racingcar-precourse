@@ -1,10 +1,8 @@
 package racingcar
 
-import racingcar.domain.Race
-import racingcar.ui.InputView
-
 fun main() {
     // TODO: Implement the program
-    val race = Race()
+    val appConfig = AppConfig()
+    val race = appConfig.race()
     race.run()
 }
