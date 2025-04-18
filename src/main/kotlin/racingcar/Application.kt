@@ -16,7 +16,7 @@ fun main() {
         println("Race Results")
         for (car in cars) {
             carPositions[car] = generateRandomNumbers(carPositions[car]!!)
-            println("$car: ${"-".repeat(carPositions[car]!!)}")
+            println("$car : ${"-".repeat(carPositions[car]!!)}")
         }
     }
 

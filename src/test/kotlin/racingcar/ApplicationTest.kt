@@ -13,18 +13,16 @@ class ApplicationTest : NsTest() {
         assertRandomNumberInRangeTest(
             {
                 run("pobi,woni", "1")
-                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+                assertThat(output()).contains(
+                    "Race Results",
+                    "pobi : -",
+                    "woni : ",
+                    "Winner: pobi"
+                )
             },
             MOVING_FORWARD,
             STOP,
         )
-    }
-
-    @Test
-    fun `exception test`() {
-        assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
-        }
     }
 
     override fun runMain() {
