@@ -5,6 +5,7 @@ import kotlin.IllegalArgumentException
 
 fun main() {
     val cars = readCarNamesFromConsole()
+    val rounds = readRoundsFromConsole()
 }
 fun readCarNamesFromConsole(): List<Car> {
     val input = Console.readLine() ?: throw IllegalArgumentException("Input cannot be null")
@@ -29,4 +30,8 @@ fun validateName(name: String) {
     if (name.isBlank() || name.length > 5) {
         throw IllegalArgumentException("Car name must be non-empty and name cannot exceed 5 characters")
     }
+}
+
+fun readRoundsFromConsole(): Int {
+    val input = Console.readLine() ?: throw IllegalArgumentException("Input cannot be null")
 }
