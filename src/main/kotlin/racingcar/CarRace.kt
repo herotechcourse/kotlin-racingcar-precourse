@@ -4,15 +4,16 @@ import camp.nextstep.edu.missionutils.Randoms
 
 
 class CarRace {
-    fun run(carList: List<String>,roundCnt: Int): MutableMap<String, String> {
+    fun run(carList: List<String>,roundCnt: String): MutableMap<String, String> {
         var roundResult= mutableMapOf<String,String>()
         var carDirect=carRace(carList)
+        val roundCntToInt=roundCnt.toInt()
         val result=Display()
 
         carDirect.forEach{
             roundResult[it.key] = ""
         }
-        for(i in 0 until roundCnt){
+        for(i in 0 until roundCntToInt){
             roundResult=explainRace(carDirect,roundResult)
             result.printRound(roundResult)
             carDirect=carRace(carList)
@@ -21,7 +22,7 @@ class CarRace {
     }
 
 
-    fun carRace(carList:List<String>): MutableMap<String,String>{ //Call carRandomNumber pick function
+    private fun carRace(carList:List<String>): MutableMap<String,String>{ //Call carRandomNumber pick function
 
         val carDir = mutableMapOf<String,String>()
         for (car in carList){
@@ -31,7 +32,7 @@ class CarRace {
         return carDir
     }
 
-    fun eachCar(): String {
+    private fun eachCar(): String {
 
         val randomNum= Randoms.pickNumberInRange(0,9)
         return if (randomNum>=4)
@@ -43,7 +44,7 @@ class CarRace {
         }
     }
 
-    fun explainRace(carDirect:Map<String,String>,roundResult:MutableMap<String,String>) : MutableMap<String,String>{
+    private fun explainRace(carDirect:Map<String,String>, roundResult:MutableMap<String,String>) : MutableMap<String,String>{
         carDirect.forEach {
             roundResult[it.key]+=forwardDirect(it.value)
         }
@@ -51,7 +52,7 @@ class CarRace {
         return roundResult
     }
 
-    fun forwardDirect(direct: String): String{
+    private fun forwardDirect(direct: String): String{
         if (direct == "MOVING_FORWARD") {
             return "-"
         }
