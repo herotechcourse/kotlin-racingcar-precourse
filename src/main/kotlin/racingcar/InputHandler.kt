@@ -2,15 +2,13 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Console
 
-class InputHandler {
-    companion object {
-        private const val MIN_CAR_NAMES = 2
-        private const val MAX_CAR_NAMES = 20
-        private const val MIN_ROUNDS = 1
-        private const val MAX_ROUNDS = 100
-        private const val MIN_CHARS = 1
-        private const val MAX_CHARS = 5
-    }
+object InputHandler {
+    private const val MAX_CAR_NAMES = 20
+    private const val MIN_CAR_NAMES = 2
+    private const val MIN_ROUNDS = 1
+    private const val MAX_ROUNDS = 100
+    private const val MIN_CHARS = 1
+    private const val MAX_CHARS = 5
 
     fun readAndValidateCarNames() : List<String> {
         println("Enter the names of the cars (comma-separated):")
