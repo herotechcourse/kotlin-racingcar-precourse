@@ -15,6 +15,9 @@ object InputHandler {
         val rawCarNames = Console.readLine()
         val carNameList = rawCarNames.split(",")
 
+        require (rawCarNames.isNotEmpty()) {
+            "No car names provided."
+        }
         require (carNameList.size >= MIN_CAR_NAMES) {
             "At least $MIN_CAR_NAMES car names required."
         }
@@ -33,8 +36,11 @@ object InputHandler {
         val rawRounds = Console.readLine()
         val rounds = rawRounds.toIntOrNull()
 
+        require (rawRounds.isNotEmpty()) {
+            "No number provided."
+        }
         require (rounds != null) {
-            "Rounds must be an Integer number."
+            "Input must be an Integer number."
         }
         require (rounds in MIN_ROUNDS..MAX_ROUNDS) {
             "Only rounds in range $MIN_ROUNDS - $MAX_ROUNDS accepted."
@@ -44,11 +50,15 @@ object InputHandler {
     }
 
     private fun validateCarName(carName: String) {
+        require (carName.isNotEmpty()) {
+            "Car name cannot be empty and no trailing commas allowed."
+        }
         require (carName.length in MIN_CHARS..MAX_CHARS) {
             "Each car name must be between $MIN_CHARS and $MAX_CHARS characters."
         }
         require (carName.all { it.isLetterOrDigit() }) {
-            "Car name can only contain letters and digits"
+            "Car name can only contain letters and digits. " +
+                    "No spaces or special characters allowed."
         }
     }
 }
