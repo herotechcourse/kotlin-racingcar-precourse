@@ -3,7 +3,7 @@ package racingcar.model
 class Cars (private val cars:List<Car>){
 
     companion object{
-        fun generate(names:List<String>):Cars{
+        fun from(names:List<String>):Cars{
             return Cars(names.map { Car(it.trim()) })
         }
     }
@@ -22,6 +22,7 @@ class Cars (private val cars:List<Car>){
         }
         return winners
     }
+    fun getCars() :List<Car> = cars
 
 
 }
