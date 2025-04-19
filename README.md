@@ -1,8 +1,8 @@
 # kotlin-racingcar-precourse
 ## Functional Requirements
-- [ ] The user should be able to specify car names and the number of rounds.
-   - [ ] Car names should be comma-separated when entered by the user.
-   - [ ] Each car must have a name, and names cannot exceed 5 characters.
+- [x] The user should be able to specify car names and the number of rounds.
+   - [x] Car names should be comma-separated when entered by the user.
+   - [x] Each car must have a name, and names cannot exceed 5 characters.
 - [x] Each of the n cars can either move forward or stay still during a given number of rounds.
 - [x] A car moves forward if a randomly generated number between 0 and 9 is 4 or greater.
 - [ ] When printing the progress of each car, display the car's name alongside its movement.
