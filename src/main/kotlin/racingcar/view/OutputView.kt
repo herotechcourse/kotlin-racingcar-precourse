@@ -23,8 +23,7 @@ object OutputView {
     // prints the winner(s) after the race is over
     fun printWinners(winners: List<Car>) {
         val winnerNames = winners.joinToString(", ") { it.name }
-        val label = if (winners.size > 1) "Winners" else "Winner"
-        println("$label : $winnerNames")
+        println("Winners : $winnerNames")
     }
 
 }
