@@ -57,6 +57,15 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `exception test - empty inputs`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                run("", "")
+            }
+        }
+    }
+
     override fun runMain() {
         main()
     }
