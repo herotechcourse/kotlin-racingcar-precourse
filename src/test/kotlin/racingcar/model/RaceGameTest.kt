@@ -32,8 +32,8 @@ class RaceGameTest {
         val winners = raceGame.getWinners()
 
         assertThat(winners).hasSize(1)
-        assertThat(winners).contains(car1)
-        assertThat(winners).doesNotContain(car2, car3)
+        assertThat(winners).contains(car1.name)
+        assertThat(winners).doesNotContain(car2.name, car3.name)
     }
 
     @Test
@@ -49,8 +49,8 @@ class RaceGameTest {
         val winners = raceGame.getWinners()
 
         assertThat(winners).hasSize(2)
-        assertThat(winners).contains(car1, car2)
-        assertThat(winners).doesNotContain(car3)
+        assertThat(winners).contains(car1.name, car2.name)
+        assertThat(winners).doesNotContain(car3.name)
     }
 
     @Test
@@ -58,10 +58,13 @@ class RaceGameTest {
     fun raceRunForSpecifiedRounds() {
         val alwaysMoveGame = RaceGame(cars, 3) { 5 }
 
-        alwaysMoveGame.startRace()
-        assertThat(car1.position).isEqualTo(3)
-        assertThat(car2.position).isEqualTo(3)
-        assertThat(car3.position).isEqualTo(3)
+        alwaysMoveGame.startRound()
+
+        assertThat(alwaysMoveGame.isRaceEnd()).isFalse()
+
+        repeat(4) { alwaysMoveGame.startRound() }
+
+        assertThat(alwaysMoveGame.isRaceEnd()).isTrue()
     }
 
     @Test
@@ -69,14 +72,14 @@ class RaceGameTest {
     fun moveCarOnlyWhenRandomNumberIsAtLeast4() {
         val neverMoveGame = RaceGame(cars, 1) { 3 }
 
-        neverMoveGame.startRace()
+        neverMoveGame.startRound()
         assertThat(car1.position).isEqualTo(0)
         assertThat(car2.position).isEqualTo(0)
         assertThat(car3.position).isEqualTo(0)
 
         val alwaysMoveGame = RaceGame(cars, 1) { 4 }
 
-        alwaysMoveGame.startRace()
+        alwaysMoveGame.startRound()
         assertThat(car1.position).isEqualTo(1)
         assertThat(car2.position).isEqualTo(1)
         assertThat(car3.position).isEqualTo(1)
