@@ -8,13 +8,7 @@ class RacingGame(val carNames: List<String>, val round: Int) {
     fun startGame() {
         println("Race Results")
         for (i in 1..round) {
-            for (car in cars){
-                val randomNum = generateRandomNumber()
-                car.moveForward(randomNum)
-            }
-            for (car in cars){
-                car.displayPosition()
-            }
+            executeRound()
             println()
         }
         val maxPosition = cars.maxOf { it.getPosition() }
@@ -22,6 +16,16 @@ class RacingGame(val carNames: List<String>, val round: Int) {
         val winnerNames = winnerCars.joinToString(", ") { it.getName() }
 
         println("Winners : $winnerNames")
+    }
+
+    private fun executeRound() {
+        for (car in cars){
+            val randomNum = generateRandomNumber()
+            car.moveForward(randomNum)
+        }
+        for (car in cars){
+            car.displayPosition()
+        }
     }
 
     private fun generateRandomNumber(): Int{
