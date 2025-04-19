@@ -1,24 +1,11 @@
 package racingcar.domain
 
-class Position(private var value: Int) {
-    fun increase() {
-        value++
+data class Position(private val value: Int) {
+    fun increase(): Position {
+        return Position(value + 1)
     }
 
     fun toInt(): Int {
-        return value
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as Position
-
-        return value == other.value
-    }
-
-    override fun hashCode(): Int {
         return value
     }
 }

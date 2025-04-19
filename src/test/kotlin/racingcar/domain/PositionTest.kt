@@ -9,8 +9,8 @@ class PositionTest {
     fun `increase car position by 1`() {
         val position = Position(0)
 
-        position.increase()
+        val increasedPosition = position.increase()
 
-        assertEquals(1, position.toInt())
+        assertEquals(Position(1), increasedPosition)
     }
 }

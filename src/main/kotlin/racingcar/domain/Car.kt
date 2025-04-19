@@ -5,7 +5,7 @@ class Car(val name: CarName, private val powerGenerator: PowerGenerator) {
 
     fun move() {
         if (canMove()) {
-            position.increase()
+            position = position.increase()
         }
     }
 
