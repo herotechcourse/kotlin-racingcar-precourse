@@ -110,25 +110,6 @@ class CarTest : NsTest() {
         )
     }
 
-    // TODO: currently throwing exception for non-positive input for rounds
-    // keep test case for different handling of 0 rounds in the future
-    @Test
-    fun `raceCars should not race when rounds is zero`() {
-        val cars = Car.createCars(listOf("lisa", "jim"))
-
-        assertSimpleTest {
-            Car.raceCars(cars, 0)
-
-            assertThat(cars[0].position).isEqualTo(0)
-            assertThat(cars[1].position).isEqualTo(0)
-
-            assertThat(output()).doesNotContain("Race Results")
-            assertThat(output()).doesNotContain("lisa :")
-            assertThat(output()).doesNotContain("jim :")
-            assertThat(output()).doesNotContain("-")
-        }
-    }
-
     @Test
     fun `printWinners should print the winner when there is a single winner`() {
         val cars = listOf(

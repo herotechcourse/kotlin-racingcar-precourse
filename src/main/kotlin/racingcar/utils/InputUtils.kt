@@ -55,6 +55,8 @@ object InputUtils {
             throw IllegalArgumentException("Number of rounds must be a positive integer")
         }
 
+        println()
+
         return rounds
     }
 }

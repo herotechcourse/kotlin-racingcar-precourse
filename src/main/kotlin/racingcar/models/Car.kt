@@ -25,10 +25,6 @@ class Car(val name: String, var position: Int = 0) {
         }
 
         fun raceCars(cars: List<Car>, rounds: Int) {
-            // TODO: currently throwing exception for non-positive input for rounds
-            // decide whether handling of 0 rounds here instead is better
-            if (rounds == 0)
-                return
             println("Race Results")
             repeat(rounds) {
                 for (car in cars) {
@@ -54,7 +50,9 @@ class Car(val name: String, var position: Int = 0) {
                 }
             }
             winners = winners.dropLast(2)
-            print(winners) // Assumption: no newline at the end of the output needed
+            // Assumption: the output in the example execution in the
+            // input/output requirements does not include a newline at the end
+            print(winners)
         }
     }
 }

@@ -7,13 +7,13 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.assertThrows
 
 class InputUtilsTest : NsTest() {
-    // This test verifies that valid car names are parsed correctly by checking console output
-    // Note: It will become obsolete as printing the carNames list to the console is not required
     @Test
     fun `read valid car names`() {
         assertSimpleTest {
             run("lisa,jim,tommy", "5")
-            assertThat(output()).contains("carNames: [lisa, jim, tommy]")
+            assertThat(output()).contains("lisa")
+            assertThat(output()).contains("jim")
+            assertThat(output()).contains("tommy")
         }
     }
 
@@ -57,7 +57,7 @@ class InputUtilsTest : NsTest() {
     fun `read valid number of rounds`() {
         assertSimpleTest {
             run("lisa,jim,tommy", "5")
-            assertThat(output()).contains("rounds: 5")
+            assertThat(output().split("lisa :").size - 1).isEqualTo(5)
         }
     }
 

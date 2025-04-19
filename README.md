@@ -1,6 +1,8 @@
 # kotlin-racingcar-precourse
 
-Introduction: tbd
+This is the submission for the first week's mission of the pre-course for the "Hero Tech Course: Berlin Edition" by [Deniz](https://github.com/deniz-oezdemir).
+
+The project is a console-based Kotlin application that runs a simple car racing game. After the user enters car names and the number of rounds, the program simulates the race, shows the race progression, and prints the final results.
 
 ## Feature List
 
