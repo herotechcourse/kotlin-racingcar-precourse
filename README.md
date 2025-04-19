@@ -11,7 +11,9 @@
 - [ ] If the user inputs invalid data, the program should throw an IllegalArgumentException and terminate.
 
 ## Function List
+### `Car`
 - [x] Car have a name.
+- [x] Car name cannot exceed 5 characters.
 - [x] Car have a position and default position is 0.
 - [x] If the given number is 4 or more, the car moves.
 

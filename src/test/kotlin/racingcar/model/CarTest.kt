@@ -2,11 +2,12 @@ package racingcar.model
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 
 class CarTest {
-    @ValueSource(strings = ["alsong", "dalsong", "hasong", "tosong"])
+    @ValueSource(strings = ["al", "song", "A", "ABCDE"])
     @ParameterizedTest
     fun `car has a name`(names: String) {
         // given
@@ -15,6 +16,16 @@ class CarTest {
         // then
         assertThat(alsongCar.name).isEqualTo(names)
     }
+
+    @ValueSource(strings = ["abcdef", "alsong", "dalsong", "hasong"])
+    @ParameterizedTest
+    fun `if car name exceed 5 characters, exception has to be thrown`(name: String) {
+        // then
+        assertThrows<IllegalArgumentException> {
+            Car(name)
+        }
+    }
+
 
     @Test
     fun `car has a position and default position is 0`() {
