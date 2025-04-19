@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 
 class CarTest {
     @Test
-    fun `car move test true`() {
+    fun `car move`() {
         val car = Car("car")
         assertTrue(car.position == 0)
         car.move(true)
@@ -14,7 +14,7 @@ class CarTest {
     }
 
     @Test
-    fun `car move test false`() {
+    fun `car don't move`() {
         val car = Car("car")
         assertTrue(car.position == 0)
         car.move(false)
@@ -22,20 +22,20 @@ class CarTest {
     }
 
     @Test
-    fun `car print result test no round`() {
+    fun `print car result just after initializing`() {
         val car = Car("car")
         assertThat(car.toString()).contains("car : ")
     }
 
     @Test
-    fun `car print result test one round`() {
+    fun `print car result after car moved once`() {
         val car = Car("car")
         car.move(true)
         assertThat(car.toString()).contains("car : -")
     }
 
     @Test
-    fun `car print result test two round`() {
+    fun `print car result after car moved two times`() {
         val car = Car("car")
         repeat(2) {
             car.move(true)
