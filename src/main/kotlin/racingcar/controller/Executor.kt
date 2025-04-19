@@ -16,11 +16,11 @@ class Executor(private val view: Display){
 
     fun race() {
         val race = Race()
-        //println("\nRace Results")
+        println("\nRace Results")
         repeat(rounds) {
             race.executeOneRound(cars)
-        //    cars.forEach { println(it.toRaceResult()) }
-        //    println()
+            cars.forEach { println(it.toRaceResult()) }
+            println()
         }
     }
 }
