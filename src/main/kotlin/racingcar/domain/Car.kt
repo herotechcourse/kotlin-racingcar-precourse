@@ -1,6 +1,6 @@
 package racingcar.domain
 
-class car {
+class Car {
     var score = mutableMapOf<String, Int>();
 
     fun addScore(carName: String) : Unit {
