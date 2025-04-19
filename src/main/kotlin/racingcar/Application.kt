@@ -17,6 +17,17 @@ fun main() {
         names.add(carName)
     }
     //println(names)
+
+    val cars = names.map { Car(it, numberOfRounds) }
+    println("Race Results")
+
+    for (i in 0 until numberOfRounds) {
+        for (car in cars) {
+            print("${car.carName} : ")
+            car.moveCar()
+        }
+        println()
+    }
 }
 
 //Function to remove Whitespaces
@@ -35,6 +46,7 @@ class Car(val carName:String, val rounds:Int) {
         getSpeed()
         if (speed >= 4) {
             movement.add('-')
+            displacement++
         }
         println(movement.joinToString(""))
     }
