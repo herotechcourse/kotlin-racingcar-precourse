@@ -1,6 +1,24 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
+
+data class Car(val name: String, var position: Int = 0)
+
+fun moveCars(cars: List<Car>) {
+	for (car in cars) {
+		val random = Randoms.pickNumberInRange(0, 9)
+		if (random >= 4) {
+			car.position += 1
+		}
+	}
+}
+
+fun printPositions(cars: List<Car>) {
+	for (car in cars) {
+		println("${car.name} : ${"-".repeat(car.position)}")
+	}
+}
 
 class Application {
 	companion object {
@@ -40,6 +58,23 @@ class Application {
 				throw IllegalArgumentException("The number of rounds must be at least 1 and positive.")
 			}
 			println("Number of rounds: $rounds_input")
+
+			val cars_list = cars_trim.map{Car(it)}
+
+			println()
+			println("Race Results")
+
+			for (round in 1..rounds_toInt) {
+				moveCars(cars_list)
+				printPositions(cars_list)
+				println()
+			}
+
+			val max_pos = cars_list.maxOf{it.position}
+			val winning_car = cars_list.filter{it.position == max_pos}
+			val winner = winning_car.map{it.name}
+
+			println("Winners: ${winner.joinToString(", ")}")
 		}
 	}
 }
