@@ -10,14 +10,20 @@ object InputHandler {
     private const val MIN_CHARS = 1
     private const val MAX_CHARS = 5
 
-    fun readAndValidateCarNames() : List<String> {
+    fun readCarNames() : String {
         println("Enter the names of the cars (comma-separated):")
         val rawCarNames = Console.readLine()
-        val carNameList = rawCarNames.split(",")
 
         require (rawCarNames.isNotEmpty()) {
             "No car names provided."
         }
+
+        return rawCarNames
+    }
+
+    fun validateCarNames(rawCarNames : String) : List<String> {
+        val carNameList = rawCarNames.split(",")
+
         require (carNameList.size >= MIN_CAR_NAMES) {
             "At least $MIN_CAR_NAMES car names required."
         }
@@ -31,14 +37,20 @@ object InputHandler {
         return carNameList
     }
 
-    fun readAndValidateRounds() : Int {
+    fun readRounds() : String {
         println("How many rounds will be played?")
         val rawRounds = Console.readLine()
-        val rounds = rawRounds.toIntOrNull()
 
         require (rawRounds.isNotEmpty()) {
             "No number provided."
         }
+
+        return rawRounds
+    }
+
+    fun validateRounds(rawRounds : String) : Int {
+        val rounds = rawRounds.toIntOrNull()
+
         require (rounds != null) {
             "Input must be an Integer number."
         }
