@@ -28,3 +28,27 @@
 * [x] When printing the progress of each car, the car's name must be displayed alongside its movement.
 * [x] After the race is complete, the winners must be displayed.
 * [x] If there are multiple winners, their names must be separated by commas.
+
+---
+
+### Commit Scopes Convention
+
+To make it easier to trace commits and match them with the feature specification, the following scope conventions are
+used in commit messages:
+
+| Scope    | Description                                                                                                |
+|----------|------------------------------------------------------------------------------------------------------------|
+| `domain` | Changes related to core business logic and domain rules (e.g. race rules, car behavior, round processing). |
+| `input`  | Parsing and validation of user inputs (e.g. car names, round count).                                       |
+| `output` | Printing the game progress and results (e.g. car positions, winners).                                      |
+| `readme` | Updates to documentation files such as `README.md` or spec clarifications.                                 |
+
+#### Example:
+
+```bash
+feat(domain): add race progression logic
+
+feat(input): add reading car names features
+
+docs(readme): add input constraints
+```
