@@ -5,4 +5,5 @@ fun main() {
     game.inputCarNames()
     game.inputRoundCount()
     game.race()
+    game.printWinners()
 }
