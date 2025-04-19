@@ -8,7 +8,6 @@ package racingcar
  * @description    :
  */
 class Output {
-
     fun displayRaceResults(raceResultsMap: MutableMap<String, MutableList<String>>) {
         val rounds = raceResultsMap.values.first().size
         for(i in 0 until rounds) {
@@ -18,11 +17,6 @@ class Output {
             println()
         }
     }
-
-//    fun displayRaceResults(raceResult: String) {
-//        println(raceResult)
-//        println()
-//    }
 
     fun displayWinners(winners: String) {
         println("Winners: ${winners}")
