@@ -1,27 +1,21 @@
 package racingcar
-import camp.nextstep.edu.missionutils.Console
-
-fun getNumberOfRounds(): Int {
-    val input = readRoundInput()
-    return parseRoundInput(input)
-}
-
-fun readRoundInput(): String {
-    println("How many rounds will be played?")
-    return Console.readLine()
-}
 
 fun parseRoundInput(input: String): Int {
     if (input.isBlank()) {
         throw IllegalArgumentException("Round input cannot be blank.")
     }
+    return try {
+        input.toInt()
+    } catch (e: NumberFormatException) {
+        throw IllegalArgumentException("Round input must be a valid number.")
+    }
+}
 
-    val number = input.toIntOrNull()
-        ?: throw IllegalArgumentException("Round input must be a valid number.")
-
+fun validateRoundNum(number: Int) {
     if (number <= 0) {
         throw IllegalArgumentException("Number of rounds must be greater than zero.")
     }
-
-    return number
+    if (number >= 100) {
+        throw IllegalArgumentException("Number of rounds must be less than 100.")
+    }
 }

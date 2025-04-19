@@ -1,17 +1,4 @@
 package racingcar
-import camp.nextstep.edu.missionutils.Console
-
-fun getCarNames(): List<String> {
-    val input = readNameInput()
-    val carNames = splitCarNames(input)
-    validateCarNames(carNames)
-    return carNames
-}
-
-fun readNameInput(): String {
-    println("Enter the names of the cars (comma-separated):")
-    return Console.readLine()
-}
 
 fun splitCarNames(input: String): List<String> {
     if (input.isBlank()) {
