@@ -20,10 +20,10 @@ class Cars(private val cars: List<Car>) {
 
     fun winners(): List<Car> {
         val maxPosition = cars.maxOf { it.position.value }
-        return cars.filter { car -> car.position.value == maxPosition }.toList()
+        return cars.filter { it.position.value == maxPosition }
     }
 
     fun getCarStatuses(): List<CarStatus> {
-        return cars.map { CarStatus(it.name, it.position) }.toList()
+        return cars.map { CarStatus(it.name, it.position) }
     }
 }
