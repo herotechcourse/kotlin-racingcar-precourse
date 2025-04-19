@@ -10,9 +10,8 @@ object InputView {
         return input.split(",").map { it.trim() }
     }
 
-    fun getTotalRound(): Int {
+    fun getTotalRound(): String {
         println("How many rounds will be played?")
-        val input = Console.readLine().toInt()
-        return input
+        return Console.readLine()
     }
 }
