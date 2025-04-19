@@ -1,9 +1,8 @@
+package racingcar
+
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.assertj.core.api.Assertions.assertThat
-import racingcar.Car
-import racingcar.OutputHandler
-import racingcar.RacingGame
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 

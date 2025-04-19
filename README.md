@@ -49,16 +49,16 @@ A simple Kotlin implementation of a car racing game with name validation.
     * Printing single winner in the correct format
     * Printing multiple winners in the correct format
 
-## 6. Add tests to the Racing game classs
+## 6. Add tests to the Racing game class
+
 * Ensure the racing game class calls the relevant functions  and prints the results correctly
+
+## 7. Add car tests
 
 ## Tests
 
 ### Input Handler Tests
 
 Test cases to ensure proper name parsing and validation.
-They can be run individually with the command:
-
- `./gradlew test --tests "racingcar.InputHandlerTest"`
 
 
