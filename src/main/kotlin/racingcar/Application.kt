@@ -6,15 +6,11 @@ import camp.nextstep.edu.missionutils.Console
 class Application {
     fun main() {
         println("Enter the names of the cars (comma-separated):")
-        val carNames = Console.readLine()
-        if (carNames == "pobi,javaji") {
-            throw IllegalArgumentException("Exception")
-        }
+        val carNames = parseCarNamesInput(Console.readLine())
+        val cars = carNames.map { Car(it) }
 
         println("How many rounds will be played?")
         val rounds = Console.readLine().toInt()
-        
-        val cars = carNames.split(",").map { Car(it) }
 
         // mock the winner
         // Replace this with actual race logic
@@ -26,6 +22,14 @@ class Application {
 
         printRaceResults(cars)
         printRaceWinners(winners)
+    }
+
+    private fun parseCarNamesInput(input: String): List<String> {
+        if (!input.contains(",")) {
+            throw IllegalArgumentException("Car names should be comma-separated.")
+        }
+        val carNames = input.split(",").map { it.trim() }
+        return carNames
     }
 
     private fun printRaceResults(results: List<Car>) {

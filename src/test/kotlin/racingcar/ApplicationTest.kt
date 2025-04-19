@@ -27,6 +27,14 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `should throw exception if car list is not comma-separated`() {
+        assertSimpleTest {
+            val exception = assertThrows<IllegalArgumentException> { runException("pobijavaji", "1") }
+            assertThat(exception.message).isEqualTo("Car names should be comma-separated.")
+        }
+    }
+
     override fun runMain() {
         main()
     }
