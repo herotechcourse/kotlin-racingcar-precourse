@@ -16,11 +16,11 @@ class Validator {
     }
 
     companion object {
-        const val INVALID_NAMES_BLANK = "Error: Car name cannot be blank"
-        const val INVALID_NAMES_DUPLICATES = "Error: Car names duplicated"
-        const val INVALID_NAMES_NUMBER = "Error: There should be at least two cars"
-        const val INVALID_NAMES_LENGTH = "Error: Car name must be 5 characters or shorter"
-        const val INVALID_ROUNDS = "Error: The number of rounds must be a digit"
-        const val INVALID_ROUNDS_MIN = "Error: The number of rounds must be 1 or greater"
+        const val INVALID_NAMES_BLANK = "[Error] Car name cannot be blank"
+        const val INVALID_NAMES_DUPLICATES = "[Error] Car names duplicated"
+        const val INVALID_NAMES_NUMBER = "[Error] There should be at least two cars"
+        const val INVALID_NAMES_LENGTH = "[Error] Car name must be 5 characters or shorter"
+        const val INVALID_ROUNDS = "[Error] The number of rounds must be an integer"
+        const val INVALID_ROUNDS_MIN = "[Error] The number of rounds must be 1 or greater"
     }
 }

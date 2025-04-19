@@ -9,7 +9,6 @@ interface Display {
 class ConsoleDisplay : Display {
     private val validator = Validator()
 
-    // For getValidNames
     override fun getValidNames(): List<String> {
         println("Enter the names of the cars (comma-separated):")
         val input = Console.readLine()
