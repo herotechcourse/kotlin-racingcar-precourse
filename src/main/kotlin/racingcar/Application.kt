@@ -17,7 +17,7 @@ fun main() {
 }
 
 private fun createCars(carNames: List<String>) =
-    carNames.map { CarName(it) }.map { Car(it, RandomPowerGenerator()) }.toList()
+    carNames.map { CarName(it) }.map { Car(it, RandomPowerGenerator()) }
 
 private fun printResults(raceResults: RaceResults) {
     val outputView = OutputView()
