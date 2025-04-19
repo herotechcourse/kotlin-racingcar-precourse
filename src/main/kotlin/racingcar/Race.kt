@@ -29,6 +29,7 @@ class Race(
             }
         }
         // display progress after each round
+        RaceDisplay.displayLapProgress(this.cars)
     }
 
     private fun canMove(): Boolean{

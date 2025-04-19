@@ -1,11 +1,11 @@
 package racingcar
 
 object RaceDisplay {
-    fun displayLapProgress(cars: List<Race>){
+    fun displayLapProgress(cars: List<Car>){
 
     }
 
-    fun displayRaceWinners(cars: List<Race>, maxPosition: Int){
+    fun displayRaceWinners(cars: List<Car>, maxPosition: Int){
 
     }
 }
