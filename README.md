@@ -24,3 +24,4 @@
 1. **Output Format**
     * Show round-by-round progress with car names and positions
     * Clearly announce the winner(s)
+1. **Add Test validation and race logic**
