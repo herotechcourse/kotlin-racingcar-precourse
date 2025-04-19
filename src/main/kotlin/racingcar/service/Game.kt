@@ -24,6 +24,6 @@ class Game (
 
     fun printWinners() {
         val winners = race.getWinners().map { it.getName() }
-        println("Winners : ${winners.joinToString {", "}}")
+        println("Winners : ${winners.joinToString (", ")}")
     }
 }
