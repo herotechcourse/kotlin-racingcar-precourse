@@ -10,7 +10,12 @@ fun main() {
     val race = RaceInputHandler.createRace(carNamesInput, roundsInput)
     val raceResult = race.start()
 
-    println("\nRace Results")
+1
+    println("=".repeat(30))
+    println("      Race Results    ")
+    println("=".repeat(30))
+
+
     raceResult.printProgress()
     raceResult.printWinners()
 }
