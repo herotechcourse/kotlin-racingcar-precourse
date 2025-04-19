@@ -5,10 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms
 class Race(val cars: List<Car>,val rounds:Int) {
     fun start(){
         cars.forEach{
-            var randomNumber = Randoms.pickNumberInRange(0,9)
-            if (randomNumber > 4){
-                it.move()
-            }
+            move(it)
         }
         displayCarsPosition()
     }
@@ -25,6 +22,12 @@ class Race(val cars: List<Car>,val rounds:Int) {
             }
         }
         return counter >= 1
+    }
+    fun move(car:Car){
+        var randomNumber = Randoms.pickNumberInRange(0,9)
+        if (randomNumber > 4){
+            car.position++
+        }
     }
 
 }
