@@ -1,9 +1,12 @@
 package racingcar.model
 
-import camp.nextstep.edu.missionutils.Randoms
+import racingcar.model.random.RandomNumberGenerator
 
-class Racetrack(cars: List<Car>) {
+class Racetrack(
+    private val cars: List<Car>,
+    private val randomNumberGenerator: RandomNumberGenerator,
+) {
     fun generateRandomNumber(): Int {
-        return Randoms.pickNumberInRange(0, 9)
+        return randomNumberGenerator.generate()
     }
 }

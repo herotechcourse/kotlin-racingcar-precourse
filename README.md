@@ -19,7 +19,7 @@
 
 ### `Racetrack`
 - [x] Racetrack can generate the random numbers from 0 to 9.
-- [ ] Racetrack decide the winner.
+- [ ] Racetrack can decide the winner.
 
 ## Programming Requirements
 - [ ] The program must be executable with Kotlin 1.9.24.
