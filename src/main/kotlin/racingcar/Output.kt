@@ -8,6 +8,13 @@ class Output(private val round: Round) {
         }
     }
 
+    fun printWinners(carNames: Map<String, Int>) {
+        val winners = round
+            .getWinners(carNames)
+            .joinToString(SEPARATOR)
+        println("Winners : $winners")
+    }
+
     private fun printCarRaceResult(carNames: MutableMap<String, Int>) {
         carNames.forEach { (carName, movementCount) ->
             round.moveCarForward(carNames, carName)
@@ -24,5 +31,6 @@ class Output(private val round: Round) {
 
     companion object {
         private const val MOVEMENT_CHARACTER = "-"
+        private const val SEPARATOR = ", "
     }
 }
