@@ -2,6 +2,7 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import racingcar.ParseAndValidate.parseAndValidateNames
@@ -54,6 +55,30 @@ class ParseAndValidateTest : NsTest()  {
     fun `exception test blank number input`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { parseAndValidateRounds("       ") }
+        }
+    }
+
+    @Test
+    fun `parsing test two car names`() {
+        assertSimpleTest {
+            val names = parseAndValidateNames("mimi,nana")
+            assertThat(names.containsAll(listOf("mimi", "nana")))
+        }
+    }
+
+    @Test
+    fun `parsing test one car names`() {
+        assertSimpleTest {
+            val names = parseAndValidateNames("mimi")
+            assertThat(names.containsAll(listOf("mimi")))
+        }
+    }
+
+    @Test
+    fun `parsing test rounds`() {
+        assertSimpleTest {
+            val rounds = parseAndValidateRounds("5")
+            assertThat(rounds == 5)
         }
     }
 
