@@ -12,10 +12,9 @@ fun main() {
     initializeCarPositions()
     repeat(rounds) {
         moveCars()
+        displayRoundResults()
         println()
     }
-
-    // Announce the winners at the end
 }
 
 fun inputCarNames(): List<String> {
@@ -56,5 +55,11 @@ fun moveCars() {
         if (movement()) {
             carPositions[car] = carPositions[car]!! + 1
         }
+    }
+}
+
+fun displayRoundResults() {
+    for ((car, position) in carPositions) {
+        println("$car: ${"-".repeat(position)}")
     }
 }
