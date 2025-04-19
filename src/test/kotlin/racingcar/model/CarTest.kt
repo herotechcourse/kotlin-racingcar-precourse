@@ -30,7 +30,7 @@ class CarTest {
     @Test
     fun `car has a position and default position is 0`() {
         // given
-        val alsongCar = Car("alsong")
+        val alsongCar = Car("song")
 
         // then
         assertThat(alsongCar.position).isEqualTo(0)
@@ -40,7 +40,7 @@ class CarTest {
     @ParameterizedTest
     fun `if the given number is 4 or more, the car moves`(condition: Int) {
         // given
-        val alsongCar = Car("alsong")
+        val alsongCar = Car("song")
 
         // when
         alsongCar.move(condition)
@@ -53,7 +53,7 @@ class CarTest {
     @ParameterizedTest
     fun `if the given number is 3 or less, the car doesn't move`(condition: Int) {
         // given
-        val alsongCar = Car("alsong")
+        val alsongCar = Car("song")
 
         // when
         alsongCar.move(condition)
