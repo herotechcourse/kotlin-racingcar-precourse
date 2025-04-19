@@ -4,34 +4,41 @@ import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 class GameTest {
+
     @Test
     fun `play returns correct winners with mock generator`() {
         val names = listOf("pobi", "jun")
         val rounds = 3
-        val generator = NumberGenerator { 6 } // force always move
+        val generator = NumberGenerator { 6 }
 
-        val winners = Game.play(names, rounds, generator)
+        val race = Game.play(names, rounds, generator)
+        val winners = race.getWinners().map { it.name }
 
         assertThat(winners).containsExactly("pobi", "jun")
     }
+
     @Test
     fun `car wins by only moving when number is greater than or equal to 4`() {
         val names = listOf("pobi")
-        val generator = NumberGenerator { 4 } // minimum threshold to move
-        val winners = Game.play(names, 2, generator)
+        val generator = NumberGenerator { 4 }
+        val race = Game.play(names, 2, generator)
+        val winners = race.getWinners().map { it.name }
 
         assertThat(winners).containsExactly("pobi")
+        assertThat(race.getCars().first().position).isEqualTo(2)
     }
 
     @Test
     fun `car does not move when number is always less than 4`() {
         val names = listOf("jun")
-        val generator = NumberGenerator { 3 } // always below threshold
-        val winners = Game.play(names, 3, generator)
+        val generator = NumberGenerator { 3 }
+        val race = Game.play(names, 3, generator)
+        val winners = race.getWinners().map { it.name }
 
         assertThat(winners).containsExactly("jun")
-
+        assertThat(race.getCars().first().position).isEqualTo(0)
     }
+
     @Test
     fun `race with empty car list throws exception`() {
         val generator = NumberGenerator { 5 }
@@ -40,5 +47,4 @@ class GameTest {
             Game.play(emptyList(), 3, generator)
         }.isInstanceOf(IllegalArgumentException::class.java)
     }
-
 }
