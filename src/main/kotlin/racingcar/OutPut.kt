@@ -7,11 +7,24 @@ package racingcar
  * @date           : 4/18/25
  * @description    :
  */
-class OutPut {
-    fun displayRaceResults(cars: List<Car>) {
-        cars.forEach {car ->
-            println("${car.name}: ${car.getPositionBar()}")
+class Output {
+
+    fun displayRaceResults(raceResultsMap: MutableMap<String, MutableList<String>>) {
+        val rounds = raceResultsMap.values.first().size
+        for(i in 0 until rounds) {
+            for((car, roundResult) in raceResultsMap) {
+                println("$car: ${roundResult[i]}")
+            }
+            println()
         }
-        println()
+    }
+
+//    fun displayRaceResults(raceResult: String) {
+//        println(raceResult)
+//        println()
+//    }
+
+    fun displayWinners(winners: String) {
+        println("Winners: ${winners}")
     }
 }

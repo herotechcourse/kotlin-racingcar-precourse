@@ -12,23 +12,34 @@ import camp.nextstep.edu.missionutils.Randoms
 class RacingService(val names: List<String>, val round: Int) {
     private val cars: List<Car> = names.map { Car(it) }
     private val output = Output()
+    val raceResultMap = mutableMapOf<String, MutableList<String>>()
+
+    fun addRoundResult(car: String, position: String) {
+        val results = raceResultMap.getOrPut(car) { mutableListOf() }
+        results.add(position)
+    }
 
     fun play() {
         println("Race Results")
-        for (i in 0 until round) {
+        repeat(round) {
             val nums: List<Int> = getRandomNumber(cars.size)
             moveCarForward(nums)
-            val roundRaceResult = getRaceResultString()
-            output.displayRaceResults(roundRaceResult)
         }
+
+//        for (i in 0 until round) {
+//            val roundRaceResult = getRaceResultString()
+//            output.displayRaceResults(roundRaceResult)
+//        }
+        output.displayRaceResults(raceResultMap)
+
         val maxPosition = cars.maxOf { it.getPositionBar() }
         val winners: String = decideWinners(maxPosition)
         output.displayWinners(winners)
     }
 
-    fun decideWinners(max : String): String {
+    fun decideWinners(max: String): String {
         println(max)
-        return cars.filter { it.getPositionBar() == max }.joinToString(", ") {it.name}
+        return cars.filter { it.getPositionBar() == max }.joinToString(", ") { it.name }
     }
 
     fun getRaceResultString(): String {
@@ -38,13 +49,14 @@ class RacingService(val names: List<String>, val round: Int) {
     }
 
     fun moveCarForward(numList: List<Int>) {
-        for(i in 0 until numList.size) {
+        for (i in 0 until numList.size) {
             cars[i].move(numList[i])
+            addRoundResult(cars[i].name, cars[i].getPositionBar())
         }
     }
 
     fun getRandomNumber(carsCount: Int): List<Int> {
-        return List(carsCount){
+        return List(carsCount) {
             Randoms.pickNumberInRange(0, 9)
         }
     }
