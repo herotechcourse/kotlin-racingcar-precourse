@@ -48,6 +48,15 @@ class ApplicationTest : NsTest() {
         )
     }
 
+    @Test
+    fun `exception test - negative rounds`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                run("pobi, woni", "-2")
+            }
+        }
+    }
+
     override fun runMain() {
         main()
     }
