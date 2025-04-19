@@ -4,13 +4,17 @@ import camp.nextstep.edu.missionutils.Randoms
 
 var cars: List<String> = emptyList()
 var rounds: Int = 0
-var move: Boolean = false
+val carPositions: MutableMap<String, Int> = mutableMapOf()
 
 fun main() {
     validateCarName()
     rounds = inputRoundCount()
-    println(movement())
+    initializeCarPositions()
+    repeat(rounds) {
+        moveCars()
 
+
+    }
 }
 
 fun inputCarNames(): List<String> {
@@ -22,9 +26,8 @@ fun inputCarNames(): List<String> {
 fun validateCarName() {
     cars = inputCarNames()
     for (i in cars) {
-        if (i.length > 5){
-
-     throw IllegalArgumentException("Car name cannot be more than 5 characters")
+        if (i.length > 5) {
+            throw IllegalArgumentException("Car name cannot be more than 5 characters")
         }
     }
     return
@@ -36,9 +39,21 @@ fun inputRoundCount(): Int {
     return rounds.toIntOrNull() ?: 0
 }
 
+fun initializeCarPositions() {
+    for (car in cars) {
+        carPositions[car] = 0
+    }
+}
+
 fun movement(): Boolean {
     val randomValue = Randoms.pickNumberInRange(0, 9)
-    if (randomValue >= 4) {
-        move = true}
-    return move
+    return randomValue >= 4
+}
+
+fun moveCars() {
+    for (car in cars) {
+        if (movement()) {
+            carPositions[car] = carPositions[car]!! + 1 
+        }
+    }
 }
