@@ -1,4 +1,4 @@
-package controllers
+package racingcar.controllers
 
 import camp.nextstep.edu.missionutils.Console
 import racingcar.service.CarRaceService
