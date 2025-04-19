@@ -3,6 +3,8 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
+import java.io.ByteArrayOutputStream
+import java.io.PrintStream
 
 class GameLogicTest {
 
@@ -43,5 +45,21 @@ class GameLogicTest {
         val winners = getWinners(cars)
 
         assertThat(winners.keys).containsExactlyInAnyOrder("car1", "car2", "car3")
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = [1, 2, 3, 10, 100, 999, 5000])
+    fun `should print round results equal to the number of rounds`(numberOfRounds: Int) {
+        val cars = setupCars()
+
+        val outputStream = ByteArrayOutputStream()
+        System.setOut(PrintStream(outputStream))
+
+        game(cars, numberOfRounds)
+        val output = outputStream.toString()
+        val roundResults = output.split("\n\n")
+            .filter { it.contains(" : ") && !it.contains("Winners") }
+        println(roundResults)
+        assertThat(roundResults.size).isEqualTo(numberOfRounds)
     }
 }
