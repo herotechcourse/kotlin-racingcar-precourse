@@ -1,5 +1,12 @@
 package racingcar
 
+import racingcar.gameflow.Game
+import racingcar.input.ConsoleInputModule
+import racingcar.output.ConsoleOutputModule
+
 fun main() {
-    // TODO: Implement the program
+    val input = ConsoleInputModule()
+    val output = ConsoleOutputModule()
+    val game = Game(input, output)
+    game.start()
 }
