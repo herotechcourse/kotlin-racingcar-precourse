@@ -1,6 +1,6 @@
 package racingcar
 
-class Game (
+class CarRaceGame (
     private val carsList: List<Car>) {
 
     fun play(){

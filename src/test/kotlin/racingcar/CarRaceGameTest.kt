@@ -3,7 +3,7 @@ package racingcar
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
- class GameTest {
+ class CarRaceGameTest {
 
   //getWinners
   //1. One winner
@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Assertions.*
    val car2 =
     Car("car2").apply { position = 2 }
 
-   val game = Game(listOf(car1, car2))
-   val winners = game.getWinners()
+   val carRaceGame = CarRaceGame(listOf(car1, car2))
+   val winners = carRaceGame.getWinners()
    assertEquals(listOf(car2), winners)
   }
 
@@ -29,8 +29,8 @@ import org.junit.jupiter.api.Assertions.*
    val car3 =
     Car("car3").apply { position = 2 }
 
-   val game = Game(listOf(car1, car2, car3))
-   val winners = game.getWinners()
+   val carRaceGame = CarRaceGame(listOf(car1, car2, car3))
+   val winners = carRaceGame.getWinners()
    assertEquals(listOf(car2, car3), winners)
   }
  }

@@ -8,16 +8,16 @@ fun main() {
 
     val numberRounds = InputView.readAndParseRoundCountInput()
 
-    val game = Game(carsList)
+    val carRaceGame = CarRaceGame(carsList)
 
     println("\nRace Result")
     repeat(numberRounds) {
-        game.play()
+        carRaceGame.play()
         ResultView.displayEndPositions(carsList)
         println()
     }
 
-    val winners = game.getWinners()
+    val winners = carRaceGame.getWinners()
     ResultView.printFinalWinners(winners)
 
 }
