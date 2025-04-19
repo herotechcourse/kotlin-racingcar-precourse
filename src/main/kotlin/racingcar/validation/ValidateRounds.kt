@@ -31,7 +31,7 @@ fun isValidRounds(input: String): Boolean {
     return !(isEmpty(input) || isNonDigit(input) || isZero(input) || isNegative(input))
 }
 
-fun validateRounds(input: String): {
+fun validateRounds(input: String) {
     if (!isValidRounds(input)) {
         throw IllegalArgumentException("Rounds must be a positive number(Type: Int)")
     }
