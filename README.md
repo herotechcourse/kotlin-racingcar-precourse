@@ -43,13 +43,13 @@
 
 - 4. Display the result of each round following the given format
      - [x] displayRaceResults
-     - [ ] getWinners
+     - [x] getWinners
 
 
 ## After Racing
 
 - 5. Display the winner(s)
-  - [ ] displayFinalWinners
+  - [x] displayFinalWinners
 > #### To Check
 >
 > - Valid:
