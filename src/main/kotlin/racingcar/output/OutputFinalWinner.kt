@@ -1,7 +1,6 @@
 package racingcar.output
 
-data class Car(val name: String, val position: Int) // Later merge
-
+import racingcar.model.Car
 /**
  *  [ Memo ]
  *  1. filter()
