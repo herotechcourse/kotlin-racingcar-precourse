@@ -10,7 +10,7 @@ class Application {
         val cars = carNames.map { Car(it) }
 
         println("How many rounds will be played?")
-        val rounds = Console.readLine().toInt()
+        val rounds = validateRoundsInput(Console.readLine())
 
         // mock the winner
         // Replace this with actual race logic
@@ -30,6 +30,19 @@ class Application {
         }
         val carNames = input.split(",").map { it.trim() }
         return carNames
+    }
+
+    private fun validateRoundsInput(input: String): Int {
+        val rounds: Int
+        try {
+            rounds = input.toInt()
+            if (rounds <= 0) {
+                throw IllegalArgumentException("Number of rounds must be greater than 0.")
+            }
+        } catch (e: NumberFormatException) {
+            throw IllegalArgumentException("Invalid input. Please enter a valid integer for the number of rounds.")
+        }
+        return rounds;
     }
 
     private fun printRaceResults(results: List<Car>) {

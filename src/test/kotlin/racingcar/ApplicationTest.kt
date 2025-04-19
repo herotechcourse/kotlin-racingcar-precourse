@@ -35,6 +35,38 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `should throw exception when number of rounds is zero`() {
+        assertSimpleTest {
+            val exception = assertThrows<IllegalArgumentException> { runException("pobi,woni", "0") }
+            assertThat(exception.message).isEqualTo("Number of rounds must be greater than 0.")
+        }
+    }
+
+    @Test
+    fun `should throw exception when number of rounds is negative`() {
+        assertSimpleTest {
+            val exception = assertThrows<IllegalArgumentException> { runException("pobi,woni", "-1") }
+            assertThat(exception.message).isEqualTo("Number of rounds must be greater than 0.")
+        }
+    }
+
+    @Test
+    fun `should throw exception when number of rounds is not a valid integer`() {
+        assertSimpleTest {
+            val exception = assertThrows<IllegalArgumentException> { runException("pobi,woni", "abc") }
+            assertThat(exception.message).isEqualTo("Invalid input. Please enter a valid integer for the number of rounds.")
+        }
+    }
+
+    @Test
+    fun `should return valid number of rounds when input is a positive integer`() {
+        assertSimpleTest {
+            run("pobi,woni", "5")
+            assertThat(output()).contains("pobi : ", "woni : ")
+        }
+    }
+
     override fun runMain() {
         main()
     }
