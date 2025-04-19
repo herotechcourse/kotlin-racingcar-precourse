@@ -1,14 +1,17 @@
 package racingcar.domain
 
-class Car(private val name: String) {
-    private var distance: Int
+import racingcar.domain.base.NumberPickerBase
+
+class Car(private val name: String, private val randomNumberPicker: NumberPickerBase) {
+    private var distance: Int = 0
 
     init {
         validateContainingSpaces(name)
         validateNameFormat(name)
         validateNameLength(name)
-        this.distance = 0
     }
+
+    constructor(name: String) : this(name, RandomNumberPicker)
 
     private fun validateNameLength(name: String) {
         if (name.length > VALID_NAME_LENGTH) {
@@ -30,8 +33,16 @@ class Car(private val name: String) {
 
     private fun isAlphaNumericOnly(name: String): Boolean = name.all { it.isLetterOrDigit() }
 
+    fun move() {
+        val number = randomNumberPicker.pick()
+        if (number >= MOVABLE_POINT) distance++
+    }
+
+    fun getDistance(): Int = distance
+
     companion object {
         private const val VALID_NAME_LENGTH: Int = 5
         private const val SPACE = " "
+        private const val MOVABLE_POINT = 4
     }
 }

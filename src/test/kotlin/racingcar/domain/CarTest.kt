@@ -1,9 +1,8 @@
 package racingcar.domain
 
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Nested
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
+import camp.nextstep.edu.missionutils.Randoms
+import org.junit.jupiter.api.*
+import racingcar.domain.base.NumberPickerBase
 
 class CarTest {
     @Nested
@@ -28,5 +27,32 @@ class CarTest {
             val noneAlphanumericName = "al3^3"
             assertThrows<IllegalArgumentException> { Car(noneAlphanumericName) }
         }
+    }
+
+    @Nested
+    inner class MovingTest {
+        @Test
+        @DisplayName("[Success] when random number exceeds moving point, move")
+        fun `test moving point`() {
+            val testingCar: Car = Car("bonie", MovableNumberPicker)
+            testingCar.move()
+            Assertions.assertEquals(testingCar.getDistance(), 1)
+        }
+
+        @Test
+        @DisplayName("[Exception] random number don't exceed moving point, then don't move")
+        fun `test movable`() {
+            val testingCar: Car = Car("bonie", UnmovableNumberPicker)
+            testingCar.move()
+            Assertions.assertEquals(testingCar.getDistance(), 0)
+        }
+    }
+
+    object MovableNumberPicker : NumberPickerBase {
+        override fun pick(): Int = Randoms.pickNumberInRange(4, 9)
+    }
+
+    object UnmovableNumberPicker : NumberPickerBase {
+        override fun pick(): Int = Randoms.pickNumberInRange(0, 3)
     }
 }
