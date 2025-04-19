@@ -4,14 +4,14 @@
 
 ## Feature List
 
-- [ ] Receive user input.
+- [x] Receive user input.
     - [Exception] Input must not be empty.
-    - [ ] Receive the names of the cars participating in the race.
+    - [x] Receive the names of the cars participating in the race.
     - [Exception] Car names must contain only letters and numbers. (No special characters or spaces)
     - [Exception] Car names must be unique.
     - [Exception] Car names must be between 1 and 5 characters long.
     - [Exception] Input must not start or end with a comma.
-    - [ ] Receive the number of moves to perform.
+    - [x] Receive the number of moves to perform.
     - [Exception] Only positive integers greater than 0 are allowed.
 
 - [x] Process user requests.
