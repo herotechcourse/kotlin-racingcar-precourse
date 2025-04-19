@@ -1,6 +1,7 @@
 package racingcar
 
-const val MAX_LIMIT = 5
+const val MAX_NAME_LENGTH = 5
+const val MIN_ROUNDS = 1
 
 class InputValidator(val carInput: String, val roundInput: Int) {
     private val carString = carInput
@@ -13,7 +14,7 @@ class InputValidator(val carInput: String, val roundInput: Int) {
             throw IllegalArgumentException("At least one car name must be provided")
         }
         // Check if any car name contains more than 5 characters
-        if (carNames.any { it.length > MAX_LIMIT }) {
+        if (carNames.any { it.length > MAX_NAME_LENGTH }) {
             throw IllegalArgumentException("Car names must not exceed 5 characters")
         }
         // Check for duplicate car names – all names should be unique
@@ -25,7 +26,7 @@ class InputValidator(val carInput: String, val roundInput: Int) {
 
     fun validateRound(): Int {
         // Check if the input is a non-negative integer or not
-        if (rounds < 1 ){
+        if (rounds < MIN_ROUNDS ){
             throw IllegalArgumentException("Number of rounds must be a non-negative integer")
         }
         return rounds
