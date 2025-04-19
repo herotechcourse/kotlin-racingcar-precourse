@@ -9,5 +9,8 @@ fun main() {
     val roundInput: String = Input().input()
     val round: Int = Input().getRound(roundInput)
 
-    RacingService(names, round).play()
+    val (raceResultMap, winners) = RacingService(names, round).play()
+    val output = Output()
+    output.displayRaceResults(raceResultMap)
+    output.displayWinners(winners)
 }
