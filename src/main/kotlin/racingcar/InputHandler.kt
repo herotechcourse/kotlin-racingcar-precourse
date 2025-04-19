@@ -48,7 +48,6 @@ class InputHandler {
         require (carName.length in MIN_CHARS..MAX_CHARS) {
             "Each car name must be between $MIN_CHARS and $MAX_CHARS characters."
         }
-        // extract this to a function -> too much indentation
         require (carName.all { it.isLetterOrDigit() }) {
             "Car name can only contain letters and digits"
         }
