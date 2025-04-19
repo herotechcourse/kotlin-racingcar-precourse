@@ -16,4 +16,9 @@ class Racetrack(
             car.move(randomNumber)
         }
     }
+
+    fun decideWinner(): List<Car> {
+        val winnersPosition = cars.maxOf { it.position }
+        return cars.filter { it.position == winnersPosition }
+    }
 }

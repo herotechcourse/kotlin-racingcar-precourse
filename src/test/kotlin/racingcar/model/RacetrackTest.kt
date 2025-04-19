@@ -1,6 +1,7 @@
 package racingcar.model
 
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 import racingcar.fixture.FakeRandomNumberGenerator
@@ -49,5 +50,22 @@ class RacetrackTest {
 
         // then
         assertThat(car.position).isEqualTo(0)
+    }
+
+    @Test
+    fun `racetrack can decide the winner`() {
+        // given
+        val carA = Car("A")
+        val carB = Car("B")
+        val fakeRandomNumberGenerator = FakeRandomNumberGenerator(4)
+        val racetrack = Racetrack(listOf(carA, carB), fakeRandomNumberGenerator)
+
+        // when
+        carA.move(4)
+        carB.move(3)
+        val winner = racetrack.decideWinner()
+
+        // then
+        assertThat(winner).isEqualTo(listOf(carA))
     }
 }
