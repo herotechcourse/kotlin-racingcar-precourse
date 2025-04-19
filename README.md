@@ -1,8 +1,10 @@
 # kotlin-racingcar-precourse
 
-Car Racing Game
+## Car Racing Game
+
 A simple command-line car racing game implemented in Kotlin.
-Features
+
+## Features
 
 Create cars with custom names (up to 5 characters)
 Race cars over multiple rounds
@@ -10,13 +12,13 @@ Randomly determine car movement each round
 Display race progress with visual representation
 Identify and announce winners at the end of the race
 
-Game Rules
+## Game Rules
 
 Cars are created with names provided by the user
 A car moves forward if its random number (0-9) is 4 or greater
 After all rounds are complete, the car(s) that moved the furthest are declared winners
 
-Usage
+## Usage
 
 Run the application
 Enter car names (comma-separated)
@@ -24,7 +26,7 @@ Enter the number of rounds
 Watch the race progress
 See the winner(s) announcement
 
-Project Structure
+## Project Structure
 
 model: Car, Race, and Constants classes
 controller: RaceController to manage game flow
