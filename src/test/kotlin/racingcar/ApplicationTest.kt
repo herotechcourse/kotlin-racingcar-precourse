@@ -21,9 +21,46 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `spaces test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("dina   ,pobi    ,woni", "3")
+                assertThat( output()).contains("dina : ", "pobi : ", "woni : ")
+            },STOP,STOP
+        )
+    }
+
+    @Test
+    fun `Tie case`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("dina, pobi", "1")
+                assertThat(output()).contains("dina : -", "pobi : -", "Winners : pobi, dina")
+
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD
+        )
+    }
+
+    @Test
     fun `exception test`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `non valid number`(){
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("dina, pobi", "x") }
+        }
+    }
+
+    @Test
+    fun `empty car name`(){
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("  ,   ", "3") }
         }
     }
 
