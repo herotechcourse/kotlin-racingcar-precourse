@@ -3,15 +3,15 @@ package racingcar.model
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class StadiumTest {
+class RacetrackTest {
     @Test
-    fun `stadium can generate the random numbers from 0 to 9`() {
+    fun `racetrack can generate the random numbers from 0 to 9`() {
         // given
         val car = Car("a")
-        val stadium = Stadium(listOf(car))
+        val racetrack = Racetrack(listOf(car))
 
         // when
-        val randomNumber = stadium.generateRandomNumber()
+        val randomNumber = racetrack.generateRandomNumber()
 
         // then
         assertThat(randomNumber).isIn(0..9)
