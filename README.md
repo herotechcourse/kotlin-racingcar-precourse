@@ -40,11 +40,48 @@ The Car Racing Program is an interactive console-based application where users c
 ## How to Run
 1. Clone the repository.
 2. Navigate to the project directory.
-3. Build the application:
-    ```bash
-    ./gradlew clean build
-     ```
-4. Run the application:
-    ```bash
-    java -cp build/libs/kotlin-racingcar-1.0-SNAPSHOT.jar racingcar.ApplicationKt
-     ```
+
+### Build
+
+```bash
+./gradlew clean build 
+```
+
+### Run
+```bash
+java -cp "build/libs/kotlin-racingcar-1.0-SNAPSHOT.jar:libs/mission-utils-1.2.0.jar:libs/kotlin-stdlib-1.9.24.jar" racingcar.ApplicationKt
+```
+
+### Test
+```bash
+./gradlew clean test 
+```
+
+#### Jar dependecies such as ```kotlin-stdlib-1.9.24``` and ```mission-utils-1.2.0``` are shiped with this repository in ```libs/``` folder
+>
+> ``` ./gradlew -q dependencies --configuration runtimeClasspath```
+>
+> org.jetbrains.kotlin:kotlin-stdlib:1.9.24
+> - Download the jar from:
+> https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib/1.9.24
+>
+> com.github.woowacourse-projects:mission-utils:1.2.0
+> - The jar can be found locally in gradle cash
+> ``` ~/.gradle/caches/modules-2/files-2.1/com.github.woowacourse-projects/mission-utils/1.2.0/```
+
+## Make fat jar to ship to production 
+
+```bash
+mkdir build/temp
+cd build/temp
+jar -xf ../../libs/mission-utils-1.2.0.jar
+jar -xf ../../libs/kotlin-stdlib-1.9.24.jar
+jar -xf ../../build/libs/kotlin-racingcar-1.0-SNAPSHOT.jar
+jar -cfm ../../build/libs/kotlin-racingcar-1.0-SNAPSHOT-fat.jar ../../manifest.txt *
+cd ../..
+```
+
+## Start the game
+```bash
+java -jar build/libs/kotlin-racingcar-1.0-SNAPSHOT-fat.jar
+```
