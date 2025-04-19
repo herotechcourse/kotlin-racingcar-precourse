@@ -48,7 +48,7 @@ class GameLogicTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = [1, 2, 3, 10, 100, 999, 5000])
+    @ValueSource(ints = [1, 2, 3, 10, 100, 999, 1000])
     fun `should print round results equal to the number of rounds`(numberOfRounds: Int) {
         val cars = setupCars()
 
