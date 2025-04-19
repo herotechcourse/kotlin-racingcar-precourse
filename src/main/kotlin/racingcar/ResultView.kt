@@ -17,4 +17,13 @@ object ResultView {
 
     }
 
+    // Print the final winner(s) of the race
+    fun printWinners(winners: List<String>) {
+
+        // Add a blank line before the winners display for better visibility
+        println()
+
+        // Display winner(s) as a comma-seperated string
+        println("Winners : ${winners.joinToString(", ")}")
+    }
 }

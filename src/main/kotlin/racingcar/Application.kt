@@ -24,4 +24,7 @@ fun main() {
         ResultView.printRound(racingGame.cars, round + 1)
     }
 
+    // Display the final winner(s)
+    ResultView.printWinners(racingGame.findWinners())
+
 }
