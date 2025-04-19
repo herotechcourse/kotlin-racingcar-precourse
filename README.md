@@ -32,7 +32,7 @@
 	[*] Display winner(s) when race end
 
 ### 6. Testing
-	[ ] Input validation test
+	[*] Input validation test
 	[ ] Car class test
 	[ ] Race simulation test
 	[ ] Display test
