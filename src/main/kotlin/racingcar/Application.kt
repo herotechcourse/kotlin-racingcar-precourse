@@ -5,6 +5,10 @@ import camp.nextstep.edu.missionutils.Randoms
 
 data class Car(val name: String, var position: Int = 0)
 
+fun main() {
+    Application.main(arrayOf())
+}
+
 class Application {
     companion object {
         @JvmStatic
@@ -14,6 +18,7 @@ class Application {
             val cars = carNames.map { Car(it) }
 
             Application().runRace(cars, rounds)
+            Application().displayWinners(cars)
         }
     }
 
@@ -72,5 +77,11 @@ class Application {
             }
             println()
         }
+    }
+
+    private fun displayWinners(cars: List<Car>) {
+        val maxPosition = cars.maxOf { it.position }
+        val winners = cars.filter { it.position == maxPosition }.map { it.name }
+        println("Winners : ${winners.joinToString(", ")}")
     }
 }
