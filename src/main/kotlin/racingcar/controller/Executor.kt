@@ -1,0 +1,30 @@
+package racingcar.controller
+
+import racingcar.view.Display
+import racingcar.model.Car
+import racingcar.model.Race
+
+class Executor(private val view: Display){
+    private lateinit var cars: List<Car>
+    private var rounds: Int = 0
+
+    fun initialize() {
+        val carNames = view.getValidNames()
+        rounds = view.getValidRounds()
+        cars = carNames.map { Car(it) }
+    }
+
+    fun race() {
+        val race = Race()
+        val winCountMap = race.initMap(cars)
+
+        println("\nRace Results")
+        repeat(rounds) {
+            race.executeOneRound(cars)
+            race.updateMap(cars, winCountMap)
+            cars.forEach { println(it.getRoundResult()) }
+            println()
+        }
+        race.displayFinalWinners(winCountMap)
+    }
+}

@@ -1,5 +1,11 @@
 package racingcar
 
+import racingcar.controller.Executor
+import racingcar.view.ConsoleDisplay
+
 fun main() {
-    // TODO: Implement the program
+    val display = ConsoleDisplay()
+    val executor = Executor(display)
+    executor.initialize()
+    executor.race()
 }
