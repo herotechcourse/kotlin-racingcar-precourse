@@ -10,8 +10,8 @@ object ParseAndValidate {
     }
 
     fun parseAndValidateRounds(input: String): Int {
-        val value = checkInt(input)
-        checkIntValue(value)
+        val value = getInt(input)
+        checkPositive(value)
         return value
     }
 
@@ -28,11 +28,11 @@ object ParseAndValidate {
         checkLength(name)
     }
 
-    private fun checkInt(input: String) : Int {
+    private fun getInt(input: String) : Int {
         return input.toIntOrNull() ?: throw IllegalArgumentException("Input must be number")
     }
 
-    private fun checkIntValue(value: Int) {
+    private fun checkPositive(value: Int) {
         if (value < 1) throw IllegalArgumentException("Number must be greater than 0")
     }
 }
