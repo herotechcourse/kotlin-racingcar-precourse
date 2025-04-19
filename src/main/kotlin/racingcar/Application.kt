@@ -9,8 +9,6 @@ fun main() {
     val gameCount = Console.readLine()
 
     println("Race Results")
-
-
 }
 
 data class Car(val name: String, var position: Int = 0) {
