@@ -3,9 +3,11 @@ package racingcar
 import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest
 import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
-import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
 
 class ApplicationTest : NsTest() {
     @Test
@@ -25,6 +27,35 @@ class ApplicationTest : NsTest() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
         }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = [
+        "pobi,java,", // trailing comma
+        "pobi,,java", ",pobi,java",  // empty names, double comma
+        "pobi, java", // space
+        "pobi,javaji", // long name
+        "", // empty input
+        "pobi", // only 1 name
+        "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,x,y,z", // more than 20 names
+        "pobi$,java*", // special character
+        "pobi,java,pobi", // not unique names -> implement feature, add to README
+    ])
+    fun `invalid car names test`(input : String) {
+        assertThatIllegalArgumentException().isThrownBy { InputHandler.validateCarNames(input) }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = [
+        "BIG,small", // capital letters
+        "R2D2,L2D2", // numbers
+        "sarah,petra", // 5 chars
+        "a,b", // 1 char
+        "pobi,java", // 2 cars
+        "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20" // 20 cars
+    ])
+    fun `valid car names test`(input : String) {
+        assertThatNoException().isThrownBy { InputHandler.validateCarNames(input) }
     }
 
     override fun runMain() {
