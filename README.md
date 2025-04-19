@@ -27,6 +27,32 @@
 6. **Test Coverage**
    - Unit tested using `JUnit 5` and `AssertJ`.
 
+### Architecture: Domain-Centric Desing
+
+#### Overview
+
+This project implements a domain-centric architectural approach.
+The design prioritizes the domain model as the central element, with the other components build around it.
+
+#### Structure
+
+- **Domain Layer:** Contains the core business logic (Car, Race)
+- **Controller Layer:** Orchestrates the flow between domain and view layers (GameController)
+- **View Layer:** Handles the user input and output (InputView, OutputView)
+- **Utils:** Contains validation and helpers functions (Validator)
+
+#### Why Domain-Centric Design?
+
+The design maintains a **bussiness logic isolation**, making it easier to test, modify and/or scale.
+It's allows for example, changes to the UI without affect the core game logic.
+Each component has a well-defined responsibility. Domain objects don't depend on other layers, reducing coupling.
+
+The design is based **MVC** pattern, both have separation of concerns into different components, a controller that manages flow between components and the UI is separated from the business logic.
+
+The differences are that Domain-Centric focuses on the business logic (Domain), while MVC gives equal importance to all three components.
+The domain doesn't depend on any other layer, improving the modularity of the design. The controller orchestrate the flow between domain and view, while MVC, the controller might allow more direct model-view interaction
+The testing is also typically easier with Domain-Centric for the isolation of the components.
+
 ## Technical Details
 
 - **Language:** Kotlin 1.9.24
