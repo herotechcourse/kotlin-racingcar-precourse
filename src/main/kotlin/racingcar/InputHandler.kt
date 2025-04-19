@@ -30,6 +30,9 @@ object InputHandler {
         require (carNameList.size <= MAX_CAR_NAMES ) {
             "Maximum $MAX_CAR_NAMES car names allowed."
         }
+        require (carNameList.distinct().size == carNameList.size) {
+            "Only unique car names allowed."
+        }
         carNameList.forEach {
             validateCarName(it)
         }
