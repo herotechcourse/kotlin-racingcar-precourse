@@ -11,3 +11,13 @@ fun readCarNames(): List<String> {
     }
     return names
 }
+
+fun readRoundCount(): Int {
+    println("Enter number of rounds:")
+    val input = Console.readLine()
+    val count = input.toIntOrNull()
+    require(count != null && count > 0) {
+        "Number of rounds must be a positive integer."
+    }
+    return count
+}
