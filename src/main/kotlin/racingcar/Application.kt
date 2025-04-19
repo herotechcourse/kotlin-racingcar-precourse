@@ -6,8 +6,7 @@ fun main() {
     // TODO: Implement the program
     val names = getUserName()
     val roundNumber = getRoundNumber()
-    val race = Race(generateCars(names),roundNumber)
-    race.start()
+
 }
 fun getUserName():List<String>{
     println("Enter the names of the cars (comma-separated):")

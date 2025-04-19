@@ -29,7 +29,7 @@ class Race(val cars: List<Car>,val rounds:Int) {
     }
     fun move(car:Car){
         var randomNumber = Randoms.pickNumberInRange(0,9)
-        if (randomNumber > 4){
+        if (randomNumber >= 4){
             car.position++
         }
     }
