@@ -31,9 +31,10 @@ class RaceGame(
     private fun canMoveCar(): Boolean = randomNumberGenerator() >= MIN_NUMBER_TO_MOVE_CAR
 
 
-    fun getWinners(): List<Car> {
+    fun getWinners(): List<String> {
         val maxPosition = cars.maxOf { it.position }
-        return cars.filter { it.position == maxPosition }
+        val winningCars = cars.filter { it.position == maxPosition }
+        return winningCars.map { it.name }
     }
 
     companion object {
