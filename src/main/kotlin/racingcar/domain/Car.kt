@@ -1,7 +1,12 @@
 package racingcar.domain
 
 class Car(val name: CarName, private val powerGenerator: PowerGenerator) {
-    private var _position = Position(0)
+    companion object {
+        const val MIN_POWER_TO_MOVE = 4
+        const val INITIAL_POSITION = 0
+    }
+
+    private var _position = Position(INITIAL_POSITION)
     val position: Position
         get() = _position
 
@@ -12,6 +17,6 @@ class Car(val name: CarName, private val powerGenerator: PowerGenerator) {
     }
 
     private fun canMove(): Boolean {
-        return powerGenerator.generate() >= 4
+        return powerGenerator.generate() >= MIN_POWER_TO_MOVE
     }
 }
