@@ -15,7 +15,7 @@ object ParseAndValidate {
     }
 
     private fun checkInt(input: String) : Int {
-        return input.toIntOrNull(10) ?: throw IllegalArgumentException("Input must be number")
+        return input.toIntOrNull() ?: throw IllegalArgumentException("Input must be number")
     }
 
     private fun checkIntValue(value: Int) {
