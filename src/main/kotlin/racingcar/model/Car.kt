@@ -1,5 +1,5 @@
 package racingcar.model
 
-class Car(val name: String, position: Int) {
+class Car(val name: String) {
 
 }

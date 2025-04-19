@@ -11,9 +11,9 @@
 - [ ] If the user inputs invalid data, the program should throw an IllegalArgumentException and terminate.
 
 ## Function List
-- [x] Car have a name and position.
+- [x] Car have a name.
 - [ ] Car can move.
-- [ ] If the number is 4 or more, the car moves.
+- [ ] If the given number is 4 or more, the car moves.
 
 ## Programming Requirements
 - [ ] The program must be executable with Kotlin 1.9.24.
