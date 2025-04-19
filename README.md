@@ -11,8 +11,8 @@
     - [✅] Generate random number (0–9) for each car
     - [✅] Move car forward if number >= 4
     - [✅] Show progress for each car
-- [ ] Determine the winner(s)
-- [ ] Show winners (comma-separated if multiple)
+- [✅] Determine the winner(s)
+- [✅] Show winners (comma-separated if multiple)
 - [✅] Throw `IllegalArgumentException` on invalid input
 - [✅] Use `camp.nextstep.edu.missionutils.Console` for input
 - [✅] Use `camp.nextstep.edu.missionutils.Randoms` for randomness
