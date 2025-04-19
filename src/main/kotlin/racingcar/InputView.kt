@@ -18,13 +18,13 @@ object InputView {
 
     fun readCarNamesInput(): String {
         println("Enter the names of the cars (comma-separated):")
-        return Console.readLine()
+        return Console.readLine()?: throw IllegalArgumentException("Input cannot be null")
     }
 
 
     fun readAndParseRoundCountInput(): Int {
         println("Number of rounds:")
-        val input = Console.readLine()
+        val input = Console.readLine()?: throw IllegalArgumentException("Input cannot be null")
         return parseRoundCount(input)
     }
 
