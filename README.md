@@ -1,6 +1,6 @@
 # kotlin-racingcar-precourse
 
-## 🚗 Features to Implement
+## These are the Features to Implement
 
 1. Accept car names from user input (max 5 characters)
 2. Accept number of rounds to run
