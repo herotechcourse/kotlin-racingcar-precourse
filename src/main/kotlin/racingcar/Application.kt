@@ -6,7 +6,15 @@ import camp.nextstep.edu.missionutils.Randoms
 fun main() {
     println("Enter the names of the cars (comma-separated):")
     println("How many rounds will be played?")
-    val gameCount = Console.readLine()
+    val input = Console.readLine() ?: ""
+
+    val carNames = input.split(",").map { it.trim() }
+    carNames.forEach {
+        if (it.length > 5) {
+            throw IllegalArgumentException("Car name cannot exceed 5 characters: $it")
+        }
+    }
+
 
     println("Race Results")
 }
