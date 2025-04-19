@@ -4,10 +4,10 @@ I follow a feature-driven approach. Each item below will be implemented and comm
 
 ### Phase 1 - Basic Working Game
 Build a functional skeleton before adding full validation and testing.
-- [ ] Input: Read comma-separated car names and number of rounds from the user
-- [ ] Movement Logic: Random number between 0–9 determines car movement (4+ moves)
-- [ ] Progress Display: Show each car's movement ("-") per round
-- [ ] Winner Calculation: Determine winner(s) by max distance moved
+- [x] Input: Read comma-separated car names and number of rounds from the user
+- [x] Movement Logic: Random number between 0–9 determines car movement (4+ moves)
+- [x] Progress Display: Show each car's movement ("-") per round
+- [x] Winner Calculation: Determine winner(s) by max distance moved
 
 ### Phase 2 - Enhancement & Cleanup
 Refine the initial version to meet all functional and programming requirements.
