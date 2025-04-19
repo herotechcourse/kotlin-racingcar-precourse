@@ -14,9 +14,9 @@
     - [ ] Receive the number of moves to perform.
     - [Exception] Only positive integers greater than 0 are allowed.
 
-- [ ] Process user requests.
-    - [ ] For each car, generate a random number between 0 and 9.
-    - [ ] If the number is 4 or greater, move the car forward by one space.
+- [x] Process user requests.
+    - [x] For each car, generate a random number between 0 and 9.
+    - [x] If the number is 4 or greater, move the car forward by one space.
 
 - [ ] Output the processed results.
     - [ ] Display prompts for user input.
