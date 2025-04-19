@@ -57,34 +57,29 @@ fun printPositions(cars: List<Car>) {
 	}
 }
 
-class Application {
-	companion object {
-		@JvmStatic
-		fun main(args: Array<String>) {
-			println("Enter the names of the cars (comma-separated):")
-			val carsInput = Console.readLine()
-			val cars = validateCarsInput(carsInput)
+fun main() {
+	println("Enter the names of the cars (comma-separated):")
+	val carsInput = Console.readLine()
+	val cars = validateCarsInput(carsInput)
 
-			println("How many rounds will be played?")
-			val roundsInput = Console.readLine()
-			val rounds = validateRoundsInput(roundsInput)
+	println("How many rounds will be played?")
+	val roundsInput = Console.readLine()
+	val rounds = validateRoundsInput(roundsInput)
 
-			val carsList = cars.map { Car(it) }
+	val carsList = cars.map { Car(it) }
 
-			println()
-			println("Race Results")
+	println()
+	println("Race Results")
 
-			for (round in 1..rounds) {
-				moveCars(carsList)
-				printPositions(carsList)
-				println()
-			}
-
-			val maxPos = carsList.maxOf { it.position }
-			val winningCar = carsList.filter { it.position == maxPos }
-			val winner = winningCar.map { it.name }
-
-			println("Winners: ${winner.joinToString(", ")}")
-		}
+	for (round in 1..rounds) {
+		moveCars(carsList)
+		printPositions(carsList)
+		println()
 	}
+
+	val maxPos = carsList.maxOf { it.position }
+	val winningCar = carsList.filter { it.position == maxPos }
+	val winner = winningCar.map { it.name }
+
+	println("Winners : ${winner.joinToString(", ")}")
 }
