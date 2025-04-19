@@ -27,6 +27,24 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `invalid car name test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException(",jun", "3")
+            }
+        }
+    }
+
+    @Test
+    fun `invalid round input test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,woni", "three")
+            }
+        }
+    }
+
     override fun runMain() {
         main()
     }
