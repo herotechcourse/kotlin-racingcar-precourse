@@ -1,6 +1,6 @@
 package racingcar.domain.numbergenerator
 
-interface NumberGenerator {
+fun interface NumberGenerator {
 
     fun generate(): Int
 }
