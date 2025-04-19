@@ -12,7 +12,7 @@
 
 ## Function List
 - [x] Car have a name.
-- [ ] Car can move.
+- [x] Car have a position and default position is 0.
 - [ ] If the given number is 4 or more, the car moves.
 
 ## Programming Requirements
