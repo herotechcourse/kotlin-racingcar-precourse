@@ -12,4 +12,8 @@ fun main() {
     val rounds = readln().toIntOrNull()
     require(rounds != null) {"The number of rounds should be a valid number"}
 
-    val race = Race(cars = cars, r
+    val race = Race(cars = cars, rounds = rounds)
+
+    println("\nRace Results")
+    race.play()
+}

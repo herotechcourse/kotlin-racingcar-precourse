@@ -12,12 +12,12 @@
 - [x] Create car objects using the entered names.
 - [x] For each round, generate a random number (0–9) for each car.
 - [x] Move the car forward if the number is 4 or higher.
-- [ ] Save and display the progress of each car for each round.
+- [x] Save and display the progress of each car for each round.
 
 ### Result Output
-- [ ] After each round, display each car's name and position.
-- [ ] At the end of the game, display the winner(s) who traveled the farthest.
-- [ ] If there are multiple winners, display all names separated by commas.
+- [x] After each round, display each car's name and position.
+- [x] At the end of the game, display the winner(s) who traveled the farthest.
+- [x] If there are multiple winners, display all names separated by commas.
 
 ### Testing
 - [ ] Write unit tests based on the feature list.
