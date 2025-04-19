@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.Test
 import racingcar.domain.car.Car
 import racingcar.domain.car.Name
+import racingcar.domain.car.Position
 import racingcar.domain.numberGenerator.FixedNumberGenerator
 import java.util.*
 
@@ -23,9 +24,9 @@ class RefereeTest {
         val car2 = createCar("b", queueForCarB)
 
         val cars = Cars(listOf(car1, car2))
-        cars.moveAll()
+        val movedCars = cars.moveAll()
 
-        val referee = Referee(cars)
+        val referee = Referee(movedCars)
         // when
         val winner = referee.determineWinner()
         // then
@@ -45,9 +46,9 @@ class RefereeTest {
         val car2 = createCar("b", queueForCarB)
 
         val cars = Cars(listOf(car1, car2))
-        cars.moveAll()
+        val movedCars = cars.moveAll()
 
-        val referee = Referee(cars)
+        val referee = Referee(movedCars)
         // when
         val winner = referee.determineWinner()
         // then
@@ -58,6 +59,6 @@ class RefereeTest {
     }
 
     private fun createCar(name: String, queue: LinkedList<Int>): Car {
-        return Car(Name(name), 0, FixedNumberGenerator(queue))
+        return Car(Name(name), Position(), FixedNumberGenerator(queue))
     }
 }

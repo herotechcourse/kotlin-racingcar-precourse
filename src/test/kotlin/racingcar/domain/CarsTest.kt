@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
 import racingcar.domain.car.Car
 import racingcar.domain.car.Name
+import racingcar.domain.car.Position
 import racingcar.domain.numberGenerator.FixedNumberGenerator
 import java.util.*
 
@@ -61,11 +62,11 @@ class CarsTest {
 
         val cars = Cars(listOf(car1, car2))
         // when
-        cars.moveAll()
+        val movedCars = cars.moveAll()
         // then
         assertAll(
-            { assertThat(cars.cars.first().getPosition()).isEqualTo(0) },
-            { assertThat(cars.cars.last().getPosition()).isEqualTo(1) }
+            { assertThat(movedCars.cars.first().getPosition()).isEqualTo(0) },
+            { assertThat(movedCars.cars.last().getPosition()).isEqualTo(1) }
         )
     }
 
@@ -82,9 +83,9 @@ class CarsTest {
         val car2 = createCar("b", queueForCarB)
 
         val cars = Cars(listOf(car1, car2))
-        cars.moveAll()
+        val movedCars = cars.moveAll()
         // when
-        val maxPosition = cars.getMaxPosition()
+        val maxPosition = movedCars.getMaxPosition()
         // then
         assertThat(maxPosition).isEqualTo(1)
     }
@@ -102,10 +103,10 @@ class CarsTest {
         val car2 = createCar("b", queueForCarB)
 
         val cars = Cars(listOf(car1, car2))
-        cars.moveAll()
-        val maxPosition = 1
+        val movedCars = cars.moveAll()
         // when
-        val carsAtMaxPosition = cars.findAllAtPosition(maxPosition)
+        val maxPosition = 1
+        val carsAtMaxPosition = movedCars.findAllAtPosition(maxPosition)
         // then
         val carNames = carsAtMaxPosition.map { it.getName() }
         assertAll(
@@ -115,7 +116,7 @@ class CarsTest {
     }
 
     private fun createCar(name: String, queue: LinkedList<Int>): Car {
-        return Car(Name(name), 0, FixedNumberGenerator(queue))
+        return Car(Name(name), Position(), FixedNumberGenerator(queue))
     }
 
     companion object {

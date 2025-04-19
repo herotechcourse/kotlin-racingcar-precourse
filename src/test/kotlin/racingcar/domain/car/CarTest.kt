@@ -14,9 +14,9 @@ class CarTest {
         queue.add(4)
         val car = createCar(queue)
         // when
-        car.move()
+        val movedCar = car.move()
         // then
-        assertThat(car.getPosition()).isEqualTo(1)
+        assertThat(movedCar.getPosition()).isEqualTo(1)
     }
 
     @Test
@@ -26,15 +26,13 @@ class CarTest {
         queue.add(3)
         val car = createCar(queue)
         // when
-        car.move()
+        val movedCar = car.move()
         // then
-        assertThat(car.getPosition()).isEqualTo(0)
+        assertThat(movedCar.getPosition()).isEqualTo(0)
     }
 
     private fun createCar(queue: LinkedList<Int>): Car {
         val name = Name("test")
-        val position = 0
-
-        return Car(name, position, FixedNumberGenerator(queue))
+        return Car(name, Position(), FixedNumberGenerator(queue))
     }
 }
