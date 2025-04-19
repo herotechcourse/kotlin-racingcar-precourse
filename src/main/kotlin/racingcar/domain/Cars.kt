@@ -6,16 +6,13 @@ class Cars(private val cars: List<Car>) {
     }
 
     private fun validateUniqueNames() {
-        val names = cars.map { it.name }
-        if (names.size != names.toSet().size) {
-            throw IllegalArgumentException("Car names must be unique.")
+        require(cars.map { it.name }.distinct().size == cars.size) {
+            "Car names must be unique."
         }
     }
 
     fun move() {
-        for (car in cars) {
-            car.move()
-        }
+        cars.forEach { it.move() }
     }
 
     fun winners(): List<Car> {
