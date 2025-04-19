@@ -24,4 +24,30 @@ class CarTest {
         // then
         assertThat(alsongCar.position).isEqualTo(0)
     }
+
+    @ValueSource(ints = [4, 5, 6, 7, 8, 9])
+    @ParameterizedTest
+    fun `if the given number is 4 or more, the car moves`(condition: Int) {
+        // given
+        val alsongCar = Car("alsong")
+
+        // when
+        alsongCar.move(condition)
+
+        // then
+        assertThat(alsongCar.position).isEqualTo(1)
+    }
+
+    @ValueSource(ints = [0, 1, 2, 3])
+    @ParameterizedTest
+    fun `if the given number is 3 or less, the car doesn't move`(condition: Int) {
+        // given
+        val alsongCar = Car("alsong")
+
+        // when
+        alsongCar.move(condition)
+
+        // then
+        assertThat(alsongCar.position).isEqualTo(0)
+    }
 }

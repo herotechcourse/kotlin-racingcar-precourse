@@ -13,7 +13,7 @@
 ## Function List
 - [x] Car have a name.
 - [x] Car have a position and default position is 0.
-- [ ] If the given number is 4 or more, the car moves.
+- [x] If the given number is 4 or more, the car moves.
 
 ## Programming Requirements
 - [ ] The program must be executable with Kotlin 1.9.24.
