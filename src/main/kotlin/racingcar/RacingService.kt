@@ -16,7 +16,7 @@ class RacingService(val names: List<String>, val round: Int) {
     fun play() {
         println("Race Results")
         for (i in 0 until round) {
-            val nums: List<Int> = getRandomNumber(3)
+            val nums: List<Int> = getRandomNumber(cars.size)
             moveCarForward(nums)
             val roundRaceResult = getRaceResultString()
             output.displayRaceResults(roundRaceResult)
