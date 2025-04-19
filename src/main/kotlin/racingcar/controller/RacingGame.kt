@@ -7,7 +7,8 @@ import racingcar.view.ResultView
 
 class RacingGame(
     carNames: List<String>,
-    private val roundCnt: Int
+    private val roundCnt: Int,
+    private val random: () -> Int = { RandomGenerator.generate() }
 ) {
     private var cars = Cars(carNames.map { Car(it) })
 
@@ -15,7 +16,7 @@ class RacingGame(
         println("\nRace Results")
 
         repeat(roundCnt) {
-            cars.moveAll { RandomGenerator.generate() }
+            cars.moveAll { random() }
             ResultView.printRoundResult(cars.getPositions())
         }
 
