@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions.*
   //getWinners
   //1. One winner
   @Test
-  fun getWinners() {
+  fun testGetWinners() {
    val car1 =
     Car("car1").apply { position = 1 }
    val car2 =
@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Assertions.*
 
   //2. Multiple winners
   @Test
-  fun getWinners_multipleWinners() {
+  fun testGetWinners_multipleWinners() {
    val car1 =
     Car("car1").apply { position = 1 }
    val car2 =

@@ -7,7 +7,7 @@ import org.assertj.core.api.Assertions.assertThat
 class CarTest {
 
  @Test
- fun move() {
+ fun testMove() {
   val car = Car("pobi")
 
   repeat(100) {
