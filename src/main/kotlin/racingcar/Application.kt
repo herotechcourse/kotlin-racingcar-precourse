@@ -10,7 +10,7 @@ fun main() {
 
     println("How many rounds will be played?")
     val numberOfRounds :Int = Console.readLine().toInt()
-    println(numberOfRounds)
+    //println(numberOfRounds)
 
     for(i in splitNames.indices){
         val carName = splitNames[i].removeWhitespaces()
@@ -28,10 +28,23 @@ fun main() {
         }
         println()
     }
+    calculateWinners(cars)
 }
 
 //Function to remove Whitespaces
 fun String.removeWhitespaces() = replace(" ", "")
+
+fun calculateWinners(cars: List<Car>) {
+    print("Winners : ")
+    val maxDisplacement = cars.maxOf { it.displacement }
+    val winners = mutableListOf<String>()
+    for (car in cars) {
+        if (car.displacement == maxDisplacement) {
+            winners.add(car.carName)
+        }
+    }
+    println(winners.joinToString(", "))
+}
 
 class Car(val carName:String, val rounds:Int) {
     private var speed :Int = 0
