@@ -28,9 +28,16 @@ class CarsTest {
     inner class CountTest {
         @Test
         @DisplayName("[Exception] car names exceed maximum count")
-        fun `test cars count`() {
+        fun `test maximum count`() {
             val overCount = "a,b,c,d,e,f,g,h,i,j,k,l,m"
             Assertions.assertThatIllegalArgumentException().isThrownBy { Cars.from(overCount) }
+        }
+
+        @Test
+        @DisplayName("[Exception] car names must be or exceed minimum count")
+        fun `test minimum count`() {
+            val lessThanMinimum = "a"
+            Assertions.assertThatIllegalArgumentException().isThrownBy { Cars.from(lessThanMinimum) }
         }
     }
 }
