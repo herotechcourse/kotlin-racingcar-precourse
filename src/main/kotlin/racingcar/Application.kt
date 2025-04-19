@@ -37,9 +37,33 @@ fun inputRound(): Int {
     return rounds;
 }
 
+fun racingCars(cars: List<String>, trace: Array<String>, rounds: Int) {
+    println("Race Result");
+    println();
+
+    // Repeat the race for the given number of rounds
+    for (i in 0 until rounds) {
+        for (j in 0 until cars.size.toInt()) {
+            val num = Randoms.pickNumberInRange(0, 9);
+            // if num is 4 or more car will move forward
+            if (num >= 4) {
+                trace[j] = trace[j] + '-';
+            }
+            println("${cars[j]} : ${trace[j]}");
+        }
+        println();
+    }
+}
+
+
+
 fun main() {
     val cars = inputCars();
     val rounds = inputRound();
+
+    val trace: Array<String> = Array(cars.size, {""});
+
+    racingCars(cars, trace, rounds);
 }
 
 
