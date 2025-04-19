@@ -65,6 +65,39 @@ class RacingServiceTest {
         assertEquals(expected2, service.getRaceResultString())
         service.moveCarForward(listOf(5, 5, 5))
         assertEquals(expected3, service.getRaceResultString())
+    }
+
+    @Test
+    fun selectTheCarsThatMovedTheFarthestAsTheWinner() {
+        // given
+        val names = listOf("woni", "jun", "pobi")
+        val service = RacingService(names, 3)
+
+        // when
+        service.moveCarForward(listOf(5, 1, 5))
+        service.moveCarForward(listOf(5, 1, 5))
+        service.moveCarForward(listOf(5, 1, 3))
+        val winner: String = service.decideWinners("---")
+
+        // then
+        assertEquals("woni", winner)
+
+    }
+
+    @Test
+    fun multipleWinnersPrintTheirNamesSeperatedByCommas() {
+        // given
+        val names = listOf("woni", "jun", "pobi")
+        val service = RacingService(names, 3)
+
+        // when
+        service.moveCarForward(listOf(5, 5, 5))
+        service.moveCarForward(listOf(5, 5, 5))
+        service.moveCarForward(listOf(5, 5, 5))
+        val winner: String = service.decideWinners("---")
+
+        // then
+        assertEquals("woni, jun, pobi", winner)
 
     }
 

@@ -22,8 +22,13 @@ class RacingService(val names: List<String>, val round: Int) {
             output.displayRaceResults(roundRaceResult)
         }
         val maxPosition = cars.maxOf { it.getPositionBar() }
-        val winners: String = cars.filter { it.getPositionBar() == maxPosition }.joinToString(", ") {it.name}
+        val winners: String = decideWinners(maxPosition)
         output.displayWinners(winners)
+    }
+
+    fun decideWinners(max : String): String {
+        println(max)
+        return cars.filter { it.getPositionBar() == max }.joinToString(", ") {it.name}
     }
 
     fun getRaceResultString(): String {
