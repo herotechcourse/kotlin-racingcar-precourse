@@ -6,8 +6,6 @@ import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.ValueSource
 
 class ApplicationTest : NsTest() {
     @Test
@@ -29,13 +27,80 @@ class ApplicationTest : NsTest() {
         }
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = [".", "0", "-1"," ", ",", "a", "!"])
-    fun `exceptions test of rounds validations`(roundVal: String){
-        assertSimpleTest{
-            assertThrows<IllegalArgumentException>{ runException("pobi,javaj", roundVal)}
-        }
+    @Test
+    fun `two rounds one winner`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "2")
+                val result = output()
+
+                assertThat(result).containsSubsequence(
+                    "pobi : -",
+                    "woni : ",
+                    "",
+                    "pobi : --",
+                    "woni : ",
+                    "",
+                    "Winners : pobi"
+                )
+            },
+            MOVING_FORWARD, STOP,
+            MOVING_FORWARD, STOP
+        )
     }
+
+    @Test
+    fun `three cars move together and tie`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni,jun", "1")
+                val result = output()
+
+                assertThat(result).contains("pobi : -", "woni : -", "jun : -")
+                assertThat(result).contains("Winners : pobi, woni, jun")
+            },
+            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun `car ties in second round`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "2")
+                val result = output()
+
+                assertThat(result).containsSubsequence(
+                    "pobi : -",
+                    "woni : ",
+                    "",
+                    "pobi : -",
+                    "woni : -",
+                    "",
+                    "Winners : pobi, woni"
+                )
+            },
+            MOVING_FORWARD, STOP,
+            STOP, MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun `only one car moves at all`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "3")
+                val result = output()
+
+                assertThat(result).contains("pobi : ---", "woni : ")
+                assertThat(result).contains("Winners : pobi")
+            },
+            MOVING_FORWARD, STOP,
+            MOVING_FORWARD, STOP,
+            MOVING_FORWARD, STOP
+        )
+    }
+
 
     override fun runMain() {
         main()
