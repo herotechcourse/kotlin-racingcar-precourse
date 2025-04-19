@@ -18,17 +18,9 @@ fun main() {
     }
     //println(names)
 
-    val cars = names.map { Car(it, numberOfRounds) }
-    println("Race Results")
-
-    for (i in 0 until numberOfRounds) {
-        for (car in cars) {
-            print("${car.carName} : ")
-            car.moveCar()
-        }
-        println()
-    }
-    calculateWinners(cars)
+    val cars = names.map { Car(it) }
+    val race = Race(cars, numberOfRounds)
+    race.startRace()
 }
 
 //Function to remove Whitespaces
@@ -46,9 +38,22 @@ fun calculateWinners(cars: List<Car>) {
     println(winners.joinToString(", "))
 }
 
-class Car(val carName:String, val rounds:Int) {
+class Race (private val cars: List<Car>, private val numberOfRounds: Int){
+    fun startRace() {
+        println("Race Results")
+        for (round in 1..numberOfRounds) {
+            for (car in cars) {
+                car.moveCar()
+            }
+            println()
+        }
+        calculateWinners(cars)
+    }
+}
+
+class Car(val carName:String) {
     private var speed :Int = 0
-    private var movement = ArrayList<Char> (rounds)
+    private val movement = mutableListOf<Char>()
     var displacement = 0
 
     private fun getSpeed() {
@@ -61,6 +66,6 @@ class Car(val carName:String, val rounds:Int) {
             movement.add('-')
             displacement++
         }
-        println(movement.joinToString(""))
+        println("$carName : ${movement.joinToString("")}")
     }
 }
