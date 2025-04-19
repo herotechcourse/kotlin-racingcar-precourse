@@ -8,7 +8,7 @@ class Executor(private val view: Display){
     private lateinit var cars: List<Car>
     private var rounds: Int = 0
 
-    fun start() {
+    fun initialize() {
         val carNames = view.getValidNames()
         rounds = view.getValidRounds()
         cars = carNames.map { Car(it) }
@@ -16,11 +16,15 @@ class Executor(private val view: Display){
 
     fun race() {
         val race = Race()
+        val winCountMap = race.initMap(cars)
+
         println("\nRace Results")
         repeat(rounds) {
             race.executeOneRound(cars)
-            cars.forEach { println(it.toRaceResult()) }
+            race.updateMap(cars, winCountMap)
+            cars.forEach { println(it.getRoundResult()) }
             println()
         }
+        race.displayFinalWinners(winCountMap)
     }
 }

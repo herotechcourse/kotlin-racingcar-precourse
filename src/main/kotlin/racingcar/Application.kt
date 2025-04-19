@@ -6,6 +6,6 @@ import racingcar.view.ConsoleDisplay
 fun main() {
     val display = ConsoleDisplay()
     val executor = Executor(display)
-    executor.start()
+    executor.initialize()
     executor.race()
 }

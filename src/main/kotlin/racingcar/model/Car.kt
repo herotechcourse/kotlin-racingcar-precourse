@@ -7,9 +7,8 @@ class Car(val name: String) {
         position++
     }
 
-    fun toRaceResult(): String {
+    fun getRoundResult(): String {
         val marks = "-".repeat(position)
         return "$name : $marks"
     }
-
 }
