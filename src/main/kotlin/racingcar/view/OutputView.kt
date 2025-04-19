@@ -11,6 +11,6 @@ object OutputView {
     }
 
     fun showWinners(carNames: List<String>) {
-        println("Winners: ${carNames.joinToString(", ")}")
+        println("Winners : ${carNames.joinToString(", ")}")
     }
 }
