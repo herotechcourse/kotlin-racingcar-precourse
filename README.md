@@ -1,4 +1,4 @@
-# kotlin-racingcar-precourse
+# kotlin-racing car-precourse
 
 A simple Kotlin implementation of a car racing game with name validation. The project is implemented a focus on separation of concerns, testability, and readable structure.
 
@@ -56,8 +56,8 @@ Test cases to ensure proper name parsing and validation.
 
 * Ensure the racing game class calls the relevant functions and prints the results correctly
 
-
 ## Project Structure
+
 ```
 racingcar
 ├── Application.kt
@@ -74,6 +74,7 @@ test
 ├── OutputHandlerTest.kt
 └── RacingGameTest.kt
 ```
+
 ## Tech Stack
 
 * Kotlin 1.9.x
