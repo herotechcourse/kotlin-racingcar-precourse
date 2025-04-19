@@ -31,6 +31,8 @@ class Game(private val input: InputModule,
         // 4. Start game
         val generate = { generateRandomNumber() }
         val isMovable = { number: Int -> isMoveConditionMet(number) }
+
+        println("\nRace Results")
         gameLoop(listCars, nRounds, output, generate, isMovable)
     }
 }
