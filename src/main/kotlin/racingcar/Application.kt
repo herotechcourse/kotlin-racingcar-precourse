@@ -78,4 +78,18 @@ class RacingGame {
             }
         }
     }
+
+    private fun printRoundResult(cars: List<String>, positions: List<Int>) {
+        for (i in cars.indices) {
+            val car = cars[i]
+            val result = "-".repeat(positions[i])
+            println("$car : $result")
+        }
+    }
+
+    private fun printWinners(cars: List<String>, positions: List<Int>) {
+        val maxPosition = positions.maxOrNull() ?: return
+        val winners = cars.filterIndexed { index, _ -> positions[index] == maxPosition }
+        println("\nWinners : ${winners.joinToString(", ")}")
+    }
 }
