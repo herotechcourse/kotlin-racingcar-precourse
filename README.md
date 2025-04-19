@@ -30,7 +30,7 @@ jun : ---
 - [x] The car moves forward only if a randomly generated number between 0 and 9 is **greater than or equal to 4**.
 
 ### Exception Handling
-- [ ] If the user provides invalid input, the program should throw an `IllegalArgumentException` and terminate.
+- [x] If the user provides invalid input, the program should throw an `IllegalArgumentException` and terminate.
 ---
 
 ## Programming Requirements
@@ -40,10 +40,10 @@ jun : ---
 - [x] The indentation depth must not exceed 2. A maximum of 2 levels is allowed.
     - For example, an if statement inside a while loop is acceptable, but nesting beyond that is not.
     - Tip: To reduce indentation depth, extract logic into functions.
-- [ ] Keep functions as small and focused as possible—each should do only one thing.
-- [ ] Use JUnit 5 and AssertJ to test the functionality according to your feature list
+- [x] Keep functions as small and focused as possible—each should do only one thing.
+- [x] Use JUnit 5 and AssertJ to test the functionality according to your feature list
 ### Library
-- [ ] You must use the Randoms and Console APIs provided by the camp.nextstep.edu.missionutils package.
+- [x] You must use the Randoms and Console APIs provided by the camp.nextstep.edu.missionutils package.
     - To generate random values, use Randoms.pickNumberInRange() from camp.nextstep.edu.missionutils.Randoms.
     - To receive user input, use Console.readLine() from camp.nextstep.edu.missionutils.Console.
 
