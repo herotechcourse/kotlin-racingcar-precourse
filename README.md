@@ -1,11 +1,6 @@
 # Racing Car
 
-> ## Code review is welcome!!
->
-> If you need code review, please mention me on the PR.
-> I want to discuss implementation. I welcome sharp points rather than empathy.
-
-# Feature Planning
+# Prototype Feature Planning
 
 1. Input data
     - User Should be able to specify car names and a number of rounds.
@@ -39,6 +34,72 @@ This project should have 3 classes with responsibilities.
 - The car has a name.
 - The car name cannot exceed 5 characters.
 
-- ? Needs Cars First level Collection?
+Although there were still unresolved questions, I started to implement the feature to make gradual improvements.
 
-  → Don't think too deeply about it; Let's implement it first.
+Here are the questions that remained unanswered at the time:
+
+- How can I test random values?
+- Do I need Cars First-level Collection?
+
+# Prototype Implementation Self Review.
+
+The prototype version of the code had several major issues:
+
+1. `Domain classes` were too weak.
+
+   Since the domain classes didn’t hold any real responsibilities, the `Manager` classes ended up knowing too much and performing too many operations. This leads to a situation where any change in business logic requires extensive modifications to the `Manager` classes, making the code hard to maintain and test.
+
+   **What I did**: I moved the Manager Class’s Game Logic to new Domain classes.
+
+2. `RacingManager` and `RoundManager` had no state–they only had a `start` method
+
+   Although I could have moved the variables—used only a single method—to a class field under the pretext of considering future scalability, I didn’t want to do that.
+
+   **What I did**: I removed `Manager` Classes and moved game logic directly into the `main` function.
+
+## Prototype Code Structure
+
+```
+Racing Car Root
+├── Application.kt
+└── domain/
+     ├── Car.kt
+     ├── Cars.kt
+     ├── Round.kt
+     └── Rounds.kt
+```
+
+## Explain Classes
+
+### Application.kt
+
+- Role: Entry point of the Racing Car Program (main function).
+- Description: Controls the execution of the game by coordinating domain objects.
+
+### domain/Car.kt
+
+- Role: Represents a single car.
+- Responsibilities:
+   - Manages the car’s name and current position.
+   - Determines whether the car should move forward based on the random number.
+
+### domain/Cars.kt
+
+- Role: A collection class for `Car` objects (first-class collection)
+- Responsibilities:
+   - Encapsulates operations over a group of cars, such as moving all cars or determining winners.
+   - Ensures immutability and encapsulation for safe collection handling.
+
+### domain/Round.kt
+
+- **Role**: Represents a single round in the race.
+- **Responsibilities**:
+   - Records the state of each car after the round.
+   - Provides data for visualization or output purposes.
+
+### domain/Rounds.kt
+
+- **Role**: A collection of `Round` objects (first-class collection).
+- **Responsibilities**:
+   - Tracks the entire race history, round by round.
+   - Provides formatted results for output or display.
