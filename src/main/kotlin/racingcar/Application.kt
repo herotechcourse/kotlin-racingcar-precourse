@@ -20,4 +20,26 @@ class RacingGame {
         val positions = race(cars, rounds)
         printWinners(cars, positions)
     }
+
+    private fun inputCars(): List<String> {
+        println("Enter the names of the cars (comma-separated):")
+        val input = Console.readLine()
+        val carNames = input.split(",").map { it.trim() }
+        validateCarNames(carNames)
+        return carNames
+    }
+
+    private fun validateCarNames(carNames: List<String>) {
+        if (carNames.isEmpty()) {
+            throw IllegalArgumentException("Car names cannot be empty.")
+        }
+        carNames.forEach { name ->
+            if (name.isEmpty()) {
+                throw IllegalArgumentException("Car name cannot be empty.")
+            }
+            if (name.length > MAX_NAME_LENGTH) {
+                throw IllegalArgumentException("Car name cannot exceed $MAX_NAME_LENGTH characters.")
+            }
+        }
+    }
 }
