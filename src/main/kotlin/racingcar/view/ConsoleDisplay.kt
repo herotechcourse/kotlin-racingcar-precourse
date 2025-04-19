@@ -8,6 +8,7 @@ interface Display {
 
 class ConsoleDisplay : Display {
     private val validator = Validator()
+
     override fun getValidNames(): List<String> {
         while (true) {
             println("Enter the names of the cars (comma-separated):")
@@ -21,6 +22,7 @@ class ConsoleDisplay : Display {
             }
         }
     }
+
     override fun getValidRounds(): Int {
         while (true) {
             println("How many rounds will be played?")
