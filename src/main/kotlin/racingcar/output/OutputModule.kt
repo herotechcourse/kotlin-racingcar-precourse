@@ -1,6 +1,8 @@
 package racingcar.output
 
+import racingcar.model.Car
+
 interface OutputModule {
-    fun requestCarNames()
-    fun requestRounds()
+    fun outputEachRoundResult(cars: List<Car>)
+    fun outputFinalWinner(cars: List<Car>): String
 }
