@@ -1,9 +1,10 @@
-package racingcar
+package racingcar.core
 
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
- class CarRaceGameTest {
+
+class CarRaceGameTest {
 
   //getWinners
   //1. One winner

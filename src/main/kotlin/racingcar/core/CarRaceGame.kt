@@ -1,4 +1,4 @@
-package racingcar
+package racingcar.core
 
 class CarRaceGame (
     private val carsList: List<Car>) {

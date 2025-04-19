@@ -1,4 +1,6 @@
-package racingcar
+package racingcar.utlls
+
+import racingcar.core.Car
 
 object ResultView {
     fun displayEndPositions(carsList: List<Car>) {
