@@ -18,4 +18,4 @@ using random numbers. 🚗🏁
   + number of rounds:
     + positive integer
     + limit: 1 - 100 rounds
-  + if invalid input is provided, the program throws IllegalArgumentException and terminates
+  + if invalid or empty input is provided, the program throws IllegalArgumentException and terminates
