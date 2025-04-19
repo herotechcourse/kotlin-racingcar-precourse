@@ -28,7 +28,7 @@ class Car(val carName:String, val rounds:Int) {
     var displacement = 0
 
     private fun getSpeed() {
-        speed = Randoms.pickNumberInRange(0, 10)
+        speed = Randoms.pickNumberInRange(0, 9)
     }
 
     fun moveCar() {
