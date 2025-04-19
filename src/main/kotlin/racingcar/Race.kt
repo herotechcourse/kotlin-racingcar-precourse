@@ -3,7 +3,7 @@ package racingcar
 class Race(
     private val cars: List<Car>,
     private val totalRounds: Int,
-    private var currentRound: Int = 0,
+    private var currentRound: Int = 1,
     private var winners: List<String>? = null
 ) {
     fun play() {
@@ -11,9 +11,9 @@ class Race(
 
         while (currentRound <= totalRounds) {
             currentRound++
-            cars.forEach { car ->
-                car.move()
-                displayRound(car)
+            cars.forEach {
+                it.move()
+                it.displayPosition()
             }
             println()
         }
@@ -22,13 +22,8 @@ class Race(
     }
 
     private fun setWinners() {
-        val maxDistance = cars.maxOf { it.distance }
-        winners = cars.filter { it.distance == maxDistance }.map { it.name }
-    }
-
-    private fun displayRound(car: Car) { // TODO move this method to class Car
-        val dashes = "-".repeat(car.distance)
-        println(car.name + " : " + dashes)
+        val maxDistance = cars.maxOf { it.position }
+        winners = cars.filter { it.position == maxDistance }.map { it.name }
     }
 
     fun displayWinners() {
