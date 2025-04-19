@@ -13,7 +13,12 @@ class ApplicationTest : NsTest() {
         assertRandomNumberInRangeTest(
             {
                 run("pobi,woni", "1")
-                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+                assertThat(output()).contains(
+                    "Race Results",
+                    "pobi : -",
+                    "woni : ",
+                    "Winner : pobi"
+                )
             },
             MOVING_FORWARD,
             STOP,
@@ -24,6 +29,40 @@ class ApplicationTest : NsTest() {
     fun `exception test`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `feature test - both cars move and tie`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains(
+                    "pobi : -",
+                    "woni : -",
+                    "Winners : pobi, woni"
+                )
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun `exception test - negative rounds`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                run("pobi, woni", "-2")
+            }
+        }
+    }
+
+    @Test
+    fun `exception test - empty inputs`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                run("", "")
+            }
         }
     }
 
