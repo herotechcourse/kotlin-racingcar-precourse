@@ -10,6 +10,13 @@ class Round {
         }
     }
 
+    fun getWinners(carNames: Map<String, Int>): List<String> {
+        val maxMovementCount = carNames.maxOf { it.value }
+        return carNames
+            .filter { it.value == maxMovementCount }
+            .map { it.key }
+    }
+
     private fun getRandomNumber() =
         Randoms.pickNumberInRange(RANDOM_START_NUMBER, RANDOM_END_NUMBER)
 
