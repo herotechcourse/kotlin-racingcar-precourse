@@ -27,6 +27,13 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `exception test for invalid rounds`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "a") }
+        }
+    }
+
     override fun runMain() {
         main()
     }
