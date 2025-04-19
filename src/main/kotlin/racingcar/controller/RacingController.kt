@@ -3,8 +3,6 @@ package racingcar.controller
 import racingcar.domain.Cars
 import racingcar.domain.Referee
 import racingcar.domain.Round
-import racingcar.domain.car.Car
-import racingcar.domain.car.Name
 import racingcar.view.InputView
 import racingcar.view.OutputView
 
@@ -21,11 +19,7 @@ class RacingController(
 
     private fun initCars(): Cars {
         val carNames = inputView.readCarNames()
-
-        val cars = carNames.map { Name(it) }
-            .map { Car(it) }
-            .toList()
-        return Cars(cars)
+        return Cars.from(carNames)
     }
 
     private fun initRound(): Round {
