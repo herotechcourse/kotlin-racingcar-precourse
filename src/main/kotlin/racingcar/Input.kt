@@ -9,6 +9,11 @@ import camp.nextstep.edu.missionutils.Console
  * @description    :
  */
 class Input {
+    companion object {
+        private const val MAX_NAME_LENGTH = 5
+        private const val MIN_ROUND = 1
+    }
+
     fun input(): String {
         return Console.readLine()
     }
@@ -20,7 +25,7 @@ class Input {
             throw IllegalArgumentException("There is duplicated name")
         }
         for (i in 0 until names.size) {
-            if (names[i].length >= 5) {
+            if (names[i].length > MAX_NAME_LENGTH) {
                 throw IllegalArgumentException("name should be under 5 letters")
             }
             if (names[i].isEmpty()) {
@@ -32,7 +37,7 @@ class Input {
 
     fun getRound(input: String): Int {
         val round: Int = input.toInt()
-        if (round < 1) {
+        if (round < MIN_ROUND) {
             throw IllegalArgumentException("round should be positive number")
         }
         return round
