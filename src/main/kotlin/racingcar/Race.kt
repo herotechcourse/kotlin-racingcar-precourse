@@ -1,9 +1,10 @@
 package racingcar
+import camp.nextstep.edu.missionutils.Randoms
 
 class Race(private val cars: List<Car>) {
-    fun runRound(randomProvider: () -> Int) {
+    fun runRound() {
         cars.forEach { car ->
-            car.move(randomProvider() >= 4)
+            car.move(Randoms.pickNumberInRange(0, 9) >= 4)
         }
     }
 

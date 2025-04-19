@@ -13,7 +13,7 @@ fun main() {
     val race = Race(cars)
     println("\nRace Results")
     repeat(rounds) {
-        race.runRound { randomNumber() }
+        race.runRound()
         race.printProgress()
     }
     val winners = race.getWinners()
