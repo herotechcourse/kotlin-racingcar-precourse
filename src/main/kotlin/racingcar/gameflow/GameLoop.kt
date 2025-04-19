@@ -1,32 +1,23 @@
 package racingcar.gameflow
 
 import racingcar.model.Car
+import racingcar.output.OutputModule
+import racingcar.raceexecution.raceUpdateTrack
 
-fun raceUpdateTrack(
+/**
+ *  Controls the racing loop
+ *  Updates car position and print result using the output module.
+ */
+fun gameLoop(
     cars: List<Car>,
+    nRounds: Int,
+    output: OutputModule,
     generateNumber: () -> Int,
     isMovable: (Int) -> Boolean
 ) {
-    cars.forEach { it.position++ }
-    // TODO: Replace with real implementation after merge
-}
-
-// Output is currently untestable, so focus on logic testing.
-fun outputRoundResult(cars: List<Car>, round: Int) {
-    // TODO: Implement in Output Module later
-}
-
-fun outputFinalWinner(cars: List<Car>) {
-    // TODO: Implement in Output Module later
-}
-
-fun gameLoop(cars: List<Car>,
-             nRounds: Int,
-             generateNumber: () -> Int,
-             isMovable: (Int) -> Boolean) {
-    repeat(nRounds) { eachRound ->
-        raceUpdateTrack(cars, generateNumber, isMovable) // -> After merge it's solved.
-        outputRoundResult(cars, eachRound + 1) // → Implement later on Output Module.
+    repeat(nRounds) {
+        raceUpdateTrack(cars, generateNumber, isMovable)
+        output.outputEachRoundResult(cars)
     }
-    outputFinalWinner(cars) // → Implement later on Output Module.
+    output.outputFinalWinner(cars)
 }
