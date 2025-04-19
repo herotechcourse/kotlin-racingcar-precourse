@@ -31,16 +31,8 @@ fun isValidRounds(input: String): Boolean {
     return !(isEmpty(input) || isNonDigit(input) || isZero(input) || isNegative(input))
 }
 
-//fun main () {
-//    val testCases = listOf("0", "-7", "3a", "", "1", "11", "111")
-//
-//    for (input in testCases) {
-//        println("Input: \"$input\"")
-//        if (isValidRounds(input)) {
-//            println("KO")
-//        }
-//        else
-//            println("OK")
-//        println("\n")
-//    }
-//}
+fun validateRounds(input: String): {
+    if (!isValidRounds(input)) {
+        throw IllegalArgumentException("Rounds must be a positive number(Type: Int)")
+    }
+}
