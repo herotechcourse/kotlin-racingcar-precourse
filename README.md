@@ -7,7 +7,9 @@ and the application determines the winner based on a simulation
 using random numbers. 🚗🏁
 
 ## Features
-* reads and validates user input
+#### User Input
+* reads and validates user input inside the `InputHandler` class 
+  + reads utilizing the `camp.nextstep.edu.missionutils.Console` API
   + car names:
     + 1 - 5 characters
     + contain only letters and numbers (case sensitive)
@@ -19,3 +21,9 @@ using random numbers. 🚗🏁
     + positive integer
     + limit: 1 - 100 rounds
   + if invalid or empty input is provided, the program throws IllegalArgumentException and terminates
+#### Cars
+* initializes instances of the `Car` class with the car names
+* cars can move or stay still
+  * based on random number generation from the `camp.nextstep.edu.missionutils.Randoms` API
+  * moves if the random number between 0 and 9 is >= 4 
+* prints the progress of each car in the following manner: `pobi : --`
