@@ -30,10 +30,6 @@ class ApplicationTest : NsTest() {
         )
     }
 
-
-
-
-
     @Test
     fun `Tie case`() {
         assertRandomNumberInRangeTest(
@@ -46,9 +42,6 @@ class ApplicationTest : NsTest() {
             MOVING_FORWARD
         )
     }
-
-
-
 
     @Test
     fun `exception test`() {
