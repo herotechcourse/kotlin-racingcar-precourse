@@ -2,12 +2,18 @@ package racingcar
 
 class Car (private val name: String){
 
-    private var position: Int = 0
+    private var _position: Int = 0
+
+    val position: Int
+        get() = _position
+
+    val carName: String
+        get() = name
 
     // Validation check in the init block to ensure the name is valid
     init {
-        require(name.isNotBlank() && name.length <= 5) {
-            "Car name may not be blank!\n" +
+        require(name.isNotBlank() && name.length <=5){
+            "Car name may not be blank\n" +
                     "Car name length should not be more than 5!"
         }
     }
@@ -15,7 +21,7 @@ class Car (private val name: String){
     // Increases the car's position by 1 if the random number is >= 4
     fun move(randomNUmber: Int) {
         if(randomNUmber >=4){
-            position++
+            _position++
         }
     }
 

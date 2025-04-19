@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms
 class Race(private val cars: List<Car>, private val rounds: Int)  {
 
     // Function to start the race
-    fun start(){
+    fun startRace(){
         repeat(rounds) {
                 println("Round ${it + 1}")
                 cars.forEach { car ->
@@ -15,4 +15,12 @@ class Race(private val cars: List<Car>, private val rounds: Int)  {
                 println()
         }
     }
+
+    // Function to determine the winner
+    fun printWinners() {
+        val max = cars.maxOf { it.position }
+        val winners = cars.filter { it.position == max }
+        println("Winners : ${winners.joinToString(", ") { it.carName }}")
+    }
 }
+

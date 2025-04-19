@@ -19,8 +19,8 @@ fun main() {
     val race = Race(cars, rounds)
 
     // Start the race
-    race.start()
+    race.startRace()
 
-
-
+    // Print Winners
+    race.printWinners()
 }
