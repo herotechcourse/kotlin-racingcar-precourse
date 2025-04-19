@@ -16,13 +16,7 @@ class Car(val name: String, var position: Int = 0) {
     }
 
     companion object {
-        fun createCars(carNames: List<String>): List<Car> {
-            val cars = mutableListOf<Car>()
-            for (carName in carNames) {
-                cars.add(Car(carName))
-            }
-            return cars
-        }
+        fun createCars(carNames: List<String>): List<Car> = carNames.map { Car(it) }
 
         fun raceCars(cars: List<Car>, rounds: Int) {
             println("Race Results")

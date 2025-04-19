@@ -21,12 +21,13 @@ The features will be implemented in the following order:
 
 ## Learnings
 
-- One can declare utility classes as `object` instead of `class`. This allows the compiler to provide a single instance automatically, so one can call utility methods without creating an instance manually.
+- We can declare utility classes as `object` instead of `class`. This allows the compiler to provide a single instance automatically, so we can call utility methods without creating an instance manually.
 - `Console.readLine()` throws a `NoSuchElementException` if there is no input.
 - The `isNullOrBlank()` method checks not only if a string is null or empty but also whether it contains only whitespace characters.
 - Companion objects define class members that can be used without creating an instance of the class.
 - The `assertRandomNumberInRangeTest` function controls random number generation during tests. It takes a test code block and a list of numbers. The function replaces random number calls with the specified values in order, making tests consistent and repeatable.
 - Use `it` in lambdas to refer to the single parameter when the parameter is not explicitly named. For example, `cars.filter { it.position == maxPosition }` is concise and works well for simple cases. However, explicitly naming the parameter, like `cars.filter { car -> car.position == maxPosition }`, improves clarity in more complex cases or when lambdas are nested. Choose between `it` and explicit naming based on the complexity of the lambda and the need for readability.
+- Single-expression functions in Kotlin let us define functions with one expression using the `=` symbol instead of curly braces. For example, `fun createCars(carNames: List<String>): List<Car> = carNames.map { Car(it) }` creates car objects from a list of names in one line.
 
 ## Sources
 
