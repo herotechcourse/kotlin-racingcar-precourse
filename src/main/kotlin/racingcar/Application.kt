@@ -4,8 +4,9 @@ import camp.nextstep.edu.missionutils.Console
 
 fun main() {
     // TODO: Implement the program
-    getUserName()
-    getRoundNumber()
+    val names = getUserName()
+    val roundNumber = getRoundNumber()
+
 }
 fun getUserName():List<String>{
     println("Enter the names of the cars (comma-separated):")
@@ -28,4 +29,11 @@ fun getRoundNumber():Int{
     }catch (e:Exception){
         throw IllegalArgumentException("You entered invalid number!")
     }
+}
+fun generateCars(names:List<String>):List<Car>{
+    var cars = ArrayList<Car>()
+    names.forEach{
+        cars.add(Car(it))
+    }
+    return cars
 }

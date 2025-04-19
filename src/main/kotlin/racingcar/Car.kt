@@ -9,6 +9,6 @@ class Car(val name: String) {
         position++
     }
     fun printPosition(){
-        print("$name: ${"-".repeat(position)}")
+        println("$name: ${"-".repeat(position)}")
     }
 }
