@@ -17,7 +17,7 @@ class Car(val carName: String) {
         }
     }
 
-    fun displayPosition() {
-        println("$carName : ${"-".repeat(position)}")
+    fun getPositionStatus(): String {
+        return "$carName : ${"-".repeat(position)}"
     }
 }

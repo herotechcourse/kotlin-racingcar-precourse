@@ -24,7 +24,7 @@ class RacingGame(val carNames: List<String>, val round: Int) {
             car.moveForward(randomNum)
         }
         for (car in cars){
-            car.displayPosition()
+            println(car.getPositionStatus())
         }
     }
 
