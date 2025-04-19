@@ -1,6 +1,6 @@
 package racingcar.domain
 
-class Cars(val cars: List<Car>) {
+class Cars(private val cars: List<Car>) {
     init {
         validateUniqueNames()
     }
@@ -21,5 +21,9 @@ class Cars(val cars: List<Car>) {
     fun winners(): List<Car> {
         val maxPosition = cars.maxOf { it.position.toInt() }
         return cars.filter { car -> car.position.toInt() == maxPosition }.toList()
+    }
+
+    fun getCarStatuses(): List<CarStatus> {
+        return cars.map { CarStatus(it.name, it.position) }.toList()
     }
 }

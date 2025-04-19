@@ -13,9 +13,9 @@ class OutputView {
     }
 
     private fun printRoundResult(roundResult: RoundResult) {
-        for (entry in roundResult.results.entries) {
-            print(entry.key.name + " : ")
-            println("-".repeat(entry.value.toInt()))
+        for (carStatus in roundResult.carStatuses) {
+            print(carStatus.name.name + " : ")
+            println("-".repeat(carStatus.position.toInt()))
         }
         println()
     }

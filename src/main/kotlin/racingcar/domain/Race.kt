@@ -5,7 +5,7 @@ class Race(private val cars: Cars, private val round: Int) {
         val roundResults = ArrayList<RoundResult>()
         for (i: Int in 1..round) {
             cars.move()
-            roundResults.add(RoundResult(cars.cars))
+            roundResults.add(RoundResult(cars.getCarStatuses()))
         }
         return RaceResults(roundResults, cars.winners())
     }
