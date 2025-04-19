@@ -1,7 +1,7 @@
 # kotlin-racingcar-precourse
 ## 🚗 Racing Car Game
 
-## 🧱 Project Structure
+### 🧱 Project Structure
 
 This project follows a layered structure to separate concerns and improve maintainability.
 
@@ -20,7 +20,7 @@ This project follows a layered structure to separate concerns and improve mainta
         └── RandomGenerator.kt  // Generates random numbers (used for car movement)
 ```
 
-## 🧪 Test Structure
+### 🧪 Test Structure
 
 ```
 └── test
