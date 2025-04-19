@@ -18,10 +18,10 @@
     - [x] For each car, generate a random number between 0 and 9.
     - [x] If the number is 4 or greater, move the car forward by one space.
 
-- [ ] Output the processed results.
-    - [ ] Display prompts for user input.
-    - [ ] Display the movement results for each car based on their status.
-    - [ ] Repeat the above process n times and then display the winners.
+- [x] Output the processed results.
+    - [x] Display prompts for user input.
+    - [x] Display the movement results for each car based on their status.
+    - [x] Repeat the above process n times and then display the winners.
     - [Exception] If there are multiple winners, separate their names with commas.
     - [Exception] When separating names with commas, also add a space after each comma.
     - [Exception] Output order, including race results and winners, must match the input order.
