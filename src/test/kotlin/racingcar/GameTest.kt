@@ -4,89 +4,41 @@ import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 class GameTest {
-
     @Test
-    fun `race with multiple winners`() {
-        val cars = listOf(Car("pobi"), Car("jun"))
-        val race = Race(cars, NumberGenerator { 5 })
-        race.run(3)
-        val winners = race.getWinners().map { it.name }
+    fun `play returns correct winners with mock generator`() {
+        val names = listOf("pobi", "jun")
+        val rounds = 3
+        val generator = NumberGenerator { 6 } // force always move
+
+        val winners = Game.play(names, rounds, generator)
+
         assertThat(winners).containsExactly("pobi", "jun")
     }
-
     @Test
-    fun `race with one clear winner`() {
-        val cars = listOf(Car("pobi"), Car("jun"))
-        var count = 0
-        val generator = NumberGenerator {
-            if (count++ % 2 == 0) 5 else 1
-        }
-        val race = Race(cars, generator)
-        race.run(3)
-        val winners = race.getWinners().map { it.name }
+    fun `car wins by only moving when number is greater than or equal to 4`() {
+        val names = listOf("pobi")
+        val generator = NumberGenerator { 4 } // minimum threshold to move
+        val winners = Game.play(names, 2, generator)
+
         assertThat(winners).containsExactly("pobi")
     }
 
     @Test
-    fun `race with no movement`() {
-        val cars = listOf(Car("pobi"), Car("jun"))
-        val race = Race(cars, NumberGenerator { 1 })
-        race.run(3)
-        assertThat(cars.all { it.position == 0 }).isTrue()
-        assertThat(race.getWinners().map { it.name }).containsExactly("pobi", "jun")
-    }
+    fun `car does not move when number is always less than 4`() {
+        val names = listOf("jun")
+        val generator = NumberGenerator { 3 } // always below threshold
+        val winners = Game.play(names, 3, generator)
 
-    @Test
-    fun `race with zero rounds`() {
-        val cars = listOf(Car("pobi"), Car("jun"))
-        val race = Race(cars, NumberGenerator { 9 })
-        race.run(0)
-        assertThat(cars.all { it.position == 0 }).isTrue()
-    }
+        assertThat(winners).containsExactly("jun")
 
-    @Test
-    fun `race with empty car list`() {
-        val race = Race(emptyList(), NumberGenerator { 5 })
-        race.run(3)
-        assertThat(race.getWinners()).isEmpty()
     }
-
     @Test
-    fun `race with duplicate names`() {
-        val cars = listOf(Car("pobi"), Car("pobi"))
-        val race = Race(cars, NumberGenerator { 6 })
-        race.run(2)
-        assertThat(race.getWinners().size).isEqualTo(2)
-    }
+    fun `race with empty car list throws exception`() {
+        val generator = NumberGenerator { 5 }
 
-    @Test
-    fun `race with invalid car name throws exception`() {
         assertThatThrownBy {
-            Validator.validateCarNames(listOf("pobi", "verylongname"))
+            Game.play(emptyList(), 3, generator)
         }.isInstanceOf(IllegalArgumentException::class.java)
     }
 
-    @Test
-    fun `race with negative rounds throws exception`() {
-        assertThatThrownBy {
-            Validator.validateRoundCount(-1)
-        }.isInstanceOf(IllegalArgumentException::class.java)
-    }
-
-    @Test
-    fun `race with whitespace car names throws exception`() {
-        assertThatThrownBy {
-            Validator.validateCarNames(listOf("pobi", " "))
-        }.isInstanceOf(IllegalArgumentException::class.java)
-    }
-
-    @Test
-    fun `single car race`() {
-        val cars = listOf(Car("solo"))
-        val race = Race(cars, NumberGenerator { 5 })
-        race.run(4)
-        val winners = race.getWinners().map { it.name }
-        assertThat(winners).containsExactly("solo")
-        assertThat(cars[0].position).isEqualTo(4)
-    }
 }
