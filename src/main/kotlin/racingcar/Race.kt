@@ -16,25 +16,30 @@ class Race(
     }
 
     fun startRace(){
-        repeat(this.numberOfRounds){
-            runLap()
+        repeat(this.numberOfRounds){ lap ->
+            runLap(lap + 1)
         }
         // display winner(s) after finishing the race
+        RaceDisplay.displayRaceWinners(cars, getLeadPosition())
     }
 
-    private fun runLap(){
+
+    // ######################################## HELPER FUNCTIONS ########################################
+    private fun runLap(lapNumber: Int){
         this.cars.forEach { car ->
             if (this.canMove()){
                 car.moveForward()
             }
         }
         // display progress after each round
-        RaceDisplay.displayLapProgress(this.cars)
+        RaceDisplay.displayLapProgress(this.cars, lapNumber)
     }
 
     private fun canMove(): Boolean{
         return Randoms.pickNumberInRange(RANDOM_NUMBER_LOWER_BOUND, RANDOM_NUMBER_UPPER_BOUND) >= MOVE_THRESHOLD
     }
 
-
+    private fun getLeadPosition(): Int{
+        return this.cars.maxOf { car -> car.position }
+    }
 }

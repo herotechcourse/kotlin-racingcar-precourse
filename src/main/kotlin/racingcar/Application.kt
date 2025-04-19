@@ -8,6 +8,7 @@ fun main() {
     val numberOfRounds = InputView.readNumberOfRounds()
     val validatedNumberOfRounds = InputValidator.validateNumberOfRounds(numberOfRounds)
 
-    // create a race instance
+    // create a race instance and start the race
     val race = Race.createRaceSession(validatedCarNames, validatedNumberOfRounds)
+    race.startRace()
 }
