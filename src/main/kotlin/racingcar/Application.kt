@@ -1,6 +1,9 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
+
+data class Car(val name: String, var position: Int = 0)
 
 class Application {
     companion object {
@@ -16,7 +19,6 @@ class Application {
         val input = Console.readLine()
         val carNames = input.split(",").map { it.trim() }
         validateCarNames(carNames)
-        println(carNames)
         return carNames
     }
 
@@ -40,13 +42,18 @@ class Application {
 
         return try {
             val rounds = input.toInt()
-            println(rounds)
             if (rounds <= 0) {
                 throw IllegalArgumentException("Round cannot 0 or lower")
             }
             rounds
         } catch (e: NumberFormatException) {
             throw IllegalArgumentException("Round must be a valid number")
+        }
+    }
+
+    private fun moveCar(car: Car) {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            car.position++
         }
     }
 }
