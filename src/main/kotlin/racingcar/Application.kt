@@ -56,4 +56,26 @@ class RacingGame {
             throw IllegalArgumentException("Invalid input. Please enter a positive integer.")
         }
     }
+
+    private fun race(cars: List<String>, rounds: Int): List<Int> {
+        val positions = MutableList(cars.size) { 0 }
+        println("\nRace Results")
+
+        for (round in 1..rounds) {
+            moveAllCars(positions)
+            printRoundResult(cars, positions)
+            if (round < rounds) {
+                println()
+            }
+        }
+        return positions
+    }
+
+    private fun moveAllCars(positions: MutableList<Int>) {
+        for (i in positions.indices) {
+            if (Randoms.pickNumberInRange(0, 9) >= MOVE_FORWARD) {
+                positions[i]++
+            }
+        }
+    }
 }
