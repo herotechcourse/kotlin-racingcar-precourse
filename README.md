@@ -17,10 +17,10 @@
 - [x] Car have a position and default position is 0.
 - [x] If the given number is 4 or more, the car moves.
 
-### `Racetrack`
-- [x] Racetrack can generate the random numbers from 0 to 9.
-- [x] Racetrack can move cars according to the random number.
-- [x] Racetrack can decide the winner.
+### `RacingGame`
+- [x] RacingGame can generate the random numbers from 0 to 9.
+- [x] RacingGame can move cars according to the random number.
+- [x] RacingGame can decide the winner.
 
 ## Programming Requirements
 - [ ] The program must be executable with Kotlin 1.9.24.

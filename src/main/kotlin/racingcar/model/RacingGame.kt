@@ -2,7 +2,7 @@ package racingcar.model
 
 import racingcar.model.random.RandomNumberGenerator
 
-class Racetrack(
+class RacingGame(
     private val cars: List<Car>,
     private val randomNumberGenerator: RandomNumberGenerator,
 ) {
