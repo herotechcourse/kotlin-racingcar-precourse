@@ -9,8 +9,11 @@ class Application {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            Application().inputCarNames()
-            Application().inputRounds()
+            val carNames = Application().inputCarNames()
+            val rounds = Application().inputRounds()
+            val cars = carNames.map { Car(it) }
+
+            Application().runRace(cars, rounds)
         }
     }
 
@@ -54,6 +57,20 @@ class Application {
     private fun moveCar(car: Car) {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             car.position++
+        }
+    }
+
+    private fun runRace(cars: List<Car>, rounds: Int) {
+        println("\nRace Results")
+        for (round in 1..rounds) {
+            for (car in cars) {
+                moveCar(car)
+            }
+            println("Round $round:")
+            for (car in cars) {
+                println("${car.name} : ${"-".repeat(car.position)}")
+            }
+            println()
         }
     }
 }
