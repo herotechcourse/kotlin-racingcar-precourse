@@ -22,9 +22,14 @@ class RaceGame(
         currentRound++
     }
 
+    fun getListOfCars(): List<Car> {
+        return cars
+    }
+
+    fun isRaceEnd(): Boolean = currentRound >= rounds
+
     private fun canMoveCar(): Boolean = randomNumberGenerator() >= MIN_NUMBER_TO_MOVE_CAR
 
-    private fun isRaceEnd(): Boolean = currentRound >= rounds
 
     fun getWinners(): List<Car> {
         val maxPosition = cars.maxOf { it.position }
