@@ -1,5 +1,12 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    val app = Application()
+    app.run()
+}
+
+class Application {
+    fun run() {
+
+    }
 }
