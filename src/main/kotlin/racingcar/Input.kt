@@ -1,5 +1,6 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Console
 /**
  * @packageName    : racingcar
  * @fileName       : Input
@@ -9,7 +10,7 @@ package racingcar
  */
 class Input {
     fun input(): String {
-        return readln()
+        return Console.readLine()
     }
 
     fun getNames(input: String): List<String> {
