@@ -1,6 +1,20 @@
 package racingcar
 
 object ParseAndValidate {
+    fun parseAndValidateNames(input: String): List<String> {
+        checkEmpty(input)
+        return input
+            .split(",")
+            .map { it.trim() }
+            .onEach  { requireValidName(it) }
+    }
+
+    fun parseAndValidateRounds(input: String): Int {
+        val value = checkInt(input)
+        checkIntValue(value)
+        return value
+    }
+
     private fun checkLength(input: String) {
         if (input.length > 5)  throw IllegalArgumentException("Length exceeds 5")
     }
@@ -20,19 +34,5 @@ object ParseAndValidate {
 
     private fun checkIntValue(value: Int) {
         if (value < 1) throw IllegalArgumentException("Number must be greater than 0")
-    }
-
-    fun parseAndValidateNames(input: String): List<String> {
-        checkEmpty(input)
-        return input
-            .split(",")
-            .map { it.trim() }
-            .onEach  { requireValidName(it) }
-    }
-
-    fun parseAndValidateRounds(input: String): Int {
-        val value = checkInt(input)
-        checkIntValue(value)
-        return value
     }
 }
