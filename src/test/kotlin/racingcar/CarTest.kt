@@ -6,40 +6,32 @@ import org.junit.jupiter.api.Test
 
 class CarTest {
     @Test
-    fun `car move`() {
+    fun `change car position after move`() {
         val car = Car("car")
         assertTrue(car.position == 0)
-        car.move(true)
+        car.move()
         assertTrue(car.position == 1)
-    }
-
-    @Test
-    fun `car don't move`() {
-        val car = Car("car")
-        assertTrue(car.position == 0)
-        car.move(false)
-        assertTrue(car.position == 0)
     }
 
     @Test
     fun `print car result just after initializing`() {
         val car = Car("car")
-        assertThat(car.toString()).contains("car : ")
+        assertThat(car.toString()).isEqualTo("car : ")
     }
 
     @Test
     fun `print car result after car moved once`() {
         val car = Car("car")
-        car.move(true)
-        assertThat(car.toString()).contains("car : -")
+        car.move()
+        assertThat(car.toString()).isEqualTo("car : -")
     }
 
     @Test
     fun `print car result after car moved two times`() {
         val car = Car("car")
         repeat(2) {
-            car.move(true)
+            car.move()
         }
-        assertThat(car.toString()).contains("car : --")
+        assertThat(car.toString()).isEqualTo("car : --")
     }
 }
