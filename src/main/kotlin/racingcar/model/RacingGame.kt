@@ -17,6 +17,7 @@ class RacingGame {
             is UserIntent.StartGame -> {
                 var currentState = state
                 repeat(state.totalRounds) {
+                    println("Round ${currentState.currentRound + 1}")
                     currentState = currentState.copy(
                         cars = currentState.cars.map {
                             it.move(Randoms.pickNumberInRange(0, 9))
