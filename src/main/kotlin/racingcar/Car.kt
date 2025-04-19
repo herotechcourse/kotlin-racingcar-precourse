@@ -4,15 +4,16 @@ import camp.nextstep.edu.missionutils.Randoms
 
 class Car(
     val name: String,
-    var position: Int = 0
+    private var distance: Int = 0
 ) {
     fun move() {
-        if (canMove()) position++
+        if (canMove()) distance++
     }
 
+    fun getDistance() = distance
+
     fun displayPosition() {
-        val dashes = "-".repeat(position)
-        println("$name : $dashes")
+        println("$name : ${"-".repeat(distance)}")
     }
 
     private fun canMove(): Boolean {
