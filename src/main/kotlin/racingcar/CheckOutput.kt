@@ -25,7 +25,7 @@ class CheckOutput {
         return name
     }
 
-    fun checkSingleWin(single: Boolean,distance: Int, maxLen:Int): String{
+    private fun checkSingleWin(single: Boolean, distance: Int, maxLen:Int): String{
         val chdtance= checkDistance(distance,maxLen)
         if(single && chdtance){
             return "first"
@@ -39,7 +39,7 @@ class CheckOutput {
         return "noWin"
     }
 
-    fun checkDistance(distance:Int,maxLen:Int):Boolean{
+    private fun checkDistance(distance:Int, maxLen:Int):Boolean{
         return distance==maxLen
     }
 }
