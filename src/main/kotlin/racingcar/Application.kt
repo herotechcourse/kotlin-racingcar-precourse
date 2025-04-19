@@ -1,11 +1,10 @@
 package racingcar
 
 fun main() {
-    val prompt = UserPrompt()
-    val cars = prompt.promptCarNames()
-    val rounds = prompt.promptRounds()
+    val cars = UserPrompt.promptCarNames()
+    val rounds = UserPrompt.promptRounds()
 
-    val race = Race(cars = cars, totalRounds = rounds)
+    val race = Race(cars = cars, rounds = rounds)
     race.play()
     race.displayWinners()
 }
