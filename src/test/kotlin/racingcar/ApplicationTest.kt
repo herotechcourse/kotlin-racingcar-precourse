@@ -31,6 +31,7 @@ class ApplicationTest : NsTest() {
         main()
     }
 
+
     companion object {
         private const val MOVING_FORWARD: Int = 4
         private const val STOP: Int = 3
