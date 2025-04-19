@@ -35,12 +35,18 @@ class Car(val name: String, var position: Int = 0) {
             }
         }
 
-        fun printWinners (cars: List<Car>) {
+        fun findMaxPosition(cars: List<Car>): Int {
             var maxPosition = 0
             for (car in cars) {
-                if (car.position > maxPosition)
+                if (car.position > maxPosition) {
                     maxPosition = car.position
+                }
             }
+            return maxPosition
+        }
+
+        fun printWinners(cars: List<Car>) {
+            val maxPosition = findMaxPosition(cars)
 
             print("Winners : ")
             var winners = ""
@@ -50,6 +56,7 @@ class Car(val name: String, var position: Int = 0) {
                 }
             }
             winners = winners.dropLast(2)
+
             // Assumption: the output in the example execution in the
             // input/output requirements does not include a newline at the end
             print(winners)

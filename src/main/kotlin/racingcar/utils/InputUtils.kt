@@ -3,9 +3,7 @@ package racingcar.utils
 import camp.nextstep.edu.missionutils.Console
 
 object InputUtils {
-    fun readCarNames(): List<String> {
-        println("Enter the names of the cars (comma-separated):")
-
+    fun readInput(): String {
         val input: String
         try {
             input = Console.readLine()
@@ -16,6 +14,14 @@ object InputUtils {
         if (input.isNullOrBlank()) {
             throw IllegalArgumentException("Input cannot be empty")
         }
+
+        return input
+    }
+
+    fun readCarNames(): List<String> {
+        println("Enter the names of the cars (comma-separated):")
+
+        val input = readInput()
 
         val carNames = input.split(",")
         for (carName in carNames) {
@@ -33,16 +39,7 @@ object InputUtils {
     fun readRounds(): Int {
         println("How many rounds will be played?")
 
-        val input: String
-        try {
-            input = Console.readLine()
-        } catch (e: NoSuchElementException) {
-            throw IllegalArgumentException("Input cannot be empty")
-        }
-
-        if (input.isNullOrBlank()) {
-            throw IllegalArgumentException("Input cannot be empty")
-        }
+        val input = readInput()
 
         val rounds: Int
         try {

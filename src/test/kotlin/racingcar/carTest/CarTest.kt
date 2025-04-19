@@ -111,6 +111,32 @@ class CarTest : NsTest() {
     }
 
     @Test
+    fun `findMaxPosition should return the highest position`() {
+        val cars = listOf(
+            Car("lisa", 1),
+            Car("jim", 3),
+            Car("tommy", 2)
+        )
+
+        val maxPosition = Car.findMaxPosition(cars)
+
+        assertThat(maxPosition).isEqualTo(3)
+    }
+
+    @Test
+    fun `findMaxPosition should return the highest position for a tie`() {
+        val cars = listOf(
+            Car("lisa", 3),
+            Car("jim", 3),
+            Car("tommy", 1)
+        )
+
+        val maxPosition = Car.findMaxPosition(cars)
+
+        assertThat(maxPosition).isEqualTo(3)
+    }
+
+    @Test
     fun `printWinners should print the winner when there is a single winner`() {
         val cars = listOf(
             Car("lisa", 3),
