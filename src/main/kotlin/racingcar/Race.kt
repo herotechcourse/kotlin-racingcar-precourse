@@ -2,55 +2,42 @@ package racingcar
 
 class Race(
     private val cars: List<Car>,
-    private val rounds: Int,
-    private var result: List<Car>? = null,
-){
+    private val totalRounds: Int,
+    private var currentRound: Int = 0,
+    private var winners: List<String>? = null
+) {
     fun play() {
-        for (i in 0..< rounds) {
+        println("\nRace Results")
+
+        while (currentRound <= totalRounds) {
+            currentRound++
             cars.forEach { car ->
                 car.move()
                 displayRound(car)
             }
             println()
-
-            // save result if it is the last round
-            if (i == rounds - 1) {
-                result = cars
-            }
         }
 
-        result?.let {
-            val winners = getWinners(it)
-            displayWinners(winners)
-        }
+        setWinners()
     }
 
-    private fun getWinners(result: List<Car>): List<String>{
-        var maxDistance = result[0].distance
-
-        result.forEach{ car ->
-            if (car.distance > maxDistance) maxDistance = car.distance
-        }
-
-        val winners = result.filter { car ->
-            car.distance == maxDistance
-        }.map { car -> car.name }
-
-        return winners
+    private fun setWinners() {
+        val maxDistance = cars.maxOf { it.distance }
+        winners = cars.filter { it.distance == maxDistance }.map { it.name }
     }
 
-    private fun displayRound(car: Car) {
+    private fun displayRound(car: Car) { // TODO move this method to class Car
         val dashes = "-".repeat(car.distance)
         println(car.name + " : " + dashes)
     }
 
-    private fun displayWinners(winners: List<String>) {
+    fun displayWinners() {
+        if (winners == null) return
+
         print("Winners : ")
-        winners.forEachIndexed { index, winner ->
+        winners!!.forEachIndexed { index, winner ->
             print(winner)
-            if (index != winners.size - 1) {
-                print(", ")
-            }
+            if (index != winners!!.size - 1) print(", ")
         }
     }
 }

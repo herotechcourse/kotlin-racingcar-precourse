@@ -5,8 +5,7 @@ fun main() {
     val cars = prompt.promptCarNames()
     val rounds = prompt.promptRounds()
 
-    val race = Race(cars = cars, rounds = rounds)
-
-    println("\nRace Results")
+    val race = Race(cars = cars, totalRounds = rounds)
     race.play()
+    race.displayWinners()
 }
