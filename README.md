@@ -6,8 +6,8 @@ A simple racing game implemented in Kotlin. Users input car names and number of 
 ## Features
 
 ### Input
-- [ ] Enter car names (comma-separated, max 5 characters each)
-- [ ] Enter number of rounds
+- [x] Enter car names (comma-separated, max 5 characters each)
+- [x] Enter number of rounds
 
 ### Game Logic
 - [ ] Each round, cars randomly move forward if the number (0–9) is 4 or greater
@@ -17,4 +17,4 @@ A simple racing game implemented in Kotlin. Users input car names and number of 
 - [ ] Display final winner(s) — multiple winners allowed
 
 ### Error Handling
-- [ ] Throw `IllegalArgumentException` on invalid inputs
+- [x] Throw `IllegalArgumentException` on invalid inputs
