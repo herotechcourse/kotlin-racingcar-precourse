@@ -40,4 +40,11 @@ This is a console-based **Car Racing Game** written in Kotlin. Users input car n
 
 ---
 
+## ✅  Tests
+1. **Car Class**:
+   - Creates car with valid name
+   - Throws exception when car name is too long
+   - Car moves when random number is greater than or equal to 4
+   - Car does not move when random number is less than 4`
+   - GetProgress returns correct progress string
 
