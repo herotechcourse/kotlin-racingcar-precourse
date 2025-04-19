@@ -33,6 +33,6 @@
 
 ### 6. Testing
 	[*] Input validation test
-	[ ] Car class test
+	[*] Car class test
 	[ ] Race simulation test
 	[ ] Display test
