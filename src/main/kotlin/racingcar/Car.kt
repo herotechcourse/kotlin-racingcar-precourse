@@ -20,7 +20,7 @@ class Car(
         val threashold = 4
 
         val randomNumber = Randoms.pickNumberInRange(0, 9)
-        if (randomNumber > threashold) {
+        if (randomNumber >= threashold) {
             move()
         }
     }
