@@ -1,5 +1,9 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    // read input from the user
+    val carNames = InputView.readCarNames()
+    val numberOfRounds = InputView.readNumberOfRounds()
+    println("Car names: $carNames")
+    println("Number of rounds: $numberOfRounds")
 }
