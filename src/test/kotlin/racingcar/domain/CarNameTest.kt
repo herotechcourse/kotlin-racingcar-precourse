@@ -7,7 +7,6 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 
 class CarNameTest {
-
     @Test
     fun `Car names must not be empty`() {
         val exception = assertThrows<IllegalArgumentException> {

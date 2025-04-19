@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 class CarsTest {
-
     @Test
     fun `Car names must be unique`() {
         val carName = CarName("pobi")

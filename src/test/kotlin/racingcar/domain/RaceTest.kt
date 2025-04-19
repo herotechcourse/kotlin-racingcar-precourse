@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 class RaceTest {
-
     @Test
     fun `proceed for a given number of rounds`() {
         val winner = Car(CarName("pobi"), FixedPowerGenerator(4))

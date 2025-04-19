@@ -8,7 +8,6 @@ import org.junit.jupiter.params.provider.CsvSource
 import org.junit.jupiter.params.provider.ValueSource
 
 class InputParserTest {
-
     private val parser = InputParser()
 
     @Test
