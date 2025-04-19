@@ -19,22 +19,17 @@ class RacingService(val names: List<String>, val round: Int) {
         results.add(position)
     }
 
-    fun play() {
+    fun play(): Pair<MutableMap<String, MutableList<String>>, String> {
         println("Race Results")
         repeat(round) {
             val nums: List<Int> = getRandomNumber(cars.size)
             moveCarForward(nums)
         }
 
-//        for (i in 0 until round) {
-//            val roundRaceResult = getRaceResultString()
-//            output.displayRaceResults(roundRaceResult)
-//        }
-        output.displayRaceResults(raceResultMap)
-
         val maxPosition = cars.maxOf { it.getPositionBar() }
         val winners: String = decideWinners(maxPosition)
-        output.displayWinners(winners)
+
+        return raceResultMap to winners
     }
 
     fun decideWinners(max: String): String {
