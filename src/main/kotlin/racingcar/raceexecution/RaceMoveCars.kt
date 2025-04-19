@@ -9,7 +9,7 @@ package racingcar.raceexecution
  *  Param(3) :  func2 _ return (Boolean)
  *  Return   :  X
  */
-data class Car(val name: String, var position: Int = 0)
+import racingcar.model.Car
 
 fun moveCars(cars: List<Car>,
              generateNumber: () -> Int,
