@@ -1,8 +1,17 @@
 package racingcar
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
 
+class Car(val name: String, var position: Int = 0) {
+  fun move() {
+    if (Randoms.pickNumberInRange(0, 9) >= 4) {
+        position++
+    }
+  }
+}
 class Game{
-
+  private val cars = mutableListOf<Car>()
+  
   fun start() {
     println("Enter car names (separated by commas):")
     val carInput = Console.readLine()
@@ -13,6 +22,8 @@ class Game{
     val roundInput = Console.readLine().toIntOrNull()
     validateRound(roundInput)
     val round = roundInput!!
+
+    initializeCars(carNames)
   }
 
   fun validateCarNames(carNames: List<String>) {
@@ -28,7 +39,11 @@ class Game{
     if (round == null || round <= 0) {
         throw IllegalArgumentException("Number of rounds must be a valid and positive number.")
     }
-  } 
+  }
+
+  fun initializeCars(carNames: List<String>) {
+    carNames.forEach { cars.add(Car(it)) }
+  }
 }
 
 fun main() {
