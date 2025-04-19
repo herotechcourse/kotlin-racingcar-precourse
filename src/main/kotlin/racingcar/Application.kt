@@ -7,11 +7,12 @@ class Application {
         @JvmStatic
         fun main(args: Array<String>) {
             Application().inputCarNames()
+            Application().inputRounds()
         }
     }
 
     private fun inputCarNames(): List<String> {
-        println("Enter names of the cars (comma-separated): ")
+        println("Enter the names of the cars (comma-separated): ")
         val input = Console.readLine()
         val carNames = input.split(",").map { it.trim() }
         validateCarNames(carNames)
@@ -30,6 +31,22 @@ class Application {
             if (name.length > 5) {
                 throw IllegalArgumentException("Car name cannot exceed 5 characters")
             }
+        }
+    }
+
+    private fun inputRounds(): Int {
+        println("How many rounds will be played?")
+        val input = Console.readLine()
+
+        return try {
+            val rounds = input.toInt()
+            println(rounds)
+            if (rounds <= 0) {
+                throw IllegalArgumentException("Round cannot 0 or lower")
+            }
+            rounds
+        } catch (e: NumberFormatException) {
+            throw IllegalArgumentException("Round must be a valid number")
         }
     }
 }
