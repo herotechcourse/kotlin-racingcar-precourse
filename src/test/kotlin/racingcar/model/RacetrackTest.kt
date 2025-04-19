@@ -20,4 +20,34 @@ class RacetrackTest {
         // then
         assertThat(randomNumber).isIn(0..9)
     }
+
+    @ValueSource(ints = [4, 5, 6, 7, 8, 9])
+    @ParameterizedTest
+    fun `racetrack can move cars if random number is 4 or more`(number: Int) {
+        // given
+        val car = Car("song")
+        val fakeRandomNumberGenerator = FakeRandomNumberGenerator(number)
+        val racetrack = Racetrack(listOf(car), fakeRandomNumberGenerator)
+
+        // when
+        racetrack.moveCar()
+
+        // then
+        assertThat(car.position).isEqualTo(1)
+    }
+
+    @ValueSource(ints = [0, 1, 2, 3])
+    @ParameterizedTest
+    fun `racetrack cannot move cars if random number is 3 or less`(number: Int) {
+        // given
+        val car = Car("song")
+        val fakeRandomNumberGenerator = FakeRandomNumberGenerator(number)
+        val racetrack = Racetrack(listOf(car), fakeRandomNumberGenerator)
+
+        // when
+        racetrack.moveCar()
+
+        // then
+        assertThat(car.position).isEqualTo(0)
+    }
 }

@@ -9,4 +9,11 @@ class Racetrack(
     fun generateRandomNumber(): Int {
         return randomNumberGenerator.generate()
     }
+
+    fun moveCar() {
+        cars.forEach { car ->
+            val randomNumber = generateRandomNumber()
+            car.move(randomNumber)
+        }
+    }
 }
