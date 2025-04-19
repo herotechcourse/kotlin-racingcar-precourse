@@ -13,7 +13,6 @@ object InputHandler {
     fun readAndValidateCarNames() : List<String> {
         println("Enter the names of the cars (comma-separated):")
         val rawCarNames = Console.readLine()
-
         val carNameList = rawCarNames.split(",")
 
         require (carNameList.size >= MIN_CAR_NAMES) {
@@ -25,20 +24,22 @@ object InputHandler {
         carNameList.forEach {
             validateCarName(it)
         }
+
         return carNameList
     }
 
     fun readAndValidateRounds() : Int {
         println("How many rounds will be played?")
         val rawRounds = Console.readLine()
-
         val rounds = rawRounds.toIntOrNull()
+
         require (rounds != null) {
             "Rounds must be an Integer number."
         }
         require (rounds in MIN_ROUNDS..MAX_ROUNDS) {
             "Only rounds in range $MIN_ROUNDS - $MAX_ROUNDS accepted."
         }
+
         return rounds
     }
 
