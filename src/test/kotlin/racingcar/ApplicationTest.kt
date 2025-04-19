@@ -23,7 +23,15 @@ class ApplicationTest : NsTest() {
     @Test
     fun `exception test`() {
         assertSimpleTest {
+            // Name validation tests
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+            assertThrows<IllegalArgumentException> { runException(",woni", "1") }
+            assertThrows<IllegalArgumentException> { runException("pobi,pobi", "1") }
+            assertThrows<IllegalArgumentException> { runException("pobi woni", "1") }
+
+            // Round validation tests
+            assertThrows<IllegalArgumentException> { runException("pobi,woni", "-1") }
+
         }
     }
 
