@@ -5,29 +5,25 @@ import racingcar.domain.Car
 import racingcar.domain.Race
 import racingcar.view.OutputView
 
-class GameController {
-    private var race: Race? = null
+class GameController() {
+    private var race: Race
     private var raceEnds = false
 
-    fun init(): Unit {
+    init {
         val carNames = InputView.getCarNames()
         val rounds = InputView.getRounds()
-
         val cars = carNames.map { Car(it) }
-        race = Race(cars, rounds)
+        this.race = Race(cars, rounds)
     }
 
-    private fun currentRace() = checkNotNull(race) { "Race must be initialize before it can be used" }
-
     fun start() {
-        val activeRace = currentRace()
-        activeRace.simulate()
-        OutputView.displayRace(activeRace.raceHistory)
-        raceEnds = true
+        this.race.simulate()
+        OutputView.displayRace(this.race.raceHistory)
+        this.raceEnds = true
     }
 
     fun announceWinners() {
-        check(raceEnds) { "Cannot announce winner: race has not started" }
-        OutputView.announceWinners(currentRace().getWinners())
+        check(this.raceEnds) { "Cannot announce winner: race has not started" }
+        OutputView.announceWinners(race.getWinners())
     }
 }

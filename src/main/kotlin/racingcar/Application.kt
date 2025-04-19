@@ -9,7 +9,6 @@ import racingcar.controller.GameController
 fun main() {
     try {
         val gameController = GameController()
-        gameController.init()
         gameController.start()
         gameController.announceWinners()
     } catch (e: IllegalArgumentException) {
