@@ -13,6 +13,8 @@ fun main() {
             throw IllegalArgumentException("Car name cannot exceed 5 characters: $it")
         }
     }
+
+    val cars = carNames.map { Car(it) }
     println("How many rounds will be played?")
     val roundsInput = Console.readLine()
     var rounds = 0
@@ -24,6 +26,10 @@ fun main() {
     }
 
     println("Race Results")
+
+    val maxPosition = cars.maxOf { it.position }
+    val winners = cars.filter { it.position == maxPosition }.map { it.name }
+    println("Winners : ${winners.joinToString(", ")}")
 }
 
 data class Car(val name: String, var position: Int = 0) {
