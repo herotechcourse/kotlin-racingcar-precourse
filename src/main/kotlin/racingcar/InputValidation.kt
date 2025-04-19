@@ -51,7 +51,7 @@ fun checkDigits(input: String) {
 
 fun checkLimits(input: String) {
     val n = input.toLong()
-    if (n > 10000) throw IllegalArgumentException("Number of rounds cannot be greater than 10000 (or the cars will be tired)")
+    if (n > 1000) throw IllegalArgumentException("Number of rounds cannot be greater than 1000 (or the cars will be tired)")
     if (n <= 0) throw IllegalArgumentException("Number of rounds cannot be zero or negative")
 }
 
