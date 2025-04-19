@@ -2,18 +2,25 @@ package racingcar.domain
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class Car (private val name: String) {
+class Car (
+    private val name: String,
+    private val randomProvider: () -> Int = {Randoms.pickNumberInRange (0,9)}
+) {
     init {
-        require(name.length <=5) {"Car name cannot exceed 5 characters"}
+        require(name.isNotBlank() && name.length <= 5) { "Car name cannot exceed 5 characters" }
     }
-    private var position: Int = 0
+
+    private var position = 0
+    fun getPosition(): Int = position
+    fun getName(): String = name
+
 
     fun move() {
-        if (Randoms.pickNumberInRange (0,9) >= 4) {
+        if (randomProvider() >= 4) {
             position++
         }
     }
-    fun getPosition(): Int = position
 
-    fun getName(): String = name
+        override fun toString(): String = "$name : ${"-".repeat(position)}"
+
 }
