@@ -2,37 +2,28 @@ package racingcar
 
 class Race(
     private val cars: List<Car>,
-    private val totalRounds: Int,
-    private var currentRound: Int = 1,
-    private var winners: List<String>? = null
+    private val rounds: Int
 ) {
     fun play() {
         println("\nRace Results")
 
-        while (currentRound <= totalRounds) {
-            currentRound++
+        repeat(rounds) {
             cars.forEach {
                 it.move()
                 it.displayPosition()
             }
             println()
         }
-
-        setWinners()
     }
 
-    private fun setWinners() {
-        val maxDistance = cars.maxOf { it.position }
-        winners = cars.filter { it.position == maxDistance }.map { it.name }
+    private fun getWinners(): List<String> {
+        val maxDistance = cars.maxOf { it.getDistance() }
+        return cars.filter { it.getDistance() == maxDistance }.map { it.name }
     }
 
     fun displayWinners() {
-        if (winners == null) return
-
+        val winners = getWinners()
         print("Winners : ")
-        winners!!.forEachIndexed { index, winner ->
-            print(winner)
-            if (index != winners!!.size - 1) print(", ")
-        }
+        println(winners.joinToString(", "))
     }
 }
