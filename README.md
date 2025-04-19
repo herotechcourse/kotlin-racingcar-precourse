@@ -8,14 +8,13 @@ A simple car racing game implemented in Kotlin 1.9.24 for the purpose of pre cou
 ## Feature Checklist
 
 ### Input Handling
-- [ ] Prompt user for comma-separated car names.
-- [ ] Validate car names:
-    - [ ] Names must not be empty.
-    - [ ] Names must not exceed 5 characters.
-    - [ ] No duplicate names allowed.
-- [ ] Prompt user for number of rounds.
-- [ ] Validate that the number of rounds is a positive integer.
-- [ ] Throw `IllegalArgumentException` and terminate if input is invalid.
+- [x] Prompt user for comma-separated car names.
+- [x] Validate car names:
+  - [x] Names must not be empty.
+  - [x] Names must not exceed 5 characters.
+- [x] Prompt user for number of rounds.
+- [x] Validate that the number of rounds is a positive integer.
+- [x] Throw `IllegalArgumentException` and terminate if input is invalid.
 
 ---
 
