@@ -9,7 +9,7 @@ class RacingController {
     fun run() {
         val cars = InputView.readCars()
         val count = InputView.readCount()
-        OutputView.showRacing(cars)
+        OutputView.showRacing()
         startRacingGame(count, cars)
         OutputView.showResult(cars.getWinners())
     }

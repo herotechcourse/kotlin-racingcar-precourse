@@ -1,10 +1,8 @@
 package racingcar.view
 
-import racingcar.domain.Cars
-
 object OutputView {
 
-    fun showRacing(cars: Cars) {
+    fun showRacing() {
         println("Race Results")
     }
 
