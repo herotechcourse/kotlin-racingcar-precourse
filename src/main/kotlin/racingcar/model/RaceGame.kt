@@ -8,13 +8,8 @@ class RaceGame(
     private val randomNumberGenerator: () -> Int = { RandomNumberGenerator.generateRandomNumber() }
 ) {
     private var currentRound: Int = 0
-    fun startRace() {
-        while (!isRaceEnd()) {
-            startRound()
-        }
-    }
 
-    private fun startRound() {
+    fun startRound() {
         cars.forEach { car ->
             if (canMoveCar())
                 car.move()
