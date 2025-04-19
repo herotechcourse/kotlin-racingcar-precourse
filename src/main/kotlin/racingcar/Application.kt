@@ -12,13 +12,4 @@ fun main() {
     val rounds = readln().toIntOrNull()
     require(rounds != null) {"The number of rounds should be a valid number"}
 
-    println("\nRace Results")
-    for (i in 0..< rounds) {
-        cars.forEach{ car ->
-            car.move()
-            println(car.name + " : " + "-".repeat(car.distance))
-        }
-        println()
-    }
-
-}
+    val race = Race(cars = cars, r
