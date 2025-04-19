@@ -11,6 +11,6 @@ class Round(val leftRound: Int) {
         private const val MAX_ROUND: Int = 10
 
         private const val ROUND_OUT_OF_RANGE_ERROR: String =
-            "[ERROR] Round range must be between ${MIN_ROUND} and ${MAX_ROUND}."
+            "[ERROR] Round range must be between $MIN_ROUND and $MAX_ROUND."
     }
 }

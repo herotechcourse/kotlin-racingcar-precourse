@@ -19,7 +19,7 @@ class CarsTest {
         // when & then
         assertThatThrownBy { Cars(cars) }
             .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessage("[ERROR] Total number of cars range must be between ${MIN_SIZE} and ${MAX_SIZE}.")
+            .hasMessage("[ERROR] Total number of cars range must be between $MIN_SIZE and $MAX_SIZE.")
     }
 
     @Test
@@ -34,7 +34,7 @@ class CarsTest {
         // when & then
         assertThatThrownBy { Cars(cars) }
             .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessage("[ERROR] Total number of cars range must be between ${MIN_SIZE} and ${MAX_SIZE}.")
+            .hasMessage("[ERROR] Total number of cars range must be between $MIN_SIZE and $MAX_SIZE.")
     }
 
     @Test

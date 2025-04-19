@@ -29,7 +29,7 @@ class Cars(val cars: List<Car>) {
         private const val MAX_SIZE: Int = 20
 
         private const val SIZE_OUT_OF_RANGE_ERROR: String =
-            "[ERROR] Total number of cars range must be between ${MIN_SIZE} and ${MAX_SIZE}."
+            "[ERROR] Total number of cars range must be between $MIN_SIZE and $MAX_SIZE."
         private const val CAR_NAMES_DUPLICATED_ERROR: String = "[ERROR] Car names are duplicated."
 
         fun from(carNames: List<String>): Cars {

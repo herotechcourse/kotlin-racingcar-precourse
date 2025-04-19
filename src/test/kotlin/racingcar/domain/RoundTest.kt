@@ -12,7 +12,7 @@ class RoundTest {
         // when & then
         assertThatThrownBy { Round(round) }
             .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessage("[ERROR] Round range must be between ${MIN_ROUND} and ${MAX_ROUND}.")
+            .hasMessage("[ERROR] Round range must be between $MIN_ROUND and $MAX_ROUND.")
     }
 
     companion object {
