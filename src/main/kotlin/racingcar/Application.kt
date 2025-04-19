@@ -16,4 +16,13 @@ fun main() {
   println("How many rounds will be played?")
   val rounds = Console.readLine().toIntOrNull()
     ?: throw IllegalArgumentException("Invalid number of rounds")
+
+    val cars = names.map { Car(it) }
+    val game = RacingGame(cars)
+
+    println("Race Results")
+    repeat(rounds) {
+      game.playRound()
+      game.printProgress()
+    }
 }
