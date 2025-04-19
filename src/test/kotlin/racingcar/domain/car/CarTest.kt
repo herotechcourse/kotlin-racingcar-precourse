@@ -31,6 +31,17 @@ class CarTest {
         assertThat(movedCar.getPosition()).isEqualTo(0)
     }
 
+    @Test
+    fun `recognize as the same object if names are the same`() {
+        // given
+        val queue = LinkedList<Int>()
+        val car1 = createCar(queue)
+        val car2 = createCar(queue)
+        // when & then
+        assertThat(car1).isEqualTo(car2)
+        assertThat(car1.hashCode()).isEqualTo(car2.hashCode())
+    }
+
     private fun createCar(queue: LinkedList<Int>): Car {
         val name = Name("test")
         return Car(name, Position(), FixedNumberGenerator(queue))
