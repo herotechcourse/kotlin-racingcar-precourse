@@ -42,4 +42,18 @@ class RacingGame {
             }
         }
     }
+
+    private fun inputRounds(): Int {
+        println("How many rounds will be played?")
+        val input = Console.readLine()
+        try {
+            val rounds = input.toInt()
+            if (rounds <= 0) {
+                throw IllegalArgumentException("Number of rounds must be a positive integer.")
+            }
+            return rounds
+        } catch (e: NumberFormatException) {
+            throw IllegalArgumentException("Invalid input. Please enter a positive integer.")
+        }
+    }
 }
