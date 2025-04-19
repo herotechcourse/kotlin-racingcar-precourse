@@ -1,9 +1,7 @@
 package racingcar
 import camp.nextstep.edu.missionutils.Randoms
 
-fun getRandomNumber(): Int {
-    return Randoms.pickNumberInRange(0, 9)
-}
+fun getRandomNumber() = Randoms.pickNumberInRange(0, 9)
 
 fun runRace(cars: List<Car>, round: Int) {
     println("Race Results")
