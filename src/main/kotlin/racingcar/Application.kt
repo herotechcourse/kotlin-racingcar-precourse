@@ -39,9 +39,14 @@ fun parseCarNames(input: String): List<Car> {
 fun promptForRounds(): Int {
     println("How many rounds will be played?")
     val input = Console.readLine()
-    val rounds = input.toInt()
-    if (rounds <= 0) {
-        throw IllegalArgumentException("Number of rounds must be positive.")
+
+    return try {
+        val rounds = input.toInt()
+        if (rounds <= 0) {
+            throw IllegalArgumentException("Number of rounds must be positive.")
+        }
+        rounds
+    } catch (e: NumberFormatException) {
+        throw IllegalArgumentException("Number of rounds must be a valid integer.")
     }
-    return rounds
 }
