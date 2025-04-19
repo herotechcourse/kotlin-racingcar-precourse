@@ -1,5 +1,8 @@
 package racingcar
 
+import racingcar.model.Car
+
+
 fun main() {
     var carNames: List<String> = listOf()
 
