@@ -27,7 +27,7 @@ object InputHandler {
             throw IllegalArgumentException("No car names were entered.")
         }
         if (names.any { it.isEmpty() }) {
-            throw IllegalArgumentException("Individual car name cannot be blank")
+            throw IllegalArgumentException("Car name cannot be blank")
         }
         if (names.any { it.length > 5 }) {
             throw IllegalArgumentException("Each car name must be at most 5 characters.")

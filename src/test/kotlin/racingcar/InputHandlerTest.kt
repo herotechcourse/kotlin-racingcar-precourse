@@ -37,7 +37,7 @@ class InputHandlerTest {
         assertThatThrownBy {
             InputHandler.parseCarNames(input)
         }.isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessage("Individual car name cannot be blank")
+            .hasMessage("Car name cannot be blank")
     }
 
     @Test
