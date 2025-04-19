@@ -10,6 +10,11 @@
     - [ ] If there are multiple winners, their names should be displayed and separated by commas.
 - [ ] If the user inputs invalid data, the program should throw an IllegalArgumentException and terminate.
 
+## Function List
+- [ ] Car have a name and position.
+- [ ] Car can move.
+- [ ] If the number is 4 or more, the car moves.
+
 ## Programming Requirements
 - [ ] The program must be executable with Kotlin 1.9.24.
 - [ ] You must implement the solution only in Kotlin—Java code is not allowed.
