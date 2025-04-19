@@ -32,26 +32,25 @@
 ## Racing
 
 - 3. Move each car based on a generated number
-   - [ ] executeRaceRound()
-     - [ ] initPosition()
-     - [ ] getMoveValue()
+   - [x] executeOneRound()
+     - [x] shouldMove()
       >  #### To Check
       >  - Return a random number between 0 and 9 by using Randoms.pickNumberInRange(0, 9)
 
-     - [ ] moveCar()
+     - [x] move()
      > #### To Check
-     >  - Each car moves forward if that random number is greater than 4; otherwise, position does not change
+     >  - Each car moves forward if that random number is 4 or greater; otherwise, its position does not change
 
 - 4. Display the result of each round following the given format
-     - [ ] displayRaceResults()
+     - [x] displayRaceResults
      - [ ] saveRoundWinners()
 
 
 ## After Racing
 
 - 5. Display the winner(s)
-  - [ ] displayWinner
-    - [ ] getFinalWinner
+  - [ ] displayFinalWinner()
+    - [ ] getFinalWinner()
 > #### To Check
 >
 > - Valid:
