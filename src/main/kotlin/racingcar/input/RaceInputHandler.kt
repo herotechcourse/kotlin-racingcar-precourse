@@ -24,6 +24,17 @@ object RaceInputHandler {
         if (names.any { it.isEmpty() || it.length > 5 }) {
             throw IllegalArgumentException ("Car names must be 1 to 5 characters long.")
         }
+        if (names.size < 2) {
+            throw IllegalArgumentException(
+                "At least two cars are required - what a race if you're racing alone? :)"
+            )
+        }
+
+        if (names.distinct().size != names.size) {
+            throw IllegalArgumentException(
+                "Identity crisis on the track: every car needs its own name. :)"
+            )
+        }
         return names
     }
 
