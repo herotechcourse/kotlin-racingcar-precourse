@@ -23,4 +23,14 @@ class CarsTest {
             org.junit.jupiter.api.Assertions.assertDoesNotThrow { Cars.from(uniqueNames) }
         }
     }
+
+    @Nested
+    inner class CountTest {
+        @Test
+        @DisplayName("[Exception] car names exceed maximum count")
+        fun `test cars count`() {
+            val overCount = "a,b,c,d,e,f,g,h,i,j,k,l,m"
+            Assertions.assertThatIllegalArgumentException().isThrownBy { Cars.from(overCount) }
+        }
+    }
 }
