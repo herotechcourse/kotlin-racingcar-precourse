@@ -10,11 +10,12 @@ using random numbers. 🚗🏁
 * reads and validates user input
   + car names:
     + 1 - 5 characters
-    + contain only letters and numbers
-    + 2 - 20 car names
-    + separated by a single comma
+    + contain only letters and numbers (case sensitive)
+    + limit: 2 - 20 car names
+    + separated by a single comma, no whitespaces
     + no trailing comma
+    + no duplicates
   + number of rounds:
     + positive integer
-    + 1 - 100 rounds
+    + limit: 1 - 100 rounds
   + if invalid input is provided, the program throws IllegalArgumentException and terminates
