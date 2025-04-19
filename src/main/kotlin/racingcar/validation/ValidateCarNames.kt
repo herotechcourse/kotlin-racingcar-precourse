@@ -25,6 +25,6 @@ fun isValidCarNames(input: String): Boolean {
 
 fun validateCarNames(input: String) {
     if (!isValidCarNames(input)) {
-        throw IllegalArgumentException("Car names are not valid.")
+        throw IllegalArgumentException("Car names must be 1-5 characters and comma-separated.")
     }
 }
