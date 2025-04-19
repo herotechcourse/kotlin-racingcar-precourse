@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
-class CarTest : NsTest() {
+class CarTest {
     @Test
     fun `car move test true`() {
         val car = Car("car")
@@ -41,9 +41,5 @@ class CarTest : NsTest() {
             car.move(true)
         }
         assertThat(car.toString()).contains("car : --")
-    }
-
-    override fun runMain() {
-        main()
     }
 }
