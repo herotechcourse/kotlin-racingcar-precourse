@@ -1,4 +1,6 @@
-package racingcar
+package racingcar.io
+
+import kotlin.collections.iterator
 
 /**
  * @packageName    : racingcar

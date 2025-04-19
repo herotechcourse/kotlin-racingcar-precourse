@@ -1,5 +1,8 @@
 package racingcar
 
+import racingcar.io.Input
+import racingcar.io.Output
+
 fun main() {
     println("Enter the names of the cars (comma-separated):")
     val nameInput: String = Input().input()
