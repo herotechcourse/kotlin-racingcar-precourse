@@ -58,11 +58,6 @@ src/
 ./gradlew clean test
 ```
 
-Test report:
-```
-build/reports/tests/test/index.html
-```
-
 ---
 
 ## 📋 Requirements
