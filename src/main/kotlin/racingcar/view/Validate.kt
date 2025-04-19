@@ -19,7 +19,7 @@ class Validator {
     fun validateRounds(rounds: String) {
         val roundsInt = rounds.toIntOrNull()
         if (roundsInt == null)
-            throw IllegalArgumentException(INVALID_ROUNDS_BLANK)
+            throw IllegalArgumentException(INVALID_ROUNDS)
         if (roundsInt < 2) {
             throw IllegalArgumentException(INVALID_ROUNDS_MIN)
         }
@@ -30,7 +30,7 @@ class Validator {
         const val INVALID_NAMES_DUPLICATES = "Error: Car names duplicated"
         const val INVALID_NAMES_NUMBER = "Error: There should be at least two cars"
         const val INVALID_NAMES_LENGTH = "Error: Car name must be 5 characters or shorter"
-        const val INVALID_ROUNDS_BLANK = "Error: The number of rounds cannot be blank"
+        const val INVALID_ROUNDS = "Error: The number of rounds must be a digit"
         const val INVALID_ROUNDS_MIN = "Error: The number of rounds must be greater than 1"
     }
 }
