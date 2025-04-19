@@ -4,10 +4,11 @@ import camp.nextstep.edu.missionutils.Console
 
 class Input(private val validator: Validator) {
 
-    fun enterCarNames(): List<String> {
+    fun enterCarNames(): MutableMap<String, Int> {
         val carNames = Console.readLine()
         return carNames
             .splitWithDelimiter(COMMA, CAR_NAME_LIMIT)
+            .convertListToMap()
     }
 
     private fun String.splitWithDelimiter(delimiter: String, limit: Int): List<String> {
@@ -16,6 +17,12 @@ class Input(private val validator: Validator) {
             .onEach {
                 validator.validateName(it, limit)
             }
+    }
+
+    private fun List<String>.convertListToMap(): MutableMap<String, Int> {
+        return this
+            .associateBy({ key -> key }, { value -> 0 })
+            .toMutableMap()
     }
 
     companion object {
