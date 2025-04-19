@@ -58,6 +58,32 @@ class ApplicationTest : NsTest() {
         assertThatNoException().isThrownBy { InputHandler.validateCarNames(input) }
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = [
+        "0", // too low
+        "101", // too high
+        "-50", // minus
+        " 1", // space before
+        "12 ", // space after
+        "1ab", // chars
+        "b", // char
+        "" // empty
+    ])
+    fun `invalid rounds test`(input : String) {
+        assertThatIllegalArgumentException().isThrownBy { InputHandler.validateRounds(input) }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = [
+        "1", // min
+        "100", // max
+        "50", // medium
+        "+28" // plus sign
+    ])
+    fun `valid rounds test`(input : String) {
+        assertThatNoException().isThrownBy { InputHandler.validateRounds(input) }
+    }
+
     override fun runMain() {
         main()
     }
