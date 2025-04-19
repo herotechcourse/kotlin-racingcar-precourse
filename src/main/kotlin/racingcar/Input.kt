@@ -11,6 +11,11 @@ class Input(private val validator: Validator) {
             .convertListToMap()
     }
 
+    fun enterRoundCount(): Int {
+        val roundCount = Console.readLine()
+        return validator.validateStringToInt(roundCount)
+    }
+
     private fun String.splitWithDelimiter(delimiter: String, limit: Int): List<String> {
         return this
             .split(delimiter)
