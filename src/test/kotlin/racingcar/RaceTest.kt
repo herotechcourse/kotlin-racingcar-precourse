@@ -7,24 +7,30 @@ import org.junit.jupiter.api.Test
 
 class RaceTest : NsTest()   {
     @Test
-    fun `run round test`() {
-        val cars = listOf(Car("pobi"), Car("woni"), Car("jido"))
-        val race = Race(cars)
-        race.runRound { MOVING_FORWARD }
-        assertThat(cars.all { it.position == 1 })
-    }
-
-    @Test
-    fun `winners finding test`() {
+    fun `run race`() {
         assertRandomNumberInRangeTest(
             {
                 val cars = listOf(Car("pobi"), Car("woni"), Car("jido"))
-                val race = Race(cars)
-                repeat(2) {
-                    race.runRound { randomNumber() }
-                }
-                val winners = race.getWinners()
-                assertThat(winners.containsAll(listOf("pobi", "woni")))
+                val race = Race(cars, 1)
+                assertThat(cars.all { it.position == 0 }).isTrue()
+                race.runRace()
+                assertThat(cars.all { it.position == 1 }).isTrue()
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD,
+            MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun `print winners`() {
+        assertRandomNumberInRangeTest(
+            {
+                val cars = listOf(Car("pobi"), Car("woni"), Car("jido"))
+                val race = Race(cars, 2)
+                race.runRace()
+                race.printResult()
+                assertThat(output()).endsWith("Winners : pobi, woni")
             },
             MOVING_FORWARD,
             MOVING_FORWARD,
@@ -36,13 +42,12 @@ class RaceTest : NsTest()   {
     }
 
     @Test
-    fun `round result test`() {
+    fun `print round result`() {
         assertRandomNumberInRangeTest(
             {
                 val cars = listOf(Car("pobi"), Car("woni"), Car("jido"))
-                val race = Race(cars)
-                race.runRound { randomNumber() }
-                race.printProgress()
+                val race = Race(cars, 1)
+                race.runRace()
                 assertThat(output()).contains("pobi : -", "woni : -", "jido :")
             },
             MOVING_FORWARD,
