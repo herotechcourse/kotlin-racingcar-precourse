@@ -33,7 +33,7 @@ class InputTest {
     @Test
     @DisplayName("if the car name's letter is under 5, get name list")
     fun nameInputFailCase2() {
-        assertThatThrownBy { input.getNames("alex, bobby, kate") }
+        assertThatThrownBy { input.getNames("alex, michael, kate") }
             .hasMessage("name should be under 5 letters")
     }
 
