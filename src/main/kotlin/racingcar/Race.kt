@@ -6,7 +6,6 @@ class Race(private val cars: List<Car>, private val rounds: Int)  {
     // Function to start the race
     fun startRace(){
         repeat(rounds) {
-                println("Round ${it + 1}")
                 cars.forEach { car ->
                     val random = Randoms.pickNumberInRange(0, 9)
                     car.move(random)

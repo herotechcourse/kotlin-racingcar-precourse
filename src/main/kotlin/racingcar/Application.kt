@@ -1,7 +1,6 @@
 package racingcar
 
 fun main() {
- try {
      println("Enter the names of the cars (comma-separated):")
 
      // Array of car names
@@ -23,11 +22,4 @@ fun main() {
 
      // Print Winners
      race.printWinners()
-    } catch (e: IllegalArgumentException) {
-        // This catch block handles any IllegalArgumentException (e.g., invalid car names or rounds)
-        println("Error: ${e.message}")
-    } catch (e: Exception) {
-        // This catch block handles any other unexpected errors (e.g., non-integer input for rounds)
-        println("Unexpected error: ${e.message}")
-    }
 }
