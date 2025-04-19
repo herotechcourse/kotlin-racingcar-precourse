@@ -17,7 +17,7 @@ class ApplicationTest : NsTest() {
                     "Race Results",
                     "pobi : -",
                     "woni : ",
-                    "Winner: pobi"
+                    "Winner : pobi"
                 )
             },
             MOVING_FORWARD,
@@ -40,7 +40,7 @@ class ApplicationTest : NsTest() {
                 assertThat(output()).contains(
                     "pobi : -",
                     "woni : -",
-                    "Winners: pobi, woni"
+                    "Winners : pobi, woni"
                 )
             },
             MOVING_FORWARD,
