@@ -34,7 +34,7 @@ fun readRound(): Int {
     return round
 }
 
-fun printResult(names: List<String>, round: Int) {
+fun printResult(names: List<String>, round: Int): MutableList<Int> {
     val winTimes = MutableList(names.size) { 0 }
     repeat(round) {
         for ((i, name) in names.withIndex()) {
@@ -48,6 +48,7 @@ fun printResult(names: List<String>, round: Int) {
         }
         println()
     }
+    return winTimes
 }
 
 fun racingResult(): Boolean {
@@ -55,8 +56,24 @@ fun racingResult(): Boolean {
     return number >= 4
 }
 
+fun findWinner(winTimes: MutableList<Int>, names: List<String>): List<String> {
+    // do the comparison of each car winTimes to get who is the winner
+    // save the name of the winner in a list for later printing
+    val maxScore = winTimes.maxOrNull() ?: 0
+    return names.filterIndexed { index, _ -> winTimes[index] == maxScore }
+}
+
+fun printWinner(winners: List<String>){
+    // print the Winners list
+    println("Winners : ${winners.joinToString(", ")}")
+}
+
 fun main() {
     val carNames = readCarNames()
     val round = readRound()
-    printResult(carNames, round)
+    println()
+    println("Race Results")
+    val winTimes = printResult(carNames, round)
+    val winners = findWinner(winTimes, carNames)
+    printWinner(winners)
 }

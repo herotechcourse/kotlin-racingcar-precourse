@@ -6,3 +6,4 @@
 - Read and validate rounds
 - Implement single round
 - Finish main game logic
+- print winners
