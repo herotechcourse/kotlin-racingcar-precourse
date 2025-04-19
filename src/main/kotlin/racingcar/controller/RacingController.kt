@@ -30,21 +30,14 @@ class RacingController(
 
     private fun initRound(): Round {
         val totalRounds = inputView.readTotalRounds()
-
-        val round = Round(totalRounds)
-        return round
+        return Round(totalRounds)
     }
 
     private fun playRace(round: Round, cars: Cars) {
-        while (round.isRemaining()) {
-            moveCars(cars)
-            round.decrement()
+        repeat(round.leftRound) {
+            cars.moveAll()
+            outputView.printEachRound(cars)
         }
-    }
-
-    private fun moveCars(cars: Cars) {
-        cars.moveAll()
-        outputView.printEachRound(cars)
     }
 
     private fun determineWinner(cars: Cars) {

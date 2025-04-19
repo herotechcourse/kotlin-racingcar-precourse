@@ -1,21 +1,9 @@
 package racingcar.domain
 
-class Round(private var leftRound: Int) {
+class Round(val leftRound: Int) {
 
     init {
         require(leftRound in MIN_ROUND..MAX_ROUND) { ROUND_OUT_OF_RANGE_ERROR }
-    }
-
-    fun isRemaining(): Boolean {
-        return leftRound > 0
-    }
-
-    fun decrement() {
-        leftRound--
-    }
-
-    fun getLeftRound(): Int {
-        return leftRound
     }
 
     companion object {
