@@ -1,5 +1,10 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    try {
+        InputHandler.readAndValidateCarNames()
+        InputHandler.readAndValidateRounds()
+    } catch (e: IllegalArgumentException) {
+        println("Error: ${e.message}")
+    }
 }
