@@ -26,6 +26,7 @@ The features will be implemented in the following order:
 - The `isNullOrBlank()` method checks not only if a string is null or empty but also whether it contains only whitespace characters.
 - Companion objects define class members that can be used without creating an instance of the class.
 - The `assertRandomNumberInRangeTest` function controls random number generation during tests. It takes a test code block and a list of numbers. The function replaces random number calls with the specified values in order, making tests consistent and repeatable.
+- Use `it` in lambdas to refer to the single parameter when the parameter is not explicitly named. For example, `cars.filter { it.position == maxPosition }` is concise and works well for simple cases. However, explicitly naming the parameter, like `cars.filter { car -> car.position == maxPosition }`, improves clarity in more complex cases or when lambdas are nested. Choose between `it` and explicit naming based on the complexity of the lambda and the need for readability.
 
 ## Sources
 
@@ -33,3 +34,4 @@ The features will be implemented in the following order:
 - [Difference Between a Class and Object in Kotlin](https://stackoverflow.com/questions/44255946/difference-between-a-class-and-object-in-kotlin)
 - [Test-Driven Development with Kotlin](https://www.jetbrains.com/help/idea/tdd-with-kotlin.html)
 - [Companion Object in Kotlin](https://www.baeldung.com/kotlin/companion-object)
+- [Lambda expressions and LINQ-style code in Kotlin](https://kotlinlang.org/docs/lambdas.html#underscore-for-unused-variables)

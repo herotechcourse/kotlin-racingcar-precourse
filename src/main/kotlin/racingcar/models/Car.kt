@@ -49,13 +49,11 @@ class Car(val name: String, var position: Int = 0) {
             val maxPosition = findMaxPosition(cars)
 
             print("Winners : ")
-            var winners = ""
-            for (car in cars) {
-                if (car.position == maxPosition) {
-                    winners += car.name + ", "
-                }
-            }
-            winners = winners.dropLast(2)
+
+            val winners = cars
+                .filter { it.position == maxPosition } // keep only winners
+                .map { it.name } // transform each car into just its name
+                .joinToString(", ") // combine names, comma-separated, into one string
 
             // Assumption: the output in the example execution in the
             // input/output requirements does not include a newline at the end
