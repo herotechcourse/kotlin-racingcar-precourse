@@ -1,6 +1,6 @@
 # kotlin-racingcar-precourse
 
-A simple Kotlin implementation of a car racing game with name validation.
+A simple Kotlin implementation of a car racing game with name validation. The project is implemented a focus on separation of concerns, testability, and readable structure.
 
 ## Features
 
@@ -16,6 +16,9 @@ A simple Kotlin implementation of a car racing game with name validation.
 
     * Throws `IllegalArgumentException` if user inputs invalid data as per the requirements.
     * Add input and checks for number of rounds for the race.
+    * Add Input Handler tests to ensure the validation and parsing is correct
+
+Test cases to ensure proper name parsing and validation.
 
 ### 2. Create a car class
 
@@ -41,7 +44,7 @@ A simple Kotlin implementation of a car racing game with name validation.
     * Prints race results
     * prints race winners
 
-## 5. add tests to the OutputHandler
+## 5. Tests the OutputHandler
 
 * Add testcases for the various cases
     * Printing race start
@@ -51,14 +54,48 @@ A simple Kotlin implementation of a car racing game with name validation.
 
 ## 6. Add tests to the Racing game class
 
-* Ensure the racing game class calls the relevant functions  and prints the results correctly
+* Ensure the racing game class calls the relevant functions and prints the results correctly
 
-## 7. Add car tests
 
-## Tests
+## 🧱 Project Structure
+```
+racingcar
+├── Application.kt
+├── Car.kt
+├── InputHandler.kt
+├── OutputHandler.kt
+├── RacingGame.kt
 
-### Input Handler Tests
+test
+└── racingcar
+├── ApplicationTest.kt
+├── CarTest.kt
+├── InputHandlerTest.kt
+├── OutputHandlerTest.kt
+└── RacingGameTest.kt
+```
+## 🛠 Tech Stack
 
-Test cases to ensure proper name parsing and validation.
+* Kotlin 1.9.x
+
+* Gradle (Kotlin DSL)
+
+* JUnit 5
+
+* AssertJ
+
+* Woowahan MissionUtils
+
+## 🎯 Learning Objectives
+
+* Practice clean Kotlin development with proper architecture and validation
+
+* Learn how to break down responsibilities using small, focused classes
+
+* Apply unit testing to verify correctness
+
+
+
+
 
 
