@@ -11,7 +11,6 @@ import camp.nextstep.edu.missionutils.Randoms
  */
 class RacingService(val names: List<String>, val round: Int) {
     private val cars: List<Car> = names.map { Car(it) }
-    private val output = Output()
     val raceResultMap = mutableMapOf<String, MutableList<String>>()
 
     fun addRoundResult(car: String, position: String) {
