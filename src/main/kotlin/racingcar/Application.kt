@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms
 fun main() {
     println("Car racing game!")
     promptForCars()
+    promptForRounds()
 }
 
 data class Car(val name: String, val position: Int = 0)
@@ -33,4 +34,14 @@ fun parseCarNames(input: String): List<Car> {
     }
 
     return names.map { Car(it) }
+}
+
+fun promptForRounds(): Int {
+    println("How many rounds will be played?")
+    val input = Console.readLine()
+    val rounds = input.toInt()
+    if (rounds <= 0) {
+        throw IllegalArgumentException("Number of rounds must be positive.")
+    }
+    return rounds
 }
