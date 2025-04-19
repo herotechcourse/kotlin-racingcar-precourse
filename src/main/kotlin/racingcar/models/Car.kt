@@ -9,7 +9,7 @@ class Car(val name: String, var position: Int = 0) {
 
     fun printStatus() {
         print("$name : ")
-        if(position == 1) {
+        repeat(position) {
             print("-")
         }
         println()
@@ -24,11 +24,18 @@ class Car(val name: String, var position: Int = 0) {
             return cars
         }
 
-        fun raceCars(cars: List<Car>) {
+        fun raceCars(cars: List<Car>, rounds: Int) {
+            // TODO: currently throwing exception for non-positive input for rounds
+            // decide whether handling of 0 rounds here instead is better
+            if (rounds == 0)
+                return
             println("Race Results")
-            for (car in cars) {
-                car.race()
-                car.printStatus()
+            repeat(rounds) {
+                for (car in cars) {
+                    car.race()
+                    car.printStatus()
+                }
+                println()
             }
             println()
         }

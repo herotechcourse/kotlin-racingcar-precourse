@@ -8,7 +8,7 @@ The features will be implemented in the following order:
 - [x] Read the car names from the user's input.
 - [x] Read the number of rounds from the user's input.
 - [x] Race the cars for a single round.
-- [ ] Race the cars for multiple rounds.
+- [x] Race the cars for multiple rounds.
 - [ ] Write the winners of the race to the console.
 
 <details>

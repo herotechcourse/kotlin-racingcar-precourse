@@ -24,5 +24,5 @@ fun main() {
     }
     println()
 
-    Car.raceCars(cars)
+    Car.raceCars(cars, rounds)
 }

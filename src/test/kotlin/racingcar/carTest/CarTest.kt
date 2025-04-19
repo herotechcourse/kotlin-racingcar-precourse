@@ -75,7 +75,7 @@ class CarTest : NsTest() {
             {
                 val cars = Car.createCars(listOf("lisa", "jim"))
 
-                Car.raceCars(cars)
+                Car.raceCars(cars, 1)
 
                 assertThat(output()).contains("Race Results")
                 assertThat(output()).contains("lisa : -")
@@ -84,6 +84,49 @@ class CarTest : NsTest() {
             4, // This will make lisa move
             3  // This will make jim stay
         )
+    }
+
+    @Test
+    fun `raceCars should race all cars for multiple rounds`() {
+        assertRandomNumberInRangeTest(
+            {
+                val cars = Car.createCars(listOf("lisa", "jim"))
+
+                Car.raceCars(cars, 3)
+
+                assertThat(output()).contains("Race Results")
+
+                assertThat(cars[0].position).isEqualTo(2)
+                assertThat(cars[1].position).isEqualTo(2)
+
+                assertThat(output()).contains("lisa : -")
+                assertThat(output()).contains("lisa : --")
+                assertThat(output()).contains("jim : -")
+                assertThat(output()).contains("jim : --")
+            },
+            4, 3,  // Round 1: lisa moves (4), jim doesn't (3)
+            3, 4,  // Round 2: lisa doesn't move (3), jim moves (4)
+            9, 8   // Round 3: both move (9 and 8)
+        )
+    }
+
+    // TODO: currently throwing exception for non-positive input for rounds
+    // keep test case for different handling of 0 rounds in the future
+    @Test
+    fun `raceCars should not race when rounds is zero`() {
+        val cars = Car.createCars(listOf("lisa", "jim"))
+
+        assertSimpleTest {
+            Car.raceCars(cars, 0)
+
+            assertThat(cars[0].position).isEqualTo(0)
+            assertThat(cars[1].position).isEqualTo(0)
+
+            assertThat(output()).doesNotContain("Race Results")
+            assertThat(output()).doesNotContain("lisa :")
+            assertThat(output()).doesNotContain("jim :")
+            assertThat(output()).doesNotContain("-")
+        }
     }
 
     override fun runMain() {
