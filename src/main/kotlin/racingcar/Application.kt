@@ -9,17 +9,15 @@ val carPositions: MutableMap<String, Int> = mutableMapOf()
 fun main() {
     validateCarName()
     rounds = inputRoundCount()
-    initializeCarPositions() // Initialize the car positions
-
-    // Simulate the race for the given number of rounds
+    initializeCarPositions()
     repeat(rounds) {
         moveCars()
         displayRoundResults()
         println()
     }
-
-    // Announce the winners at the end
     announceWinners()
+    val finalResults = generateFinalResults()
+    println(finalResults)
 }
 
 fun inputCarNames(): List<String> {
@@ -73,4 +71,20 @@ fun announceWinners() {
     val maxPosition = carPositions.values.maxOrNull() ?: 0
     val winners = carPositions.filter { it.value == maxPosition }.keys
     println("Winners: ${winners.joinToString(", ")}")
+}
+
+fun generateFinalResults(): List<String> {
+    val results = mutableListOf<String>()
+
+    // Add each car's result to the list
+    for ((car, position) in carPositions) {
+        results.add("$car : ${"-".repeat(position)}")
+    }
+
+    // Add the winners to the list
+    val maxPosition = carPositions.values.maxOrNull() ?: 0
+    val winners = carPositions.filter { it.value == maxPosition }.keys
+    results.add("Winners : ${winners.joinToString(", ")}")
+
+    return results
 }
