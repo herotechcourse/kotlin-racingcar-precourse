@@ -12,7 +12,7 @@ fun main() {
 
     println("\nRace Result")
     repeat(numberRounds) {
-        carRaceGame.play()
+        carRaceGame.playOneRound()
         ResultView.displayEndPositions(carsList)
         println()
     }

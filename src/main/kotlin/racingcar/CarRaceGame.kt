@@ -3,7 +3,7 @@ package racingcar
 class CarRaceGame (
     private val carsList: List<Car>) {
 
-    fun play(){
+    fun playOneRound(){
         carsList.forEach{it.move()}
     }
 
