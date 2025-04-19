@@ -1,11 +1,11 @@
 package racingcar.domain
 
-class CarName(val name: String) {
+class CarName(val value: String) {
     init {
-        if (name.isEmpty()) {
+        if (value.isEmpty()) {
             throw IllegalArgumentException("Car names must not be empty.")
         }
-        if (name.length > 5) {
+        if (value.length > 5) {
             throw IllegalArgumentException("Car names must not exceed 5 characters.")
         }
     }
@@ -16,10 +16,10 @@ class CarName(val name: String) {
 
         other as CarName
 
-        return name == other.name
+        return value == other.value
     }
 
     override fun hashCode(): Int {
-        return name.hashCode()
+        return value.hashCode()
     }
 }

@@ -19,8 +19,8 @@ class Cars(private val cars: List<Car>) {
     }
 
     fun winners(): List<Car> {
-        val maxPosition = cars.maxOf { it.position.toInt() }
-        return cars.filter { car -> car.position.toInt() == maxPosition }.toList()
+        val maxPosition = cars.maxOf { it.position.value }
+        return cars.filter { car -> car.position.value == maxPosition }.toList()
     }
 
     fun getCarStatuses(): List<CarStatus> {

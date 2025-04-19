@@ -14,14 +14,14 @@ class OutputView {
 
     private fun printRoundResult(roundResult: RoundResult) {
         for (carStatus in roundResult.carStatuses) {
-            print(carStatus.name.name + " : ")
-            println("-".repeat(carStatus.position.toInt()))
+            print(carStatus.name.value + " : ")
+            println("-".repeat(carStatus.position.value))
         }
         println()
     }
 
     private fun printWinners(raceResults: RaceResults) {
-        val winners = raceResults.winners.joinToString(", ") { it.name.name }
+        val winners = raceResults.winners.joinToString(", ") { it.name.value }
         println("Winners : $winners")
     }
 }
