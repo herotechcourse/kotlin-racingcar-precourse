@@ -2,7 +2,13 @@ package racingcar
 
 class Output(private val round: Round) {
 
-    fun printCarRaceResult(carNames: MutableMap<String, Int>) {
+    fun printCarRaceResults(carNames: MutableMap<String, Int>, roundCount: Int) {
+        repeat(roundCount) {
+            printCarRaceResult(carNames)
+        }
+    }
+
+    private fun printCarRaceResult(carNames: MutableMap<String, Int>) {
         carNames.forEach { (carName, movementCount) ->
             round.moveCarForward(carNames, carName)
             println("$carName : ${getCarMovementCharacters(carNames, carName, movementCount)}")
