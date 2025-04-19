@@ -12,10 +12,10 @@ class RacingGame(
 
     fun run() {
         outputHandler.printRaceStart()
-        playRace(cars, rounds)
+        playGame(cars, rounds)
     }
 
-    private fun playRace(cars: List<Car>, rounds: Int) {
+    private fun playGame(cars: List<Car>, rounds: Int) {
         repeat(rounds) {
             cars.forEach { it.attemptMove(Randoms.pickNumberInRange(0, 9) >= 4) }
             outputHandler.printRaceResult(cars)

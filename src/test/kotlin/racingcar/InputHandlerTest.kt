@@ -39,4 +39,48 @@ class InputHandlerTest {
         }.isInstanceOf(IllegalArgumentException::class.java)
             .hasMessage("Individual car name cannot be blank")
     }
+
+    @Test
+    fun `parses valid number of rounds`() {
+        val input = " 5 "
+        val result = InputHandler.parseRounds(input)
+        assertThat(result).isEqualTo(5)
+    }
+
+    @Test
+    fun `throws if rounds input is not a number`() {
+        val input = "five"
+        assertThatThrownBy {
+            InputHandler.parseRounds(input)
+        }.isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessage("Rounds must be a valid integer.")
+    }
+
+    @Test
+    fun `throws if rounds is zero`() {
+        val input = "0"
+        assertThatThrownBy {
+            InputHandler.parseRounds(input)
+        }.isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessage("Rounds must be greater than 0.")
+    }
+
+    @Test
+    fun `throws if rounds is negative`() {
+        val input = "-3"
+        assertThatThrownBy {
+            InputHandler.parseRounds(input)
+        }.isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessage("Rounds must be greater than 0.")
+    }
+
+    @Test
+    fun `throws if rounds input is blank`() {
+        val input = "   "
+        assertThatThrownBy {
+            InputHandler.parseRounds(input)
+        }.isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessage("Rounds must be a valid integer.")
+    }
+
 }

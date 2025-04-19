@@ -39,10 +39,17 @@ object InputHandler {
     }
 
     fun parseRounds(input: String): Int {
-        val rounds = input.trim()
-            .toIntOrNull()
-        if (rounds == null || rounds <= 0) {
-            throw IllegalArgumentException("Rounds must be a positive integer.")
+        val roundsTrimmed = input.trim()
+
+        return validateRounds(roundsTrimmed)
+    }
+
+    private fun validateRounds(input: String): Int {
+        val rounds = input.toIntOrNull()
+            ?: throw IllegalArgumentException("Rounds must be a valid integer.")
+
+        if (rounds <= 0) {
+            throw IllegalArgumentException("Rounds must be greater than 0.")
         }
 
         return rounds
