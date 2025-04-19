@@ -4,6 +4,7 @@ fun main() {
     // read input from the user
     val carNames = InputView.readCarNames()
     val numberOfRounds = InputView.readNumberOfRounds()
-    println("Car names: $carNames")
-    println("Number of rounds: $numberOfRounds")
+
+    // validate input
+    val validatedCarNames = InputValidator.validateCarNames(carNames)
 }
