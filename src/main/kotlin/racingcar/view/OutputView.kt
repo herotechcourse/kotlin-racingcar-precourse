@@ -1,4 +1,6 @@
 package racingcar.view
+import racingcar.domain.Car
+
 
 object OutputView {
     fun printRound(cars: List<Car>) {
