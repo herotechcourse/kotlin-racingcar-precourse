@@ -5,7 +5,6 @@ import org.assertj.core.api.Assertions.assertThat
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 
-
 class OutputHandlerTest {
     private fun captureOutput(block: () -> Unit): String {
         val outputStream = ByteArrayOutputStream()
@@ -29,14 +28,12 @@ class OutputHandlerTest {
         return car
     }
 
-
     @Test
     fun `prints race start correctly`() {
         val handler = OutputHandler()
         val output = captureOutput { handler.printRaceStart() }
         assertThat(output).isEqualTo("Race Results")
     }
-
 
     @Test
     fun `prints race results for all cars`() {

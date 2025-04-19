@@ -44,7 +44,7 @@ Test cases to ensure proper name parsing and validation.
     * Prints race results
     * prints race winners
 
-## 5. Tests the OutputHandler
+### 5. Tests the OutputHandler
 
 * Add testcases for the various cases
     * Printing race start
@@ -52,7 +52,7 @@ Test cases to ensure proper name parsing and validation.
     * Printing single winner in the correct format
     * Printing multiple winners in the correct format
 
-## 6. Add tests to the Racing game class
+### 6. Add tests to the Racing game class
 
 * Ensure the racing game class calls the relevant functions and prints the results correctly
 
