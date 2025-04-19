@@ -32,6 +32,22 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `feature test - both cars move and tie`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains(
+                    "pobi : -",
+                    "woni : -",
+                    "Winners: pobi, woni"
+                )
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD
+        )
+    }
+
     override fun runMain() {
         main()
     }
