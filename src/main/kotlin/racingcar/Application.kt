@@ -8,6 +8,13 @@ fun main() {
     val splitNames = input.split(",", ignoreCase = true, limit = 0) //delimiter can be "," or ", "
     val names = ArrayList<String>()
 
+    for (name in splitNames.indices) {
+        val carName = splitNames[name].removeWhitespaces()
+        val cause = IllegalArgumentException("Car names must me more than 1 character and less than 5 characters.")
+        if (carName.length !in 1..4) throw cause
+        names.add(carName)
+    }
+
     println("How many rounds will be played?")
     val numberOfRounds :Int = Console.readLine().toInt()
     //println(numberOfRounds)
