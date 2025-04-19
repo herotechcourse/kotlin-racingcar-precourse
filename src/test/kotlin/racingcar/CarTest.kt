@@ -32,4 +32,11 @@ class CarTest {
             Car("abcdef")
         }
     }
+
+    @Test
+    fun `move increases position by 1`() {
+        val car = Car("pobi")
+        car.move()
+        assertThat(car.position).isEqualTo(1)
+    }
 }
