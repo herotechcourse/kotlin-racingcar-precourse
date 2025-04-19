@@ -4,14 +4,22 @@ object InputValidator {
     private const val MAX_NAME_LENGTH = 5
     private const val MIN_NAME_LENGTH = 1
     private const val MIN_CARS = 2
+    private const val MIN_ROUNDS = 1
 
     // ######################################## VALIDATOR FUNCTIONS ########################################
     fun validateCarNames(carNames: String): List<String>{
         validateNotEmpty(carNames, "Car names are required")
-        val cars = validateCharLengthAndReturnCars(carNames, "Car names must be in the range $MIN_NAME_LENGTH-$MAX_NAME_LENGTH characters")
+        val cars = validateCharLengthAndReturnCars(carNames, "Car names must be in the range $MIN_NAME_LENGTH-$MAX_NAME_LENGTH(inclusive) characters")
         validateCarsCount(cars, "At least $MIN_CARS cars are needed to race")
         validateDuplicateNames(cars, "Car names must be unique")
         return cars
+    }
+
+    fun validateNumberOfRounds(numberOfRounds: String): Int{
+        validateNotEmpty(numberOfRounds, "The number of rounds are required")
+        val rounds = validateNumber(numberOfRounds, "The number of rounds must be a number")
+        validateMinimumRounds(rounds, "The number of rounds must be positive and at least be $MIN_ROUNDS round long")
+        return rounds
     }
 
     // ######################################## HELPER FUNCTIONS ########################################
@@ -47,6 +55,13 @@ object InputValidator {
         }
     }
 
+    private fun validateNumber(input: String, errorMessage: String): Int{
+        return input.toIntOrNull() ?: throw IllegalArgumentException(errorMessage)
+    }
+
+    private fun validateMinimumRounds(rounds: Int, errorMessage: String){
+        validateMinimumValue(rounds, MIN_ROUNDS, errorMessage)
+    }
 
 
 
