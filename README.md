@@ -57,7 +57,7 @@ Test cases to ensure proper name parsing and validation.
 * Ensure the racing game class calls the relevant functions and prints the results correctly
 
 
-## 🧱 Project Structure
+## Project Structure
 ```
 racingcar
 ├── Application.kt
@@ -74,7 +74,7 @@ test
 ├── OutputHandlerTest.kt
 └── RacingGameTest.kt
 ```
-## 🛠 Tech Stack
+## Tech Stack
 
 * Kotlin 1.9.x
 
@@ -86,7 +86,7 @@ test
 
 * Woowahan MissionUtils
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 * Practice clean Kotlin development with proper architecture and validation
 
