@@ -129,6 +129,37 @@ class CarTest : NsTest() {
         }
     }
 
+    @Test
+    fun `printWinners should print the winner when there is a single winner`() {
+        val cars = listOf(
+            Car("lisa", 3),
+            Car("jim", 2),
+            Car("tommy", 1)
+        )
+
+        assertSimpleTest {
+            Car.printWinners(cars)
+
+            assertThat(output()).contains("Winners : lisa")
+        }
+    }
+
+    @Test
+    fun `printWinners should print all winners when there is a tie`() {
+        val cars = listOf(
+            Car("lisa", 3),
+            Car("jim", 3),
+            Car("tommy", 1)
+        )
+
+        assertSimpleTest {
+            Car.printWinners(cars)
+
+            assertThat(output()).contains("Winners : lisa, jim")
+        }
+    }
+
+
     override fun runMain() {
     }
 }

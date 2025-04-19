@@ -25,4 +25,5 @@ fun main() {
     println()
 
     Car.raceCars(cars, rounds)
+    Car.printWinners(cars)
 }

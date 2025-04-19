@@ -37,7 +37,24 @@ class Car(val name: String, var position: Int = 0) {
                 }
                 println()
             }
-            println()
+        }
+
+        fun printWinners (cars: List<Car>) {
+            var maxPosition = 0
+            for (car in cars) {
+                if (car.position > maxPosition)
+                    maxPosition = car.position
+            }
+
+            print("Winners : ")
+            var winners = ""
+            for (car in cars) {
+                if (car.position == maxPosition) {
+                    winners += car.name + ", "
+                }
+            }
+            winners = winners.dropLast(2)
+            print(winners) // Assumption: no newline at the end of the output needed
         }
     }
 }

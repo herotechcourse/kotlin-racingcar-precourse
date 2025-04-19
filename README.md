@@ -9,7 +9,7 @@ The features will be implemented in the following order:
 - [x] Read the number of rounds from the user's input.
 - [x] Race the cars for a single round.
 - [x] Race the cars for multiple rounds.
-- [ ] Write the winners of the race to the console.
+- [x] Write the winners of the race to the console.
 
 <details>
 <summary>Whiteboard version</summary>
