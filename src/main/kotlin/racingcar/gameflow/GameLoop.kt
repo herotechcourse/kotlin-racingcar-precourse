@@ -18,6 +18,7 @@ fun gameLoop(
     repeat(nRounds) {
         raceUpdateTrack(cars, generateNumber, isMovable)
         output.outputEachRoundResult(cars)
+        println()
     }
     output.outputFinalWinner(cars)
 }
