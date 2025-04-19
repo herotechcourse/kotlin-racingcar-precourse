@@ -1,5 +1,7 @@
 package racingcar.raceexecution
 
+import camp.nextstep.edu.missionutils.Randoms
+
 /**
  *  [ Goal ]
  *  1. Generate random number (0 - 9)
@@ -8,6 +10,5 @@ package racingcar.raceexecution
  *  Return  : generated number. (Int)
  */
 fun generateRandomNumber(): Int {
-    val result: Int = (Math.random()*10).toInt()
-    return (result)
+    return Randoms.pickNumberInRange(0, 9)
 }
