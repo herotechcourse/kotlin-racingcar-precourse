@@ -7,14 +7,13 @@
     > #### To Check
     > 
     > - Valid:
-    >   - Eng/Kor/Nbr/Blank with comma separation
+    >   - names with comma separation
     > - Invalid:
     >   - name = null
     >   - name = ,
-    >   - length greater than 5
+    >   - length > 5
     >   - duplicate names
-    > - Edge cases:
-    >   - number of cars = 1   
+    >   - number of cars < 2   
     
 - 2. Get the number of rounds from the user
     - Validate the number
