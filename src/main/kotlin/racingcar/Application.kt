@@ -60,7 +60,8 @@ object CarRacingGame{
 
     private fun inputRounds(): Int{
         println("How many rounds would you like to play?")
-        val rounds = Console.readLine().toIntOrNull()?: throw IllegalArgumentException("Number of rounds must be a numeric value")
+        val input = Console.readLine()
+        val rounds = input.toIntOrNull()?: throw IllegalArgumentException("Number of rounds must be a numeric value")
         if (rounds < MIN_Rounds){
             throw IllegalArgumentException("Number of rounds must be at least 1")
 
