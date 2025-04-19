@@ -55,6 +55,28 @@ fun racingCars(cars: List<String>, trace: Array<String>, rounds: Int) {
     }
 }
 
+fun winner(cars: List<String>, trace: Array<String>, mx: String) {
+    print("Winners : ")
+
+    var i = 0;
+    var count = 0
+
+    // Iterate through each car to find the winners
+    while(i < cars.size) {
+        // Check if the current car has the maximun trace
+        if (trace[i] == mx) {
+            if (count == 0){
+                print(cars[i]);
+                count++;
+            }
+            else {
+                print(", " + cars[i]);
+                count++;
+            }
+        }
+        i++;
+    }
+}
 
 
 fun main() {
@@ -64,6 +86,9 @@ fun main() {
     val trace: Array<String> = Array(cars.size, {""});
 
     racingCars(cars, trace, rounds);
+
+    val mx = trace.max();
+    winner(cars, trace, mx);
 }
 
 
