@@ -31,6 +31,6 @@ class CarNameValidatorTest {
         val exception = assertThrows<IllegalArgumentException> {
             validateCarName(LONG_CAR_NAME);
         }
-        assertEquals(LONG_CAR_NAME, exception.message);
+        assertEquals(INVALID_LENGTH_MSG, exception.message);
     }
 }
