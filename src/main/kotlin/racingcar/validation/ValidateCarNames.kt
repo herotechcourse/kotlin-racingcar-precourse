@@ -22,3 +22,9 @@ fun isCommaSeparated(input: String): Boolean {
 fun isValidCarNames(input: String): Boolean {
     return isCommaSeparated(input) && isNotBlankInput(input)
 }
+
+fun validateCarNames(input: String) {
+    if (!isValidCarNames(input)) {
+        throw IllegalArgumentException("Car names are not valid.")
+    }
+}
