@@ -18,3 +18,4 @@
 - The number of rounds must not exceed the maximum limit for an Int(2,147,483,647) ✅
 - Duplicated car names are not allowed ✅
 - The number of cars must not exceed 10 ✅
+- The number of cars must be at least 2
