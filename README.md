@@ -3,20 +3,25 @@
 ## Before Racing
 
 - 1. Get names of the cars from the user
-  - Validate names
+  - [x] getValidNames()
+    > #### To Check
+    >
+    > - To get user input, use Console.readLine()   
+    - [x] validateNames()
     > #### To Check
     > 
     > - Valid:
-    >   - names with comma separation
+    >     - names with comma separation
     > - Invalid:
-    >   - name = null
-    >   - name = ,
-    >   - length > 5
-    >   - duplicate names
-    >   - number of cars < 2   
+    >     - name = null
+    >     - name = ,
+    >     - length > 5
+    >     - duplicate names
+    >     - number of cars < 2   
     
 - 2. Get the number of rounds from the user
-    - Validate the number
+    - [x] getValidRounds()
+      - [x] validateRounds()
   > #### To Check
   > 
   > - Valid:
@@ -27,14 +32,26 @@
 ## Racing
 
 - 3. Move each car based on a generated number
-> #### How it works?
->  - Generate a random number between 0 and 9
->  - Each car moves forward if the number is greater than 4; otherwise, no change in the position
+   - [ ] executeRaceRound()
+     - [ ] initPosition()
+     - [ ] getMoveValue()
+      >  #### To Check
+      >  - Return a random number between 0 and 9 by using Randoms.pickNumberInRange(0, 9)
+
+     - [ ] moveCar()
+     > #### To Check
+     >  - Each car moves forward if that random number is greater than 4; otherwise, position does not change
+
 - 4. Display the result of each round following the given format
+     - [ ] displayRaceResults()
+     - [ ] saveRoundWinners()
+
 
 ## After Racing
 
 - 5. Display the winner(s)
+  - [ ] displayWinner
+    - [ ] getFinalWinner
 > #### To Check
 >
 > - Valid:
