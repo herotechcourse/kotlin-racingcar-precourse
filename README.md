@@ -10,7 +10,7 @@
   - Save in `Map` data structure - key(Car name) : value(Movement count)
 
 #### Exception process
-- When entering non-comma characters, the program throws `IllegalArgumentException` and terminate.
+- When the car name length exceeds 5 characters, the program throws `IllegalArgumentException` and terminate.
 
 ### 2. Enter the number of rounds.
 - Enter using `Console.readLine()`.
