@@ -10,7 +10,9 @@ fun main() {
     val rounds = getNumberOfRounds()
 
     val carPositions = mutableMapOf<String, Int>()
-    cars.forEach { carPositions[it] = 0 }
+    cars.forEach {
+        carPositions[it] = 0
+    }
 
     repeat(rounds) { round ->
         println("Race Results")
