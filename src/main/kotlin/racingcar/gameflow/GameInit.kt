@@ -1,7 +1,7 @@
 package racingcar.gameflow
 
-data class GameStartResult(val carNames: String, val rounds: String)
-data class Car(val name: String, var position: Int = 0)
+import racingcar.model.Car
+import racingcar.gameflow.GameStartResult
 data class GameInitResult(val cars: List<Car>, val rounds: Int)
 
 /**

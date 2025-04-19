@@ -1,6 +1,6 @@
 package racingcar.gameflow
 
-data class Car(val name: String, var position: Int = 0)
+import racingcar.model.Car
 
 fun raceUpdateTrack(
     cars: List<Car>,
