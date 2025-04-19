@@ -25,8 +25,8 @@
 - Display the progress of each car using `"-"` symbols representing the distance traveled.
 - **Example output:**
   ```
-  pobi: ---
-  crong: --
+  pobi : ---
+  crong : --
   ```
 
 ### 6. Game Loop (Rounds)
@@ -42,5 +42,5 @@
 - Print the name(s) of the winner(s), separated by commas if there are multiple.
 - **Example output:**
   ```
-  Winner: pobi, crong
+  Winners : pobi, crong
   ```
