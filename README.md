@@ -1,5 +1,9 @@
 # kotlin-racingcar-precourse
 
+<picture>
+ <img alt="racingCar" src="https://github.com/user-attachments/assets/c145b77b-db45-4b6e-9892-34d5ee49c4d5">
+</picture>
+
 ## Features
 
 1. **Handling User Input**
