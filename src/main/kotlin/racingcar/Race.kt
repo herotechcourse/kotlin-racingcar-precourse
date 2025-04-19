@@ -7,10 +7,11 @@ class Race(val cars: List<Car>,val rounds:Int) {
         while (!isRaceOver()){
             cars.forEach{
                 move(it)
-                displayCarsPosition()
-                println()
             }
+            displayCarsPosition()
+            println()
         }
+        displayWinner(cars)
     }
     fun displayCarsPosition(){
         cars.forEach{
@@ -32,5 +33,14 @@ class Race(val cars: List<Car>,val rounds:Int) {
             car.position++
         }
     }
-
+    fun displayWinner(cars : List<Car>){
+        val winners = StringBuilder("Winners : ")
+        cars.forEach{
+            if (it.position == rounds){
+                winners.append(it.name+", ")
+            }
+        }
+        winners.setLength(winners.length-2)
+        println(winners)
+    }
 }
