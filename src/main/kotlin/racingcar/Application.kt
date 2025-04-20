@@ -1,5 +1,9 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    val game = Game()
+    game.inputCarNames()
+    game.inputRoundCount()
+    game.race()
+    game.printWinners()
 }
