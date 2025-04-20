@@ -10,5 +10,8 @@ fun main() {
     println("How many rounds will be played?")
     val numberOfRounds = Console.readLine()
     val validNumberOfRounds = validateNumberOfRounds(numberOfRounds)
-}
 
+    println("\nRace Results")
+    val carPositions = executeCarRace(validCarNames, validNumberOfRounds)
+
+}
