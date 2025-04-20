@@ -4,7 +4,7 @@
 
 - [X] Validate car name input
 - [X] Validate round count input
-- [ ] Create Car and RacingGame classes
+- [X] Create Car and RacingGame classes
 - [ ] Move cars based on random number logic
 - [ ] Print race results after each round
 - [ ] Determine and print winners
