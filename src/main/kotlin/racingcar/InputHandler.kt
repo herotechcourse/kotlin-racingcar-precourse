@@ -10,7 +10,7 @@ object InputHandler {
     private const val MIN_CHARS = 1
     private const val MAX_CHARS = 5
 
-    fun readCarNames(): String {
+    private fun readCarNames(): String {
         println("Enter the names of the cars (comma-separated):")
         val rawCarNames = Console.readLine()
 
@@ -21,7 +21,7 @@ object InputHandler {
         return rawCarNames
     }
 
-    fun validateCarNames(rawCarNames: String): List<String> {
+    private fun validateCarNames(rawCarNames: String): List<String> {
         val carNameList = rawCarNames.split(",")
 
         require (carNameList.size >= MIN_CAR_NAMES) {
@@ -40,7 +40,7 @@ object InputHandler {
         return carNameList
     }
 
-    fun readRounds(): String {
+    private fun readRounds(): String {
         println("How many rounds will be played?")
         val rawRounds = Console.readLine()
 
@@ -51,7 +51,7 @@ object InputHandler {
         return rawRounds
     }
 
-    fun validateRounds(rawRounds: String): Int {
+    private fun validateRounds(rawRounds: String): Int {
         val rounds = rawRounds.toIntOrNull()
 
         require (rounds != null) {
@@ -75,5 +75,15 @@ object InputHandler {
             "Car name can only contain letters and digits. " +
                     "No spaces or special characters allowed."
         }
+    }
+
+    fun getValidatedCarNames(): List<String> {
+        val rawCarNames = readCarNames()
+        return validateCarNames(rawCarNames)
+    }
+
+    fun getValidatedRounds(): Int {
+        val rawRounds = readRounds()
+        return validateRounds(rawRounds)
     }
 }
