@@ -19,21 +19,10 @@ class Car(
         movesMade++
     }
 
-    fun printRoundStatus()
-    {
-        var counter: Int = 0
-        // print("${name} : ${MOVE_SYMBOL.repeat(movesMade)}")
-
-        print("$name: ")
-        while (counter < movesMade)
-        {
-            print("-")
-            counter++;
-        }
-        println("")
+    fun printRoundStatus(){
+        println("${name} : ${MOVE_SYMBOL.repeat(movesMade)}")
     }
 
     fun getName(): String = name
-
-    fun getMovesTotal(): Int = movesMade
+    fun getMovesMade(): Int = movesMade
 }
