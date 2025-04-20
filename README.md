@@ -1,1 +1,14 @@
 # kotlin-racingcar-precourse
+
+### Feature List
+| No.  |        Feature Name        |       Category        | Requirement Details                                                                                                                                                       |
+|:----:|:--------------------------:|:---------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| F01  |      Name Validation       |         input         | Each car name must be non-empty and no longer than 5 characters.                                                                                                          |
+| F02  |  Round Number Validation   |         input         | The number of rounds must be a positive integer.                                                                                                                          |
+| F03  |   Invalid Data Handling    |    error handling     | If input is invalid, the program must throw an `IllegalArgumentException` and terminate.                                                                                  |
+| F04  |  Random Number Generation  |       gameplay        | In each round, generate a random number between 0 and 9.                                                                                                                  |
+| F05  |  Move Car Based on Number  |       gameplay        | A car moves forward by one position if the number is 4 or greater.                                                                                                        |
+| F06  |   Stay or Move Decision    |       gameplay        | If the number is less than 4, the car stays in place.                                                                                                                     |
+| F07  |   Round Progress Output    |        output         | After each round, display each car's information in the format defined in F08.                                                                                            |
+| F08  | Car Information Formatting |        output         | Display the car name and distance, separated by a colon with spacing on both sides. Distances are shown using bars (`-`). (Example: `pobi : ---`)                         |
+| F09  |    Winner Determination    |        output         | After all rounds, the car(s) that reached the furthest distance are declared winners. If there are multiple winners, display their names separated by commas.             |
