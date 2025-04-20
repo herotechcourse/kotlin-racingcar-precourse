@@ -2,6 +2,7 @@ package racingcar.model
 
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
+import racingcar.util.Constant.CAR_NAME_CANNOT_BLANK_ERROR_MESSAGE
 import racingcar.util.Constant.CAR_NAME_EXCEED_ERROR_MESSAGE
 
 class CarTest {
@@ -10,5 +11,16 @@ class CarTest {
         assertThatThrownBy { Car("123456789") }
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessageContaining(CAR_NAME_EXCEED_ERROR_MESSAGE)
+    }
+
+    @Test
+    fun `Throw an exception if a car name is blank`() {
+        assertThatThrownBy { Car("") }
+            .isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessageContaining(CAR_NAME_CANNOT_BLANK_ERROR_MESSAGE)
+
+        assertThatThrownBy { Car("   ") }
+            .isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessageContaining(CAR_NAME_CANNOT_BLANK_ERROR_MESSAGE)
     }
 }
