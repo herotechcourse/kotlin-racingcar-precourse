@@ -63,7 +63,7 @@ fun simulateRace(cars: List<Car>, rounds: Int): List<List<Car>> {
                 car
             }
         }
-
+        printRoundResult(updatedCars)
         raceHistory + listOf(updatedCars)
     }
 }
@@ -74,3 +74,10 @@ fun shouldMoveForward(): Boolean {
 }
 
 fun moveForward(car: Car): Car = car.copy(position = car.position + 1)
+
+fun printRoundResult(cars: List<Car>) {
+    cars.forEach { car ->
+        println(car.name)
+    }
+    println()
+}
