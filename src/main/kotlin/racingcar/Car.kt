@@ -1,9 +1,11 @@
 package racingcar
 
 class Car constructor(val name: String) {
-    var distance: Int = 0
+    private var _distance: Int = 0
+    val distance:Int
+        get() = _distance
 
     fun moveForward(){
-        distance += 1
+        _distance += 1
     }
 }
