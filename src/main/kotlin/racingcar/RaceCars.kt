@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
 class RaceCars {
-    private lateint var cars: List<Car>
+    private lateinit var cars: List<Car>
     private var rounds: Int = 0
 
     fun start() {
@@ -32,8 +32,21 @@ class RaceCars {
 
     private fun getRounds() {
         println("Enter the number of rounds to race:")
-        val numberOfRounds = Console.readLine()
+        val roundsInput = Console.readLine()
 
+        rounds = createRoundCount(roundsInput)
+    }
+
+    private fun createRoundCount(roundsStr: String): Int {
+        try {
+            val parsed = roundsStr.toInt()
+            if (parsed <= 0) {
+                throw IllegalArgumentException("Enter a positive number of rounds")
+            }
+            return parsed
+        } catch (e: NumberFormatException) {
+            throw IllegalArgumentException("This $roundsStr is an invalid number of rounds")
+        }
     }
 
     private fun validateCarNames(separatedCarNames: List<String>) {
@@ -65,5 +78,9 @@ class RaceCars {
         if (name.length > 5) {
             throw IllegalArgumentException("The car '$name' is longer than 5 characters.")
         }
+    }
+
+    private fun moveCar(): Boolean {
+        return Randoms.pickNumberInRange(0, 9) >= 4
     }
 }
