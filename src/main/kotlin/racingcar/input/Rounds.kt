@@ -11,7 +11,7 @@ object Rounds {
   }
 
   private fun parse(input: String): Int {
-    return input.toIntOrNull()
+    return input.trim().toIntOrNull()
         ?: throw IllegalArgumentException("Input failed at getRounds(): input was not a number.")
   }
 
