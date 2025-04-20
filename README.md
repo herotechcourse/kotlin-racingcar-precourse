@@ -1,5 +1,16 @@
 # kotlin-racingcar-precourse
 
+# TO-DO Features
+Class Car
+	Variable int movedRound, val String Name
+	
+	Contructor with String name
+
+	Function void runRound - make move or not in this round based on random
+	
+	Function void printCarStatus - print name and Current movedRound
+
+
 # Structure With PseudoCode
 
 Class CarRacing {
