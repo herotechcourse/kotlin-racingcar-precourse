@@ -56,8 +56,6 @@ class FixedRoundsRaceConfigurationTest {
                 Arguments.of("alpha,beta,gamma,delta,epsilon,epsilon", "50"), // Duplicate car names
                 Arguments.of("alpha,beta,gamma,delta,epsilon,alpha,beta", "50"), // Duplicate car names
 
-                //Arguments.of("alpha,beta", listOf<String>("alpha", "beta"), "1", 1),
-
                 Arguments.of("alpha,beta,gamma", "-500"), // Number of rounds out of bounds
                 Arguments.of("alpha,beta,gamma", "-1"), // Number of rounds out of bounds
                 Arguments.of("alpha,beta,gamma", "0"), // Number of rounds out of bounds
