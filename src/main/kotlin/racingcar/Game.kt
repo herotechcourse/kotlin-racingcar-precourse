@@ -14,10 +14,12 @@ class Game {
 fun Game.inputCarNames(){
     println("Enter the names of the cars (comma-separated):")
     val names = Console.readLine().split(",")
-    for (player in names)
-        if (player.isEmpty() || player.length > 5 || player.isEmpty())
+    for (name in names) {
+        val player = name.trim()
+        if (player.isEmpty() || player.length > 5)
             throw IllegalArgumentException("Car name must be 1–5 characters.")
-        else addCar(Car(player.trim()))
+        else addCar(Car(player))
+    }
 }
 
 fun Game.inputRoundCount(){
@@ -29,7 +31,7 @@ fun Game.inputRoundCount(){
 }
 
 fun Game.playTurn(){
-    for (car in cars) if (4 <= Randoms.pickNumberInRange(0, 9)) car.position++
+    for (car in cars) car.moveIfLucky()
     for (car in cars) car.printStatus()
     println()
 }
