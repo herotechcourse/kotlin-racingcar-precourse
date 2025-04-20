@@ -48,3 +48,7 @@ This is a console-based **Car Racing Game** written in Kotlin. Users input car n
    - Car does not move when random number is less than 4`
    - GetProgress returns correct progress string
 
+1. **Race Class**:
+   - Car that moves most should be the winner
+   - Both cars win when same number of moves
+   - Capture and assert console output (for )
