@@ -10,9 +10,9 @@
 - [x] Get the number of race rounds. (race rounds must exceed 0)
 
 ### Racing
-- [ ] Generate a random number between 0~9 for each car.
-- [ ] If the number is bigger than 4, move forward; if not, stay.
-- [ ] Represent car positions by '-'.
+- [x] Generate a random number between 0~9 for each car.
+- [x] If the number is bigger than 4, move forward; if not, stay.
+- [x] Represent car positions by '-'.
 
 ## Result
 - [ ] Print results for each round alongside car names.
