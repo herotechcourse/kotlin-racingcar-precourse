@@ -23,13 +23,13 @@
 - [x] RacingGame can decide the winner.
 
 ## Programming Requirements
-- [ ] The program must be executable with Kotlin 1.9.24.
-- [ ] You must implement the solution only in Kotlin—Java code is not allowed.
-- [ ] The entry point of the application must be the main() function in the Application class.
-- [ ] You may not modify the build.gradle.kts file, and you may not use any external libraries other than those provided.
-- [ ] Do not use System.exit() or exitProcess() to terminate the program.
-- [ ] Unless otherwise specified in the requirements, you may not rename or move files, packages, or other project elements.
-- [ ] The indentation depth must not exceed 2. A maximum of 2 levels is allowed.
-- [ ] Keep functions as small and focused as possible—each should do only one thing.
-- [ ] Use JUnit 5 and AssertJ to test the functionality according to your feature list.
-- [ ] You must use the Randoms and Console APIs provided by the camp.nextstep.edu.missionutils package.
+- [x] The program must be executable with Kotlin 1.9.24.
+- [x] You must implement the solution only in Kotlin—Java code is not allowed.
+- [x] The entry point of the application must be the main() function in the Application class.
+- [x] You may not modify the build.gradle.kts file, and you may not use any external libraries other than those provided.
+- [x] Do not use System.exit() or exitProcess() to terminate the program.
+- [x] Unless otherwise specified in the requirements, you may not rename or move files, packages, or other project elements.
+- [x] The indentation depth must not exceed 2. A maximum of 2 levels is allowed.
+- [x] Keep functions as small and focused as possible—each should do only one thing.
+- [x] Use JUnit 5 and AssertJ to test the functionality according to your feature list.
+- [x] You must use the Randoms and Console APIs provided by the camp.nextstep.edu.missionutils package.
