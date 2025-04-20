@@ -20,7 +20,7 @@ Users input car names and number of rounds, and each car moves forward based on 
     - [x] Display each car's progress using `-`
 - [x] Determine and print final winner(s)
 - [x] Handle invalid inputs with meaningful exceptions
-- [ ] All test cases should be passed using `./gradlew clean test`
+- [x] All test cases should be passed using `./gradlew clean test`
 
 <br>
 
