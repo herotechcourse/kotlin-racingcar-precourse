@@ -1,5 +1,16 @@
 package racingcar
 
+/**
+ * RaceGame class
+ *
+ * @constructor: creates a race with cars and rounds
+ * @param cars: list of cars -> private and read-only
+ * @param rounds: number of rounds -> private and read-only
+ *
+ * @see runRace: runs all rounds and prints the race results after each round,
+ * prints the winners at the end
+ * @see printWinners: prints the winner or winners
+ */
 class RaceGame(private val cars: List<Car>, private val rounds: Int) {
     fun runRace() {
         println("\nRace Results")
