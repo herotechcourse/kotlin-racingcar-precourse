@@ -1,39 +1,53 @@
 package racingcar.race
 
 import racingcar.output.addLine
-import racingcar.repository.Car
+import racingcar.car.Car
 import racingcar.repository.CarRepository
 import racingcar.repository.ListCarRepository
 
 private val carRepository: CarRepository = ListCarRepository();
 private var topScore = 0;
 fun race(cars: Array<String>, rounds: Int){
+    initialSpacing();
+    carRepository.addMultipleCars(cars);
+    val carList: List<Car> = carRepository.getAllCars();
+    play(rounds, carList);
+    declareWinners(carList);
+}
+
+private fun initialSpacing(){
     addLine();
     addLine("Race Results");
+}
 
-    carRepository.addMultipleCars(cars);
-
+private fun play(rounds: Int, carList: List<Car>){
     for (i in 1..rounds) {
-        val carList: List<Car> = carRepository.getAllCars();
-        carList.forEach { car ->
-            run {
-                val currentCarDistance = car.moveForwardRandomly();
-                topScore = topScore.coerceAtLeast(currentCarDistance);
-                addLine(car.toString());
-            }
-        }
+        carList.forEach { car -> proceedRound(car) }
         addLine();
     }
+}
 
+private fun proceedRound(car: Car){
+    val currentCarDistance = car.moveForwardRandomly();
+    renewTopScore(currentCarDistance);
+    addLine(car.toString());
+}
+
+private fun renewTopScore(score: Int){
+    topScore = topScore.coerceAtLeast(score);
+}
+
+private fun declareWinners(carList: List<Car>){
     val winners: MutableList<String> = mutableListOf();
-    val carList: List<Car> = carRepository.getAllCars();
     carList.forEach {
-        car -> run {
-            if(car.getDistance() == topScore){
-                winners.add(car.getName());
-            }
-        }
+            car -> addWinners(car, winners)
     }
     val result = winners.joinToString(", ");
     addLine("Winners : $result");
+}
+
+private fun addWinners(car: Car, winners: MutableList<String>){
+    if(car.getDistance() == topScore){
+        winners.add(car.getName());
+    }
 }

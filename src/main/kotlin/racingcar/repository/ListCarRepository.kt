@@ -1,5 +1,6 @@
 package racingcar.repository
 
+import racingcar.car.Car
 import racingcar.repository.exception.DuplicateCarException
 
 class ListCarRepository : CarRepository {

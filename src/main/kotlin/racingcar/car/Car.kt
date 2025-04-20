@@ -1,4 +1,4 @@
-package racingcar.repository
+package racingcar.car
 
 import camp.nextstep.edu.missionutils.Randoms
 
