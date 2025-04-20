@@ -20,7 +20,7 @@ fun main() {
 
 }
 
-private fun readCarNames():String{
+private fun readCarNames(): String {
   println("Enter car names (comma-separated): ")
   return Console.readLine()
 }
@@ -28,6 +28,6 @@ private fun readCarNames():String{
 private fun readRoundCount(): Int {
   println("How many rounds will be played?")
   val rounds = Console.readLine().toIntOrNull()
-  require(rounds != null) { ErrorMessages.ERROR_INVALID_ROUNDS }
+  require(rounds != null && rounds > 0) { ErrorMessages.ERROR_INVALID_ROUNDS }
   return rounds
 }
