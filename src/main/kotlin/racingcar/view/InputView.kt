@@ -2,7 +2,7 @@ package racingcar.view
 
 import camp.nextstep.edu.missionutils.Console
 
-object InputView {
+class InputView {
 
     fun readCarNames(): String {
         println("Enter the names of the cars (comma-separated):")

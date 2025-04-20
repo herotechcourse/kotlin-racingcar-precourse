@@ -2,7 +2,7 @@ package racingcar.view
 
 import racingcar.model.Car
 
-object OutputView {
+class OutputView {
     fun showRoundResult(cars: List<Car>) {
         cars.forEach { car ->
             println(car.displayProgress())
