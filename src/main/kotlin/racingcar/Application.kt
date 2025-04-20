@@ -16,18 +16,15 @@ fun main() {
 
     val cars = carNames.map { Car(it) }
     println("How many rounds will be played?")
-    val roundsInput = Console.readLine()
     var rounds = 0
 
-    if (roundsInput != null && roundsInput.toIntOrNull() != null) {
-        rounds = roundsInput.toInt()
-    } else {
-        throw IllegalArgumentException("Invalid input for rounds.")
-    }
+    val roundsInput = Console.readLine()
+    roundsInput?.toIntOrNull()?.let {
+        rounds = it
+    } ?: throw IllegalArgumentException("Invalid input for rounds.")
 
     println("Race Results")
     repeat(rounds) { round ->
-        println("Round ${round + 1}:")
         cars.forEach { car ->
             car.move()
             println("${car.name} : ${"-".repeat(car.position)}")
