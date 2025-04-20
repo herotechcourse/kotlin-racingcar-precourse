@@ -6,13 +6,13 @@ import racingcar.model.findWinners
 import racingcar.model.makeRacingProgressList
 
 fun mainController() {
-    val carNames = InputView().getCarNamesInput()
-    val racingRounds = InputView().getRacingRoundsInput()
+    val carNames = InputView.getCarNamesInput()
+    val racingRounds = InputView.getRacingRoundsInput()
 
     val progressList = makeRacingProgressList(carNames, racingRounds)
-    OutputView().printRacingStartMessage()
-    OutputView().printCarNamesAndProcess(carNames, progressList)
+    OutputView.printRacingStartMessage()
+    OutputView.printCarNamesAndProcess(carNames, progressList)
 
     val winners = findWinners(carNames, progressList)
-    OutputView().printWinners(winners)
+    OutputView.printWinners(winners)
 }
