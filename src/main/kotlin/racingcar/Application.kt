@@ -1,12 +1,15 @@
 package racingcar
 
 fun main() {
-    // test
     val names = InputView.readCarNames()
     val rounds = InputView.readRoundCount()
     val cars = names.map {Car(it)}
+    println()
+
+    println("Race Results")
     Racing(cars, rounds).play()
 
-    println("car names: $names")
-    println("rounds: $rounds")
+    val maxPosition = cars.maxOfOrNull { it.position } ?: 0
+    val winners = cars.filter { it.position == maxPosition }.map { it.name }
+    print("Winners : ${winners.joinToString (", ")}")
 }
