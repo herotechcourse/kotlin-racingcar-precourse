@@ -2,7 +2,8 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
-class Race (val carString: String, val round: Int){
+class Race (val carString: String, round: Int){
+    private val round:Int
     private val cars: List<Car>
 
     init{
@@ -15,13 +16,12 @@ class Race (val carString: String, val round: Int){
         if(round<1){
             throw IllegalArgumentException("The number of rounds must be greater than 0.")
         }
-
+        this.round = round
         cars = inputCarNames.map { Car(it) }
     }
 
     fun printStatus(): String {
         return "Cars: ${cars.joinToString(",") { it.name }}\n" +
-                "Distance: ${cars.joinToString(",") { it.distance.toString() }}\n"+
                 "Round: ${round}\n"
     }
 
