@@ -80,6 +80,21 @@ class RaceCars {
         }
     }
 
+    private fun eachRound(round: Int) {
+        println("Race round $round")
+
+        cars.forEach { car ->
+            getCarMovement(car)
+        }
+    }
+
+    private fun getCarMovement(car: Car) {
+        val movePosition = moveCar()
+        if (movePosition) {
+            car.position++
+        }
+    }
+
     private fun moveCar(): Boolean {
         return Randoms.pickNumberInRange(0, 9) >= 4
     }
