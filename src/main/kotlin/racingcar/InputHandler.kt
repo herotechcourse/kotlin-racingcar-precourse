@@ -1,12 +1,14 @@
 package racingcar
 
-val CARS_NAME_REQUEST_MESSAGE = "Enter the names of the cars (comma-separated):"
-val ROUND_REQUEST_MESSAGE = "How many rounds will be played?"
-
 /**
  * Handles user input for the racing game.
  */
 class InputHandler {
+
+    companion object {
+        val CARS_NAME_REQUEST_MESSAGE = "Enter the names of the cars (comma-separated):"
+        val ROUND_REQUEST_MESSAGE = "How many rounds will be played?"
+    }
 
     /**
      * Prompts the user to enter car names and returns them as a list of strings.
