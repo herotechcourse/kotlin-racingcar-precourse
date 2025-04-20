@@ -6,5 +6,9 @@ fun main() {
     println("Enter the names of the cars (comma-separated):")
     val carNames = Console.readLine()
     val validCarNames = validateCarNames(carNames)
+
+    println("How many rounds will be played?")
+    val numberOfRounds = Console.readLine()
+    val validNumberOfRounds = validateNumberOfRounds(numberOfRounds)
 }
 

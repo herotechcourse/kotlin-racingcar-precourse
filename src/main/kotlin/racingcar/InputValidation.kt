@@ -14,3 +14,15 @@ fun validateCarNames(inputString: String): List<String> {
     return carNames
 }
 
+fun validateNumberOfRounds(inputString: String): Int {
+    val numberOfRounds: Int
+    try {
+        numberOfRounds = inputString.toInt()
+    } catch (e: Exception) {
+        throw IllegalArgumentException()
+    }
+    if (numberOfRounds < 0) {
+        throw IllegalArgumentException()
+    }
+    return numberOfRounds
+}
