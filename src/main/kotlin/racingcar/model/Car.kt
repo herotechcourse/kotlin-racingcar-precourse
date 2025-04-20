@@ -4,6 +4,11 @@ import racingcar.utils.Utils.getRandomNumberFromZeroToNine
 
 
 data class Car(val name: String, var currLevel: Int = 0) {
+
+  companion object {
+    const val MOVE_THRESHOLD = 4
+  }
+
   private fun move() {
     this.currLevel++
   }
@@ -13,7 +18,7 @@ data class Car(val name: String, var currLevel: Int = 0) {
   }
 
   fun tryMove() {
-    if (getRandomNumberFromZeroToNine() >= 4) move()
+    if (getRandomNumberFromZeroToNine() >= MOVE_THRESHOLD) move()
   }
 
 }
