@@ -20,18 +20,6 @@ fun main() {
 //Function to remove Whitespaces
 fun String.removeWhitespaces() = replace(" ", "")
 
-fun calculateWinners(cars: List<Car>) {
-    print("Winners : ")
-    val maxDisplacement = cars.maxOf { it.displacement }
-    val winners = mutableListOf<String>()
-    for (car in cars) {
-        if (car.displacement == maxDisplacement) {
-            winners.add(car.carName)
-        }
-    }
-    println(winners.joinToString(", "))
-}
-
 fun validateCarNames(splitNames: List<String>):ArrayList<String> {
     val names = ArrayList<String>()
 
@@ -50,23 +38,3 @@ fun validateRounds(numberOfRounds: String): Int {
     if (rounds < 1) throw IllegalArgumentException("The number of rounds must be 1 or over.")
     return rounds
 }
-
-class Race (private val cars: List<Car>, private val numberOfRounds: Int){
-    fun startRace() {
-        println("Race Results")
-        for (round in 1..numberOfRounds) {
-            for (car in cars) {
-                car.moveCar()
-            }
-            println()
-        }
-        calculateWinners(cars)
-    }
-
-    // For testing winners
-    fun getWinners() :List<String> {
-        val maxDisplacement = cars.maxOf { it.displacement }
-        return cars.filter { it.displacement == maxDisplacement }.map { it.carName }
-    }
-}
-
