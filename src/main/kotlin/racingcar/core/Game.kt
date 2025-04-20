@@ -3,7 +3,7 @@ package racingcar.core
 import racingcar.utils.Printer.printRound
 import racingcar.model.Car
 
-class Game(val cars: MutableList<Car>, val rounds: Int) {
+class Game(private val cars: List<Car>, private val rounds: Int) {
 
   fun startRace() {
     println("Race Results:")
