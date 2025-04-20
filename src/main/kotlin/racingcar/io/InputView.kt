@@ -8,7 +8,7 @@ object InputView {
     }
 
     fun readNumberOfRounds(): String{
-        println("Enter the number of rounds:")
+        println("How many rounds will be played?")
         return Console.readLine()
     }
 }

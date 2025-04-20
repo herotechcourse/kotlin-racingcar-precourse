@@ -18,6 +18,7 @@ class Race(
     }
 
     fun startRace(){
+        println("\nRace Results")
         repeat(this.numberOfRounds){ lap ->
             runLap(lap + 1)
         }
