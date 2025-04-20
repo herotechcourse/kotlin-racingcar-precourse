@@ -4,7 +4,6 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 class RaceTest {
-
     @Test
     fun `All cars move forward`() {
         val initialCars = listOf(
@@ -12,8 +11,7 @@ class RaceTest {
             Car("woni", 0),
             Car("jun", 0)
         )
-        val race = Race(initialCars, 1, true)
-        val movedCars = race.runRound()
+        val movedCars = playRound(initialCars) { true }
         assertThat(movedCars).isEqualTo(
             listOf(
                 Car("pobi", 1),
@@ -30,8 +28,7 @@ class RaceTest {
             Car("woni", 0),
             Car("jun", 0)
         )
-        val race = Race(initialCars, 1, false)
-        val movedCars = race.runRound()
+        val movedCars = playRound(initialCars) { false }
         assertThat(movedCars).isEqualTo(
             listOf(
                 Car("pobi", 0),
