@@ -9,6 +9,7 @@
     - should not be empty or whitespaces
     - car name string cannot have length > 5
     - Atleast 2 cars participate in the game 
+    - Duplicate car names should not be allowed with case sensitivity
   - number of rounds 
     - should be > 0 
     - should not be a number
