@@ -30,3 +30,11 @@ fun buildCarProgress(carName: String, carPosition: Int) :String {
     val dashes = "-".repeat(carPosition)
     return "$carName : $dashes"
 }
+
+fun determineWinners(listOfCarNames: List<String>, carPositions: Map<String, Int>): List<String> {
+    val maxPosition = carPositions.values.max()
+    val winners = listOfCarNames.filter { carName ->
+        carPositions[carName] == maxPosition
+    }
+    return winners
+}

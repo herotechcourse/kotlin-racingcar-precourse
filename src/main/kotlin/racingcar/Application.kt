@@ -14,4 +14,7 @@ fun main() {
     println("\nRace Results")
     val carPositions = executeCarRace(validCarNames, validNumberOfRounds)
 
+    val winners = determineWinners(validCarNames, carPositions)
+    println("Winners : ${winners.joinToString(", ")}")
+
 }
