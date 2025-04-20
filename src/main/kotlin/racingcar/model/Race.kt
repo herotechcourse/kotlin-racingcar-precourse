@@ -6,7 +6,7 @@ class Race(
     var results: MutableList<List<CarPosition>> = mutableListOf(),
 ) {
     fun runRace() {
-        for (i in 1..totalRound) {
+        repeat(totalRound) {
             runEachRound()
             saveRoundResult()
         }
