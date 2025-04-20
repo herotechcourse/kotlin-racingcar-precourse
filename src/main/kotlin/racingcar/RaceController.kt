@@ -1,9 +1,12 @@
 package racingcar
 
 class RaceController {
+
+    private val raceInput = RoundsInput()
+
     fun startRace(carNames: List<String>) {
         val cars = carNames.map { Car(it) }
-        val rounds = inputRounds()
+        val rounds = raceInput.inputRounds()
         race(cars, rounds)
         announceWinners(cars)
     }
@@ -37,9 +40,5 @@ class RaceController {
         return (0..9).random()
     }
 
-    private fun inputRounds(): Int {
-        println("Input number of rounds")
-        val input = readLine() ?: throw IllegalArgumentException("Input invalid!")
-        return input.toInt()
-    }
+
 } 
