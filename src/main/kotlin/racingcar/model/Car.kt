@@ -8,6 +8,9 @@ class Car(
 ) {
     companion object {
         private const val INITIAL_POSITION = 0
+        private const val RANDOM_MIN = 0
+        private const val RANDOM_MAX = 9
+        private const val MIN_MOVABLE_NUMBER = 4
 
         fun fromNames(names: List<String>): List<Car> {
             return names.map { Car(it) }
@@ -19,7 +22,7 @@ class Car(
     }
 
     fun moveRandomly() {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+        if (Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX) >= MIN_MOVABLE_NUMBER) {
             moveForward()
         }
     }
