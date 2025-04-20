@@ -22,12 +22,15 @@ private fun initialSpacing(){
 
 private fun play(rounds: Int, carList: List<Car>){
     for (i in 1..rounds) {
-        carList.forEach { car -> proceedRound(car) }
+        proceedRound(carList);
         addLine();
     }
 }
 
-private fun proceedRound(car: Car){
+private fun proceedRound(carList: List<Car>){
+    carList.forEach { car -> processCarMovement(car) }
+}
+private fun processCarMovement(car: Car){
     val currentCarDistance = car.moveForwardRandomly();
     renewTopScore(currentCarDistance);
     addLine(car.toString());
