@@ -2,19 +2,21 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
 import camp.nextstep.edu.missionutils.Console
-import java.nio.file.Files.move
 
 fun main() {
     println("Enter the names of the cars (comma-separated):")
     val names = Console.readLine()
 
-    // 5자 이상의 이름이면 오류처리
     if (nameCheck(names)) {
-        throw IllegalArgumentException("Car names cannot exceed 5 characters.");
+        throw IllegalArgumentException("Car names cannot exceed 5 characters.")
     }
 
     println("How many rounds will be played?")
-    val round = Console.readLine().toInt()
+    val round = Console.readLine().toIntOrNull()
+    if (round == null) {
+        throw IllegalArgumentException("Number of rounds should not be null.")
+    }
+
 
     val game = racingGame(names, round)
     game.playGame()
@@ -33,7 +35,7 @@ class racingGame(names: String, private val round:Int){
         println()
         println("Race Results")
         repeat(round){
-            moveCar();
+            moveCar()
             println()
         }
         winner()
