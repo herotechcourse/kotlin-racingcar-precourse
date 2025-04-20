@@ -79,7 +79,19 @@ Winners : pobi, woni, jun
 ## Project Structure
 
 ```
-
+└── src
+    ├── main
+    │   └── kotlin
+    │       └── racingcar
+    │           ├── Application.kt
+    │           ├── Car.kt
+    │           ├── InputView.kt
+    │           ├── RacingGame.kt
+    │           └── ResultView.kt
+    └── test
+        └── kotlin
+            └── racingcar
+                └── ApplicationTest.kt
 ```
 
 <br>
