@@ -1,6 +1,10 @@
 package racingcar.domain
 
-class Cars private constructor(private val cars: List<Car>) {
+class Cars internal constructor(private val cars: List<Car>) {
+    fun moveAll() {
+        cars.forEach { car -> car.move() }
+    }
+
     companion object {
         private const val DELIMITER = ","
         private const val MINIMUM_COUNT = 2

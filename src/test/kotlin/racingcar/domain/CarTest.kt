@@ -1,8 +1,7 @@
 package racingcar.domain
 
-import camp.nextstep.edu.missionutils.Randoms
 import org.junit.jupiter.api.*
-import racingcar.domain.base.NumberPickerBase
+import racingcar.domain.fixture.Fixture
 
 class CarTest {
     @Nested
@@ -34,7 +33,7 @@ class CarTest {
         @Test
         @DisplayName("[Success] when random number exceeds moving point, move")
         fun `test moving point`() {
-            val testingCar: Car = Car("bonie", MovableNumberPicker)
+            val testingCar: Car = Car("bonie", Fixture.MovableNumberPicker)
             testingCar.move()
             Assertions.assertEquals(testingCar.getDistance(), 1)
         }
@@ -42,17 +41,9 @@ class CarTest {
         @Test
         @DisplayName("[Exception] random number don't exceed moving point, then don't move")
         fun `test movable`() {
-            val testingCar: Car = Car("bonie", UnmovableNumberPicker)
+            val testingCar: Car = Car("bonie", Fixture.UnmovableNumberPicker)
             testingCar.move()
             Assertions.assertEquals(testingCar.getDistance(), 0)
         }
-    }
-
-    object MovableNumberPicker : NumberPickerBase {
-        override fun pick(): Int = Randoms.pickNumberInRange(4, 9)
-    }
-
-    object UnmovableNumberPicker : NumberPickerBase {
-        override fun pick(): Int = Randoms.pickNumberInRange(0, 3)
     }
 }
