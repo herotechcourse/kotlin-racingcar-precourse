@@ -82,4 +82,17 @@ class ApplicationTest : NsTest() {
             assertThrows<IllegalArgumentException> { runException("pobi,woni,jun", input) }
         }
     }
+
+    @Test
+    fun `there can be more than one winner`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni,jun", "1")
+                assertThat(output()).contains("pobi : -", "woni : ", "jun : -","Winners : pobi, jun")
+            },
+            MOVING_FORWARD,
+            STOP,
+            MOVING_FORWARD,
+        )
+    }
 }
