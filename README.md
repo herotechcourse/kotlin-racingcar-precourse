@@ -3,7 +3,7 @@
 ## Features
 
 ### Car class
-- [ ] Implement Car class (name must be non-blank, must not exceed 5 characters)
+- [x] Implement Car class (name must be non-blank, must not exceed 5 characters)
 
 ### Input
 - [ ] Get car names from the user, separated by commas.
