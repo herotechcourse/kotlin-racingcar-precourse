@@ -23,6 +23,10 @@ class ListCarRepository : CarRepository {
         }
     }
 
+    override fun getAllCars(): List<Car> {
+        return carList.toList()
+    }
+
     override fun moveCarById(id: Int) {
         var current = carList[id];
         current.moveForwardRandomly();

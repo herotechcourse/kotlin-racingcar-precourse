@@ -5,4 +5,5 @@ interface CarRepository {
     fun addMultipleCars(cars: Array<String>)
     fun moveEveryCarRandomly()
     fun moveCarById(id: Int)
+    fun getAllCars(): List<Car>
 }
