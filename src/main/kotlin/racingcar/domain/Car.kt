@@ -18,7 +18,7 @@ data class Car(
     }
 
     fun moveForward() {
-        if (moveStrategy.isMovable()) {
+        if (moveStrategy.isMovable(this)) {
             position++
         }
     }

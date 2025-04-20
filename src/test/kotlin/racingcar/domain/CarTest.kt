@@ -20,9 +20,10 @@ class CarTest {
     }
 
     class AlwaysMovableStrategy : MoveStrategy {
-        override fun isMovable(): Boolean = true
+        override fun isMovable(car: Car): Boolean = true
     }
+
     class NeverMovableStrategy : MoveStrategy {
-        override fun isMovable(): Boolean = false
+        override fun isMovable(car: Car): Boolean = false
     }
 }
