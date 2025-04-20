@@ -17,7 +17,7 @@ class Race(
     }
 
     private fun saveRoundResult() {
-        val roundSnapshot = cars.map { car -> CarPosition(car, car.position) }
+        val roundSnapshot = cars.map { CarPosition(it, it.position) }
         results.add(roundSnapshot)
     }
 
