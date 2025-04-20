@@ -16,16 +16,8 @@ object OutputView {
     }
 
     private fun printEachRoundResult(result: List<CarPosition>) {
-        for (carPosition in result) {
-            print("${carPosition.car.name} : ")
-            printPosition(carPosition.position)
-            println()
-        }
-    }
-
-    private fun printPosition(position: Int) {
-        for (i in 0..<position) {
-            print("-")
+        result.forEach {
+            println("${it.car.name} : ${"-".repeat(it.position)}")
         }
     }
 
