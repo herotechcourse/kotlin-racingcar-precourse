@@ -31,7 +31,7 @@ class RacingGameTest {
         val racingGame = RacingGame(listOf(car), fakeRandomNumberGenerator)
 
         // when
-        racingGame.moveCar()
+        racingGame.moveCars()
 
         // then
         assertThat(car.position).isEqualTo(1)
@@ -46,7 +46,7 @@ class RacingGameTest {
         val racingGame = RacingGame(listOf(car), fakeRandomNumberGenerator)
 
         // when
-        racingGame.moveCar()
+        racingGame.moveCars()
 
         // then
         assertThat(car.position).isEqualTo(0)

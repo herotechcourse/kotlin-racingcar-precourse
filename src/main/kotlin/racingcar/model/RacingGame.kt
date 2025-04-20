@@ -10,7 +10,7 @@ class RacingGame(
         return randomNumberGenerator.generate()
     }
 
-    fun moveCar() {
+    fun moveCars() {
         cars.forEach { car ->
             val randomNumber = generateRandomNumber()
             car.move(randomNumber)
