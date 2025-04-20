@@ -11,11 +11,11 @@ Build a functional skeleton before adding full validation and testing.
 
 ### Phase 2 - Enhancement & Cleanup
 Refine the initial version to meet all functional and programming requirements.
-- [ ] Dynamic Car Handling: Support n cars, not hardcoded
-- [ ] Name Validation: Ensure all car names are ≤ 5 characters
-- [ ] Error Handling: Throw IllegalArgumentException for invalid inputs
-- [ ] Test Coverage: Add JUnit 5 + AssertJ tests for:
+- [x] Dynamic Car Handling: Support n cars, not hardcoded
+- [x] Name Validation: Ensure all car names are ≤ 5 characters
+- [x] Error Handling: Throw IllegalArgumentException for invalid inputs
+- [x] Test Coverage: Add JUnit 5 + AssertJ tests for:
 * Input parsing
 * Car movement logic
 * Winner selection
-- [ ] Code Cleanup: Break down main logic into small, focused functions
+- [x] Code Cleanup: Break down main logic into small, focused functions
