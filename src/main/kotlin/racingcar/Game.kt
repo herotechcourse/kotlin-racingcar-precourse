@@ -32,6 +32,14 @@ class Game(private val cars: List<Car>, private val rounds: Int) {
         cars.forEach { println("${it.name}: ${"-".repeat(it.position)}") }
         println()
     }
+    /**
+     * Finds and prints the winners (cars with the max position).
+     */
+    private fun announceWinners() {
+        val maxPosition = cars.maxOf { it.position }
+        val winners = cars.filter { it.position == maxPosition }
+        println("Winner(s): ${winners.joinToString(", ") { it.name }}")
+    }
 
 }
 
