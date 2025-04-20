@@ -1,7 +1,6 @@
 package racingcar.domain
 
 import racingcar.domain.car.Car
-import racingcar.domain.car.Name
 
 class Cars(val cars: List<Car>) {
 
@@ -31,12 +30,5 @@ class Cars(val cars: List<Car>) {
         private const val SIZE_OUT_OF_RANGE_ERROR: String =
             "[ERROR] Total number of cars range must be between $MIN_SIZE and $MAX_SIZE."
         private const val CAR_NAMES_DUPLICATED_ERROR: String = "[ERROR] Car names are duplicated."
-
-        fun from(carNames: List<String>): Cars {
-            val cars = carNames.map { Name(it) }
-                .map { Car(it) }
-                .toList()
-            return Cars(cars)
-        }
     }
 }
