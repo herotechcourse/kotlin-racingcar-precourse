@@ -2,6 +2,7 @@ package racingcar.util
 
 class Output {
     fun printResultPhrase() {
+        println();
         println("Race Results");
     }
 
