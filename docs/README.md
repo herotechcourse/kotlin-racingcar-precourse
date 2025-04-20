@@ -7,7 +7,7 @@
 4. Execute the race.
 5. Print out the result of each round and final winner(s).
 
-
+````markdown
     [game-start]                : request & validate input. 
         ↓
     [game-init]                 : split carNames, trim, create Car objects, parse nRounds.
@@ -21,7 +21,7 @@
     [GameEnd / Winners]         : check winners based on final position (! multiple winners)
         ↓
     [Output]                    : print round by round state and final result
-
+````
 ---
 
 ## 🏌️ Approach
@@ -32,20 +32,22 @@
 
 ## 👾 Feature Modules
 ### 🧩 Game flow manager Module (MVC: "Controller")
-| Feature               | Description                                    | Test code |     Green      | Refactored | Done |
-|:----------------------|:-----------------------------------------------|:---------:|:--------------:|:----------:|:----:|
-| game-start            | Start game execution from main()               |     ✅     |       ✅        |     -      |  -   |
-| game-init             | Make cars based on user input                  |     ✅     |       ✅        |     -      |  -   |
-| game-loop             | Repeat game as many as rounds                  |     ✅     |       ✅        |     -      |  -   |
-| ❌ game-track-progress | Replaced with outputEachRoundResult() function |     ❌     |       ❌        |     ❌      |   ❌   |
-| ❌ game-end            | Replaced with outputFinalWinner() function     |     ❌     |       ❌        |     ❌      |   ❌   |
-Z
+| Feature               | Description                                    | Test code | Green | Refactored | Done |
+|:----------------------|:-----------------------------------------------|:---------:|:-----:|:----------:|:----:|
+| game-configurator     | Handles user input collection and validation   |     ✅     |   ✅   |     ✅      |  ✅   |
+| game-init             | Make cars based on user input                  |     ✅     |   ✅   |     ✅      |  ✅   |
+| game-loop             | Repeat game as many as rounds                  |     ✅     |   ✅   |     ✅      |  ✅   |
+| game-class            | Controls the overall game flow by orchestrating configuration, initialization, and game loop execution.                 |     -     |   -   |     ✅      |  ✅   |
+| ❌ game-track-progress | Replaced with outputEachRoundResult() function |     ❌     |   ❌   |     ❌      |   ❌   |
+| ❌ game-end            | Replaced with outputFinalWinner() function     |     ❌     |   ❌   |     ❌      |   ❌   |
+
 ### 🧩 Input Module
 | Feature | Description | Test code | Green | Refactored | Done |
-|:---|:---|:---------:|:---:|:----:|:---:|
-| input-request | Display a message prompting the user for inputs |     ✅     | ✅ | - | - |
-| input-read-car-names | Read input(1): car names from user |     ✅     | ✅ | - | - |
-| input-read-rounds | Read input(2): the number of rounds from user |     ✅     | ✅ | - | - |
+|:---|:---|:---------:|:---:|:----------:|:---:|
+| input-request | Display a message prompting the user for inputs |     ✅     | ✅ |      ✅      | ✅ |
+| input-read-car-names | Read input(1): car names from user |     ✅     | ✅ |     ✅      | ✅ |
+| input-read-rounds | Read input(2): the number of rounds from user |     ✅     | ✅ |     ✅      | ✅ |
+ ⚠️ These three input-related responsibilities have been consolidated into InputModule and its implementation ConsoleInputModule for clearer separation of concerns and reusability.
 
 ### 🧩 Validation Module
 | Feature | Description | Test code | Green | Refactored | Done |
