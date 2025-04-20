@@ -1,5 +1,8 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
+
 // Interface to abstract input handling, making the code testable and flexible
 interface InputHandler {
     fun readLine(): String
@@ -8,13 +11,63 @@ interface InputHandler {
 // Implementation of InputHandler that reads input from the console
 class ConsoleInputHandler : InputHandler {
     override fun readLine(): String {
-        return camp.nextstep.edu.missionutils.Console.readLine()
+        return Console.readLine()
+    }
+}
+
+// Default implementation of RandomNumberGenerator that uses the Randoms utility
+class DefaultRandomNumberGenerator : RandomNumberGenerator {
+    override fun generate(min: Int, max: Int): Int {
+        return Randoms.pickNumberInRange(min, max)
+    }
+}
+
+// Interface to abstract random number generation, making the code testable and flexible
+interface RandomNumberGenerator {
+    fun generate(min: Int, max: Int): Int
+}
+
+data class Car(val name: String, var position: Int = 0) {
+    fun move(randomNumber: Int) {
+        if (randomNumber >= 4) {
+            position++
+        }
+    }
+}
+
+// simulateRace helps to simulate the car race
+fun simulateRace(cars: List<Car>, rounds: Int, generator: RandomNumberGenerator) {
+    repeat(rounds) {
+        moveCars(cars, generator)
+    }
+}
+
+// Extracted function to handle car movement
+fun moveCars(cars: List<Car>, generator: RandomNumberGenerator) {
+    cars.forEach { car ->
+        val randomNumber = generateRandomNumber(generator)
+        car.move(randomNumber)
+    }
+}
+
+// Extracted function to generate a random number
+fun generateRandomNumber(generator: RandomNumberGenerator): Int {
+    return generator.generate(0, 9)
+}
+
+// displayProgress prints the final result for now, to be updated in the
+// progress display feature
+fun displayProgress(cars: List<Car>) {
+    cars.forEach { car ->
+        println("${car.name} : ${"-".repeat(car.position)}")
     }
 }
 
 fun main() {
     // Create an instance of ConsoleInputHandler to handle user input
     val inputHandler = ConsoleInputHandler()
+    // Create an instance of DefaultRandomNumberGenerator to generate random numbers
+    val randomNumberGenerator = DefaultRandomNumberGenerator()
 
     try {
         // Step 1: Input Handling
@@ -22,9 +75,14 @@ fun main() {
         val carNames = getCarNames(inputHandler)
         val rounds = getNumberOfRounds(inputHandler)
 
-        // TODO: Proceed to car movement logic
-        println("Car names: $carNames")
-        println("Number of rounds: $rounds")
+        // Step 2: Initialize Cars
+        val cars = carNames.map { Car(it) }
+
+        // Step 3: Simulate the Race
+        simulateRace(cars, rounds, randomNumberGenerator)
+
+        // Step 4: Display Progress
+        displayProgress(cars)
     } catch (e: IllegalArgumentException) {
         // Handle invalid input by displaying an error message
         println("Error: ${e.message}")
