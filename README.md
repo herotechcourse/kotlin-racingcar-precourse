@@ -33,7 +33,7 @@ racingcar
 │   └── RacingGame.kt
 ├── view
 │   └── ViewRenderer.kt
-└── Main.kt
+└── Application.kt
 ```
 
 ---
