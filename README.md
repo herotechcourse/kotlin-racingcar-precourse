@@ -106,9 +106,10 @@ classDiagram
     }
 
     class Car {
-        +name: String
-        +distance: Int
-        +moveForward(): Unit
+        - _distance: Int
+        + name: String
+        + distance: Int
+        + moveForward(): Unit
     }
 
     Application --> Race : uses
