@@ -36,10 +36,13 @@ class Application {
             if (rounds <= 0) {
                 throw IllegalArgumentException("Number of rounds must be greater than 0.")
             }
+            if (rounds > 1_000) {
+                throw IllegalArgumentException("Number of rounds must not exceed 1,000.")
+            }
         } catch (e: NumberFormatException) {
             throw IllegalArgumentException("Invalid input. Please enter a valid integer for the number of rounds.")
         }
-        return rounds;
+        return rounds
     }
 
     private fun printRaceResults(results: List<Car>) {

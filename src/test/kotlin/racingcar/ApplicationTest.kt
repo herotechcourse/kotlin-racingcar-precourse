@@ -60,6 +60,16 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `should throw exception when number of rounds exceeds 1000`() {
+        assertSimpleTest {
+            val exception = assertThrows<IllegalArgumentException> {
+                runException("pobi,woni", "1001")
+            }
+            assertThat(exception.message).isEqualTo("Number of rounds must not exceed 1,000.")
+        }
+    }
+
+    @Test
     fun `should return valid number of rounds when input is a positive integer`() {
         assertSimpleTest {
             run("pobi,woni", "5")
