@@ -1,9 +1,9 @@
 package racingcar.controller
 
-import racingcar.view.InputView
-import racingcar.view.OutputView
 import racingcar.model.findWinners
 import racingcar.model.makeRacingProgressList
+import racingcar.view.InputView
+import racingcar.view.OutputView
 
 fun mainController() {
     val carNames = InputView.getCarNamesInput()

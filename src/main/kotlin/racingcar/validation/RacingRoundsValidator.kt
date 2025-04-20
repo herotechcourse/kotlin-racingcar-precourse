@@ -1,15 +1,26 @@
 package racingcar.validation
 
-import racingcar.constant.RacingRoundsError
+object RacingRoundsValidator {
+    private const val ERROR_PREFIX: String = "[ERROR]"
 
-fun validateRacingRounds(racingRound: String): Boolean {
-    if (racingRound == "0") {
-        throw IllegalArgumentException(RacingRoundsError.ZERO_NOT_ALLOWED)
+    private const val ZERO_NOT_ALLOWED: String = """
+        $ERROR_PREFIX Racing round must be greater than 0.
+        Exit this program.
+    """
+    private const val INVALID_TYPE: String = """
+        $ERROR_PREFIX You must enter type of Number.
+        Exit this program.
+    """
+
+    fun validate(racingRound: String): Boolean {
+        if (racingRound == "0") {
+            throw IllegalArgumentException(ZERO_NOT_ALLOWED)
+        }
+
+        if (!(racingRound.matches("\\d+".toRegex()))) {
+            throw IllegalArgumentException(INVALID_TYPE)
+        }
+
+        return true
     }
-
-    if (!(racingRound.matches("\\d+".toRegex()))) {
-        throw IllegalArgumentException(RacingRoundsError.INVALID_TYPE)
-    }
-
-    return true
 }

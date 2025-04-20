@@ -1,8 +1,8 @@
 package racingcar.view
 
 import camp.nextstep.edu.missionutils.Console
-import racingcar.validation.validateCarNames
-import racingcar.validation.validateRacingRounds
+import racingcar.validation.CarNamesValidator
+import racingcar.validation.RacingRoundsValidator
 
 object InputView {
     private const val CAR_NAMES_INPUT = "Enter the names of the cars (comma-separated):"
@@ -14,7 +14,7 @@ object InputView {
         val carNamesInput = Console.readLine()
         val splitCarNames = carNamesInput.split(CAR_NAME_DELIMITER).map { it.trim() }
 
-        validateCarNames(splitCarNames)
+        CarNamesValidator.validate(splitCarNames)
         return splitCarNames
     }
 
@@ -22,7 +22,7 @@ object InputView {
         println(ROUNDS_INPUT)
         val racingRoundInput: String = Console.readLine()
 
-        validateRacingRounds(racingRoundInput)
+        RacingRoundsValidator.validate(racingRoundInput)
         return racingRoundInput.toInt()
     }
 }
