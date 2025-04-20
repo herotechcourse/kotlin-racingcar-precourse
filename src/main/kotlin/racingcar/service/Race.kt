@@ -1,4 +1,6 @@
-package racingcar
+package racingcar.service
+import racingcar.model.Car
+import racingcar.io.RaceDisplay
 import camp.nextstep.edu.missionutils.Randoms
 
 class Race(

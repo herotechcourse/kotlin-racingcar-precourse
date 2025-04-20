@@ -1,4 +1,4 @@
-package racingcar
+package racingcar.io.validation
 
 object InputValidator {
     private const val MAX_NAME_LENGTH = 5

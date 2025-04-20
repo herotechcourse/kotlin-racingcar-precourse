@@ -1,4 +1,8 @@
 package racingcar
+import racingcar.io.InputView
+import racingcar.io.validation.InputValidator
+import racingcar.service.Race
+
 
 fun main() {
     // read input from the user and validate
