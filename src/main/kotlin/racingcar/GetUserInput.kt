@@ -1,9 +1,11 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Console
+
 fun getUserInputNames(): List<String> {
     println("Names of the cars (comma-separated):\n")
 
-    val input = readln()
+    val input = Console.readLine()
     validateInput(input)
     val names: List<String> = input.split(',').map { it.trim() }
     validateCarsCount(names)
@@ -22,7 +24,7 @@ fun getUserInputRounds(): UInt {
     println("Number of rounds:")
     val numRounds =
             try {
-                readln().toUInt()
+                Console.readLine().toUInt()
             } catch (error: Throwable) {
                 throw IllegalArgumentException("Input must be a positive integer")
             }
