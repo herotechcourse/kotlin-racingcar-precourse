@@ -3,10 +3,7 @@ package racingcar
 const val MAX_NAME_LENGTH = 5
 const val MIN_ROUNDS = 1
 
-class InputValidator(val carInput: String, val roundInput: Int) {
-    private val carString = carInput
-    private val rounds = roundInput
-
+class InputValidator(private val carString: String, private val noOfRounds: Int) {
     fun validateCarNames(): List<String>{
         val carNames = carString.split(",").map { it.trim() }.filter { it.isNotEmpty() }?: emptyList()
         // Check if the list is empty – there should be at least one car name provided
@@ -26,9 +23,9 @@ class InputValidator(val carInput: String, val roundInput: Int) {
 
     fun validateRound(): Int {
         // Check if the input is a non-negative integer or not
-        if (rounds < MIN_ROUNDS ){
+        if (noOfRounds < MIN_ROUNDS ){
             throw IllegalArgumentException("Number of rounds must be a non-negative integer")
         }
-        return rounds
+        return noOfRounds
     }
 }

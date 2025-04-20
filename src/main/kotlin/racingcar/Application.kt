@@ -3,16 +3,12 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 
 fun main() {
-    // Ask user to input car names
-    println("Enter the names of the cars (comma-separated): ")
-    val carInput = Console.readLine() ?: throw IllegalArgumentException("Input cannot be null")
-
-    // Ask user to input number of rounds
-    println("How many rounds will be played?")
-    val noOfRoundsInput = Console.readLine()?.toInt() ?: throw IllegalArgumentException("Input cannot be null")
+    // Get inputs from user
+    val carNamesInput = InputReader.getCarName()
+    val noOfRoundsInput = InputReader.getRound()
 
     // Validate inputs
-    val validator = InputValidator(carInput, noOfRoundsInput)
+    val validator = InputValidator(carNamesInput, noOfRoundsInput)
     val carNames = validator.validateCarNames()
     val noOfRounds = validator.validateRound()
 

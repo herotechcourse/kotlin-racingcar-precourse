@@ -2,12 +2,13 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class RacingGame(val carNames: List<String>, val round: Int) {
+class RacingGame(carNames: List<String>, noOfRounds: Int) {
     private val cars: List<Car> = carNames.map { Car(it) }
+    private val noOfRounds = noOfRounds
 
     fun startGame() {
         println("Race Results")
-        for (i in 1..round) {
+        for (i in 1..noOfRounds) {
             executeRound()
             println()
         }
