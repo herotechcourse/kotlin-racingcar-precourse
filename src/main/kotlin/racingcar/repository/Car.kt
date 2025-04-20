@@ -7,14 +7,20 @@ private const val RANDOM_THRESHOLD = 4;
 class Car(val name: String) {
     private var distance: Int = 0
 
-    fun moveForward() {
-        distance++;
-    }
 
     fun moveForwardRandomly(){
         if(shouldMoveForward())
             moveForward();
     }
+
+    override fun toString(): String {
+        return "$name : ${"-".repeat(distance)}"
+    }
+
+    private fun moveForward() {
+        distance++;
+    }
+
 
     private fun shouldMoveForward(): Boolean {
         return generateNumber() >= RANDOM_THRESHOLD;
