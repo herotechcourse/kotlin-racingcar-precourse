@@ -15,6 +15,11 @@ object CarNamesError {
 }
 
 object RacingRoundsError {
+    const val ZERO_NOT_ALLOWED: String = """
+        $ERROR_PREFIX Racing round must be greater than 0.
+        Exit this program.
+    """
+
     const val INVALID_TYPE: String = """
         $ERROR_PREFIX You must enter type of Number.
         Exit this program.
