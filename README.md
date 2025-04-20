@@ -75,11 +75,11 @@ Winners : pobi, jun
 ### Generate Radom Number
 
 
-### Printing the Progress of Each Car
+### Printing the Progress of Each Car(During the race)
 - display the car's name alongside its movement
 
 
-### Display the Winners
+### Display the Winners(After the race)
 - There can be multiple winners if they reach the same final position
   - if there are multiple winners, their names should be displayed and separated by commas
 
