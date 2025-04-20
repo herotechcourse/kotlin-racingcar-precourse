@@ -57,6 +57,9 @@ class CarRacing {
         if (names.any { !it.matches(Regex("^[A-Za-z1-9 ]+$")) })
             throw IllegalArgumentException("Invalid input: only alphabets, numbers, or spaces are allowed..")
 
+        if (names.any { it.length > 5 })
+            throw IllegalArgumentException("Invalid input: name cannot exceed 5 characters")
+
         for (name in names) {
             cars.add(Car(name))
         }
