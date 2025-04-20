@@ -1,25 +1,25 @@
 plugins {
     kotlin("jvm") version "1.9.24"
+    application
 }
 
-group = "camp.nextstep.edu"
-version = "1.0-SNAPSHOT"
-
-kotlin {
-    jvmToolchain(21)
-}
+group = "com.camila"
+version = "1.0"
 
 repositories {
     mavenCentral()
-    maven { setUrl("https://jitpack.io") }
+    maven { url = uri("https://jitpack.io") }
 }
 
 dependencies {
     implementation("com.github.woowacourse-projects:mission-utils:1.2.0")
 }
 
-tasks {
-    test {
-        useJUnitPlatform()
-    }
+application {
+    mainClass.set("MainKt") //
 }
+
+tasks.test {
+    useJUnitPlatform()
+}
+
