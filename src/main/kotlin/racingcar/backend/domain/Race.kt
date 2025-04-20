@@ -7,11 +7,11 @@ class Race(
     private val lastPosition: String
         get() = this.position.lastOrNull() ?: ""
 
-    fun move() {
+    fun movingForward() {
         this.position.add("$lastPosition-")
     }
 
-    fun stay() {
+    fun stop() {
         this.position.add(lastPosition)
     }
 }

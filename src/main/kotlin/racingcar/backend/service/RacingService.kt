@@ -60,7 +60,7 @@ class RacingService {
         val raceList = carList.map { Race(it) }
         repeat(roundCount) {
             raceList.forEach { race ->
-                if (Randoms.pickNumberInRange(0, 9) >= 4) race.move() else race.stay()
+                if (Randoms.pickNumberInRange(0, 9) >= 4) race.movingForward() else race.stop()
             }
         }
         return raceList
