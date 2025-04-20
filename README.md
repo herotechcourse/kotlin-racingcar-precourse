@@ -26,4 +26,10 @@ using random numbers. 🚗🏁
 * cars can move or stay still
   * based on random number generation from the `camp.nextstep.edu.missionutils.Randoms` API
   * moves if the random number between 0 and 9 is >= 4 
-* prints the progress of each car in the following manner: `pobi : --`
+* prints the progress of the car in the following manner: `pobi : --`
+#### Race
++ creates a `RaceGame` class with the list of cars and the number of rounds
++ runs the race 
++ displays the race results (progress of each car)
++ displays the winners:
+  + one winner or multiple winners if they have the same result
