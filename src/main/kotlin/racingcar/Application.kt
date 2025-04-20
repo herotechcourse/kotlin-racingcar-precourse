@@ -5,7 +5,11 @@ import camp.nextstep.edu.missionutils.Randoms
 import camp.nextstep.edu.missionutils.Console
 
 fun main() {
-
+    val carNames = readCarNames()
+    val rounds = readNumberOfRounds()
+    val cars = carNames.map { Car(it) }
+    val game = Game(cars, rounds)
+    game.start()
 }
 
 fun readCarNames(): List<String> {
