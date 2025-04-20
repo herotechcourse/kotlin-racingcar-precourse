@@ -16,7 +16,7 @@ class Race(
         }
     }
 
-    private fun getWinners(): List<String> {
+    fun getWinners(): List<String> {
         val maxDistance = cars.maxOf { it.getDistance() }
         return cars.filter { it.getDistance() == maxDistance }.map { it.name }
     }
