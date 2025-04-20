@@ -54,4 +54,21 @@ class RaceNameValidatorTest {
             RaceNameValidator.validateDuplicateCarNames(carNames)
         }
     }
+
+    @Test
+    fun `should throw exception when number of cars is less than 2`() {
+        val carNames = listOf("pobi")
+        val exception = assertThrows(IllegalArgumentException::class.java) {
+            RaceNameValidator.validateMinimumNumberOfCars(carNames)
+        }
+        assertEquals(RacingError.INSUFFICIENT_CARS.message, exception.message)
+    }
+
+    @Test
+    fun `should not throw exception when number of cars is 2 or more`() {
+        val carNames = listOf("pobi", "woni")
+        assertDoesNotThrow {
+            RaceNameValidator.validateMinimumNumberOfCars(carNames)
+        }
+    }
 }

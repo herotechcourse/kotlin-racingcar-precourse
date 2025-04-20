@@ -59,4 +59,11 @@ class ApplicationTest : NsTest() {
             assertThrows<IllegalArgumentException> { runException("pobi,woni,pobi", "1") }
         }
     }
+
+    @Test
+    fun `should throw exception when number of cars is less than 2`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi", "1") }
+        }
+    }
 }
