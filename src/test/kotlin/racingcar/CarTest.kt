@@ -6,7 +6,7 @@ import org.assertj.core.api.Assertions.*
 class CarTest {
 
     @Test
-    fun `random number is 4 or higher → car should move forward`() {
+    fun `car moves when random number is 4 or greater`() {
         val car = Car("test", randomNumberGenerator = { 4 })
 
         car.moveIfPossible()
@@ -15,7 +15,7 @@ class CarTest {
     }
 
     @Test
-    fun `random number is less than 4 → car should not move`() {
+    fun `car does not move when random number is less than 4`() {
         val car = Car("test", randomNumberGenerator = { 3 })
 
         car.moveIfPossible()
