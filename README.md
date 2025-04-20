@@ -17,6 +17,10 @@ A simple console-based car racing game implemented in Kotlin.
 - Contains methods to move cars based on random numbers
 - Provides methods to query car positions and determine winners
 
+### Input Race Configuration
+
+- Accept the number of racing rounds and car names from the user
+
 ### Input Validation
 
 - Ensure that all inputs are valid before proceeding
@@ -35,7 +39,6 @@ A simple console-based car racing game implemented in Kotlin.
 
 ### Race Controller
 
-- Accept the number of racing rounds and car names from the user
 - Configure the race based on user inputs
 
 ### Race Result Display
@@ -49,4 +52,3 @@ A simple console-based car racing game implemented in Kotlin.
 
 - Implement unit tests for Car and RaceGame class
 - Implement unit tests for CarNameParser and RoundsParser
-- Implement unit tests for RaceController
