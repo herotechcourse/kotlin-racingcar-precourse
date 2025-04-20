@@ -41,7 +41,7 @@
   - Generating random number
   - Move
 - Board
-  - Get the inputs
   - Save the list of cars
   - Print the result of each round
+  - Check who are the winners
   - Print the winners
