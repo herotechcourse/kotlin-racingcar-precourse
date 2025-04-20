@@ -6,6 +6,8 @@ fun main() {
     val cars = promptForCars()
     val rounds = promptForRounds()
     val raceResults = simulateRace(cars, rounds)
+    val winners = determineWinners(raceResults)
+    println(winners)
 }
 
 data class Car(val name: String, val position: Int = 0)
@@ -80,4 +82,11 @@ fun printRoundResult(cars: List<Car>) {
         println("${car.name} : ${"-".repeat(car.position)}")
     }
     println()
+}
+
+fun determineWinners(raceResults: List<List<Car>>): Int {
+    val finalState = raceResults.last()
+    val maxPosition = finalState.maxOf { it.position }
+
+    return maxPosition
 }
