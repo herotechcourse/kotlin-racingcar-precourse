@@ -11,6 +11,6 @@ fun addLine(line: String){
 }
 
 fun printFromOutputManager(){
-    print(sb);
+    println(sb);
     sb.clear();
 }
