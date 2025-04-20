@@ -70,6 +70,12 @@ class Race (private val cars: List<Car>, private val numberOfRounds: Int){
         }
         calculateWinners(cars)
     }
+
+    // For testing winners
+    fun getWinners() :List<String> {
+        val maxDisplacement = cars.maxOf { it.displacement }
+        return cars.filter { it.displacement == maxDisplacement }.map { it.carName }
+    }
 }
 
 class Car(val carName:String) {
