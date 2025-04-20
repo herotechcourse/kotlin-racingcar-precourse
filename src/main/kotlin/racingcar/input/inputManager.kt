@@ -6,7 +6,6 @@ import racingcar.input.validation.validateNatural
 import racingcar.input.validation.validateNumberFormat
 import racingcar.input.util.getCarNamesFromInput
 
-
 fun readLineAndProcess(): String {
     val line: String? = Console.readLine();
     if(line.isNullOrBlank())
