@@ -3,8 +3,10 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
+// Data class representing a car with name and position
 data class Car(val name: String, var position: Int = 0)
 
+// Validates and parses the car names input string
 fun validateCarsInput(cars: String): List<String> {
 	val carsSplit = cars.split(",")
 	val carsTrim = carsSplit.map { it.trim() }
@@ -27,6 +29,7 @@ fun validateCarsInput(cars: String): List<String> {
 	return carsTrim
 }
 
+// Validates the number of rounds input and converts it to an integer
 fun validateRoundsInput(rounds: String): Int {
 	if (rounds.isBlank()) {
 		throw IllegalArgumentException("You must enter the number of rounds to race.")
@@ -42,6 +45,7 @@ fun validateRoundsInput(rounds: String): Int {
 	return roundsToInt
 }
 
+// Moves each car forward if the generated number is 4 or grater
 fun moveCars(cars: List<Car>) {
 	for (car in cars) {
 		val random = Randoms.pickNumberInRange(0, 9)
@@ -51,12 +55,14 @@ fun moveCars(cars: List<Car>) {
 	}
 }
 
+// Print each car name followed by a dash for each unit of distance it has moved
 fun printPositions(cars: List<Car>) {
 	for (car in cars) {
 		println("${car.name} : ${"-".repeat(car.position)}")
 	}
 }
 
+// Entry point for the racing car game
 fun main() {
 	println("Enter the names of the cars (comma-separated):")
 	val carsInput = Console.readLine()
@@ -71,12 +77,14 @@ fun main() {
 	println()
 	println("Race Results")
 
+	// Simulate each round
 	for (round in 1..rounds) {
 		moveCars(carsList)
 		printPositions(carsList)
 		println()
 	}
 
+	// Determine and print the winner
 	val maxPos = carsList.maxOf { it.position }
 	val winningCar = carsList.filter { it.position == maxPos }
 	val winner = winningCar.map { it.name }
