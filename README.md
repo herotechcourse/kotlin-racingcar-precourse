@@ -110,3 +110,37 @@ jun : -----
 
 Winners : pobi, jun
 ```
+---
+## Test Coverage
+
+####  test(car)
+
+- File: `CarTest.kt`
+- Purpose:
+  - Verify car moves forward only when the random number is ≥ 4.
+  - Verify the car does not move when the number is < 4.
+  - Check that car names exceeding 5 characters throw an exception.
+
+---
+
+####  test(view)
+
+- Files: `InputViewTest.kt`, `OutputViewTest.kt`
+- Purpose:
+  - InputViewTest:
+    - Validate that empty car names or names exceeding 5 characters throw `IllegalArgumentException`.
+    - Validate that non-numeric round inputs throw `IllegalArgumentException`.
+  - OutputViewTest:
+    - Verify that car positions are printed in the correct format using console output capture.
+
+---
+
+####  test(app)
+
+- File: `ApplicationTest.kt`
+- Purpose:
+  - Simulate full game execution from user input to final output using `run()` and `output()`.
+  - Verify that winner output is correct when:
+    - Only one car wins.
+    - Multiple cars tie for the win.
+  - Validate that a car name exceeding the character limit results in an exception.
