@@ -13,6 +13,7 @@ fun main() {
         println("Enter the number of rounds:")
         val roundCount = readLine()
             ?.toIntOrNull()
+            ?.takeIf { it > 0 }
             ?: throw IllegalArgumentException("Number of rounds must be a positive number.")
 
         val results = race(cars, roundCount)
