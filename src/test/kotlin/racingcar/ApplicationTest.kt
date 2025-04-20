@@ -28,9 +28,8 @@ class ApplicationTest : NsTest() {
     }
 
     override fun runMain() {
-        main()
+        Application.main(arrayOf()) // 이 부분만 바꿨어!
     }
-
 
     companion object {
         private const val MOVING_FORWARD: Int = 4
