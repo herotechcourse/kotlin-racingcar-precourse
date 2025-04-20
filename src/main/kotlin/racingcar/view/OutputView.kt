@@ -6,14 +6,20 @@ import racingcar.util.Constant.RACE_RESULT_MESSAGE
 import racingcar.util.Constant.WINNER_MESSAGE
 
 class OutputView {
-    fun printProcess(cars: List<Car>) {
+    fun printResultGuide() {
+        printBlankLine()
         println(RACE_RESULT_MESSAGE)
+    }
+    fun printProcess(cars: List<Car>) {
         cars.forEach { car ->
             println("${car.name} : ${CAR_POSITION_SYMBOL.repeat(car.position)}")
         }
+        printBlankLine()
     }
 
     fun printWinner(winner: List<Car>) {
         println("$WINNER_MESSAGE ${winner.joinToString(", ") { it.name }}")
     }
+
+    private fun printBlankLine() = println()
 }
