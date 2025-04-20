@@ -8,7 +8,7 @@
 ### Input/Output
 - Receive car names as a comma-separated string from the user
 - Receive the number of rounds from the user
-  - The number of rounds must be a positive integer
+    - The number of rounds must be a positive integer
 - Display the progress of each car
 - After the race is complete, print the winners
 
