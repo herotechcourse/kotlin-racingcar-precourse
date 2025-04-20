@@ -1,7 +1,5 @@
 package racingcar.model
 
-import camp.nextstep.edu.missionutils.Randoms
-
 class Race(
     var cars: List<Car>,
     var totalRound: Int,
@@ -16,13 +14,7 @@ class Race(
 
     private fun runEachRound() {
         for (i in cars.indices) {
-            moveCarsRandomly(cars[i])
-        }
-    }
-
-    private fun moveCarsRandomly(car: Car) {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
-            car.moveForward()
+            cars[i].moveRandomly()
         }
     }
 
