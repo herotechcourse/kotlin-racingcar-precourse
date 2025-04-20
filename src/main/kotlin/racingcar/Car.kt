@@ -12,7 +12,9 @@ class Car (private val name: String){
 
     // Validation check in the init block to ensure the name is valid
     init {
-        require(name.isNotBlank() && name.length <= 5) { "Car name may not be blank! \n Car name length should not be more than 5!" }
+        require(name.isNotBlank() ) { "Car name may not be blank!" }
+        require(name.length <= 5) { "Car name length should not be more than 5!" }
+
     }
 
     // Increases the car's position by 1 if the random number is >= 4
