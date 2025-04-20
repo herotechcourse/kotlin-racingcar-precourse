@@ -1,56 +1,38 @@
 # Car Racing Game
 
-## Overview
+A concise, testable CLI racing car game in Kotlin. Designed to be modular, readable, and easy to test.
 
-A simple command-line car racing game implemented in Kotlin.
-This project is part of a Hero Tech Course Pre-course mission, designed to practice Git, Kotlin, and testing skills.
+## Features
 
-## Functional Requirements
+- **Clean architecture**:
+    - `racingcar.domain` handles core entities (`Car`, `Race`) and validation
+    - `racingcar.input` parses and validates raw user input with friendly error messages
+    - `racingcar.service` (`Game`) runs rounds and determines winners
+    - `racingcar.view` presents I/O (`InputView`, `ResultView`), keeping `main()` slim
+- **Car name rules**: 1–5 characters, non-blank, unique across cars (humorous messages on violation)
+- **Dependency injection** of randomness in `Car` for reliable unit testing
+- **Customizable constants** instead of magic numbers (`MAX_NAME_LENGTH`, `RANDOM_MIN`, `RANDOM_MAX`, `ADVANCE_LIMIT`)
+- **Comprehensive test suite**:
+    - Unit tests for `Car` behavior and validation
+    - Unit tests for `Race` rounds and winner logic
+    - Unit tests for `RaceInputHandler` parsing and validation
+    - Unit tests for `Game` orchestration and winner output
+    - Integration tests via `ApplicationTest` using `NsTest` and `assertRandomNumberInRangeTest`
 
-- Users input car names separated by commas.
-- Car names must not exceed 5 characters.
-- The user specifies the number of rounds.
-- In each round, each car may either move forward or stay still based on a random number.
-- Race progress is displayed after each round.
-- The winner(s) are announced at the end. Multiple winners are allowed if positions are tied.
-- If invalid input is provided, the program throws an `IllegalArgumentException` and terminates.
-
-## Feature Checklist
-
-- [] Input validation
-- [] Car entity with name and position
-- [] Movement logic using randomness
-- [] Round processing engine
-- [] Console output per round
-- [] Winner evaluation logic
-- [] Unit testing with JUnit 5 and AssertJ
-
-## Technologies
-
-- Kotlin 1.9.24
-- Gradle
-- JUnit 5
-- AssertJ
-- `camp.nextstep.edu.missionutils` for random number generation and user input.
-
+    
 ## How to Run
 
-Run the main class `Application.kt` using your IDE (e.g., IntelliJ IDEA).
+```bash
+./gradlew clean run
+```
 
 ## How to Test
 
-### macOS/Linux
-
 ```bash
 ./gradlew clean test
+```
 
-### Windows
+All tests should pass successfully.
 
-```bash
-gradlew.bat clean test
-
-The output should include:
-
-BUILD SUCCESSFUL
  
 
