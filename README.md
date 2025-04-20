@@ -10,6 +10,21 @@ Class Car
 	
 	Function void printCarStatus - print name and Current movedRound
 
+Class CarRacing
+	Variable Car list cars, int totalRound, int currentRound
+
+	Function getCarInput - get Car names input from user (comma-seperated). if user input invalid name, throw Exception (allow only alphabets and space)
+
+	Function getRoundInput - get total round input from user. if user input invalid round, throw Exception (allow inputs within the Int range)
+
+	Function init - display information, get user input using getCarInput, getRoundInput
+
+	Function racing - process rounds
+
+	Function printResult - display winners (max movedRounds cars)
+
+	Function run - run carRacing. init - racing - printResult
+
 
 # Structure With PseudoCode
 
@@ -42,8 +57,9 @@ Class CarRacing {
 
 	Car list Racing():
 		for range in round:
-			handleRound(cars)
-			printStatus(cars)
+			for car in cars:
+				car.runRound()
+				car.printStatus()
 
 	void printResult(cars):
 		var maxMovedRound
