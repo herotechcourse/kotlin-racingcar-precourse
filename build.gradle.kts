@@ -29,3 +29,6 @@ tasks {
 application {
     mainClass.set("racingcar.ApplicationKt")
 }
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
+}

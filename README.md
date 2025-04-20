@@ -10,8 +10,9 @@ A Kotlin implementation of a simple racing car game.
 
 - Names of the cars (comma-separated):
 - Validate input
+	- Input non-blank
 	- Example: 'pobi, woni, jun'
-	- Non-empty
+	- Names non-empty
 	- Max 5 characters
 
 - Number of rounds:
