@@ -8,6 +8,16 @@ Handle user input for car names and number of rounds, ensuring validation for in
 
 If the user inputs invalid data (e.g., empty car names, names exceeding 5 characters, or invalid rounds), the program should throw an `IllegalArgumentException` and terminate.
 
+#### Checklist for Input Handling
+- [x] Validate car names:
+  - [x] Ensure names are non-empty.
+  - [x] Ensure names do not exceed 5 characters.
+  - [x] Handle multiple names separated by commas.
+- [x] Validate number of rounds:
+  - [x] Ensure input is a valid integer.
+  - [x] Ensure the number of rounds is greater than 0.
+- [x] Throw `IllegalArgumentException` for invalid input.
+
 2. Car Movement Logic
 
 Implement car movement logic where each car moves forward if a randomly generated number between 0 and 9 is 4 or greater.
