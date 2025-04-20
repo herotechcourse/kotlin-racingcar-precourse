@@ -9,7 +9,7 @@ import org.junit.jupiter.api.assertThrows
 
 class ApplicationTest : NsTest() {
     @Test
-    fun `feature test`() {
+    fun `should print single winner when only one car moves`() {
         assertRandomNumberInRangeTest(
             {
                 run("pobi,woni", "1")
@@ -17,6 +17,17 @@ class ApplicationTest : NsTest() {
             },
             MOVING_FORWARD,
             STOP,
+        )
+    }
+    @Test
+    fun `should print multiple winners when cars have same max position`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("pobi : -", "woni : -","Winners : pobi, woni")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD,
         )
     }
 
