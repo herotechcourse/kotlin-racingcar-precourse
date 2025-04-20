@@ -1,11 +1,17 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Console
+
 fun main() {
-    val carNames = InputValidator.validateCarNames("pobi,woni")
+    println("Enter the names of the cars (comma-separated):")
+    val carInput = Console.readLine()
+    val carNames = InputValidator.validateCarNames(carInput)
+
+    println("How many rounds will be played?")
+    val roundInput = Console.readLine()
+    val roundCount = InputValidator.validateRoundCount(roundInput)
+
     val cars = carNames.map { Car(it) }
     val game = RacingGame(cars)
-
-    repeat(5) {
-        game.playRound()
-    }
+    game.runRounds(roundCount)
 }
