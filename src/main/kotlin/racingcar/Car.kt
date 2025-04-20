@@ -1,11 +1,12 @@
 package racingcar
 
 class Car(
-        val name: String,
-        var movesMade: Int = 0,
+        private val name: String,
+        private var movesMade: Int = 0,
 ) {
     companion object {
-        private val MAX_NAME_LENGTH = 5
+        private const val MAX_NAME_LENGTH: Int = 5
+        private val MOVE_SYMBOL: String = "-"
     }
 
 	//implicitly throws IllegalArgumentException
@@ -17,4 +18,22 @@ class Car(
     fun move() {
         movesMade++
     }
+
+    fun printRoundStatus()
+    {
+        var counter: Int = 0
+        // print("${name} : ${MOVE_SYMBOL.repeat(movesMade)}")
+
+        print("$name: ")
+        while (counter < movesMade)
+        {
+            print("-")
+            counter++;
+        }
+        println("")
+    }
+
+    fun getName(): String = name
+
+    fun getMovesTotal(): Int = movesMade
 }
