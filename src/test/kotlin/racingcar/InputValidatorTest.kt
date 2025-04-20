@@ -1,13 +1,13 @@
 package racingcar
 
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Disabled
+//import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.assertThrows
 
-@Disabled //disabled in order to not interfere with assignment submission
+//@Disabled //disabled in order to not interfere with assignment submission
 class InputValidatorTest {
     @Test
     fun `validateNames should accept valid names`() {
