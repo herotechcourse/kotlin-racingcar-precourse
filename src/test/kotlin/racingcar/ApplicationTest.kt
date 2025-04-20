@@ -12,7 +12,7 @@ class ApplicationTest : NsTest() {
     fun `feature test`() {
         assertRandomNumberInRangeTest(
             {
-                run("woni,pobi", "1")
+                run("pobi,woni", "1")
                 assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
             },
             MOVING_FORWARD,
