@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms
 
 
 class RacingGame(carNames: List<String>, private val noOfRounds: Int) {
-    private val cars: List<Car> = carNames.map { Car(it) }
+    internal val cars: List<Car> = carNames.map { Car(it) }
 
     fun startGame() {
         println("Race Results")
@@ -12,11 +12,14 @@ class RacingGame(carNames: List<String>, private val noOfRounds: Int) {
             executeRound()
             println()
         }
-        val maxPosition = cars.maxOf { it.getPosition() }
-        val winnerCars = cars.filter { it.getPosition() == maxPosition }
-        val winnerNames = winnerCars.joinToString(", ") { it.getName() }
-
+        val winnerNames = getWinners().joinToString(", ")
         println("Winners : $winnerNames")
+    }
+
+    fun getWinners(): List<String> {
+        val maxPosition = cars.maxOf { it.getPosition() }
+        return cars.filter { it.getPosition() == maxPosition }
+            .map { it.getName() }
     }
 
     private fun executeRound() {

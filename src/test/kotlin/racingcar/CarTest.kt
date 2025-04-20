@@ -22,7 +22,7 @@ class CarTest {
     @Test
     fun `display position test`(){
         val testCar = Car("car1")
-        testCar.moveForward(5)
+        testCar.moveForward(MOVING_FORWARD)
         assert(testCar.getPositionStatus() == "car1 : -")
     }
 
