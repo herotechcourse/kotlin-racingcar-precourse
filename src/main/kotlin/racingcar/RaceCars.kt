@@ -113,4 +113,15 @@ class RaceCars {
             eachRound(round)
         }
     }
+
+    private fun getHighestPosition(): Int {
+        return cars.maxOf { it.position }
+    }
+
+    private fun getWinners(highestPosition: Int): List<Car> {
+        return cars.filter { it.position == highestPosition }
+    }
 }
+
+
+
