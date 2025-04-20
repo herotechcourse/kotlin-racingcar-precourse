@@ -1,7 +1,5 @@
 package racingcar
 
-
-import camp.nextstep.edu.missionutils.Randoms
 import camp.nextstep.edu.missionutils.Console
 
 /**
@@ -23,7 +21,7 @@ fun main() {
  * @throws IllegalArgumentException if input is empty.
  */
 fun readCarNames(): List<String> {
-    println("Enter the names of the cars (comma-separated, max 5 characters):")
+    println("Enter the names of the cars (comma-separated):")
     val input = Console.readLine()
     return input.split(",").map { it.trim() }.also { names ->
         require(names.all { it.isNotBlank() && it.length <= 5 }) {
@@ -39,10 +37,9 @@ fun readCarNames(): List<String> {
  * @throws IllegalArgumentException if the input is not a valid positive integer.
  */
 fun readNumberOfRounds(): Int {
-    println("Enter the number of rounds:")
+    println("How many rounds will be played?")
     val input = Console.readLine()
     return input.toIntOrNull()?.also {
         require(it > 0) { "The number of rounds must be greater than zero." }
     } ?: throw IllegalArgumentException("Invalid input: not a number.")
 }
-

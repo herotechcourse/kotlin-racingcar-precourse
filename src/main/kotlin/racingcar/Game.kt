@@ -12,7 +12,10 @@ class Game(private val cars: List<Car>, private val rounds: Int) {
      * Starts the racing game and executes all rounds.
      * Displays the progress after each round and announces the winner(s).
      */
+
     fun start() {
+        println()
+        println( "Race Results")
         repeat(rounds) {
             playOneRound()
             displayProgress()
@@ -29,16 +32,21 @@ class Game(private val cars: List<Car>, private val rounds: Int) {
      * Displays the current position of all cars.
      */
     private fun displayProgress() {
-        cars.forEach { println("${it.name}: ${"-".repeat(it.position)}") }
+        cars.forEach { car ->
+            println("${car.name} : ${"-".repeat(car.position)}") }
         println()
     }
+
     /**
      * Finds and prints the winners (cars with the max position).
      */
     private fun announceWinners() {
         val maxPosition = cars.maxOf { it.position }
+        //val winners = cars.filter { it.position == maxPosition }
+        //println("Winners: ${winners.joinToString(", ") { it.name }}")
         val winners = cars.filter { it.position == maxPosition }
-        println("Winner(s): ${winners.joinToString(", ") { it.name }}")
+            .joinToString(", ") { it.name }
+        println("Winners : $winners")
     }
 
 }
