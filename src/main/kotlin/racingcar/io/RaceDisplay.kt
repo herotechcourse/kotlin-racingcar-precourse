@@ -11,6 +11,6 @@ object RaceDisplay {
 
     fun displayRaceWinners(cars: List<Car>, leadPosition: Int){
         val winners = cars.filter { car -> car.position == leadPosition }.map { car -> car.name }
-        println("\nWinners: ${winners.joinToString(", ")}")
+        println("\nWinners : ${winners.joinToString(", ")}")
     }
 }
