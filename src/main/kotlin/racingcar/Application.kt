@@ -84,9 +84,9 @@ fun printRoundResult(cars: List<Car>) {
     println()
 }
 
-fun determineWinners(raceResults: List<List<Car>>): Int {
+fun determineWinners(raceResults: List<List<Car>>): List<Car> {
     val finalState = raceResults.last()
     val maxPosition = finalState.maxOf { it.position }
 
-    return maxPosition
+    return finalState.filter { it.position == maxPosition }
 }
