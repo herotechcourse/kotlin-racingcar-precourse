@@ -43,8 +43,8 @@ fun calculateWinners(cars: List<Car>) {
 fun validateCarNames(splitNames: List<String>):ArrayList<String> {
     val names = ArrayList<String>()
 
-    for (name in splitNames.indices) {
-        val carName = splitNames[name].removeWhitespaces()
+    for (name in splitNames) {
+        val carName = name.removeWhitespaces()
         if (carName.isEmpty()) throw IllegalArgumentException("Car names cannot be empty.")
         if (carName.length > 5) throw IllegalArgumentException("Car names must be 5 characters or less.")
         if (names.contains(carName)) throw IllegalArgumentException("Duplicated car names are not allowed.")
