@@ -8,6 +8,11 @@ object CarNamesError {
         Exit this program.
     """
 
+    const val DUPLICATION_NOT_ALLOWED: String = """
+        $ERROR_PREFIX Each car name must be unique.
+        Exit this program.
+    """
+
     const val INVALID_NAME_LENGTH: String = """
         $ERROR_PREFIX Each car name must be 5 characters or less. 
         Exit this program.
