@@ -4,11 +4,13 @@ import camp.nextstep.edu.missionutils.Randoms
 
 /**
  * Car class
+ *
  * @constructor primary constructor to initialize the carName
  * @param carName: read-only property (val)
  * @property _moveCount: mutable private property (var)
  * @property moveCount: exposes _moveCount as read-only public property
  * via a getter
+ *
  * @see move: increments _moveCount based on random numbers
  * @see printProgress: prints carName and _moveCount in a specific syntax
  */
