@@ -6,6 +6,8 @@ import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
 
 class ApplicationTest : NsTest() {
     @Test
@@ -34,5 +36,63 @@ class ApplicationTest : NsTest() {
     companion object {
         private const val MOVING_FORWARD: Int = 4
         private const val STOP: Int = 3
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["", " ", "\n", "\t", "pobi, ", ",", " ,pobi"])
+    fun `should throw exception when car name is blank`(input: String) {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException(input, "1") }
+        }
+    }
+
+    @Test
+    fun `should throw exception when car name exceeds 5 characters`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("abcdef,pobi", "1") }
+        }
+    }
+
+    @Test
+    fun `should throw exception when car names contain duplicates`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,woni,pobi", "1") }
+        }
+    }
+
+    @Test
+    fun `should throw exception when number of cars is less than 2`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi", "1") }
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = [""," ", "\n", "\t", "a", "%", "3 "])
+    fun `should throw exception when round input is not a valid number`(input: String) {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,woni,jun", input,"") }
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["-1", "0"])
+    fun `should throw exception when round is not positive`(input: String) {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,woni,jun", input) }
+        }
+    }
+
+    @Test
+    fun `there can be more than one winner`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni,jun", "1")
+                assertThat(output()).contains("pobi : -", "woni : ", "jun : -","Winners : pobi, jun")
+            },
+            MOVING_FORWARD,
+            STOP,
+            MOVING_FORWARD,
+        )
     }
 }
