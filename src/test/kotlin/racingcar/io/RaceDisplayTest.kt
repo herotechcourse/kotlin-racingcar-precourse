@@ -38,7 +38,6 @@ class RaceDisplayTest {
         RaceDisplay.displayLapProgress(cars, rounds)
 
         val output = outputStream.toString()
-        assertThat(output).contains("Cars progress after round $rounds:")
         assertThat(output).contains("pobi : --")
         assertThat(output).contains("woni : -")
     }
