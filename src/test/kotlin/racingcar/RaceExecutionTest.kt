@@ -14,4 +14,17 @@ class RaceExecutionTest {
         assertThat(actualString).isEqualTo(expectedString)
     }
 
+    @Test
+    fun `when input is valid determineWinners returns valid list of String`() {
+        val listOfCarNames = listOf("pobi","woni","jun")
+        val carPosition = mapOf("pobi" to 2,
+            "woni" to 3,
+            "jun" to 5,
+        )
+        val expectedResult = listOf("jun")
+
+        val actualResult = determineWinners(listOfCarNames,carPosition)
+
+        assertThat(actualResult).isEqualTo(expectedResult)
+    }
 }
