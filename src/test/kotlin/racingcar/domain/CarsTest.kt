@@ -8,7 +8,6 @@ import racingcar.domain.car.Car
 import racingcar.domain.car.Name
 import racingcar.domain.car.Position
 import racingcar.domain.numberGenerator.FixedNumberGenerator
-import java.util.*
 
 class CarsTest {
 
@@ -51,14 +50,8 @@ class CarsTest {
     @Test
     fun `move cars based on threshold`() {
         // given
-        val queueForCarA = LinkedList<Int>()
-        queueForCarA.add(3)
-
-        val queueForCarB = LinkedList<Int>()
-        queueForCarB.add(4)
-
-        val car1 = createCar("a", queueForCarA)
-        val car2 = createCar("b", queueForCarB)
+        val car1 = createCar("a", mutableListOf(3))
+        val car2 = createCar("b", mutableListOf(4))
 
         val cars = Cars(listOf(car1, car2))
         // when
@@ -73,14 +66,8 @@ class CarsTest {
     @Test
     fun `should return max position after cars move`() {
         // given
-        val queueForCarA = LinkedList<Int>()
-        queueForCarA.add(1)
-
-        val queueForCarB = LinkedList<Int>()
-        queueForCarB.add(8)
-
-        val car1 = createCar("a", queueForCarA)
-        val car2 = createCar("b", queueForCarB)
+        val car1 = createCar("a", mutableListOf(1))
+        val car2 = createCar("b", mutableListOf(8))
 
         val cars = Cars(listOf(car1, car2))
         cars.moveAll()
@@ -93,14 +80,8 @@ class CarsTest {
     @Test
     fun `should find the cars at the specified position`() {
         // given
-        val queueForCarA = LinkedList<Int>()
-        queueForCarA.add(5)
-
-        val queueForCarB = LinkedList<Int>()
-        queueForCarB.add(8)
-
-        val car1 = createCar("a", queueForCarA)
-        val car2 = createCar("b", queueForCarB)
+        val car1 = createCar("a", mutableListOf(5))
+        val car2 = createCar("b", mutableListOf(8))
 
         val cars = Cars(listOf(car1, car2))
         cars.moveAll()
@@ -115,8 +96,8 @@ class CarsTest {
         )
     }
 
-    private fun createCar(name: String, queue: LinkedList<Int>): Car {
-        return Car(Name(name), Position(), FixedNumberGenerator(queue))
+    private fun createCar(name: String, numbers: MutableList<Int>): Car {
+        return Car(Name(name), Position(), FixedNumberGenerator(numbers))
     }
 
     companion object {

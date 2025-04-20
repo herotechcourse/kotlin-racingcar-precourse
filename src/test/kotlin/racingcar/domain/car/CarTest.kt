@@ -2,17 +2,15 @@ package racingcar.domain.car
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertAll
 import racingcar.domain.numberGenerator.FixedNumberGenerator
-import java.util.*
 
 class CarTest {
 
     @Test
     fun `move car when the threshold is reached`() {
         // given
-        val queue = LinkedList<Int>()
-        queue.add(4)
-        val car = createCar(queue)
+        val car = createCar(mutableListOf(4))
         // when
         car.move()
         // then
@@ -22,9 +20,7 @@ class CarTest {
     @Test
     fun `stay car when the threshold is not reached`() {
         // given
-        val queue = LinkedList<Int>()
-        queue.add(3)
-        val car = createCar(queue)
+        val car = createCar(mutableListOf(3))
         // when
         car.move()
         // then
@@ -32,18 +28,19 @@ class CarTest {
     }
 
     @Test
-    fun `recognize as the same object if names are the same`() {
+    fun `recognize as the same car if names are the same`() {
         // given
-        val queue = LinkedList<Int>()
-        val car1 = createCar(queue)
-        val car2 = createCar(queue)
+        val car1 = createCar(mutableListOf(3))
+        val car2 = createCar(mutableListOf(5))
         // when & then
-        assertThat(car1).isEqualTo(car2)
-        assertThat(car1.hashCode()).isEqualTo(car2.hashCode())
+        assertAll(
+            { assertThat(car1).isEqualTo(car2) },
+            { assertThat(car1.hashCode()).isEqualTo(car2.hashCode()) }
+        )
     }
 
-    private fun createCar(queue: LinkedList<Int>): Car {
+    private fun createCar(numbers: MutableList<Int>): Car {
         val name = Name("test")
-        return Car(name, Position(), FixedNumberGenerator(queue))
+        return Car(name, Position(), FixedNumberGenerator(numbers))
     }
 }

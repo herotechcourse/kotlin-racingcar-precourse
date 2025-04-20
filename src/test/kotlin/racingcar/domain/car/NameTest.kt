@@ -3,6 +3,7 @@ package racingcar.domain.car
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 
@@ -33,8 +34,10 @@ class NameTest {
         val name1 = Name("abc")
         val name2 = Name("abc")
         // when & then
-        assertThat(name1).isEqualTo(name2)
-        assertThat(name1.hashCode()).isEqualTo(name2.hashCode())
+        assertAll(
+            { assertThat(name1).isEqualTo(name2) },
+            { assertThat(name1.hashCode()).isEqualTo(name2.hashCode()) }
+        )
     }
 
     companion object {

@@ -1,13 +1,15 @@
 package racingcar.domain.numberGenerator
 
 import racingcar.domain.numbergenerator.NumberGenerator
-import java.util.*
 
-class FixedNumberGenerator(val numbers: Queue<Int>) : NumberGenerator {
+class FixedNumberGenerator(val numbers: MutableList<Int>) : NumberGenerator {
+
+    init {
+        require(numbers.all { it in START_RANGE..END_RANGE }) { NUMBER_OUT_OF_RANGE_ERROR }
+    }
 
     override fun generate(): Int {
-        require(numbers.peek() in START_RANGE..END_RANGE) { NUMBER_OUT_OF_RANGE_ERROR }
-        return numbers.poll()
+        return numbers.removeFirst()
     }
 
     companion object {
