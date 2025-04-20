@@ -8,4 +8,29 @@
 4. Print how far each car has moved after each round using `-` to represent movement.
 5. At the end of the race, figure out which car went the farthest and print them as the winners.
 6. Write unit tests to check if car movement and winner logic works correctly.
-7. Later, update this README with how to run the game and show an example of what the input/output looks like.
+7. update this README with how to run test and show an example of what the input/output looks like.
+
+
+## How to run test
+```bash
+./gradlew clean test
+```
+
+## Example
+
+```bash
+Enter the names of the cars (comma-separated):
+pobi,woni,jun
+How many rounds will be played?
+5
+
+Race Results
+pobi : -
+woni :
+jun  : -
+
+...
+
+Winners : pobi, jun
+
+```
