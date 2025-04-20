@@ -23,7 +23,7 @@ You will implement a console-based racing car game where users input car names a
 - [X] Repeat for the number of rounds entered by the user
 - [X] For each round, generate a random number (0–9) for each car
 - [X] If the number is **4 or higher**, the car moves forward; otherwise, it stays still
-- [ ] Each move adds a `-` to represent progress
+- [X] Each move adds a `-` to represent progress
 
 ### 📣 Output
 - [X] Display the progress of all cars after each round  
@@ -37,10 +37,10 @@ You will implement a console-based racing car game where users input car names a
 
 ## 📋 Submission Requirements Checklist
 
-- [ ] Feature list written in `README.md` before implementation
-- [ ] Git commits are divided by individual features listed above 
-- [ ] Commit messages follow AngularJS Git Commit Message Conventions
-- [ ] `README.md` includes all features and requirements
+- [X] Feature list written in `README.md` before implementation
+- [X] Git commits are divided by individual features listed above 
+- [X] Commit messages follow AngularJS Git Commit Message Conventions
+- [X] `README.md` includes all features and requirements
 
 ---
 
