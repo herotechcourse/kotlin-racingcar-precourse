@@ -1,37 +1,68 @@
 package racingcar
 
+import java.util.Random
+
 fun main() {
-    //How to structure the handling when the name is derived?
+
+//Create a name and string space within the class
+//Enter the names and put them into each list.
+//After checking the length stored in the list, we will create as many class objects as there are and also assign names to the objects inside
+
+
+    class CarName(val name:String){
+        var CarMove=""
+    }
+
+    println("Please write the car name. Separated by commas. 5letter or less")
     val carName=readLine()?:""
     val list=carName.split(",")
-    //To add properties, you need to manage them by putting the structure or class in a list.
-    // So I have to completely change the structure.
 
-
+//At this time, we will determine the length of the name in the list and terminate it with an exception if it exceeds 5 characters.
     for(i in 0..list.size-1){
         if(list[i].length>5){
-            //종료 어케하노..
-            println("이름을 5자 이내로 적어주세요. 프로그램을 종료합니다.")
+            println("The car name must be written in at least five letters.")
+            System.exit(0)
         }
     }
-//If the user inputs a name exceeding 5 characters, it will terminate with an exception.
-// Set the comma and enter to have the same function, and when the user inputs a name and presses the comma, it will determine if it exceeds 5 characters and terminate.
+
+//It ends after telling me to input the round after exception handling. Should I just group this in object-oriented format and format it?    println(list)//리스트 확인
+
+    //round input
+    println("Enter the round.")
+    val round=readLine()?.toInt()?:0
+    println("라운드 수 : "+round.toString())//라운드 확인
 
 
-    println(list)
-    println("라운드를 입력하세요.")
-    val round=readLine()?.toInt()
-    println(round.toString()+"강")
+    //Create objects as many as the number of names
+//Create and insert objects as many as the number of names into a new list
+    val carList=mutableListOf<CarName>()
 
-
-    var num1=1
-    while(num1>0){//round.toInt()
-
-        num1++
+    for(i in 0..list.size-1){
+        carList.add(CarName(list[i]))
     }
 
-
-//When the round ends, judge the person in front. Check for duplicate winners.
-// Game ends.
-
+//Gamestart
+    var z=0
+    while(z in 0..round-1) {
+        for (j in 0..carList.size - 1) {
+            val random = Random()
+            val num = random.nextInt(9)
+            if (num >= 4) {
+                carList[j].CarMove = carList[j].CarMove + "_"
+            }
+        }
+        println((z + 1).toString() + "강")
+        for (car in carList) {
+            println("${car.name}: ${car.CarMove}")//이거 AI
+        }
+        z++
+    }
+//Check the length of CarMove of each object to find a winner. How do you find duplicate winners?
+    var Winnername=""
+    for(j in 0..carList.size-2){
+        if(carList[j+1].CarMove.length>carList[j].CarMove.length){
+            Winnername=carList[j+1].name
+        }
+    }
+    println("우승자는"+Winnername)
 }
