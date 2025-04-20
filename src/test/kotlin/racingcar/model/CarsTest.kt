@@ -30,5 +30,4 @@ class CarsTest{
   val maxPosition = winners.first().getPosition()
   assertThat(winners).allMatch { it.getPosition() == maxPosition }
  }
-
  }

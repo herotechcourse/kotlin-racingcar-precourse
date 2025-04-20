@@ -5,6 +5,7 @@ import racingcar.service.CarRace
 import racingcar.view.GameView
 
 fun main() {
+
     val carNames = GameView.readCarNames()
     val rounds = GameView.readRounds()
 
@@ -18,4 +19,5 @@ fun main() {
 
     val winners = cars.findWinners()
     GameView.printWinners(winners)
+
 }

@@ -23,5 +23,4 @@ class CarRaceTest{
    val newPositions = cars.getCars().map { it.getPosition() }
    assertThat(newPositions[0]).isNotEqualTo(initialPositions[0])
   }
-
  }

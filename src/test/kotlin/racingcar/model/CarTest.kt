@@ -11,7 +11,6 @@ class CarTest{
    assertEquals("pobi", car.name)
    assertEquals(0, car.getPosition())
   }
-
     @Test
     fun `should throw exception when car name is blank`() {
         val exception = assertThrows(IllegalArgumentException::class.java) {
@@ -33,6 +32,4 @@ class CarTest{
         val initialPosition = car.getPosition()
         assertEquals(initialPosition, car.getPosition())
     }
-
-
  }

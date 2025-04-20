@@ -7,7 +7,7 @@ Cars move forward based on a random number generation rule.
 
 ---
 
-## 🛠️ Technologies Used
+## ⚙ Technologies Used
 - **Kotlin 1.9.24** — Main programming language.
 - **Gradle** — Build tool (using `build.gradle.kts`).
 - **JUnit 5** — Unit testing framework.
