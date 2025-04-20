@@ -1,8 +1,6 @@
 package racingcar.parser
 
-object CarNameParser {
-    private const val MAX_CAR_NAME_LENGTH = 5
-
+class CarNameParser {
     private fun validateInputCarNames(input: String): List<String> {
         val trimmedInput = input.trim()
 
@@ -31,5 +29,9 @@ object CarNameParser {
 
     fun parse(input: String): List<String> {
         return validateCarNames(validateInputCarNames(input))
+    }
+
+    companion object{
+        const val MAX_CAR_NAME_LENGTH = 5
     }
 }

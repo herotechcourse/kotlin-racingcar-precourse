@@ -1,7 +1,6 @@
 package racingcar.parser
 
-object RoundsParser {
-    private const val MAX_ROUNDS = 15
+class RoundsParser {
     private fun validateInputRounds(input: String): String {
         if (input.isEmpty()) throw IllegalArgumentException("The number of rounds cannot be empty and must be a valid number")
         if (input.toIntOrNull() == null) throw IllegalArgumentException("Rounds must be a number")
@@ -12,5 +11,9 @@ object RoundsParser {
 
     fun parse(input: String): Int {
         return validateInputRounds(input).toInt()
+    }
+
+    companion object {
+        const val MAX_ROUNDS = 15
     }
 }
