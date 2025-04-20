@@ -1,4 +1,4 @@
-package racingcar.validation
+package racingcar.input.validation
 
 internal const val INVALID_NUMBER_FORMAT_MSG = "Invalid Number Format."
 internal const val INVALID_NATURAL_NUMBER_MSG = "Number must be a natural number."

@@ -1,4 +1,4 @@
-package racingcar.validation
+package racingcar.input.validation
 
 private const val MAX_NAME_LENGTH = 5;
 internal const val INVALID_LENGTH_MSG = "Car name must be between 1 and 5 characters."
