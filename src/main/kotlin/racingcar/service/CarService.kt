@@ -10,4 +10,8 @@ class CarService {
             carRepository.updateScore(carName);
         }
     }
+
+    fun retrieveScore(carName: String) : Int {
+        return carRepository.findScoreByCarName(carName);
+    }
 }

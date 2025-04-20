@@ -8,4 +8,8 @@ class CarRepository {
     fun updateScore(carName: String) : Unit {
         car.addScore(carName);
     }
+
+    fun findScoreByCarName(carName: String) : Int {
+        return car.getScore(carName);
+    }
 }
