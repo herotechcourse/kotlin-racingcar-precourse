@@ -27,6 +27,34 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `check total round is integer`() {
+        assertSimpleTest {
+            // no of is integer and not string
+            assertThrows<IllegalArgumentException> { runException("pobi,woni", "a") }
+        }
+    }
+
+    @Test
+    fun `check total round is within integer range`() {
+        assertSimpleTest {
+            // no of is integer < Int.Max_size
+            assertThrows<IllegalArgumentException> { runException("pobi,woni", "10000000000000000000") }
+        }
+    }
+
+
+
+    @Test
+    fun `dont allow duplicate car names`() {
+        assertSimpleTest {
+            // no of rounds >= 1
+            assertThrows<IllegalArgumentException> { runException("pobi,Pobi") }
+        }
+    }
+
+
+
     override fun runMain() {
         main()
     }
