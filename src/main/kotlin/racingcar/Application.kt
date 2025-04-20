@@ -3,8 +3,9 @@ import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
     println("Car racing game!")
-    promptForCars()
-    promptForRounds()
+    val cars = promptForCars()
+    val rounds = promptForRounds()
+    val raceResults = simulateRace(cars, rounds)
 }
 
 data class Car(val name: String, val position: Int = 0)
@@ -50,3 +51,26 @@ fun promptForRounds(): Int {
         throw IllegalArgumentException("Number of rounds must be a valid integer.")
     }
 }
+
+fun simulateRace(cars: List<Car>, rounds: Int): List<List<Car>> {
+    println("\nRace Results")
+
+    return (1..rounds).fold(listOf(cars)) { raceHistory, _ ->
+        val updatedCars = raceHistory.last().map { car ->
+            if (shouldMoveForward()) {
+                moveForward(car)
+            } else {
+                car
+            }
+        }
+
+        raceHistory + listOf(updatedCars)
+    }
+}
+
+fun shouldMoveForward(): Boolean {
+    val minimumMoveValue = 4
+    return Randoms.pickNumberInRange(0, 9) >= minimumMoveValue
+}
+
+fun moveForward(car: Car): Car = car.copy(position = car.position + 1)
