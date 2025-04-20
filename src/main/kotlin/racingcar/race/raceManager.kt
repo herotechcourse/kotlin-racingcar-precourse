@@ -2,8 +2,8 @@ package racingcar.race
 
 import racingcar.output.addLine
 import racingcar.car.Car
-import racingcar.repository.CarRepository
-import racingcar.repository.ListCarRepository
+import racingcar.car.repository.CarRepository
+import racingcar.car.repository.ListCarRepository
 
 private val carRepository: CarRepository = ListCarRepository();
 private var topScore = 0;

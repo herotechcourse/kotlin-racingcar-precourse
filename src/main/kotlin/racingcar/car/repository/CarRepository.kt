@@ -1,4 +1,4 @@
-package racingcar.repository
+package racingcar.car.repository
 
 import racingcar.car.Car
 
