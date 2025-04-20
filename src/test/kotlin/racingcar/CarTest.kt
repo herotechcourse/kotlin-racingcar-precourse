@@ -1,11 +1,14 @@
 package racingcar
 
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 class CarTest {
+
     @Test
-    fun `car initializes with correct name and zero position`() {
+    @DisplayName("Car initializes with correct name and zero position")
+    fun initialize() {
         val carName = "testCar1"
         val car = Car(carName)
 
@@ -14,7 +17,8 @@ class CarTest {
     }
 
     @Test
-    fun `moveForward increases position by one`() {
+    @DisplayName("Increases position by one")
+    fun moveForward() {
         val car = Car("testCar1")
 
         car.moveForward()

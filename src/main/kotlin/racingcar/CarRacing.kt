@@ -2,7 +2,8 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class CarRacing {
+// Move and change randomNumber to randomGenerator to be more reliable for tests
+class CarRacing (private val randomGenerator: () -> Int = { Randoms.pickNumberInRange(0, 9) }) {
     private val inputParser = InputParser()
     private val raceResult = RaceOutput()
 
@@ -23,17 +24,16 @@ class CarRacing {
         raceResult.announceWinners(cars)
     }
 
-    private fun initializeCars(carNames: List<String>): List<Car> {
+    // remove private for tests
+    fun initializeCars(carNames: List<String>): List<Car> {
         return carNames.map { Car(it) }
     }
 
-    private fun raceSingleRound(cars: List<Car>) {
+    fun raceSingleRound(cars: List<Car>) {
         cars.forEach { car ->
-            val randomNumber = Randoms.pickNumberInRange(0, 9)
-            if (randomNumber >= 4) {
+            if (randomGenerator() >= 4) {
                 car.moveForward()
             }
         }
     }
 }
-
