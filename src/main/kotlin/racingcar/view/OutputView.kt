@@ -1,8 +1,12 @@
 package racingcar.view
 
-class OutputView {
+import racingcar.domain.Car
+
+object OutputView {
     fun printRoundResult(cars: List<Car>) {
-        cars.forEach { println("${it.name} : ${"-".repeat(it.position)}") }
+        cars.forEach {
+            println("${it.name} : ${"-".repeat(it.position)}")
+        }
     }
 
     fun printWinners(winners: List<String>) {
