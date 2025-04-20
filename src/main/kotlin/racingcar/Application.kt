@@ -16,6 +16,7 @@ fun main() {
         printWinners(cars, numRounds)
     } catch (error: IllegalArgumentException) {
         println("Error: ${error.message}")
+        throw error
     }
 }
 
