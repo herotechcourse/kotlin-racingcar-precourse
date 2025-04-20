@@ -1,11 +1,21 @@
 # kotlin-racingcar-precourse
 
-## Features to Implement
+A simple car racing game built using Kotlin, following clean code practices, TDD principles, and real-world development workflows.
 
-- [X] Validate car name input
-- [X] Validate round count input
-- [X] Create Car and RacingGame classes
-- [X] Move cars based on random number logic
-- [X] Print race results after each round
-- [X] Determine and print winners
-- [ ] Handle invalid input exceptions
+## Project Goals:
+
+- Get familiar with tools used in real-world dev: Git, GitHub, IntelliJ IDEA.
+- Apply clean coding practices by writing small, focused functions.
+- Learn and apply testing techniques using JUnit 5 and AssertJ.
+- Break down complex logic into reusable components.
+- Follow structured development and commit process.
+
+## Features:
+
+- [x] Validate car name input
+- [x] Validate round count input
+- [x] Create Car and RacingGame classes
+- [x] Move cars based on random number logic
+- [x] Print race results after each round
+- [x] Determine and print winners
+- [x] Handle invalid input exceptions
