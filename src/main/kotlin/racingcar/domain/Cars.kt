@@ -14,4 +14,7 @@ class Cars(names: List<String>) {
         val maxPosition = cars.maxOfOrNull { it.position } ?: return emptyList()
         return cars.filter { it.position == maxPosition }
     }
+    override fun toString(): String {
+        return cars.joinToString("\n") { "${it.name} : ${"-".repeat(it.position)}" }
+    }
 }
