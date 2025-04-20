@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms
 
 class Race(val cars: List<Car>,val rounds:Int) {
     fun start(){
+        println("Race Results")
         while (!isRaceOver()){
             cars.forEach{
                 move(it)
