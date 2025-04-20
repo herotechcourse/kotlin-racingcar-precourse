@@ -4,13 +4,9 @@ import camp.nextstep.edu.missionutils.Randoms
 
 // Move and change randomNumber to randomGenerator to be more reliable for tests
 class CarRacing (private val randomGenerator: () -> Int = { Randoms.pickNumberInRange(0, 9) }) {
-    private val inputParser = InputParser()
     private val raceResult = RaceOutput()
 
-    fun race() {
-        val carNames = inputParser.getCarNames()
-        val rounds = inputParser.getRounds()
-
+    fun race(carNames: List<String>, rounds: Int) {
         val cars = initializeCars(carNames)
 
          println("Race Results")

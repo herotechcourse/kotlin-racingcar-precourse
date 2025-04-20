@@ -1,10 +1,8 @@
 package racingcar
 
 fun main() {
-    try {
-        val start = CarRacing()
-        start.race()
-    } catch (e: IllegalArgumentException) {
-        println(e.message)
-    }
+    val inputParser = InputParser()
+    val carNames = inputParser.getCarNames()
+    val rounds = inputParser.getRounds()
+    CarRacing().race(carNames, rounds)
 }
