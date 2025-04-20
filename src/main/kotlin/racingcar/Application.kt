@@ -7,3 +7,4 @@ fun main() {
     val carNames = Console.readLine()
     val validCarNames = validateCarNames(carNames)
 }
+
