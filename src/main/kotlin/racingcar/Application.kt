@@ -89,4 +89,12 @@ class Car(val carName:String) {
         }
         println("$carName : ${movement.joinToString("")}")
     }
+
+    //for testing the moveCar()
+    fun forceMove(carSpeed:Int) {
+        if (carSpeed >= 4) {
+            movement.add('-')
+            displacement++
+        }
+    }
 }
