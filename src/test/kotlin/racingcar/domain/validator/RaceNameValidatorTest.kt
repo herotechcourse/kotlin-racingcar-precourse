@@ -37,4 +37,21 @@ class RaceNameValidatorTest {
             RaceNameValidator.validateCarNameLength(name)
         }
     }
+
+    @Test
+    fun `should throw exception when car names contain duplicates`() {
+        val carNames = listOf("pobi", "woni", "pobi")
+        val exception = assertThrows(IllegalArgumentException::class.java) {
+            RaceNameValidator.validateDuplicateCarNames(carNames)
+        }
+        assertEquals(RacingError.CAR_NAME_DUPLICATE.message, exception.message)
+    }
+
+    @Test
+    fun `should not throw exception when car names don't contain duplicates`() {
+        val carNames = listOf("pobi", "woni")
+        assertDoesNotThrow {
+            RaceNameValidator.validateDuplicateCarNames(carNames)
+        }
+    }
 }

@@ -52,4 +52,11 @@ class ApplicationTest : NsTest() {
             assertThrows<IllegalArgumentException> { runException("abcdef,pobi", "1") }
         }
     }
+
+    @Test
+    fun `should throw exception when car names contain duplicates`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,woni,pobi", "1") }
+        }
+    }
 }
