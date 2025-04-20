@@ -6,22 +6,23 @@ import org.junit.jupiter.api.Test
 class CarTest {
 
     @Test
-    fun `moves when random number is 4 or greater`() {
-        val car = Car("pobi", 0)
-        car.testMoveForward(4)
+    fun `moves when move strategy allows`() {
+        val car = Car(name = "pobi", position = 0, moveStrategy = AlwaysMovableStrategy())
+        car.moveForward()
         assertThat(car.position).isEqualTo(1)
     }
 
     @Test
-    fun `does not move when random number is less than 4`() {
-        val car = Car("pobi", 0)
-        car.testMoveForward(3)
+    fun `does not move when move strategy disallows`() {
+        val car = Car(name = "pobi", position = 0, moveStrategy = NeverMovableStrategy())
+        car.moveForward()
         assertThat(car.position).isEqualTo(0)
     }
 
-    private fun Car.testMoveForward(number: Int) {
-        if (number >= 4) {
-            this.position++
-        }
+    class AlwaysMovableStrategy : MoveStrategy {
+        override fun isMovable(): Boolean = true
+    }
+    class NeverMovableStrategy : MoveStrategy {
+        override fun isMovable(): Boolean = false
     }
 }

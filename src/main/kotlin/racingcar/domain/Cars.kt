@@ -3,6 +3,15 @@ package racingcar.domain
 class Cars(names: List<String>) {
     private val cars: List<Car> = names.map { Car(it) }
 
+    init {
+        validateDuplicate(names)
+    }
+
+    private fun validateDuplicate(names: List<String>) {
+        if (names.size != names.toSet().size) {
+            throw IllegalArgumentException("Duplicate car names are not allowed.")
+        }
+    }
 
     fun raceOnce() {
         cars.forEach { it.moveForward() }
