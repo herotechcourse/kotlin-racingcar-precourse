@@ -3,7 +3,7 @@ package racingcar.model
 import camp.nextstep.edu.missionutils.Randoms
 
 class Car(
-    var name: String,
+    val name: String,
     var position: Int = INITIAL_POSITION,
 ) {
     companion object {

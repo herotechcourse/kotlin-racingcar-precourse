@@ -1,9 +1,9 @@
 package racingcar.model
 
 class Race(
-    var cars: List<Car>,
-    var totalRound: Int,
-    var results: MutableList<List<CarPosition>> = mutableListOf(),
+    val cars: List<Car>,
+    val totalRound: Int,
+    val results: MutableList<List<CarPosition>> = mutableListOf(),
 ) {
     fun runRace() {
         repeat(totalRound) {
