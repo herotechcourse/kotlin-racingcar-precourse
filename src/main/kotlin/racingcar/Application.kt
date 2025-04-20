@@ -6,23 +6,18 @@ fun main() {
     println("Enter the names of the cars(comma-separated):")
     val input = Console.readLine()
     val splitNames = input.split(",", ignoreCase = true, limit = 0) //delimiter can be "," or ", "
-    val names = ArrayList<String>()
-
-    for (name in splitNames.indices) {
-        val carName = splitNames[name].removeWhitespaces()
-        val cause = IllegalArgumentException("Car names must me more than 1 character and less than 5 characters.")
-        if (carName.length !in 1..4) throw cause
-        names.add(carName)
-    }
+    val names = validateCarNames(splitNames)
 
     println("How many rounds will be played?")
-    val numberOfRounds :Int = Console.readLine().toInt()
+    val rounds = Console.readLine()
+    val numberOfRounds: Int = validateRounds(rounds)
+
     //println(numberOfRounds)
 
-    for(i in splitNames.indices){
-        val carName = splitNames[i].removeWhitespaces()
-        names.add(carName)
-    }
+//    for(i in splitNames.indices){
+//        val carName = splitNames[i].removeWhitespaces()
+//        names.add(carName)
+//    }
     //println(names)
 
     val cars = names.map { Car(it) }
@@ -43,6 +38,25 @@ fun calculateWinners(cars: List<Car>) {
         }
     }
     println(winners.joinToString(", "))
+}
+
+fun validateCarNames(splitNames: List<String>):ArrayList<String> {
+    val names = ArrayList<String>()
+
+    for (name in splitNames.indices) {
+        val carName = splitNames[name].removeWhitespaces()
+        if (carName.isEmpty()) throw IllegalArgumentException("Car names cannot be empty.")
+        if (carName.length > 5) throw IllegalArgumentException("Car names must be 5 characters or less.")
+        if (names.contains(carName)) throw IllegalArgumentException("Duplicated car names are not allowed.")
+        names.add(carName)
+    }
+    return names
+}
+
+fun validateRounds(numberOfRounds: String): Int {
+    val rounds = numberOfRounds.toIntOrNull() ?: throw IllegalArgumentException("The number of rounds must be an integer.")
+    if (rounds < 1) throw IllegalArgumentException("The number of rounds must be 1 or over.")
+    return rounds
 }
 
 class Race (private val cars: List<Car>, private val numberOfRounds: Int){
