@@ -3,8 +3,10 @@ package racingcar.view
 object OutputView {
     private const val RACING_START = "Race Results"
     private const val WINNERS_MESSAGE_PREFIX = "Winners :"
-    private fun makeProgressLine(count: Int) {
-        "-".repeat(count)
+    private const val PROGRESS_LINE_CHARACTER = "-"
+
+    private fun makeProgressLine(count: Int): String {
+        return PROGRESS_LINE_CHARACTER.repeat(count)
     }
 
     fun printRacingStartMessage() {
