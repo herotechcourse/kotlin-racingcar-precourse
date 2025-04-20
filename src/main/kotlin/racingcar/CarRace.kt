@@ -27,7 +27,7 @@ class Car(name: String) {
 
 class CarRace(carNames: List<Car>, private val nOfRounds: Int) {
 
-    private var carMoves = hashMapOf<Car, Int>()
+    private var carMoves = LinkedHashMap<Car, Int>()
 
     init {
         for (c: Car in carNames) {
