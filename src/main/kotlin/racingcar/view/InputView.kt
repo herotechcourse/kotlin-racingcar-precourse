@@ -6,7 +6,7 @@ import racingcar.model.Car
 class InputView {
     fun receiveCarNamesInput(): List<Car> {
         println(MESSAGE_INPUT_CAR_NAMES)
-        return Console.readLine().split(",").map { Car(it) }
+        return Console.readLine().split(DELIMITERS).map { Car(it) }
     }
 
     fun receiveNumberOfRounds(): Int {
@@ -17,5 +17,6 @@ class InputView {
     companion object {
         private const val MESSAGE_INPUT_CAR_NAMES = "Enter the names of the cars (comma-separated):"
         private const val MESSAGE_INPUT_NUMBER_OF_ROUNDS = "How many rounds will be played?"
+        private const val DELIMITERS = ","
     }
 }
