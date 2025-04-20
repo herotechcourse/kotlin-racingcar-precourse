@@ -8,9 +8,10 @@ class Car(val name: String) {
     private var distance: Int = 0
 
 
-    fun moveForwardRandomly(){
+    fun moveForwardRandomly(): Int{
         if(shouldMoveForward())
             moveForward();
+        return distance;
     }
 
     override fun toString(): String {
