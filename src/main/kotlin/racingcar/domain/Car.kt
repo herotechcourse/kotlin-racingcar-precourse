@@ -2,19 +2,14 @@ package racingcar.domain
 
 data class Car(
     val name: String,
-    var position: Int = 0
+    var position: Int = 0,
+    private val moveStrategy: MoveStrategy = RandomMoveStrategy()
 ) {
     fun moveForward() {
-        val randomNumber = NumberGenerator.createRandomNumber()
-        if (isMovable(randomNumber)) {
+        if (moveStrategy.isMovable()) {
             position++
         }
     }
-
-    private fun isMovable(number: Int): Boolean {
-        return number >= 4
-    }
-
     companion object {
         fun validateCar(name: String) {
             if (name.isBlank()) {
