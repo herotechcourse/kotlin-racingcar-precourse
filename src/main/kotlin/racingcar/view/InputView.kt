@@ -1,12 +1,11 @@
 package racingcar.view
 
 import camp.nextstep.edu.missionutils.Console
-import racingcar.model.Car
 
 class InputView {
-    fun readCarNames(): List<Car> {
+    fun readCarNames(): List<String> {
         println(MESSAGE_READ_CAR_NAMES)
-        return Console.readLine().split(DELIMITERS).map { Car(it) }
+        return Console.readLine().split(DELIMITERS)
     }
 
     fun readNumberOfRounds(): Int {
