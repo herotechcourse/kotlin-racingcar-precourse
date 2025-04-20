@@ -2,11 +2,15 @@ package racingcar.output
 
 private val sb = StringBuilder();
 
+fun addLine(){
+    sb.append('\n');
+}
 fun addLine(line: String){
-    sb.append(line).append('\n');
+    sb.append(line);
+    addLine();
 }
 
-fun print(){
+fun printFromOutputManager(){
     print(sb);
     sb.clear();
 }
