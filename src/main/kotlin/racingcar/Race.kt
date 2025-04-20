@@ -7,16 +7,16 @@ class Race(val cars: List<Car>,val rounds:Int) {
         println("Race Results")
         while (!isRaceOver()){
             cars.forEach{
-                move(it)
+                move(it,generateRandomNumber())
             }
             displayCarsPosition()
             println()
         }
-        displayWinner(cars)
+        writeLine(displayWinner())
     }
     fun displayCarsPosition(){
         cars.forEach{
-            it.printPosition()
+            writeLine(it.getPositionInSting())
         }
     }
     fun isRaceOver():Boolean{
@@ -28,20 +28,20 @@ class Race(val cars: List<Car>,val rounds:Int) {
         }
         return counter >= 1
     }
-    fun move(car:Car){
-        var randomNumber = Randoms.pickNumberInRange(0,9)
+    fun move(car:Car,randomNumber:Int){
         if (randomNumber >= 4){
             car.position++
         }
     }
-    fun displayWinner(cars : List<Car>){
-        val winners = StringBuilder("Winners : ")
-        cars.forEach{
-            if (it.position == rounds){
-                winners.append(it.name+", ")
-            }
-        }
-        winners.setLength(winners.length-2)
-        println(winners)
+    fun displayWinner():String{
+        val winners = cars.filter { it.position == rounds }
+            .joinToString(", ") { it.name }
+        return "Winners : $winners"
+    }
+    fun generateRandomNumber():Int{
+        return Randoms.pickNumberInRange(0,9)
+    }
+    fun writeLine(line:String){
+        println(line)
     }
 }
