@@ -21,11 +21,11 @@ class Car(
     }
 
     fun getName(): String {
-        return name.name
+        return name.value
     }
 
     fun getPosition(): Int {
-        return position.position
+        return position.value
     }
 
     override fun equals(other: Any?): Boolean {

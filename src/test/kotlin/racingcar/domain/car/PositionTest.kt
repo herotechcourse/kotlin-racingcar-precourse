@@ -12,6 +12,6 @@ class PositionTest {
         // when
         val increasedPosition = position.increase()
         // then
-        assertThat(increasedPosition.position).isEqualTo(1)
+        assertThat(increasedPosition.value).isEqualTo(1)
     }
 }

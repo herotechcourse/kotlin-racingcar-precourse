@@ -1,9 +1,9 @@
 package racingcar.domain.car
 
-class Position(val position: Int = 0) {
-    
+class Position(val value: Int = 0) {
+
     fun increase(): Position {
-        return Position(position + INCREMENT)
+        return Position(value + INCREMENT)
     }
 
     companion object {
