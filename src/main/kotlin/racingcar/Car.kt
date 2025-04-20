@@ -8,6 +8,7 @@ class Car(
         private val MAX_NAME_LENGTH = 5
     }
 
+	//implicitly throws IllegalArgumentException
     init {
         require(name.isNotBlank()) { "Each car must have a name" }
         require(name.length <= MAX_NAME_LENGTH) { "Names can't exceed $MAX_NAME_LENGTH characters" }
