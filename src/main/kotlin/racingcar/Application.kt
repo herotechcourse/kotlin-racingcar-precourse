@@ -7,7 +7,7 @@ fun main() {
     val rounds = promptForRounds()
     val raceResults = simulateRace(cars, rounds)
     val winners = determineWinners(raceResults)
-    println(winners)
+    printWinners(winners)
 }
 
 data class Car(val name: String, val position: Int = 0)
@@ -89,4 +89,9 @@ fun determineWinners(raceResults: List<List<Car>>): List<Car> {
     val maxPosition = finalState.maxOf { it.position }
 
     return finalState.filter { it.position == maxPosition }
+}
+
+fun printWinners(winners: List<Car>) {
+    val winnerNames = winners.joinToString(", ") { it.name }
+    println("Winners : $winnerNames")
 }
