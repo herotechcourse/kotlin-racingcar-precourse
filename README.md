@@ -34,6 +34,11 @@ Implement car movement logic where each car moves forward if a randomly generate
 3. Progress Display
 
 Display the progress of each car, showing the car's name alongside its movement.
+#### Checklist for Progress Display
+- [x] Implement the `displayProgress` function to print each car's name and progress.
+- [x] Integrate `displayProgress` into the `simulateRace` function to display progress after each round.
+- [x] Write unit tests to verify the output of the `displayProgress` function.
+- [x] Write unit tests to verify the per-round progress display in the `simulateRace` function.
 
 4. Determine and Display Winners
 

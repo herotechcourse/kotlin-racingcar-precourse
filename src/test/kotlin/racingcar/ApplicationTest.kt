@@ -3,6 +3,8 @@ package racingcar
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import java.io.ByteArrayOutputStream
+import java.io.PrintStream
 
 class ApplicationTest {
     // Mock implementation of InputHandler for testing purposes
@@ -22,19 +24,33 @@ class ApplicationTest {
     }
 
     @Test
-    fun `simulateRace should update car positions based on mocked random numbers`() {
-        // Arrange: Create a list of cars and mock random numbers
+    fun `main should simulate the race and display progress per round`() {
+        // Arrange: Mock input for car names and number of rounds
+        val mockRandomNumberGenerator = MockRandomNumberGenerator(listOf(4, 3, 5, 6, 2, 4))
         val cars = listOf(Car("pobi"), Car("woni"), Car("java"))
-        val rounds = 2
-        val mockGenerator = MockRandomNumberGenerator(listOf(4, 3, 5, 6, 2, 4))
+
+        // Redirect standard output to capture printed output
+        val outputStream = ByteArrayOutputStream()
+        System.setOut(PrintStream(outputStream))
 
         // Act: Simulate the race
-        simulateRace(cars, rounds, mockGenerator)
+        simulateRace(cars, 3, mockRandomNumberGenerator)
 
-        // Assert: Verify the positions of the cars
-        assertThat(cars[0].position).isEqualTo(2) // pobi moves twice (4, 5)
-        assertThat(cars[1].position).isEqualTo(0) // woni moves once (6)
-        assertThat(cars[2].position).isEqualTo(2) // java moves once (4)
+        // Assert: Verify the printed output
+        val expectedOutput = """
+            pobi : -
+            woni : 
+            java : -
+
+            pobi : --
+            woni : 
+            java : --
+
+            pobi : ---
+            woni : 
+            java : ---
+        """.trimIndent()
+        assertThat(expectedOutput).isEqualTo(outputStream.toString().trim())
     }
 
     @Test
