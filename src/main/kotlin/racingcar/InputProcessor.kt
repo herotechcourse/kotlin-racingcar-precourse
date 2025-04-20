@@ -14,7 +14,7 @@ class InputProcessor {
             }
         }
 
-        return carNames
+        return carNames.toSet().toList()
     }
 
     fun getValidatedNumberOfRounds(input: String): Int {
