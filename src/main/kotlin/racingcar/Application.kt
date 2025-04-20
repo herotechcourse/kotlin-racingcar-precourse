@@ -1,33 +1,20 @@
 package racingcar
 
-import camp.nextstep.edu.missionutils.Console
 import racingcar.input.RaceInputHandler
+import racingcar.view.InputView
+import racingcar.view.ResultView
+
 
 fun main() {
-    val carNamesInput = readCarNamesInput()
-    val roundsInput = readRoundsInput()
+    val carNamesInput = InputView.readCarNames()
+    val roundsInput = InputView.readRounds()
 
-    val race = RaceInputHandler.createRace(carNamesInput, roundsInput)
-    val raceResult = race.start()
+    val game = RaceInputHandler.createRace(carNamesInput, roundsInput)
 
-1
-    println("=".repeat(30))
-    println("      Race Results    ")
-    println("=".repeat(30))
+    ResultView.printHeader()
+    game.start()
+    game.printWinners()
 
-
-    raceResult.printProgress()
-    raceResult.printWinners()
 }
 
-fun readCarNamesInput(): String {
-    print("Enter the names of the cars (comma-separated, each name 1-5 characters): ")
-    val input = Console.readLine()
-    RaceInputHandler.validateCarNames(input)
-    return input
-}
 
-fun readRoundsInput(): String {
-    print("How many rounds will be played? ")
-    return Console.readLine()
-}
