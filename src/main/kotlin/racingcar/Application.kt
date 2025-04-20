@@ -138,7 +138,7 @@ fun getWinners(competitors: List<Competitor>): List<Competitor> {
 fun main() {
     // TODO: Implement the program
 
-    // USER FEATURES
+    // ---> USER FEATURES <---
     // Return the validated names
     val carNames = getNames()
     println("The competitors for this race are: $carNames")
@@ -147,13 +147,14 @@ fun main() {
     val rounds = getRound()
     println("The competitors will run $rounds rounds")
 
-    // GAME FEATURES
+    // ---> GAME FEATURES <---
     // Save the car names as instances of the Competitors constructor.
     val competitors = carNames.map { Competitor(it) }
 
     // Calls the logic to run the game
     startRace(rounds, competitors)
 
+    // ---> GAME TRACKER FEATURES <---
     // Get the winners
     val winners = getWinners(competitors)
 
