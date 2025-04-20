@@ -77,7 +77,7 @@ fun moveForward(car: Car): Car = car.copy(position = car.position + 1)
 
 fun printRoundResult(cars: List<Car>) {
     cars.forEach { car ->
-        println(car.name)
+        println("${car.name} : ${"-".repeat(car.position)}")
     }
     println()
 }
