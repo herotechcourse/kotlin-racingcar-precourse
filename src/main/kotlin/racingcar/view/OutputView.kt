@@ -7,12 +7,8 @@ import racingcar.model.Race
 object OutputView {
 
     fun showAllRoundResult(race: Race) {
-        println()
-        println("Race Results")
-        for (result in race.results) {
-            printEachRoundResult(result)
-            println()
-        }
+        println("\nRace Results")
+        race.results.forEach { printEachRoundResult(it) }
     }
 
     private fun printEachRoundResult(result: List<CarPosition>) {
