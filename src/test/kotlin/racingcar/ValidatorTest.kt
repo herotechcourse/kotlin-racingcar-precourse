@@ -13,7 +13,7 @@ class ValidatorTest {
 
         @Test
         fun `valid cars name → pass validation`() {
-            val carsName = listOf("pobi","woni", "1")
+            carsName = listOf("pobi","woni", "1")
             validator.validateCarsName(carsName) // Should not throw an exception
         }
 
