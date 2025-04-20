@@ -7,19 +7,22 @@ import org.junit.jupiter.api.assertThrows
 class CarsTest {
 
     @Test
-    fun `returns winners after racing`() {
-        val cars = Cars(listOf("pobi", "woni", "jun"))
-        repeat(3) { cars.raceOnce() }
-
+    fun `returns the winners who moved the farthest`() {
+        val cars = Cars(listOf(
+            Car("pobi", 3),
+            Car("woni", 5),
+            Car("jun", 5)
+        ))
         val winners = cars.getWinners()
-        assertThat(winners).isNotEmpty()
+        assertThat(winners).extracting("name")
+            .containsExactlyInAnyOrder("woni", "jun")
     }
 
     @Test
     fun `throws exception when car names are duplicated`() {
-        val duplicatedNames = listOf("pobi", "pobi")
-        assertThrows<IllegalArgumentException> {
-            Cars(duplicatedNames)
+        val duplicatedCars = listOf(Car("pobi"), Car("pobi"))
+        org.junit.jupiter.api.assertThrows<IllegalArgumentException> {
+            Cars(duplicatedCars)
         }
     }
 }
