@@ -2,12 +2,14 @@ package racingcar.view
 
 import camp.nextstep.edu.missionutils.Console
 import racingcar.model.Constants
+import racingcar.service.InputValidator
 
 object InputView {
     fun getCarNames(): List<String>{
         println("Enter the names of the cars(comma-separated):")
         val input = Console.readLine()
         val carNames = input.split(Constants.CAR_NAME_DELIMITER).map{it.trim()}
+        InputValidator.validateCarNames(carNames)
         return carNames
     }
 
@@ -19,6 +21,7 @@ object InputView {
         } catch (e: NumberFormatException) {
             throw IllegalArgumentException("[ERROR] Round count must be a positive number")
         }
+        InputValidator.validateRounds(rounds)
         return rounds
     }
 }
