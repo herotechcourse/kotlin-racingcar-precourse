@@ -2,7 +2,11 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class Race(private val cars: List<Car>, private val rounds: Int) {
+class Race(
+    private val cars: List<Car>, 
+    private val rounds: Int,
+    private val raceDisplay: RaceDisplay
+) {
     fun start() {
         repeat(rounds) {
             println("\nRound ${it + 1}")
@@ -13,20 +17,17 @@ class Race(private val cars: List<Car>, private val rounds: Int) {
     }
 
     private fun executeRound() {
-        cars.forEach { car -> car.move(randomNumberGenerator()) }
+        cars.forEach { car: Car -> car.move(randomNumberGenerator()) }
     }
 
     private fun displayRaceProgress() {
-        cars.forEach { car ->
-            println("${car.name} : ${"-".repeat(car.position)}")
-        }
+        cars.forEach { car: Car -> raceDisplay.showCarProgress(car) }
     }
 
     private fun announceWinners() {
-        println("\nFinal Result")
-        val maxPosition = cars.maxOf { car -> car.position }
-        val winners = cars.filter { it.position == maxPosition }
-        println("Winners : ${winners.joinToString(", ") { car -> car.name }}")
+        val maxPosition = cars.maxOf { car: Car -> car.position }
+        val winners = cars.filter { car: Car -> car.position == maxPosition }
+        raceDisplay.showWinners(winners)
     }
 
     private fun randomNumberGenerator(): Int {
