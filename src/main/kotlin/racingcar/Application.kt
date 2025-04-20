@@ -10,4 +10,3 @@ fun main() {
     val race = Race(generatedCars,roundNumber)
     race.start()
 }
-
