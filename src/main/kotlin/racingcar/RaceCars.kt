@@ -10,6 +10,7 @@ class RaceCars {
     fun start() {
         startRaces()
         race()
+        displayWinners()
     }
 
     private fun startRaces() {
@@ -82,12 +83,11 @@ class RaceCars {
     }
 
     private fun eachRound(round: Int) {
-        println("Race round $round")
-
         cars.forEach { car ->
             getCarMovement(car)
             displayAdvancement(car)
         }
+        println()
     }
 
     private fun getCarMovement(car: Car) {
@@ -109,9 +109,19 @@ class RaceCars {
     }
 
     private fun race() {
+        println("Race Results")
         for (round in 1..rounds) {
             eachRound(round)
         }
+    }
+
+    private fun displayWinners() {
+        val highestPosition = getHighestPosition()
+        val winners = getWinners(highestPosition)
+        val outputWinners = winners.joinToString(", ") { it.name }
+        val plural = if (winners.size > 1) "s" else ""
+
+        println("\nWinner$plural: $outputWinners")
     }
 
     private fun getHighestPosition(): Int {
@@ -122,6 +132,3 @@ class RaceCars {
         return cars.filter { it.position == highestPosition }
     }
 }
-
-
-
