@@ -21,7 +21,7 @@ class Car(name: String) {
     }
 
     fun printStatus() {
-        println("$name: ${"-".repeat(_movedRounds)}")
+        println("$name : ${"-".repeat(_movedRounds)}")
     }
 }
 
@@ -91,7 +91,7 @@ class CarRacing {
         val maxMoved = cars.maxOfOrNull { it.movedRounds } ?: 0
         val winners = cars.filter { it.movedRounds == maxMoved }.map { it.name }
 
-        println("Winner(s): ${winners.joinToString(", ")}")
+        println("Winners : ${winners.joinToString(", ")}")
     }
 }
 
