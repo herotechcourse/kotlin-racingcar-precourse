@@ -85,6 +85,7 @@ class RaceCars {
 
         cars.forEach { car ->
             getCarMovement(car)
+            displayAdvancement(car)
         }
     }
 
@@ -97,5 +98,12 @@ class RaceCars {
 
     private fun moveCar(): Boolean {
         return Randoms.pickNumberInRange(0, 9) >= 4
+    }
+
+    private fun displayAdvancement(car: Car) {
+        val advancement = "-".repeat(car.position)
+        car.lastPosition = car.position
+
+        println("${car.name}: $advancement")
     }
 }
