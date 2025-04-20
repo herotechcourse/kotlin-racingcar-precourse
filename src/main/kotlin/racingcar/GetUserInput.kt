@@ -4,11 +4,18 @@ fun getUserInputNames(): List<String> {
     println("Names of the cars (comma-separated):\n")
 
     val input = readln()
-    if (input.isBlank()) throw IllegalArgumentException("Input must not be empty")
-
+    validateInput(input)
     val names: List<String> = input.split(',').map { it.trim() }
-    if (names.size <= 1) throw IllegalArgumentException("There must be more than one car")
+    validateCarsCount(names)
     return names
+}
+
+private fun validateInput(input: String) {
+    if (input.isBlank()) throw IllegalArgumentException("Input must not be empty")
+}
+
+private fun validateCarsCount(names: List<String>) {
+    if (names.size <= 1) throw IllegalArgumentException("There must be more than one car")
 }
 
 fun getUserInputRounds(): UInt {
@@ -19,11 +26,11 @@ fun getUserInputRounds(): UInt {
             } catch (error: Throwable) {
                 throw IllegalArgumentException("Input must be a positive integer")
             }
-    validateRounds(numRounds)
+    validateRoundsCount(numRounds)
     return numRounds
 }
 
-fun validateRounds(rounds: UInt) {
+private fun validateRoundsCount(rounds: UInt) {
     when {
         rounds == 0u -> throw IllegalArgumentException("Number of rounds must be positive")
         rounds > maxRounds -> throw IllegalArgumentException("Maximum tounds exceeded")
