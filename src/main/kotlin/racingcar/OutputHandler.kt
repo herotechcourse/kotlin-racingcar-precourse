@@ -1,13 +1,15 @@
 package racingcar
 
-val RACE_RESULT_HEADER = "Race Results"
-val RACE_WINNER_MESSAGE = "Winners : "
-val MOVEMENT_MARK = "-"
-
 /**
  * Handles the output of the racing game.
  */
 class OutputHandler () {
+
+    companion object{
+        val RACE_RESULT_HEADER = "Race Results"
+        val RACE_WINNER_MESSAGE = "Winners : "
+        val MOVEMENT_MARK = "-"
+    }
 
     /**
      * Prints the race result header.
