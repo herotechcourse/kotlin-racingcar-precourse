@@ -21,4 +21,20 @@ class RaceNameValidatorTest {
             RaceNameValidator.validateCarNameIsBlank("pobi")
         }
     }
+
+    @Test
+    fun `should throw exception when car name exceeds 5 characters`() {
+        val exception = assertThrows(IllegalArgumentException::class.java) {
+            RaceNameValidator.validateCarNameLength("abcdef")
+        }
+        assertEquals(RacingError.CAR_NAME_TOO_LONG.message, exception.message)
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["a", "ab", "abc", "abcd", "abcde"])
+    fun `should not throw exception when car name is 5 characters or fewer`(name: String) {
+        assertDoesNotThrow {
+            RaceNameValidator.validateCarNameLength(name)
+        }
+    }
 }

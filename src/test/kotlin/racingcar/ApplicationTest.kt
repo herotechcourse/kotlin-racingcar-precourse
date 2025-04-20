@@ -45,4 +45,11 @@ class ApplicationTest : NsTest() {
             assertThrows<IllegalArgumentException> { runException(input, "1") }
         }
     }
+
+    @Test
+    fun `should throw exception when car name exceeds 5 characters`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("abcdef,pobi", "1") }
+        }
+    }
 }
