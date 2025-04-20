@@ -1,6 +1,7 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
 
 
 class Application {
@@ -12,14 +13,10 @@ class Application {
         println("How many rounds will be played?")
         val rounds = validateRoundsInput(Console.readLine())
 
-        // mock the winner
-        // Replace this with actual race logic
-        repeat(rounds) {
-            val winner = cars.first() 
-            winner.roundPoints += 1
-        }
-        val winners = listOf(cars.first())
+        val race = Race(cars, rounds)
+        race.runTheRace()
 
+        val winners = listOf(cars.first())
         printRaceResults(cars)
         printRaceWinners(winners)
     }
