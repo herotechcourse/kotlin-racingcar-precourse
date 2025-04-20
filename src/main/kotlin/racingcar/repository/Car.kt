@@ -14,6 +14,14 @@ class Car(val name: String) {
         return distance;
     }
 
+    fun getName(): String{
+        return name;
+    }
+
+    fun getDistance(): Int{
+        return distance;
+    }
+
     override fun toString(): String {
         return "$name : ${"-".repeat(distance)}"
     }
