@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
+import org.junit.jupiter.api.*
 
 class ApplicationTest : NsTest() {
     @Test
@@ -21,9 +21,15 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `exception test`() {
+    fun `exception test car name more than 5`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+    @Test
+    fun `exception test empty names`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("", "1") }
         }
     }
 
