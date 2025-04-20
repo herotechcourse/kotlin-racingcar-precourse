@@ -22,11 +22,11 @@ fun main() {
     repeat(rounds) {
         for (car in cars) {
             car.move()
-            println("${car.name}: ${car.distance}")
+            println("${car.name} : ${car.distance}")
 
         }
         println()
     }
 
-    println("Winners: ${findWinners(cars).joinToString(", ") { it.name }}")
+    println("Winners : ${findWinners(cars).joinToString(", ") { it.name }}")
 }
