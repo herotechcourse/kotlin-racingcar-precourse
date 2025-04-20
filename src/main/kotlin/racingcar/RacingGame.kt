@@ -12,4 +12,10 @@ class RacingGame(private val cars: List<Car>) {
     println()
   }
 
+  fun printWinners() {
+    val maxPosition = cars.maxOf { it.position }
+    val winners = cars.filter { it.position == maxPosition }.joinToString(", ") { it.name }
+    println("Winners : $winners")
+  }
+
 }

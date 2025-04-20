@@ -25,4 +25,5 @@ fun main() {
       game.playRound()
       game.printProgress()
     }
+    game.printWinners()
 }
