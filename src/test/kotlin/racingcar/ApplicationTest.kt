@@ -20,10 +20,35 @@ class ApplicationTest : NsTest() {
         )
     }
 
+    // multi winner test
+    @Test
+    fun `multi winner test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                val result = output()
+                assertThat(result).contains("pobi : -")
+                assertThat(result).contains("woni : -")
+                assertThat(result).contains("Winners : pobi, woni")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD,
+        )
+    }
+
+
     @Test
     fun `exception test`() {
         assertSimpleTest {
+            // Name validation tests
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+            assertThrows<IllegalArgumentException> { runException(",woni", "1") }
+            assertThrows<IllegalArgumentException> { runException("pobi,pobi", "1") }
+            assertThrows<IllegalArgumentException> { runException("pobi woni", "1") }
+
+            // Round validation tests
+            assertThrows<IllegalArgumentException> { runException("pobi,woni", "-1") }
+
         }
     }
 
