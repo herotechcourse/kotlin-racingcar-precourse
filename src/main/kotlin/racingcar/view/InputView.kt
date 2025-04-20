@@ -5,11 +5,17 @@ import racingcar.util.Constant.CAR_NAME_MESSAGE
 import racingcar.util.Constant.ROUND_COUNT_MESSAGE
 import racingcar.util.Exceptions.validateInteger
 import camp.nextstep.edu.missionutils.Console
+import racingcar.util.Exceptions.validateCarNameLength
+import racingcar.util.Exceptions.validateNotBlank
 
 class InputView {
     fun inputCarNames(): List<String> {
         println(CAR_NAME_MESSAGE)
-        return Console.readLine().split(CAR_NAME_DELIMITER).map { it.trim() }
+        return Console.readLine().split(CAR_NAME_DELIMITER).map {
+            it.validateCarNameLength()
+            it.validateNotBlank()
+            it.trim()
+        }
     }
 
     fun inputRoundCount(): Int {
