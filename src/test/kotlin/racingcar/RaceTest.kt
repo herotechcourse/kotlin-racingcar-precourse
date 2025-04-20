@@ -37,4 +37,22 @@ class RaceTest {
             )
         )
     }
+
+    @Test
+    fun `Run race for multiple rounds`() {
+        val initialCars = listOf(
+            Car("pobi", 0),
+            Car("woni", 0),
+            Car("jun", 0)
+        )
+
+        val raceResults = runRace(initialCars, 3) { true }
+        assertThat(raceResults[2]).isEqualTo(
+            listOf(
+                Car("pobi", 3),
+                Car("woni", 3),
+                Car("jun", 3)
+            )
+        )
+    }
 }
