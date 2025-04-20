@@ -105,6 +105,36 @@ fun startRace(rounds: Int, competitors: List<Competitor>) {
     }
 }
 
+// Compare competitors positions to define winner(s)
+fun getWinners(competitors: List<Competitor>): List<Competitor> {
+    // Sort competitors to be in the order of the best results
+    val competitorsSortedByPosition = competitors.sortedByDescending { competitor -> competitor.position }
+    // The first best result is already considered a winner
+    val firstWinner = competitorsSortedByPosition.first()
+    val winners = mutableListOf(firstWinner)
+
+    // Check for tie results
+    for (i in competitorsSortedByPosition.indices) {
+        val current = competitorsSortedByPosition[i]
+
+        // Ensure it will check only in the range of the list
+        if (i < competitors.size - 1) {
+            val next = competitorsSortedByPosition[i + 1]
+
+            if (current.position == next.position) {
+                winners += next
+
+            } else {
+                // If the number of the next position check is differs from the winner(s)
+                // stop checking
+                break
+            }
+        }
+
+    }
+    return winners
+}
+
 fun main() {
     // TODO: Implement the program
 
@@ -124,4 +154,12 @@ fun main() {
     // Calls the logic to run the game
     startRace(rounds, competitors)
 
+    // Get the winners
+    val winners = getWinners(competitors)
+
+    // Get winners names to be printed
+    val winnerNames = winners.map { winner -> winner.name }
+
+    // Print Winners:
+    println("Winners : ${winnerNames.joinToString { it }}")
 }
