@@ -6,12 +6,13 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import racingcar.main
 
-class CarTest: NsTest() {
+class CarTest : NsTest() {
     @Test
     fun `dont allow empty or whitespace car names`() {
         assertSimpleTest {
             // empty car name
             assertThrows<IllegalArgumentException> { runException("pobi,,java", "1") }
+            // car name with whitespaces
             assertThrows<IllegalArgumentException> { runException("pobi, ", "1") }
         }
     }

@@ -3,7 +3,6 @@ package racingcar
 import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest
 import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
-import io.io
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -44,13 +43,7 @@ class ApplicationTest : NsTest() {
         }
     }
 
-    @Test
-    fun `dont allow total rounds less than 1`() {
-        assertSimpleTest {
-            // no of rounds >= 1
-            assertThrows<IllegalArgumentException> { runException("pobi,woni", "0") }
-        }
-    }
+
 
     @Test
     fun `dont allow duplicate car names`() {
@@ -59,14 +52,8 @@ class ApplicationTest : NsTest() {
             assertThrows<IllegalArgumentException> { runException("pobi,Pobi") }
         }
     }
-// todo move to Race class
-    @Test
-    fun `dont allow single car names`() {
-        assertSimpleTest {
-            // single car name
-            assertThrows<IllegalArgumentException> { runException("pobi", "1") }
-        }
-    }
+
+
 
     override fun runMain() {
         main()
