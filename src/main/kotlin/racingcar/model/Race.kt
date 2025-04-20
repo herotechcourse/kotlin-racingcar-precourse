@@ -13,9 +13,7 @@ class Race(
     }
 
     private fun runEachRound() {
-        for (i in cars.indices) {
-            cars[i].moveRandomly()
-        }
+        cars.forEach { it.moveRandomly() }
     }
 
     private fun saveRoundResult() {
