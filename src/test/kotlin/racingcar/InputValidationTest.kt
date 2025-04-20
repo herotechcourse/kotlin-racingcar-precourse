@@ -50,4 +50,37 @@ class InputValidationTest {
         assertThat(actualList).isEqualTo(expectedList)
     }
 
+    @Test
+    fun `when input is blank or empty then validateNumberOfRounds throws IllegalArgumentException`() {
+        assertThrows<IllegalArgumentException> {
+            validateNumberOfRounds(" ")
+        }
+        assertThrows<IllegalArgumentException> {
+            validateNumberOfRounds("")
+        }
+    }
+
+    @Test
+    fun `when input is not valid integer string then validateNumberOfRounds throws IllegalArgumentException`() {
+        assertThrows<IllegalArgumentException> {
+            validateNumberOfRounds("abc")
+        }
+    }
+
+    @Test
+    fun `when input is less than 0 then validateNumberOfRounds throws IllegalArgumentException`() {
+        assertThrows<IllegalArgumentException> {
+            validateNumberOfRounds("-5")
+        }
+    }
+
+    @Test
+    fun `when input is valid integer string then validateNumberOfRounds returns valid integer`() {
+        val expectedInteger = 5
+
+        val actualInteger = validateNumberOfRounds("5")
+
+        assertThat(actualInteger).isEqualTo(expectedInteger)
+    }
+
 }
