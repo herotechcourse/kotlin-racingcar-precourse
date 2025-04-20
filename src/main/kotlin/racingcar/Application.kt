@@ -1,5 +1,11 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Randoms;
+import camp.nextstep.edu.missionutils.Console;
+import io.io
+
 fun main() {
-    // TODO: Implement the program
+    val cars = io.getCars()
+    val totalRounds = io.getTotalRounds()
+
 }
