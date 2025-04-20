@@ -7,11 +7,11 @@ import racingcar.view.InputView
 import racingcar.view.OutputView
 
 fun main() {
-    val carNameParser = CarNameParser
-    val roundsParser = RoundsParser
+    val carNameParser = CarNameParser()
+    val roundsParser = RoundsParser()
 
-    val inputView = InputView
-    val outputView = OutputView
+    val inputView = InputView()
+    val outputView = OutputView()
 
     val controller = RaceController(inputView, outputView, carNameParser, roundsParser)
 
