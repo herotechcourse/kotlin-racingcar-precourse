@@ -10,8 +10,7 @@ object RaceInputHandler {
         val carNames = parseCarNames(carNamesInput)
         val rounds = parseRounds(roundsInput)
         val cars = carNames.map { Car(it) }
-        val race = Race(cars)
-        return Game(race, rounds)
+        return Game(Race(cars), rounds)
     }
 
     fun validateCarNames(input: String) {
@@ -32,18 +31,12 @@ object RaceInputHandler {
     }
 
 
-    private fun parseCarNames(input: String): List<String> {
-        val names = input.split(",").map { it.trim() }
+    private fun parseCarNames(input: String): List<String>  =
+         input.split(",").map { it.trim() }
 
-
-        return names
-    }
 
     private fun parseRounds(input: String): Int {
         return input.toIntOrNull()?.takeIf { it > 0 }
             ?: throw IllegalArgumentException("Number of rounds must be a positive integer.")
     }
-
-
-
 }
