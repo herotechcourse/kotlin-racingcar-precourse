@@ -17,8 +17,7 @@ fun main() {
 
     val cars = carNames.map { name -> Car(name) }
 
-    println()
-    println("Race results")
+    println("\nRace results")
     repeat(rounds) {
         for (car in cars) {
             car.move()
