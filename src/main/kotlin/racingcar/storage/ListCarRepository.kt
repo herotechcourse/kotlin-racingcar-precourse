@@ -17,9 +17,15 @@ class ListCarRepository : CarRepository {
         cars.forEach { car -> addCar(car) }
     }
 
+    override fun moveEveryCarRandomly() {
+        for (car in carList) {
+            car.moveForwardRandomly();
+        }
+    }
+
     override fun moveCarById(id: Int) {
         var current = carList[id];
-        current.moveForward();
+        current.moveForwardRandomly();
     }
 
 }
