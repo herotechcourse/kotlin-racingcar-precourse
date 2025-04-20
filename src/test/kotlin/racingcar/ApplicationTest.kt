@@ -47,7 +47,8 @@ class ApplicationTest : NsTest() {
     @ParameterizedTest
     @ValueSource(strings = [
         "pobi,java,", // trailing comma
-        "pobi,,java", ",pobi,java",  // empty names, double comma
+        "pobi,,java", // double comma
+        ",pobi,java", // starting
         "pobi, java", // space
         "pobi,javaji", // long name
         "pobi", // only 1 name
@@ -56,7 +57,7 @@ class ApplicationTest : NsTest() {
         "pobi,java,pobi", // not unique names -> implement feature, add to README
     ])
     fun `invalid car names test`(input : String) {
-        assertThatIllegalArgumentException().isThrownBy { InputHandler.validateCarNames(input) }
+        assertThatIllegalArgumentException().isThrownBy { runException(input, "1") }
     }
 
     @ParameterizedTest
@@ -69,7 +70,7 @@ class ApplicationTest : NsTest() {
         "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20" // 20 cars
     ])
     fun `valid car names test`(input : String) {
-        assertThatNoException().isThrownBy { InputHandler.validateCarNames(input) }
+        assertThatNoException().isThrownBy { runException(input, "2") }
     }
 
     @ParameterizedTest
@@ -83,7 +84,7 @@ class ApplicationTest : NsTest() {
         "b", // char
     ])
     fun `invalid rounds test`(input : String) {
-        assertThatIllegalArgumentException().isThrownBy { InputHandler.validateRounds(input) }
+        assertThatIllegalArgumentException().isThrownBy { runException("car1,car2", input) }
     }
 
     @ParameterizedTest
@@ -94,7 +95,7 @@ class ApplicationTest : NsTest() {
         "+28" // plus sign
     ])
     fun `valid rounds test`(input : String) {
-        assertThatNoException().isThrownBy { InputHandler.validateRounds(input) }
+        assertThatNoException().isThrownBy { runException("car1,car2", input) }
     }
 
     override fun runMain() {
