@@ -1,8 +1,14 @@
 package racingcar.domain
 
+import racingcar.domain.dto.CarResultDto
+import racingcar.domain.dto.RoundResultDto
+
 class Cars internal constructor(private val cars: List<Car>) {
-    fun moveAll() {
-        cars.forEach { car -> car.move() }
+    fun moveAll(): RoundResultDto {
+        val eachRoundResults = mutableListOf<CarResultDto>()
+        cars.forEach { car -> eachRoundResults.add(car.move()) }
+
+        return RoundResultDto(eachRoundResults)
     }
 
     companion object {

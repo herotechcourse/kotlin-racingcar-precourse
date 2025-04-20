@@ -5,8 +5,8 @@
 - Receive input for car names ✅
 - Receive input for the number of rounds ✅
 - Move cars based on the random number results ✅
-- Print movement result for each round
-    - print the cars in the order as they were entered
+- Print movement result for each round ✅
+    - print the cars in the order as they were entered ✅
 - Print the final winners
     - Compare distances of all cars
 

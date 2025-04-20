@@ -1,6 +1,7 @@
 package racingcar.domain
 
 import racingcar.domain.base.NumberPickerBase
+import racingcar.domain.dto.CarResultDto
 
 class Car(private val name: String, private val randomNumberPicker: NumberPickerBase) {
     private var distance: Int = 0
@@ -33,9 +34,11 @@ class Car(private val name: String, private val randomNumberPicker: NumberPicker
 
     private fun isAlphaNumericOnly(name: String): Boolean = name.all { it.isLetterOrDigit() }
 
-    fun move() {
+    fun move(): CarResultDto {
         val number = randomNumberPicker.pick()
         if (number >= MOVABLE_POINT) distance++
+
+        return CarResultDto(name, distance)
     }
 
     fun getDistance(): Int = distance
