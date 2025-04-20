@@ -14,7 +14,7 @@ class Application {
         val roundCount = InputView.readRoundCount()
         val race = Race.fromNames(carNames)
 
-        println("\n🏁 Race Start!")
+        println("\nRace Results")
         repeat(roundCount) {
             race.moveAll()
             OutputView.printRoundResult(race.cars)

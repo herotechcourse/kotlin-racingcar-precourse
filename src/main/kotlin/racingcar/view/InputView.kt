@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console
 
 object InputView {
     fun readCarNames(): List<String> {
-        println("Enter car names (comma-separated):")
+        println("Enter the names of the cars (comma-separated):")
         val input = Console.readLine()
         val names = input.split(",").map { it.trim() }
         require(
@@ -17,7 +17,7 @@ object InputView {
     }
 
     fun readRoundCount(): Int {
-        println("Enter number of rounds:")
+        println("How many rounds will be played?")
         val input = Console.readLine()
         val count = input.toIntOrNull()
         require(count != null && count > 0) {
