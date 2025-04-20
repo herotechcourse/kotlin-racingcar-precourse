@@ -33,15 +33,16 @@ class RacingController(
     }
 
     private fun playRace(round: Round, cars: Cars) {
+        outputView.showResultMessage()
         repeat(round.leftRound) {
             cars.moveAll()
-            outputView.printEachRound(cars)
+            outputView.showEachRound(cars)
         }
     }
 
     private fun determineWinner(cars: Cars) {
         val referee = Referee(cars)
         val winner = referee.determineWinner()
-        outputView.printWinner(winner)
+        outputView.showWinner(winner)
     }
 }
