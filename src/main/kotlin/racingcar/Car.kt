@@ -21,6 +21,6 @@ class Car(val name: String) {
 
     // Prints results of 1 round
     fun status(): String {
-        return "$name : ${"_".repeat(position)}";
+        return "$name : ${"-".repeat(position)}";
     }
 }
