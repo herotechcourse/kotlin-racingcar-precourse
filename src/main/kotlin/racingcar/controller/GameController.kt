@@ -15,7 +15,7 @@ class GameController (
         repeat(roundCount) {
             startTurn()
         }
-        OutputResult.showResult(cars)
+        outputService.showResult(cars)
     }
     private fun startTurn() {
         cars.raceOnce() // Race the car once
