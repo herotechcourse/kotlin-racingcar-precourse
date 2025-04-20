@@ -1,12 +1,12 @@
 package racingcar
 
 fun main() {
-   // try {
         val rawCarNames = InputHandler.readCarNames()
-        InputHandler.validateCarNames(rawCarNames)
+        val carNames = InputHandler.validateCarNames(rawCarNames)
         val rawRounds = InputHandler.readRounds()
-        InputHandler.validateRounds(rawRounds)
-   // } catch (e: IllegalArgumentException) {
-    //    println("Error: ${e.message}")
-   // }
+        val rounds = InputHandler.validateRounds(rawRounds)
+
+        val cars: List<Car> = carNames.map() { Car(it) } // this is a lambda (anonymous function)
+        val raceGame = RaceGame(cars, rounds)
+        raceGame.runRace()
 }
