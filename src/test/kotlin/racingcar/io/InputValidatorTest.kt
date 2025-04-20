@@ -1,0 +1,53 @@
+package racingcar.io
+
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
+import org.assertj.core.api.Assertions.assertThat
+import racingcar.io.validation.InputValidator
+import java.lang.IllegalArgumentException
+
+class InputValidatorTest {
+    /*
+    * TIP: follow arrange, action, assert format for tests
+    */
+
+    //############################ Test for carNames ############################
+    @Test
+    fun `validateCarNames should return list of valid car names`(){
+        val carNames = "pobi, woni, jun"
+        val result = InputValidator.validateCarNames(carNames)
+        assertThat(result).containsExactly("pobi", "woni", "jun")
+    }
+
+    @Test
+    fun `validateCarNames should handle whitespaces`(){
+        val carNames = " pobi, woni ,  juni"
+        val result = InputValidator.validateCarNames(carNames)
+        assertThat(result).containsExactly("pobi", "woni", "juni")
+    }
+
+    @Test
+    fun `validateCarNames should throw IllegalArgumentException for empty input`(){
+        val carNames = ""
+        assertThrows<IllegalArgumentException> { InputValidator.validateCarNames(carNames) }
+    }
+
+    @Test
+    fun `validateCarNames should throw throw IllegalArgumentException for names exceeding length of 5 characters`(){
+        val carNames = "pobi, woni, juniiiiiiii"
+        assertThrows<IllegalArgumentException> { InputValidator.validateCarNames(carNames) }
+    }
+
+    @Test
+    fun `validateCarNames should throw IllegalArgumentException for less than 2 cars`(){
+        val carNames = "pobi"
+        assertThrows<IllegalArgumentException> { InputValidator.validateCarNames(carNames) }
+    }
+
+    @Test
+    fun `validateCarNames should throw IllegalArgumentException for duplicates names`(){
+        val carNames = "pobi, pobi, juni"
+        assertThrows<IllegalArgumentException> { InputValidator.validateCarNames(carNames) }
+    }
+
+}
