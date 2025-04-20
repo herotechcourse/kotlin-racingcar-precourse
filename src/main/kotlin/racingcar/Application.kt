@@ -4,6 +4,9 @@ package racingcar
 import camp.nextstep.edu.missionutils.Randoms
 import camp.nextstep.edu.missionutils.Console
 
+fun main() {
+
+}
 
 fun readCarNames(): List<String> {
     println("Enter the names of the cars (comma-separated, max 5 characters):")
@@ -14,5 +17,14 @@ fun readCarNames(): List<String> {
         }
     }
 }
+
+fun readNumberOfRounds(): Int {
+    println("Enter the number of rounds:")
+    val input = Console.readLine()
+    return input.toIntOrNull()?.also {
+        require(it > 0) { "The number of rounds must be greater than zero." }
+    } ?: throw IllegalArgumentException("Invalid input: not a number.")
+}
+
 
 
