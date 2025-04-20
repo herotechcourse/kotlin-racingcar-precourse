@@ -2,34 +2,33 @@ package racingcar
 
 class Output(private val round: Round) {
 
-    fun printCarRaceResults(carNames: MutableMap<String, Int>, roundCount: Int) {
+    fun printCarRaceResults(cars: Set<Car>, roundCount: Int) {
         repeat(roundCount) {
-            printCarRaceResult(carNames)
+            printCarRaceResult(cars)
         }
     }
 
-    fun printWinners(carNames: Map<String, Int>) {
-        val winners = round
-            .getWinners(carNames)
-            .joinToString(SEPARATOR)
-        println("Winners : $winners")
+    fun printWinners(cars: Set<Car>) {
+        val winners = round.getWinners(cars)
+        println("Winners : ${winners.formatWinners()}")
     }
 
-    private fun printCarRaceResult(carNames: MutableMap<String, Int>) {
-        carNames.forEach { (carName, movementCount) ->
-            round.moveCarForward(carNames, carName)
-            println("$carName : ${getCarMovementCharacters(carNames, carName, movementCount)}")
+    private fun printCarRaceResult(cars: Set<Car>) {
+        cars.forEach { car ->
+            car.moveForward(START_NUMBER, END_NUMBER)
+            println("${car.name} : ${convertIntToRepeatedString(car.movementCount)}")
         }
         println()
     }
 
-    private fun getCarMovementCharacters(
-        carNames: MutableMap<String, Int>,
-        carName: String,
-        movementCount: Int,
-    ) = MOVEMENT_CHARACTER.repeat(carNames.getOrDefault(carName, movementCount))
+    private fun convertIntToRepeatedString(intValue: Int) = MOVEMENT_CHARACTER.repeat(intValue)
+
+    private fun List<Car>.formatWinners() = joinToString(SEPARATOR) { it.name }
 
     companion object {
+        private const val START_NUMBER = 0
+        private const val END_NUMBER = 9
+
         private const val MOVEMENT_CHARACTER = "-"
         private const val SEPARATOR = ", "
     }
