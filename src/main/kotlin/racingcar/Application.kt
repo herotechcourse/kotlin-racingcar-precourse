@@ -6,7 +6,6 @@ import racingcar.output.printFromOutputManager
 import racingcar.race.race
 
 fun main() {
-
     println("Enter the names of the cars (comma-separated):");
     val cars: Array<String> = readLineAndGetCars();
 
