@@ -1,5 +1,8 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    val config = FixedRoundsRaceConfiguration.fromStdIn()
+    val raceResult = FixedRoundsRace(config).run()
+
+    raceResult.print()
 }
