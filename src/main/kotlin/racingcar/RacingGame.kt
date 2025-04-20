@@ -28,6 +28,7 @@ class RacingGame (private val cars: List<Car>){
             runRound()
             printProgress()
         }
+        printWinners()
     }
 
     /**
@@ -53,5 +54,17 @@ class RacingGame (private val cars: List<Car>){
     private fun printProgress() {
         cars.forEach { println(it) }
         println()
+    }
+
+    /**
+     * Finds and prints the winner(s) of the race.
+     *
+     * If multiple cars share the highest position, all are considered winners.
+     */
+    private fun printWinners() {
+        val maxPosition = cars.maxOf { it.position }
+        val winners = cars.filter { it.position == maxPosition }.map { it.name }
+
+        println("Winners : ${winners.joinToString(", ")}")
     }
 }
