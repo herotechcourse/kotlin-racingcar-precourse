@@ -1,4 +1,4 @@
-## Car racing game
+## Car Racing Game
 
 ### 1. Design car racing with the following features:
 
