@@ -7,6 +7,19 @@ fun main() {
 
     validateCarNames(carNames)
 
+    println("How many rounds will be played?")
+    val roundsInput = Console.readLine()
+
+    val numberOfRounds = try {
+        roundsInput.toInt()
+    } catch (e: NumberFormatException) {
+        throw IllegalArgumentException("Number of rounds must be a valid integer.")
+    }
+
+    if (numberOfRounds <= 0) {
+        throw IllegalArgumentException("Number of rounds must be greater than 0.")
+    }
+
 }
 
 fun validateCarNames(carNames: List<String>) {
