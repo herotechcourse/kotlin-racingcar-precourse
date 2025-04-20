@@ -15,7 +15,7 @@ data class GameInitResult(val cars: List<Car>, val rounds: Int)
  *      Iterates through each element of <nameList> and assigns it to the variable <name>.
  *      (KOR) nameList 리스트의 각 요소를 name 이라는 변수로 하나씩 꺼낸다.
  */
-fun gameInit(input: GameStartResult): GameInitResult {
+fun gameInit(input: GameConfig): GameInitResult {
     val nameList: List<String> = input.carNames.split(",")
     val carObjectList: MutableList<Car> = mutableListOf()
     for (name in nameList) {
