@@ -22,3 +22,27 @@
 - Test case for a valid scenario
 - Test cases for all the invalidation scenarios
 - Test case to check the parsing of the user input. 
+
+## 2. Implement the race game 
+### a. Responsibilities:
+- Write a race class which implements the race car game which does the following,
+  - Make the cars run for the mentioned total rounds time
+  - Record the progress of the cars in each round based on the generated random number
+    - The cars make a progress when the random number is between 4 and 9. 
+    - The cars dont make a progress otherwise
+  - Announce winner/winners based on the highest value of the progress
+### b. Validation:
+- The code validates the below conditions
+  - Minimum 2 cars needs to participate in the race
+  - Max number of cars that can participate in the race should be integers max range 2,147,483,647
+  - Number of rounds should be greater than zero
+### c. IO Args:
+- The code takes the following inputs
+  - Array of Cars object
+  - Total Rounds as Integer
+- The code returns the following output
+  - The progress made by the participating cars in each round
+  - The winner(s) of the race based on the progress made
+### d. Test cases
+- Test cases to check that the number of cars participating in the game should be greater than 1
+- Test case to check that the total number of rounds should be greater than 0
