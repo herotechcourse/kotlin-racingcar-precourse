@@ -23,7 +23,7 @@ The Car Racing Program is an interactive console-based application where users c
     - For each car, generate a random number between 0 and 9
     - Move the car forward if the number is 4 or greater
     
-5. Determine winners
+5. Determine the winners
     - If one car has the highest position, display it as the sole winner
     - If more than one car has the highest position, display multiple winners
 

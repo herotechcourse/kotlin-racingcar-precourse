@@ -16,9 +16,8 @@ class Application {
         val race = Race(cars, rounds)
         race.runTheRace()
 
-        val winners = listOf(cars.first())
         printRaceResults(cars)
-        printRaceWinners(winners)
+        printRaceWinners(race.getWinners())
     }
 
     private fun parseCarNamesInput(input: String): List<String> {

@@ -24,4 +24,47 @@ class RaceTest {
             Race.STOP,
         )
     }
+
+    @Test
+    fun `should determine winners correctly`() {
+        assertRandomNumberInRangeTest(
+            {
+                val cars = listOf(Car("pobi"), Car("woni"), Car("java"))
+                val race = Race(cars, 2)
+                race.runTheRace()
+                val winners = race.getWinners()
+                assertThat(winners[0].name).isEqualTo("pobi")
+            },
+            // first round
+            Race.MOVING_FORWARD,
+            Race.MOVING_FORWARD,
+            Race.STOP,
+            // second round
+            Race.MOVING_FORWARD,
+            Race.STOP,
+            Race.STOP,
+        )
+    }
+
+        @Test
+    fun `should determine winners correctly in case of a tie`() {
+        assertRandomNumberInRangeTest(
+            {
+                val cars = listOf(Car("pobi"), Car("woni"), Car("java"))
+                val race = Race(cars, 2)
+                race.runTheRace()
+                val winners = race.getWinners()
+                assertThat(winners[0].name).isEqualTo("pobi")
+                assertThat(winners[1].name).isEqualTo("java")
+            },
+            // first round
+            Race.MOVING_FORWARD,
+            Race.STOP,
+            Race.MOVING_FORWARD,
+            // second round
+            Race.MOVING_FORWARD,
+            Race.STOP,
+            Race.MOVING_FORWARD,
+        )
+    }
 }
