@@ -6,17 +6,16 @@
   - [x] Car can move forward
   - [x] Car can stay still
 - Race
-  - [ ] Race Round: All cars move forward
-  - [ ] Race Round: All cars stay still
-  - [ ] Race Round: Cars move or stay based on random numbers (Test runRound with a predictable sequence from randomProvider)
+  - [x] Race Round: All cars move forward
+  - [x] Race Round: All cars stay still
+- Race (Full Race Execution)
+  - [x] Race runs for the specified number of rounds (Test runRace orchestrates rounds correctly)
+- WinnerJudge (Winning Logic)
+  - [ ] Race identifies a single winner (Test findWinners with one car at max position)
+  - [ ] Race identifies multiple winners (Test findWinners with multiple cars at max position)
 - Race (Input Validation)
   - [ ] Race initialization throws IllegalArgumentException for invalid car names (empty, too long, invalid format like ",,")
   - [ ] Race initialization throws IllegalArgumentException for invalid rounds (non-numeric, zero, negative)
-- Race (Full Race Execution)
-  - [ ] Race runs for the specified number of rounds (Test runRace orchestrates rounds correctly)
-- Race (Winning Logic)
-  - [ ] Race identifies a single winner (Test findWinners with one car at max position)
-  - [ ] Race identifies multiple winners (Test findWinners with multiple cars at max position)
 
 ## Functional Requirements
 - Each of the n cars can either move forward or stay still during a given number of rounds.
