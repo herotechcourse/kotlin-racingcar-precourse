@@ -2,7 +2,7 @@ package racingcar.domain
 
 import racingcar.model.Car
 
-class RacingCar {
+class RacingCarGame {
     private val cars: MutableList<Car> = mutableListOf()
 
     val allCars: List<Car>

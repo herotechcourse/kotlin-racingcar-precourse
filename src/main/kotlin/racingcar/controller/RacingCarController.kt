@@ -1,6 +1,6 @@
 package racingcar.controller
 
-import racingcar.domain.RacingCar
+import racingcar.domain.RacingCarGame
 import racingcar.model.Car
 import racingcar.view.InputView
 import racingcar.view.OutputView
@@ -8,7 +8,7 @@ import racingcar.view.OutputView
 class RacingCarController(
     private val inputView: InputView,
     private val outputView: OutputView,
-    private val racingCar: RacingCar
+    private val racingCarGame: RacingCarGame
 ) {
     fun run() {
         // input
@@ -16,14 +16,14 @@ class RacingCarController(
         val roundCount = inputView.inputRoundCount()
 
         // play
-        carNames.forEach { racingCar.addCar(Car(it)) }
+        carNames.forEach { racingCarGame.addCar(Car(it)) }
         outputView.printResultGuide()
         repeat(roundCount) {
-            racingCar.moveCars()
-            outputView.printProcess(racingCar.allCars)
+            racingCarGame.moveCars()
+            outputView.printProcess(racingCarGame.allCars)
         }
 
         // output
-        outputView.printWinner(racingCar.findWinner())
+        outputView.printWinner(racingCarGame.findWinner())
     }
 }
