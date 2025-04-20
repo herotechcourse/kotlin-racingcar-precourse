@@ -19,6 +19,16 @@ class Car(val name: String) {
             "Car name must be non-empty and at most 5 characters."
         }
     }
+
+    /**
+     * Moves the car forward by 1 step if a random number (0-9) is 4 or higher.
+     */
+    fun move() {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            position++
+        }
+    }
 }
+
 
 
