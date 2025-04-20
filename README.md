@@ -34,3 +34,14 @@
    2. Print the progress of the round
 3. Check the winners
 4. Display the result
+
+## 📍 Objects
+
+- Car
+  - Generating random number
+  - Move
+- Board
+  - Get the inputs
+  - Save the list of cars
+  - Print the result of each round
+  - Print the winners
