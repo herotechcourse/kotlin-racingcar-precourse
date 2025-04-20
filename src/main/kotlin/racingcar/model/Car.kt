@@ -11,4 +11,8 @@ class Car(
             return names.map { Car(it) }
         }
     }
+
+    fun moveForward() {
+        position++
+    }
 }

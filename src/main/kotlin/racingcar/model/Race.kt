@@ -22,7 +22,7 @@ class Race(
 
     private fun moveCarsRandomly(car: Car) {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
-            car.position++
+            car.moveForward()
         }
     }
 
