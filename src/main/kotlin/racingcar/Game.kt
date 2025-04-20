@@ -19,6 +19,12 @@ class Game(private val cars: List<Car>, private val rounds: Int) {
         }
         announceWinners()
     }
+    /**
+     * Runs one round of the game, moving each car.
+     */
+    private fun playOneRound() {
+        cars.forEach { it.move() }
+    }
 
 }
 
