@@ -17,6 +17,7 @@ class OutputView {
     }
 
     fun printRoundResult(round: Round) {
+        println()
         val roundResultForOutput = RoundResultDto.of(round).roundResultForOutput
         roundResultForOutput.map { println(it) }
     }
