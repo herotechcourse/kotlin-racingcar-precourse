@@ -2,8 +2,8 @@
 
 ## Features to Implement
 
-- [ ] Validate car name input
-- [ ] Validate round count input
+- [X] Validate car name input
+- [X] Validate round count input
 - [ ] Create Car and RacingGame classes
 - [ ] Move cars based on random number logic
 - [ ] Print race results after each round
