@@ -24,9 +24,9 @@ class RefereeTest {
         val car2 = createCar("b", queueForCarB)
 
         val cars = Cars(listOf(car1, car2))
-        val movedCars = cars.moveAll()
+        cars.moveAll()
 
-        val referee = Referee(movedCars)
+        val referee = Referee(cars)
         // when
         val winner = referee.determineWinner()
         // then
@@ -46,9 +46,9 @@ class RefereeTest {
         val car2 = createCar("b", queueForCarB)
 
         val cars = Cars(listOf(car1, car2))
-        val movedCars = cars.moveAll()
+        cars.moveAll()
 
-        val referee = Referee(movedCars)
+        val referee = Referee(cars)
         // when
         val winner = referee.determineWinner()
         // then

@@ -29,8 +29,8 @@ class RacingController(
 
     private fun playRace(round: Round, cars: Cars) {
         repeat(round.leftRound) {
-            val movedCars = cars.moveAll()
-            outputView.printEachRound(movedCars)
+            cars.moveAll()
+            outputView.printEachRound(cars)
         }
     }
 

@@ -5,16 +5,15 @@ import racingcar.domain.numbergenerator.RandomNumberGenerator
 
 class Car(
     private val name: Name,
-    private val position: Position,
+    private var position: Position,
     private val numberGenerator: NumberGenerator
 ) {
     constructor(name: Name) : this(name, Position(), RandomNumberGenerator())
 
-    fun move(): Car {
+    fun move() {
         if (canMove()) {
-            return Car(name, position.increase(), RandomNumberGenerator())
+            this.position = position.increase()
         }
-        return this
     }
 
     private fun canMove(): Boolean {

@@ -14,8 +14,8 @@ class Cars(val cars: List<Car>) {
         return cars.distinct().size == cars.size
     }
 
-    fun moveAll(): Cars {
-        return Cars(cars.map { it.move() })
+    fun moveAll() {
+        cars.forEach { it.move() }
     }
 
     fun getMaxPosition() = cars.maxOf { it.getPosition() }

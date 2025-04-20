@@ -14,9 +14,9 @@ class CarTest {
         queue.add(4)
         val car = createCar(queue)
         // when
-        val movedCar = car.move()
+        car.move()
         // then
-        assertThat(movedCar.getPosition()).isEqualTo(1)
+        assertThat(car.getPosition()).isEqualTo(1)
     }
 
     @Test
@@ -26,9 +26,9 @@ class CarTest {
         queue.add(3)
         val car = createCar(queue)
         // when
-        val movedCar = car.move()
+        car.move()
         // then
-        assertThat(movedCar.getPosition()).isEqualTo(0)
+        assertThat(car.getPosition()).isEqualTo(0)
     }
 
     @Test

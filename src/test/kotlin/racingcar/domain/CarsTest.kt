@@ -62,11 +62,11 @@ class CarsTest {
 
         val cars = Cars(listOf(car1, car2))
         // when
-        val movedCars = cars.moveAll()
+        cars.moveAll()
         // then
         assertAll(
-            { assertThat(movedCars.cars.first().getPosition()).isEqualTo(0) },
-            { assertThat(movedCars.cars.last().getPosition()).isEqualTo(1) }
+            { assertThat(cars.cars.first().getPosition()).isEqualTo(0) },
+            { assertThat(cars.cars.last().getPosition()).isEqualTo(1) }
         )
     }
 
@@ -83,9 +83,9 @@ class CarsTest {
         val car2 = createCar("b", queueForCarB)
 
         val cars = Cars(listOf(car1, car2))
-        val movedCars = cars.moveAll()
+        cars.moveAll()
         // when
-        val maxPosition = movedCars.getMaxPosition()
+        val maxPosition = cars.getMaxPosition()
         // then
         assertThat(maxPosition).isEqualTo(1)
     }
@@ -103,10 +103,10 @@ class CarsTest {
         val car2 = createCar("b", queueForCarB)
 
         val cars = Cars(listOf(car1, car2))
-        val movedCars = cars.moveAll()
+        cars.moveAll()
         // when
         val maxPosition = 1
-        val carsAtMaxPosition = movedCars.findAllAtPosition(maxPosition)
+        val carsAtMaxPosition = cars.findAllAtPosition(maxPosition)
         // then
         val carNames = carsAtMaxPosition.map { it.getName() }
         assertAll(
