@@ -1,10 +1,8 @@
-package racingcar.io
+package racingcar.io.validation
 
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.TestFactory
-import racingcar.io.validation.InputValidator
 import java.lang.IllegalArgumentException
 
 class InputValidatorTest {
@@ -17,14 +15,14 @@ class InputValidatorTest {
     fun `validateCarNames should return list of valid car names`(){
         val carNames = "pobi, woni, jun"
         val result = InputValidator.validateCarNames(carNames)
-        assertThat(result).containsExactly("pobi", "woni", "jun")
+        Assertions.assertThat(result).containsExactly("pobi", "woni", "jun")
     }
 
     @Test
     fun `validateCarNames should handle whitespaces`(){
         val carNames = " pobi, woni ,  juni"
         val result = InputValidator.validateCarNames(carNames)
-        assertThat(result).containsExactly("pobi", "woni", "juni")
+        Assertions.assertThat(result).containsExactly("pobi", "woni", "juni")
     }
 
     @Test
@@ -56,7 +54,7 @@ class InputValidatorTest {
     fun `validateNumberOfRounds should return valid number`(){
         val numberOfRounds = "5"
         val result = InputValidator.validateNumberOfRounds(numberOfRounds)
-        assertThat(result).isEqualTo(5)
+        Assertions.assertThat(result).isEqualTo(5)
     }
 
     @Test
