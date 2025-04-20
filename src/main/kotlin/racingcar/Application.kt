@@ -27,4 +27,17 @@ class Car(name: String) {
 
 fun main() {
     // TODO: Implement the program
+
+    val testCars = mutableListOf<Car>().apply {
+        add(Car("test"))
+        add(Car("test2"))
+        // 필요하다면 더 추가…
+    }
+
+    for (i in 1..10) {
+        for (car in testCars) {
+            car.runRound()
+            car.printStatus()
+        }
+    }
 }
