@@ -7,24 +7,24 @@ This project is a simple command-line racing car game implemented in **Kotlin**,
 ## Features
 
 ### Game Setup
-- [ ] Prompt the user to input car names (comma-separated).
-- [ ] Prompt the user to input the number of racing rounds.
-- [ ] Validate car names:
+- [x] Prompt the user to input car names (comma-separated).
+- [x] Prompt the user to input the number of racing rounds.
+- [x] Validate car names:
     - Must not be empty.
     - Must not exceed 5 characters.
-- [ ] Validate round input:
+- [x] Validate round input:
     - Must be a positive integer.
 
 ### Game Mechanics
-- [ ] Each car can move forward or stay still in each round.
-- [ ] A car moves forward if a random number (0–9) is **4 or higher**.
-- [ ] Repeat movement logic for the number of rounds specified.
+- [x] Each car can move forward or stay still in each round.
+- [x] A car moves forward if a random number (0–9) is **4 or higher**.
+- [x] Repeat movement logic for the number of rounds specified.
 
 ### Game Output
-- [ ] After each round, display each car’s name and current position using dashes (`-`).
+- [x] After each round, display each car’s name and current position using dashes (`-`).
   - Each `-` represents one successful move forward.
-- [ ] After all rounds are complete, display the winner(s).
-    - [ ] If there’s a tie, display all winners separated by commas.
+- [x] After all rounds are complete, display the winner(s).
+    - [x] If there’s a tie, display all winners separated by commas.
 - Example:
 ```
 Input:
@@ -58,14 +58,14 @@ Winners : pobi, woni, jun
 ```
 
 ### Input Validation & Error Handling
-- [ ] Throw an `IllegalArgumentException` for any invalid input.
-- [ ] The program should terminate upon encountering invalid input.
+- [x] Throw an `IllegalArgumentException` for any invalid input.
+- [x] The program should terminate upon encountering invalid input.
 
 ### Testing
-- [ ] Write unit tests using **JUnit 5** and **AssertJ**.
-- [ ] Test car movement logic.
-- [ ] Test input validation scenarios.
-- [ ] Test winner determination logic.
+- [x] Unit tests using **JUnit 5** and **AssertJ**.
+- [x] Test car movement logic.
+- [x] Test input validation scenarios.
+- [x] Test winner determination logic.
 
 ---
 
@@ -88,3 +88,7 @@ Follow the [AngularJS Git Commit Message Conventions](https://gist.github.com/st
 Example:
 ```bash
 git commit -m "feat: implement car movement based on random number"
+```
+
+## Project Status
+- [x] Full feature set implemented and passing all tests.
