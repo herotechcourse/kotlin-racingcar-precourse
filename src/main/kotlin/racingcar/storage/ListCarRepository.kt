@@ -17,8 +17,9 @@ class ListCarRepository : CarRepository {
         cars.forEach { car -> addCar(car) }
     }
 
-    override fun moveCar(id: Int) {
+    override fun moveCarById(id: Int) {
         var current = carList[id];
         current.moveForward();
     }
+
 }
