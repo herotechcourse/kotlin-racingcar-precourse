@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeT
 import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
@@ -29,13 +30,26 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `empty input test`() {
+        assertSimpleTest {
+            val exception1 = assertThrows<IllegalArgumentException> {
+                runException("\n", "1")
+            }
+            assertEquals("No car names provided.", exception1.message)
+            val exception2 = assertThrows<IllegalArgumentException> {
+                runException("pobi,java", "\n")
+            }
+            assertEquals("No number provided.", exception2.message)
+        }
+    }
+
     @ParameterizedTest
     @ValueSource(strings = [
         "pobi,java,", // trailing comma
         "pobi,,java", ",pobi,java",  // empty names, double comma
         "pobi, java", // space
         "pobi,javaji", // long name
-        "", // empty input
         "pobi", // only 1 name
         "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,x,y,z", // more than 20 names
         "pobi$,java*", // special character
@@ -67,7 +81,6 @@ class ApplicationTest : NsTest() {
         "12 ", // space after
         "1ab", // chars
         "b", // char
-        "" // empty
     ])
     fun `invalid rounds test`(input : String) {
         assertThatIllegalArgumentException().isThrownBy { InputHandler.validateRounds(input) }
