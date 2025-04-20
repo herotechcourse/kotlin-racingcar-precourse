@@ -20,6 +20,13 @@ fun executeSingleRound(listOfCarNames: List<String>, carPositions: MutableMap<St
         if (randomNumber >= 4) {
             carPositions[carName] = carPositions[carName]!! + 1
         }
-        //Todo print each car's progress
+
+        val carProgress = buildCarProgress(carName, carPositions[carName]!!)
+        println(carProgress)
     }
+}
+
+fun buildCarProgress(carName: String, carPosition: Int) :String {
+    val dashes = "-".repeat(carPosition)
+    return "$carName : $dashes"
 }
