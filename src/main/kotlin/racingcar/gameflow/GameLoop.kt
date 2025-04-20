@@ -7,6 +7,11 @@ import racingcar.raceexecution.raceUpdateTrack
 /**
  *  Controls the racing loop
  *  Updates car position and print result using the output module.
+ *
+ *  [ Why did wrap moveCars() with raceUpdateTrack()? ]
+ *  Wrapped moveCars() inside raceUpdateTrack() to express the game flow more clearly.
+ *  While moveCars() handles the mechanics of moving each car,
+ *  raceUpdateTrack() represents the progress of a round in the game loop.
  */
 fun gameLoop(
     cars: List<Car>,
