@@ -15,15 +15,8 @@ object RaceInputHandler {
     }
 
     fun validateCarNames(input: String) {
-        parseCarNames(input)
-    }
+       val names = parseCarNames(input)
 
-
-    private fun parseCarNames(input: String): List<String> {
-        val names = input.split(",").map { it.trim() }
-        if (names.any { it.isEmpty() || it.length > 5 }) {
-            throw IllegalArgumentException ("Car names must be 1 to 5 characters long.")
-        }
         if (names.size < 2) {
             throw IllegalArgumentException(
                 "At least two cars are required - what a race if you're racing alone? :)"
@@ -35,6 +28,14 @@ object RaceInputHandler {
                 "Identity crisis on the track: every car needs its own name. :)"
             )
         }
+        names.forEach { Car(it)}
+    }
+
+
+    private fun parseCarNames(input: String): List<String> {
+        val names = input.split(",").map { it.trim() }
+
+
         return names
     }
 

@@ -7,7 +7,7 @@ class Car (
     private val randomProvider: () -> Int = {Randoms.pickNumberInRange (0,9)}
 ) {
     init {
-        require(name.isNotBlank() && name.length <= 5) { "Car name cannot exceed 5 characters" }
+        require(name.isNotBlank() && name.length <= 5) { "Car name '$name' must be 1-5 characters" }
     }
 
     private var position = 0
