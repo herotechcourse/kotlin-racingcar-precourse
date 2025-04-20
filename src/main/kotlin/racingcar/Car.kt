@@ -9,5 +9,6 @@ data class Car(val name: String, val position: Int = 0) {
 
     private fun isValidNameLength(nameLength: Int): Boolean = nameLength <= 5
 
-    fun move(shouldMove: Boolean): Car = if (shouldMove) this.copy(position = position + 1) else this
+    fun move1(shouldMove: Boolean): Car = if (shouldMove) this.copy(position = position + 1) else this
+    fun move(decision: () -> Boolean): Car = if (decision()) this.copy(position = position + 1) else this
 }

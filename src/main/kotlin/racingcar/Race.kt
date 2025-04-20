@@ -6,7 +6,7 @@ data class Race(
     val shouldMove: Boolean
 ) {
     fun runRound(): List<Car> {
-        return cars.map { it -> it.move(shouldMove) }
+        return cars.map { it -> it.move({ shouldMove }) }
     }
 
     // val shouldMove: Boolean = Randoms.pickNumberInRange(0, 9) >= 4 // Use later

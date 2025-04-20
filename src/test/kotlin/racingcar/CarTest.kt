@@ -16,7 +16,7 @@ class CarTest {
     @Test
     fun `car can move forward`() {
         val initialCar = Car("hero")
-        val movedCar = initialCar.move(true)
+        val movedCar = initialCar.move{ true }
         assertThat(initialCar).isEqualTo(Car("hero", 0))
         assertThat(movedCar).isEqualTo(Car("hero", 1))
     }
@@ -24,7 +24,7 @@ class CarTest {
     @Test
     fun `car can stay still`() {
         val initialCar = Car("hero")
-        val movedCar = initialCar.move(false)
+        val movedCar = initialCar.move{ false }
         assertThat(initialCar).isEqualTo(Car("hero", 0))
         assertThat(movedCar).isEqualTo(Car("hero", 0))
     }
