@@ -49,6 +49,7 @@ class CarRace(carNames: List<Car>, private val nOfRounds: Int) {
 
 
     fun play() {
+        println("Race Results")
         for (i: Int in 1..nOfRounds) {
             this.moveCar()
             println()
