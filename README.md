@@ -22,6 +22,15 @@ If the user inputs invalid data (e.g., empty car names, names exceeding 5 charac
 
 Implement car movement logic where each car moves forward if a randomly generated number between 0 and 9 is 4 or greater.
 
+#### Checklist for Car Movement Logic
+- [x] Define a `Car` class with `name` and `position` attributes.
+- [x] Implement the `move` method in the `Car` class to update the position if the random number is 4 or greater.
+- [x] Create a `RandomNumberGenerator` interface to abstract random number generation.
+- [x] Implement the `DefaultRandomNumberGenerator` class using `Randoms.pickNumberInRange`.
+- [x] Implement the `simulateRace` function to handle multiple rounds of car movement.
+- [x] Implement the `moveCars` function to move all cars in a single round.
+- [x] Write unit tests for the `simulateRace` function using a mock random number generator.
+
 3. Progress Display
 
 Display the progress of each car, showing the car's name alongside its movement.
