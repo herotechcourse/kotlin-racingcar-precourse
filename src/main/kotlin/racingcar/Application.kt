@@ -7,7 +7,7 @@ import racingcar.view.InputRoundCount
 
 fun main() {
     val carNames = InputCarNames.invoke()
-    val cars = Cars.from(carNames)
+    val cars = Cars(carNames)
     val roundCount = InputRoundCount.invoke()
 
     val gameController = GameController(cars, roundCount)
