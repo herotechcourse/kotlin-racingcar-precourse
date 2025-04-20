@@ -26,8 +26,6 @@ fun validateNames(names: List<String>) {
 // Step 1: take a list of names to see if they are
 // valid names by calling the input function - Step2
 fun getNames(): List<String> {
-    // Loop true the name input until the requirements are reached
-
     val names: List<String> = readAndValidateNames() // Calls Step 2
     // if names matched all required rules, it returns the names
     return names
@@ -36,36 +34,28 @@ fun getNames(): List<String> {
 
 // Step 5: ask user input for the number of rounds and validate it by calling Step 6
 fun readRoundNumber(): Int {
-    // Interactive form for the number of round the race should take:
+    // Interactive form for the number of rounds the race should take:
     println("Now, choose how many rounds the competitors should run:")
-    val roundsString = Console.readLine()
-    require(isNumber(roundsString)) { "Invalid round number!" }
+    val roundsInput = Console.readLine()
 
-    val rounds = roundsString.toInt()
-    // Validate the number isn't 0 or null
-    validateRound(rounds) // Calls Step 6
+    // Validates if the input is a number and greater than 0
+    validateRoundInput(roundsInput)
 
-    return rounds
+    return roundsInput.toInt()
 }
 
-fun isNumber(input: String): Boolean {
+fun validateRoundInput(input: String) {
     val integerChars = '0'..'9'
     val result = input.all { it in integerChars }
-    return result
+    require(result) { "Invalid round number!" }
+    require(input.toInt() != 0) { "Number must be greater than zero!" }
 }
 
-// Step 6: validate the number entered by checking the logic requirement
-// if the requirement isn't matched, it sends a correction warning message
-fun validateRound(number: Int) {
-    require(number != 0) { "Number must be greater than zero!" }
-}
-
-// Step 4: take a integer number by calling the input function - Step 5
+// Step 4: take a integer number by calling the readRoundNumber - Step 5
 fun getRound(): Int {
-    // Loop true the number input until the requirement is reached
-
+    // gets validated Input
     val rounds: Int = readRoundNumber() // Calls Step 5
-    // if it matches the requirement it returns the number
+
     return rounds
 }
 
@@ -100,6 +90,7 @@ fun startRace(rounds: Int, competitors: List<Competitor>) {
             competitor.move() // calls the instance move method to move the car
             competitor.printPosition() // calls the instance print method to update user of the progress
         }
+
         // Prints an empty line to separate each round on the console
         println()
     }
