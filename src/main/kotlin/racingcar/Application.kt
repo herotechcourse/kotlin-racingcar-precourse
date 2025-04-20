@@ -2,6 +2,8 @@ package racingcar
 
 fun main() {
     val carNames = inputCarNames()
+    val raceController = RaceController()
+    raceController.startRace(carNames)
 }
 
 fun inputCarNames(): List<String> {
