@@ -6,6 +6,8 @@ import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
 
 class ApplicationTest : NsTest() {
     @Test
@@ -34,5 +36,13 @@ class ApplicationTest : NsTest() {
     companion object {
         private const val MOVING_FORWARD: Int = 4
         private const val STOP: Int = 3
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["", " ", "\n", "\t", "pobi, ", ",", " ,pobi"])
+    fun `should throw exception when car name is blank`(input: String) {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException(input, "1") }
+        }
     }
 }
