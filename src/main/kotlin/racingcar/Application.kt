@@ -6,12 +6,13 @@ fun main() {
     val carNames = splitCarNames(readOneLine())
     validateCarNames(carNames)
 
-    val cars = makeCarList(carNames)
-
     println("How many rounds will be played?")
     val roundNum = parseRoundInput(readOneLine())
     validateRoundNum(roundNum)
 
-    runRace(cars, roundNum)
-    printWinners(cars)
+    val cars = convertToCars(carNames) // Convert string list into Car instance list
+    val race = Race(cars, roundNum)
+
+    race.runRace()
+    race.printWinners()
 }
