@@ -25,6 +25,13 @@ class Game(private val cars: List<Car>, private val rounds: Int) {
     private fun playOneRound() {
         cars.forEach { it.move() }
     }
+    /**
+     * Displays the current position of all cars.
+     */
+    private fun displayProgress() {
+        cars.forEach { println("${it.name}: ${"-".repeat(it.position)}") }
+        println()
+    }
 
 }
 
