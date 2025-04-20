@@ -5,7 +5,6 @@ import racingcar.service.CarRace
 import racingcar.view.GameView
 
 fun main() {
-    // TODO: Implement the program
     val carNames = GameView.readCarNames()
     val rounds = GameView.readRounds()
 

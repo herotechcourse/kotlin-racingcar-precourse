@@ -18,6 +18,4 @@ class Car(val name: String){
     }
 
     fun getPosition():Int = position
-
-
 }

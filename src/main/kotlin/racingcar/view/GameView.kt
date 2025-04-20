@@ -28,6 +28,7 @@ object GameView{
 
     fun printWinners(winners:List<Car>){
         val winnerCars = winners.joinToString(", "){ it.name }
-        println("Winners: $winnerCars")
+
+        println("Winners : $winnerCars")
     }
 }
