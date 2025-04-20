@@ -1,4 +1,5 @@
 package racingcar
+
 import racingcar.view.InputView
 
 fun main() {
