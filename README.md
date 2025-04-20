@@ -19,5 +19,4 @@
 - [ ] After all rounds are done, pick the winner. (If there are multiple winners, print all their names)
 
 ## Exception
-- [ ] Throw IllegalArgumentException if a car name exceeds 5 characters.
-- [ ] Throw IllegalArgumentException for any input that does not meet the requirements.
+- [x] Throw IllegalArgumentException for any input that does not meet the requirements.
