@@ -10,6 +10,10 @@ class Car(val carName: String) {
  // dont allow progress to be set outside car's scope
     var progress: Int = 0
         private set
+
+    fun moveForward() {
+        progress++
+    }
 }
 
 
