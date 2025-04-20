@@ -20,6 +20,23 @@ class ApplicationTest : NsTest() {
         )
     }
 
+    // multi winner test
+    @Test
+    fun `multi winner test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                val result = output()
+                assertThat(result).contains("pobi : -")
+                assertThat(result).contains("woni : -")
+                assertThat(result).contains("Winners : pobi, woni")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD,
+        )
+    }
+
+
     @Test
     fun `exception test`() {
         assertSimpleTest {
