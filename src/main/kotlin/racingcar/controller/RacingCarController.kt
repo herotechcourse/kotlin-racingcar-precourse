@@ -10,8 +10,8 @@ class RacingCarController(
     private val outputView: OutputView,
 ) {
     fun start() {
-        val cars = inputView.receiveCarNamesInput()
-        val numberOfRounds = inputView.receiveNumberOfRounds()
+        val cars = inputView.readCarNames()
+        val numberOfRounds = inputView.readNumberOfRounds()
         val racingGame = RacingGame(cars, DefaultRandomNumberGenerator())
 
         outputView.printRaceResultsMessage()
