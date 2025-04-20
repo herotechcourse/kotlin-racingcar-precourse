@@ -9,6 +9,7 @@ class RaceCars {
 
     fun start() {
         startRaces()
+        race()
     }
 
     private fun startRaces() {
@@ -105,5 +106,11 @@ class RaceCars {
         car.lastPosition = car.position
 
         println("${car.name}: $advancement")
+    }
+
+    private fun race() {
+        for (round in 1..rounds) {
+            eachRound(round)
+        }
     }
 }
