@@ -14,7 +14,6 @@ object OutputView {
         println(RACING_START)
     }
 
-    // TO-DO: Refactor separate for "-"
     fun printCarNamesAndProcess(carNames: List<String>, progressList: List<List<Int>>) {
         progressList.forEach { eachRoundProgress ->
             carNames.withIndex().forEach { (index, carName) ->
@@ -28,4 +27,3 @@ object OutputView {
         println("$WINNERS_MESSAGE_PREFIX ${winners.joinToString()}")
     }
 }
-
