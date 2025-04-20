@@ -28,7 +28,7 @@ object Names {
     throwErrorIf(
         carList.any { !it.matches(Regex("^[a-z0-9]{1,5}$")) },
         "Names.validate(): invalid characters or length in car names found at positions ${
-        carList.mapIndexedNotNull { index, name -> if (!name.matches(Regex("^[a-zA-Z0-9]{1,5}$"))) index else null }
+        carList.mapIndexedNotNull { index, name -> if (!name.matches(Regex("^[a-z0-9]{1,5}$"))) index else null }
       } only lowercase letters and numbers allowed.")
   }
 }
