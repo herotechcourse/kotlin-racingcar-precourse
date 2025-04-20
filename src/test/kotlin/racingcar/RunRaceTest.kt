@@ -12,7 +12,7 @@ class RunRaceTest : NsTest() {
         val rounds = 3
 
         assertSimpleTest {
-            runRace(cars, rounds)
+            Race(cars, rounds).runRace()
             val output = output()
 
             check(output.contains("Race Results"))

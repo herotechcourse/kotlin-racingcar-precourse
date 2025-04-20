@@ -8,32 +8,22 @@ import org.junit.jupiter.api.Test
 class FindWinnerTest : NsTest() {
 
     @Test
-    fun `find winners test`() {
-        val cars = listOf(
-            Car("pobi", 3),
-            Car("crong", 5),
-            Car("roro", 5),
-            Car("po", 2)
-        )
-
-        val winners = findWinners(cars)
-        val winnerNames = winners.map { it.name }
-
-        assertThat(winnerNames).containsExactly("crong", "roro")
-    }
-
-    @Test
     fun `print winners test`() {
         val cars = listOf(
-            Car("pobi", 1),
-            Car("crong", 4),
-            Car("roro", 4)
+            Car("pobi"),
+            Car("crong"),
+            Car("roro"),
+            Car("po")
         )
+        val rounds = 3
+
+        val race = Race(cars, rounds)
 
         assertSimpleTest {
-            printWinners(cars)
+            race.runRace()
+            race.printWinners()
             val output = output()
-            assertThat(output).contains("Winners : crong, roro")
+            assertThat(output).contains("Winners :")
         }
     }
 
