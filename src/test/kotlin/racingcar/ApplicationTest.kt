@@ -66,4 +66,20 @@ class ApplicationTest : NsTest() {
             assertThrows<IllegalArgumentException> { runException("pobi", "1") }
         }
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = [""," ", "\n", "\t", "a", "%", "3 "])
+    fun `should throw exception when round input is not a valid number`(input: String) {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,woni,jun", input,"") }
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["-1", "0"])
+    fun `should throw exception when round is not positive`(input: String) {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,woni,jun", input) }
+        }
+    }
 }
