@@ -15,4 +15,5 @@ object Constant {
     // Error Message
     const val CAR_NAME_EXCEED_ERROR_MESSAGE = "[ERROR] A car name cannot exceed 5 characters"
     const val CAR_NAME_CANNOT_BLANK_ERROR_MESSAGE = "[ERROR] A car name cannot be blank"
+    const val ROUND_COUNT_TYPE_ERROR_MESSAGE = "[ERROR] The number of rounds must be a positive integer"
 }

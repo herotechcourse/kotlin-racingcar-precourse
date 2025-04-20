@@ -3,6 +3,7 @@ package racingcar.view
 import racingcar.util.Constant.CAR_NAME_DELIMITER
 import racingcar.util.Constant.CAR_NAME_MESSAGE
 import racingcar.util.Constant.ROUND_COUNT_MESSAGE
+import racingcar.util.Exceptions.validateInteger
 
 class InputView {
     fun inputCarNames(): List<String> {
@@ -12,6 +13,6 @@ class InputView {
 
     fun inputRoundCount(): Int {
         println(ROUND_COUNT_MESSAGE)
-        return readln().toInt()
+        return readln().also { it.validateInteger() }.toInt()
     }
 }
