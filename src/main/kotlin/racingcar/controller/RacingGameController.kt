@@ -14,6 +14,9 @@ class RacingGameController {
         val carNames = readAndValidateCarNames()
         val rounds = readAndValidateRounds()
 
+        println()
+        println("Race Results")
+
         val cars = Cars(carNames.map { Car(it) })
         val race = Race(cars, rounds)
 
