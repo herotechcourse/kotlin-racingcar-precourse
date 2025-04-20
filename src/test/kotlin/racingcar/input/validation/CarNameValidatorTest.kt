@@ -1,9 +1,11 @@
-package racingcar.validation;
+package racingcar.input.validation;
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
+import racingcar.input.validation.INVALID_LENGTH_MSG
+import racingcar.input.validation.validateCarName
 
 private const val VALID_CAR_NAME = "Car";
 private const val EMPTY_CAR_NAME = "";
