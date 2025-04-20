@@ -3,9 +3,10 @@ package racingcar
 const val MAX_NAME_LENGTH = 5
 const val MIN_ROUNDS = 1
 
+
 class InputValidator(private val carString: String, private val noOfRounds: Int) {
     fun validateCarNames(): List<String>{
-        val carNames = carString.split(",").map { it.trim() }.filter { it.isNotEmpty() }?: emptyList()
+        val carNames = carString.split(",").map { it.trim() }.filter { it.isNotEmpty() }
         // Check if the list is empty – there should be at least one car name provided
         if (carNames.isEmpty()) {
             throw IllegalArgumentException("At least one car name must be provided")

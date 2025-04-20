@@ -6,6 +6,13 @@ import org.junit.jupiter.api.assertThrows
 
 class InputValidatorTest {
     @Test
+    fun `valid car names test`() {
+        val validator = InputValidator("car1, car2, car3", 3)
+        val carNames = validator.validateCarNames()
+        assert(listOf("car1", "car2", "car3") == carNames)
+    }
+
+    @Test
     fun `no car name exception test`(){
         val validator = InputValidator("", 5)
         val exception = assertThrows<IllegalArgumentException> { validator.validateCarNames() }

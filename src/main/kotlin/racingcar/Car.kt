@@ -1,6 +1,7 @@
 package racingcar
 
-class Car(val carName: String) {
+
+class Car(private val carName: String) {
     private var position: Int = 0
 
     fun getName(): String {

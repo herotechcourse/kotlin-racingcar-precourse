@@ -2,9 +2,9 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class RacingGame(carNames: List<String>, noOfRounds: Int) {
+
+class RacingGame(carNames: List<String>, private val noOfRounds: Int) {
     private val cars: List<Car> = carNames.map { Car(it) }
-    private val noOfRounds = noOfRounds
 
     fun startGame() {
         println("Race Results")

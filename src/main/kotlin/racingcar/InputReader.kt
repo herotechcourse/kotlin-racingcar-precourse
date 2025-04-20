@@ -2,6 +2,7 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Console
 
+
 object InputReader {
     fun getCarName(): String {
         // Ask user to input car names
