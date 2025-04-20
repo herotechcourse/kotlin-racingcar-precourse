@@ -7,7 +7,7 @@ class Input {
         println("Enter the names of the cars (comma-separated):");
         val carNameInput = Console.readLine();
         validateSpecialCharacter(carNameInput);
-        val carNames = carNameInput.split(",");
+        val carNames = carNameInput.replace(" ", "").split(",");
         validateBlankName(carNames);
         validateNameLength(carNames);
         validateDuplicateName(carNames);
