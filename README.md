@@ -35,4 +35,4 @@
 	[*] Input validation test
 	[*] Car class test
 	[*] Race simulation test
-	[ ] Display test
+	[*] Display test
