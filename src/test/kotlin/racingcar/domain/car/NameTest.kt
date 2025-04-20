@@ -14,7 +14,7 @@ class NameTest {
         // when & then
         assertThatThrownBy { Name(name) }
             .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessage("[ERROR] Car name must only contain alphabets.")
+            .hasMessage("[ERROR] Car name must only contain alphabets and commas.")
     }
 
     @Test

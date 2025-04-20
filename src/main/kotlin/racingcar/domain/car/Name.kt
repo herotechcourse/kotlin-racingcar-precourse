@@ -27,6 +27,6 @@ class Name(val name: String) {
 
         private const val NAME_LENGTH_OUT_OF_RANGE_ERROR: String =
             "[ERROR] Car name length must be between $MIN_LENGTH and $MAX_LENGTH."
-        private const val INVALID_NAME_ERROR: String = "[ERROR] Car name must only contain alphabets."
+        private const val INVALID_NAME_ERROR: String = "[ERROR] Car name must only contain alphabets and commas."
     }
 }
