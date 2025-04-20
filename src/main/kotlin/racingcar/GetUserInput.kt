@@ -20,11 +20,11 @@ private fun validateCarsCount(names: List<String>) {
     if (names.size <= 1) throw IllegalArgumentException("There must be more than one car")
 }
 
-fun getUserInputRounds(): UInt {
+fun getUserInputRounds(): Int {
     println("Number of rounds:")
     val numRounds =
             try {
-                Console.readLine().toUInt()
+                Console.readLine().toInt()
             } catch (error: Throwable) {
                 throw IllegalArgumentException("Input must be a positive integer")
             }
@@ -32,9 +32,7 @@ fun getUserInputRounds(): UInt {
     return numRounds
 }
 
-private fun validateRoundsCount(rounds: UInt) {
-    when {
-        rounds == 0u -> throw IllegalArgumentException("Number of rounds must be positive")
-        rounds > maxRounds -> throw IllegalArgumentException("Maximum tounds exceeded")
-    }
+private fun validateRoundsCount(rounds: Int) {
+    require(rounds > 0) { "Number of rounds must be positive" }
+    require(rounds <= maxRounds) { "Maximum rounds is $maxRounds" }
 }
