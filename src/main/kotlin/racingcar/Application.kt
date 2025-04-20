@@ -1,5 +1,11 @@
 package racingcar
 
-fun main() {
-    // TODO: Implement the program
-}
+class Application {
+    companion object {
+      @JvmStatic
+      fun main(args: Array<String>) {
+        println("Racing game starting soon...")
+      }
+    }
+  }
+  
