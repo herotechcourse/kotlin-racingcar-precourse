@@ -6,8 +6,8 @@
 - [x] Implement Car class (name must be non-blank, must not exceed 5 characters)
 
 ### Input
-- [ ] Get car names from the user, separated by commas.
-- [ ] Get the number of race rounds. (race rounds must exceed 0)
+- [x] Get car names from the user, separated by commas.
+- [x] Get the number of race rounds. (race rounds must exceed 0)
 
 ### Racing
 - [ ] Generate a random number between 0~9 for each car.
