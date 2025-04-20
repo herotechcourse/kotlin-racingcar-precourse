@@ -3,6 +3,7 @@ package racingcar.io
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.TestFactory
 import racingcar.io.validation.InputValidator
 import java.lang.IllegalArgumentException
 
@@ -50,4 +51,35 @@ class InputValidatorTest {
         assertThrows<IllegalArgumentException> { InputValidator.validateCarNames(carNames) }
     }
 
+    //############################ Test for numberOfRounds ############################
+    @Test
+    fun `validateNumberOfRounds should return valid number`(){
+        val numberOfRounds = "5"
+        val result = InputValidator.validateNumberOfRounds(numberOfRounds)
+        assertThat(result).isEqualTo(5)
+    }
+
+    @Test
+    fun `validateNumberOfRounds should throw IllegalArgumentException for empty input`(){
+        val numberOfRounds = ""
+        assertThrows<IllegalArgumentException> { InputValidator.validateNumberOfRounds(numberOfRounds) }
+    }
+
+    @Test
+    fun `validateNumberOfRounds should throw IllegalArgumentException for numeric input`(){
+        val numberOfRounds = "notAllowed:/"
+        assertThrows<IllegalArgumentException> { InputValidator.validateNumberOfRounds(numberOfRounds) }
+    }
+
+    @Test
+    fun `validateNumberOfRounds should throw IllegalArgumentException for less than 1 round`(){
+        val numberOfRounds = "0"
+        assertThrows<IllegalArgumentException> { InputValidator.validateNumberOfRounds(numberOfRounds) }
+    }
+
+    @Test
+    fun `validateNumberOfRounds should throw IllegalArgumentException for negative input`(){
+        val numberOfRounds = "-5"
+        assertThrows<IllegalArgumentException> { InputValidator.validateNumberOfRounds(numberOfRounds) }
+    }
 }
