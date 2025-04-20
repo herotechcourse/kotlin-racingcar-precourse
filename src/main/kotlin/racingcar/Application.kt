@@ -26,6 +26,9 @@ fun main() {
         throw IllegalArgumentException("Invalid number of rounds.")
     }
 
-    // TEMP output to test
-    println("Rounds to play: $rounds")
+    // Start the game
+    val game = RacingGame(cars)
+    game.play(rounds)
+
+    // TODO: Display winner(s)
 }
