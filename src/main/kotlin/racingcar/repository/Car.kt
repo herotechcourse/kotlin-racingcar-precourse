@@ -4,9 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms
 
 private const val RANDOM_THRESHOLD = 4;
 
-class Car(val name: String) {
+class Car(private val name: String) {
     private var distance: Int = 0
-
 
     fun moveForwardRandomly(): Int{
         if(shouldMoveForward())
@@ -29,7 +28,6 @@ class Car(val name: String) {
     private fun moveForward() {
         distance++;
     }
-
 
     private fun shouldMoveForward(): Boolean {
         return generateNumber() >= RANDOM_THRESHOLD;
