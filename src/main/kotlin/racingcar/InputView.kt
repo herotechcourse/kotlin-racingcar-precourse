@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console
 
 object InputView {
     fun readCarNames(): List<String> {
-        println("Enter the names of the cars (separated by commas):")
+        println("Enter the names of the cars (comma-separated):")
         val input = Console.readLine()
         return input.split(",").map { name ->
             val trimmedName = name.trim()
@@ -16,8 +16,8 @@ object InputView {
     }
 
     fun readNumberOfRounds(): Int {
-        println("Enter the number of attempts:")
+        println("How many rounds will be played?")
         return Console.readLine().toIntOrNull()
-            ?: throw IllegalArgumentException("The number of rounds must be a valid number.")
+            ?: throw IllegalArgumentException()
     }
 }
