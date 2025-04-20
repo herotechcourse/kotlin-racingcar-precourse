@@ -3,7 +3,7 @@ package racingcar
 class Race (private val cars: List<Car>, private val numberOfRounds: Int){
     fun startRace() {
         println("Race Results")
-        for (round in 1..numberOfRounds) {
+        repeat (numberOfRounds) {
             for (car in cars) {
                 car.moveCar()
             }
