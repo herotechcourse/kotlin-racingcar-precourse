@@ -37,8 +37,10 @@ data class Car(val name: String, var position: Int = 0) {
 
 // simulateRace helps to simulate the car race
 fun simulateRace(cars: List<Car>, rounds: Int, generator: RandomNumberGenerator) {
-    repeat(rounds) {
+    repeat(rounds) { round ->
         moveCars(cars, generator)
+        displayProgress(cars) // Display progress after each round
+        println()
     }
 }
 
@@ -82,7 +84,8 @@ fun main() {
         simulateRace(cars, rounds, randomNumberGenerator)
 
         // Step 4: Display Progress
-        displayProgress(cars)
+//        println("Race Results:")
+//        displayProgress(cars)
     } catch (e: IllegalArgumentException) {
         // Handle invalid input by displaying an error message
         println("Error: ${e.message}")
