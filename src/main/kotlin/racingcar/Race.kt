@@ -1,6 +1,6 @@
 package racingcar
 
-import racingcar.Car
+import camp.nextstep.edu.missionutils.Randoms
 
 class Race(private val cars: List<Car>, private val rounds: Int) {
     fun start() {
@@ -24,12 +24,12 @@ class Race(private val cars: List<Car>, private val rounds: Int) {
 
     private fun announceWinners() {
         println("\nFinal Result")
-        val maxPosition = cars.maxOf { it.position }
+        val maxPosition = cars.maxOf { car -> car.position }
         val winners = cars.filter { it.position == maxPosition }
-        println("Winners : ${winners.joinToString(", ") { it.name }}")
+        println("Winners : ${winners.joinToString(", ") { car -> car.name }}")
     }
 
     private fun randomNumberGenerator(): Int {
-        return (0..9).random()
+        return Randoms.pickNumberInRange(0, 9)
     }
 }
