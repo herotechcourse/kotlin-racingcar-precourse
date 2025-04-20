@@ -18,7 +18,7 @@ object OutputView {
 
     fun printWinners(winners: List<Car>) {
         val winnersNames = winners.joinToString(", ") {it.name}
-        println("Winners: $winnersNames")
+        println("Winners : $winnersNames")
     }
 
     fun printError(message: String) {

@@ -7,7 +7,6 @@ import racingcar.view.OutputView
 
 class RaceController {
     fun play() {
-        try {
             val carNames = InputView.getCarNames()
             val rounds = InputView.getRoundCounts()
 
@@ -17,9 +16,6 @@ class RaceController {
             OutputView.printRaceIntro()
             runRace(race)
             announceWinners(race)
-        } catch (e: IllegalArgumentException) {
-            OutputView.printError(e.message ?: "An error is occurred")
-        }
     }
 
     private fun runRace(race: Race) {

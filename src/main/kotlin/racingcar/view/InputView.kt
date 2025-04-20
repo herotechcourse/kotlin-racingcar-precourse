@@ -1,6 +1,7 @@
 package racingcar.view
 
 import camp.nextstep.edu.missionutils.Console
+import racingcar.exception.ExceptionMessage
 import racingcar.model.Constants
 import racingcar.service.InputValidator
 
@@ -19,7 +20,7 @@ object InputView {
         val rounds = try {
             input.toInt()
         } catch (e: NumberFormatException) {
-            throw IllegalArgumentException("[ERROR] Round count must be a positive number")
+            throw IllegalArgumentException(ExceptionMessage.INVALID_ROUND_COUNT.message)
         }
         InputValidator.validateRounds(rounds)
         return rounds
