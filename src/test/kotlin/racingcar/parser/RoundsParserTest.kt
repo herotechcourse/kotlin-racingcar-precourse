@@ -9,11 +9,12 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 
 class RoundsParserTest {
+    private val roundsParser = RoundsParser()
     @Test
     @DisplayName("Valid number of rounds should be parsed correctly")
     fun parseValidRounds() {
         val validInput = "14"
-        val result = RoundsParser.parse(validInput)
+        val result = roundsParser.parse(validInput)
         assertThat(result).isEqualTo(14)
     }
 
@@ -22,7 +23,7 @@ class RoundsParserTest {
     fun throwExceptionForEmptyInput() {
         val input = ""
         val exception = assertThrows<IllegalArgumentException> {
-            RoundsParser.parse(input)
+            roundsParser.parse(input)
         }
         assertEquals("The number of rounds cannot be empty and must be a valid number", exception.message)
     }
@@ -32,7 +33,7 @@ class RoundsParserTest {
     @DisplayName("Throw exception for rounds less than 1")
     fun throwExceptionTooSmallRounds(invalidInput: String) {
         val exception = assertThrows<IllegalArgumentException> {
-            RoundsParser.parse(invalidInput)
+            roundsParser.parse(invalidInput)
         }
         assertThat(exception.message).isEqualTo("Rounds must be more than 0")
     }
@@ -42,7 +43,7 @@ class RoundsParserTest {
     @DisplayName("Throw exception for rounds more than 15")
     fun throwExceptionForTooLargeRounds(invalidInput: String) {
         val exception = assertThrows<IllegalArgumentException> {
-            RoundsParser.parse(invalidInput)
+            roundsParser.parse(invalidInput)
         }
         assertThat(exception.message).isEqualTo("Rounds must be less than 15")
     }
@@ -52,7 +53,7 @@ class RoundsParserTest {
     @DisplayName("Throw exception for non-numeric input")
     fun parseNonNumericRounds(invalidInput: String) {
         val exception = assertThrows<IllegalArgumentException> {
-            RoundsParser.parse(invalidInput)
+            roundsParser.parse(invalidInput)
         }
         assertThat(exception.message).isEqualTo("Rounds must be a number")
     }

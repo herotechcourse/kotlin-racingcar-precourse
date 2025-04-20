@@ -6,12 +6,13 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 class CarNameParserTest {
+    private val carNameParser = CarNameParser()
 
     @Test
     @DisplayName("Parse comma separated car names correctly")
     fun parseCommaSeperatedCarNames() {
         val input = "joko,anis,bowo"
-        val result = CarNameParser.parse(input)
+        val result = carNameParser.parse(input)
         assertEquals(3, result.size)
         assertEquals("joko", result[0])
         assertEquals("anis", result[1])
@@ -22,7 +23,7 @@ class CarNameParserTest {
     @DisplayName("Parse a single car name correctly")
     fun parseSingleCarName() {
         val input = "joko"
-        val result = CarNameParser.parse(input)
+        val result = carNameParser.parse(input)
         assertEquals(1, result.size)
         assertEquals("joko", result[0])
     }
@@ -32,7 +33,7 @@ class CarNameParserTest {
     fun throwExceptionForEmptyInput() {
         val input = ""
         val exception = assertThrows<IllegalArgumentException> {
-            CarNameParser.parse(input)
+            carNameParser.parse(input)
         }
 
         assertEquals("Car names cannot be empty", exception.message)
@@ -43,7 +44,7 @@ class CarNameParserTest {
     fun throwExceptionForBlankInput() {
         val input = "   "
         val exception = assertThrows<IllegalArgumentException> {
-            CarNameParser.parse(input)
+            carNameParser.parse(input)
         }
 
         assertEquals("Car names cannot be empty", exception.message)
@@ -54,7 +55,7 @@ class CarNameParserTest {
     fun throwExceptionForSpaceSeperatedNames() {
         val input = "joko anis bowo"
         val exception = assertThrows<IllegalArgumentException> {
-            CarNameParser.parse(input)
+            carNameParser.parse(input)
         }
 
         assertEquals("Multiple car names must be separated by commas, not spaces", exception.message)
@@ -64,7 +65,7 @@ class CarNameParserTest {
     @DisplayName("Handle whitespace around input")
     fun handleSpacesAroundCommas() {
         val input = " joko, anis , bowo "
-        val result = CarNameParser.parse(input)
+        val result = carNameParser.parse(input)
         assertEquals(3, result.size)
         assertEquals("joko", result[0])
         assertEquals("anis", result[1])
@@ -76,7 +77,7 @@ class CarNameParserTest {
     fun throwExceptionForEmptyCarName() {
         val input = "joko,,anis"
         val exception = assertThrows<IllegalArgumentException> {
-            CarNameParser.parse(input)
+            carNameParser.parse(input)
         }
 
         assertEquals("Car name cannot be blank", exception.message)
@@ -87,7 +88,7 @@ class CarNameParserTest {
     fun throwExceptionForLongCarName() {
         val input = "joko,gibran,bowo"
         val exception = assertThrows<IllegalArgumentException> {
-            CarNameParser.parse(input)
+            carNameParser.parse(input)
         }
 
         assertEquals("Car name cannot exceed 5 characters", exception.message)
@@ -96,9 +97,10 @@ class CarNameParserTest {
     @Test
     @DisplayName("Throw exception for duplicate car names")
     fun throwExceptionForDuplicateCarName() {
+
         val input = "joko,anis,joko"
         val exception = assertThrows<IllegalArgumentException> {
-            CarNameParser.parse(input)
+            carNameParser.parse(input)
         }
 
         assertEquals("Duplicated car name : joko", exception.message)
