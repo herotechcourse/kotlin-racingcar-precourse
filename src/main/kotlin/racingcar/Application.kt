@@ -27,27 +27,31 @@ fun validateNames(names: List<String>) {
 // valid names by calling the input function - Step2
 fun getNames(): List<String> {
     // Loop true the name input until the requirements are reached
-    while (true) {
-        try {
-            val names: List<String> = readAndValidateNames() // Calls Step 2
-            // if names matched all required rules, it returns the names
-            return names
-        } catch (e: IllegalArgumentException) {
-            // if names doesn't match any requirement, it prints the error
-            println("Error: ${e.message}\nPlease try again.")
-        }
-    }
+
+    val names: List<String> = readAndValidateNames() // Calls Step 2
+    // if names matched all required rules, it returns the names
+    return names
+
 }
 
 // Step 5: ask user input for the number of rounds and validate it by calling Step 6
 fun readRoundNumber(): Int {
     // Interactive form for the number of round the race should take:
     println("Now, choose how many rounds the competitors should run:")
-    val rounds = Console.readLine().toInt()
+    val roundsString = Console.readLine()
+    require(isNumber(roundsString)) { "Invalid round number!" }
 
+    val rounds = roundsString.toInt()
     // Validate the number isn't 0 or null
     validateRound(rounds) // Calls Step 6
+
     return rounds
+}
+
+fun isNumber(input: String): Boolean {
+    val integerChars = '0'..'9'
+    val result = input.all { it in integerChars }
+    return result
 }
 
 // Step 6: validate the number entered by checking the logic requirement
@@ -59,15 +63,45 @@ fun validateRound(number: Int) {
 // Step 4: take a integer number by calling the input function - Step 5
 fun getRound(): Int {
     // Loop true the number input until the requirement is reached
-    while (true) {
-        try {
-            val rounds: Int = readRoundNumber() // Calls Step 5
-            // if it matches the requirement it returns the number
-            return rounds
-        } catch (e: IllegalArgumentException) {
-            // if the number doesn't match the requirement, it prints the error
-            println("Error: ${e.message}\nPlease try again.")
+
+    val rounds: Int = readRoundNumber() // Calls Step 5
+    // if it matches the requirement it returns the number
+    return rounds
+}
+
+// Create a class to save the competitors progress
+class Competitor(val name: String) {
+    var position: Int = 0
+
+    // each competitor is responsible for their owm progress
+    fun move() {
+        val randomNumber = Randoms.pickNumberInRange(0, 9) // pick a random number
+        val shouldMove = randomNumber >= 4 // check if the number represents a movement
+
+        if (shouldMove) {
+            position++  // Adds 1 to the current position
         }
+    }
+
+    // each competitor will display their own results
+    fun printPosition() {
+        print("$name : ")
+        repeat(position) { print("-") }
+        println()
+    }
+}
+
+// Runs the game logic
+fun startRace(rounds: Int, competitors: List<Competitor>) {
+    // Repeat the number of rounds
+    repeat(rounds) { round ->
+        // Iterates with each competitor instance
+        competitors.forEach { competitor ->
+            competitor.move() // calls the instance move method to move the car
+            competitor.printPosition() // calls the instance print method to update user of the progress
+        }
+        // Prints an empty line to separate each round on the console
+        println()
     }
 }
 
@@ -84,38 +118,10 @@ fun main() {
     println("The competitors will run $rounds rounds")
 
     // GAME FEATURES
-    // Create a class to save the competitors progress
-    class Competitor(val name: String) {
-        var position: Int = 0
-
-        fun move() {
-            val randomNumber = Randoms.pickNumberInRange(0, 9) // pick a random number
-            val shouldMove = randomNumber >= 4 // check if the number represents a movement
-
-            if (shouldMove) {
-                position++  // Adds 1 to the current position
-            }
-        }
-
-        fun printPosition() {
-            print("$name : ")
-            repeat(position) { print("-") }
-            println()
-        }
-    }
-
     // Save the car names as instances of the Competitors constructor.
     val competitors = carNames.map { Competitor(it) }
 
-    // Function to print the cars progress in each round
-    repeat(rounds) { round ->
-        // Iterates with each competitor instance
-        competitors.forEach { competitor ->
-            competitor.move() // calls the instance move method to move the car
-            competitor.printPosition() // calls the instance print method to update user of the progress
-        }
-        // Prints an empty line to separate each round on the console
-        println()
-    }
+    // Calls the logic to run the game
+    startRace(rounds, competitors)
 
 }
