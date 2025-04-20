@@ -2,8 +2,11 @@
 
 ## Features
 
+### Car class
+- [ ] Implement Car class (name must be non-blank, must not exceed 5 characters)
+
 ### Input
-- [ ] Get car names from the user, separated by commas. (car name must not exceed 5 characters)
+- [ ] Get car names from the user, separated by commas.
 - [ ] Get the number of race rounds. (race rounds must exceed 0)
 
 ### Racing
