@@ -1,6 +1,6 @@
 # kotlin-racingcar-precourse
 
-A simple car racing game will be implemented to complete Delivery Hero Precourse Task 1.
+A simple car racing game is implemented to complete Hero Tech Course Precourse Task 1.
 
 ### Overview
 
@@ -15,6 +15,7 @@ In case of a tie, multiple winners will be displayed.
   - Must be comma-separated 
   - Each car must include a name
   - Each car name must not exceed 5 characters
+  - Each car must have a unique name
 - Accept the number of rounds entered by the user
   - Must be a positive integer
 - Generate a random number between 0 and 9 for each car in each round
@@ -24,3 +25,10 @@ In case of a tie, multiple winners will be displayed.
 - Display the winner(s) when the race is complete
   - For races containing multiple winners, car names must be comma-separated
 - Throw an `IllegalArgumentException` and terminate the program if any input is invalid
+
+### Programming Requirements
+The program must be executable with Kotlin 1.9.24
+
+
+### Testing/Unit Testing
+Unit tests are implemented using JUnit and AssertJ.

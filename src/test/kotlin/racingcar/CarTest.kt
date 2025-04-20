@@ -7,7 +7,7 @@ class CarTest {
     fun `car forward moves test`(){
         val testCar = Car("car1")
         assert(testCar.getPosition() == 0)
-        testCar.moveForward(8)
+        testCar.moveForward(MOVING_FORWARD)
         assert(testCar.getPosition() == 1)
     }
 
@@ -15,7 +15,7 @@ class CarTest {
     fun `car stays still test`(){
         val testCar = Car("car1")
         assert(testCar.getPosition() == 0)
-        testCar.moveForward(2)
+        testCar.moveForward(STOP)
         assert(testCar.getPosition() == 0)
     }
 
@@ -24,5 +24,10 @@ class CarTest {
         val testCar = Car("car1")
         testCar.moveForward(5)
         assert(testCar.getPositionStatus() == "car1 : -")
+    }
+
+    companion object {
+        private const val MOVING_FORWARD: Int = 4
+        private const val STOP: Int = 3
     }
 }
