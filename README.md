@@ -7,5 +7,5 @@
 - [X] Create Car and RacingGame classes
 - [X] Move cars based on random number logic
 - [X] Print race results after each round
-- [ ] Determine and print winners
+- [X] Determine and print winners
 - [ ] Handle invalid input exceptions

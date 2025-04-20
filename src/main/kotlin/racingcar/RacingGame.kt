@@ -17,6 +17,7 @@ class RacingGame(private val cars: List<Car>) {
             playRound()
             printRound()
         }
+        printWinners()
     }
 
     private fun printRound() {
@@ -24,6 +25,14 @@ class RacingGame(private val cars: List<Car>) {
             println("${car.name} : ${car.getProgress()}")
         }
         println()
+    }
+
+    private fun printWinners() {
+        val maxPosition = cars.maxOf { it.position }
+        val winners = cars.filter { it.position == maxPosition }
+            .joinToString(", ") { it.name }
+
+        println("Winners : $winners")
     }
 
     fun getCars(): List<Car> = cars
