@@ -1,15 +1,18 @@
 package racingcar
 import racingcar.controller.GameController
 import racingcar.domain.Cars
-import racingcar.view.InputCarNames
-import racingcar.view.InputRoundCount
+import racingcar.service.InputService
+import racingcar.service.OutputService
 
 
 fun main() {
-    val carNames = InputCarNames.invoke()
-    val cars = Cars(carNames)
-    val roundCount = InputRoundCount.invoke()
+    val inputService = InputService()
+    val outputService = OutputService()
 
-    val gameController = GameController(cars, roundCount)
+    val carNames = inputService.readCarNames()
+    val cars = Cars(carNames)
+    val roundCount = inputService.readRoundCount()
+
+    val gameController = GameController(cars, roundCount, outputService)
     gameController.startGame()
 }
