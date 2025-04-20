@@ -23,3 +23,9 @@ A Kotlin implementation of a simple racing car game.
 
 - Strict requirements
 	- Program terminates on invalid input (per specification)
+
+## Car Class
+
+- Create a car class 
+	- Name
+	- Number of moves
