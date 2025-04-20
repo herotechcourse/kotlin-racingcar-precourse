@@ -31,7 +31,7 @@ object RaceInputHandler {
     }
 
 
-    private fun parseCarNames(input: String): List<String>  =
+    internal fun parseCarNames(input: String): List<String>  =
          input.split(",").map { it.trim() }
 
 
