@@ -20,8 +20,4 @@ object OutputView {
         val winnersNames = winners.joinToString(", ") {it.name}
         println("Winners : $winnersNames")
     }
-
-    fun printError(message: String) {
-        println(message)
-    }
 }
