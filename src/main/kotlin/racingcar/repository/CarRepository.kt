@@ -1,4 +1,4 @@
-package racingcar.storage
+package racingcar.repository
 
 interface CarRepository {
     fun addCar(name: String)

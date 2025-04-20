@@ -1,3 +1,3 @@
-package racingcar.storage.exception;
+package racingcar.repository.exception;
 
 class DuplicateCarException(name: String) : RuntimeException("Car '$name' already exists in the storage")
