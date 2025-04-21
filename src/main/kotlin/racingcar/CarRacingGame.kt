@@ -18,5 +18,14 @@ class CarRacingGame {
 
   fun start() {
     val carNames = readCarNames()
-    println("Cars: $carNames")
+    val rounds = readRounds()
+    println("Number of rounds: $rounds")
+  }
+
+  private fun readRounds(): Int {
+    println("Enter number of rounds:")
+    val input = readLine() ?: throw IllegalArgumentException("Input cannot be null")
+    val rounds = input.toIntOrNull() ?: throw IllegalArgumentException("Must enter a valid number.")
+    if (rounds <= 0) throw IllegalArgumentException("Rounds must be greater than zero.")
+    return rounds
   }
