@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test
 
 class CarTest {
     @Test
-    fun `Throw IllegalArgumentException when carName is blank`() {
+    fun `car name cannot be blank`() {
         assertThrows(IllegalArgumentException::class.java) {
             Car("   ")
         }
     }
 
     @Test
-    fun `Throw IllegalArgumentException when carName exceed 5`() {
+    fun `car name cannot exceed 5 characters`() {
         assertThrows(IllegalArgumentException::class.java) {
             Car("abcdef")
         }
