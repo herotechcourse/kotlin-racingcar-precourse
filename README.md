@@ -20,3 +20,14 @@
 
 ## Exception
 - [x] Throw IllegalArgumentException for any input that does not meet the requirements.
+
+## Test
+
+- [x] Prints correct winner when the race is complete
+- [x] Does not move if random number is less than 4
+- [x] Moves forward when random number is 4 or more
+- [x] Prints all winners when multiple cars win
+- [x] Throws IllegalArgumentException when:
+    - Car name is blank
+    - Car name exceeds 5 characters
+    - Round number is 0
