@@ -28,7 +28,8 @@ class ApplicationTest : NsTest() {
     }
 
     override fun runMain() {
-        main()
+//        main()
+        Application.main()
     }
 
     companion object {

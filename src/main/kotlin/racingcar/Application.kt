@@ -2,12 +2,17 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
-fun main() {
-    val cars = promptForCars()
-    val rounds = promptForRounds()
-    val raceResults = simulateRace(cars, rounds)
-    val winners = determineWinners(raceResults)
-    printWinners(winners)
+class Application {
+    companion object {
+        @JvmStatic
+        fun main() {
+            val cars = promptForCars()
+            val rounds = promptForRounds()
+            val raceResults = runRaceRounds(cars, rounds)
+            val winners = determineWinners(raceResults)
+            printWinners(winners)
+        }
+    }
 }
 
 data class Car(val name: String, val position: Int = 0)
@@ -15,10 +20,10 @@ data class Car(val name: String, val position: Int = 0)
 fun promptForCars(): List<Car> {
     println("Enter the names of the cars (comma-separated):")
     val input = Console.readLine()
-    return parseCarNames(input)
+    return validateCarNames(input)
 }
 
-fun parseCarNames(input: String): List<Car> {
+fun validateCarNames(input: String): List<Car> {
     val maxNameLength = 5
     val names = input.split(",").map { it.trim() }
 
@@ -41,8 +46,11 @@ fun parseCarNames(input: String): List<Car> {
 
 fun promptForRounds(): Int {
     println("How many rounds will be played?")
-    val input = Console.readLine()
+    val input = Console.readLine() ?: ""
+    return validateRounds(input)
+}
 
+fun validateRounds(input: String): Int {
     return try {
         val rounds = input.toInt()
         if (rounds <= 0) {
@@ -54,20 +62,22 @@ fun promptForRounds(): Int {
     }
 }
 
-fun simulateRace(cars: List<Car>, rounds: Int): List<List<Car>> {
+fun runRaceRounds(cars: List<Car>, rounds: Int): List<List<Car>> {
     println("\nRace Results")
-
     return (1..rounds).fold(listOf(cars)) { raceHistory, _ ->
-        val updatedCars = raceHistory.last().map { car ->
-            if (shouldMoveForward()) {
-                moveForward(car)
-            } else {
-                car
-            }
-        }
-
+        val updatedCars = simulateRound(raceHistory.last())
         printRoundResult(updatedCars)
         raceHistory + listOf(updatedCars)
+    }
+}
+
+fun simulateRound(cars: List<Car>): List<Car> {
+    return cars.map { car ->
+        if (shouldMoveForward()) {
+            moveForward(car)
+        } else {
+            car
+        }
     }
 }
 
