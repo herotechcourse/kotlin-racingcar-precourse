@@ -22,7 +22,7 @@ Output
 
 Exception Handling
 
-- [ ] If the user input is invalid, throw an IllegalArgumentException and terminate the program
+- [x] If the user input is invalid, throw an IllegalArgumentException and terminate the program
 
 #### 2. Implicit / Derived Constraints
 

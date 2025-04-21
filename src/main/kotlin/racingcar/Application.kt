@@ -1,5 +1,8 @@
 package racingcar
 
+import racingcar.controller.Controller
+
 fun main() {
-    // TODO: Implement the program
+    val controller = Controller()
+    controller.process()
 }
