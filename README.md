@@ -7,9 +7,9 @@ The car(s) that reach the farthest distance at the end of all rounds are declare
 
 ## Feature List
 ### 1. User Input
-- [ ] Accept car names from user input, separated by commas
-  - [ ] Validate that each car must have name
-  - [ ] Validate that each car name does not exceed 5 characters
+- [x] Accept car names from user input, separated by commas
+  - [x] Validate that each car must have name
+  - [x] Validate that each car name does not exceed 5 characters
 - [ ] Accept the number of rounds to play
   - [ ] Validate that the input is not empty
   - [ ] Validate that the input is a number
