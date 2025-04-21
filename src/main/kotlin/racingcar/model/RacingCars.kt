@@ -1,17 +1,18 @@
 package racingcar.model
 
 class RacingCars private constructor(
-    private val cars: List<RacingCar>
+    private val cars: List<RacingCar>,
+    private val generator: RandomNumberGenerator
 ) {
 
     companion object {
         fun fromNames(names: List<String>): RacingCars {
             val cars = names.map { RacingCar(it) }
-            return RacingCars(cars)
+            return RacingCars(cars, Range0to9RandomGenerator())
         }
     }
 
-    fun moveAll(generator: RandomNumberGenerator) {
+    fun moveAll() {
         cars.forEach { it.moveForwardIfPossible(generator.generate()) }
     }
 
