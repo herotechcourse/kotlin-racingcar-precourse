@@ -1,8 +1,8 @@
 package racingcar
 
-import camp.nextstep.edu.missionutils.Randoms
 import racingcar.services.ConsoleReaderService
 import racingcar.services.ReaderService
+import racingcar.services.executeRace
 
 fun main() {
     val readerService = ReaderService(ConsoleReaderService())
@@ -10,17 +10,7 @@ fun main() {
 
     val rounds = readerService.readRounds()
 
-    val results = names.associateWith { 0 }.toMutableMap()
-
-    repeat(rounds) {
-        for (name in names) {
-            val randomNumber = Randoms.pickNumberInRange(0, 9)
-            results[name] = results[name]!! + 1
-            if (randomNumber >= 4) {
-                results[name] = results[name]!! + 1
-            }
-        }
-    }
+    val results = executeRace(names, rounds)
 
     for ((name, score) in results) {
         println("$name : ${"-".repeat(score)}")
