@@ -1,12 +1,12 @@
 package racingcar.validator
 
 class NameValidator {
-    fun validate(list: List<String>): Boolean {
+    fun validate(list: List<String>): List<String> {
         for (item in list) {
             isValidChar(item)
             isValidLength(item)
         }
-        return true
+        return list
     }
 
     private fun isValidChar(input: String): Boolean {

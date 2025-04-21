@@ -3,23 +3,28 @@ package racingcar
 import racingcar.model.RaceInputs
 import racingcar.validator.NameValidator
 import racingcar.validator.NumberValidator
+import camp.nextstep.edu.missionutils.Console
 
 class InputHandler {
-    fun getInputs (): RaceInputs? {
+    fun getInputs(): RaceInputs? {
 
         println("Enter the names of the cars (comma-separated):")
-        val car: String = readln()
-        val cars: List<String> = car.split(',')
+        val carNames = Console.readLine()
+        val parsedCars = parseCarName(carNames)
 
         val carsValidator = NameValidator()
-        carsValidator.validate(cars)
+        val cars = carsValidator.validate(parsedCars)
 
         println("How many rounds will be played?")
-        val round: String = readln()
+        val rounds = Console.readLine()
 
         val roundValidator = NumberValidator()
-        roundValidator.validate(round)
+        val round = roundValidator.validate(rounds)
 
-        return null
+        return RaceInputs(cars, round)
+    }
+
+    internal fun parseCarName (input: String): List<String> {
+        return input.split(',')
     }
 }
