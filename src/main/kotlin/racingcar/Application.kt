@@ -1,5 +1,11 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    val carNames = InputParser.readCarNames()
+    val rounds = InputParser.readTotalRounds()
+
+    val cars = carNames.map { Car(it) }
+    GameLogic.startRace(cars, rounds)
+
+    OutputHandler.printWinners(cars)
 }

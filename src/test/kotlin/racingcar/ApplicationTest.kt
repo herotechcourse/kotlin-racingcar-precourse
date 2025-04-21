@@ -27,6 +27,43 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun outputsRaceResultsCorrectlyForEachRound() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,jun", "2")
+                val lines = output().lines().filter { it.contains("pobi") || it.contains("jun") }
+
+                assertThat(lines.count { it.contains("pobi") }).isEqualTo(3)
+                assertThat(lines.count { it.contains("jun") }).isEqualTo(3)
+            },
+            MOVING_FORWARD, STOP,
+            STOP, MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun outputsSingleWinnerCorrectly() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,jun", "1")
+                assertThat(output()).contains("Winners : pobi")
+            },
+            MOVING_FORWARD, STOP
+        )
+    }
+
+    @Test
+    fun outputsMultipleWinnersWhenTied() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,jun", "1")
+                assertThat(output()).contains("Winners : pobi, jun")
+            },
+            MOVING_FORWARD, MOVING_FORWARD
+        )
+    }
+
     override fun runMain() {
         main()
     }
