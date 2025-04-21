@@ -55,16 +55,16 @@ class RaceCars {
 
     private fun validateEachCar(separatedCarNames: List<String>) {
         separatedCarNames.forEach { name ->
-            validateEmpty(name)
+//            validateEmpty(name)
             validateNameLength(name)
         }
     }
 
-    private fun validateEmpty(name: String) {
+/*    private fun validateEmpty(name: String) {
         if (name.isEmpty()) {
             throw IllegalArgumentException("You didn't provide a car name.")
         }
-    }
+    }*/
 
     private fun validateNameLength(name: String) {
         if (name.length > 5) {

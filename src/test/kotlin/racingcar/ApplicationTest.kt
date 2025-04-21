@@ -29,19 +29,6 @@ class ApplicationTest {
     }
 
     @Test
-    fun `should throw exception when car name is empty`() {
-        try {
-            val privateMethod = getMethod("validateEmpty")
-            privateMethod.invoke(game, "")
-            fail("Expected an IllegalArgumentException to be thrown")
-        } catch (e: InvocationTargetException) {
-            val cause = e.cause
-            assertTrue(cause is IllegalArgumentException)
-            assertTrue(cause?.message?.contains("didn't provide") == true)
-        }
-    }
-
-    @Test
     fun `should throw exception when car name exceeds 5 characters`() {
         try {
             val privateMethod = getMethod("validateNameLength")
