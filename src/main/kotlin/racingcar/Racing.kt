@@ -10,26 +10,26 @@ class Racing(
     private val carService: CarService = CarService()
 ) {
     fun start() {
-        val carNames = getCarNames();
-        val roundCount = getRoundCount();
-        generateResults(carNames, roundCount);
-        generateWinners(carNames);
+        val carNames = getCarNames()
+        val roundCount = getRoundCount()
+        generateResults(carNames, roundCount)
+        generateWinners(carNames)
     }
 
     fun generateResults(carNames: List<String>, roundCount: Int) {
-        printResultPhrase();
+        printResultPhrase()
         for (round in 1..roundCount) {
-            makeRoundResult(carNames);
+            makeRoundResult(carNames)
         }
     }
 
     fun makeRoundResult(carNames: List<String>) {
         val results = carNames.map { carName ->
             val randomNumber = Randoms.pickNumberInRange(0, 9)
-            checkRandomNumber(randomNumber, carName);
+            checkRandomNumber(randomNumber, carName)
 
             val score = carService.retrieveScore(carName)
-            compareScoreAndMax(score);
+            compareScoreAndMax(score)
             "$carName : ${"-".repeat(score)}"
         }
         printRoundResult(results)
@@ -48,18 +48,18 @@ class Racing(
     }
 
     fun isNewMaxScore(score: Int): Boolean {
-        return max < score;
+        return max < score
     }
 
     fun generateWinners(carNames: List<String>) {
-        val winners = findWinners(carNames);
-        printWinners(winners);
+        val winners = findWinners(carNames)
+        printWinners(winners)
     }
 
     fun findWinners(carNames: List<String>): List<String> {
         val winners = carNames.filter { name ->
             carService.retrieveScore(name) == max
         }
-        return winners;
+        return winners
     }
 }

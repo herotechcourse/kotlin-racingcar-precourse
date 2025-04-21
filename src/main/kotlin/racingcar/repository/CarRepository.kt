@@ -3,13 +3,13 @@ package racingcar.repository
 import racingcar.domain.Car
 
 class CarRepository {
-    val car = Car();
+    val car = Car()
 
     fun updateScore(carName: String): Unit {
-        car.addScore(carName);
+        car.addScore(carName)
     }
 
     fun findScoreByCarName(carName: String): Int {
-        return car.getScore(carName);
+        return car.getScore(carName)
     }
 }
