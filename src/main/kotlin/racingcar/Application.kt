@@ -1,18 +1,16 @@
 package racingcar
+
 import racingcar.model.Car
-import camp.nextstep.edu.missionutils.Console
+import racingcar.io.InputHandler
 import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
-    println("Enter the names of the cars (comma-separated):")
-    val carNamesInput = Console.readLine()
-    val carNames = carNamesInput.split(",").map { it.trim() }
+    val inputHandler = InputHandler()
+    val carNames = inputHandler.getCarNames()
+    val rounds = inputHandler.getRounds()
+    
     val cars = carNames.map { Car(it) }
-
-    println("How many rounds will be played?")
-    val roundsInput = Console.readLine()
-
-    val rounds = roundsInput.toInt()
+    
     var round = 0
 
     println("Race Results")
