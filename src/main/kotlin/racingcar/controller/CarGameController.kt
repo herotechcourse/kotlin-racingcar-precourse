@@ -1,6 +1,8 @@
-package racingcar
+package racingcar.controller
 
 import racingcar.view.InputView
+import racingcar.controller.GameController
+import racingcar.model.Car
 
 class CarGameController(private val inputView : InputView) {
   fun run() {

@@ -21,7 +21,9 @@ class Car(val name: String, private var position: Int) {
     }
   }
 
-  fun getPosition() : Int = position
+  fun getPosition(): Int {
+    return position
+  }
 
   fun display(): String = "$name : ${"-".repeat(position)}"
 }

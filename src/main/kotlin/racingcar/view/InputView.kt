@@ -1,9 +1,11 @@
 package racingcar.view
 
 import camp.nextstep.edu.missionutils.Console
+import racingcar.model.Car
+
+private const val MAX_NAME_LENGTH = 5
 
 class InputView {
-  private const val MAX_NAME_LENGTH = 5
 
   fun readCarNames() : List<Car> {
     println("Enter the names of the cars (comma-separated):")

@@ -1,5 +1,7 @@
 package racingcar.controller
 
+import racingcar.model.Car
+
 class GameController(private val cars: List<Car>, private val rounds: Int) {
   fun startRace() {
     repeat(rounds) {
@@ -8,8 +10,8 @@ class GameController(private val cars: List<Car>, private val rounds: Int) {
     }
   }
 
-  private fuc displayRound() {
-    cars.forEach { println(it.display) }
+  private fun displayRound() {
+    cars.forEach { println(it.display()) }
     println()
   }
 
