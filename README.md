@@ -15,33 +15,42 @@ Each of the following features will be implemented in a separate, well-scoped co
 
 ### 1. User Input
 - To receive user input, use `Console.readLine()` from `camp.nextstep.edu.missionutils.Console`
-- [ ] Prompt user to enter car names as a comma-separated string
-- [ ] Prompt user to enter number of race rounds
+- [x] Prompt user to enter car names as a comma-separated string
+- [x] Prompt user to enter number of race rounds
 
 ### 2. Input Validation
-- [ ] Validation of Car names:
-    - Not be empty
-    - Not exceed 5 characters
-- [ ] Validation of Rounds:
-    - Not be empty
-    - Number of rounds must be a positive integer
-- [ ] Throw `IllegalArgumentException` for invalid input and terminate the program
+- [x] Validation of Car names:
+    - [x] Not be empty
+    - [x] No empty space between commas
+    - [x] Not exceed 5 characters
+- [x] Validation of Rounds:
+    - [x] Not be empty
+    - [x] Is a number
+    - [x] Number of rounds must be a positive integer
+- [x] Throw `IllegalArgumentException` for invalid input and terminate the program
     - Do not use `System.exit()` or `exitProcess()` to terminate the program
 
-### 3. Game Logic
+### 3. Car Implementation
+- [ ] Create 'car' class with:
+    - [ ] Name property
+    - [ ] Position tracking
+    - [ ] Movement logic
+
+### 4. Game Logic
+- [ ] Initialize cars
 - [ ] Generate a random number from 0 to 9 for each car per round
     - Use `Randoms.pickNumberInRange(0, 9)` from `camp.nextstep.edu.missionutils.Randoms`
 - [ ] Move car forward **only if** the random number is 4 or greater
 - [ ] Store each car’s progress internally (e.g., position counter)
 - [ ] Repeat this process for the number of rounds entered by the user
 
-### 4. Output
+### 5. Round Output
 - [ ] For each round, display:
     - Each car's name
     - A dash (`-`) for every move the car makes
     - Example: `pobi : --`
 
-### 5. Final Result
+### 6. Final Winner(s) Result
 - [ ] Determine the car(s) that moved the furthest
 - [ ] Display the winner(s) in the following format:
     - Single winner: `Winners : pobi`
