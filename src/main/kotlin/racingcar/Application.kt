@@ -5,6 +5,5 @@ import racingcar.controller.RacingCarController
 
 fun main() {
     // TODO: Implement the program
-    var contoroller = RacingCarController()
-    contoroller.start()
+    RacingCarController()
 }

@@ -84,15 +84,15 @@ Winners : pobi, jun
 ## ✅ Implementation Checklist
 
 | Checklist (EN / KR)                                                                                             | Done |
-| ---------------------------------------------------------------------------------------------------------------- |-----|
-| Specify comma-separated car names and the number of rounds<br/>쉼표로 구분된 자동차 이름과 라운드 수 입력               | [X] |
-| Validate each car name is non-blank and at most 5 characters long<br/>각 자동차 이름이 공백만이 아니고 최대 5자 이하인지 검사 | [X] |
-| Generate a random integer between 0 and 9 for each round<br/>매 라운드마다 0~9 사이의 랜덤 정수 생성                  | [ ] |
-| Move the car forward if the generated number is 4 or greater<br/>생성된 숫자가 4 이상이면 자동차 전진                   | [ ] |
-| Display each car’s progress as dashes next to its name after every round<br/>각 라운드 후 자동차 이름 옆에 대시로 진행 상태 표시 | [ ] |
-| Determine the winner(s) after all rounds<br/>모든 라운드가 끝난 후 우승자 결정                                       | [ ] |
-| If multiple winners, list their names separated by commas<br/>복수 우승자일 경우 이름을 쉼표로 구분하여 표시           | [ ] |
-| Throw `IllegalArgumentException` and terminate on invalid input<br/>잘못된 입력 시 `IllegalArgumentException` 예외를 발생시키고 종료 | [ ] |
+| ---------------------------------------------------------------------------------------------------------------- |------|
+| Specify comma-separated car names and the number of rounds<br/>쉼표로 구분된 자동차 이름과 라운드 수 입력               | [X]  |
+| Validate each car name is non-blank and at most 5 characters long<br/>각 자동차 이름이 공백만이 아니고 최대 5자 이하인지 검사 | [X]  |
+| Generate a random integer between 0 and 9 for each round<br/>매 라운드마다 0~9 사이의 랜덤 정수 생성                  | [X]  |
+| Move the car forward if the generated number is 4 or greater<br/>생성된 숫자가 4 이상이면 자동차 전진                   | [X]  |
+| Display each car’s progress as dashes next to its name after every round<br/>각 라운드 후 자동차 이름 옆에 대시로 진행 상태 표시 | [X]  |
+| Determine the winner(s) after all rounds<br/>모든 라운드가 끝난 후 우승자 결정                                       | [X]  |
+| If multiple winners, list their names separated by commas<br/>복수 우승자일 경우 이름을 쉼표로 구분하여 표시           | [X]  |
+| Throw `IllegalArgumentException` and terminate on invalid input<br/>잘못된 입력 시 `IllegalArgumentException` 예외를 발생시키고 종료 | [X]  |
 
 
 
