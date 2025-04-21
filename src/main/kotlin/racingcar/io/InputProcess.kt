@@ -5,9 +5,8 @@ import camp.nextstep.edu.missionutils.Console
 
 class InputProcess {
 
-    fun readInput(): String {
-        return Console.readLine()
-    }
+    fun readInput(): String = Console.readLine()
+
 
     fun processCarName():List<String>{
         val input = readInput()
