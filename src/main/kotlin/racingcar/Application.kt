@@ -3,25 +3,22 @@ package racingcar
 import camp.nextstep.edu.missionutils.Randoms
 import camp.nextstep.edu.missionutils.Console
 
-const val MOVE_THRESHOLD = 4
-
-class Car(name: String) {
-    private val _name: String = name
-    val name: String
-        get() = _name
-
-    private var _movedRounds: Int = 0
-    val movedRounds: Int
-        get() = _movedRounds
+class Car(val name: String) {
+    var movedRounds: Int = 0
+        private set
 
     fun runRound() {
         if (Randoms.pickNumberInRange(0, 9) >= MOVE_THRESHOLD) {
-            _movedRounds++
+            movedRounds++
         }
     }
 
     fun printStatus() {
-        println("$name : ${"-".repeat(_movedRounds)}")
+        println("$name : ${"-".repeat(movedRounds)}")
+    }
+
+    companion object {
+        private const val MOVE_THRESHOLD = 4
     }
 }
 
@@ -31,7 +28,7 @@ class CarRacing {
 
     fun run() {
         init()
-        racing()
+        race()
         printResult()
     }
 
@@ -78,7 +75,7 @@ class CarRacing {
         }
     }
 
-    private fun racing() {
+    private fun race() {
         println("Race Results")
 
         for (round in 1..totalRound) {
@@ -105,18 +102,4 @@ fun main() {
     val carRacing = CarRacing()
 
     carRacing.run()
-}
-
-fun testCarClass() {
-    val testCars = mutableListOf<Car>().apply {
-        add(Car("test"))
-        add(Car("test2"))
-    }
-
-    for (i in 1..10) {
-        for (car in testCars) {
-            car.runRound()
-            car.printStatus()
-        }
-    }
 }
