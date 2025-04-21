@@ -1,51 +1,90 @@
 # Car Racing Game
 
-## Project Overview
-A command-line racing game where multiple cars compete across several rounds, with random movement mechanics and winner determination.
+## Overview
+A command-line racing game implemented in Kotlin where multiple cars compete across several rounds. The game features random movement mechanics and supports multiple winners.
 
 ## Features
 
-### 1. Input Handling
-- Car name validation (1-5 characters)
+### Input Processing
+- Car name validation
+  - Length check (1-5 characters)
+  - Empty name check
+  - Space character check
 - Multiple car name input (comma-separated)
-- Race rounds validation (positive integer)
-- Exception handling for invalid inputs
+- Round number validation (positive integer)
 
-### 2. Car Management
-- Car object creation and initialization
-- Movement logic implementation
-  - Random number generation (0-9)
-  - Forward movement when number ≥ 4
+### Game Mechanics
+- Random movement based on generated numbers (0-9)
+- Forward movement when number ≥ 4
 - Position tracking for each car
-
-### 3. Race System
-- Round-based racing mechanism
-- Simultaneous position updates
-- Progress tracking per round
 - Multiple winner support
 
-### 4. Output Display
-- Real-time race progress visualization
-  - Current position display using "-" markers
-  - Car name and position formatting
-- Final results announcement
-  - Winner(s) determination
-  - Multiple winner handling
+### Output Display
+- Real-time race progress
+- Winner determination and announcement
+- Formatted display with proper spacing
 
-### 5. Technical Implementation
-- Clean code principles
-- Single responsibility principle
-- Comprehensive error handling
-- Unit test coverage
-- No external dependencies
+## Technical Implementation
+
+### Architecture
+- MVC pattern
+  - Model: Car, Cars, RacingGame
+  - View: InputView, OutputView
+  - Controller: RacingGameController
+
+### Error Handling
+- Input validation
+- Proper exception messages
+- Graceful error termination
+
+### Testing
+- Unit tests for all components
+- Integration tests for game flow
+- Edge case coverage
+- Exception testing
 
 ## Getting Started
-1. Clone the repository
-2. Build the project using Gradle
-3. Run the main application
-4. Follow the on-screen prompts
 
-## Testing
-Run tests using:
-- macOS/Linux: `./gradlew test`
-- Windows: `gradlew.bat test`
+### Prerequisites
+- JDK 21
+- Kotlin 1.9.24
+
+### Running the Game
+1. Clone the repository
+2. Open in IntelliJ IDEA
+3. Run the main function in Application.kt
+
+### Running Tests
+```bash
+./gradlew test
+```
+
+## Example Usage
+```
+Enter the names of the cars (comma-separated):
+pobi,woni,jun
+How many rounds will be played?
+5
+
+Race Results
+pobi : -
+woni : 
+jun : -
+...
+
+Winners : pobi, jun
+```
+
+## Development Notes
+
+### Code Style
+- Following Kotlin conventions
+- Maximum nesting depth of 2
+- Single responsibility principle
+- Small, focused functions
+
+### Testing Strategy
+- JUnit 5 for testing framework
+- AssertJ for assertions
+- Parameterized tests for comprehensive coverage
+- Mocking of random number generation for predictable tests
