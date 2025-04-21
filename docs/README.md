@@ -17,6 +17,7 @@ This project follows a layered structure to separate concerns and improve mainta
     ├── controller
     │   └── RacingGame.kt       // Manages game rounds and progression
     └── util
+        ├── InputValidator.kt   // Validate Inputs
         └── RandomGenerator.kt  // Generates random numbers (used for car movement)
 ```
 
@@ -25,6 +26,7 @@ This project follows a layered structure to separate concerns and improve mainta
 ```
 └── test
     └── racingcar
+        ├── ApplicationTest.kt      // Default Test code
         ├── domain
         │   ├── CarTest.kt          // Unit tests for Car movement logic
         │   └── CarsTest.kt         // Unit tests for Cars winner logic
