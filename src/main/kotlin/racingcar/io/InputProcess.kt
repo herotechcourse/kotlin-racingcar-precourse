@@ -7,7 +7,6 @@ class InputProcess {
 
     fun readInput(): String = Console.readLine()
 
-
     fun processCarName():List<String>{
         val input = readInput()
         val names = input.split(",")
@@ -27,4 +26,7 @@ class InputProcess {
         require(str.length > 5) { "Car names cannot exceed 5 characters" }
     }
 
+    fun validateRoundNumberInputIsDigit(input:String){
+        require(input.all{it.isDigit()}) { "Round number should contain only digits" }
+    }
 }
