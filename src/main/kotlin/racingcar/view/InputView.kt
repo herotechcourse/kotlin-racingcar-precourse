@@ -67,9 +67,7 @@ class InputView {
     internal fun validateRounds(input: String): Int {
         try {
             val rounds = input.toInt()
-            if (rounds <= 0) {
-                throw IllegalArgumentException("Number of rounds must be positive")
-            }
+            if (rounds <= 0) throw IllegalArgumentException("Number of rounds must be positive")
             return rounds
         } catch (e: NumberFormatException) {
             throw IllegalArgumentException("Invalid round number: must be a positive integer")
