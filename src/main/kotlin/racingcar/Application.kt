@@ -37,8 +37,11 @@ fun main() {
         }
         println()
     }
+    val maxPosition = cars.maxOf { it.getPosition() }
+    val winners = cars.filter { it.getPosition() == maxPosition }
+        .joinToString(", ") { it.name }
 
-    // Next: We'll find and print the winner(s)
+    println("Winners : $winners")
 }
 
 fun validateCarNames(carNames: List<String>) {
