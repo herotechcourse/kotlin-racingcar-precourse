@@ -73,6 +73,62 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `null car name exception test`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            validateCarNames(null)
+        }
+        assertThat(exception.message).isEqualTo("Car name cannot be empty.")
+    }
+
+    @Test
+    fun `empty car name exception test`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            validateCarNames(" ")
+        }
+        assertThat(exception.message).isEqualTo("Car name cannot be empty.")
+    }
+
+    @Test
+    fun `partially empty car name exception test`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            validateCarNames("aaa, ,bbb")
+        }
+        assertThat(exception.message).isEqualTo("Car name cannot be blank.")
+    }
+
+    @Test
+    fun `car name over 5 characters exception test`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            validateCarNames("aaa,morethan5character,ccc")
+        }
+        assertThat(exception.message).isEqualTo("Car names must be 5 characters or fewer.")
+    }
+
+    @Test
+    fun `null round count exception test`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            validateRoundInput(null)
+        }
+        assertThat(exception.message).isEqualTo("Number of rounds cannot be empty.")
+    }
+
+    @Test
+    fun `empty round count exception test`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            validateRoundInput(" ")
+        }
+        assertThat(exception.message).isEqualTo("Number of rounds cannot be empty.")
+    }
+
+    @Test
+    fun `no int type for round count exception test`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            validateRoundInput("one")
+        }
+        assertThat(exception.message).isEqualTo("Please enter a valid number.")
+    }
+
     override fun runMain() {
         main()
     }
