@@ -59,19 +59,45 @@ class CarRacing(private val canMove: () -> Boolean) {
     }
 }
 
-
-
 fun main() {
     val canMove: () -> Boolean = { Randoms.pickNumberInRange(0, 9) >= 4 }
     val carRacing = CarRacing(canMove)
 
     println("Enter the names of the cars (comma-separated):")
-    val carInput = Console.readLine().trim()
+    val rawInput = Console.readLine()
+    validateCarNames(rawInput)
+    val carInput = rawInput!!.trim()
     carRacing.setCars(carInput)
 
     println("How many rounds will be played?")
-    val roundInput = Console.readLine().trim().toInt()
+    val rawRoundInput = Console.readLine()
+    val roundInput = validateRoundInput(rawRoundInput)
     carRacing.setRoundCount(roundInput)
 
     carRacing.race()
+}
+
+fun validateCarNames(input: String?) {
+    if (input.isNullOrBlank()) {
+        throw IllegalArgumentException("Car name cannot be empty.")
+    }
+
+    val names = input.split(",").map { it.trim() }
+
+    if (names.any { it.isEmpty() }) {
+        throw IllegalArgumentException("Car name cannot be blank.")
+    }
+
+    if (names.any { it.length >5 }) {
+        throw IllegalArgumentException("Car names must be 5 characters or fewer.")
+    }
+}
+
+fun validateRoundInput(input: String?): Int {
+    if (input.isNullOrBlank()) {
+        throw IllegalArgumentException("Number of rounds cannot be empty.")
+    }
+
+    return input.toIntOrNull()
+        ?: throw IllegalArgumentException("Please enter a valid number.")
 }
