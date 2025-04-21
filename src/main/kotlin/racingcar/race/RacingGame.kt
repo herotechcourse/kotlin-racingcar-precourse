@@ -1,4 +1,7 @@
-package racingcar
+package racingcar.race
+
+import racingcar.car.Car
+import racingcar.strategy.MoveStrategy
 
 class RacingGame(
     private val cars: List<Car>,

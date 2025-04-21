@@ -1,10 +1,6 @@
-package racingcar
+package racingcar.strategy
 
 import camp.nextstep.edu.missionutils.Randoms
-
-fun interface MoveStrategy {
-    fun canMove(): Boolean
-}
 
 private const val MIN_ACCEPTABLE_NUM = 4
 private const val MIN_RANGE = 0
