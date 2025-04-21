@@ -2,28 +2,42 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
-fun main() {
+class Car(private val name: String) {
+    private var position: Int = 0
 
-    //1. get inputs of player names - readCarNames()
-    val carNames = readCarNames()
+    fun move() {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            position++
+        }
+    }
 
-    //2. get inputs of rounds
-    val numberOfRounds = readNumberOfRounds()
+    fun getPosition(): Int = position
+    fun getName(): String = name
 
-    //3. function: make random result (carNames, numbersOfRounds)
-    println("\nRace Results")
-    val carPositions = playRace(carNames, numberOfRounds)
-
-    //4. print racing result (player names, random function)
-    //TODO: refactoring
-
-    //5. calculate who wins
-    //TODO: refactoring
-    //6. print winner
-    printWinners(carPositions)
+    fun printStatus() {
+        println("$name : ${"-".repeat(position)}")
+    }
 }
 
-fun readCarNames(): List<String>? {
+fun main() {
+
+    // 1. Get car names from user input (List<String>)
+    val carNames = readCarNames()
+
+    // 2. Get number of rounds to run
+    val numberOfRounds = readNumberOfRounds()
+
+    // 3. Create Car objects from names, run the race
+    println("\nRace Results")
+    val cars = carNames.map { Car(it) }
+    playRace(cars, numberOfRounds) // cars move and print status per round
+
+    // 4. Print the final winner(s)
+    printWinners(cars)
+}
+
+
+fun readCarNames(): List<String> {
     println("Enter the names of the cars (comma-separated):")
     val input = Console.readLine()
 
@@ -59,36 +73,26 @@ fun readNumberOfRounds(): Int {
     return number
 }
 
-fun playRace(carNames: List<String>?, numberOfRounds: Int): Map<String, Int> {
-    // where cars at, Map
-    val carPositions = mutableMapOf<String, Int>()
-    carNames?.forEach { carPositions[it] = 0 }
-
+fun playRace(cars: List<Car>, numberOfRounds: Int) {
     repeat(numberOfRounds) {
-        if (carNames != null) {
-            for (car in carNames) {
-                val randomNumber = Randoms.pickNumberInRange(0, 9)
-                if (randomNumber >= 4) {
-                    carPositions[car] = carPositions[car]!! + 1
-                }
-            }
-        }
-        for ((car, position) in carPositions) {
-            println("$car : ${"-".repeat(position)}")
-        }
+        cars.forEach { it.move() }
+        cars.forEach { it.printStatus() }
         println()
     }
-    return carPositions
 }
 
 
-fun printWinners(carPositions: Map<String, Int>) {
-    val maxPosition = carPositions.values.maxOrNull()
-        ?: throw IllegalArgumentException("No cars to evaluate.")
 
-    val winners = carPositions.filter { it.value == maxPosition }
-        .keys
-        .joinToString(", ")
+
+
+fun printWinners(cars: List<Car>) {
+    val maxPosition = cars.maxOf { it.getPosition() }
+    val winners = cars
+        .filter { it.getPosition() == maxPosition }
+        .joinToString(", ") { it.getName() }
 
     println("Winners : $winners")
 }
+
+
+

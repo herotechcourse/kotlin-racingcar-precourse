@@ -1,39 +1,40 @@
-# kotlin-racingcar-precourse
 
-so far ...
-##  Features Implemented
+# kotlin-racingcar-precourse 🚗
 
-- Input car names from user
-    - Comma-separated string
-    - Each name must be 5 characters or fewer
-    - At least 2 cars are required to start the game
-    - It can't be empty
+A simple racing car game built with Kotlin, as part of the Hero Tech Course pre-course assignment.
+Cars move forward based on randomly generated numbers, and the final winner(s) are determined after a fixed number of rounds.
 
-- Input number of rounds
-    - Must be a positive integer
-    - Must not be 0 or negative number
+## Features
+ Receive car names from user input (comma-separated)
 
-- Car racing logic
-    - For each round, generate a random number between 0 and 9
-    - Car moves forward if the number is 4 or greater
-    - Use "-" to visualize car movement
-    - _**TODO: refactoring, Maximum indentation depth of 2**_
+ Validate car name rules (non-empty, max 5 characters, at least 2 cars)
 
-- Calculate and display winners
-    - Cars with the maximum position are declared winners
-    - Output format: `Winners : pobi, jun`
+ Receive number of rounds (must be a positive integer)
 
-## Programming Requirements Followed
+ Move each car independently based on random values between 0 and 9
 
-- Kotlin version 1.9.24
-- No use `System.exit()` or `exitProcess()`
-- _**TODO: Maximum indentation depth of 2**_
-- Separated logic into small, single-responsibility functions
-- Used only `Randoms` and `Console` from `camp.nextstep.edu.missionutils`
-- _**TODO: Testing with JUnit 5 and AssertJ to be added**_
+ A car moves forward only if its random number is 4 or greater
 
-## Notes
+ Display race progress in each round using '-' symbols
 
-- TODO: Refactoring - Maximum indentation depth of 2
-- TODO: Testing with JUnit 5 and AssertJ to be added
-Planning to refactor the logic using an OOP approach (e.g., Car class)
+ Determine and display the winner(s) based on final positions
+
+ Handle invalid input using IllegalArgumentException
+
+ Follow Kotlin coding conventions and keep functions small and single-responsibility
+
+
+## Project Structure
+main() – Entry point: reads input, executes race, prints winner
+
+readCarNames() – Gets and validates car names
+
+readNumberOfRounds() – Gets and validates number of rounds
+
+playRace() – Core game loop that simulates the race
+
+printRaceStatus() – Displays current round progress
+
+printWinners() – Determines and displays the final winner(s)
+
+
