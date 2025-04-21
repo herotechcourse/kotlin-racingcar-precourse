@@ -20,7 +20,6 @@ class OutputView {
 
     fun printWinner(winners: List<Car>) {
         val winnerNames = winners.joinToString(", ") {it.getName()}
-        println("Winners: $winnerNames")
+        print("Winners: $winnerNames")
     }
-
 }
