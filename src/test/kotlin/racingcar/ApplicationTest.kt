@@ -21,6 +21,20 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `should have 2 winners`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "2")
+                assertThat(output()).contains("pobi : -", "woni : -", "Winners : pobi, woni")
+            },
+            MOVING_FORWARD,
+            STOP,
+            STOP,
+            MOVING_FORWARD
+        )
+    }
+
+    @Test
     fun `should throw exception for longer than 5 characters`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
