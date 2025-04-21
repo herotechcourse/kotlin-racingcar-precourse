@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 
 class RaceTest : NsTest()   {
     @Test
-    fun `run race`() {
+    fun `run race, all cars moving`() {
         assertRandomNumberInRangeTest(
             {
                 val cars = listOf(Car("pobi"), Car("woni"), Car("jido"))
@@ -23,12 +23,14 @@ class RaceTest : NsTest()   {
     }
 
     @Test
-    fun `print winners`() {
+    fun `run race, 2 cars won, check print progress (exact match), winners`() {
         assertRandomNumberInRangeTest(
             {
                 val cars = listOf(Car("pobi"), Car("woni"), Car("jido"))
                 val race = Race(cars, 2)
                 race.runRace()
+                assertThat(output()).contains("pobi : -\r\nwoni : -\r\njido :")
+                assertThat(output()).contains("pobi : --\r\nwoni : --\r\njido :")
                 race.printResult()
                 assertThat(output()).endsWith("Winners : pobi, woni")
             },
@@ -42,7 +44,7 @@ class RaceTest : NsTest()   {
     }
 
     @Test
-    fun `print round result`() {
+    fun `run race, 2 cars moved, check print round result`() {
         assertRandomNumberInRangeTest(
             {
                 val cars = listOf(Car("pobi"), Car("woni"), Car("jido"))
