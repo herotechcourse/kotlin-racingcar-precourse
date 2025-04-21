@@ -13,6 +13,14 @@ class InputProcess {
         val input = readInput()
         val names = input.split(",")
             .map{it.trim()}
+
+        names.forEach {validateCarNameExist(it)}
+
         return names
     }
+
+    fun validateCarNameExist(str:String){
+        require(str.isNotEmpty()) {"Car names cannot be empty"}
+    }
+
 }
