@@ -50,13 +50,13 @@
     - `How many rounds will be played?`
 
 ### Console Output: Race Results
-- [ ] After reading the inputs, print a blank line, then:
+- [x] After reading the inputs, print a blank line, then:
     - `Race Results`
 
-- [ ] For each round, print each car’s name and its **cumulative distance** so far, using dashes `-` to represent distance:
+- [x] For each round, print each car’s name and its **cumulative distance** so far, using dashes `-` to represent distance:
     - `<car name> : <dashes equal to cumulative distance>`
-    - [ ] Include a single space before and after the colon.
-    - [ ] Insert a blank line between each round’s output block.
+    - [x] Include a single space before and after the colon.
+    - [x] Insert a blank line between each round’s output block.
 
 ### Console Output: Winners
 - [ ] After all rounds, print:
