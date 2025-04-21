@@ -7,7 +7,7 @@
   - Exception handling:  
     - Each name allowed up to 5 characters  
     - No input provided (at least one name required)  
-    - Nothing after a comma (trailing comma or consecutive commas)  
+    - Empty car names in input  
     - Duplicate car names  
     - Special characters other than comma used  
   - On any invalid data input, throw `IllegalArgumentException` and terminate
