@@ -24,6 +24,19 @@ class Util {
 
 class Cars(cars: List<String>) {
     val names : MutableList<Car> = mutableListOf()
+
+    init {
+        for (car in cars) {
+            validateCarNameLength(car)
+            names.add(Car(car))
+        }
+    }
+
+    private fun validateCarNameLength(car: String) {
+        if (car.length > 5) {
+            throw IllegalArgumentException("names cannot exceed 5 characters.")
+        }
+    }
 }
 
 class Car(val name: String) {
@@ -106,25 +119,17 @@ class RacingCar {
 
         val challengerList = Util().nameSplit(challengers)
 
-        // make Car object
-        var challengerGroup = mutableListOf<Car>()
-        for (challenger in challengerList) {
-            if (challenger.length > 5) {
-                throw IllegalArgumentException("names cannot exceed 5 characters.")
-            }
-            challengerGroup.add(Car(challenger))
-        }
+        val challengerGroup = Cars(challengerList)
 
         OutputView().roundNumber()
         val rounds = InputView().inputNumber()
 
         OutputView().printResultMessage()
 
-
 //    Games()
         var currentRound = 0
         while (currentRound != rounds.toInt()) {
-            for (challenger in challengerGroup) {
+            for (challenger in challengerGroup.names) {
                 val diceNumber = Randoms.pickNumberInRange(0, 9)
                 if (diceNumber >= 4) {
                     challenger.currentPosition += 1
@@ -132,7 +137,7 @@ class RacingCar {
             }
 
 //        print current racing status
-            for (challenger in challengerGroup) {
+            for (challenger in challengerGroup.names) {
                 print("${challenger.name} : ")
                 for (p in 1..challenger.currentPosition) {
                     print("-")
@@ -146,7 +151,7 @@ class RacingCar {
         // search winners
         var winnerGroup = mutableListOf<String>()
         var tmp = 0
-        challengerGroup.forEach { challenger ->
+        challengerGroup.names.forEach { challenger ->
             if (challenger.currentPosition > tmp) {
                 winnerGroup = mutableListOf<String>()
                 winnerGroup.add(challenger.name)
