@@ -21,6 +21,17 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `should show multiple winners when tie occurs`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,jun", "1")
+                assertThat(output()).contains("pobi : -", "jun : -", "Winners : pobi, jun")
+            },
+            MOVING_FORWARD, MOVING_FORWARD
+        )
+    }
+
+    @Test
     fun `exception test`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji" , "1") }
