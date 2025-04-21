@@ -60,4 +60,29 @@ class ApplicationTest : NsTest() {
     override fun runMain() {
         main()
     }
+
+    // additions to previous version
+import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest
+import org.assertj.core.api.Assertions.assertThat
+
+class ApplicationTest : NsTest() {
+
+    @Test
+    fun `feature test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+            },
+            MOVING_FORWARD,
+            STOP,
+        )
+    }
+
+    companion object {
+        private const val MOVING_FORWARD: Int = 4
+        private const val STOP: Int = 3
+    }
+}
+
 }
