@@ -148,4 +148,43 @@ class RacingCarIntegrationTest {
         assertThat(positionAfterLowNumbers).isEqualTo(0)
         assertThat(finalPosition).isEqualTo(6)
     }
+
+    @Test
+    fun `should correctly format output for multiple winners`() {
+        // Given
+        val cars = listOf(
+            Car("pobi").apply { repeat(3) { move(5) } },
+            Car("woni").apply { repeat(2) { move(5) } },
+            Car("jun").apply { repeat(3) { move(5) } }
+        )
+
+        // When
+        val race = Race(cars, 3)
+        val winners = race.determineWinners()
+
+        // Then
+        assertThat(winners).hasSize(2)
+        assertThat(winners.map { it.name }).containsExactlyInAnyOrder("pobi", "jun")
+
+        // Check output formatting
+        System.setOut(PrintStream(outputStream))
+        val outputView = racingcar.ui.OutputView()
+        outputView.printWinners(winners)
+
+        val output = outputStream.toString()
+        assertThat(output).contains("Winners : ")
+        assertThat(output).contains("pobi, jun")
+    }
+
+    @Test
+    fun `car toString should format name and position correctly`() {
+        // Given
+        val car = Car("test")
+
+        // When
+        repeat(3) { car.move(5) }
+
+        // Then
+        assertThat(car.toString()).isEqualTo("test : ---")
+    }
 }
