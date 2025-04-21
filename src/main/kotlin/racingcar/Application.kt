@@ -37,6 +37,11 @@ class OutputView {
     fun roundNumber() {
         println("How many rounds will be played?")
     }
+
+    fun printResultMessage() {
+        println()
+        println("Race Results")
+    }
 }
 
 class InputView {
@@ -47,7 +52,6 @@ class InputView {
         validateStartsWithComma(input)
         validateContainsWhitespace(input)
         validateEmptyName(input)
-        validateDuplicateNames(input)
         return input
     }
 
@@ -57,10 +61,6 @@ class InputView {
         validateInvalidSeparator(input)
         validateContainsWhitespace(input)
         return input
-    }
-
-    private fun validateDuplicateNames(input: String) {
-        if (input.)
     }
 
     private fun validateEmptyName(input: String) {
@@ -102,8 +102,7 @@ class RacingCar {
         OutputView().roundNumber()
         val rounds = InputView().inputNumber()
 
-        println()
-        println("Race Results")
+        OutputView().printResultMessage()
 
         val challengerList = Util().nameSplit(challengers)
 
