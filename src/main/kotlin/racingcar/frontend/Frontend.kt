@@ -12,7 +12,8 @@ object Frontend {
      * No parsing or validation done here.
      */
     fun readCarNames(): String {
-        return ""
+        println("Enter the names of the cars (comma-separated):")
+        return Console.readLine()
     }
 
     /**
@@ -20,6 +21,7 @@ object Frontend {
      * No parsing or validation done here.
      */
     fun readRounds(): String {
-        return ""
+        println("How many rounds will be played?")
+        return Console.readLine()
     }
 }
