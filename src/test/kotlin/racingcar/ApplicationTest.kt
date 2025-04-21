@@ -109,6 +109,18 @@ class ApplicationTest : NsTest() {
             STOP
         )
     }
+    // 🆕 Test: Multiple winners when positions are tied
+    @Test
+    fun `multiple winners are shown if tied`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("pobi : -", "woni : -")
+                assertThat(output()).contains("Winners : pobi, woni")
+            },
+            MOVING_FORWARD, MOVING_FORWARD
+        )
+    }
 
 
 }
