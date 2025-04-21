@@ -1,3 +1,4 @@
+package racingcar
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
@@ -19,6 +20,9 @@ class CarRacingGame {
     private var rounds: Int = 0
 
     fun start() {
+        
+                println("Race started!")
+
         cars = getCarsFromInput()
         rounds = getRoundsFromInput()
 
@@ -35,6 +39,8 @@ class CarRacingGame {
     private fun getCarsFromInput(): List<Car> {
         println("Enter the names of the cars (comma-separated):")
         val input = Console.readLine()
+        //val input = "arju,nicky,akki"  // Sample input pushed here
+
         val names = input.split(",").map { it.trim() }
 
         if (names.any { it.length > 5 || it.isEmpty() }) {
@@ -47,6 +53,8 @@ class CarRacingGame {
     private fun getRoundsFromInput(): Int {
         println("How many rounds will be played?")
         val input = Console.readLine()
+        //val input = "5"  // hardcode value to be pushed
+
         return input.toIntOrNull() ?: throw IllegalArgumentException("Invalid number of rounds.")
     }
 

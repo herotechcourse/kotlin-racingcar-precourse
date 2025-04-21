@@ -2,8 +2,8 @@
 
 ## These are the Features to Implement
 
-1. Accept car names from user input (max 5 characters)
-2. Accept number of rounds to run
+1. Accept car names from user input (max 5 characters) = I have hard coded or added a sample input while using VS Code
+2. Accept number of rounds to run = I have hard coded or added a sample input while using VS Code
 3. Randomly move cars each round
 4. Show race progress for each car
 5. Determine and display winner(s)
