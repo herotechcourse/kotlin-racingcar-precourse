@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 class RacingGameTest {
 
     @Test
-    fun `자동차는 주어진 라운드 수만큼 랜덤 값에 따라 전진 또는 정지한다`() {
+    fun car_moves_or_stays_based_on_random_value_for_each_round() {
         val cars = listOf(Car("pobi"), Car("woni"))
         val game = RacingGame(cars)
 
@@ -21,7 +21,7 @@ class RacingGameTest {
     }
 
     @Test
-    fun `가장 멀리 간 자동차가 우승자이다`() {
+    fun car_with_farthest_distance_is_winner() {
         val cars = listOf(Car("pobi"), Car("woni"), Car("jun"))
         val game = RacingGame(cars)
 
