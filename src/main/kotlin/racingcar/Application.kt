@@ -6,6 +6,9 @@ fun main() {
     // TODO: Implement the program
     print("Car names : ")
     val input = readln()
+    if (input.isEmpty()){
+        throw IllegalArgumentException("At least one name required")
+    }
     val carNames = input.split(",")
 
     val cars = mutableListOf<Car>()
