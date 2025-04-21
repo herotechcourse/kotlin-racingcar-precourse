@@ -31,7 +31,7 @@ class ApplicationTest : NsTest() {
     }
 
     override fun runMain() {
-        Application.runGame()  // ← main() 말고 runGame()을 직접 호출!
+        Application.runGame()
     }
 
     companion object {

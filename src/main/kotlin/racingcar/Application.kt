@@ -8,10 +8,7 @@ import racingcar.view.ViewRenderer
 object Application {
     @JvmStatic
     fun main(args: Array<String>) {
-        try {
-            runGame()
-        } catch (e: java.io.EOFException) {
-        }
+        runGame()
     }
 
     fun runGame() {
