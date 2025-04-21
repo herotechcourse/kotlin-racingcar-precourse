@@ -1,5 +1,7 @@
 package racingcar.domain
 
+import racingcar.view.CarView
+
 class Car(private val name: String) {
     var position: Int = 0
         private set
@@ -12,6 +14,8 @@ class Car(private val name: String) {
     fun move(randomNumber: Int) {
         if (randomNumber >= 4) position++
     }
+
+    fun toView(): CarView = CarView(name, position)
 
     fun getName(): String = name
     fun copy(): Car {

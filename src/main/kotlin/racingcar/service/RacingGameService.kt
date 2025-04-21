@@ -2,14 +2,13 @@ package racingcar.service
 
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.domain.Car
-import racingcar.domain.RacingGame
+import racingcar.view.CarView
 
 class RacingGameService(
-    private val cars: List<Car>
+    private val cars: List<Car>,
+    private val numberGenerator: () -> Int = { Randoms.pickNumberInRange(0, 9) }
 ) {
-    private val game = RacingGame(cars)
-
-    fun play(rounds: Int, numberGenerator: () -> Int = { Randoms.pickNumberInRange(0, 9) }): List<List<Car>> {
+    fun play(rounds: Int): List<List<Car>> {
         val results = mutableListOf<List<Car>>()
 
         repeat(rounds) {
@@ -19,7 +18,11 @@ class RacingGameService(
 
         return results
     }
+
+    fun getCurrentCarViews(): List<CarView> = cars.map { it.toView() }
+
     fun getWinners(): List<String> {
-        return game.findWinners()
+        val max = cars.maxOf { it.position }
+        return cars.filter { it.position == max }.map { it.getName() }
     }
 }
