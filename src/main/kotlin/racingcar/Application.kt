@@ -11,12 +11,12 @@ fun main() {
     val numberOfRounds = readNumberOfRounds()
 
     //3. function: make random result (carNames, numbersOfRounds)
+    // - print racing result (player names, random function)
+    // - calculate who wins
     println("\nRace Results")
     val carPositions = playRace(carNames, numberOfRounds)
 
-    //4. print racing result (player names, random function)
-    //5. calculate who wins
-    //6. print winner
+    //4. print winner
     printWinners(carPositions)
 }
 
