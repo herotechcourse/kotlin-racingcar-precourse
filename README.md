@@ -2,7 +2,16 @@
 
 ## implementation
 
-1
+1. input
+    - Names of the cars (comma-separated)
+    - Number of rounds
+2. output
+    - Race results by round
+    - Message for winner(s)
+3. implemetation
+    1. input & ouput
+    2. handling gameRound with data class
+    3.
 
 ## Commit tag
 

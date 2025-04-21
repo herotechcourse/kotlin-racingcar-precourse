@@ -18,7 +18,6 @@ fun main() {
 
         /**
          * 6) If the user inputs invalid data, the program should throw an IllegalArgumentException and terminate.
-         *
          */
         if (item.count() > 5) {
             throw IllegalArgumentException()
@@ -58,9 +57,7 @@ fun playGame(gameSet: List<Game>, roundNumber: Int): List<String> {
 
             /**
              * 4) When printing the progress of each car, display the car's name alongside its movement.
-             *
              */
-
             print("${play.playerName}: ")
             printRunCount(play.runCount)
             println()
