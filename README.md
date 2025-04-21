@@ -49,8 +49,3 @@ A Kotlin implementation of a simple racing car game.
 	- Filter and print all the winners
 - Multiple winners if applicable
 	
-
-
-
-
-

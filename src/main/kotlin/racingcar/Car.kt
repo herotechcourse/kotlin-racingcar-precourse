@@ -18,7 +18,11 @@ class Car(
     }
 
     fun printRoundStatus() {
-        println("${name} : ${MOVE_SYMBOL.repeat(movesMade)}")
+        if (movesMade > 100) {
+            println("${name} : ${(movesMade / 100) * 100} ${MOVE_SYMBOL.repeat(movesMade % 100)}")
+        } else {
+            println("${name} : ${MOVE_SYMBOL.repeat(movesMade)}")
+        }
     }
 
     companion object {
