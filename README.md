@@ -21,8 +21,8 @@
     - [x] If there are multiple winners, their names should be displayed and separated by commas.
 
 - programming requirements
-    - [ ] The entry point of the application must be the main() function in the Application class.
-    - [ ] The indentation depth must not exceed 2. A maximum of 2 levels is allowed.
+    - [x] The entry point of the application must be the main() function in the Application class.
+    - [x] The indentation depth must not exceed 2. A maximum of 2 levels is allowed.
         - early return
         - top level function
     - [x] Keep functions as small and focused as possible—each should do only one thing.

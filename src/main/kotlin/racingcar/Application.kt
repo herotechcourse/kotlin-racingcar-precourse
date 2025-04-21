@@ -3,6 +3,7 @@ package racingcar
 import racingcar.view.InputView
 import racingcar.view.readRoundCount
 
+
 class Application {
     companion object {
         @JvmStatic
