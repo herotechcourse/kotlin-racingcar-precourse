@@ -15,9 +15,12 @@ object GameService {
         val cars = Cars(names)
         val round = Round(rawRound)
         val moveStrategy = RandomMoveStrategy();
+        val racingGame = RacingGame(cars, round, moveStrategy)
 
-        val roundPositions = RacingGame(cars, round, moveStrategy).play()
-
+        val roundPositions = racingGame.play()
         OutputView.printPlay(roundPositions)
+
+        val winners = racingGame.getWinners()
+        OutputView.printWinners(winners)
     }
 }

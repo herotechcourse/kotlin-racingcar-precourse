@@ -13,4 +13,9 @@ object OutputView {
             println()
         }
     }
+
+    fun printWinners(winners: List<String>) {
+        print("Winners : ")
+        print(winners.joinToString(", "))
+    }
 }
