@@ -4,20 +4,21 @@ import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
 
-    //1. get inputs of player names - readCarNames()
+    //1. get inputs of player names
     val carNames = readCarNames()
 
     //2. get inputs of rounds
     val numberOfRounds = readNumberOfRounds()
 
-    //3. function: make random result (carNames, numbersOfRounds)
-    // - print racing result (player names, random function)
-    // - calculate who wins
+    //3. playRace(carNames, numbersOfRounds) function: make random result
+    // 3-1. moveCars(carNames, carPositions)
+    // 3-2. printRaceStatus(carPositions)
     println("\nRace Results")
     val carPositions = playRace(carNames, numberOfRounds)
 
     //4. print winner
     printWinners(carPositions)
+
 }
 
 fun readCarNames(): List<String>? {
