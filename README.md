@@ -3,13 +3,13 @@
 # Car Racing - Feature List
 
 ## Input and input validation
-- [ ] Receive first user input
-- [ ] Validate car names:
-  - [ ] Names cannot be empty
-  - [ ] Names cannot exceed 5 characters
-- [ ] Receive second user input (number of rounds)
-- [ ] Validate racing rounds:
-  - [ ] Must be a positive integer
+- [x] Receive first user input
+- [x] Validate car names:
+  - [x] Names cannot be empty
+  - [x] Names cannot exceed 5 characters
+- [x] Receive second user input (number of rounds)
+- [x] Validate racing rounds:
+  - [x] Must be a positive integer
 
 ## Data structure
 - [x] Create `Carr` class with:
