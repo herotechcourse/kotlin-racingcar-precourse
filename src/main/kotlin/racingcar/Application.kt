@@ -8,9 +8,11 @@ import racingcar.player.Car
 
 fun main() {
   println("Enter the names of the cars (comma-separated):")
-  val players = PromptNames.getInput(Console.readLine())
+  val playerNames = PromptNames.getInput(Console.readLine())
+
   println("How many rounds will be played?")
   val totalRounds = PromptRounds.getInput(Console.readLine())
-  val playerList = players.map { Car(it) }
-  Simulation.race(playerList, totalRounds)
+
+  val players: List<Car> = playerNames.map { Car(it) }
+  Simulation.race(players, totalRounds)
 }
