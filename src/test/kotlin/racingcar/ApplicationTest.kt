@@ -21,9 +21,47 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `should show multiple winners when tie occurs`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,jun", "1")
+                assertThat(output()).contains("pobi : -", "jun : -", "Winners : pobi, jun")
+            },
+            MOVING_FORWARD, MOVING_FORWARD
+        )
+    }
+
+    @Test
     fun `exception test`() {
         assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+            assertThrows<IllegalArgumentException> { runException("pobi,javaji" , "1") }
+        }
+    }
+
+    @Test
+    fun `should throw exception if car name is blank`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException(" ,jun", "1")
+            }
+        }
+    }
+
+    @Test
+    fun `should throw exception if round is not a number`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,jun", "abc")
+            }
+        }
+    }
+
+    @Test
+    fun `should throw exception if round is zero`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,jun", "0")
+            }
         }
     }
 
