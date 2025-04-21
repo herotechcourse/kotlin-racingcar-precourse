@@ -81,7 +81,7 @@ Winners : pobi, jun
 - Using `gradlew` to build and test Kotlin apps
 - How to mock random behavior in tests using `assertRandomNumberInRangeTest`
 
-### Resources Used
+### Resources I Used
 
 - [Kotlin Official Documentation](https://kotlinlang.org/docs/home.html)
 - [JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/)
