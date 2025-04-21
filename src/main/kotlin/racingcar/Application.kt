@@ -62,13 +62,7 @@ class Game {
   }
 
   private fun printRound() {
-    for (car in cars) {
-      var dashes = ""
-      for (i in 0 until car.position) {
-        dashes += "-"
-      }
-      println("${car.name} : $dashes")
-    }
+    cars.forEach { println("${it.name} : ${"-".repeat(it.position)}") }
   }
 
   private fun printWinners() {
