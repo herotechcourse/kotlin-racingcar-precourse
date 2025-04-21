@@ -22,9 +22,11 @@
 1. [X] Generate a randomly number between 0 and 9 
      - If this number is 4 or greater, return `MOVING_FORWARD`
      - else return `STOP`
-2.[X] Create a Map by assigning each element of the `carName List` to  a key(carName)-value(`MOVING_FORWARD` OR `STOP`)
+   
+2. [X] Create a Map by assigning each element of the `carName List` to  a key(carName)-value(`MOVING_FORWARD` OR `STOP`)
      - return `carDir`
-3.[X] Print `Round Result`
+
+3. [X] Print `Round Result`
    - If a value is "MOVING_FORWARD"  in `carDir`
      - Append `-` to roundResult[`carName`]
 
