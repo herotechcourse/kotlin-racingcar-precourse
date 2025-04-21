@@ -4,6 +4,8 @@
 
 package racingcar
 
+import kotlin.reflect.KClass
+
 class RaceResult(val rounds: List<List<String>>, val winners: List<String>) {
     fun print() {
         println()
@@ -17,7 +19,7 @@ class RaceResult(val rounds: List<List<String>>, val winners: List<String>) {
 }
 
 class FixedRoundsRace(private val config: FixedRoundsRaceConfiguration) {
-    private val lanes = List(this.config.carNames.size) { Lane() }
+    private val lanes = List(this.config.carNames.size) { RandomizedMoveLane() }
     private val cars = this.config.carNames.mapIndexed { index, name -> Car(name, lanes[index]) }
 
     private fun getReady() {
