@@ -14,6 +14,9 @@ fun main() {
     val cars = mutableListOf<Car>()
     for (name in carNames) {
         val trimmedName = name.trim()
+        if (trimmedName.isEmpty()) {
+            throw IllegalArgumentException("Car name cannot be empty")
+        }
         if (trimmedName.length > 5) {
             throw IllegalArgumentException("Each name allowed up to 5 characters: '$trimmedName'")
         }
