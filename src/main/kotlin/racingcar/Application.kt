@@ -113,3 +113,13 @@ private fun displayRaceStatus(cars: List<Car>) {
         println("${car.name} : ${"-".repeat(car.position)}")
     }
 }
+
+private fun determineWinners(cars: List<Car>): List<Car> {
+    val maxPosition = cars.maxOfOrNull { it.position } ?: 0
+    return cars.filter { it.position == maxPosition }
+}
+
+private fun displayWinners(winners: List<Car>) {
+    val winnerNames = winners.joinToString(", ") { it.name }
+    println("Winners : $winnerNames")
+}
