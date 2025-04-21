@@ -31,7 +31,7 @@ The game takes car names and the number of moves as input and simulates a race t
 
 ---
 
-### 🎮 Game Logic
+### Game Logic
 
 #### Racing
 - [x] Record and track the number of move attempts (stages)
