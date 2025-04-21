@@ -23,7 +23,7 @@ class RaceResultTest {
         val carsAtMaxPosition = raceResult.findCarsAtMaxPosition()
         // then
         assertAll(
-            { assertThat(carsAtMaxPosition.size).isEqualTo(1) },
+            { assertThat(carsAtMaxPosition).hasSize(1) },
             { assertThat(carsAtMaxPosition.containsAll(listOf(maxPositionCar))) }
         )
     }
