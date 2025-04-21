@@ -2,6 +2,7 @@ import org.assertj.core.api.Assertions.assertThatCode
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import racingcar.validateAllowedCharacters
 import racingcar.validateDuplicates
 import racingcar.validateEmptyName
 import racingcar.validateNameLength
@@ -78,5 +79,21 @@ class ValidationUtilsTest {
                 .hasMessage("The names should be unique.")
         }
     }
+    @Nested
+    inner class ValidateAllowedCharactersTest {
+        @Test
+        fun `should not fail if the name contains only letters and numbers`() {
+            assertThatCode {
+                validateAllowedCharacters("Lio3")
+            }.doesNotThrowAnyException()
+        }
 
+        @Test
+        fun `should fail if the name contains not only letters and numbers` () {
+            assertThatThrownBy {
+               validateAllowedCharacters(",./a")
+            }.isInstanceOf(IllegalArgumentException::class.java)
+                .hasMessage("The name should contain only letters and numbers")
+        }
+    }
 }

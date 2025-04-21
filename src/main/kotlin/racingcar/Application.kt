@@ -6,9 +6,10 @@ fun main() {
     println("Enter the names of the cars (comma-separated):")
     val carNames = Console.readLine().split(",").map { it.trim() }
     validateDuplicates(carNames)
-    for (car in carNames) {
-        validateNameLength(car)
-        validateEmptyName(car)
+    for (name in carNames) {
+        validateNameLength(name)
+        validateEmptyName(name)
+        validateAllowedCharacters(name)
     }
 
     println("How many rounds will be played?")

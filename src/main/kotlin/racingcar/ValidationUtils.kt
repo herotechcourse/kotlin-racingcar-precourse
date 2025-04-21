@@ -23,3 +23,9 @@ fun validateDuplicates(names: List<String>) {
         throw IllegalArgumentException("The names should be unique.")
     }
 }
+fun validateAllowedCharacters(name: String){
+    val regex = Regex("^[a-zA-Z0-9]+$")
+    if(!regex.matches(name)){
+        throw IllegalArgumentException("The name should contain only letters and numbers")
+    }
+}
