@@ -3,10 +3,16 @@ package racingcar.view
 import camp.nextstep.edu.missionutils.Console
 import racingcar.model.Car
 
+/** Validate input to initialize car racing simulation */
 class InputHandler {
 
     companion object {
 
+        /**
+         * validate car name input
+         * validate car name length
+         * create cars and return them
+         */
         fun getCars(): MutableList<Car> {
             println("Enter the names of the cars (comma-separated):")
             val input = Console.readLine()
@@ -24,6 +30,10 @@ class InputHandler {
             return cars
         }
 
+        /**
+         * validate input for number of rounds as positive integer
+         * return number of rounds
+         */
         fun getNumberOfRounds(): Int {
             println("How many rounds will be played?")
             val input = Console.readLine()
