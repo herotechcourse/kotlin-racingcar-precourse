@@ -6,10 +6,7 @@ class CarService {
     val carRepository = CarRepository();
 
     fun canIncreaseScore(randomNumber: Int, carName: String): Boolean {
-        if (randomNumber >= 4) {
-            return true;
-        }
-        return false
+        return randomNumber >= 4
     }
 
     fun updateScore(carName: String) {
