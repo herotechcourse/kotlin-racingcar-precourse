@@ -15,6 +15,4 @@ class Car(val name: String) {
             moveForward()
         }
     }
-
-
 }
