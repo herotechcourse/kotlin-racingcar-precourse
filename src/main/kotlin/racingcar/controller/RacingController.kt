@@ -1,0 +1,49 @@
+package racingcar.controller
+
+import racingcar.domain.Referee
+import racingcar.domain.car.Car
+import racingcar.domain.car.Name
+import racingcar.domain.race.Cars
+import racingcar.domain.race.Race
+import racingcar.domain.race.RaceResult
+import racingcar.domain.race.Round
+import racingcar.view.InputView
+import racingcar.view.OutputView
+
+class RacingController(
+    private val inputView: InputView,
+    private val outputView: OutputView
+) {
+    fun run() {
+        val cars = initCars()
+        val round = initRound()
+        val result = playRace(round, cars)
+        determineWinner(result)
+    }
+
+    private fun initCars(): Cars {
+        val carNames = inputView.readCarNames()
+        val cars = carNames.map { Name(it) }
+            .map { Car(it) }
+            .toList()
+        return Cars(cars)
+    }
+
+    private fun initRound(): Round {
+        val totalRounds = inputView.readTotalRounds()
+        return Round(totalRounds)
+    }
+
+    private fun playRace(round: Round, cars: Cars): RaceResult {
+        val race = Race(round, cars)
+        val result = race.play()
+        outputView.showResult(race.getAllRounds())
+        return result
+    }
+
+    private fun determineWinner(result: RaceResult) {
+        val referee = Referee(result)
+        val winner = referee.determineWinner()
+        outputView.showWinner(winner)
+    }
+}
