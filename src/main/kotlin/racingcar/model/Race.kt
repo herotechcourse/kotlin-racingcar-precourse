@@ -10,9 +10,13 @@ class Race(
     companion object {
         private const val RANDOM_MIN = 0
         private const val RANDOM_MAX = 9
+
+        private val defaultGenerator: () -> Int = {
+            Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX)
+        }
     }
 
-    fun runRace(randomNumberGenerator: () -> Int = { Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX) }) {
+    fun runRace(randomNumberGenerator: () -> Int = defaultGenerator) {
         repeat(totalRound) {
             runEachRound(randomNumberGenerator)
             saveRoundResult()
