@@ -13,7 +13,7 @@ fun main() {
      */
 
     println("Enter the names of the cars (comma-separated):")
-    val list = Console.readLine().split(",") //todo 공백제거
+    val list = Console.readLine().split(",").map { it.trim() }
     for (item in list) {
 
         /**
@@ -33,11 +33,50 @@ fun main() {
     val roundNumber = Console.readLine().toInt()
 
 
-    val winnerList = playGame(gameSet, roundNumber)
+//    val winnerList = playGame(gameSet, roundNumber)
+
+
+    println("Race Results")
+
+    for (i in 1..roundNumber) {
+
+        for (play in gameSet) {
+            val num = Randoms.pickNumberInRange(0, 9)
+
+            /**
+             * 2) Each of the n cars can either move forward or stay still during a given number of rounds.
+             * 3) A car moves forward if a randomly generated number between 0 and 9 is 4 or greater.
+             */
+            if (num >= 4) {
+                play.runCount += 1
+            }
+
+            /**
+             * 4) When printing the progress of each car, display the car's name alongside its movement.
+             */
+            val runCount: String = getRunCount(play.runCount)
+            println("${play.playerName} : $runCount")
+        }
+        println()
+    }
+
+
+    /**
+     * 5) After the race is complete, display the winners. There can be multiple winners if they reach the same final position.
+     * - If there are multiple winners, their names should be displayed and separated by commas.
+     */
+    val maxCount = gameSet.maxOfOrNull { it.runCount }
+    val winnerList = gameSet.filter { it.runCount == maxCount }
+        .map { it.playerName }
+
+//    return winnerList
+
+
+
     println("Winners : ${winnerList.joinToString(", ")}")
 }
 
-
+/*
 fun playGame(gameSet: List<Game>, roundNumber: Int): List<String> {
 
     println("Race Results")
@@ -58,9 +97,8 @@ fun playGame(gameSet: List<Game>, roundNumber: Int): List<String> {
             /**
              * 4) When printing the progress of each car, display the car's name alongside its movement.
              */
-            print("${play.playerName}: ")
-            printRunCount(play.runCount)
-            println()
+            val runCount:String = getRunCount(play.runCount)
+            println("${play.playerName}: $runCount")
         }
         println()
     }
@@ -75,10 +113,8 @@ fun playGame(gameSet: List<Game>, roundNumber: Int): List<String> {
         .map { it.playerName }
 
     return winnerList
-}
+}*/
 
-fun printRunCount(count: Int) {
-    for (i in 1..count) {
-        print("-")
-    }
+fun getRunCount(count: Int): String {
+    return "-".repeat(count)
 }
