@@ -36,5 +36,5 @@
 ### 🧪 Testing
 
 - [x] Add unit tests for input validation
-- [ ] Add unit tests for Car behavior
+- [x] Add unit tests for Car behavior
 
