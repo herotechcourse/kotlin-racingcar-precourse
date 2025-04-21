@@ -27,6 +27,13 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `Throw when input is empty`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("\n") }
+        }
+    }
+
     override fun runMain() {
         main()
     }
