@@ -12,8 +12,10 @@ fun main() {
 fun getRaceSettings(): Pair<List<String>, Int> {
     // Ask user to input car name/s
     println("Enter the names of the cars (comma-separated):")
+
     // Read and split input into a list
-    val candidates = Console.readLine()!!.split(",")
+    // Remove leading or trailing spaces
+    val candidates = Console.readLine()!!.split(",").map { it.trim() }
 
     // Validate that each name is non-empty and does not exceed 5 characters
     if (candidates.isEmpty() || candidates.any { it.isEmpty() || it.length > 5 }) {
