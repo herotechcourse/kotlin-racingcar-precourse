@@ -23,3 +23,16 @@ The car(s) that reach the farthest distance at the end of all rounds are declare
 - [x] Determine the winner(s) based on the farthest distance
 - [x] If multiple cars are tied for the farthest distance, declare all of them as winners
 - [x] Print winners in the format: `Winners : carName1, carName2` (comma-separated for multiple winners)
+
+
+## Programming Requirements
+- [x] The program must be executable with Kotlin 1.9.24.
+- [x] You must implement the solution only in Kotlin—Java code is not allowed.
+- [x] The entry point of the application must be the main() function in the Application class.
+- [x] You may not modify the build.gradle.kts file, and you may not use any external libraries other than those provided.
+- [x] Do not use System.exit() or exitProcess() to terminate the program.
+- [x] Unless otherwise specified in the requirements, you may not rename or move files, packages, or other project elements.
+- [x] Follow the Kotlin Coding Conventions.
+- [x] The indentation depth must not exceed 2. A maximum of 2 levels is allowed.
+- [x] Keep functions as small and focused as possible—each should do only one thing.
+- [x] Use JUnit 5 and AssertJ to test the functionality according to your feature list.
