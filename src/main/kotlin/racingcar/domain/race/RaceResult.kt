@@ -2,7 +2,7 @@ package racingcar.domain.race
 
 import racingcar.domain.car.Car
 
-class RaceResult(private val raceCompletedCars: Cars) {
+class RaceResult(val raceCompletedCars: Cars) {
 
     fun findCarsAtMaxPosition(): List<Car> {
         val maxPosition = raceCompletedCars.getMaxPosition()
