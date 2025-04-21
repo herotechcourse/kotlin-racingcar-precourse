@@ -5,6 +5,7 @@ import racingcar.model.Winner
 import racingcar.validation.CarNameValidator
 import racingcar.validation.InputNumberValidator
 import racingcar.view.RaceView
+import racingcar.view.ResultView
 
 fun main() {
     // TODO: Implement the program
@@ -24,6 +25,7 @@ fun main() {
 
     val winner = Winner(cars)
     winner.findWinners()
-    winner.displayWinners()
+
+    ResultView.displayWinners(winner.winners)
 }
 

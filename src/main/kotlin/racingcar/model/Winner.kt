@@ -8,8 +8,4 @@ class Winner(val cars: List<Car>) {
         winners = cars.filter { it.position == max }
     }
 
-    fun displayWinners() {
-        print("Winners : " + winners.joinToString(", ") { it.name })
-    }
-
 }
