@@ -2,7 +2,7 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
 
-object RacingGame {
+object CarRacing {
 
     fun initializeCars(carNames: List<String>): List<Car> {
         return carNames.map { Car(it) }
@@ -25,13 +25,15 @@ object RacingGame {
         repeat(roundCount) { round ->
 //            println("Round ${round + 1}")
             raceSingleRound(cars)
-            RaceOutput.printRoundResult(cars)
+            cars.forEach { car ->
+                println("${car.name} : ${"-".repeat(car.getPosition())}")
+            }
             println()
         }
 
         val maxPosition = cars.maxOf { it.getPosition() }
         val winners = cars.filter { it.getPosition() == maxPosition }.map { it.name }
 
-        RaceOutput.printWinners(winners)
+        println("Winners : ${winners.joinToString(", ")}")
     }
 }

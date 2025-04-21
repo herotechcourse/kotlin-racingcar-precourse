@@ -4,5 +4,5 @@ fun main() {
     val carNames = getValidCarNames()
     val roundCount = getValidRoundCount()
 
-    RacingGame.runRace(carNames, roundCount)
+    CarRacing.runRace(carNames, roundCount)
 }
