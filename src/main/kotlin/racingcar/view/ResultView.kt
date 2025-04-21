@@ -4,16 +4,17 @@ import racingcar.model.Car
 
 object ResultView {
     fun printResultTitle() {
-        println("Racing Result")
+        println("\nRace Results")
     }
 
     fun printRoundResult(cars: List<Car>) {
         for (car in cars) {
             println("${car.name} : ${"-".repeat(car.position)}")
         }
+        println()
     }
 
-    fun printWinner(winner: List<String>) {
-        println("${winner.joinToString(", ") + "is winner."}")
+    fun printWinner(winners: List<String>) {
+        println("Winners : ${winners.joinToString(", ")}")
     }
 }

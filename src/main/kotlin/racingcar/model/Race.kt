@@ -1,6 +1,7 @@
 package racingcar.model
 
 import camp.nextstep.edu.missionutils.Randoms
+import kotlin.collections.maxOf
 
 class Race(private val cars: List<Car>) {
     fun play(rounds: Int): List<List<Car>> {
@@ -11,13 +12,13 @@ class Race(private val cars: List<Car>) {
                 val number = Randoms.pickNumberInRange(0, 9)
                 car.move(number)
             }
-            history.add(cars.map {Car(it.name).apply{repeat(it.position) {move(4)}}})
+            history.add(cars.toList())
         }
         return history
     }
 
     fun findWinners(): List<String> {
-        val max = cars.maxOf { it.position }
-        return cars.filter { it.position == max }.map { it.name }
+        val max = cars.maxOf { car -> car.position }
+        return cars.filter { car -> car.position == max }.map { car -> car.name }
     }
 }

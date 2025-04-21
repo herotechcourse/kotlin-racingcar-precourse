@@ -5,15 +5,15 @@ import racingcar.util.Validator
 
 object InputView {
     fun readCarNames(): List<String> {
-        println("Input car names separated by commas:")
+        println("Enter the names of the cars (comma-separated):")
         val input = Console.readLine()
-        val names = input.split(",").map { it.trim() }
+        val names = input.split(",").map { name -> name.trim() }
         Validator.validateCarNames(names)
         return names
     }
 
     fun readRoundCount(): Int {
-        println("Input the number of attempts:")
+        println("How many rounds will be played?")
         val input = Console.readLine()
         return Validator.validateRoundCount(input)
     }
