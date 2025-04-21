@@ -14,6 +14,10 @@ fun getInputCarNames(): List<String> {
 fun getInputNumRounds(): Int {
     println("How many rounds will be played?")
     val input = readLine()
-    return input?.toIntOrNull()
-        ?: throw IllegalArgumentException("Input must be a valid positive integer")
+    val rounds = input?.toIntOrNull()
+    if (rounds != null && rounds > 0) {
+        return rounds
+    } else {
+        throw IllegalArgumentException("Input must be a valid positive integer")
+    }
 }
