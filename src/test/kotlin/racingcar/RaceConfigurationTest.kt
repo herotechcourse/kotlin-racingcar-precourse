@@ -31,10 +31,31 @@ class FixedRoundsRaceConfigurationTest {
         @JvmStatic
         private fun provideArgumentsForFeatureTest() : Stream<Arguments> {
             return Stream.of(
-                Arguments.of("alpha,beta", listOf<String>("alpha", "beta"), "1", 1),
-                Arguments.of("alpha,beta,gamma", listOf<String>("alpha", "beta", "gamma"), "100", 100),
-                Arguments.of("alpha,beta,gamma,delta", listOf<String>("alpha", "beta", "gamma", "delta"), "200", 200),
-                Arguments.of("alpha   ,beta ,  gamma,delta  ", listOf<String>("alpha", "beta", "gamma", "delta"), "200", 200),
+                Arguments.of(
+                    "alpha,beta", listOf<String>("alpha", "beta"),
+                    "1", 1
+                ),
+                Arguments.of(
+                    "alpha,beta,gamma", listOf<String>("alpha", "beta", "gamma"),
+                    "100", 100
+                ),
+                Arguments.of(
+                    "alpha,beta,gamma,delta", listOf<String>("alpha", "beta", "gamma", "delta"),
+                    "200", 200
+                ),
+                Arguments.of(
+                    "alpha   ,beta ,  gamma,delta  ", listOf<String>("alpha", "beta", "gamma", "delta"),
+                    "200", 200
+                ),
+
+                Arguments.of(
+                    "alpha,beta,gamma", listOf<String>("alpha", "beta", "gamma"),
+                    FixedRoundsRaceConfigurationValidator.MIN_N_ROUNDS.toString(), FixedRoundsRaceConfigurationValidator.MIN_N_ROUNDS
+                ),
+                Arguments.of(
+                    "alpha,beta,gamma", listOf<String>("alpha", "beta", "gamma"),
+                    FixedRoundsRaceConfigurationValidator.MAX_N_ROUNDS.toString(), FixedRoundsRaceConfigurationValidator.MAX_N_ROUNDS
+                ),
             )
         }
 
@@ -59,7 +80,8 @@ class FixedRoundsRaceConfigurationTest {
                 Arguments.of("alpha,beta,gamma", "-500"), // Number of rounds out of bounds
                 Arguments.of("alpha,beta,gamma", "-1"), // Number of rounds out of bounds
                 Arguments.of("alpha,beta,gamma", "0"), // Number of rounds out of bounds
-                Arguments.of("alpha,beta,gamma", "500"), // Number of rounds out of bounds
+                Arguments.of("alpha,beta,gamma", (FixedRoundsRaceConfigurationValidator.MIN_N_ROUNDS - 1).toString()), // Number of rounds out of bounds
+                Arguments.of("alpha,beta,gamma", (FixedRoundsRaceConfigurationValidator.MAX_N_ROUNDS + 1).toString()), // Number of rounds out of bounds
                 Arguments.of("alpha,beta,gamma", "5.12"), // Invalid number of rounds
             )
         }
