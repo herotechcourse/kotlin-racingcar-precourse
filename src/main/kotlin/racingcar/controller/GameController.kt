@@ -6,9 +6,7 @@ import racingcar.view.InputView
 
 class GameController {
     fun start() {
-        val carNames = InputView.readCarNames()
-        val cars = Cars.from(carNames)
-
+        val cars = Cars.from(InputView.readCarNames())
         val round = Round.from(InputView.readRound())
     }
 }
