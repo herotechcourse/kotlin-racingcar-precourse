@@ -1,5 +1,24 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    val application = Application()
+    val isSuccess = application.run()
+
+    if (!isSuccess) return // terminate
 }
+
+class Application {
+     fun run(): Boolean {
+         return try {
+             val inputHandler = InputHandler()
+             val inputs = inputHandler.getInputs()
+
+             true
+         } catch (error: Exception) {
+             println(error.message)
+
+             false
+         }
+    }
+}
+
