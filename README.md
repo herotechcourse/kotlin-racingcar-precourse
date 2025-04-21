@@ -12,7 +12,8 @@ by Rizki Pramadhan (rizki.pramadhan@itsprmd.id)
     - Position in race
     - Number of movement for each round
 
-- Race Controller
-  - Start and manage the race
+- Race Logic 
+  - Initializes the race
   - Recieve input for number of rounds
+  - Running the race
   - Display race progress and winner(s)
