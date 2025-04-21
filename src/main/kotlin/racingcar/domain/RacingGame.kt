@@ -20,4 +20,11 @@ class RacingGame(
 
         return roundPositions
     }
+
+    fun getWinners(): List<String> {
+        val maxPosition = cars.cars.maxOf { it.getPosition() }
+
+        return cars.cars.filter { it.getPosition() == maxPosition }
+            .map { it.name }
+    }
 }
