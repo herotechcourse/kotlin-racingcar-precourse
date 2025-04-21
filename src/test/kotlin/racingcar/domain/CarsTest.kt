@@ -47,11 +47,11 @@ class CarsTest {
         @Test
         @DisplayName("[Success] find the maximum distance")
         fun `test maximum distance`() {
-            val fixture = CarFixture.VALID_CARS
+            val fixture = CarFixture()
             val cars = fixture.toDomain()
             for (i: Int in 1..6) cars.moveAll()
 
-            org.junit.jupiter.api.Assertions.assertEquals(fixture.five.getDistance(), cars.findMaxDistance())
+            org.junit.jupiter.api.Assertions.assertEquals(fixture.getWon().getDistance(), cars.findMaxDistance())
         }
     }
 }

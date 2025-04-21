@@ -9,14 +9,13 @@ class GameServiceTest {
     private val service = GameService()
 
     @Test
-    @DisplayName("[Success] pobi moves 4, won moves 5")
+    @DisplayName("[Success] pobi moves 4, won moves 5, then winner is won")
     fun `test racing all car`() {
-        val fixture = CarFixture.VALID_CARS
-        val testingCars = fixture.toDomain()
+        val carFixture = CarFixture()
+        val testingCars = carFixture.toDomain()
 
         service.raceAll(6, testingCars)
-
-        Assertions.assertEquals(4, fixture.four.getDistance())
-        Assertions.assertEquals(5, fixture.five.getDistance())
+        val winner = service.findWinners(testingCars)
+        Assertions.assertEquals(winner.winners.first().name, carFixture.getWon().getName())
     }
 }

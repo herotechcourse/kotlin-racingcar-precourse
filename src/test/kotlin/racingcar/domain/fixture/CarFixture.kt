@@ -3,11 +3,14 @@ package racingcar.domain.fixture
 import racingcar.domain.Car
 import racingcar.domain.Cars
 
-enum class CarFixture(val four: Car, val five: Car) {
-    VALID_CARS(
-        Car("pobi", Fixture.FourMovingNumberPicker),
-        Car("won", Fixture.FiveMovingNumberPicker)
-    );
+class CarFixture() {
+    private val numberFixture = Fixture()
+    private val pobi: Car = Car("pobi", numberFixture.fourMovingNumberPicker())
+    private val won: Car = Car("won", numberFixture.fiveMovingNumberPicker())
 
-    fun toDomain(): Cars = Cars(listOf(four, five))
+    fun toDomain(): Cars = Cars(mutableListOf(pobi, won))
+
+    fun getPobi(): Car = pobi
+
+    fun getWon(): Car = won
 }
