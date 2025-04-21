@@ -64,10 +64,9 @@ fun playRace(carNames: List<String>?, numberOfRounds: Int): Map<String, Int> {
     repeat(numberOfRounds) {
         val randomNumber = Randoms.pickNumberInRange(0, 9)
         if (carNames != null && randomNumber >= 4 ) {
-            for (car in carNames) {
-                carPositions[car] = carPositions[car]!! + 1
-            }
+            moveCars(carNames, carPositions)
         }
+
         for ((car, position) in carPositions) {
             println("$car : ${"-".repeat(position)}")
         }
@@ -87,3 +86,10 @@ fun printWinners(carPositions: Map<String, Int>) {
 
     println("Winners : $winners")
 }
+
+fun moveCars(carNames: List<String>, carPositions: MutableMap<String, Int>) {
+    for (car in carNames) {
+        carPositions[car] = carPositions[car]!! + 1
+    }
+}
+
