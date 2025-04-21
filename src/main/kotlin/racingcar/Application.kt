@@ -7,6 +7,9 @@ fun main() {
     println("Enter the names of the cars (comma-separated):")
     val names= Console.readLine().split(",").map {it.trim()}
 
+    println("How many rounds will be played?")
+    val rounds = Console.readLine().toIntOrNull() ?: throw IllegalArgumentException("Round count must be a valid integer.")
+
     val cars = names.map {Car(it)}
 }
 
