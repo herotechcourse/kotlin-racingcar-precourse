@@ -11,7 +11,8 @@
 3. implemetation
     1. input & ouput
     2. handling gameRound with data class
-    3.
+   3. simply implemetation
+   4. refactoring
 
 ## Commit tag
 
