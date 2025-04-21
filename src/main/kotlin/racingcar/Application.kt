@@ -1,10 +1,15 @@
 package racingcar
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
+import kotlin.compareTo
 
 fun main() {
-    // TODO: Implement the program
+    val (candidates, rounds) = getRaceSettings()
+    val raceResult = runRace(candidates, rounds)
+    printWinners(raceResult)
+}
 
+fun getRaceSettings(): Pair<List<String>, Int> {
     // Ask user to input car name/s
     println("Enter the names of the cars (comma-separated):")
     // Read and split input into a list
@@ -20,6 +25,10 @@ fun main() {
     // Read and convert input to integer
     val rounds = Console.readLine()!!.toInt()
 
+    return Pair(candidates, rounds)
+}
+
+fun runRace(candidates: List<String>, rounds: Int): Map<String, Int> {
     // Print a header before race starts
     println("Race Results")
 
@@ -39,17 +48,21 @@ fun main() {
         // Add blank space after each round
         println()
     }
+    return candidatesMapping
+}
 
+fun printWinners(results: Map<String, Int>) {
     // After all rounds, find the highest score
-    val maxCount = candidatesMapping.values.maxOrNull() ?: 0
+    val maxCount = results.values.maxOrNull() ?: 0
 
     // Filter out all candidates who have the max score (supporting multiple winners)
-    val winners = candidatesMapping.filterValues { it == maxCount }.keys
+    val winners = results.filterValues { it == maxCount }.keys
 
     // Join the winners into a single string and print the result
     val winnersList = winners.joinToString(", ")
     println("Winners : $winnersList")
 }
+
 
 // Updates one candidate's position based on a random value
 fun updateCandidate(candidate: String, candidatesMapping: MutableMap<String, Int>) {
