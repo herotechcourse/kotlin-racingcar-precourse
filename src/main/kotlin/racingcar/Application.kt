@@ -1,45 +1,45 @@
 package racingcar
-import java.util.Random
+
+import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
+
+class CarName(val name: String) {
+    var CarMove = ""
+}
 
 fun main() {
-    var z=0
-
-    class CarName(val name:String){
-        var CarMove=""
-    }
-
     println("Please write the car name. Separated by commas. 5letter or less")
-    val carName=readLine()?:""
-    val list=carName.split(",")
+    val carName = Console.readLine() // 변경: Console 사용
+    val list = carName.split(",")
 
-    for(i in 0..list.size-1){
-        if(list[i].length>5){
+    for (i in 0..list.size-1) {
+        if (list[i].length > 5) {
             throw IllegalArgumentException()
         }
     }
 
-    val round=readLine()?.toInt()?:0
-    val carList=mutableListOf<CarName>()
+    val round = Console.readLine()?.toInt() ?: 0 
+    val carList = mutableListOf<CarName>()
 
-    for(i in 0..list.size-1){
+    for (i in 0..list.size-1) {
         carList.add(CarName(list[i]))
     }
 
-    while(z in 0..round-1) {
+    var z = 0
+    while (z in 0..round-1) {
         for (j in 0..carList.size - 1) {
-            val random = Random()
-            val num = random.nextInt(9)
+            val num = Randoms.pickNumberInRange(0, 9)
             if (num >= 4) {
-                carList[j].CarMove = carList[j].CarMove + "-"
+                carList[j].CarMove += "-"
             }
         }
-
         for (car in carList) {
             println("${car.name} : ${car.CarMove}")
         }
         z++
     }
-        val maxMove = carList.maxOf { it.CarMove.length }
-        val winners = carList.filter { it.CarMove.length == maxMove }
-        println("Winners : " + winners.joinToString(", ") { it.name })
+
+    val maxMove = carList.maxOf { it.CarMove.length }
+    val winners = carList.filter { it.CarMove.length == maxMove }
+    println("Winners : " + winners.joinToString(", ") { it.name })
 }
