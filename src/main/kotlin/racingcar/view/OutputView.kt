@@ -16,5 +16,9 @@ object OutputView {
         println()
     }
 
+    fun printWinners(winners : List<RacingCar>) {
+        val winner = winners.joinToString(", ") { it.name }
+        println("Winners : $winner")
+    }
 }
 
