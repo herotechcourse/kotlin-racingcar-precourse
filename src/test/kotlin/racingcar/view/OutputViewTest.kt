@@ -48,7 +48,7 @@ class OutputViewTest {
     fun printRoundResultTest() {
         round.race()
         outputView.printRoundResult(round)
-        assertEquals(output(), "pobi : -\nwoni : -\njun : -\n")
+        assertEquals(output(), "\npobi : -\nwoni : -\njun : -\n")
     }
 
     @Test
