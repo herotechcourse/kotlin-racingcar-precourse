@@ -11,7 +11,7 @@ object InputView {
         if(names.any {it.isBlank() || it.length > 5 }){
             throw IllegalArgumentException("Each car name must be 1~5 characters and not blank.")
         }
-        return names
+        return names.withUniqueNames()
     }
     fun readRoundCount(): Int {
         println("How many rounds will be played?")

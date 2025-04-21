@@ -8,6 +8,7 @@
 ### Input
 - [x] Get car names from the user, separated by commas.
 - [x] Get the number of race rounds. (race rounds must exceed 0)
+- [x] Duplicate Car Name Handling. (If the same car name is entered multiple times, the program will automatically append numbers to distinguish them.)
 
 ### Racing
 - [x] Generate a random number between 0~9 for each car.
