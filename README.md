@@ -1,27 +1,158 @@
 # Kotlin Racing Car Precourse 🏎️💨
 
-A console‑based car racing game in Kotlin, designed with clean architecture and testability in mind.
 
-## Functional Requirements
-- Implement a console application for capturing user input.
-- Add validation logic for car names and number of rounds (using `CarNameValidator`, `RoundValidator`).
-- Implement car movement computation for a single race round via a pluggable `MovementStrategy`.
-- Build core racing logic (`Race`) that loops rounds, moves cars, and determines winners.
-- Add logic for printing race progress and final results via an Observer (`RaceObserver` + `ConsoleListener`).
+## Overview
+The **Kotlin Racing Car Precourse** is a console application that simulates a car racing game, demonstrating object‑oriented design with Strategy and Observer patterns, strict input validation, and testing.
 
-## Non‑Functional Requirements
-- Modular code organization (frontend, domain, strategy, observer, validation, config).
-- Apply Strategy and Observer design patterns.
-- Extract magic numbers into a central `Config` object.
-- Write unit tests following TDD (using JUnit 5).
-- Dockerize the application for consistent deployment.
-- Maintain code quality with linting and Kotlin conventions.
-- Provide clear documentation.
+## 📄 Table of Contents
+- [Overview](#overview)
+- [Key Features and Highlights](#key-features-and-highlights)
+- [Technologies Used](#technologies-used)
+- [Architecture Overview](#architecture-overview)
+- [Running the Application](#running-the-application)
+- [Testing](#testing)
+- [Game Description](#game-description)
+- [Design Patterns and SOLID Principles](#design-patterns-and-solid-principles)
+- [Exceptions](#exceptions)
+- [Project Structure](#project-structure)
+- [Contact Information](#contact-information)
 
-## Assumptions
-- Input car names are unique (no duplicate‑elimination logic needed).
-- Cars move based on a random number generator (0-9) and a threshold (4) for movement.
-- At least one car should be given as an input in the console.
-- Winner names are printed in the order they were entered.
-- Car names are alphanumeric and at most 5 characters long.
-- Rounds number must be a positive integer.
+## Key Features and Highlights
+- **Modular Design:** Clear separation of frontend, domain, strategy, observer, and validation layers.
+- **Validation:** Robust checks for car names and race rounds.
+- **Randomized Car Movement:** Configurable movement thresholds with pluggable strategies.
+- **Real-time Updates:** Observer pattern for race progress and results.
+- **Testing:** Extensive unit and integration tests using JUnit.
+- **Docker Support:** Containerization for consistent environments.
+- **Code Quality:** Linting and adherence to Kotlin coding conventions.
+
+## Technologies Used
+- **Language:** Kotlin 1.9+
+- **Build Tool:** Gradle 7.2+
+- **Testing:** JUnit 5
+- **Containerization:** Docker
+
+## Architecture Overview
+- **Frontend:** Reads user input and displays output.
+- **Domain:** Core race logic in `Race.kt`.
+- **Strategy:** Defines `MovementStrategy` for car motion.
+- **Observer:** `RaceObserver` notifies listeners of race events.
+- **Validation:** Ensures correct input via validators.
+
+## Running the Application
+### Prerequisites
+- JDK 1.8+ / Kotlin 1.9+
+- Gradle 7.2+
+- Docker (optional)
+
+### Steps
+1. **Clone repository**
+    ```bash
+    git clone https://github.com/yourusername/kotlin-racingcar-precourse.git
+    cd kotlin-racingcar-precourse
+    ```
+2. **Build & Run**
+    ```bash
+    ./gradlew build
+    ./gradlew run
+    ```
+3. **Docker (optional)**
+    ```bash
+    docker build -t racing-car .
+    docker run racing-car
+    ```
+
+## Testing
+Run unit tests with:
+```bash
+./gradlew test
+```
+
+## Game Description
+Players input comma‑separated car names and the number of rounds:
+```
+Enter the names of the cars (comma-separated):
+pobi,woni,jun
+How many rounds will be played?
+5
+```
+**Example Execution:**
+```
+Race Results
+pobi : -
+woni : 
+jun : -
+
+pobi : --
+woni : -
+jun : --
+
+pobi : ---
+woni : --
+jun : ---
+
+pobi : ----
+woni : ---
+jun : ----
+
+pobi : -----
+woni : ----
+jun : -----
+
+Winners : pobi, jun
+```
+
+## Design Patterns and SOLID Principles
+**Design Patterns**
+- **Strategy:** Pluggable `MovementStrategy`.
+- **Singleton:** Configuration and core services as singletons.
+- **Observer:** `RaceObserver` dispatches race events.
+
+**SOLID Principles**
+- **SRP:** Each class has one responsibility.
+- **OCP:** Extend behaviors without modifying existing code.
+- **LSP:** Subtypes replace base types safely.
+- **ISP:** Interfaces are minimal and focused.
+- **DIP:** High‑level modules depend on abstractions.
+
+## Exceptions
+The application throws `IllegalArgumentException` for:
+- Blank or empty car names.
+- Non-alphanumeric or over‑length names.
+- Duplicate car names.
+- Non-positive or non-numeric rounds.
+
+## Project Structure
+```
+src/
+├── main/kotlin/racingcar/
+│   ├── Application.kt
+│   ├── config/Config.kt
+│   ├── domain/Race.kt
+│   ├── frontend/Frontend.kt
+│   ├── model/Car.kt
+│   ├── observer/
+│   │   ├── ConsoleListener.kt
+│   │   ├── RaceListener.kt
+│   │   └── RaceObserver.kt
+│   ├── strategy/
+│   │   ├── MovementStrategy.kt
+│   │   └── RandomMovementStrategy.kt
+│   └── validation/
+│       ├── CarNameValidator.kt
+│       ├── RoundValidator.kt
+│       └── Validator.kt
+└── test/kotlin/racingcar/
+    ├── ApplicationTest.kt
+    ├── observer/RaceObserverTest.kt
+    ├── strategy/RandomMovementStrategyTest.kt
+    ├── validation/CarNameValidatorTest.kt
+    ├── model/CarTest.kt
+    ├── domain/RaceTest.kt
+    └── frontend/FrontendTest.kt
+```
+
+## Contact Information
+- **Author:** Alaa Ismail
+- **Email:** alaaismail286@gmail.com
+- **GitHub:** https://github.com/3laaHisham
