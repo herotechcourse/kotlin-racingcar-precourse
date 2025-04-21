@@ -28,14 +28,6 @@ class ApplicationTest : NsTest() {
         }
     }
 
-    @Test
-    fun `valid input should not throw exception`() {
-        assertSimpleTest {
-            assertDoesNotThrow {
-                run(" bi   ,woni", "1")
-            }
-        }
-    }
 
     @Test
     fun `multiple winners`() {

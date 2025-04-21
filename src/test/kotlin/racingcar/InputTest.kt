@@ -2,6 +2,7 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
+import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import racingcar.input.InputReader
@@ -23,6 +24,15 @@ class InputTest : NsTest() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> {
                 runException("bobibobi,woni", "1")
+            }
+        }
+    }
+
+    @Test
+    fun `valid input should not throw exception`() {
+        assertSimpleTest {
+            assertDoesNotThrow {
+                run(" bi   ,woni", "1")
             }
         }
     }
