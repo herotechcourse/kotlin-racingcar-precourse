@@ -5,7 +5,11 @@ import camp.nextstep.edu.missionutils.Console
 class InputView {
     fun readCarNames(): List<String> {
         println("Enter the names of the cars (comma-separated):")
-        return Console.readLine().split(",")
+        val input = Console.readLine()
+        if (input.isNullOrBlank()) {
+            throw IllegalArgumentException("Car names cannot be empty.")
+        }
+        return input.split(",").map { it.trim() }
     }
 
     fun readNumberOfRounds(): Int {

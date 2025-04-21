@@ -30,7 +30,7 @@
 
 ### 🚫 Validation
 
-- [ ] Validate car names (non-empty, max 5 characters)  
+- [x] Validate car names (non-empty, max 5 characters)  
 - [ ] Validate round count (must be positive integer)  
 
 ### 🧪 Testing
