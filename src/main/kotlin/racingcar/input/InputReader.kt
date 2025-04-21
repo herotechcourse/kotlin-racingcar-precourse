@@ -13,7 +13,11 @@ object InputReader {
     }
 
     fun readCarNames(prompt: String, max: Int): List<String> {
-        val names = InputSplitter.splitByComma(readIfValidate(prompt))
+        val rawInput = readIfValidate(prompt)
+        val names = InputSplitter
+            .splitByComma(rawInput)
+            .map{ it.trim() }
+
         InputValidator.allNamesLessThanMaxLength(names, max)
         return names
     }
