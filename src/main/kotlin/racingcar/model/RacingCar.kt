@@ -3,7 +3,7 @@ package racingcar.model
 private const val MOVE_TRIGGER_VALUE = 4
 
 class RacingCar(
-    private val name: String,
+    val name: String,
     private var position: Int
 ) {
     constructor(name: String) : this(name, 0)
@@ -13,4 +13,7 @@ class RacingCar(
             position++
         }
     }
+
+    val progress: Int
+        get() = position
 }

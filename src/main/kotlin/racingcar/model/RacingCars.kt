@@ -15,6 +15,12 @@ class RacingCars private constructor(
         cars.forEach { it.moveForwardIfPossible(generator.generate()) }
     }
 
+    fun findWinners(): List<String> {
+        val maxPosition = cars.maxOf { it.progress }
+        return cars
+            .filter { it.progress == maxPosition }
+            .map { it.name }
+    }
 
     fun all(): List<RacingCar> = cars
 }
