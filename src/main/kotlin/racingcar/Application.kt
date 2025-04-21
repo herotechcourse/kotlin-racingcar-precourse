@@ -1,6 +1,7 @@
 package racingcar
 
 import racingcar.view.InputView
+import racingcar.view.readRoundCount
 
 //object Application {
 //    @JvmStatic
@@ -26,7 +27,7 @@ class Application {
         @JvmStatic
         fun main(args: Array<String>) {
             val car = InputView.readCarName()
-            val rounds = InputView.readRoundCount()
+            val rounds = readRoundCount()
 
             val game = RacingGame(car)
             game.play(rounds)

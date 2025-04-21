@@ -27,4 +27,5 @@
         - top level function
     - [ ] Keep functions as small and focused as possible—each should do only one thing.
     - [ ] Use JUnit 5 and AssertJ to test the functionality according to your feature list.
+        - [ ] Add a test fot the logic that determine winners
     - [ ] You must use the Randoms and Console APIs provided by the camp.nextstep.edu.missionutils package.
