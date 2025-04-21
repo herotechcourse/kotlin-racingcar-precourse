@@ -1,10 +1,9 @@
 package racingcar.model
 
-class RacingCars private constructor(
+class RacingCars internal constructor(
     private val cars: List<RacingCar>,
     private val generator: RandomNumberGenerator
 ) {
-
     companion object {
         fun fromNames(names: List<String>): RacingCars {
             val cars = names.map { RacingCar(it) }

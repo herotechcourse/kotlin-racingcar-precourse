@@ -3,7 +3,7 @@ package racingcar.model
 private const val MOVE_TRIGGER_VALUE = 4
 private const val MAX_NAME_LENGTH = 5
 
-class RacingCar(
+class RacingCar internal constructor(
     val name: String,
     private var position: Int
 ) {
