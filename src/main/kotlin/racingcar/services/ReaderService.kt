@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Console
 class ReaderService(private val readerService: ConsoleReaderService) {
     fun readCarsNames(): List<String> {
         val names = readerService.readLine().split(",").map { it.trim() }
+        require(names.isNotEmpty()) { "Invalid input" }
         require(!names.any { !it.matches(Regex("^[A-Za-z]+$")) || it.length > 5 }) { "Invalid name" }
         return names
     }

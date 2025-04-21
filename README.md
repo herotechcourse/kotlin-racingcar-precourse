@@ -3,7 +3,7 @@
 ## Feature List
 
 - **Input Validation**
-    - `checkForInvalidInput`: Only letters and max 5 characters control
+    - `checkForInvalidInput`: Only letters, max 5 characters and no empty lists
     - `checkForValidRounds`: Only integers bigger than 0 and no strings
 
 - **Race execution**:

@@ -42,6 +42,27 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `should throw exception for invalid car name`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,ja%ˆ", "1") }
+        }
+    }
+
+    @Test
+    fun `should throw exception for invalid empty car name`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException(",", "1") }
+        }
+    }
+
+    @Test
+    fun `should throw exception for empty car list`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("", "1") }
+        }
+    }
+
+    @Test
     fun `should throw exception for negative nr of rounds`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,java", "-1") }
