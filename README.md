@@ -15,12 +15,12 @@
 
 - [x] Each car’s name must be immutable after creation.
 
-- [ ] At least 2 car names must be provided.
-    - [ ]  If fewer than 2 names are entered, throw IllegalArgumentException with message "Number of car names must be at least 2."
+- [x] At least 2 car names must be provided.
+    - [x]  If fewer than 2 names are entered, throw IllegalArgumentException with message "Number of car names must be at least 2."
 
-- [ ] Duplicate car names are not allowed.
-    - [ ] Check for duplicates in a case‑insensitive manner.
-    - [ ] If duplicates are found, throw IllegalArgumentException with message "Duplicate car names found."
+- [x] Duplicate car names are not allowed.
+    - [x] Check for duplicates in a case‑insensitive manner.
+    - [x] If duplicates are found, throw IllegalArgumentException with message "Duplicate car names found."
 
 
 ### User Input: Number of Rounds
