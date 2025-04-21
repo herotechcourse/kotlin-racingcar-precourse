@@ -27,6 +27,7 @@ class Game {
 
     initializeCars(carNames)
     play(round)
+    printWinners()
   }
 
   fun validateCarNames(carNames: List<String>) {
@@ -68,6 +69,16 @@ class Game {
       }
       println("${car.name} : $dashes")
     }
+  }
+
+  private fun printWinners() {
+    val winners = getWinners()
+    println("Winners : ${winners.joinToString(", ")}")
+  }
+
+  fun getWinners(): List<String> {
+    val maxPosition = cars.maxOf { it.position }
+    return cars.filter { it.position == maxPosition }.map { it.name }
   }
 }
 
