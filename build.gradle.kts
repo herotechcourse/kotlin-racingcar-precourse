@@ -16,11 +16,7 @@ repositories {
 
 dependencies {
     implementation("com.github.woowacourse-projects:mission-utils:1.2.0")
-<<<<<<< HEAD
-
-=======
   
->>>>>>> 67388167d0b77f46a97d1f83682f1648dbfa9b28
 }
 
 tasks {
