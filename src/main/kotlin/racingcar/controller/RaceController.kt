@@ -3,6 +3,7 @@ package racingcar.controller
 import racingcar.constants.MessageConstants
 import racingcar.model.Car
 import racingcar.model.RacingCars
+import racingcar.util.RandomUtil
 import racingcar.view.InputView
 import racingcar.view.OutputView
 

@@ -2,6 +2,7 @@ package racingcar.view
 
 import camp.nextstep.edu.missionutils.Console
 import racingcar.constants.MessageConstants
+import racingcar.util.CarNameValidator
 import racingcar.util.NumberValidator
 import racingcar.util.StringUtil
 
