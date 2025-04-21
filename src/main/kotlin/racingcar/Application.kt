@@ -9,7 +9,5 @@ fun main() {
     println("Race Results")
     Racing(cars, rounds).play()
 
-    val maxPosition = cars.maxOfOrNull { it.position } ?: 0
-    val winners = cars.filter { it.position == maxPosition }.map { it.name }
-    print("Winners : ${winners.joinToString (", ")}")
+    ResultView.printWinners(cars)
 }
