@@ -1,10 +1,9 @@
 package racingcar.domain
 
-class Referee(val cars: Cars) {
+class Referee(private val raceResult: RaceResult) {
 
     fun determineWinner(): List<String> {
-        val maxPosition = cars.getMaxPosition()
-        return cars.findAllAtPosition(maxPosition)
+        return raceResult.findCarsAtMaxPosition()
             .map { it.getName() }
     }
 }

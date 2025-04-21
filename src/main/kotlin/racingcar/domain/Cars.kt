@@ -13,14 +13,14 @@ class Cars(val cars: List<Car>) {
         return cars.distinct().size == cars.size
     }
 
-    fun moveAll() {
-        cars.forEach { it.move() }
+    fun moveAll(): Cars {
+        return Cars(cars.map { it.move() })
     }
 
     fun getMaxPosition() = cars.maxOf { it.getPosition() }
 
-    fun findAllAtPosition(maxPosition: Int): List<Car> {
-        return cars.filter { it.getPosition() == maxPosition }
+    fun findAllAtSamePosition(position: Int): List<Car> {
+        return cars.filter { it.getPosition() == position }
     }
 
     companion object {

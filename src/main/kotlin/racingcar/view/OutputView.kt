@@ -4,14 +4,13 @@ import racingcar.domain.Cars
 
 class OutputView {
 
-    fun showResultMessage() {
+    fun showResult(allRoundCars: List<Cars>) {
         println(RESULT_MESSAGE)
+        allRoundCars.forEach { showEachRound(it) }
     }
 
-    fun showEachRound(cars: Cars) {
-        for (car in cars.cars) {
-            println(RESULT_FORMAT.format(car.getName(), POSITION_SYMBOL.repeat(car.getPosition())))
-        }
+    private fun showEachRound(cars: Cars) {
+        cars.cars.forEach { println(RESULT_FORMAT.format(it.getName(), POSITION_SYMBOL.repeat(it.getPosition()))) }
         println()
     }
 

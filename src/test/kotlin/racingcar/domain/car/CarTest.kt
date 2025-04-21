@@ -12,9 +12,9 @@ class CarTest {
         // given
         val car = createCar(mutableListOf(4))
         // when
-        car.move()
+        val movedCar = car.move()
         // then
-        assertThat(car.getPosition()).isEqualTo(1)
+        assertThat(movedCar.getPosition()).isEqualTo(1)
     }
 
     @Test
@@ -22,9 +22,9 @@ class CarTest {
         // given
         val car = createCar(mutableListOf(3))
         // when
-        car.move()
+        val movedCar = car.move()
         // then
-        assertThat(car.getPosition()).isEqualTo(0)
+        assertThat(movedCar.getPosition()).isEqualTo(0)
     }
 
     @Test

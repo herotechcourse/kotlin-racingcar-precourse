@@ -7,26 +7,16 @@ import racingcar.domain.car.Car
 import racingcar.domain.car.Name
 import racingcar.domain.car.Position
 import racingcar.domain.numberGenerator.FixedNumberGenerator
-import java.util.*
 
 class RefereeTest {
 
     @Test
     fun `determine the winner when there is only one winner`() {
         // given
-        val queueForCarA = LinkedList<Int>()
-        queueForCarA.add(1)
+        val car1 = createCar("a", mutableListOf(1))
+        val car2 = createCar("b", mutableListOf(8))
 
-        val queueForCarB = LinkedList<Int>()
-        queueForCarB.add(8)
-
-        val car1 = createCar("a", queueForCarA)
-        val car2 = createCar("b", queueForCarB)
-
-        val cars = Cars(listOf(car1, car2))
-        cars.moveAll()
-
-        val referee = Referee(cars)
+        val referee = createRefereeWithCars(car1, car2)
         // when
         val winner = referee.determineWinner()
         // then
@@ -36,19 +26,10 @@ class RefereeTest {
     @Test
     fun `determine the winners when there are multiple winners`() {
         // given
-        val queueForCarA = LinkedList<Int>()
-        queueForCarA.add(5)
+        val car1 = createCar("a", mutableListOf(5))
+        val car2 = createCar("b", mutableListOf(8))
 
-        val queueForCarB = LinkedList<Int>()
-        queueForCarB.add(8)
-
-        val car1 = createCar("a", queueForCarA)
-        val car2 = createCar("b", queueForCarB)
-
-        val cars = Cars(listOf(car1, car2))
-        cars.moveAll()
-
-        val referee = Referee(cars)
+        val referee = createRefereeWithCars(car1, car2)
         // when
         val winner = referee.determineWinner()
         // then
@@ -58,7 +39,16 @@ class RefereeTest {
         )
     }
 
-    private fun createCar(name: String, queue: LinkedList<Int>): Car {
-        return Car(Name(name), Position(), FixedNumberGenerator(queue))
+    private fun createCar(name: String, numbers: MutableList<Int>): Car {
+        return Car(Name(name), Position(), FixedNumberGenerator(numbers))
+    }
+
+    private fun createRefereeWithCars(car1: Car, car2: Car): Referee {
+        val cars = Cars(listOf(car1, car2))
+        val raceCompletedCars = cars.moveAll()
+        val raceResult = RaceResult(raceCompletedCars)
+
+        val referee = Referee(raceResult)
+        return referee
     }
 }

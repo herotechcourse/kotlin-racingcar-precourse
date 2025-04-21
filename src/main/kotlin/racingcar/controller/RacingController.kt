@@ -1,6 +1,8 @@
 package racingcar.controller
 
 import racingcar.domain.Cars
+import racingcar.domain.Race
+import racingcar.domain.RaceResult
 import racingcar.domain.Referee
 import racingcar.domain.Round
 import racingcar.domain.car.Car
@@ -15,8 +17,8 @@ class RacingController(
     fun run() {
         val cars = initCars()
         val round = initRound()
-        playRace(round, cars)
-        determineWinner(cars)
+        val result = playRace(round, cars)
+        determineWinner(result)
     }
 
     private fun initCars(): Cars {
@@ -32,16 +34,15 @@ class RacingController(
         return Round(totalRounds)
     }
 
-    private fun playRace(round: Round, cars: Cars) {
-        outputView.showResultMessage()
-        repeat(round.leftRound) {
-            cars.moveAll()
-            outputView.showEachRound(cars)
-        }
+    private fun playRace(round: Round, cars: Cars): RaceResult {
+        val race = Race(round, cars)
+        val result = race.play()
+        outputView.showResult(race.getAllRounds())
+        return result
     }
 
-    private fun determineWinner(cars: Cars) {
-        val referee = Referee(cars)
+    private fun determineWinner(result: RaceResult) {
+        val referee = Referee(result)
         val winner = referee.determineWinner()
         outputView.showWinner(winner)
     }
