@@ -7,11 +7,13 @@
     - [x] Trim any leading or trailing whitespace around each name.
     - ex. `pobi,woni,jun`
 
-- [ ] If a name is missing or consists only of whitespace, throw
-    - [ ] If a name is missing or consists only of whitespace, throw `IllegalArgumentException` with message "Car name is missing."
+- [x] If a name is missing or consists only of whitespace, throw
+    - [x] If a name is missing or consists only of whitespace, throw `IllegalArgumentException` with message "Car name is missing."
 
-- [ ] Each car name cannot exceed 5 characters
-    - [ ]  If violated, throw `IllegalArgumentException` with message "Car name exceeds 5 characters."
+- [x] Each car name cannot exceed 5 characters
+    - [x]  If violated, throw `IllegalArgumentException` with message "Car name exceeds 5 characters."
+
+- [x] Each car’s name must be immutable after creation.
 
 - [ ] At least 2 car names must be provided.
     - [ ]  If fewer than 2 names are entered, throw IllegalArgumentException with message "Number of car names must be at least 2."
