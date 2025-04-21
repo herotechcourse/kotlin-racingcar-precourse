@@ -3,6 +3,10 @@ package racingcar.models
 import camp.nextstep.edu.missionutils.Randoms
 
 class Car(val name: String, var position: Int = 0) {
+    /**
+     * According to the requirements the car moves forward
+     * if a random number between 0-9 is at least 4.
+     */
     fun race() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) position++
     }

@@ -45,7 +45,7 @@ object InputUtils {
         try {
             rounds = input.toInt()
         } catch (e: NumberFormatException) {
-            throw IllegalArgumentException("Number of rounds must be a positive integer")
+            throw IllegalArgumentException("Number of rounds must be a positive integer smaller than 2,147,483,648")
         }
 
         if (rounds <= 0) {
