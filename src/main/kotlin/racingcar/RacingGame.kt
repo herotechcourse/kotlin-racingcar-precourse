@@ -9,9 +9,8 @@ class RacingGame(private val carNames: List<String>) {
     private val cars: List<Car> = carNames.map { Car(it) }
 
     fun play(rounds: Int) {
-        var winnerString = ""
         repeatRounds(rounds, cars)
-        winnerString = determineWinner(cars).joinToString(", ")
+        val winnerString = determineWinner(cars).joinToString(", ")
         printResult(winnerString)
     }
 
