@@ -18,8 +18,8 @@ object InputValidator {
 
     fun isNumber(input: String) : Int {
         val v = input.toIntOrNull()
-            ?.takeIf { it >= 0 }
-            ?: throw IllegalArgumentException("Input value must be a non-negative integer")
+            ?.takeIf { it > 0 }
+            ?: throw IllegalArgumentException("Input value must be a positive integer")
         return v
     }
 }
