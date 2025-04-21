@@ -95,9 +95,8 @@ class RacingCarDetailedTest : NsTest() {
     }
 
     @Test
-    fun `winner determination test`() {
+    fun `should determine a single winner correctly`() {
         assertSimpleTest {
-            // Single winner test
             val singleWinnerResults = listOf(
                 listOf(Car("car1", 0), Car("car2", 0)),
                 listOf(Car("car1", 2), Car("car2", 1))
@@ -105,8 +104,12 @@ class RacingCarDetailedTest : NsTest() {
             val singleWinner = determineWinners(singleWinnerResults)
             assertThat(singleWinner).hasSize(1)
             assertThat(singleWinner[0].name).isEqualTo("car1")
+        }
+    }
 
-            // Tie test
+    @Test
+    fun `should determine multiple winners in case of tie`() {
+        assertSimpleTest {
             val tieResults = listOf(
                 listOf(Car("car1", 0), Car("car2", 0)),
                 listOf(Car("car1", 2), Car("car2", 2))
