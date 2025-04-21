@@ -27,6 +27,46 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `name length validation test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("a,bb,ccc,dddd,eeeee,ffffff", "1") }
+        }
+    }
+
+    @Test
+    fun `invalid round input test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,woni", "-1") }
+        }
+
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,woni", "abc") }
+        }
+    }
+
+    @Test
+    fun `multiple winners test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("Winners : pobi, woni")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD,
+        )
+    }
+
+    @Test
+    fun `car position string test`() {
+        val car = Car("test")
+        car.distance = 0
+        assertThat(car.positionToString()).isEqualTo("")
+
+        car.distance = 3
+        assertThat(car.positionToString()).isEqualTo("---")
+    }
+
     override fun runMain() {
         main()
     }
