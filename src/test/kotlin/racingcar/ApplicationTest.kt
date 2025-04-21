@@ -83,6 +83,32 @@ class ApplicationTest : NsTest() {
         private const val MOVING_FORWARD: Int = 4
         private const val STOP: Int = 3
     }
-}
+    // 🆕 Test: Car moves only when number is 4 or more
+    @Test
+    fun `car moves forward when random number is 4 or higher`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                val output = output()
+                assertThat(output).contains("pobi : -")
+                assertThat(output).contains("Winners : pobi")
+            },
+            MOVING_FORWARD, STOP
+        )
+    }
+
+    // 🆕 Test: Car does not move if number is below 4
+    @Test
+    fun `car does not move when random number is less than 4`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi", "1")
+                assertThat(output()).contains("pobi : ")
+                assertThat(output()).contains("Winners : pobi")
+            },
+            STOP
+        )
+    }
+
 
 }
