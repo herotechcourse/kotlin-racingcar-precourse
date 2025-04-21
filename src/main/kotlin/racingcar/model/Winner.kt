@@ -1,16 +1,11 @@
 package racingcar.model
 
 class Winner(val cars: List<Car>) {
-    var winners: MutableList<Car> = mutableListOf()
+    var winners: List<Car> = emptyList()
 
     fun findWinners() {
         val max = cars.maxOfOrNull { it.position }
-
-        for (car in cars) {
-            if (car.position == max) {
-                winners.add(car)
-            }
-        }
+        winners = cars.filter { it.position == max }
     }
 
     fun displayWinners() {
