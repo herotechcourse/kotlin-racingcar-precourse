@@ -13,7 +13,7 @@ fun main() {
      */
 
     println("Enter the names of the cars (comma-separated):")
-    val list = Console.readLine().split(",")
+    val list = Console.readLine().split(",") //todo 공백제거
     for(item in list){
         if (item.count()>5){
             throw IllegalArgumentException()
@@ -29,29 +29,21 @@ fun main() {
     val roundNumber = Console.readLine().toInt()
 
 
-    playgame(gameSet, roundNumber)
+    val winnerList = playGame(gameSet, roundNumber)
+    println("Winners : ${winnerList.joinToString(", ")}")
 }
 
-data class Game(
-    val playerName: String,
-    var runCount: Int,
-)
 
+fun playGame(gameSet: List<Game>, roundNumber: Int): List<String> {
 
-fun playgame(gameSet: List<Game>, roundNumber: Int): String {
-
-    println(" Race Results")
+    println("Race Results")
 
     for (i in 1..roundNumber){
-        println("$i 번째입니다.")
 
         for (play in gameSet){
             val num = Randoms.pickNumberInRange(0,9)
-            println("${play.playerName} 의 $i 번째 턴 결과는 $num")
-
 
             if(num>4){
-                println("전진하세요")
                 play.runCount+=1
 
             }
@@ -62,7 +54,13 @@ fun playgame(gameSet: List<Game>, roundNumber: Int): String {
         println()
     }
 
-    return gameSet.maxByOrNull { it.runCount }?.playerName.toString()
+
+
+    val maxCount = gameSet.maxOfOrNull { it.runCount }
+    val winnerList = gameSet.filter { it.runCount == maxCount }
+        .map { it.playerName }
+
+    return winnerList
 }
 
 fun printRunCount(count: Int){
