@@ -17,7 +17,7 @@ class RacingGame(private val cars: List<Car>, private val totalRounds: Int) {
         }
 
         cars.forEach { car ->
-            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            if (shouldMove(car)) {
                 car.move()
             }
         }
@@ -33,4 +33,6 @@ class RacingGame(private val cars: List<Car>, private val totalRounds: Int) {
     fun isGameOver(): Boolean = currentRound >= totalRounds
 
     fun getCars(): List<Car> = cars
+
+    private fun shouldMove(car: Car): Boolean = Randoms.pickNumberInRange(0, 9) >= 4
 }
