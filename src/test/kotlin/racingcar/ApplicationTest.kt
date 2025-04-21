@@ -27,6 +27,41 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `lenghtOfName test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobiiiii", "1")  }
+        }
+    }
+
+    @Test
+    fun `duplicateName test`() {
+        assertSimpleTest{
+            assertThrows<IllegalArgumentException> { runException("pobi,pobi", "1")  }
+        }
+    }
+
+    @Test
+    fun `emptyName test`() {
+        assertSimpleTest{
+            assertThrows<IllegalArgumentException> { runException("pobi,,woni", "1")  }
+        }
+    }
+
+    @Test
+    fun `notIntegerRound test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "abc") }
+        }
+    }
+
+    @Test
+    fun `negativeRound test`() {
+        assertSimpleTest{
+            assertThrows<IllegalArgumentException> { runException("pobi", "-1")  }
+        }
+    }
+
     override fun runMain() {
         main()
     }
