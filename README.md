@@ -35,8 +35,13 @@ Users enter car names and race rounds, and the game announces the winner(s) at t
 7. **Testing Compatibility**
     - The program is compatible with tests using the `camp.nextstep.edu.missionutils.test` package.
     - Deterministic behavior supported via `Randoms.pickNumberInRange()`.
+   
+8. **Testing Compatibility**
+   - The game logic is thoroughly tested using JUnit 5.
+   - Tests cover scenarios such as valid inputs, invalid car names, negative round numbers, car movement logic and more.
 
 ---
+
 
 ## Technologies
 
