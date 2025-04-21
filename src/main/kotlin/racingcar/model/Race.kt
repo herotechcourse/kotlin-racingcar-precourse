@@ -2,18 +2,14 @@ package racingcar.model
 
 import camp.nextstep.edu.missionutils.Randoms
 
-data class Race(val cars: Cars, val rounds: Int) {
-
-    init {
-        require(rounds >= 1) { "Round must be greater than or equal to 1" }
-    }
+data class Race(val cars: Cars, val rounds: Rounds) {
 
     fun play(): RaceResult {
-        val raceLog: MutableList<LapReport> = mutableListOf()
-
-        repeat(rounds) {
-            cars.moveAll { Randoms.pickNumberInRange(0, 9) }
-            raceLog += cars.toLapReport()
+        val raceLog = buildList {
+            rounds.repeat {
+                cars.moveAll { Randoms.pickNumberInRange(0, 9) }
+                add(cars.toLapReport())
+            }
         }
 
         return RaceResult(raceLog, cars.findWinners());
@@ -35,4 +31,21 @@ class Cars(private val cars: List<Car>) {
         return cars.filter { it.position == max }.map { it.name }
     }
 
+}
+
+data class Rounds(private val count: Int) {
+
+    init {
+        require(count >= MIN_COUNT) { "Round must be greater than or equal to 1" }
+    }
+
+    fun repeat(action: () -> Unit) {
+        repeat(count) {
+            action()
+        }
+    }
+
+    companion object {
+        const val MIN_COUNT = 1
+    }
 }
