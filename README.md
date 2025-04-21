@@ -31,8 +31,8 @@
     - [x]  If the value is less than 1, throw IllegalArgumentException with message "Number of rounds must be greater than 0."
 
 ### Racing Logic
-- [ ] For each car and each round, generate a random integer between 0 and 9 (inclusive).
-    - [ ] If the number is 4 or greater, the car moves forward one unit; otherwise, it stays still.
+- [x] For each car and each round, generate a random integer between 0 and 9 (inclusive).
+    - [x] If the number is 4 or greater, the car moves forward one unit; otherwise, it stays still.
 
 ### Distance Tracking
 - [ ] Compute and store each car’s cumulative distance traveled after each round.
