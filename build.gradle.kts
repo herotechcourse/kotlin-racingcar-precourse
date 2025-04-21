@@ -1,5 +1,10 @@
 plugins {
     kotlin("jvm") version "1.9.24"
+    application
+}
+
+application {
+mainClass.set("racingcar.ApplicationKt")
 }
 
 group = "camp.nextstep.edu"
@@ -16,7 +21,9 @@ repositories {
 
 dependencies {
     implementation("com.github.woowacourse-projects:mission-utils:1.2.0")
+    implementation(kotlin("stdlib"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.2")
 }
 
 tasks {
