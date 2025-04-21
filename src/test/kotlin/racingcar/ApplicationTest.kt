@@ -41,6 +41,20 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `exception not a number round` () {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi, woni", "one")}
+        }
+    }
+
+    @Test
+    fun `exception no input provided` () {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("", "1")}
+        }
+    }
+
     override fun runMain() {
         main()
     }
