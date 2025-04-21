@@ -24,4 +24,9 @@ class Race(private val cars: List<Car>, private val rounds: Int) {
         }
     }
 
+    fun getWinners(): List<String> {
+        val maxPosition = cars.maxOf { it.getPosition() }
+        return cars.filter { it.getPosition() == maxPosition }.map { it.name }
+    }
+
 }
