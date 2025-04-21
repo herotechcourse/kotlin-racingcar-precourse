@@ -1,6 +1,7 @@
 package racingcar.io
 
-
+import org.junit.jupiter.api.Test
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.AfterEach
 import java.io.ByteArrayOutputStream
@@ -22,6 +23,12 @@ class OutputProcessTest {
     fun tearDown() {
         System.setOut(standardOut)
     }
-    
 
+    @Test
+    fun `printCarNameInputMessage should print correct message`() {
+
+        outputProcess.printCarNameInputMessage()
+
+        assertThat(outputStreamCaptor.toString().trim()).isEqualTo("Enter the names of the cars (comma-separated):")
+    }
 }
