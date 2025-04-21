@@ -3,13 +3,6 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
-//fun main() {
-//    // TODO: Implement the program
-//    print("hi")
-//}
-
-
-
 class Application {
     companion object {
         @JvmStatic
@@ -26,83 +19,74 @@ class RacingGame {
 
     fun start() {
         try {
-            inputCarNames()
-            inputRounds()
-            race()
+            setupGame()
+            playGame()
             announceWinners()
         } catch (e: IllegalArgumentException) {
             println(e.message)
         }
     }
 
+    private fun setupGame() {
+        inputCarNames()
+        inputRounds()
+    }
+
     private fun inputCarNames() {
         println("Enter the names of the cars (comma-separated):")
         val input = Console.readLine()
-        validateAndCreateCars(input)
+        createCars(validateCarNames(input))
     }
 
-    private fun validateAndCreateCars(input: String) {
-        val carNames = input.split(",").map { it.trim() }
+    private fun validateCarNames(input: String): List<String> {
+        val names = input.split(",").map { it.trim() }
+        if (names.isEmpty()) throw IllegalArgumentException("Enter at least one car name.")
+        if (names.any { it.isEmpty() }) throw IllegalArgumentException("Car name cannot be empty.")
+        if (names.any { it.length > 5 }) throw IllegalArgumentException("Car names must be 5 characters or less.")
+        return names
+    }
 
-        if (carNames.isEmpty()) {
-            throw IllegalArgumentException("Enter the names of the cars (comma-separated):")
-        }
-
-        carNames.forEach { name ->
-            if (name.isEmpty()) {
-                throw IllegalArgumentException("you can't input empty name")
-            }
-            if (name.length > 5) {
-                throw IllegalArgumentException("names cannot exceed 5 characters: $name")
-            }
-            cars.add(Car(name))
-        }
+    private fun createCars(names: List<String>) {
+        names.forEach { cars.add(Car(it)) }
     }
 
     private fun inputRounds() {
         println("How many rounds will be played?")
         val input = Console.readLine()
-        validateAndSetRounds(input)
+        rounds = parseRounds(input)
     }
 
-    private fun validateAndSetRounds(input: String) {
-        try {
-            rounds = input.toInt()
-            if (rounds <= 0) {
-                throw IllegalArgumentException("round must be at least 1")
-            }
+    private fun parseRounds(input: String): Int {
+        return try {
+            val number = input.toInt()
+            if (number <= 0) throw IllegalArgumentException("Round count must be at least 1.")
+            number
         } catch (e: NumberFormatException) {
-            throw IllegalArgumentException("input number.")
+            throw IllegalArgumentException("Please input a valid number.")
         }
     }
 
-    private fun race() {
-        println("\nresult")
+    private fun playGame() {
+        println("\nRace Result")
         repeat(rounds) {
-            moveAllCars()
-            printRaceStatus()
+            moveCars()
+            printStatus()
         }
     }
 
-    private fun moveAllCars() {
-        cars.forEach { car ->
-            car.tryMove()
-        }
+    private fun moveCars() {
+        cars.forEach { it.tryMove() }
     }
 
-    private fun printRaceStatus() {
-        cars.forEach { car ->
-            println("${car.name} : ${"-".repeat(car.position)}")
-        }
+    private fun printStatus() {
+        cars.forEach { println("${it.name} : ${"-".repeat(it.position)}") }
         println()
     }
 
     private fun announceWinners() {
-        val maxPosition = cars.maxOfOrNull { it.position } ?: 0
-        val winners = cars.filter { it.position == maxPosition }
-
-        val winnerNames = winners.joinToString(", ") { it.name }
-        println("Winners : $winnerNames")
+        val max = cars.maxOfOrNull { it.position } ?: return
+        val winners = cars.filter { it.position == max }.joinToString(", ") { it.name }
+        println("Winners : $winners")
     }
 }
 
@@ -111,9 +95,6 @@ class Car(val name: String) {
         private set
 
     fun tryMove() {
-        val randomNumber = Randoms.pickNumberInRange(0, 9)
-        if (randomNumber >= 4) {
-            position++
-        }
+        if (Randoms.pickNumberInRange(0, 9) >= 4) position++
     }
 }
