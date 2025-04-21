@@ -1,8 +1,8 @@
-package racingcar
+package racingcar.domain
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class Cars(private val cars: List<Car>) {
+class RacingCars(private val cars: List<Car>) {
 
     fun moveAll() {
         cars.forEach { car ->
@@ -24,11 +24,11 @@ class Cars(private val cars: List<Car>) {
     }
 
     companion object {
-        fun fromNames(input: String): Cars {
+        fun fromNames(input: String): RacingCars {
             val carList = input.split(",")
                 .map { it.trim() }
                 .map { Car.create(it) }
-            return Cars(carList)
+            return RacingCars(carList)
         }
     }
 }

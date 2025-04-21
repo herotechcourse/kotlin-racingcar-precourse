@@ -1,4 +1,4 @@
-package racingcar
+package racingcar.domain
 
 class Car private constructor(val name: String) {
     var position = 0

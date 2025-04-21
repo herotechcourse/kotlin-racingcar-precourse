@@ -1,4 +1,7 @@
-package racingcar
+package racingcar.view
+
+import racingcar.domain.Car
+import racingcar.domain.RacingCars
 
 object OutputView {
 
@@ -6,8 +9,8 @@ object OutputView {
         println("\nRace Results")
     }
 
-    fun printRound(cars: Cars) {
-        cars.printRound()
+    fun printRound(racingCars: RacingCars) {
+        racingCars.printRound()
     }
 
     fun printWinners(winners: List<Car>) {
