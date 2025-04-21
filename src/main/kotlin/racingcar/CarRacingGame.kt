@@ -19,7 +19,8 @@ class CarRacingGame {
   fun start() {
     val carNames = readCarNames()
     val rounds = readRounds()
-    println("Number of rounds: $rounds")
+    val cars = carNames.map { Car(it) }
+    cars.forEach { it.moveIfPossible() }
   }
 
   private fun readRounds(): Int {
