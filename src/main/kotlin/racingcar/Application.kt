@@ -2,7 +2,12 @@ package racingcar
 
 import racingcar.controller.GameController
 
-fun main() {
-    val gameController = GameController()
-    gameController.start()
+class Application {
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            val gameController = GameController()
+            gameController.start()
+        }
+    }
 }
