@@ -1,4 +1,4 @@
-package racingcar.domain
+package racingcar.domain.race
 
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
@@ -8,7 +8,6 @@ import racingcar.domain.car.Car
 import racingcar.domain.car.Name
 import racingcar.domain.car.Position
 import racingcar.domain.numberGenerator.FixedNumberGenerator
-import racingcar.domain.race.Cars
 
 class CarsTest {
 
