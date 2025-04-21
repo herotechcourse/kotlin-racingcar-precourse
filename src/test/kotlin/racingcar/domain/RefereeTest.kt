@@ -7,6 +7,8 @@ import racingcar.domain.car.Car
 import racingcar.domain.car.Name
 import racingcar.domain.car.Position
 import racingcar.domain.numberGenerator.FixedNumberGenerator
+import racingcar.domain.race.Cars
+import racingcar.domain.race.RaceResult
 
 class RefereeTest {
 

@@ -3,6 +3,7 @@ package racingcar.domain
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
+import racingcar.domain.race.Round
 
 class RoundTest {
 

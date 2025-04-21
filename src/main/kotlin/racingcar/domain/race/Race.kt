@@ -1,4 +1,4 @@
-package racingcar.domain
+package racingcar.domain.race
 
 class Race(val round: Round, val cars: Cars) {
 

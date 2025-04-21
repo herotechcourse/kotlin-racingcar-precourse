@@ -1,6 +1,6 @@
 package racingcar.view
 
-import racingcar.domain.Cars
+import racingcar.domain.race.Cars
 
 class OutputView {
 
