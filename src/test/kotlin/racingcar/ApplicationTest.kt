@@ -55,19 +55,6 @@ class ApplicationTest {
     }
 
     @Test
-    fun `should validate that car name contains no whitespace`() {
-        try {
-            val privateMethod = getMethod("validateSpaces")
-            privateMethod.invoke(game, "A B")
-            fail("Expected an IllegalArgumentException to be thrown")
-        } catch (e: InvocationTargetException) {
-            val cause = e.cause
-            assertTrue(cause is IllegalArgumentException)
-            assertTrue(cause?.message?.contains("contains whitespace") == true)
-        }
-    }
-
-    @Test
     fun `should throw exception when no car names provided`() {
         try {
             val privateMethod = RaceCars::class.java.getDeclaredMethod("validateCarNames", List::class.java)
@@ -161,23 +148,6 @@ class ApplicationTest {
         assertEquals(2, winners.size)
         assertTrue(winners.any { (it as Car).name == "A" })
         assertTrue(winners.any { (it as Car).name == "C" })
-    }
-
-    @Test
-    fun `displayWinners should correctly format single winner`() {
-        // Create test cars
-        val car1 = Car("A").apply { position = 5 }
-        val car2 = Car("B").apply { position = 3 }
-
-        val carsField = RaceCars::class.java.getDeclaredField("cars")
-        carsField.isAccessible = true
-        carsField.set(game, listOf(car1, car2))
-
-        val method = getMethod("displayWinners")
-        method.isAccessible = true
-        method.invoke(game)
-
-        assertTrue(outContent.toString().contains("Winner: A"))
     }
 
     @Test

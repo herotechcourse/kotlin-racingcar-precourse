@@ -19,12 +19,7 @@ class RaceCars {
     }
 
     private fun getNames() {
-        println(
-            buildString {
-                append("Enter the names of the cars. Make sure to:\n- Separate them by a comma and no spaces.")
-                append("\n- Use less than five characters per car name.")
-            },
-        )
+        println("Names of the cars (comma-separated):")
         val carNames = Console.readLine()
         val listOfCars = carNames.split(",").map { it.trim() }
 
@@ -33,7 +28,7 @@ class RaceCars {
     }
 
     private fun getRounds() {
-        println("Enter the number of rounds to race:")
+        println("Number of rounds:")
         val roundsInput = Console.readLine()
 
         rounds = createRoundCount(roundsInput)
@@ -60,15 +55,8 @@ class RaceCars {
 
     private fun validateEachCar(separatedCarNames: List<String>) {
         separatedCarNames.forEach { name ->
-            validateSpaces(name)
             validateEmpty(name)
             validateNameLength(name)
-        }
-    }
-
-    private fun validateSpaces(str: String) {
-        if (str.any { it.isWhitespace() }) {
-            throw IllegalArgumentException("The car name '$str' contains whitespace.")
         }
     }
 
@@ -121,9 +109,8 @@ class RaceCars {
         val highestPosition = getHighestPosition()
         val winners = getWinners(highestPosition)
         val outputWinners = winners.joinToString(", ") { it.name }
-        val plural = if (winners.size > 1) "s" else ""
 
-        println("Winner$plural: $outputWinners")
+        println("Winners: $outputWinners")
     }
 
     private fun getHighestPosition(): Int {
