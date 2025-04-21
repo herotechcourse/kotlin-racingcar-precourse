@@ -16,6 +16,12 @@ object InputValidator {
         }
     }
 
+    fun allNamesAreNotEmpty(names: List<String>) {
+        if (names.any { it.isEmpty()}) {
+            throw IllegalArgumentException("Name is empty")
+        }
+    }
+
     fun isNumber(input: String) : Int {
         val v = input.toIntOrNull()
             ?.takeIf { it > 0 }

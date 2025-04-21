@@ -18,13 +18,13 @@ object InputReader {
             .splitByComma(rawInput)
             .map{ it.trim() }
 
+        InputValidator.allNamesAreNotEmpty(names)
         InputValidator.allNamesLessThanMaxLength(names, max)
         return names
     }
 
     fun readNumberOfRounds(prompt: String): Int {
-        println(prompt)
-        val line = Console.readLine()
-        return InputValidator.isNumber(line)
+        val rawInput = readIfValidate(prompt)
+        return InputValidator.isNumber(rawInput)
     }
 }
