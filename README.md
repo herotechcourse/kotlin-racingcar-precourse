@@ -35,7 +35,7 @@
     - [x] If the number is 4 or greater, the car moves forward one unit; otherwise, it stays still.
 
 ### Distance Tracking
-- [ ] Compute and store each car’s cumulative distance traveled after each round.
+- [x] Compute and store each car’s cumulative distance traveled after each round.
 
 ### Determining the Winner(s)
 - [ ] The car(s) with the greatest total distance after all rounds are the winner(s).
