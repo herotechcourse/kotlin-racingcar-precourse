@@ -16,62 +16,30 @@ class Application {
     private val outputView = OutputView()
 
     fun run() {
-//        try {
-            val cars = createValidatedCars()
-            val rounds = readValidatedRounds()
-
-            runRaceAndShowResults(cars, rounds)
-
-//        } catch (e: IllegalArgumentException) {
-//            println(e.message)
-//        }
+        val cars = createValidatedCars()
+        val rounds = readValidatedRounds()
+        runRaceAndShowResults(cars, rounds)
     }
 
     // This method is called by the test
     fun runException(carNames: String, rounds: String) {
-        // Don't catch exceptions in test mode - let them propagate
-        val carsList = createCarsFromInput(carNames)
-        val roundsCount = parseRounds(rounds)
+        validator.validateCarNames(carNames)
+        validator.validateRoundCount(rounds)
+        val carsList = carNames.split(",").map { Car(it.trim()) }
+        val roundsCount = rounds.toInt()
         runRaceAndShowResults(carsList, roundsCount)
     }
 
     private fun createValidatedCars(): List<Car> {
-        try {
-            val carNamesInput = inputView.readCarNames()
-            validator.validateCarNames(carNamesInput)
-            return carNamesInput.split(",").map { Car(it.trim()) }
-        } catch (e: IllegalArgumentException) {
-            println(e.message)
-            throw e
-        }
-//        val carNamesInput = inputView.readCarNames()
-//        validator.validateCarNames(carNamesInput)
-//        return carNamesInput.split(",").map { Car(it.trim()) }
+        val carNamesInput = inputView.readCarNames()
+        validator.validateCarNames(carNamesInput)
+        return carNamesInput.split(",").map { Car(it.trim()) }
     }
 
     private fun readValidatedRounds(): Int {
-        try {
-            val roundsInput = inputView.readRounds()
-            validator.validateRoundCount(roundsInput)
-            return roundsInput.toInt()
-        } catch (e: IllegalArgumentException) {
-            println(e.message)
-            throw e
-        }
-//        val roundsInput = inputView.readRounds()
-//        validator.validateRoundCount(roundsInput)
-//        return roundsInput.toInt()
-    }
-
-    // Helper methods for test
-    private fun createCarsFromInput(carNames: String): List<Car> {
-        validator.validateCarNames(carNames)
-        return carNames.split(",").map { Car(it.trim()) }
-    }
-
-    private fun parseRounds(rounds: String): Int {
-        validator.validateRoundCount(rounds)
-        return rounds.toInt()
+        val roundsInput = inputView.readRounds()
+        validator.validateRoundCount(roundsInput)
+        return roundsInput.toInt()
     }
 
     private fun runRaceAndShowResults(cars: List<Car>, rounds: Int) {
