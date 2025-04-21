@@ -87,4 +87,16 @@ class InputProcessTest {
         assertThrows<IllegalArgumentException> { inputProcess.processRoundNumber() }
     }
 
+    @Test
+    fun `validateEmptyString should throw exception for empty string`() {
+
+        assertThrows<IllegalArgumentException> { inputProcess.validateEmptyString("", "Test") }
+    }
+
+    @Test
+    fun `validateEmptyString should not throw exception for non-empty string`() {
+
+        inputProcess.validateEmptyString("test", "Test")
+    }
+
 }
