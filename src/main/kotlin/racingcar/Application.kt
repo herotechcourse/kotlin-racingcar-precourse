@@ -7,7 +7,7 @@ import racingcar.model.RacingGame
 fun main() {
     val inputHandler = InputHandler()
     val carNames = inputHandler.getCarNames()
-    val rounds = inputHandler.getRounds()
+    val rounds = inputHandler.getNumberOfRounds()
     
     val cars = carNames.map { Car(it) }
     

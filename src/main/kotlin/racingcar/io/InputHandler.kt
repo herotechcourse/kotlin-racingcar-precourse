@@ -13,17 +13,17 @@ class InputHandler {
         return carNames
     }
 
-    fun getRounds(): Int {
+    fun getNumberOfRounds(): Int {
         println("How many rounds will be played?")
         val input = Console.readLine()
-
+        
         return validateRounds(input)
     }
 
     private fun validateCarNames(carNames: List<String>) {
         require(carNames.isNotEmpty()) { "At least one car name must be provided" }
-
-        for (name in carNames) {
+        
+        carNames.forEach { name ->
             require(name.isNotBlank()) { "Car name cannot be blank" }
             require(name.length <= Car.MAX_NAME_LENGTH) { "Car name cannot exceed ${Car.MAX_NAME_LENGTH} characters: $name" }
         }
@@ -38,4 +38,4 @@ class InputHandler {
             throw IllegalArgumentException("Number of rounds must be a valid integer")
         }
     }
-}
+} 
