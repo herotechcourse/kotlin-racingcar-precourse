@@ -1,5 +1,10 @@
 package racingcar
 
+import racingcar.orchestrator.RacingCarOrchestrator
+
+
 fun main() {
-    // TODO: Implement the program
+    val racingCar = RacingCarOrchestrator()
+    racingCar.carRace()
+
 }
