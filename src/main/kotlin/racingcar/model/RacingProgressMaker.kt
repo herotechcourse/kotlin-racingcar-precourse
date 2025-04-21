@@ -1,10 +1,10 @@
 package racingcar.model
 
-fun makeRacingProgressList(carNamesList: List<String>, theNumberOfRounds: Int): MutableList<List<Int>> {
-    val racingProgress = MutableList(carNamesList.size) { 0 }
+fun makeRacingProgressList(carNames: List<String>, racingRounds: Int): MutableList<List<Int>> {
+    val racingProgress = MutableList(carNames.size) { 0 }
     val allRoundProgress = mutableListOf<List<Int>>()
 
-    repeat(theNumberOfRounds) {
+    repeat(racingRounds) {
         racingProgress.indices.forEach { index ->
             if (decideProgress()) {
                 racingProgress[index] += 1
