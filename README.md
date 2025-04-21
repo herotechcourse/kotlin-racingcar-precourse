@@ -11,12 +11,12 @@
 - [ ] Throw IllegalArgumentException and terminate program in case of invalid input
 
 ### 🚗 Cars
-- [ ] Simulate round
-    - [ ] Move forward if generated number is 4 or greater
-    - [ ] Stay still if generated number is smaller than 4
-- [ ] Output progress of car
-    - [ ] Display car name
-    - [ ] Display "-" per distance unit
+- [x] Simulate round
+    - [x] Move forward if generated number is 4 or greater
+    - [x] Stay still if generated number is smaller than 4
+- [x] Output progress of car
+    - [x] Display car name
+    - [x] Display "-" per distance unit
 
 
 ### 🏁 Race Simulation
