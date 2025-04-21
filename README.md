@@ -83,3 +83,35 @@ and provides strict input validation with informative error handling.
 - [ ] Commit each feature atomically with meaningful messages
 
 ---
+
+## ❛ Directory Structure
+
+```text
+racingcar/
+├── Application.kt       
+├── engine/
+│   └── GameEngine.kt    
+├── model/
+│   ├── Car.kt          
+│   └── Race.kt          
+├── movement/
+│   ├── MovementStrategy.kt  
+│   └── RandomMovement.kt    
+├── validation/
+│   ├── CarNameValidator.kt   
+│   └── RoundValidator.kt     
+├── view/
+│   ├── InputView.kt          
+│   └── OutputView.kt       
+└── test/                    
+    ├── model/
+    │   ├── CarTest.kt           
+    │   └── RaceTest.kt          
+    ├── movement/
+    │   └── RandomMovementTest.kt 
+    └── validation/
+        ├── CarNameValidatorTest.kt 
+        └── RoundValidatorTest.kt   
+```
+
+---
