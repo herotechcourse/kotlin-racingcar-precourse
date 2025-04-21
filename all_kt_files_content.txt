@@ -1,0 +1,7 @@
+7. feat(strategy): add MovementStrategy + RandomMovementStrategy
+
+9. feat(domain): implement Race class
+
+ feat(observer): add RaceListener, RaceObserver, ConsoleListener
+
+docs: finalize README with full details
