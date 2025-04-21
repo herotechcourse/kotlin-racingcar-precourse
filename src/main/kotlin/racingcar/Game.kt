@@ -28,7 +28,7 @@ class Game(val cars: List<Car>) {
     private fun printWinners() {
         var maxWon = cars.maxOf { car -> car.getMovesMade() }
         val winners = cars.filter { car -> car.getMovesMade() == maxWon }
-        print("Winners : " + winners.joinToString(", ") { it.getName() })
+        println("Winners : " + winners.joinToString(", ") { it.getName() })
     }
 
     companion object {
