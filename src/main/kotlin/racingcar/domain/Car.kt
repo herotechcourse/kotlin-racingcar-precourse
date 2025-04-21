@@ -1,5 +1,5 @@
 package racingcar.domain
-
+import camp.nextstep.edu.missionutils.Randoms
 
 class Car(val name: String, private var position: Int = 0) {
     init {
@@ -7,5 +7,7 @@ class Car(val name: String, private var position: Int = 0) {
     }
 
     private fun moveForward() = position++
+
+    private fun getRandNumber():Int= Randoms.pickNumberInRange(0,9)
 
 }
