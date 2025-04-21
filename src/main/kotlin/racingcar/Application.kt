@@ -30,5 +30,24 @@ fun main() {
         }
         println()
     }
+
+    val winners = mutableListOf<Car>()
+    for (car in cars) {
+        if (winners.isEmpty()) {
+            winners.add(car)
+            continue
+        }
+        if (car.position > winners.last().position) {
+            winners.clear()
+            winners.add(car)
+        } else if (car.position == winners.last().position) {
+            winners.add(car)
+        } else if (car.position < winners.last().position && winners.size > 1) {
+            winners.removeLast()
+        } else {
+            continue
+        }
+    }
+
 }
 
