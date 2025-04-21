@@ -12,4 +12,10 @@ object InputView {
 
         return CarNameParser.parse(Console.readLine())
     }
+
+    fun readRounds(): Int {
+        println("How many rounds will be played?")
+
+        return RoundParser.parse(Console.readLine())
+    }
 }
