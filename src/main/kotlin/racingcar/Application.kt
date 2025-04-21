@@ -11,4 +11,8 @@ fun main() {
     // Read and split input into a list
     val candidates = Console.readLine()!!.split(",")
 
+    // Validate that each name is non-empty and does not exceed 5 characters
+    if (candidates.isEmpty() || candidates.any { it.isEmpty() || it.length > 5 }) {
+        throw IllegalArgumentException("Please provide a valid candidate name")
+    }
 }
