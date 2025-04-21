@@ -39,6 +39,15 @@ class InvalidHandler {
         if(!converted){
             throw IllegalArgumentException("Invalid input : numbers only ")
         }
+        if(data.toInt()<0)
+        {
+            throw IllegalArgumentException("Invalid input : positive number only")
+        }
+
+        if(data.toInt()==0)
+        {
+            throw IllegalArgumentException("Invalid input : greater than zero")
+        }
 
     }
 
