@@ -54,4 +54,22 @@ class InvalidHandlerTest {
             invalidHandler.convertInt(data)
         }
     }
+
+    @Test
+    @DisplayName("Exception: Second input must positive number")
+    fun `convertPositiveNumber Test` (){
+        val data="-1"
+        assertThrows<IllegalArgumentException>{
+            invalidHandler.convertInt(data)
+        }
+    }
+
+    @Test
+    @DisplayName("Exception: Second input must greater than zero")
+    fun `convertNumber Test` (){
+        val data="0"
+        assertThrows<IllegalArgumentException>{
+            invalidHandler.convertInt(data)
+        }
+    }
 }
