@@ -6,6 +6,6 @@ class Car(val name: String, private var position: Int = 0) {
         require(name.isNotEmpty() && name.length <= 5) { "Car name must be between 1 and 5 characters" }
     }
 
-
+    private fun moveForward() = position++
 
 }
