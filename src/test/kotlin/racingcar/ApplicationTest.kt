@@ -9,7 +9,7 @@ import org.junit.jupiter.api.assertThrows
 
 class ApplicationTest : NsTest() {
     @Test
-    fun `feature test`() {
+    fun `should have pobi as winner`() {
         assertRandomNumberInRangeTest(
             {
                 run("pobi,woni", "1")
@@ -21,9 +21,65 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `exception test`() {
+    fun `should have 2 winners`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "2")
+                assertThat(output()).contains("pobi : -", "woni : -", "Winners : pobi, woni")
+            },
+            MOVING_FORWARD,
+            STOP,
+            STOP,
+            MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun `should throw exception for longer than 5 characters`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `should throw exception for invalid car name`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,ja%ˆ", "1") }
+        }
+    }
+
+    @Test
+    fun `should throw exception for invalid empty car name`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException(",", "1") }
+        }
+    }
+
+    @Test
+    fun `should throw exception for empty car list`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("", "1") }
+        }
+    }
+
+    @Test
+    fun `should throw exception for negative nr of rounds`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,java", "-1") }
+        }
+    }
+
+    @Test
+    fun `should throw exception for nr of rounds equals to 0`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,java", "0") }
+        }
+    }
+
+    @Test
+    fun `should throw exception for invalid number`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,java", "ddd") }
         }
     }
 
