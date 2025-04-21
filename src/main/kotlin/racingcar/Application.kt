@@ -11,8 +11,7 @@ fun main() {
     val numberOfRounds = readNumberOfRounds()
 
     //3. playRace(carNames, numbersOfRounds) function: make random result
-    // 3-1. moveCars(carNames, carPositions)
-    // 3-2. printRaceStatus(carPositions)
+    // 3-1. printRaceStatus(carPositions)
     println("\nRace Results")
     val carPositions = playRace(carNames, numberOfRounds)
 
@@ -90,11 +89,6 @@ fun printWinners(carPositions: Map<String, Int>) {
     println("Winners : $winners")
 }
 
-fun moveCars(carNames: List<String>, carPositions: MutableMap<String, Int>) {
-    for (car in carNames) {
-        carPositions[car] = carPositions[car]!! + 1
-    }
-}
 
 fun printRaceStatus(carPositions: Map<String, Int>) {
     for ((car, position) in carPositions) {
