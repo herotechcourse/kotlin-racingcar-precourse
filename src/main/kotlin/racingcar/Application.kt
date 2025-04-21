@@ -30,4 +30,9 @@ fun main() {
         println("$name : ${"-".repeat(score)}")
     }
 
+    val maxScore = results.values.maxOrNull()!!
+    val winners = results.filter { it.value == maxScore }.keys
+
+    println("Winners : ${winners.joinToString(", ")}")
+
 }
