@@ -31,10 +31,10 @@ Each of the following features will be implemented in a separate, well-scoped co
     - Do not use `System.exit()` or `exitProcess()` to terminate the program
 
 ### 3. Car Implementation
-- [ ] Create 'car' class with:
-    - [ ] Name property
-    - [ ] Position tracking
-    - [ ] Movement logic
+- [x] Create 'car' class with:
+    - [x] Name property
+    - [x] Initialize Position
+    - [x] Movement logic
 
 ### 4. Game Logic
 - [ ] Initialize cars
