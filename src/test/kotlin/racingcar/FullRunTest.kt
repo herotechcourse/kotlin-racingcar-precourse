@@ -37,13 +37,16 @@ class RacingCarDetailedTest : NsTest() {
     }
 
     @Test
-    fun `rounds validation test`() {
+    fun `should return number when valid round input is given`() {
         assertSimpleTest {
-            // Test valid rounds
             val validRounds = validateRounds("3")
             assertThat(validRounds).isEqualTo(3)
+        }
+    }
 
-            // Test invalid rounds
+    @Test
+    fun `should throw error for invalid round inputs`() {
+        assertSimpleTest {
             assertThrows<IllegalArgumentException> { validateRounds("0") }
             assertThrows<IllegalArgumentException> { validateRounds("-1") }
             assertThrows<IllegalArgumentException> { validateRounds("abc") }
