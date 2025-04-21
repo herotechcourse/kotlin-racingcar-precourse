@@ -3,7 +3,6 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 
 // Extracted Console.readLine() to keep parsing logic testable
-
 fun getValidCarNames(): List<String> {
     println("Enter the names of the cars (comma-separated):")
     val input = Console.readLine()
@@ -17,21 +16,21 @@ fun getValidRoundCount(): Int {
 }
 
 internal fun parseCarNames(input: String): List<String> {
-    if (input.isBlank()) throw IllegalArgumentException("You didn't type anything.")
+    if (input.isBlank()) throw IllegalArgumentException("Input cannot be empty.")
 
     val carNames = input.split(",").map { it.trim() }
 
     if (carNames.any { it.isBlank() }) {
-        throw IllegalArgumentException("Each car must have a name — no blanks allowed between commas.")
+        throw IllegalArgumentException("Each car must have a name. No blanks allowed between commas.")
     }
 
     val invalidNames = carNames.filter { it.length > 5 }
     if (invalidNames.isNotEmpty()) {
-        throw IllegalArgumentException("Car names must be 1–5 characters long. Problem: ${invalidNames.joinToString()}")
+        throw IllegalArgumentException("Car names must be 1–5 characters long. Invalid name: ${invalidNames.joinToString()}")
     }
 
     if (carNames.size != carNames.toSet().size) {
-        throw IllegalArgumentException("Same car names are not allowed.")
+        throw IllegalArgumentException("Car names must be unique.")
     }
 
     return carNames
@@ -43,7 +42,7 @@ internal fun parseRoundCount(input: String): Int {
     }
 
     val round = input.toIntOrNull()
-        ?: throw IllegalArgumentException("Only numbers are allowed.")
+        ?: throw IllegalArgumentException("Only numeric values are allowed. Please enter a positive integer.")
 
     if (round <= 0) {
         throw IllegalArgumentException("Round count must be a positive integer.")

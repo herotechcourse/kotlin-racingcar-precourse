@@ -23,7 +23,6 @@ object CarRacing {
         println("\nRace Results")
 
         repeat(roundCount) { round ->
-//            println("Round ${round + 1}")
             raceSingleRound(cars)
             cars.forEach { car ->
                 println("${car.name} : ${"-".repeat(car.getPosition())}")

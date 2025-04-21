@@ -60,12 +60,12 @@ Each of the following features will be implemented in a separate, well-scoped co
 
 ## ✅ Testing List
 - Use **JUnit 5** and **AssertJ** for testing
-- Test cases will include:
-    - Valid and invalid input handling
-    - Car movement based on controlled randomness
-    - Winner determination logic
 - Use parameterized tests for efficient test coverage
-
+- Test cases will include:
+    - [x] Valid and invalid input handling
+    - [x] Car movement based on controlled randomness
+    - [x] Winner determination logic
+        - single winner, multiple winners
 ---
 
 ## Example Execution

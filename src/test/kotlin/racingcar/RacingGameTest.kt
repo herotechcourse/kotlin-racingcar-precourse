@@ -15,9 +15,9 @@ class CarRacingTest : NsTest() {
                 val result = output()
 
                 assertThat(result).contains("Race Results")
-                assertThat(result).contains("pobi : -") // moves
-                assertThat(result).contains("woni :")   // doesn't move
-                assertThat(result).contains("jun : -")  // moves
+                assertThat(result).contains("pobi : -")
+                assertThat(result).contains("woni :")
+                assertThat(result).contains("jun : -")
                 assertThat(result).contains("Winners : pobi, jun")
             },
             4, 3, 5
