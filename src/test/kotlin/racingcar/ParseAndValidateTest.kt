@@ -62,7 +62,7 @@ class ParseAndValidateTest : NsTest()  {
     fun `parsing test two car names`() {
         assertSimpleTest {
             val names = parseAndValidateNames("mimi,nana")
-            assertThat(names.containsAll(listOf("mimi", "nana")))
+            assertThat(names.containsAll(listOf("mimi", "nana"))).isTrue()
         }
     }
 
@@ -70,7 +70,7 @@ class ParseAndValidateTest : NsTest()  {
     fun `parsing test one car names`() {
         assertSimpleTest {
             val names = parseAndValidateNames("mimi")
-            assertThat(names.containsAll(listOf("mimi")))
+            assertThat(names.containsAll(listOf("mimi"))).isTrue()
         }
     }
 
@@ -78,7 +78,7 @@ class ParseAndValidateTest : NsTest()  {
     fun `parsing test rounds`() {
         assertSimpleTest {
             val rounds = parseAndValidateRounds("5")
-            assertThat(rounds == 5)
+            assertThat(rounds == 5).isTrue()
         }
     }
 
