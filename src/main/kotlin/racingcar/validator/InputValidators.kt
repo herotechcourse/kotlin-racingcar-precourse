@@ -1,8 +1,6 @@
 package racingcar.validator
 
-const val MAX_CAR_COUNT = 100
-const val MAX_CAR_NAME_LENGTH = 5
-const val MIN_CAR_NAME_LENGTH = 1
+import racingcar.constants.Constants
 
 object InputValidator {
     fun checkEmptyInput(input: String?) {
@@ -27,14 +25,14 @@ object InputValidator {
     }
 
     private fun checkMaxCarLimit(cars: List<String>) {
-        if (cars.size > MAX_CAR_COUNT) {
-            throw IllegalArgumentException("[ERROR] A maximum of $MAX_CAR_COUNT cars can be entered.\n")
+        if (cars.size > Constants.MAX_CAR_COUNT) {
+            throw IllegalArgumentException("[ERROR] A maximum of ${Constants.MAX_CAR_COUNT} cars can be entered.\n")
         }
     }
 
     private fun checkCarNameLength(carName: String) {
-        if (carName.length < MIN_CAR_NAME_LENGTH || carName.length > MAX_CAR_NAME_LENGTH) {
-            throw IllegalArgumentException("[ERROR] Car names must be within $MIN_CAR_NAME_LENGTH–$MAX_CAR_NAME_LENGTH characters.\n")
+        if (carName.length < Constants.MIN_CAR_NAME_LENGTH || carName.length > Constants.MAX_CAR_NAME_LENGTH) {
+            throw IllegalArgumentException("[ERROR] Car names must be within ${Constants.MIN_CAR_NAME_LENGTH}–${Constants.MAX_CAR_NAME_LENGTH} characters.\n")
         }
     }
 

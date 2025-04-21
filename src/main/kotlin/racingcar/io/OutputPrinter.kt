@@ -1,15 +1,15 @@
 package racingcar.io
 
-const val MOVEMENT_SYMBOL = "-"
+import racingcar.constants.Constants
 
 object OutputPrinter {
     fun printCarPosition(carName: String, position: Int) {
-        val movement = MOVEMENT_SYMBOL.repeat(position)
+        val movement = Constants.MOVEMENT_SYMBOL.repeat(position)
         println("$carName : $movement")
     }
 
     fun printWinners(winners: List<String>) {
-        println("Winners : ${winners.joinToString(", ")}")
+        println("Winners : ${winners.joinToString("${Constants.DELIMITER} ")}")
     }
 
     fun printRoundSeparator() {

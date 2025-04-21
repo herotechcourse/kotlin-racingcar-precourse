@@ -2,6 +2,7 @@ package racingcar.game
 
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.car.Car
+import racingcar.constants.Constants
 import racingcar.io.InputHandler
 import racingcar.io.OutputPrinter
 import racingcar.validator.InputValidator
@@ -24,7 +25,7 @@ object RacingGame {
     private fun readValidCarNames(): List<String> {
         val carNamesInput = InputHandler.readInput("Enter the names of the cars (comma-separated):")
         InputValidator.checkEmptyInput(carNamesInput)
-        val carNames = carNamesInput.split(",").map { it.trim() }
+        val carNames = carNamesInput.split(Constants.DELIMITER).map { it.trim() }
         InputValidator.validateCarNames(carNames)
 
         return carNames
@@ -39,7 +40,11 @@ object RacingGame {
 
     private fun playRound(cars: List<Car>) {
         cars.forEach { car ->
-            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            if (Randoms.pickNumberInRange(
+                    Constants.MIN_RANDOM_RANGE,
+                    Constants.MAX_RANDOM_RANGE
+                ) >= Constants.MIN_RANDOM_TO_MOVE
+            ) {
                 car.moveForward()
             }
             OutputPrinter.printCarPosition(car.name, car.position)
