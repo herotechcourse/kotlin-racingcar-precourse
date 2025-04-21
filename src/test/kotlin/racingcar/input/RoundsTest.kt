@@ -1,9 +1,8 @@
 package racingcar.input
 
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import org.assertj.core.api.Assertions.assertThat
-
 
 class RoundsTest {
 
@@ -61,5 +60,4 @@ class RoundsTest {
   fun `exception when input is blank`() {
     assertThrows<IllegalArgumentException> { Rounds.getInput("") }
   }
-
 }

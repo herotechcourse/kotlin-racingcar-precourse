@@ -1,9 +1,8 @@
 package racingcar.input
 
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import org.assertj.core.api.Assertions.assertThat
-
 
 class NamesTest {
 
@@ -73,7 +72,7 @@ class NamesTest {
   }
 
   /* Added to prevent users to write unreadable names (example: "\^_-/") or shell-sensitive
-   characters (e.g. symbols only, ?, |, $)*/
+  characters (e.g. symbols only, ?, |, $)*/
   @Test
   fun `exception when car names include symbols or shell sensitive characters`() {
     assertThrows<IllegalArgumentException> { Names.getInput("car? , car1") }
