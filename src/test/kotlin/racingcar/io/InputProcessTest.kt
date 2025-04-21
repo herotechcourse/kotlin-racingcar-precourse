@@ -99,4 +99,16 @@ class InputProcessTest {
         inputProcess.validateEmptyString("test", "Test")
     }
 
+    @Test
+    fun `validateCarNameLength should throw exception for name longer than 5 characters`() {
+
+        assertThrows<IllegalArgumentException> { inputProcess.validateCarNameLength("toolong") }
+    }
+
+    @Test
+    fun `validateCarNameLength should not throw exception for name with 5 or fewer characters`() {
+
+        inputProcess.validateCarNameLength("Seo")
+        inputProcess.validateCarNameLength("12345")
+    }
 }
