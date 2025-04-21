@@ -38,9 +38,9 @@
 - [x] Compute and store each car’s cumulative distance traveled after each round.
 
 ### Determining the Winner(s)
-- [ ] The car(s) with the greatest total distance after all rounds are the winner(s).
+- [x] The car(s) with the greatest total distance after all rounds are the winner(s).
 
-- [ ] If multiple cars share the top distance, they all win.
+- [x] If multiple cars share the top distance, they all win.
 
 ### Console Output: Prompts
 - [x]  Print the prompt for car names exactly as:
