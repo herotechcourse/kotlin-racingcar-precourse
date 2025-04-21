@@ -69,5 +69,36 @@ Winners : pobi, jun
  - Use `camp.nextstep.edu.missionutils.Console` for input and  
    `camp.nextstep.edu.missionutils.Randoms` for random number generation
 
- 
-  
+
+
+### What I Learned
+
+- Basics of Kotlin syntax and functions
+- Working with lists, loops, and conditionals in Kotlin
+- Using custom classes and encapsulation (`Car` class)
+- Validating user input from the console
+- Writing unit tests using **JUnit 5** and **AssertJ**
+- Using `gradlew` to build and test Kotlin apps
+- How to mock random behavior in tests using `assertRandomNumberInRangeTest`
+
+### Resources Used
+
+- [Kotlin Official Documentation](https://kotlinlang.org/docs/home.html)
+- [JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/)
+- [AssertJ Documentation](https://assertj.github.io/doc/)
+- IntelliJ IDEA Kotlin support
+- Stack Overflow and Kotlin Slack community for help with testing and Gradle
+
+---
+
+
+### Future Improvements
+
+- Allow car names with more customization (e.g. emoji or Unicode)
+- Add animations or a simple UI to visualize race progress
+
+
+
+### Author 
+
+Built with ❤️ by Goitseone Montsho as part of the Delivery Hero Tech Academy pre-course challenge.
