@@ -4,7 +4,10 @@ import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
-    // TODO: Implement the program
+    println("Enter the names of the cars (comma-separated):")
+    val names= Console.readLine().split(",").map {it.trim()}
+
+    val cars = names.map {Car(it)}
 }
 
 class Car(val name: String) {
