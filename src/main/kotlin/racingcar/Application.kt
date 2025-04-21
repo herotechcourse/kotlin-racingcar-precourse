@@ -22,7 +22,8 @@ class Util {
     }
 }
 
-class Cars(val cars: MutableList<Car>) {
+class Cars(cars: List<String>) {
+    val names : MutableList<Car> = mutableListOf()
 }
 
 class Car(val name: String) {
@@ -41,6 +42,10 @@ class OutputView {
     fun printResultMessage() {
         println()
         println("Race Results")
+    }
+
+    fun printWinners() {
+        print("Winners : ")
     }
 }
 
@@ -99,11 +104,6 @@ class RacingCar {
         OutputView().welcome()
         val challengers = InputView().inputNames()
 
-        OutputView().roundNumber()
-        val rounds = InputView().inputNumber()
-
-        OutputView().printResultMessage()
-
         val challengerList = Util().nameSplit(challengers)
 
         // make Car object
@@ -114,6 +114,12 @@ class RacingCar {
             }
             challengerGroup.add(Car(challenger))
         }
+
+        OutputView().roundNumber()
+        val rounds = InputView().inputNumber()
+
+        OutputView().printResultMessage()
+
 
 //    Games()
         var currentRound = 0
@@ -151,7 +157,7 @@ class RacingCar {
         }
 
         // print winners
-        print("Winners : ")
+        OutputView().printWinners()
         println(winnerGroup.joinToString(", "))
     }
 }
