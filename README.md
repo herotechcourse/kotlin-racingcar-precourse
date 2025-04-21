@@ -16,6 +16,7 @@ A race can have multiple winners if more than one car has the same number of das
 
 - [Required features](#required-features)
 - [Technical Requirements](#technical-requirements)
+- [Project Structure](#project-structure)
 - [Testing](#testing)
 
 > **Note:**
@@ -32,7 +33,7 @@ Prompts the user to enter car names, which must be:
 - Comma-separated.
 - Non-empty.
 - No longer than 5 characters.
-- If the input is invalid (not comma separated, name longer than 5 characters, empty name, wrong format or or less than 2 car names), throws an `IllegalArgumentException` and terminates the program.
+In case this is founnd, an `IllegalArgumentException` is thrown and program is terminated.
 
 Prompted input example:
 ```
@@ -42,9 +43,9 @@ pobi,woni,jun
 
 ### 2. Input: handle and validate number of rounds.
 Prompts the user to enter the number of rounds, which must be:
-- A valid integer.
-- Greater than 0.
-- If the input is invalid (empty, negative, non-numeric), throw an `IllegalArgumentException` and terminates the program.
+- A valid number
+In case this is found, an `IllegalArgumentException` is thrown and program is terminated.
+
 
 Prompted input example:
 ```
@@ -98,9 +99,95 @@ Winners : pobi, jun
 <br>
 <br>
 
+# Project Structure
+The project separates the code into distinct packages with a specific responsability to ensure maintainability and testability. The structure is as follows:
+
+## ▶ `player/`
+**Manages player-specific logic.**
+- **`Car.kt`**
+  Defines the behavior and state of each car.
+  Handles:
+  - Randomized movement attempts
+  - Position tracking
+  - Visual progress of position (as `-` dashes)
+
+
+
+## ▶ `race/`
+**Controls the racing simulation and output.**
+
+#### **`Simulation.kt`**: executes the race logic.
+  - Runs each round
+  - Triggers car movement
+  - Determines winners
+
+#### **`SimulationOutput.kt`**: handles how race data is displayed.
+  - Prints racing header
+  - Displays car progress for each round
+  - Handles message formatting
+  - Displays final winner(s) and my personal choice of printing a “no winner” message if no cars moved during the whoole race
+
+## ▶ `setup/`
+**Handles input return, parsing, validation, and utility functions.**
+
+#### **`PromptNames.kt`**: parses and validates user input for car names.
+- As required throws error when input is:
+	- Not comma-separated.
+	- Not empty.
+	- Longer than 5 characters.
+
+- Additionally it also throws an error if:
+	- Only one player is entered (it would not be a real race with only one player)
+	- the number of players surpasses a system safe limit ( 10 was added as a reference to prevent performance issues)
+	- No duplicates (parsing converts input to lowercase in parsing process to better handle this)
+	- Only lowercase letters/numbers to avoid invalid  and shell sensitive characters
+	- A player name is empty is split by space
+
+#### **`PromptRounds.kt`**: parses and validates the number of race rounds.
+- As required it throws error when input is:
+  - Is not a number
+- Additionally it also throws an error if:
+  - the number of rounds surpasses a system safe limit (10 was added as a reference to prevent performance issues)
+  - the number of rounds is 0 or less
+  - multiple numbers are entered
+
+#### **`Utils.kt`**: contains utility functions.
+- `throwErrorIf()`: used throughout to throw custom validation errors cleanly
+
+---
+
+### ▶ `Application.kt`
+**The entry point of the program.**
+
+- Displays prompts for car names and number of rounds.
+- Collects car nemae and number of rounds with `PromptNames` and `PromptRounds`
+- Instantiates `Car` object to the list of players
+- Runs the race via `Simulation`
+
+[Move Back to Table of Contents](#table-of-contents)
+
+<br>
+<br>
+
+
 # Testing
 
-Run the following command to verify that all tests pass:
+This project includes unit tests written using JUnit 5 and AssertJ to ensure reliability and correctness.
+Current coverage includes:
+
+- **`CarBehaviour.kt`**
+  Tests car movement behavior and progress tracking
+
+- **`SimulationTest.kt`**
+  Tests race mechanics, round execution, and winning logic
+
+- **`PromptNamesTest.kt`**
+  Tests name input parsing and all validation rules
+
+- **`PromptRoundsTest.kt`**
+  Tests round input parsing and validation
+
+### Run the following command to verify that all tests pass:
 
 For macOS/Linux:
 ```
