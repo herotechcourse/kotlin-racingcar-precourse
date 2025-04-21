@@ -41,6 +41,13 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `Throw when there are duplicate names`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,pobi") }
+        }
+    }
+
     override fun runMain() {
         main()
     }
