@@ -7,18 +7,16 @@ object InputValidator {
             "There must be at least one car name in input"
         }
 
-        val trimmedNames = names.map { it.trim() }
-
-        require(trimmedNames.none { it.isEmpty() }) {
-            "Car names must not be blank or only spaces"
+        require(names.all { it == it.trim() && it.isNotEmpty() }) {
+            "Car names must not be blank and must not have leading or trailing whitespace."
         }
 
-        require(trimmedNames.all { it.length <= 5 }) {
-            "Car names must be 1 to 5 characters"
+        require(names.all { it.length <= 5 }) {
+            "Each car name must be at most 5 characters long."
         }
 
-        require(trimmedNames.toSet().size == trimmedNames.size) {
-            "Car names must be unique"
+        require(names.toSet().size == names.size) {
+            "Car names must be unique."
         }
     }
 
@@ -27,12 +25,10 @@ object InputValidator {
             "Input cannot be blank"
         }
 
-        require(input.all { it.isDigit() }) {
-            "Input must be a digit"
-        }
+        val count = input.toIntOrNull()
+            ?: throw IllegalArgumentException("Input must be a valid integer.")
 
-        val count = input.toInt()
-        require(count > 0) { "Round count must be positive number" }
+        require(count > 0) { "Round count must be a positive number." }
 
         return count
     }
