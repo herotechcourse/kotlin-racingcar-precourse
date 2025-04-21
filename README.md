@@ -14,16 +14,15 @@
 - [x] Implement `RacingCar` class with name and position
 - [x] Add move logic (car moves when random number ≥ 4)
 - [x] Create `RacingCars` class to manage car list
-- [ ] Move all cars per round with `RandomNumberGenerator`
-- [ ] Determine winners after the final round
+- [x] Move all cars per round with `RandomNumberGenerator`
+- [x] Determine winners after the final round
 
 ---
 
 ### 🖨 Output Handling
 
-- [ ] Print race status for each round (car name + progress)
-- [ ] Print final winners (support multiple winners with comma separation)
-- [ ] Print winner names (support multiple winners with comma separation)
+- [x] Print race status for each round (car name + progress)
+- [x] Print winner names (support multiple winners with comma separation)
 
 ---
 
