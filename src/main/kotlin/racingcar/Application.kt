@@ -1,8 +1,8 @@
+package racingcar
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
-    println("Car racing game!")
     val cars = promptForCars()
     val rounds = promptForRounds()
     val raceResults = simulateRace(cars, rounds)
@@ -65,6 +65,7 @@ fun simulateRace(cars: List<Car>, rounds: Int): List<List<Car>> {
                 car
             }
         }
+
         printRoundResult(updatedCars)
         raceHistory + listOf(updatedCars)
     }
