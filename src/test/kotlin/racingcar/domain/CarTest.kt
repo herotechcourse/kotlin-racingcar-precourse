@@ -1,9 +1,13 @@
 package racingcar.domain
 
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
+import racingcar.util.ExceptionMessage
 
 class CarTest {
+
 
     @Test
     fun `does not move and returns self when random number is 3 or lower`() {
@@ -17,6 +21,34 @@ class CarTest {
         assertEquals(0, car.currentProgress)
         assertEquals(0, newCar.currentProgress)
         assertEquals(car, newCar)
+    }
+
+    @Test
+    fun `throw IllegalArgumentException when provided invalid move condition less 0`() {
+        //given
+        val car = Car("pobi_test")
+
+        //when
+        val exception = assertThrows<IllegalArgumentException> {
+            car.forwardCar(-1)
+        }
+
+        //then
+        assertEquals(exception.message, ExceptionMessage.INVALID_MOVE_CONDITION.message)
+    }
+
+    @Test
+    fun `throw IllegalArgumentException when provided invalid move condition exceed 10`() {
+        //given
+        val car = Car("pobi_test")
+
+        //when
+        val exception = assertThrows<IllegalArgumentException> {
+            car.forwardCar(10)
+        }
+
+        //then
+        assertEquals(exception.message, ExceptionMessage.INVALID_MOVE_CONDITION.message)
     }
 
     @Test
