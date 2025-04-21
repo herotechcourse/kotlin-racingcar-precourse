@@ -38,6 +38,9 @@
   - features
     - print winners
     - search winners
+- Util
+  - features
+    - car name splitter
 - Exception
   - IllegalArgumentException and terminate. when inputs are invalid data.
 
