@@ -18,6 +18,7 @@ object OutputView {
         result.forEach {
             println("${it.car.name} : ${PROGRESS_MARK.repeat(it.position)}")
         }
+        println()
     }
 
     fun announceWinner(winners: List<Car>) {
