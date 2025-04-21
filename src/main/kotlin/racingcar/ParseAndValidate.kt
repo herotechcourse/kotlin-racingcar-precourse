@@ -6,11 +6,11 @@ object ParseAndValidate {
         return input
             .split(",")
             .map { it.trim() }
-            .onEach  { requireValidName(it) }
+            .onEach  { validateName(it) }
     }
 
     fun parseAndValidateRounds(input: String): Int {
-        val value = getInt(input)
+        val value = parseInt(input)
         checkPositive(value)
         return value
     }
@@ -23,12 +23,12 @@ object ParseAndValidate {
         if (input.isEmpty()) throw IllegalArgumentException("String is empty")
     }
 
-    private fun requireValidName(name: String) {
+    private fun validateName(name: String) {
         checkEmpty(name)
         checkLength(name)
     }
 
-    private fun getInt(input: String) : Int {
+    private fun parseInt(input: String) : Int {
         return input.toIntOrNull() ?: throw IllegalArgumentException("Input must be number")
     }
 
