@@ -1,4 +1,4 @@
-# kotlin-racingcar-precourse
+# kotlin-racingcar-precourse 🚗
 
 A simple racing car game built with Kotlin, as part of the Hero Tech Course pre-course assignment.
 Cars move forward based on randomly generated numbers, and the final winner(s) are determined after a fixed number of rounds.
