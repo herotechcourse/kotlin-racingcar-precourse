@@ -17,3 +17,9 @@ fun validateEmptyName(name: String) {
         throw IllegalArgumentException("The name must not be an empty string.")
     }
 }
+
+fun validateDuplicates(names: List<String>) {
+    if (names.size != names.toSet().size) {
+        throw IllegalArgumentException("The names should be unique.")
+    }
+}

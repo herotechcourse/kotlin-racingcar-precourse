@@ -2,6 +2,7 @@ import org.assertj.core.api.Assertions.assertThatCode
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import racingcar.validateDuplicates
 import racingcar.validateEmptyName
 import racingcar.validateNameLength
 import racingcar.validateRounds
@@ -60,4 +61,22 @@ class ValidationUtilsTest {
                 .hasMessage("The name must not be an empty string.")
         }
     }
+    @Nested
+    inner class ValidateDuplicatesTest {
+        @Test
+        fun `should not fail if the names list doesn't contain duplicates `() {
+            assertThatCode {
+                validateDuplicates(listOf("ar", "at", "ah"))
+            }.doesNotThrowAnyException()
+        }
+
+        @Test
+        fun `should fail if the names list has duplicates` () {
+            assertThatThrownBy {
+                validateDuplicates(listOf("ar", "ar", "ay"))
+            }.isInstanceOf(IllegalArgumentException::class.java)
+                .hasMessage("The names should be unique.")
+        }
+    }
+
 }

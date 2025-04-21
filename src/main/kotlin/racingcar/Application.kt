@@ -4,7 +4,8 @@ import camp.nextstep.edu.missionutils.Console
 
 fun main() {
     println("Enter the names of the cars (comma-separated):")
-    val carNames = Console.readLine().split(",")
+    val carNames = Console.readLine().split(",").map { it.trim() }
+    validateDuplicates(carNames)
     for (car in carNames) {
         validateNameLength(car)
         validateEmptyName(car)
