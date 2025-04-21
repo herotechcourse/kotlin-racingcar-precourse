@@ -101,13 +101,13 @@ class ApplicationTest : NsTest() {
 
         // When & Then
         assertRandomNumberInRangeTest({
-            run(carNames, roundCount.toString())
+                run(carNames, roundCount.toString())
 
-            val outputText = output()
-            val loserCount = countOccurrences(outputText, "pLose")
-            // roundCount should equal to loserCount
-            assertThat(loserCount).isEqualTo(roundCount)
-        },
+                val outputText = output()
+                val loserCount = countOccurrences(outputText, "pLose")
+                // roundCount should equal to loserCount
+                assertThat(loserCount).isEqualTo(roundCount)
+            },
             first, *rest
         )
     }

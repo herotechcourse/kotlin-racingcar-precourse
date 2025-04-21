@@ -51,10 +51,11 @@ class CarTest {
         fun `should move forward if random number greater than or equal to 4`() {
             val car = Car("pobi")
 
-            assertRandomNumberInRangeTest({
-                car.moveRandomly()
-                assertThat(car.position).isEqualTo(1)
-            },
+            assertRandomNumberInRangeTest(
+                {
+                    car.moveRandomly()
+                    assertThat(car.position).isEqualTo(1)
+                },
                 4
             )
         }
@@ -63,10 +64,11 @@ class CarTest {
         fun `should not move if random number less than 4`() {
             val car = Car("pobi")
 
-            assertRandomNumberInRangeTest({
-                car.moveRandomly()
-                assertThat(car.position).isEqualTo(0)
-            },
+            assertRandomNumberInRangeTest(
+                {
+                    car.moveRandomly()
+                    assertThat(car.position).isEqualTo(0)
+                },
                 3
             )
         }

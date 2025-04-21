@@ -40,11 +40,14 @@ class RoundTest {
         fun `should return car with highest position`() {
             val round = Round(
                 2,
-                Cars(listOf(
-                    Car("p1", position = 1),
-                    Car("p2", position = 3),
-                    Car("p3", position = 3)
-                )))
+                Cars(
+                    listOf(
+                        Car("p1", position = 1),
+                        Car("p2", position = 3),
+                        Car("p3", position = 3)
+                    )
+                )
+            )
 
             val winners = round.winners.getCarNames()
             assertThat(winners).containsExactlyInAnyOrder("p2", "p3")

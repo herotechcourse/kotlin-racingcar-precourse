@@ -13,4 +13,8 @@ data class Rounds(private val rounds: List<Round> = listOf()) {
             }
         }.toString()
     }
+
+    fun add(round: Round) {
+
+    }
 }

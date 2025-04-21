@@ -1,25 +1,28 @@
 package racingcar
 
-import racingcar.domain.*
+import racingcar.domain.Car
+import racingcar.domain.Cars
+import racingcar.domain.Round
+import racingcar.domain.Rounds
 
 fun main() {
-        println("Enter the names of the cars (comma-separated):")
-        val rawCarNames = readLine()
-            ?.split(",")
-            ?.map { it.trim() }
-            ?: throw IllegalArgumentException("Car names cannot be empty.")
-        val cars = Cars( rawCarNames.map { Car(it) })
+    println("Enter the names of the cars (comma-separated):")
+    val rawCarNames = readLine()
+        ?.split(",")
+        ?.map { it.trim() }
+        ?: throw IllegalArgumentException("Car names cannot be empty.")
+    val cars = Cars( rawCarNames.map { Car(it) })
 
-        println("Enter the number of rounds:")
-        val roundCount = readLine()
-            ?.toIntOrNull()
-            ?.takeIf { it > 0 }
-            ?: throw IllegalArgumentException("Number of rounds must be a positive number.")
+    println("Enter the number of rounds:")
+    val roundCount = readLine()
+        ?.toIntOrNull()
+        ?.takeIf { it > 0 }
+        ?: throw IllegalArgumentException("Number of rounds must be a positive number.")
 
-        val results = race(cars, roundCount)
-        val winnersCarNames = results
-            .getWinners().getCarNames()
-        println("Race Results\n"+results.toString()+"Winners : ${winnersCarNames.joinToString(", ")}")
+    val results = race(cars, roundCount)
+    val winnersCarNames = results
+        .getWinners().getCarNames()
+    println("Race Results\n" + results.toString() + "Winners : ${winnersCarNames.joinToString(", ")}")
 }
 
 fun race(cars: Cars, roundCount: Int): Rounds {

@@ -61,10 +61,11 @@ class CarsTest {
         @Test
         fun `should return cars with the highest position`() {
             val cars = Cars(listOf(
-                Car("p1", position = 1),
-                Car("p2", position = 3),
-                Car("p3", position = 3)
-            ))
+                    Car("p1", position = 1),
+                    Car("p2", position = 3),
+                    Car("p3", position = 3)
+                )
+            )
             val winners = cars.getMostMovedCar()
 
             assertThat(winners.getCarNames()).containsExactlyInAnyOrder("p2", "p3")
