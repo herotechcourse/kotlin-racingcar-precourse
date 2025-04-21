@@ -1,5 +1,7 @@
 package racingcar
 
+import racingcar.game.RacingGame
+
 fun main() {
-    // TODO: Implement the program
+    RacingGame.run()
 }
