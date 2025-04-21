@@ -1,24 +1,26 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Console
 import racingcar.model.Car
+import racingcar.service.Race.getWinners
+import racingcar.service.Race.startRace
 
 
 fun main() {
-    var carNames: List<String> = listOf()
+    // Get user input for car names and race rounds
+    println("Enter the names of the cars (comma-separated):")
+    val carNames = Console.readLine().split(",").map { it.trim() }
+    val cars = carNames.map { Car(it) }
 
-    while (true) {
-        print("Names of the cars (comma-separated): ")
-        val input = readLine()?.trim() ?: ""
+    println("How many rounds will be played:")
+    val rounds = Console.readLine().toIntOrNull() ?: 0
 
-        carNames = input.split(",").map { it.trim() }
+    // Run the race
+    startRace(cars, rounds)
 
-        val invalidNames = carNames.filter { it.length > 5 }
-
-        break
-    }
-
-    print("Number of rounds: ")
-    val rounds = readLine()!!.toInt()
+    // Display Winners
+    val winners = getWinners(cars)
+    println("Winners : ${winners.joinToString(", ")}")
 }
 
 
