@@ -6,11 +6,12 @@ import kotlin.math.round
 class Game() {
     var round: Int = 0
         private set
+
     // Get car input
     fun nameInput(): List<String>{
         println("Enter the names of the cars (comma-separated):")
         val input = Console.readLine()
-        return input.trim().split(",")
+        return input.split(",").map { it.trim() }
     }
 
     // Get number of rounds input
@@ -21,7 +22,7 @@ class Game() {
 
         if (number == null) {
             throw IllegalArgumentException("Please enter a valid number")
-        } else if (number < 0) {
+        } else if (number <= 0) {
             throw IllegalArgumentException("Number of rounds must be greater than 0")
         } else {
             round = number
@@ -44,6 +45,8 @@ fun main() {
 
     // Save number of rounds
     game.roundInput()
+
+    println()
 
     for (i in 1..game.round) {
         for (car in board.cars) {

@@ -1,7 +1,6 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
-import kotlin.random.Random
 
 class Car() {
     var name: String = ""
@@ -15,7 +14,7 @@ class Car() {
         if (name.isNotBlank() && name.length <= 5) {
             this.name =name
         } else {
-            throw IllegalArgumentException("Name must be between 1 and 5. Current name is ${name}")
+            throw IllegalArgumentException("Each name must be non-blank and at most 5 characters.")
         }
     }
 
@@ -27,7 +26,7 @@ class Car() {
     // Move(update the result)
     fun moveCar(move: Int) {
         if (move>=4){
-            result += "-".repeat(move)
+            result += "-"
         }
     }
 }
