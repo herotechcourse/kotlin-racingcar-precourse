@@ -15,5 +15,6 @@ class RacingGameTest {
 
         val winners = game.getWinners()
         assertThat(winners).containsExactlyInAnyOrder("pobi","woni")
+
     }
 }

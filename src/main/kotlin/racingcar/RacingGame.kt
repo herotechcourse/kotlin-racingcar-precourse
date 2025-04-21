@@ -14,4 +14,5 @@ class RacingGame(carNames: List<String>) {
         return cars.filter { it.position == maxPos }
             .map { it.name }
     }
+
 }
