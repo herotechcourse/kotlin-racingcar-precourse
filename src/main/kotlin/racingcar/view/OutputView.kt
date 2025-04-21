@@ -21,7 +21,6 @@ object OutputView {
     }
 
     fun announceWinner(winners: List<Car>) {
-        print(WINNER_ANNOUNCEMENT)
-        print(winners.joinToString { winner -> winner.name })
+        print("$WINNER_ANNOUNCEMENT ${winners.joinToString { winner -> winner.name }}")
     }
 }

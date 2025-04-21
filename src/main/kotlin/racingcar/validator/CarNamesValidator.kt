@@ -18,26 +18,18 @@ object CarNamesValidator {
     }
 
     private fun requireMinimumCarCount(carNames: List<String>) {
-        require(carNames.size >= MIN_CAR_COUNT) {
-            MINIMUM_CAR_COUNT
-        }
+        require(carNames.size >= MIN_CAR_COUNT) { MINIMUM_CAR_COUNT }
     }
 
     private fun requireNoBlankNames(carNames: List<String>) {
-        require(carNames.none { it.isBlank() }) {
-            CAR_NAME_BLANK
-        }
+        require(carNames.none { it.isBlank() }) { CAR_NAME_BLANK }
     }
 
     private fun requireNoDuplicateNames(carNames: List<String>) {
-        require(carNames.distinct().size == carNames.size) {
-            CAR_NAME_DUPLICATE
-        }
+        require(carNames.distinct().size == carNames.size) { CAR_NAME_DUPLICATE }
     }
 
     private fun requireNameLengthLimit(carNames: List<String>) {
-        require(carNames.all { it.length <= MAX_CAR_NAME_LENGTH }) {
-            CAR_NAME_TOO_LONG
-        }
+        require(carNames.all { it.length <= MAX_CAR_NAME_LENGTH }) { CAR_NAME_TOO_LONG }
     }
 }

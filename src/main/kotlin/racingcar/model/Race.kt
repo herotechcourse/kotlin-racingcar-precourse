@@ -7,15 +7,6 @@ class Race(
     val totalRound: Int,
     val results: MutableList<List<CarPosition>> = mutableListOf(),
 ) {
-    companion object {
-        private const val RANDOM_MIN = 0
-        private const val RANDOM_MAX = 9
-
-        private val defaultGenerator: () -> Int = {
-            Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX)
-        }
-    }
-
     fun runRace(randomNumberGenerator: () -> Int = defaultGenerator) {
         repeat(totalRound) {
             runEachRound(randomNumberGenerator)
@@ -35,5 +26,14 @@ class Race(
     fun getWinner(): List<Car> {
         val maxPosition = cars.maxOf { it.position }
         return cars.filter { it.position == maxPosition }
+    }
+
+    companion object {
+        private const val RANDOM_MIN = 0
+        private const val RANDOM_MAX = 9
+
+        private val defaultGenerator: () -> Int = {
+            Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX)
+        }
     }
 }

@@ -15,20 +15,14 @@ object TotalRoundValidator {
     }
 
     private fun requireNotBlank(totalRound: String) {
-        require(totalRound.isNotBlank()) {
-            TOTAL_ROUND_BLANK
-        }
+        require(totalRound.isNotBlank()) { TOTAL_ROUND_BLANK }
     }
 
     private fun requireOnlyDigits(totalRound: String) {
-        require(totalRound.all { it.isDigit() }) {
-            TOTAL_ROUND_NOT_NUMERIC
-        }
+        require(totalRound.all { it.isDigit() }) { TOTAL_ROUND_NOT_NUMERIC }
     }
 
     private fun requirePositive(totalRound: String) {
-        require(totalRound.toInt() >= MIN_TOTAL_ROUND) {
-            TOTAL_ROUND_NOT_POSITIVE
-        }
+        require(totalRound.toInt() >= MIN_TOTAL_ROUND) { TOTAL_ROUND_NOT_POSITIVE }
     }
 }

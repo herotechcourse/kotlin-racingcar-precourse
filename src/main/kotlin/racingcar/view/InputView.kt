@@ -8,8 +8,9 @@ object InputView {
 
     fun getCarNames(): List<String> {
         println(INPUT_CAR_NAMES)
-        val input = Console.readLine()
-        return input.split(",").map { it.trim() }
+        return Console.readLine()
+            .split(",")
+            .map { it.trim() }
     }
 
     fun getTotalRound(): String {

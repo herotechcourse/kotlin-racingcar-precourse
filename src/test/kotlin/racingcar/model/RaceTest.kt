@@ -13,10 +13,12 @@ class RaceTest {
 
         race.runRace { 5 }
 
-        assertThat(race.results).hasSize(3)
-        assertThat(race.results[0]).allSatisfy { assertThat(it.position).isEqualTo(1) }
-        assertThat(race.results[1]).allSatisfy { assertThat(it.position).isEqualTo(2) }
-        assertThat(race.results[2]).allSatisfy { assertThat(it.position).isEqualTo(3) }
+        assertThat(race.results).hasSize(race.totalRound)
+        race.results.forEachIndexed { round, roundResult ->
+            assertThat(roundResult).allSatisfy {
+                assertThat(it.position).isEqualTo(round + 1)
+            }
+        }
     }
 
     @Test

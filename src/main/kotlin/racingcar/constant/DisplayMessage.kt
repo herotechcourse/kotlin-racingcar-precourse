@@ -6,5 +6,5 @@ object DisplayMessage {
 
     const val RESULT_TITLE = "\nRace Results"
     const val PROGRESS_MARK = "-"
-    const val WINNER_ANNOUNCEMENT = "Winners : "
+    const val WINNER_ANNOUNCEMENT = "Winners :"
 }
