@@ -18,4 +18,16 @@ class GameServiceTest {
         val winner = service.findWinners(testingCars)
         Assertions.assertEquals(winner.winners.first().name, carFixture.getWon().getName())
     }
+
+    @Test
+    @DisplayName("[Success] pobi moves 4, won and mina move 5, then won and mina are winner")
+    fun `test multi winners`() {
+        val carFixture = CarFixture()
+        val testingCars = carFixture.toDomain()
+
+        service.raceAll(6, testingCars)
+        val winners = service.findWinners(testingCars)
+        Assertions.assertTrue { winners.winners.size == 2 }
+        Assertions.assertEquals(winners.winners[1].name, carFixture.getMina().getName())
+    }
 }
