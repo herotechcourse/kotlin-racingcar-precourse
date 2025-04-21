@@ -1,10 +1,23 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
   val carNames = readCarNames()
-  println("Car names: $carNames")
+  val tryCount = readTryCount()
+  val cars = carNames.map { Car(it) }
+
+  println("\nRace Results")
+  repeat(tryCount) {
+    cars.forEach { it.move(Randoms.pickNumberInRange(0, 9)) }
+    cars.forEach { println("${it.name} : ${it.positionString()}") }
+    println()
+  }
+
+  val maxPosition = cars.maxOf { it.position }
+  val winners = cars.filter { it.position == maxPosition }.joinToString(", ") { it.name }
+  println("Winners : $winners")
 }
 
 fun readCarNames(): List<String> {
@@ -22,6 +35,7 @@ fun readCarNames(): List<String> {
 
   return names
 }
+
 fun readTryCount(): Int {
   println("How many rounds will be played?")
   val input = Console.readLine()
