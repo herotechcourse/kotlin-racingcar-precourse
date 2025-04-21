@@ -10,10 +10,9 @@ The car(s) that reach the farthest distance at the end of all rounds are declare
 - [x] Accept car names from user input, separated by commas
   - [x] Validate that each car must have name
   - [x] Validate that each car name does not exceed 5 characters
-- [ ] Accept the number of rounds to play
-  - [x] Validate that the input is a number
-  - [ ] Validate that the number is a positive integer
-- [ ] Throw `IllegalArgumentException` and terminate the program if invalid input is given
+- [x] Accept the number of rounds to play
+  - [x] Validate that the number is a positive integer
+- [x] Throw `IllegalArgumentException` and terminate the program if invalid input is given
 
 ### 2. Game Logic
 - [ ] For each round, generate a random number (0 to 9) for each car
