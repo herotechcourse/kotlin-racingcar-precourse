@@ -2,7 +2,7 @@ package racingcar.util
 
 import camp.nextstep.edu.missionutils.Console;
 
-fun getCarNames() : List<String> {
+fun getCarNames(): List<String> {
     println("Enter the names of the cars (comma-separated):")
     val carNameInput = Console.readLine()
     validateSpecialCharacter(carNameInput)
@@ -14,7 +14,7 @@ fun getCarNames() : List<String> {
     return carNames
 }
 
-fun getRoundCount() : Int {
+fun getRoundCount(): Int {
     println("How many rounds will be played?")
     val roundCountInput = Console.readLine()
     validateNegativeNumber(roundCountInput)
