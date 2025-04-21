@@ -81,6 +81,13 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `exception test 7`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("    ", " ") }
+        }
+    }
+
     override fun runMain() {
         main()
     }
