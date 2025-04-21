@@ -8,7 +8,10 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 import org.junit.jupiter.params.provider.ValueSource
+import java.io.ByteArrayOutputStream
+import java.io.PrintStream
 
 class ApplicationTest : NsTest() {
     @Test
@@ -96,6 +99,57 @@ class ApplicationTest : NsTest() {
     ])
     fun `valid rounds test`(input : String) {
         assertThatNoException().isThrownBy { runException("car1,car2", input) }
+    }
+
+    @ParameterizedTest
+    @CsvSource(
+        delimiter = ';',
+        value = [
+        "5;car1 : -----;car2 :;car3 : -----;Winners : car1, car3;$MOVING_FORWARD;$STOP;$MOVING_FORWARD",
+        "5;car1 :;car2 : -----;car3 : -----;Winners : car2, car3;$STOP;$MOVING_FORWARD;$MOVING_FORWARD",
+        "2;car1 : --;car2 :;car3 : --;Winners : car1, car3;$MOVING_FORWARD;$STOP;$MOVING_FORWARD",
+        "1;car1 : -;car2 : -;car3 : -;Winners : car1, car2, car3;$MOVING_FORWARD;$MOVING_FORWARD;$MOVING_FORWARD",
+        "1;car1 :;car2 :;car3 :;Winners : car1, car2, car3;$STOP;$STOP;$STOP",
+    ])
+    fun `test output`(
+        rounds : String,
+        car1 :String,
+        car2 :String,
+        car3 :String,
+        winners :String,
+        move1 :String,
+        move2 :String,
+        move3 :String
+    ) {
+        assertRandomNumberInRangeTest(
+            {
+                run("car1,car2,car3", rounds)
+                assertThat(output()).contains("Race Result", car1, car2, car3, winners)
+            },
+            move1.toInt(),
+            move2.toInt(),
+            move3.toInt()
+        )
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = [
+        "6",
+        "99",
+        "0",
+    ])
+    fun `test number of rounds`(rounds : String) {
+        val raceGame = RaceGame(listOf(Car("car1"), Car("car2")), rounds.toInt())
+
+        // redirecting console output
+        val outputStream = ByteArrayOutputStream()
+        System.setOut(PrintStream(outputStream))
+
+        raceGame.runRace()
+        val output = outputStream.toString()
+
+        val occurrences = output.split("car1 :").size - 1
+        assertThat(occurrences).isEqualTo(rounds.toInt())
     }
 
     override fun runMain() {
