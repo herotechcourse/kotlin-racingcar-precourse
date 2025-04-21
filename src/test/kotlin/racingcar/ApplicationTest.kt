@@ -35,14 +35,14 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `duplicate test`() {
+    fun `duplicateName test`() {
         assertSimpleTest{
             assertThrows<IllegalArgumentException> { runException("pobi,pobi", "1")  }
         }
     }
 
     @Test
-    fun `empty test`() {
+    fun `emptyName test`() {
         assertSimpleTest{
             assertThrows<IllegalArgumentException> { runException("pobi,,woni", "1")  }
         }
