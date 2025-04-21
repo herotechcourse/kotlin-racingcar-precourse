@@ -20,7 +20,7 @@ fun main() {
      */
     println("How many rounds will be played?")
     val rounds = Console.readLine()?.toIntOrNull()
-        ?: throw IllegalArgumentException("The number of rounds should be a valid number.")
+        ?: throw IllegalArgumentException("The number of rounds should be an integer.")
     validateRounds(rounds)
 
     /**
