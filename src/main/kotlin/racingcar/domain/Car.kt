@@ -8,9 +8,6 @@ class Car {
     }
 
     fun getScore(carName: String): Int {
-        if (score[carName] == null) {
-            return 0;
-        }
-        return score[carName]!!;
+        return score.getOrDefault(carName, 0)
     }
 }
