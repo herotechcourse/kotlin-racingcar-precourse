@@ -9,6 +9,11 @@ class Cars(val cars: List<Car>) {
         }
     }
 
+    fun findWinners(): List<Car> {
+        val maxPosition = cars.maxOf { it.position }
+        return cars.filter { it.position == maxPosition }
+    }
+
     companion object {
         private const val MIN_NUMBER = 0
         private const val MAX_NUMBER = 9

@@ -15,11 +15,11 @@ The car(s) that reach the farthest distance at the end of all rounds are declare
 - [x] Throw `IllegalArgumentException` and terminate the program if invalid input is given
 
 ### 2. Game Logic
-- [ ] For each round, generate a random number (0 to 9) for each car
-- [ ] If the number is 4 or higher, the car moves forward
-- [ ] Print the progress of each car after every round in the format: `carName : ---`
+- [x] For each round, generate a random number (0 to 9) for each car
+- [x] If the number is 4 or higher, the car moves forward
+- [x] Print the progress of each car after every round in the format: `carName : ---`
 
 ### 3. Final Result
-- [ ] Determine the winner(s) based on the farthest distance
-- [ ] If multiple cars are tied for the farthest distance, declare all of them as winners
+- [x] Determine the winner(s) based on the farthest distance
+- [x] If multiple cars are tied for the farthest distance, declare all of them as winners
 - [ ] Print winners in the format: `Winners : carName1, carName2` (comma-separated for multiple winners)

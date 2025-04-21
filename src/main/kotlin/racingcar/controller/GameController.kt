@@ -11,6 +11,8 @@ class GameController {
         val round = Round.from(InputView.readRound())
 
         race(cars, round)
+
+        val winners = cars.findWinners()
     }
 
     fun race(cars: Cars, round: Round) {
