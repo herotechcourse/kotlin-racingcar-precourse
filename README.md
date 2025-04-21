@@ -4,32 +4,36 @@
 
 ### Domain Features
 
-* [x] Each car must have a name, and names must not exceed 5 characters.
-* [x] Car names must not be empty.
-* [x] Car names must be unique.
-* [x] A car can move only when the power condition is satisfied.
-    * [x] The power is a random number between 0 and 9.
-    * [x] The car moves forward if the power is 4 or greater.
-* [x] The game must proceed for a given number of rounds.
-    * [x] In each round, every car attempts to move once.
-    * [x] The result of each round (car positions) must be recorded.
-* [x] After all rounds, determine the winner(s).
-    * [x] The winner is the car(s) that has moved the farthest.
-    * [x] If there are multiple cars with the same farthest position, all are winners.
+| Feature                                                                                                | Status |
+|--------------------------------------------------------------------------------------------------------|--------|
+| Each car must have a name, and names must not exceed 5 characters.                                     | ✅      |
+| Car names must not be empty.                                                                           | ✅      |
+| Car names must be unique.                                                                              | ✅      |
+| A car can move only when the power condition is satisfied.                                             | ✅      |
+| &nbsp;&nbsp;&nbsp;&nbsp;– The power is a random number between 0 and 9.                                | ✅      |
+| &nbsp;&nbsp;&nbsp;&nbsp;– The car moves forward if the power is 4 or greater.                          | ✅      |
+| The game must proceed for a given number of rounds.                                                    | ✅      |
+| &nbsp;&nbsp;&nbsp;&nbsp;– In each round, every car attempts to move once.                              | ✅      |
+| &nbsp;&nbsp;&nbsp;&nbsp;– The result of each round (car positions) must be recorded.                   | ✅      |
+| After all rounds, determine the winner(s).                                                             | ✅      |
+| &nbsp;&nbsp;&nbsp;&nbsp;– The winner is the car(s) that has moved the farthest.                        | ✅      |
+| &nbsp;&nbsp;&nbsp;&nbsp;– If there are multiple cars with the same farthest position, all are winners. | ✅      |
+
+---
 
 ### Input/Output Features
 
-* [x] If the user inputs invalid data, the program must throw an `IllegalArgumentException`.
-    * [x] Input data cannot be empty.
-    * [x] Only one number of rounds can be entered.
-    * [x] The round number input should be larger than zero.
-    * [x] The Round number input is not possible, not numbers.
-* [x] Car names must be entered as a comma-separated list.
-* [x] When printing the progress of each car, the car's name must be displayed alongside its movement.
-* [x] After the race is complete, the winners must be displayed.
-* [x] If there are multiple winners, their names must be separated by commas.
-
----
+| Feature                                                                                          | Status |
+|--------------------------------------------------------------------------------------------------|--------|
+| If the user inputs invalid data, the program must throw an `IllegalArgumentException`.           | ✅      |
+| &nbsp;&nbsp;&nbsp;&nbsp;– Input data cannot be empty.                                            | ✅      |
+| &nbsp;&nbsp;&nbsp;&nbsp;– Only one number of rounds can be entered.                              | ✅      |
+| &nbsp;&nbsp;&nbsp;&nbsp;– The round number input should be larger than zero.                     | ✅      |
+| &nbsp;&nbsp;&nbsp;&nbsp;– The round number input must be numeric.                                | ✅      |
+| Car names must be entered as a comma-separated list.                                             | ✅      |
+| When printing the progress of each car, the car's name must be displayed alongside its movement. | ✅      |
+| After the race is complete, the winners must be displayed.                                       | ✅      |
+| If there are multiple winners, their names must be separated by commas.                          | ✅      |
 
 ### Commit Scopes Convention
 
