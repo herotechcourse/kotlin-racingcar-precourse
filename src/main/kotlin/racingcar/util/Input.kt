@@ -7,6 +7,7 @@ fun getCarNames() : List<String> {
     val carNameInput = Console.readLine();
     validateSpecialCharacter(carNameInput);
     val carNames = carNameInput.replace(" ", "").split(",");
+    validateInputNameCount(carNames);
     validateBlankName(carNames);
     validateNameLength(carNames);
     validateDuplicateName(carNames);
@@ -28,6 +29,12 @@ fun validateSpecialCharacter(carNameInput: String) : Unit {
     val removeCharacters = regex.replace(carNameInput, "");
     if (!removeCharacters.isEmpty()) {
         throw IllegalArgumentException("콤마를 제외한 특수문자는 사용할 수 없습니다.");
+    }
+}
+
+fun validateInputNameCount(carNames: List<String>) {
+    if (carNames.size == 1) {
+        throw IllegalArgumentException("이름은 최소 2개 이상 입력해야 합니다.")
     }
 }
 
