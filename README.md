@@ -19,12 +19,6 @@ A concise, testable CLI racing car game in Kotlin. Designed to be modular, reada
     - Unit tests for `Game` orchestration and winner output
     - Integration tests via `ApplicationTest` using `NsTest` and `assertRandomNumberInRangeTest`
 
-    
-## How to Run
-
-```bash
-./gradlew clean run
-```
 
 ## How to Test
 
