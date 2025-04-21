@@ -2,15 +2,24 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Console
 
+// Extracted Console.readLine() to keep parsing logic testable
+
 fun getValidCarNames(): List<String> {
     println("Enter the names of the cars (comma-separated):")
-    val carNamesInput = Console.readLine().trim()
+    val input = Console.readLine()
+    return parseCarNames(input)
+}
 
-    if (carNamesInput.isBlank()) {
-        throw IllegalArgumentException("You didn't type anything.")
-    }
+fun getValidRoundCount(): Int {
+    println("How many rounds will be played?")
+    val input = Console.readLine().trim()
+    return parseRoundCount(input)
+}
 
-    val carNames = carNamesInput.split(",").map { it.trim() }
+internal fun parseCarNames(input: String): List<String> {
+    if (input.isBlank()) throw IllegalArgumentException("You didn't type anything.")
+
+    val carNames = input.split(",").map { it.trim() }
 
     if (carNames.any { it.isBlank() }) {
         throw IllegalArgumentException("Each car must have a name — no blanks allowed between commas.")
@@ -18,24 +27,28 @@ fun getValidCarNames(): List<String> {
 
     val invalidNames = carNames.filter { it.length > 5 }
     if (invalidNames.isNotEmpty()) {
-        throw IllegalArgumentException("Car names must be 1–5 characters long. Problem with: ${invalidNames.joinToString()}")
+        throw IllegalArgumentException("Car names must be 1–5 characters long. Problem: ${invalidNames.joinToString()}")
+    }
+
+    if (carNames.size != carNames.toSet().size) {
+        throw IllegalArgumentException("Same car names are not allowed.")
     }
 
     return carNames
 }
 
-fun getValidRoundCount(): Int {
-    println("How many rounds will be played?")
-    val roundInput = Console.readLine().trim()
-    val roundCount = roundInput.toIntOrNull()
-
-    if (roundInput.isBlank()) {
-        throw IllegalArgumentException("You didn't type anything. Please enter a positive integer.")
-    } else if (roundCount == null) {
-        throw IllegalArgumentException("Only number is allowed. Please enter a positive integer.")
-    } else if (roundCount <= 0) {
-        throw IllegalArgumentException("Number of rounds must be a positive integer.")
+internal fun parseRoundCount(input: String): Int {
+    if (input.isBlank()) {
+        throw IllegalArgumentException("Please enter a positive integer.")
     }
 
-    return roundCount
+    val round = input.toIntOrNull()
+        ?: throw IllegalArgumentException("Only numbers are allowed.")
+
+    if (round <= 0) {
+        throw IllegalArgumentException("Round count must be a positive integer.")
+    }
+
+    return round
 }
+
