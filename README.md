@@ -1,10 +1,12 @@
 # kotlin-racingcar-precourse
 ## Feature List
 
-- Input: User enters comma-separated car names
+- Input: User enters comma-separated names of vehicles
 - Input: User enters number of rounds
-- Validation: Names must be ≤ 5 characters
-- Movement: Car moves if random number ≥ 4
-- Output: Show each car’s progress per round
-- Output: Show winner(s) at the end
-- Error Handling: Throw IllegalArgumentException for invalid inputs
+- Validation: All names must be between 1 to 5 characters
+- Validation: Vehicle names must be unique
+- Movement: Vehicle moves forward if the randomly generated number (0–9) is 4 or greater
+- Output: Shows the movement of vehicles with dashes (-) after each round
+- Output: Prints winners (one or more), as "Winners : name1, name2"
+- Error Handling: Invalid inputs throw IllegalArgumentException
+- Constraints: No calling of System.exit() or exitProcess()
