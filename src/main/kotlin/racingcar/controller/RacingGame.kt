@@ -3,6 +3,7 @@ package racingcar.controller
 import racingcar.model.Car
 import racingcar.util.InputParser
 import racingcar.util.InputValidator
+import racingcar.util.WinnerFinder
 import racingcar.view.InputView
 import racingcar.view.OutputView
 
@@ -15,10 +16,10 @@ class RacingGame {
         val carNamesInput = InputView.inputCarName()
         val carNames = InputParser.parseCarNames(carNamesInput)
         InputValidator.validateCarNames(carNames)
-        val cars = carNames.map { Car(it) }
+        cars = carNames.map { Car(it) }
 
         val roundInput = InputView.inputRoundCount()
-        val roundCount = InputValidator.validateRoundCount(roundInput)
+        roundCount = InputValidator.validateRoundCount(roundInput)
     }
 
     fun play() {
@@ -27,5 +28,10 @@ class RacingGame {
             cars.forEach { it.move() }
             OutputView.printRoundResult(cars)
         }
+    }
+
+    fun showWinners() {
+        val winners = WinnerFinder.findWinners(cars)
+        OutputView.printWinners(winners)
     }
 }

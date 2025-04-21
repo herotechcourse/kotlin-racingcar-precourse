@@ -8,4 +8,8 @@ object OutputView {
         cars.forEach { println(it) }
         println()
     }
+
+    fun printWinners(winners: List<String>) {
+        println("Winners : ${winners.joinToString(", ")}")
+    }
 }
