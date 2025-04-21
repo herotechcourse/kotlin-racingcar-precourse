@@ -5,23 +5,23 @@ import org.junit.jupiter.api.Test
 class CarTest {
 
     @Test
-    fun `랜덤 숫자 4 이상이면 전진`() {
+    fun moves_forward_when_random_number_is_4_or_greater() {
         val car = Car("pobi")
         car.move(4)
         assertThat(car.position).isEqualTo(1)
     }
 
     @Test
-    fun `랜덤 숫자 3 이하면 정지`() {
+    fun does_not_move_when_random_number_is_3_or_less() {
         val car = Car("pobi")
         car.move(3)
         assertThat(car.position).isEqualTo(0)
     }
 
     @Test
-    fun `이름이 5자 초과일 경우 예외 발생`() {
+    fun throws_exception_when_car_name_exceeds_5_characters() {
         assertThatThrownBy { Car("abcdef") }
             .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessageContaining("5자 이하")
+            .hasMessageContaining("Name_must_be_5_characters_or_less.")
     }
 }
