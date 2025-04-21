@@ -1,6 +1,6 @@
 package racingcar
 
-import racingcar.model.Car
+import racingcar.factory.CarFactory
 import racingcar.validation.CarNameValidator
 
 fun main() {
@@ -9,7 +9,8 @@ fun main() {
     val input = readln()
 
     val carNames = input.split(",")
-    val cars: List<Car> = CarNameValidator().validateCarNames(carNames)
+    CarNameValidator.validateCarNames(carNames)
+    val cars = CarFactory.createCars(carNames)
 
     println("등록된 자동차: ${cars.map { it.name }}")
 }

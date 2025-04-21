@@ -1,8 +1,6 @@
 package racingcar.validation
 
-import racingcar.model.Car
-
-class CarNameValidator {
+object CarNameValidator {
 
     fun validateCarNames(carNames: List<String>) {
         if (carNames.isEmpty()) {
