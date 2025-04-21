@@ -11,8 +11,7 @@ The car(s) that reach the farthest distance at the end of all rounds are declare
   - [x] Validate that each car must have name
   - [x] Validate that each car name does not exceed 5 characters
 - [ ] Accept the number of rounds to play
-  - [ ] Validate that the input is not empty
-  - [ ] Validate that the input is a number
+  - [x] Validate that the input is a number
   - [ ] Validate that the number is a positive integer
 - [ ] Throw `IllegalArgumentException` and terminate the program if invalid input is given
 

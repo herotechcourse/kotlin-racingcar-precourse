@@ -1,6 +1,7 @@
 package racingcar.controller
 
 import racingcar.domain.Cars
+import racingcar.domain.Round
 import racingcar.view.InputView
 
 class GameController {
@@ -8,6 +9,6 @@ class GameController {
         val carNames = InputView.readCarNames()
         val cars = Cars.from(carNames)
 
-        val round = InputView.readRound()
+        val round = Round.from(InputView.readRound())
     }
 }
