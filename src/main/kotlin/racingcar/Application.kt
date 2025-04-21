@@ -1,19 +1,14 @@
 package racingcar
 
-import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
+import racingcar.services.ConsoleReaderService
+import racingcar.services.ReaderService
 
 fun main() {
-    val names = Console.readLine().split(",").map { it.trim() }
-    require(!names.any { !it.matches(Regex("^[A-Za-z]+$")) || it.length > 5 }) { "Invalid name" }
+    val readerService = ReaderService(ConsoleReaderService())
+    val names = readerService.readCarsNames()
 
-    val rounds = try {
-        Console.readLine().toInt()
-    } catch (e: NumberFormatException) {
-        throw IllegalArgumentException("Input must be a valid number.")
-    }
-
-    require(rounds > 0) { "Invalid number" }
+    val rounds = readerService.readRounds()
 
     val results = names.associateWith { 0 }.toMutableMap()
 
