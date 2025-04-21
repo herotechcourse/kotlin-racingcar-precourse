@@ -59,10 +59,10 @@
     - [x] Insert a blank line between each round’s output block.
 
 ### Console Output: Winners
-- [ ] After all rounds, print:
+- [x] After all rounds, print:
     - `Winners : <name1>[, <name2>, …]`
-    - [ ] If multiple winners, separate their names with a comma and a space.
-- [ ] List winners in the order their names were originally entered.
+    - [x] If multiple winners, separate their names with a comma and a space.
+- [x] List winners in the order their names were originally entered.
 
 
 # Example Execution
