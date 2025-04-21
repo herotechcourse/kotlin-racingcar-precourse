@@ -1,7 +1,6 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
-import kotlin.math.round
 
 class Game() {
     var round: Int = 0
@@ -28,6 +27,14 @@ class Game() {
             round = number
         }
     }
+
+    // Check multiple names
+    fun checkNames(name: String, names:List<String>, index: Int): Boolean {
+        for (i in 0..names.size - 1) {
+            if (i != index && name.lowercase()==names[i].lowercase()) return true
+        }
+        return false
+    }
 }
 
 fun main() {
@@ -37,7 +44,11 @@ fun main() {
     val names = game.nameInput()
 
     // Save cars
-    for (name in names) {
+    for (i in 0..names.size - 1) {
+        val name = names[i]
+        if (game.checkNames(name, names, i)) {
+            throw IllegalArgumentException("Name should be unique.")
+        }
         var car = Car()
         car.setName(name)
         board.setCars(car)
