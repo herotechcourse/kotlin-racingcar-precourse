@@ -14,7 +14,7 @@ package racingcar
 class RaceGame(private val cars: List<Car>, private val rounds: Int) {
     fun runRace() {
         println("\nRace Results")
-        for (i in 0..rounds) {
+        for (i in 1..rounds) {
             cars.forEach {
                 it.move();
                 it.printProgress()
