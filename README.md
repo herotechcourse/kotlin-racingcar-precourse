@@ -55,20 +55,23 @@ I'm gonna make it in MVC Strategy + Validation
 
 # Specific Plans
 
-- [ ] make Car Model
-- [ ] make InputView
-  - [ ] make two input functions (car name, num of rounds)
-- [ ] make ResultView 
-  - [ ] make three result function (Header, Rounds, Winner)
-- [ ] make Validator 
-  - make two validate function (car name, num of round) 
-- [ ] make Controller 
-  - [ ] combine input and validator
-  - [ ] make run function 
+- [x] make Car Model
+- [x] make InputView
+  - [x] make two input functions (car name, num of rounds)
+- [x] make ResultView 
+  - [x] make three result function (Header, Rounds, Winner)
+- [x] make Validator 
+  - [x] make two validate function (car name, num of round) 
+- [x] make Controller 
+  - [x] combine input and validator
+  - [x] make run function 
 
 
 _I was planning to make it in object, but I've learned that objects are difficult to test_
 
 _So I decided to make it in class + interface way-to make test easily_
 
-_Noticed that there are no specific limitation of car name (just 5 characters)
+_Noticed that there are no specific limitation of car name (just 5 characters)_
+
+_Made Winner Function to Car Model Extension function_
+
