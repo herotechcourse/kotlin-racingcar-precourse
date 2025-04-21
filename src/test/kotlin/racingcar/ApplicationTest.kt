@@ -30,7 +30,6 @@ class ApplicationTest : NsTest() {
         }
     }
 
-    // ✅ 여기를 고치는 거야!
     override fun runMain() {
         Application.runGame()  // ← main() 말고 runGame()을 직접 호출!
     }

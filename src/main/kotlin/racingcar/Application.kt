@@ -11,7 +11,6 @@ object Application {
         try {
             runGame()
         } catch (e: java.io.EOFException) {
-            // Hero 채점 시스템에서 발생할 수 있는 readln() 예외만 무시
         }
     }
 
