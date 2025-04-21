@@ -19,7 +19,7 @@ class GameController {
     fun race(cars: Cars, round: Round) {
         OutputView.printRaceHeader()
 
-        repeat(round.count) {
+        repeat(round.value) {
             cars.moveAll()
             OutputView.printRound(cars)
         }

@@ -1,6 +1,6 @@
 package racingcar.domain
 
-class Round(val count: Int) {
+class Round(val value: Int) {
     companion object {
         fun from(input: String): Round {
             val number = input.toIntOrNull()
@@ -11,6 +11,6 @@ class Round(val count: Int) {
     }
 
     init {
-        require(count > 0) { "Round must be positive integer" }
+        require(value > 0) { "Round must be positive integer" }
     }
 }
