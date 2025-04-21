@@ -26,16 +26,25 @@ class Racing (
     fun makeRoundResult(carNames: List<String>) {
         val results = carNames.map { carName ->
             val randomNumber = Randoms.pickNumberInRange(0, 9)
-            if (carService.canIncreaseScore(randomNumber, carName)) {
-                carService.updateScore(carName)
-            }
+            checkRandomNumber(randomNumber, carName);
+
             val score = carService.retrieveScore(carName)
-            if (isNewMaxScore(score)) {
-                max = score
-            }
+            compareScoreAndMax(score);
             "$carName : ${"-".repeat(score)}"
         }
         printRoundResult(results)
+    }
+
+    fun checkRandomNumber(randomNumber: Int, carName: String) {
+        if (carService.canIncreaseScore(randomNumber, carName)) {
+            carService.updateScore(carName)
+        }
+    }
+
+    fun compareScoreAndMax(score: Int) {
+        if (isNewMaxScore(score)) {
+            max = score
+        }
     }
 
     fun isNewMaxScore(score: Int) : Boolean{
