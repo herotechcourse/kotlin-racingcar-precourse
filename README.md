@@ -12,7 +12,7 @@
   - [x] Must be a positive integer
 
 ## Data structure
-- [x] Create `Carr` class with:
+- [x] Create `Car` class with:
   - [x] `name` attribute
   - [x] `steps` attribute - starting at 0
   - [x] `move()` (based in a random number)
@@ -28,20 +28,20 @@
 
 
 ## Game Logic
-- [ ] For each round:
-  - [ ] Generate random number between 0 and 9, inclusive
-  - [ ] If the number is 4 or greater, car moves forward by one position
-- [ ] After each round:
-  - [ ] Print the car's name followed by `-` symbols equal to its position
-- [ ] After the final round:
-  - [ ] Print winners (whoever holds the highest score):
-  - [ ] If there's a tie, print all winners comma separated
+- [x] For each round:
+  - [x] Generate random number between 0 and 9, inclusive
+  - [x] If the number is 4 or greater, car moves forward by one position
+- [x] After each round:
+  - [x] Print the car's name followed by `-` symbols equal to its position
+- [x] After the final round:
+  - [x] Print winners (whoever holds the highest score):
+  - [x] If there's a tie, print all winners comma separated
 
 ## Error management
 - [x] If the first user input (car names) is invalid → throw `IllegalArgumentException`
 - [x] If the second user input (number of rounds) is invalid → throw  `IllegalArgumentException`
 
 ## Tests
-- [ ] Test if car moves forward when random number is 4 or bigger
-- [ ] Test a draw and multiple winners (tie)
-- [ ] Test behaviour with invalid inputs in both car names and rumber of rounds
+- [x] Test if car moves forward when random number is 4 or bigger
+- [x] Test a draw and multiple winners (tie)
+- [x] Test behaviour with invalid inputs in both car names and rumber of rounds
