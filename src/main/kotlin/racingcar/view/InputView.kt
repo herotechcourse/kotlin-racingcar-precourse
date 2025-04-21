@@ -15,8 +15,9 @@ class InputView {
     fun readCarNames(): List<String> {
         println("Enter the names of the cars (comma-separated):")
         val input = Console.readLine()
-        val carNames = input.split(",").map { it.trim() }
+        validateInput(input, "Car names cannot be empty")
         
+        val carNames = input.split(",").map { it.trim() }
         validateCarNames(carNames)
         return carNames
     }
@@ -29,8 +30,13 @@ class InputView {
     fun readRounds(): Int {
         println("How many rounds will be played?")
         val input = Console.readLine()
-        
         return validateRounds(input)
+    }
+    
+    private fun validateInput(input: String, message: String) {
+        if (input.isBlank()) {
+            throw IllegalArgumentException(message)
+        }
     }
     
     /**
@@ -38,17 +44,16 @@ class InputView {
      * @param carNames List of car names
      * @throws IllegalArgumentException when car names are invalid
      */
-    private fun validateCarNames(carNames: List<String>) {
+    internal fun validateCarNames(carNames: List<String>) {
         if (carNames.isEmpty()) {
-            throw IllegalArgumentException("Car names cannot be empty.")
+            throw IllegalArgumentException("At least one car name must be provided")
         }
         
-        for (name in carNames) {
-            if (name.isEmpty()) {
-                throw IllegalArgumentException("Car name cannot be empty.")
-            }
-            if (name.length > 5) {
-                throw IllegalArgumentException("Car name cannot exceed 5 characters: $name")
+        carNames.forEach { name ->
+            when {
+                name.isBlank() -> throw IllegalArgumentException("Car name cannot be empty")
+                name.length > 5 -> throw IllegalArgumentException("Car name cannot exceed 5 characters: $name")
+                name.contains(" ") -> throw IllegalArgumentException("Car name cannot contain spaces: $name")
             }
         }
     }
@@ -59,15 +64,15 @@ class InputView {
      * @return Validated round number
      * @throws IllegalArgumentException when round number is invalid
      */
-    private fun validateRounds(input: String): Int {
-        return try {
+    internal fun validateRounds(input: String): Int {
+        try {
             val rounds = input.toInt()
             if (rounds <= 0) {
-                throw IllegalArgumentException("Rounds must be a positive number.")
+                throw IllegalArgumentException("Number of rounds must be positive")
             }
-            rounds
+            return rounds
         } catch (e: NumberFormatException) {
-            throw IllegalArgumentException("Rounds must be a valid number.")
+            throw IllegalArgumentException("Invalid round number: must be a positive integer")
         }
     }
 } 
