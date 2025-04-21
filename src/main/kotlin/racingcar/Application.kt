@@ -22,6 +22,28 @@ fun main() {
     println("Enter the names of the cars (comma-separated):")
     val carNames = Console.readLine()
     val cars = createCars(carNames)
+    
+    println("How many rounds will be played?")
+    val rounds = readRounds()
+}
+
+private fun readRounds(): Int {
+    val input = Console.readLine()
+    validateRounds(input)
+    return input.toInt()
+}
+
+private fun validateRounds(input: String) {
+    if (input.isBlank()) {
+        throw IllegalArgumentException("Round number cannot be empty.")
+    }
+    if (!input.all { it.isDigit() }) {
+        throw IllegalArgumentException("Round number must be a positive integer.")
+    }
+    val rounds = input.toInt()
+    if (rounds <= 0) {
+        throw IllegalArgumentException("Round number must be greater than 0.")
+    }
 }
 
 private fun createCars(carNames: String): List<Car> {
