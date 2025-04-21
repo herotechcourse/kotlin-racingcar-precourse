@@ -1,14 +1,18 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
+import camp.nextstep.edu.missionutils.Console
 
+// Car class
 class Car(val name: String) {
+    // Current position of the car
     private var position: Int = 0
 
     init {
         validateName(name)
     }
 
+    // Validate the car's name
     private fun validateName(name: String) {
         if (name.isBlank()) {
             throw IllegalArgumentException("Car name cannot be empty.")
@@ -18,71 +22,80 @@ class Car(val name: String) {
         }
     }
 
+    /**
+     * Move the car forward unconditionally
+     * - Used in tests (e.g., repeat(n) { move() })
+     */
     fun move() {
-        try {
-            val randomNumber = Randoms.pickNumberInRange(0, 9)
-            if (randomNumber >= 4) {
-                position++
-            }
-        } catch (e: Exception) {
-            throw IllegalArgumentException("Failed to generate random number.")
+        position++
+    }
+
+    /**
+     * Move the car forward only if the random number is 4 or higher
+     * - Used in actual race
+     */
+    fun moveByRandom(randomNumber: Int = Randoms.pickNumberInRange(0, 9)) {
+        if (randomNumber >= 4) {
+            position++
         }
     }
 
     fun getPosition(): Int = position
 }
 
-fun main() {
-    println("Enter the names of the cars (comma-separated):")
-    val carNames = Console.readLine()
-    val cars = createCars(carNames)
-    
-    println("How many rounds will be played?")
-    val rounds = readRounds()
+// Application entry point
+object Application {
+    @JvmStatic
+    fun main(args: Array<String>) {
+        runCarRacing()
+    }
+}
 
+// Main game logic
+fun runCarRacing() {
+    // 1) Get car names
+    println("Enter the names of the cars (comma-separated):")
+    val cars = createCars(Console.readLine())
+
+    // 2) Get number of rounds
+    println("How many rounds will be played?")
+    val rounds = readRounds(Console.readLine())
+
+    // 3) Start the race
     println("\nRace Results")
-    repeat(rounds) { round ->
+    repeat(rounds) {
+        // Move each car by random
+        cars.forEach { it.moveByRandom() }
+        // Print current positions
         cars.forEach { car ->
-            car.move()
             println("${car.name} : ${"-".repeat(car.getPosition())}")
         }
         println()
     }
 
-    // Find the maximum position
-    var maxPosition = 0
-    for (car in cars) {
-        if (car.getPosition() > maxPosition) {
-            maxPosition = car.getPosition()
-        }
-    }
-
-    // Find all cars with the maximum position
-    val winners = mutableListOf<String>()
-    for (car in cars) {
-        if (car.getPosition() == maxPosition) {
-            winners.add(car.name)
-        }
-    }
-
-    // Display winners
-    print("Winners : ")
-    for (i in winners.indices) {
-        print(winners[i])
-        if (i < winners.size - 1) {
-            print(", ")
-        }
-    }
-    println()
+    // 4) Determine and print the winners
+    val maxPosition = cars.maxOfOrNull { it.getPosition() } ?: 0
+    val winners = findWinners(cars, maxPosition)
+    println("Winners : ${winners.joinToString(", ")}")
 }
 
-private fun readRounds(): Int {
-    val input = Console.readLine()
-    validateRounds(input)
-    return input.toInt()
+// Create car list and validate names
+fun createCars(input: String): List<Car> {
+    if (input.isBlank()) {
+        throw IllegalArgumentException("Car names cannot be empty.")
+    }
+    val names = input.split(",").map { it.trim() }
+    if (names.any { it.isBlank() }) {
+        throw IllegalArgumentException("Car name cannot be empty.")
+    }
+    if (names.distinct().size != names.size) {
+        throw IllegalArgumentException("Car names cannot be duplicated.")
+    }
+    return names.map { Car(it) }
 }
 
-private fun validateRounds(input: String) {
+// Read and validate number of rounds
+fun readRounds(input: String): Int {
     if (input.isBlank()) {
         throw IllegalArgumentException("Round number cannot be empty.")
     }
@@ -93,26 +106,12 @@ private fun validateRounds(input: String) {
     if (rounds <= 0) {
         throw IllegalArgumentException("Round number must be greater than 0.")
     }
+    return rounds
 }
 
-private fun createCars(carNames: String): List<Car> {
-    val names = carNames.split(",").map { it.trim() }
-    validateCarNames(names)
-    return names.map { Car(it) }
+// Return the list of winner names based on maxPosition
+fun findWinners(cars: List<Car>, maxPosition: Int): List<String> {
+    return cars
+        .filter { it.getPosition() == maxPosition }
+        .map { it.name }
 }
-
-private fun validateCarNames(names: List<String>) {
-    if (names.isEmpty()) {
-        throw IllegalArgumentException("Car names cannot be empty.")
-    }
-    if (names.any { it.isBlank() }) {
-        throw IllegalArgumentException("Car name cannot be empty.")
-    }
-    if (names.any { it.length > 5 }) {
-        throw IllegalArgumentException("Car name cannot exceed 5 characters.")
-    }
-    if (names.distinct().size != names.size) {
-        throw IllegalArgumentException("Car names cannot be duplicated.")
-    }
-}
-
