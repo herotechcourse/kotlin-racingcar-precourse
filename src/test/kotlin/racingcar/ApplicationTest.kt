@@ -8,8 +8,9 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 class ApplicationTest : NsTest() {
+
     @Test
-    fun `feature test`() {
+    fun featureTest() {
         assertRandomNumberInRangeTest(
             {
                 run("pobi,woni", "1")
@@ -21,18 +22,21 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `exception test`() {
+    fun exceptionTest() {
         assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,javaji", "1")
+            }
         }
     }
 
+    // ✅ 여기를 고치는 거야!
     override fun runMain() {
-        Application.main(arrayOf()) // 이 부분만 바꿨어!
+        Application.runGame()  // ← main() 말고 runGame()을 직접 호출!
     }
 
     companion object {
-        private const val MOVING_FORWARD: Int = 4
-        private const val STOP: Int = 3
+        private const val MOVING_FORWARD = 4
+        private const val STOP = 3
     }
 }

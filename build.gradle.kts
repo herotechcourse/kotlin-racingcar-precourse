@@ -16,7 +16,6 @@ repositories {
 
 dependencies {
     implementation("com.github.woowacourse-projects:mission-utils:1.2.0")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.11.0")
 }
 
 tasks {
