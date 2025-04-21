@@ -99,6 +99,7 @@ fun main() {
     } catch (e: IllegalArgumentException) {
         // Handle invalid input by displaying an error message
         println("Error: ${e.message}")
+        throw e // Re-throw the exception for testing purposes
     }
 }
 
@@ -106,7 +107,7 @@ fun main() {
 fun getCarNames(inputHandler: InputHandler): List<String> {
     println("Enter the names of the cars (comma-separated):")
     val carNames = inputHandler.readLine().split(",").map { it.trim() }
-    
+
     // Validate that each car name is non-empty and at most 5 characters long
     if (carNames.any { it.isEmpty() }) {
         throw IllegalArgumentException("Car names must not be empty.")

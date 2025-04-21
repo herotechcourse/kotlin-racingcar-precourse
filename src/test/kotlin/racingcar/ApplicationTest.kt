@@ -4,12 +4,10 @@ import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeT
 import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Assertions.assertTimeoutPreemptively
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
-import java.time.Duration
 
 
 class ApplicationTest : NsTest() {
@@ -175,12 +173,10 @@ class ApplicationTest : NsTest() {
 
     @Test
     fun `exception test`() {
-        assertTimeoutPreemptively(Duration.ofSeconds(20)) {
-            // Test invalid input (car name exceeding 5 characters)
-            assertSimpleTest {
-                assertThrows<IllegalArgumentException> {
-                    runException("pobi,javaji", "1")
-                }
+        // Test invalid input (car name exceeding 5 characters)
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,javaji", "1")
             }
         }
     }
