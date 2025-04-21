@@ -40,11 +40,8 @@ fun validateInputNameCount(carNames: List<String>) {
 
 fun validateBlankName(carNames: List<String>): Unit {
     for (name in carNames) {
-        if (name == " ") {
-            throw IllegalArgumentException("스페이스로만 이루어진 이름은 사용할 수 없습니다.")
-        }
         if (name.isBlank()) {
-            throw IllegalArgumentException("이름은 최소 1자 이상 가능합니다.")
+            throw IllegalArgumentException("이름은 공백이 아닌 최소 1자 이상 입력해야 합니다.")
         }
     }
 }
