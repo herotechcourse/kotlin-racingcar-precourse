@@ -54,25 +54,26 @@ class RacingCarDetailedTest : NsTest() {
     }
 
     @Test
-    fun `car movement test`() {
-        // Test car moves when random number >= 4
+    fun `car should move forward when random number is greater than or equal to 4`() {
         assertRandomNumberInRangeTest(
             {
                 val car = Car("car1", 0)
                 val moved = if (shouldMoveForward()) moveForward(car) else car
                 assertThat(moved.position).isEqualTo(1)
             },
-            MOVING_FORWARD  // Use 4 from companion object
+            MOVING_FORWARD  // e.g., 4
         )
+    }
 
-        // Test car doesn't move when random number < 4
+    @Test
+    fun `car should not move when random number is less than 4`() {
         assertRandomNumberInRangeTest(
             {
                 val car = Car("car1", 0)
                 val moved = if (shouldMoveForward()) moveForward(car) else car
                 assertThat(moved.position).isEqualTo(0)
             },
-            STOP  // Use 3 from companion object
+            STOP  // e.g., 3
         )
     }
 
