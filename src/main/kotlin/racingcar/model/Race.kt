@@ -1,19 +1,26 @@
 package racingcar.model
 
+import camp.nextstep.edu.missionutils.Randoms
+
 class Race(
     val cars: List<Car>,
     val totalRound: Int,
     val results: MutableList<List<CarPosition>> = mutableListOf(),
 ) {
-    fun runRace() {
+    companion object {
+        private const val RANDOM_MIN = 0
+        private const val RANDOM_MAX = 9
+    }
+
+    fun runRace(randomNumberGenerator: () -> Int = { Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX) }) {
         repeat(totalRound) {
-            runEachRound()
+            runEachRound(randomNumberGenerator)
             saveRoundResult()
         }
     }
 
-    private fun runEachRound() {
-        cars.forEach { it.moveRandomly() }
+    private fun runEachRound(randomNumberGenerator: () -> Int) {
+        cars.forEach { it.moveRandomly(randomNumberGenerator()) }
     }
 
     private fun saveRoundResult() {
