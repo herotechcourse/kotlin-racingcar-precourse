@@ -8,7 +8,6 @@ fun main() {
 //Enter the names and put them into each list.
 //After checking the length stored in the list, we will create as many class objects as there are and also assign names to the objects inside
 
-
     class CarName(val name:String){
         var CarMove=""
     }
@@ -20,21 +19,18 @@ fun main() {
 //At this time, we will determine the length of the name in the list and terminate it with an exception if it exceeds 5 characters.
     for(i in 0..list.size-1){
         if(list[i].length>5){
-            println("The car name must be written in at least five letters.")
-            System.exit(0)
+            throw IllegalArgumentException()
+           // System.exit(0)
         }
     }
-
 //It ends after telling me to input the round after exception handling. Should I just group this in object-oriented format and format it?    println(list)//리스트 확인
-
     //round input
-    println("Enter the round.")
     val round=readLine()?.toInt()?:0
-    println("라운드 수 : "+round.toString())//라운드 확인
+    //println("라운드 수 : "+round.toString())
 
 
     //Create objects as many as the number of names
-//Create and insert objects as many as the number of names into a new list
+    //Create and insert objects as many as the number of names into a new list
     val carList=mutableListOf<CarName>()
 
     for(i in 0..list.size-1){
@@ -48,21 +44,18 @@ fun main() {
             val random = Random()
             val num = random.nextInt(9)
             if (num >= 4) {
-                carList[j].CarMove = carList[j].CarMove + "_"
+                carList[j].CarMove = carList[j].CarMove + "-"
             }
         }
-        println((z + 1).toString() + "강")
+       // println((z + 1).toString() + "강")
         for (car in carList) {
-            println("${car.name}: ${car.CarMove}")//이거 AI
+            println("${car.name} : ${car.CarMove}")
         }
         z++
     }
-//Check the length of CarMove of each object to find a winner. How do you find duplicate winners?
-    var Winnername=""
-    for(j in 0..carList.size-2){
-        if(carList[j+1].CarMove.length>carList[j].CarMove.length){
-            Winnername=carList[j+1].name
-        }
-    }
-    println("우승자는"+Winnername)
+
+    val maxMove = carList.maxOf { it.CarMove.length }
+    val winners = carList.filter { it.CarMove.length == maxMove }
+    println("Winners : " + winners.joinToString(", ") { it.name })
+
 }
