@@ -48,6 +48,32 @@ fun main() {
         }
         println()
     }
+
+    // Find the maximum position
+    var maxPosition = 0
+    for (car in cars) {
+        if (car.getPosition() > maxPosition) {
+            maxPosition = car.getPosition()
+        }
+    }
+
+    // Find all cars with the maximum position
+    val winners = mutableListOf<String>()
+    for (car in cars) {
+        if (car.getPosition() == maxPosition) {
+            winners.add(car.name)
+        }
+    }
+
+    // Display winners
+    print("Winners : ")
+    for (i in winners.indices) {
+        print(winners[i])
+        if (i < winners.size - 1) {
+            print(", ")
+        }
+    }
+    println()
 }
 
 private fun readRounds(): Int {
