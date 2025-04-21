@@ -11,4 +11,12 @@ object InputView {
 
         return names
     }
+
+    fun readRound(): String {
+        println("How many rounds will be played?")
+
+        val round = Console.readLine()
+
+        return round
+    }
 }
