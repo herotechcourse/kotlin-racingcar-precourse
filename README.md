@@ -18,10 +18,25 @@
 - [x] If the user inputs invalid data, the program should throw an IllegalArgumentException and terminate.
 
  ## Features to Implement
-- [x] take user input of car names
-- [x] validate names are non-empty and ≤ 5 characters
-- [x] take number of rounds as input
-- [x] each car moves forward if random number ≥ 4
-- [x] print results after each round and print final winner
-- [x] write tests
+- [x] Read user input for car names
+- [x] Trim whitespace from each car name and validate:
+    - Non-empty
+    - Maximum 5 characters
+- [x] Prompt the user to enter the number of race rounds and validate input as a valid integer
+- [x] Simulate race logic:
+    - For each round, each car generates a random number (0–9)
+    - If the number is ≥ 4, the car moves forward by 1
+- [x] Display race progress after each round:
+    - Print each car’s name and progress using dashes (`-`)
+    - Separate rounds visually with blank lines
+- [x] Determine final winner(s):
+    - Car(s) with the highest number of moves
+    - Print winners separated by commas if multiple
+- [x] Handle invalid input gracefully:
+    - Throw `IllegalArgumentException` for empty names or names exceeding 5 characters
+- [x] Write tests to cover:
+    - Basic race functionality (random movement and scoring)
+    - Edge cases (multiple winners, no movement)
+    - Invalid input cases (too long names, empty input, etc.)
+
 
