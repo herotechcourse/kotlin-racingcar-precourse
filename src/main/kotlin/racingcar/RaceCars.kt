@@ -66,8 +66,10 @@ class RaceCars {
         }
     }
 
-    private fun validateSpaces(str: String): Boolean {
-        return !str.any { it.isWhitespace() }
+    private fun validateSpaces(str: String) {
+        if (str.any { it.isWhitespace() }) {
+            throw IllegalArgumentException("The car name '$str' contains whitespace.")
+        }
     }
 
     private fun validateEmpty(name: String) {
@@ -121,7 +123,7 @@ class RaceCars {
         val outputWinners = winners.joinToString(", ") { it.name }
         val plural = if (winners.size > 1) "s" else ""
 
-        println("\nWinner$plural: $outputWinners")
+        println("Winner$plural: $outputWinners")
     }
 
     private fun getHighestPosition(): Int {

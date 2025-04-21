@@ -56,10 +56,15 @@ class ApplicationTest {
 
     @Test
     fun `should validate that car name contains no whitespace`() {
-        val privateMethod = getMethod("validateSpaces")
-        val result = privateMethod.invoke(game, "A B") as Boolean
-
-        assertFalse(result)
+        try {
+            val privateMethod = getMethod("validateSpaces")
+            privateMethod.invoke(game, "A B")
+            fail("Expected an IllegalArgumentException to be thrown")
+        } catch (e: InvocationTargetException) {
+            val cause = e.cause
+            assertTrue(cause is IllegalArgumentException)
+            assertTrue(cause?.message?.contains("contains whitespace") == true)
+        }
     }
 
     @Test
