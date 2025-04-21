@@ -65,6 +65,13 @@ fun displayProgress(cars: List<Car>) {
     }
 }
 
+// Function to determine the winners based on their positions
+fun determineWinners(cars: List<Car>): String {
+    val maxPosition = cars.maxOf { it.position }
+    val winners = cars.filter { it.position == maxPosition }.map { it.name }
+    return winners.joinToString(", ")
+}
+
 fun main() {
     // Create an instance of ConsoleInputHandler to handle user input
     val inputHandler = ConsoleInputHandler()
@@ -79,13 +86,15 @@ fun main() {
 
         // Step 2: Initialize Cars
         val cars = carNames.map { Car(it) }
-
-        // Step 3: Simulate the Race
+        println()
+        // Step 3,4: Simulate the Race
+        // Display Progress
+        println("Race Results")
         simulateRace(cars, rounds, randomNumberGenerator)
 
-        // Step 4: Display Progress
-//        println("Race Results:")
-//        displayProgress(cars)
+        // Step 5: Determine and display the winners
+        val winners = determineWinners(cars)
+        println("Winners: $winners")
     } catch (e: IllegalArgumentException) {
         // Handle invalid input by displaying an error message
         println("Error: ${e.message}")
@@ -94,7 +103,7 @@ fun main() {
 
 // Function to get and validate car names from the user
 fun getCarNames(inputHandler: InputHandler): List<String> {
-    println("Enter car names (comma-separated):")
+    println("Enter the names of the cars (comma-separated):")
     val carNames = inputHandler.readLine().split(",").map { it.trim() }
     // Validate that each car name is non-empty and at most 5 characters long
     if (carNames.any { it.isEmpty() || it.length > 5 }) {
@@ -105,7 +114,7 @@ fun getCarNames(inputHandler: InputHandler): List<String> {
 
 // Function to get and validate the number of rounds from the user
 fun getNumberOfRounds(inputHandler: InputHandler): Int {
-    println("Enter the number of rounds:")
+    println("How many rounds will be played?")
     val rounds = inputHandler.readLine().toIntOrNull()
         ?: throw IllegalArgumentException("Number of rounds must be a valid integer.")
     // Validate that the number of rounds is greater than 0

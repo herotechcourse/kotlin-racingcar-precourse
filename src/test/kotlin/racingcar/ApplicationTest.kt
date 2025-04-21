@@ -54,6 +54,54 @@ class ApplicationTest {
     }
 
     @Test
+    fun `determineWinners should return the names of the car(s) with the maximum position`() {
+        // Arrange: Create a list of cars with predefined positions
+        val cars = listOf(
+            Car("pobi", 3),
+            Car("woni", 2),
+            Car("java", 3)
+        )
+
+        // Act: Determine the winners
+        val winners = determineWinners(cars)
+
+        // Assert: Verify the winners
+        assertThat("pobi, java").isEqualTo(winners)
+    }
+
+    @Test
+    fun `determineWinners should return a single winner if only one car has the maximum position`() {
+        // Arrange: Create a list of cars with predefined positions
+        val cars = listOf(
+            Car("pobi", 4),
+            Car("woni", 2),
+            Car("java", 3)
+        )
+
+        // Act: Determine the winners
+        val winners = determineWinners(cars)
+
+        // Assert: Verify the winner
+        assertThat("pobi").isEqualTo(winners)
+    }
+
+    @Test
+    fun `determineWinners should return all cars if they have the same maximum position`() {
+        // Arrange: Create a list of cars with the same position
+        val cars = listOf(
+            Car("pobi", 3),
+            Car("woni", 3),
+            Car("java", 3)
+        )
+
+        // Act: Determine the winners
+        val winners = determineWinners(cars)
+
+        // Assert: Verify all cars are winners
+        assertThat("pobi, woni, java").isEqualTo(winners)
+    }
+
+    @Test
     fun `getCarNames should return valid car names`() {
         // Test valid input for car names
         val inputHandler = MockInputHandler(listOf("pobi,woni,java"))
