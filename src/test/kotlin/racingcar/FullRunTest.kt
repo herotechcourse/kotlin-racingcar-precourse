@@ -151,7 +151,7 @@ class RacingCarDetailedTest : NsTest() {
     }
 
     override fun runMain() {
-        Application.main()
+        main()
     }
 
     companion object {
