@@ -30,12 +30,6 @@ class Game(val cars: List<Car>) {
     private fun printWinners() {
         var maxWon = cars.maxOf { car -> car.getMovesMade() }
         val winners = cars.filter { car -> car.getMovesMade() == maxWon }
-        print("Winners : ")
-        winners.forEachIndexed { index, winner -> printWinnerName(index, winner) }
-    }
-
-    private fun printWinnerName(index: Int, car: Car) {
-        if (index > 0) print(", ")
-        print("${car.getName()}")
-    }
+		print("Winners: " + winners.joinToString(", ") { it.getName() })
+	}
 }
