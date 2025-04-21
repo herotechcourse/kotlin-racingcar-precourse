@@ -8,7 +8,7 @@ fun validateRounds(rounds: Int) {
 
 fun validateNameLength(name: String) {
     if (name.length > 5) {
-        throw IllegalArgumentException("The name must be less than 5 characters.")
+        throw IllegalArgumentException("The name must not exceed 5 characters.")
     }
 }
 
