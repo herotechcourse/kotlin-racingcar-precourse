@@ -14,7 +14,7 @@ object Simulation {
   private fun runSingleRound(cars: List<Car>) {
     for (car in cars) {
       car.attemptMovement()
-      println("${car.name}: ${car.progressBar()}")
+      println("${car.name} : ${car.progressBar()}")
     }
   }
 
@@ -25,7 +25,14 @@ object Simulation {
     } else {
       val winners = cars.filter { it.position == longestRun }
       val winnerNames = winners.joinToString(", ") { it.name }
-      return "Winner${if (winners.size > 1) "s" else ""}: $winnerNames"
+      return "Winners : $winnerNames"
+      /*
+      initially  I handled the return message to print "Winner" if only one car won
+      and "Winners" when having multiple cars winning.
+      I removed it as this would have clashed with the test in ApplicationTest.kt
+      where checks that "Winners" is the right output for each case and wasn't sure
+      I could modify the test as the assignment said not to move or modify certain files.
+      */
     }
   }
 }
