@@ -1,8 +1,8 @@
 package racingcar.domain
 
 import racingcar.model.Car
+import racingcar.observer.IRaceObserver
 import racingcar.strategy.MovementStrategy
-import racingcar.observer.RaceObserver
 
 /**
  * Coordinates the race execution and progression.
@@ -15,7 +15,7 @@ class Race(
     private val cars: List<Car>,
     private val rounds: Int,
     private val strategy: MovementStrategy,
-    private val observer: RaceObserver
+    private val observer: IRaceObserver
 ) {
     /**
      * Runs the race simulation and announces winners.
