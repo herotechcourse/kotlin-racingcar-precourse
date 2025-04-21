@@ -27,7 +27,11 @@ class RacingGame(private val cars: Cars, private val rounds: Int) {
     private fun playOneRound() {
         val randomNumbers = generateRandomNumbers()
         cars.moveAll(randomNumbers)
-        roundResults.add(cars.getCars())
+        roundResults.add(cars.getCars().map { car ->
+            Car(car.name).apply { 
+                repeat(car.getPosition()) { move(4) }
+            }
+        })
     }
 
     /**
