@@ -10,9 +10,9 @@
   - [ ] Implement result output logic
   - [ ] Write test code
 - [ ] Implement game logic
-  - [ ] Implement round progression logic
-  - [ ] Implement overall round progression logic
-  - [ ] Implement result verification logic
+  - [x] Implement round progression logic
+  - [x] Implement overall round progression logic
+  - [x] Implement result verification logic
   - [ ] Write test code
 - [ ] Combine and execute overall logic
   - [ ] Write test code
