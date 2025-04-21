@@ -3,6 +3,27 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
+class Util {
+    fun nameSplit(input: String) : List<String> {
+        val names = input.split(",")
+        validateContainsSpecialCharacters(names)
+        return names
+    }
+
+    private fun validateContainsSpecialCharacters(names: List<String>) {
+        val regex = Regex("^[a-z]+$")
+
+        names.forEach {
+            name ->
+            if (!regex.matches(name)) {
+                throw IllegalArgumentException("Car name must have small letters.")
+            }
+        }
+    }
+}
+
+class Cars(val cars: MutableList<Car>) {
+}
 
 class Car(val name: String) {
     var currentPosition: Int = 0
@@ -22,13 +43,48 @@ class InputView {
     fun inputNames(): String {
         val input = Console.readLine()
         validateIsEmpty(input)
+        validateInvalidSeparator(input)
+        validateStartsWithComma(input)
+        validateContainsWhitespace(input)
+        validateEmptyName(input)
+        validateDuplicateNames(input)
         return input
     }
 
     fun inputNumber(): String {
         val input = Console.readLine()
         validateIsEmpty(input)
+        validateInvalidSeparator(input)
+        validateContainsWhitespace(input)
         return input
+    }
+
+    private fun validateDuplicateNames(input: String) {
+        if (input.)
+    }
+
+    private fun validateEmptyName(input: String) {
+        if (input.contains(",,")) {
+            throw IllegalArgumentException("input value can't have empty name.")
+        }
+    }
+
+    private fun validateContainsWhitespace(input: String) {
+        if (input.contains(" ")) {
+            throw IllegalArgumentException("input value can't have whitespace")
+        }
+    }
+
+    private fun validateStartsWithComma(input: String) {
+        if (input.startsWith(",")) {
+            throw IllegalArgumentException("input value can't start with comma")
+        }
+    }
+
+    private fun validateInvalidSeparator(input: String) {
+        if (input.contains(".")) {
+            throw IllegalArgumentException("input value can't have '.'")
+        }
     }
 
     private fun validateIsEmpty(input: String) {
@@ -42,13 +98,15 @@ class RacingCar {
     fun execute() {
         OutputView().welcome()
         val challengers = InputView().inputNames()
+
         OutputView().roundNumber()
         val rounds = InputView().inputNumber()
 
         println()
         println("Race Results")
 
-        val challengerList = challengers.split(",") // [pobi, woni, jun]
+        val challengerList = Util().nameSplit(challengers)
+
         // make Car object
         var challengerGroup = mutableListOf<Car>()
         for (challenger in challengerList) {
