@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
 class Util {
-    fun nameSplit(input: String) : List<String> {
+    fun nameSplit(input: String): List<String> {
         val names = input.split(",")
         validateContainsSpecialCharacters(names)
         return names
@@ -13,12 +13,36 @@ class Util {
     private fun validateContainsSpecialCharacters(names: List<String>) {
         val regex = Regex("^[a-z]+$")
 
-        names.forEach {
-            name ->
+        names.forEach { name ->
             if (!regex.matches(name)) {
                 throw IllegalArgumentException("Car name must have small letters.")
             }
         }
+    }
+}
+
+class Winner(challengerGroup: Cars) {
+    val names: MutableList<String> = mutableListOf()
+
+    init {
+        var tmp = 0
+        extractWinners(challengerGroup, tmp)
+    }
+
+    private fun extractWinners(challengerGroup: Cars, tmp: Int) {
+        var tmp1 = tmp
+        challengerGroup.names.forEach { challenger ->
+            if (challenger.currentPosition > tmp1) {
+                names.add(challenger.name)
+                tmp1 = challenger.currentPosition
+            } else if (challenger.currentPosition == tmp1) {
+                names.add(challenger.name)
+            }
+        }
+    }
+
+    fun printWinners() {
+        println(names.joinToString(", "))
     }
 }
 
@@ -59,7 +83,7 @@ class Game(val rounds: String, val challengerGroup: Cars) {
 }
 
 class Cars(cars: List<String>) {
-    val names : MutableList<Car> = mutableListOf()
+    val names: MutableList<Car> = mutableListOf()
 
     init {
         for (car in cars) {
@@ -93,7 +117,7 @@ class OutputView {
         println("Race Results")
     }
 
-    fun printWinners() {
+    fun printWinnersMessage() {
         print("Winners : ")
     }
 }
@@ -164,22 +188,8 @@ class RacingCar {
 
         Game(rounds, challengerGroup).start()
 
-        // search winners
-        var winnerGroup = mutableListOf<String>()
-        var tmp = 0
-        challengerGroup.names.forEach { challenger ->
-            if (challenger.currentPosition > tmp) {
-                winnerGroup = mutableListOf<String>()
-                winnerGroup.add(challenger.name)
-                tmp = challenger.currentPosition
-            } else if (challenger.currentPosition == tmp) {
-                winnerGroup.add(challenger.name)
-            }
-        }
-
-        // print winners
-        OutputView().printWinners()
-        println(winnerGroup.joinToString(", "))
+        OutputView().printWinnersMessage()
+        Winner(challengerGroup).printWinners()
     }
 }
 
