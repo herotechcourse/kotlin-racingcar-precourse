@@ -1,8 +1,8 @@
 package racingcar.validation
 
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.assertDoesNotThrow
+import org.junit.jupiter.api.assertThrows
 
 class TheNumberOfRoundsInputTest {
     @Test
@@ -12,7 +12,7 @@ class TheNumberOfRoundsInputTest {
 
         // when & then
         assertDoesNotThrow {
-            validateRacingRounds(input)
+            RacingRoundsValidator.validate(input)
         }
     }
 
@@ -23,7 +23,7 @@ class TheNumberOfRoundsInputTest {
 
         // when & then
         assertThrows<IllegalArgumentException> {
-            validateRacingRounds(input)
+            RacingRoundsValidator.validate(input)
         }
     }
 }

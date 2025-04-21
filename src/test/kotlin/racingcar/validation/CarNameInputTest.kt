@@ -11,7 +11,7 @@ class CarNameInputTest {
 
         // when & then
         assertThrows<IllegalArgumentException> {
-            validateCarNames(input)
+            CarNamesValidator.validate(input)
         }
     }
 
@@ -22,7 +22,7 @@ class CarNameInputTest {
 
         // when & then
         assertThrows<IllegalArgumentException> {
-            validateCarNames(input)
+            CarNamesValidator.validate(input)
         }
     }
 }
