@@ -95,10 +95,14 @@ fun main() {
 
         // Step 5: Determine and display the winners
         val winners = determineWinners(cars)
-        println("Winners: $winners")
+        println("Winners : $winners")
     } catch (e: IllegalArgumentException) {
         // Handle invalid input by displaying an error message
         println("Error: ${e.message}")
+    } catch (e: Exception) {
+        // General exception handler to catch unexpected errors
+        println("An unexpected error occurred: ${e.message}")
+        e.printStackTrace()
     }
 }
 

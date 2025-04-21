@@ -9,6 +9,7 @@ import org.junit.jupiter.api.assertThrows
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 
+
 class ApplicationTest : NsTest() {
     // Mock implementation of InputHandler for testing purposes
     class MockInputHandler(private val inputs: List<String>) : InputHandler {
