@@ -18,7 +18,25 @@ class Race(private val cars: List<Car>, private val rounds: Int) {
     }
 
     fun determineWinners(): List<Car> {
-        val maxPosition = cars.maxOfOrNull { it.getPosition() } ?: 0
-        return cars.filter { it.getPosition() == maxPosition }
+        if (cars.isEmpty()) return emptyList()
+
+        var maxPosition = 0
+        val winners = mutableListOf<Car>()
+
+        for (car in cars) {
+            val position = car.getPosition()
+            when {
+                position > maxPosition -> {
+                    maxPosition = position
+                    winners.clear()
+                    winners.add(car)
+                }
+                position == maxPosition -> {
+                    winners.add(car)
+                }
+            }
+        }
+
+        return winners
     }
 }
