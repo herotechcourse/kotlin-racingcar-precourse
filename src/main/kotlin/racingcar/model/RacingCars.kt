@@ -11,5 +11,10 @@ class RacingCars private constructor(
         }
     }
 
+    fun moveAll(generator: RandomNumberGenerator) {
+        cars.forEach { it.moveForwardIfPossible(generator.generate()) }
+    }
+
+
     fun all(): List<RacingCar> = cars
 }
