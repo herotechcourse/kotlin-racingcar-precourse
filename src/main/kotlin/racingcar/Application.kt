@@ -13,6 +13,8 @@ fun main() {
     val rounds = input.toInt()
 
     val cars = names.map {Car(it)}
+    val game = RacingGame(cars, rounds)
+    game.play()
 }
 
 fun validateRoundsInput(input: String) {
@@ -35,4 +37,20 @@ class Car(val name: String) {
         }
     }
     fun getPositionSymbol(): String = "-".repeat(position)
+}
+
+class RacingGame(private val cars: List<Car>, private val rounds: Int) {
+
+    fun play() {
+        repeat(rounds) {
+            cars.forEach { it.move() }
+            Output.printRound(cars)
+        }
+    }
+}
+object Output {
+    fun printRound(cars: List<Car>) {
+        cars.forEach { println("${it.name} : ${it.getPositionSymbol()}") }
+        println()
+    }
 }
