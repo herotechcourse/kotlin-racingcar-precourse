@@ -41,7 +41,9 @@ fun validateCarNames(input: String): List<Car> {
         }
 
         if (name.length > maxNameLength) {
-            throw IllegalArgumentException("Car names cannot exceed $maxNameLength characters: $name")
+            throw IllegalArgumentException(
+                "Car names cannot exceed $maxNameLength characters: $name"
+            )
         }
     }
 
