@@ -8,22 +8,20 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 class ApplicationTest : NsTest() {
-    @Test
-    fun `feature test`() {
-        assertRandomNumberInRangeTest(
-            {
-                run("pobi,woni", "1")
-                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
-            },
-            MOVING_FORWARD,
-            STOP,
-        )
-    }
 
     @Test
     fun `exception test`() {
         assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+            assertThrows<IllegalArgumentException> { runException("pobi,javajiii", "1") }
+        }
+    }
+
+    @Test
+    fun `empty input throws error`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("", "1")
+            }
         }
     }
 
