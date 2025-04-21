@@ -10,15 +10,15 @@ class Car (
         println(name + " : " + "-".repeat(currentProgress))
     }
 
-    fun forwardCar(): Car {
-        if (canForward()) {
+    fun forwardCar(moveCondition: Int): Car {
+        if (canForward(moveCondition)) {
             return Car(name, currentProgress + 1)
         } else {
             return this
         }
     }
 
-    private fun canForward(): Boolean {
-        return if (Randoms.pickNumberInRange(0, 9) >= 4) true else false
+    private fun canForward(moveCondition: Int): Boolean {
+        return if (moveCondition >= 4) true else false
     }
 }
