@@ -1,7 +1,5 @@
 plugins {
     kotlin("jvm") version "1.9.24"
-    application
-    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "camp.nextstep.edu"
@@ -24,8 +22,4 @@ tasks {
     test {
         useJUnitPlatform()
     }
-}
-
-application {
-    mainClass.set("racingcar.ApplicationKt")
 }
