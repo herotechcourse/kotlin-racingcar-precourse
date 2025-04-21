@@ -42,13 +42,11 @@ object RacingGame {
 
     private fun playRound(cars: List<Car>) {
         cars.forEach { car ->
-            if (Randoms.pickNumberInRange(
-                    Constants.MIN_RANDOM_RANGE,
-                    Constants.MAX_RANDOM_RANGE
-                ) >= Constants.MIN_RANDOM_TO_MOVE
-            ) {
-                car.moveForward()
-            }
+            val randomNumber = Randoms.pickNumberInRange(
+                Constants.MIN_RANDOM_RANGE,
+                Constants.MAX_RANDOM_RANGE
+            )
+            car.tryMoveForward(randomNumber)
             OutputPrinter.printCarPosition(car.name, car.position)
         }
     }
