@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.AfterEach
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
+import racingcar.domain.Car
 
 class OutputProcessTest {
     
@@ -46,5 +47,21 @@ class OutputProcessTest {
         outputProcess.printRaceResultsMessage()
 
         assertThat(outputStreamCaptor.toString().trim()).isEqualTo("Race Results")
+    }
+
+    @Test
+    fun `printRoundResult should print car names and positions`() {
+
+        val car1 = Car("chang", 10)
+        val car2 = Car("deok", 1)
+        val car3 = Car("seo", 0)
+        val cars = listOf(car1, car2, car3)
+
+        outputProcess.printRoundResult(cars)
+
+        val output = outputStreamCaptor.toString()
+        assertThat(output).contains("chang : ----------")
+        assertThat(output).contains("deok : -")
+        assertThat(output).contains("seo : ")
     }
 }
