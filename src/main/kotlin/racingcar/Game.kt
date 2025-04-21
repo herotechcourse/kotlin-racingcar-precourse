@@ -5,6 +5,8 @@ import camp.nextstep.edu.missionutils.Randoms
 class Game(val cars: List<Car>) {
     companion object {
         const val moveIndicator: Int = 4
+		const val randMin: Int = 0
+		const val randMax: Int = 9
     }
 
     private var totalRounds = 0
@@ -18,7 +20,7 @@ class Game(val cars: List<Car>) {
     private fun raceThem() {
         for (i in 0 until totalRounds) {
             cars.forEach { car ->
-                if (Randoms.pickNumberInRange(0, 9) >= moveIndicator) car.move()
+                if (Randoms.pickNumberInRange(randMin, randMax) >= moveIndicator) car.move()
                 car.printRoundStatus()
             }
             println("")
@@ -27,18 +29,13 @@ class Game(val cars: List<Car>) {
 
     private fun printWinners() {
         var maxWon = cars.maxOf { car -> car.getMovesMade() }
-        var firstWinner = true
+        val winners = cars.filter { car -> car.getMovesMade() == maxWon }
         print("Winners : ")
-        cars.forEach { car ->
-            if (car.getMovesMade() == maxWon) {
-                printWinnerName(car, firstWinner)
-                firstWinner = false
-            }
-        }
+        winners.forEachIndexed { index, winner -> printWinnerName(index, winner) }
     }
 
-    private fun printWinnerName(car: Car, firstWinner: Boolean) {
-        if (!firstWinner) print(", ")
+    private fun printWinnerName(index: Int, car: Car) {
+        if (index > 0) print(", ")
         print("${car.getName()}")
     }
 }
