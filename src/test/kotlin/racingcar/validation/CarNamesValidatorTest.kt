@@ -3,7 +3,7 @@ package racingcar.validation
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
-class CarNameInputTest {
+class CarNamesValidatorTest {
     @Test
     fun `throw exception when entering only one car name`() {
         //given

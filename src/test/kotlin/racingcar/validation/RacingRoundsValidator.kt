@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
 
-class TheNumberOfRoundsInputTest {
+class RacingRoundsValidatorTest {
     @Test
     fun `does not throw exception when entering number type`() {
         //given
