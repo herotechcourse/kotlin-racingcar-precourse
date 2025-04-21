@@ -34,11 +34,17 @@ class OutputProcessTest {
 
     @Test
     fun `printRoundNumberInputMessage should print correct message`() {
-        // When
+
         outputProcess.printRoundNumberInputMessage()
 
-        // Then
         assertThat(outputStreamCaptor.toString().trim()).isEqualTo("How many rounds will be played?")
     }
 
+    @Test
+    fun `printRaceResultsMessage should print correct message`() {
+
+        outputProcess.printRaceResultsMessage()
+
+        assertThat(outputStreamCaptor.toString().trim()).isEqualTo("Race Results")
+    }
 }
