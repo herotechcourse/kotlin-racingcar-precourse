@@ -1,5 +1,6 @@
 package racingcar
 
+import racingcar.services.RaceResult
 import racingcar.services.ConsoleReaderService
 import racingcar.services.ReaderService
 import racingcar.services.executeRace
@@ -12,13 +13,9 @@ fun main() {
 
     val results = executeRace(names, rounds)
 
-    for ((name, score) in results) {
-        println("$name : ${"-".repeat(score)}")
-    }
+    val raceResult = RaceResult(results)
 
-    val maxScore = results.values.maxOrNull()!!
-    val winners = results.filter { it.value == maxScore }.keys
+    raceResult.printAllResults()
 
-    println("Winners : ${winners.joinToString(", ")}")
-
+    raceResult.printWinners()
 }
