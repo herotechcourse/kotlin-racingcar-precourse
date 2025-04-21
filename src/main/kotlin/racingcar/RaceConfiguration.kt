@@ -14,55 +14,18 @@ import camp.nextstep.edu.missionutils.Console
  */
 class FixedRoundsRaceConfiguration private constructor(val carNames: List<String>, val nRounds: Int) {
     companion object Factory {
-        private const val MAX_N_ROUNDS = 200
-
-        private fun validateNamesSize(names: List<String>) {
-            require(names.size >= 2) {
-                "Number of names should be two or more"
-            }
-        }
-
-        private fun isValidName(name: String) : Boolean {
-            return (name.isNotEmpty() && (name.length <= 5))
-        }
-
-        private fun validateName(name: String, index: Int) {
-            require(isValidName(name)) {
-                "names[$index]: \"$name\": Length of each name must be 0 < length <= 5"
-            }
-        }
-
-        private fun validateNoDuplicateNames(names: List<String>) {
-            val indices = names.firstDuplicatesIndices()
-            if (indices.first != indices.second) {
-                throw IllegalArgumentException("Duplicate car names: [${indices.first}] ${names[indices.first]}, [${indices.second}] ${names[indices.second]}")
-            }
-            // or, if error message need not includes indices of duplicates,
-            // require(names.containsDuplicates()) {
-            //    "Some names are identical."
-            //}
-        }
-
-        private fun isValidNRounds(nRounds: Int) : Boolean {
-            return ((nRounds > 0) && (nRounds <= MAX_N_ROUNDS))
-        }
-
-        private fun validateNRounds(nRounds: Int) {
-            require(isValidNRounds(nRounds)) {
-                "Number of rounds (= $nRounds) must be 0 < n <= $MAX_N_ROUNDS"
-            }
-        }
+        private val DEFAULT_VALIDATOR = FixedRoundsRaceConfigurationValidator
 
         /**
          * Returns a list of names, after parsing and validating [namesString].
          * Leading and trailing spaces in each name are ignored.
          * @throws IllegalArgumentException if [namesString] is invalid.
          */
-        private fun parseNames(namesString: String) : List<String> {
+        private fun parseNames(namesString: String, validator: FixedRoundsRaceConfigurationValidatorInterface) : List<String> {
             val names = namesString.split(',').map { it.trim() }
-            validateNamesSize(names)
-            names.mapIndexed { index, name -> validateName(name, index) }
-            validateNoDuplicateNames(names)
+            validator.validateNamesSize(names)
+            names.mapIndexed { index, name -> validator.validateName(name, index) }
+            validator.validateNoDuplicateNames(names)
 
             return names
         }
@@ -71,7 +34,7 @@ class FixedRoundsRaceConfiguration private constructor(val carNames: List<String
          * Returns number of rounds, after parsing and validating [nRoundsString].
          * @throws IllegalArgumentException if [nRoundsString] is invalid.
          */
-        private fun parseNRounds(nRoundsString: String) : Int {
+        private fun parseNRounds(nRoundsString: String, validator: FixedRoundsRaceConfigurationValidatorInterface) : Int {
             val nRounds: Int
             try {
                 nRounds = nRoundsString.toInt()
@@ -86,7 +49,7 @@ class FixedRoundsRaceConfiguration private constructor(val carNames: List<String
             } catch (e: Exception) {
                 throw IllegalArgumentException("Invalid value for number of rounds: \"$nRoundsString\"")
             }
-            validateNRounds(nRounds)
+            validator.validateNRounds(nRounds)
 
             return nRounds
         }
@@ -94,9 +57,13 @@ class FixedRoundsRaceConfiguration private constructor(val carNames: List<String
         /**
          * Factory function which validates input and returns FixedRoundsRaceConfiguration object.
          */
-        fun from(namesString: String, nRoundsString: String) : FixedRoundsRaceConfiguration {
-            val names = parseNames(namesString)
-            val nRounds = parseNRounds(nRoundsString)
+        fun from(
+            namesString: String,
+            nRoundsString: String,
+            validator: FixedRoundsRaceConfigurationValidatorInterface = this.DEFAULT_VALIDATOR
+        ) : FixedRoundsRaceConfiguration {
+            val names = parseNames(namesString, validator = validator)
+            val nRounds = parseNRounds(nRoundsString, validator = validator)
 
             return FixedRoundsRaceConfiguration(names, nRounds)
         }
@@ -104,12 +71,14 @@ class FixedRoundsRaceConfiguration private constructor(val carNames: List<String
         /**
          * Factory function which returns FixedRoundsRaceConfiguration object from user input via standard input.
          */
-        fun fromStdIn() : FixedRoundsRaceConfiguration {
-            println("Please enter car names(max 5 letters), separated by comma(,):")
-            val names = parseNames(Console.readLine())
+        fun fromStdIn(
+            validator: FixedRoundsRaceConfigurationValidatorInterface = this.DEFAULT_VALIDATOR
+        ) : FixedRoundsRaceConfiguration {
+            println("Please enter car names(${validator.MIN_CAR_NAME_LENGTH} <= length <= ${validator.MAX_CAR_NAME_LENGTH}), separated by comma(,):")
+            val names = parseNames(Console.readLine(), validator = validator)
 
-            println("Please enter number of rounds(> 0):")
-            val nRounds = parseNRounds(Console.readLine())
+            println("Please enter number of rounds(${validator.MIN_N_ROUNDS} <= n <= ${validator.MAX_N_ROUNDS}):")
+            val nRounds = parseNRounds(Console.readLine(), validator = validator)
 
             return FixedRoundsRaceConfiguration(names, nRounds)
         }
