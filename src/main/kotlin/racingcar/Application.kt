@@ -47,7 +47,7 @@ class Car(private val name: String) {
     fun getName() = name
     fun renderProgress(): String = "$name : ${"-".repeat(position)}"
 
-    // This method is for testing purposes
+    // For test use only
     fun setTestPosition(pos: Int) {
         position = pos
     }
@@ -98,9 +98,11 @@ class CarTest {
     @Test
     fun `car moves forward when random number is 4 or more`() {
         val car = Car("test")
+        val original = car.getPosition()
         repeat(100) {
             car.moveIfPossible()
         }
+        assertThat(car.getPosition()).isGreaterThanOrEqualTo(original)
     }
 
     @Test
@@ -127,6 +129,7 @@ class RaceTest {
     @Test
     fun `moveAll should not throw and update state of all cars`() {
         race.moveAll()
+        assertThat(cars).isNotEmpty()
     }
 
     @Test
@@ -142,4 +145,3 @@ class RaceTest {
         assertThat(winners).containsExactlyInAnyOrder("car1", "car2")
     }
 }
-
