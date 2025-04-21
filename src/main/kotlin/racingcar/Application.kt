@@ -35,7 +35,14 @@ fun inputRound(): Int {
     println("How many rounds will be played?");
 
     // Read input from the console
-    val rounds = Console.readLine().toInt();
+    val input = Console.readLine()
+
+    // Ensure the rounds is number
+    val rounds = try {
+        input.toInt()
+    } catch (e: NumberFormatException) {
+        throw IllegalArgumentException("Round must be a number.")
+    }
 
     // Ensure the number of rounds is positive
     if (rounds <= 0) {
