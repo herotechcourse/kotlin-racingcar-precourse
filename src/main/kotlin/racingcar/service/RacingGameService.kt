@@ -9,17 +9,16 @@ class RacingGameService(
 ) {
     private val game = RacingGame(cars)
 
-    fun play(rounds: Int): List<List<Car>> {
+    fun play(rounds: Int, numberGenerator: () -> Int = { Randoms.pickNumberInRange(0, 9) }): List<List<Car>> {
         val results = mutableListOf<List<Car>>()
 
         repeat(rounds) {
-            cars.forEach { it.move(Randoms.pickNumberInRange(0, 9)) }
-            results.add(cars.map { it.copy() }) // 깊은 복사
+            cars.forEach { it.move(numberGenerator()) }
+            results.add(cars.map { it.copy() })
         }
 
         return results
     }
-
     fun getWinners(): List<String> {
         return game.findWinners()
     }

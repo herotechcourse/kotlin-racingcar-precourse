@@ -1,7 +1,11 @@
 # kotlin-racingcar-precourse
 ## 구현 기능 목록
+- 자동차 이름과 라운드 수를 입력받는다.
+- 랜덤 값을 통해 자동차를 전진시킨다.
+- 매 라운드마다 결과를 출력하고, 최종 우승자를 표시한다.
 
-*
+---
+
 ## Functional Requirements
 
 - Car names are entered by the user, separated by commas.
@@ -41,3 +45,7 @@
     - Car moves forward when input is ≥ 4
     - Car does not move when input is < 4
     - Car throws exception if name is longer than 5 characters
+
+## Reflection
+I learned to break down requirements and manage responsibilities across layers.
+Writing isolated tests and enforcing validation logic gave me a stronger understanding of domain-driven design.
