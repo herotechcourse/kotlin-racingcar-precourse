@@ -1,14 +1,17 @@
 package racingcar
 
-class Race (val numOfRounds: Int) {
+class Race () {
     val carsList:MutableList<Car> = mutableListOf()
 
     fun addCar(carName: Car) {
         carsList.add(carName)
     }
 
-    fun constructCars(nameList: List<String>): List<Car> {
-        return nameList.map { name -> Car(name.trim()) }
+    fun constructCars(nameList: List<String>) {
+        nameList.forEach { name ->
+            val newCar = Car(name.trim())
+            addCar(newCar)
+        }
     }
 
     fun playRound() {
@@ -20,21 +23,21 @@ class Race (val numOfRounds: Int) {
 
     fun playRace() {
         val carNames = getInputCarNames()
-        val cars = constructCars(carNames)
+        constructCars(carNames)
         val rounds = getInputNumRounds()
         repeat (rounds) {
             playRound()
         }
-        val winners = findWinners()
+        val winners = findWinners(carsList)
         displayWinners(winners)
     }
 
-    fun displayWinners(List<Car> winners) {
-        print("Winners :")
+    fun displayWinners(winners: List<Car>) {
+        print("Winners : ")
         println(winners.joinToString(", ") { it.name })
     }
 
-    fun findWinners(List<Car> cars): List<Car> {
+    fun findWinners(cars: MutableList<Car>): List<Car> {
         val maxSteps = cars.maxOf { it.steps }
         return (cars.filter { it.steps == maxSteps })
     }
