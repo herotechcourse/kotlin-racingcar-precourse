@@ -5,6 +5,12 @@ import camp.nextstep.edu.missionutils.Randoms
 class Car(val name: String) {
     var position = 0
 
+    init {
+        require(name.isNotEmpty() && name.length <= 5) {
+            "Car name must be between 1 to 5 characters."
+        }
+    }
+
     fun move() {
         val number = Randoms.pickNumberInRange(0, 9)
         if (number >= 4) position++
@@ -28,12 +34,19 @@ class CarRacingGame {
 
         println("\nRace Results")
         repeat(rounds) {
-            playOneRound()
-            printProgress()
-            println()
+            //playOneRound()
+            //printProgress()
+            //println()
+            playRoundAndShowProgress()
         }
 
         printWinners()
+    }
+
+    private fun playRoundAndShowProgress() {
+        playOneRound()
+        printProgress()
+        println()
     }
 
     private fun getCarsFromInput(): List<Car> {
@@ -43,9 +56,6 @@ class CarRacingGame {
 
         val names = input.split(",").map { it.trim() }
 
-        if (names.any { it.length > 5 || it.isEmpty() }) {
-            throw IllegalArgumentException("Car names must be 1-5 characters.")
-        }
 
         return names.map { Car(it) }
     }
