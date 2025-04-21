@@ -74,6 +74,7 @@ class Game {
     val maxPosition = cars.maxOf { it.position }
     return cars.filter { it.position == maxPosition }.map { it.name }
   }
+  fun getCars(): List<Car> = cars.toList()
 }
 
 fun main() {
