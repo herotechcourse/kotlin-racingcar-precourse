@@ -9,7 +9,7 @@ class Race(raceInputs: RaceInputs) {
     val endRound: Int = raceInputs.round
 
     fun run() {
-        val cars = createCarObj(names)
+        val cars = names.map {createCarObj(it)}
 
         println()
         println("Race Results")
@@ -30,7 +30,7 @@ class Race(raceInputs: RaceInputs) {
         println("Winners : ${getWinners(cars)}")
     }
 
-    private fun getWinners(cars: List<Car>): String {
+    internal fun getWinners(cars: List<Car>): String {
         val maxPosition = cars.maxOfOrNull { it.position }
 
         return if (maxPosition != null) {
@@ -50,7 +50,7 @@ class Race(raceInputs: RaceInputs) {
         if (random >= 4) car.moveForward()
     }
 
-    internal fun createCarObj(names:List<String>): List<Car> {
-        return names.map {Car(it, 0)}
+    internal fun createCarObj(name:String, position:Int = 0): Car {
+        return Car(name, position)
     }
 }
