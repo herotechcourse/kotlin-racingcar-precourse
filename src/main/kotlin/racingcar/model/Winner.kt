@@ -22,4 +22,8 @@ class Winner(val cars: List<Car>) {
         }
     }
 
+    fun displayWinners() {
+        print("Winners : " + winners.joinToString(", ") { it.name })
+    }
+
 }
