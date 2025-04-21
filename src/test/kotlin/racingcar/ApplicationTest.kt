@@ -20,6 +20,13 @@ class ApplicationTest : NsTest() {
         )
     }
 
+   @Test
+    fun `round test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { run("pobi,woni", "a") }
+        }
+    }
+
     @Test
     fun `exception test`() {
         assertSimpleTest {
