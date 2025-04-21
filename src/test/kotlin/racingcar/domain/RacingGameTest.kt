@@ -31,4 +31,22 @@ class RacingGameTest {
         }
         assertThat(game.curRoundNum).isEqualTo(1)
     }
+
+    @Test
+    fun `executeRound should not move any cars if random number is less than 4`() {
+
+        val cars = listOf(
+            Car("chang") { 1 },
+            Car("deok") { 0 },
+            Car("seo") { 3 }
+        )
+        val game = RacingGame(cars)
+
+        game.executeRound()
+
+        cars.forEach {
+            assertThat(it.getPosition()).isEqualTo(0)
+        }
+        assertThat(game.curRoundNum).isEqualTo(1)
+    }
 }
