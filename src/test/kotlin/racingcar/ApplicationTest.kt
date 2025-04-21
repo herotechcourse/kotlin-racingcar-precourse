@@ -23,7 +23,16 @@ class ApplicationTest : NsTest() {
     @Test
     fun `exception test`() {
         assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+            assertThrows<IllegalArgumentException> { runException("pobi,javaji" , "1") }
+        }
+    }
+
+    @Test
+    fun `should throw exception if car name is blank`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException(" ,jun", "1")
+            }
         }
     }
 
