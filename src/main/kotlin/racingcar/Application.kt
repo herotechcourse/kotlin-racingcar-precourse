@@ -1,5 +1,10 @@
 package racingcar
 
+import racingcar.controller.RacingGame
+
 fun main() {
-    // TODO: Implement the program
+    val game = RacingGame()
+    game.init()
+    game.play()
+    game.showWinners()
 }
