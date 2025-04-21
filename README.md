@@ -1,16 +1,9 @@
 # kotlin-racingcar-precourse
 
-1. Project setup
-
 ## Features
-Input requirements
-* Enter participant name and number of rounds for the game
-* Error handling
-
 1. Get user input for car names and number of rounds
-2. Validate car names (not empty, <= 5 characters)
-3. Run race rounds (random movement logic)
-4. Track and display car progress per round
+2. Validate car names (not empty, <= 5 characters) and throw error for invalid input with `IllegalArgumentException`
+3. Run race rounds with `Randoms.pickNumberInRange()`
+4. Display car progress per round with an increase of "-" per round
 5. Determine winner(s) and print result
-6. Handle invalid input with IllegalArgumentException
-7. Write unit tests for each feature
+
