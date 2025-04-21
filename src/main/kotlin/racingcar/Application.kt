@@ -6,6 +6,15 @@ import racingcar.model.RacingGame
 import racingcar.io.OutputHandler
 
 fun main() {
+    try {
+        runRacingGame()
+    } catch (e: IllegalArgumentException) {
+        throw IllegalArgumentException("Invalid input: $e")
+    }
+}
+
+
+private fun runRacingGame() {
     val inputHandler = InputHandler()
     val outputHandler = OutputHandler()
 
