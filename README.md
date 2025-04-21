@@ -41,12 +41,11 @@ A simple car racing game implemented in Kotlin 1.9.24 for the purpose of pre cou
 ---
 
 ### Testing
-- [ ] Write unit tests using **JUnit 5** and **AssertJ**.
-- [ ] Test the following cases:
-  - [ ] Valid input handling.
-  - [ ] Invalid input (throws exceptions).
-  - [ ] Movement logic based on random number.
-  - [ ] Final winner calculation and tie conditions.
+- [x] Write unit tests using **JUnit 5** and **AssertJ**.
+- [x] Test the following cases:
+  - [x] Valid input handling.
+  - [x] Invalid input (throws exceptions).
+  - [x] Movement logic based on random number.
 
 ---
 
