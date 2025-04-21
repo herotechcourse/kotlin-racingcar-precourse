@@ -4,7 +4,7 @@ import racingcar.model.Car
 
 class CarNameValidator {
 
-    fun validateCarNames(carNames: List<String>): List<Car> {
+    fun validateCarNames(carNames: List<String>) {
         if (carNames.isEmpty()) {
             throw IllegalArgumentException("At least one name required")
         }
@@ -13,7 +13,6 @@ class CarNameValidator {
             throw IllegalArgumentException("Car names must be unique")
         }
 
-        val cars = mutableListOf<Car>()
         for (name in carNames) {
             val trimmedName = name.trim()
             if (trimmedName.isEmpty()) {
@@ -22,8 +21,6 @@ class CarNameValidator {
             if (trimmedName.length > 5) {
                 throw IllegalArgumentException("Each name allowed up to 5 characters: '$trimmedName'")
             }
-            cars.add(Car(trimmedName))
         }
-        return cars
     }
 }
