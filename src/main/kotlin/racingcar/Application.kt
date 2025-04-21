@@ -1,9 +1,7 @@
 package racingcar
 
-import racingcar.controller.mainController
+import racingcar.controller.MainController
 
 fun main() {
-    mainController()
+    MainController.run()
 }
-
-

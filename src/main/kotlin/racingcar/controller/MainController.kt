@@ -5,14 +5,16 @@ import racingcar.model.makeRacingProgressList
 import racingcar.view.InputView
 import racingcar.view.OutputView
 
-fun mainController() {
-    val carNames = InputView.getCarNamesInput()
-    val racingRounds = InputView.getRacingRoundsInput()
+object MainController {
+    fun run() {
+        val carNames = InputView.getCarNamesInput()
+        val racingRounds = InputView.getRacingRoundsInput()
 
-    val progressList = makeRacingProgressList(carNames, racingRounds)
-    OutputView.printRacingStartMessage()
-    OutputView.printCarNamesAndProcess(carNames, progressList)
+        val progressList = makeRacingProgressList(carNames, racingRounds)
+        OutputView.printRacingStartMessage()
+        OutputView.printCarNamesAndProcess(carNames, progressList)
 
-    val winners = findWinners(carNames, progressList)
-    OutputView.printWinners(winners)
+        val winners = findWinners(carNames, progressList)
+        OutputView.printWinners(winners)
+    }
 }
