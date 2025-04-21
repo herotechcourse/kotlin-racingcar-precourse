@@ -6,8 +6,8 @@
 
 Input
 
-- [ ] Receive car names and the number of rounds from the user
-- [ ] Car names are comma-separated and must be 5 characters or fewer
+- [x] Receive car names and the number of rounds from the user
+- [x] Car names are comma-separated and must be 5 characters or fewer
 
 Game Rules
 
