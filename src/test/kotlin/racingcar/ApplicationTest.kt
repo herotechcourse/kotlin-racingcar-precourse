@@ -21,9 +21,44 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `exception test`() {
+    fun `Throw when name is longer than 5 characters`() {
         assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+            assertThrows<IllegalArgumentException> { runException("pobi,javaji") }
+        }
+    }
+
+    @Test
+    fun `Throw when input is empty`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("\n") }
+        }
+    }
+
+    @Test
+    fun `Throw when an empty name exists`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,,kim") }
+        }
+    }
+
+    @Test
+    fun `Throw when there are duplicate names`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,pobi") }
+        }
+    }
+
+    @Test
+    fun `Throw when round input is non-Integer`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1a") }
+        }
+    }
+
+    @Test
+    fun `Throw when round input is empty`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "") }
         }
     }
 
