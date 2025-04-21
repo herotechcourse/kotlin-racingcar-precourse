@@ -64,4 +64,28 @@ class OutputProcessTest {
         assertThat(output).contains("deok : -")
         assertThat(output).contains("seo : ")
     }
+
+    @Test
+    fun `printWinners should print single winner correctly`() {
+
+        val winner = Car("chang", 3)
+        val winners = listOf(winner)
+
+        outputProcess.printWinners(winners)
+
+
+        assertThat(outputStreamCaptor.toString().trim()).isEqualTo("Winners : chang")
+    }
+
+    @Test
+    fun `printWinners should print multiple winners correctly`() {
+
+        val winner1 = Car("chang", 3)
+        val winner2 = Car("deok", 3)
+        val winners = listOf(winner1, winner2)
+
+        outputProcess.printWinners(winners)
+
+        assertThat(outputStreamCaptor.toString().trim()).isEqualTo("Winners : chang, deok")
+    }
 }
