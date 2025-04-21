@@ -21,4 +21,9 @@ object Validator {
             if (name.length > 5) throw IllegalArgumentException(ErrorMessages.Name.CANNOT_BE_TOO_LONG)
         }
     }
+
+    fun validateRounds(rounds: Int): Int {
+        if (rounds < 1) throw IllegalArgumentException(ErrorMessages.Round.MUST_BE_AT_LEAST_ONE)
+        return rounds
+    }
 }
