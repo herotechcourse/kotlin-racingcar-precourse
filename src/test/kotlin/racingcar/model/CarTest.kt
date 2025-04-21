@@ -50,29 +50,4 @@ class CarTest {
         assertThat(car.position).isEqualTo(Position(0))
     }
 
-    @Test
-    fun `Car should be comparable by position`() {
-        // Arrange
-        val fast = Car(Name("fast"), Position(3))
-        val slow = Car(Name("slow"), Position(1))
-
-        // Act
-        // Assert
-        SoftAssertions.assertSoftly {
-            assertThat(fast).isGreaterThan(slow)
-            assertThat(slow).isLessThan(fast)
-            assertThat(fast.compareTo(fast)).isZero()
-        }
-    }
-
-    @Test
-    fun `Cars with same position should be equal in comparison`() {
-        // Arrange
-        val car1 = Car(Name("a"), Position(3))
-        val car2 = Car(Name("b"), Position(3))
-
-        // Act
-        // Assert
-        assertThat(car1.compareTo(car2)).isZero()
-    }
 }

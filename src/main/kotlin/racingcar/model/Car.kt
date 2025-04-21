@@ -3,7 +3,7 @@ package racingcar.model
 data class Car(
     val name: Name,
     var position: Position = Position.initial()
-) : Comparable<Car> {
+) {
 
     fun move(power: Int) {
         if (power >= MOVE_THRESHOLD) {
@@ -11,12 +11,9 @@ data class Car(
         }
     }
 
-    override fun compareTo(other: Car): Int = position.compareTo(other.position)
-
     companion object {
         private const val MOVE_THRESHOLD: Int = 4
     }
-
 }
 
 @JvmInline

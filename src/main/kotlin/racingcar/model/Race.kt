@@ -3,23 +3,21 @@ package racingcar.model
 data class Race(val cars: Cars, val rounds: Rounds) {
 
     fun play(powerGenerator: PowerGenerator): RaceResult {
-        val raceLog = buildList {
+        val raceLog: List<LapReport> = buildList {
             rounds.repeat {
                 cars.moveAll(powerGenerator)
                 add(cars.toLapReport())
             }
         }
 
-        return RaceResult(raceLog, cars.findWinners());
+        return RaceResult(raceLog, cars.findWinners())
     }
 
 }
 
 class Cars(private val cars: List<Car>) {
 
-    fun moveAll(powerGenerator: PowerGenerator) {
-        cars.forEach { it.move(powerGenerator.generate()) }
-    }
+    fun moveAll(powerGenerator: PowerGenerator) = cars.forEach { it.move(powerGenerator.generate()) }
 
     fun toLapReport(): LapReport = LapReport.from(cars)
 
