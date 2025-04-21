@@ -15,8 +15,8 @@ class ApplicationTest : NsTest() {
                 run("pobi,woni", "1")
                 assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
             },
-            MOVING_FORWARD,
-            STOP,
+            Race.MOVING_FORWARD,
+            Race.STOP,
         )
     }
 
@@ -27,12 +27,57 @@ class ApplicationTest : NsTest() {
         }
     }
 
-    override fun runMain() {
-        main()
+    @Test
+    fun `should throw exception if car list is not comma-separated`() {
+        assertSimpleTest {
+            val exception = assertThrows<IllegalArgumentException> { runException("pobijavaji", "1") }
+            assertThat(exception.message).isEqualTo("Car names should be comma-separated.")
+        }
     }
 
-    companion object {
-        private const val MOVING_FORWARD: Int = 4
-        private const val STOP: Int = 3
+    @Test
+    fun `should throw exception when number of rounds is zero`() {
+        assertSimpleTest {
+            val exception = assertThrows<IllegalArgumentException> { runException("pobi,woni", "0") }
+            assertThat(exception.message).isEqualTo("Number of rounds must be greater than 0.")
+        }
+    }
+
+    @Test
+    fun `should throw exception when number of rounds is negative`() {
+        assertSimpleTest {
+            val exception = assertThrows<IllegalArgumentException> { runException("pobi,woni", "-1") }
+            assertThat(exception.message).isEqualTo("Number of rounds must be greater than 0.")
+        }
+    }
+
+    @Test
+    fun `should throw exception when number of rounds is not a valid integer`() {
+        assertSimpleTest {
+            val exception = assertThrows<IllegalArgumentException> { runException("pobi,woni", "abc") }
+            assertThat(exception.message).isEqualTo("Invalid input. Please enter a valid integer for the number of rounds.")
+        }
+    }
+
+    @Test
+    fun `should throw exception when number of rounds exceeds 1000`() {
+        assertSimpleTest {
+            val exception = assertThrows<IllegalArgumentException> {
+                runException("pobi,woni", "1001")
+            }
+            assertThat(exception.message).isEqualTo("Number of rounds must not exceed 1,000.")
+        }
+    }
+
+    @Test
+    fun `should return valid number of rounds when input is a positive integer`() {
+        assertSimpleTest {
+            run("pobi,woni", "5")
+            assertThat(output()).contains("pobi : ", "woni : ")
+        }
+    }
+
+    override fun runMain() {
+        main()
     }
 }
