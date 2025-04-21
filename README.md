@@ -1,6 +1,6 @@
 # 🚘 kotlin-racingcar-precourse 🚘
 
-# 📝 Feature List
+# 📝 List of Features
 
 ## ▪︎ Input
 
@@ -28,6 +28,10 @@
     - Throw an `IllegalArgumentException` if the name length is out of range
 - [x] Validate car name must only contain alphabets
     - Throw an `IllegalArgumentException` if the name contains non-alphabet characters
+- [x] Move forward
+    - [x] check if the randomly generated number is 4 or greater
+- [x] Calculate the max position of racing cars
+- [x] Find the cars at the specified position
 
 ### Race
 
@@ -38,12 +42,11 @@
         - [x] Generate a random number between 0 and 9 (use `Randoms.pickNumberInRange()`)
         - [x] Generate a fixed number between 0 and 9
             - Throw an `IllegalArgumentException` if the number is out of range
-    - [x] Move a car forward only if the randomly generated number is 4 or greater
+- [x] Record each round history
 - [x] Determine the winner
-    - [x] Calculate the max position of racing cars
-    - [x] Find the cars at the specified position
+    - [x] Find the cars at the max position
 
-# Flow
+# 🌊 Flow
 
 1. Input car names (ensure the input contains only alphabets and commas, and each name does not exceed 5 characters).
 2. Input the number of rounds (ensure the input is a number between 1 and 10).
@@ -53,7 +56,7 @@
 5. Determine the winner(s) based on the furthest distance.
 6. Print the winner(s).
 
-# Example Execution
+# 🏎️ Example Execution
 
 ```
 Enter the names of the cars (comma-separated):
