@@ -63,15 +63,20 @@ fun playRace(carNames: List<String>?, numberOfRounds: Int): Map<String, Int> {
     carNames?.forEach { carPositions[it] = 0 }
 
     repeat(numberOfRounds) {
-        val randomNumber = Randoms.pickNumberInRange(0, 9)
-        if (carNames != null && randomNumber >= 4 ) {
-            moveCars(carNames, carPositions)
+        carNames?.forEach { car ->
+            val randomNumber = Randoms.pickNumberInRange(0, 9)
+            if (randomNumber >= 4) {
+                carPositions[car] = carPositions[car]!! + 1
+            }
         }
 
         printRaceStatus(carPositions)
     }
+
     return carPositions
 }
+
+
 
 
 fun printWinners(carPositions: Map<String, Int>) {
