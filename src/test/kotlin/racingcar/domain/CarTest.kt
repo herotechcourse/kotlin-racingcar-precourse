@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 
 internal class CarTest {
-    val car: Car = Car();
+    val car: Car = Car()
 
     @ParameterizedTest
     @ValueSource(strings = ["pobi", "woni", "jun"])
@@ -16,6 +16,6 @@ internal class CarTest {
 
         //then
         val score = car.getScore(carName)
-        assertEquals(1, score);
+        assertEquals(1, score)
     }
 }
