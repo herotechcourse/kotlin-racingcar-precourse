@@ -67,7 +67,7 @@ class RacingGame {
     }
 
     private fun playGame() {
-        println("Race Results")
+        println("\nRace Results")
         repeat(rounds) {
             moveCars()
             printStatus()
