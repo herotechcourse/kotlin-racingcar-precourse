@@ -9,7 +9,7 @@ object OutputView {
     }
 
     fun printRound(cars: Cars) {
-        cars.cars.forEach { car ->
+        cars.getAll().forEach { car ->
             println("${car.name} : ${"-".repeat(car.position)}")
         }
         println()
