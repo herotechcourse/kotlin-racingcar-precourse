@@ -34,6 +34,13 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `Throw when an empty name exists`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,,kim") }
+        }
+    }
+
     override fun runMain() {
         main()
     }
