@@ -11,7 +11,7 @@ class CarRacingTest : NsTest() {
     fun `should print race result and winners correctly for a normal case`() {
         assertRandomNumberInRangeTest(
             {
-                CarRacing.runRace(listOf("pobi", "woni", "jun"), 1)
+                CarRacing.race(listOf(Car("pobi"), Car("woni"), Car("jun")), 1)
                 val result = output()
 
                 assertThat(result).contains("Race Results")
@@ -24,42 +24,12 @@ class CarRacingTest : NsTest() {
         )
     }
 
-    @Test
-    fun ` should initialize cars with their names`() {
-        val cars = CarRacing.initializeCars(listOf("pobi", "woni", "jun"))
-        assertThat(cars).hasSize(3)
-        assertThat(cars.map { it.name }).containsExactly("pobi", "woni", "jun")
-    }
-
-    @Test
-    fun `car should move when random number is 4 or more`() {
-        val cars = CarRacing.initializeCars(listOf("pobi"))
-        assertRandomNumberInRangeTest(
-            {
-                CarRacing.raceSingleRound(cars)
-                assertThat(cars[0].getPosition()).isEqualTo(1)
-            },
-            5
-        )
-    }
-
-    @Test
-    fun `car should not move when random number is less than 4`() {
-        val cars = CarRacing.initializeCars(listOf("pobi"))
-        assertRandomNumberInRangeTest(
-            {
-                CarRacing.raceSingleRound(cars)
-                assertThat(cars[0].getPosition()).isEqualTo(0)
-            },
-            3
-        )
-    }
 
     @Test
     fun `should run race and determine a single winner`() {
         assertRandomNumberInRangeTest(
             {
-                CarRacing.runRace(listOf("pobi", "woni"), 1)
+                CarRacing.race(listOf(Car("pobi"), Car("woni")), 1)
                 val result = output()
 
                 assertThat(result).contains("pobi : -")
@@ -74,7 +44,7 @@ class CarRacingTest : NsTest() {
     fun `should run race and determine multiple winners`() {
         assertRandomNumberInRangeTest(
             {
-                CarRacing.runRace(listOf("pobi", "woni", "jun"), 1)
+                CarRacing.race(listOf(Car("pobi"), Car("woni"), Car("jun")), 1)
                 val result = output()
 
                 assertThat(result).contains("pobi : -")

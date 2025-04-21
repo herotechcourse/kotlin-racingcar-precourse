@@ -1,8 +1,13 @@
 package racingcar
 
-fun main() {
-    val carNames = getValidCarNames()
-    val roundCount = getValidRoundCount()
+import camp.nextstep.edu.missionutils.Console
 
-    CarRacing.runRace(carNames, roundCount)
+fun main() {
+    println("Enter the names of the cars (comma-separated):")
+    val cars = Console.readLine().toCars()
+
+    println("How many rounds will be played?")
+    val numberOfRounds = Console.readLine().toNumberOfRounds()
+
+    CarRacing.race(cars, numberOfRounds)
 }
