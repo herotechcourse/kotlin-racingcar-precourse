@@ -46,11 +46,19 @@ class Application {
         val race = Race(cars, rounds)
 
         println("\nRace Results")
+        runRaceRounds(race, cars, rounds)
+
+        displayWinners(race)
+    }
+
+    private fun runRaceRounds(race: Race, cars: List<Car>, rounds: Int) {
         for (round in 1..rounds) {
             race.executeRound()
             outputView.printRaceResults(cars)
         }
+    }
 
+    private fun displayWinners(race: Race) {
         val winners = race.determineWinners()
         outputView.printWinners(winners)
     }
