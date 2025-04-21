@@ -49,4 +49,19 @@ class RacingGameTest {
         }
         assertThat(game.curRoundNum).isEqualTo(1)
     }
+
+    @Test
+    fun `findWinner should return all cars with max position`() {
+
+        val cars = listOf(
+            Car("chang", 5) { 0 },
+            Car("deok", 1) { 0 },
+            Car("seo", 5) { 0 }
+        )
+        val game = RacingGame(cars)
+
+        val winners = game.findWinner()
+
+        assertThat(winners.map { it.name }).containsExactlyInAnyOrder("chang", "seo")
+    }
 }
