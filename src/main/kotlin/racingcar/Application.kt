@@ -48,6 +48,6 @@ fun main() {
             continue
         }
     }
-
+    print("Winners : " + winners.joinToString(", ") { it.name })
 }
 
