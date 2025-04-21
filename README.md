@@ -15,8 +15,8 @@
 - [x] Represent car positions by '-'.
 
 ## Result
-- [ ] Print results for each round alongside car names.
-- [ ] After all rounds are done, pick the winner. (If there are multiple winners, print all their names)
+- [x] Print results for each round alongside car names.
+- [x] After all rounds are done, pick the winner. (If there are multiple winners, print all their names)
 
 ## Exception
 - [x] Throw IllegalArgumentException for any input that does not meet the requirements.
