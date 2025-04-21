@@ -9,8 +9,6 @@
 - Each of the n cars can either move forward or stay.
 - random number between 0~9. if the number is 4 or greater-> move forward.
 - When printing the progress of each car, display the car's name alongside its movement.
-  (각 차량의 진행 상황을 출력할 때, 차량의 이름과 움직임을 함께 표시하세요.
-  )
 - After race, display winners. can be multiple winners if they reach the same final position.
   - their names should be dsiplayed and separted by commas.
 - user inputs invalid -> should throw 'IllegalArgumentException' and terminate.
