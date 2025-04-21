@@ -1,8 +1,7 @@
 package racingcar
 
 import racingcar.factory.CarFactory
-import racingcar.input.ConsoleView
-import racingcar.input.InputView
+import racingcar.input.ConsoleInput
 import racingcar.model.Winner
 import racingcar.validation.CarNameValidator
 import racingcar.validation.InputNumberValidator
@@ -11,11 +10,11 @@ import racingcar.view.ConsoleOutput
 fun main() {
     // TODO: Implement the program
 
-    val carNames = ConsoleView.readCarNames()
+    val carNames = ConsoleInput.readCarNames()
     CarNameValidator.validateCarNames(carNames)
     val cars = CarFactory.createCars(carNames)
 
-    val roundInput = ConsoleView.readRound()
+    val roundInput = ConsoleInput.readRound()
     val n = InputNumberValidator.validateInputNumber(roundInput)
 
     ConsoleOutput.printResultPerRound(n, cars)
