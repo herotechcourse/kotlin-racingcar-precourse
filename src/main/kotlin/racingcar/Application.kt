@@ -1,9 +1,10 @@
 package racingcar
 
-package racingcar
-
+import camp.nextstep.edu.missionutils.Randoms
 
 class Car(val name: String) {
+    private var position: Int = 0
+
     init {
         validateName(name)
     }
@@ -16,6 +17,19 @@ class Car(val name: String) {
             throw IllegalArgumentException("Car name cannot exceed 5 characters.")
         }
     }
+
+    fun move() {
+        try {
+            val randomNumber = Randoms.pickNumberInRange(0, 9)
+            if (randomNumber >= 4) {
+                position++
+            }
+        } catch (e: Exception) {
+            throw IllegalArgumentException("Failed to generate random number.")
+        }
+    }
+
+    fun getPosition(): Int = position
 }
 
 fun main() {
@@ -25,6 +39,15 @@ fun main() {
     
     println("How many rounds will be played?")
     val rounds = readRounds()
+
+    println("\nRace Results")
+    repeat(rounds) { round ->
+        cars.forEach { car ->
+            car.move()
+            println("${car.name} : ${"-".repeat(car.getPosition())}")
+        }
+        println()
+    }
 }
 
 private fun readRounds(): Int {
