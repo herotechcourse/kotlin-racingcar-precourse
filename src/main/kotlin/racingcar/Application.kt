@@ -9,11 +9,7 @@ fun main() {
 
     val rounds = Console.readLine().toInt()
 
-    val results = mutableMapOf<String, Int>()
-
-    for (name in names) {
-        results[name] = 0
-    }
+    val results = names.associateWith { 0 }.toMutableMap()
 
     repeat(rounds) {
         for (name in names) {
