@@ -16,4 +16,6 @@ class RacingCar(
 
     val progress: Int
         get() = position
+
+    fun copy(): RacingCar = RacingCar(name, position)
 }

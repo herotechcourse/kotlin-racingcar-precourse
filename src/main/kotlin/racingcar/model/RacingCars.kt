@@ -23,5 +23,5 @@ class RacingCars private constructor(
             .map { it.name }
     }
 
-    fun all(): List<RacingCar> = cars
+    fun all(): List<RacingCar> = cars.map { it.copy() }
 }
