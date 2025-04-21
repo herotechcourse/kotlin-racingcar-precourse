@@ -6,13 +6,13 @@ import racingcar.domain.Race
 
 fun main() {
     // 1. 자동차 이름을 입력받고, 유효성 검사를 실행
-    println("자동차 이름을 입력하세요(쉼표로 구분):")
+    println("Names of the cars (comma-separated):")
     val inputNames = Console.readLine()
     val names = inputNames.split(",").map { it.trim() }
     validateCarNames(names)
 
     // 2. 시도할 횟수를 입력받고, 유효성 검사를 실행
-    println("시도할 횟수를 입력하세요:")
+    println("Number of rounds:")
     val rounds = Console.readLine().toIntOrNull() ?: throw IllegalArgumentException("숫자를 입력해야 합니다")
 
     // 3. 자동차 객체 생성 및 Race 객체 생성
