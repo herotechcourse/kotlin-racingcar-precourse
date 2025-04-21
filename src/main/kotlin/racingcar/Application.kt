@@ -46,11 +46,18 @@ class RacingGame(private val cars: List<Car>, private val rounds: Int) {
             cars.forEach { it.move() }
             Output.printRound(cars)
         }
+        Output.printWinners(cars)
     }
 }
 object Output {
     fun printRound(cars: List<Car>) {
         cars.forEach { println("${it.name} : ${it.getPositionSymbol()}") }
         println()
+    }
+
+    fun printWinners(cars: List<Car>) {
+        val max = cars.maxOf { it.position }
+        val winners = cars.filter { it.position == max }.map { it.name }
+        println("Winners : ${winners.joinToString(", ")}")
     }
 }
