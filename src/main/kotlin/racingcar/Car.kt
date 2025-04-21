@@ -4,7 +4,7 @@
 
 package racingcar
 
-class Car(val name: String, val lane: Lane) {
+class Car(val name: String, val lane: RandomizedMoveLane) {
     var position: Int = 0
         private set
 
