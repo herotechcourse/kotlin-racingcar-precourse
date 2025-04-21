@@ -1,10 +1,10 @@
-package racingcar
+package racingcar.player
 
 import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class CarMovement {
+class CarBehaviour {
 
   @Test
   fun `cars should not move if random number is between 0 and 3`() {

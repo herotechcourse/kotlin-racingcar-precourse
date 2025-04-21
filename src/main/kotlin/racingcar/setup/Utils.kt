@@ -1,4 +1,4 @@
-package racingcar.input
+package racingcar.setup
 
 object Utils {
   fun throwErrorIf(error: Boolean, message: String) {

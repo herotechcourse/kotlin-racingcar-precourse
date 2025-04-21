@@ -1,8 +1,8 @@
-package racingcar.input
+package racingcar.setup
 
-import racingcar.input.Utils.throwErrorIf
+import racingcar.setup.Utils.throwErrorIf
 
-object Rounds {
+object PromptRounds {
 
   fun getInput(input: String): Int {
     val totalRounds = parse(input)

@@ -1,10 +1,11 @@
-package racingcar
+package racingcar.race
 
 import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest
 import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import racingcar.simulation.Simulation
+import racingcar.main
+import racingcar.player.Car
 
 class SimulationTest : NsTest() {
 

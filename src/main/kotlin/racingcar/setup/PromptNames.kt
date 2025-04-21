@@ -1,8 +1,8 @@
-package racingcar.input
+package racingcar.setup
 
-import racingcar.input.Utils.throwErrorIf
+import racingcar.setup.Utils.throwErrorIf
 
-object Names {
+object PromptNames {
 
   fun getInput(input: String): List<String> {
     val carList = parse(input)
@@ -15,7 +15,6 @@ object Names {
   }
 
   private fun validate(carList: List<String>) {
-    // Assumes carList is already trimmed and lowercased parseNames
     throwErrorIf(
         carList.size != carList.map { it }.toSet().size,
         "Names.validate(): found duplicate name. Different car names required.")

@@ -1,6 +1,7 @@
-package racingcar.simulation
+package racingcar.race
 
-import racingcar.Car
+import racingcar.player.Car
+import racingcar.race.SimulationOutput
 
 object Simulation {
 
