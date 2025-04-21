@@ -6,6 +6,10 @@ The project is a console-based Kotlin application that runs a simple car racing 
 After the user enters car names and the number of rounds, the program simulates the race,
 shows the race progression, and prints the final results.
 
+Below you can find a quick demonstration of the program:
+
+https://github.com/user-attachments/assets/2a4823e9-5e73-47f2-a8fc-e4b13b62d8a7
+
 ## Table of Contents
 - [Feature List](#feature-list)
 - [Learnings](#learnings)
@@ -30,7 +34,11 @@ The features will be implemented in the following order:
 
 ## Learnings
 
-After learning the basics through the [Kotlin Tour](https://kotlinlang.org/docs/kotlin-tour-welcome.html), I started the project and noted the following key takeaways:
+After learning the 
+
+https://github.com/user-attachments/assets/2fcd0195-0008-4829-9bb3-b169b4999b14
+
+basics through the [Kotlin Tour](https://kotlinlang.org/docs/kotlin-tour-welcome.html), I started the project and noted the following key takeaways:
 
 - We can declare utility classes as `object` instead of `class`. This allows the compiler to provide a single instance automatically, so we can call utility methods without creating an instance manually.
 - The provided `Console.readLine()` throws a `NoSuchElementException` if there is no input.
