@@ -2,7 +2,7 @@ package racingcar.services
 
 import camp.nextstep.edu.missionutils.Randoms
 
-fun executeRace(cars: List<String>, rounds: Int): MutableMap<String, Int> {
+fun executeRace(cars: List<String>, rounds: Int): RaceResult {
     val results = cars.associateWith { 0 }.toMutableMap()
     repeat(rounds) {
         for (car in cars) {
@@ -13,5 +13,5 @@ fun executeRace(cars: List<String>, rounds: Int): MutableMap<String, Int> {
             }
         }
     }
-    return results
+    return RaceResult(results)
 }

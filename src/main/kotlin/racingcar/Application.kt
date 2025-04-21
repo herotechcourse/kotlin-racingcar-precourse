@@ -7,15 +7,14 @@ import racingcar.services.executeRace
 
 fun main() {
     val readerService = ReaderService(ConsoleReaderService())
+
     val names = readerService.readCarsNames()
 
     val rounds = readerService.readRounds()
 
-    val results = executeRace(names, rounds)
+    val result = executeRace(names, rounds)
 
-    val raceResult = RaceResult(results)
+    result.printAllResults()
 
-    raceResult.printAllResults()
-
-    raceResult.printWinners()
+    result.printWinners()
 }
