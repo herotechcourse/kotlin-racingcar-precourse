@@ -93,3 +93,23 @@ private fun inputRounds(): Int {
 private fun createCars(carNames: List<String>): List<Car> {
     return carNames.map { Car(it) }
 }
+
+private fun race(cars: List<Car>, rounds: Int) {
+    repeat(rounds) {
+        cars.forEach { car ->
+            val randomNumber = Randoms.pickNumberInRange(0, 9)
+            if (randomNumber >= 4) {
+                car.move()
+            }
+        }
+
+        displayRaceStatus(cars)
+        println()
+    }
+}
+
+private fun displayRaceStatus(cars: List<Car>) {
+    cars.forEach { car ->
+        println("${car.name} : ${"-".repeat(car.position)}")
+    }
+}
