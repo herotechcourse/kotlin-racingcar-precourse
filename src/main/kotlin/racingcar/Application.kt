@@ -28,3 +28,16 @@ fun readTryCount(): Int {
   return input.toIntOrNull()?.takeIf { it > 0 }
     ?: throw IllegalArgumentException("Number of rounds must be a positive integer.")
 }
+
+class Car(val name: String) {
+  var position: Int = 0
+    private set
+
+  fun move(randomNumber: Int) {
+    if (randomNumber >= 4) {
+      position++
+    }
+  }
+
+  fun positionString(): String = "-".repeat(position)
+}
