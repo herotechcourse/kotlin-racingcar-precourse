@@ -2,7 +2,6 @@ package racingcar
 
 import racingcar.domain.Car
 import racingcar.domain.Cars
-import racingcar.domain.Round
 import racingcar.domain.Rounds
 
 fun main() {
@@ -26,11 +25,10 @@ fun main() {
 }
 
 fun race(cars: Cars, roundCount: Int): Rounds {
-    val roundsTemp = mutableListOf<Round>()
+    val rounds = Rounds()
     for (roundIndex in 1..roundCount) {
         cars.moveRandomly()
-        val round = cars.createRound(roundIndex)
-        roundsTemp.add(round)
+        rounds.add(cars.createRound(roundIndex))
     }
-    return Rounds(roundsTemp)
+    return rounds
 }

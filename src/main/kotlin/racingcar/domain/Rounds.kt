@@ -1,6 +1,6 @@
 package racingcar.domain
 
-data class Rounds(private val rounds: List<Round> = listOf()) {
+data class Rounds(private val rounds: MutableList<Round> = mutableListOf()) {
     fun getWinners(): Cars {
         return this.rounds.last().winners
     }
@@ -15,6 +15,10 @@ data class Rounds(private val rounds: List<Round> = listOf()) {
     }
 
     fun add(round: Round) {
+        rounds.add(round)
+    }
 
+    fun toList(): List<Round> {
+        return rounds.map { it.copy() }
     }
 }
