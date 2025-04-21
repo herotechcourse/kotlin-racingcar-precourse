@@ -1,11 +1,12 @@
 # kotlin-racingcar-precourse
 
-## 기능목록
+## Feature List
 
-- 자동차 경주에 여러 대의 자동차를 참여시킬 수 있다.
-- 자동차 이름은 5자 이하만 허용하며, 그렇지 않으면 예외를 발생시킨다.
-- 이미 입력된 이름이 또 입력된다면 예외를 발생시킨다.
-- 사용자로부터 경주 횟수를 입력받는다.
-- 각 라운드마다 자동차는 랜덤한 조건에 따라 전진한다.
-- 매 라운드마다 자동차의 진행 상황을 출력한다.
-- 경주가 끝나면 가장 많이 전진한 우승한를 출력한다. (우승자는 여러 명일 수 있음)
+- Multiple cars can participate in the car race.
+- Car names are limited to 5 characters or less, and an exception will be thrown if the name exceeds this limit.
+- An exception will be thrown if a name is entered more than once.
+- The number of race rounds will be input by the user.
+- An exception will be thrown if the round is negative or not a number.
+- In each round, cars will move forward based on random conditions.
+- The progress of each car will be printed after each round.
+- At the end of the race, the car that moved the furthest will be declared the winner (there may be multiple winners).
