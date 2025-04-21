@@ -15,7 +15,8 @@ object GameController {
 
         ResultView.printResultHeader()
         gameService.play(roundCount).forEach { roundResult ->
-            ResultView.printRound(roundResult)
+            val carViews = roundResult.map { it.toView() }
+            ResultView.printRound(carViews)
         }
 
         val winners = gameService.getWinners()

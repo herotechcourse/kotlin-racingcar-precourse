@@ -35,17 +35,29 @@
 - [x] Determine the car(s) with the highest position
 - [x] Print winner(s) with names separated by commas
 - [x] Throw IllegalArgumentException on invalid input
-- [x] Add unit tests for RacingGame logic if possible
+- [x] Add unit tests for RacingGame logic
+- [x] Introduce CarView as a view-specific DTO
+- [x] Extract formatCarResult() to support testable output formatting
+- [x] Add unit tests for ResultView output formatting
+
+
 
 ---
 
 ## Unit Testing
 
-- All logic in the `Car` class is tested with JUnit5 + AssertJ:
-    - Car moves forward when input is ≥ 4
-    - Car does not move when input is < 4
-    - Car throws exception if name is longer than 5 characters
+- `CarTest.kt`:
+  - Car moves forward when input is ≥ 4
+  - Car does not move when input is < 4
+  - Car throws exception if name is longer than 5 characters
+- `RacingGameTest.kt`:
+  - Cars move correctly over multiple rounds
+  - Winners are calculated based on maximum position
+- `ResultViewTest.kt`:
+  - Output formatting of car progress is verified via formatCarResult()
 
 ## Reflection
-I learned to break down requirements and manage responsibilities across layers.
-Writing isolated tests and enforcing validation logic gave me a stronger understanding of domain-driven design.
+I learned to break down requirements and manage responsibilities across layers.  
+Refactoring the view logic into a testable pure function allowed me to isolate formatting and improve test coverage.  
+Introducing a CarView DTO helped me understand how to decouple the domain from the UI representation, which is crucial in larger systems.  
+Overall, this was a great exercise in clean architecture and responsibility-driven design.
