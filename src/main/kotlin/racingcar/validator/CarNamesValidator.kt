@@ -7,6 +7,9 @@ import racingcar.constant.ErrorMessage.MINIMUM_CAR_COUNT
 
 object CarNamesValidator {
 
+    private const val MIN_CAR_COUNT = 2
+    private const val MAX_CAR_NAME_LENGTH = 5
+
     fun validate(carNames: List<String>) {
         requireMinimumCarCount(carNames)
         requireNoBlankNames(carNames)
@@ -15,7 +18,7 @@ object CarNamesValidator {
     }
 
     private fun requireMinimumCarCount(carNames: List<String>) {
-        require(carNames.size >= 2) {
+        require(carNames.size >= MIN_CAR_COUNT) {
             MINIMUM_CAR_COUNT
         }
     }
@@ -33,7 +36,7 @@ object CarNamesValidator {
     }
 
     private fun requireNameLengthLimit(carNames: List<String>) {
-        require(carNames.all { it.length <= 5 }) {
+        require(carNames.all { it.length <= MAX_CAR_NAME_LENGTH }) {
             CAR_NAME_TOO_LONG
         }
     }
