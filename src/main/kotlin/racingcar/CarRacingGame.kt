@@ -5,6 +5,14 @@ class CarRacingGame {
       println("Starting game setup...")
     }
   }
+
+  class Car(val name: String) {
+    var position = 0
+  
+    fun moveIfPossible() {
+      if ((0..9).random() >= 4) position++
+    }
+  }
   
   private fun readCarNames(): List<String> {
     println("Enter car names (comma-separated, max 5 characters each):")
@@ -16,6 +24,13 @@ class CarRacingGame {
     return names
   }
 
+  private fun announceWinners(cars: List<Car>) {
+    val max = cars.maxOf { it.position }
+    val winners = cars.filter { it.position == max }.map { it.name }
+    println("\nWinner${if (winners.size > 1) "s" else ""}: ${winners.joinToString(", ")}")
+  }
+  
+
   fun start() {
     val carNames = readCarNames()
     val rounds = readRounds()
@@ -26,6 +41,8 @@ class CarRacingGame {
       cars.forEach { it.moveIfPossible() }
       printRaceProgress(cars)
     }
+
+    announceWinners(cars)
   }
   
 
