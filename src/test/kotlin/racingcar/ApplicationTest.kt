@@ -27,6 +27,23 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `multiple winners when cars tie`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("car1,car2", "2")
+                assertThat(output()).contains(
+                    "car1 : --",
+                    "car2 : --",
+                    "Winners : car1, car2"
+                )
+            },
+            MOVING_FORWARD, MOVING_FORWARD,  // Round 1
+            MOVING_FORWARD, MOVING_FORWARD   // Round 2
+    )
+    }
+
+
     override fun runMain() {
         main()
     }
