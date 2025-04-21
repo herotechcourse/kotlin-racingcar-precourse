@@ -9,7 +9,9 @@ class Car(val name: String) {
 
   fun attemptMovement() {
     val random = Randoms.pickNumberInRange(0, 9)
-    if (random >= 4) { position++ }
+    if (random >= 4) {
+      position++
+    }
   }
 
   fun progressBar(): String = "-".repeat(position)

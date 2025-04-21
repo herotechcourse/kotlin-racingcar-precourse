@@ -6,6 +6,7 @@ import racingcar.race.SimulationOutput
 object Simulation {
 
   fun race(cars: List<Car>, totalRounds: Int) {
+    SimulationOutput.addPadding()
     SimulationOutput.header()
     start(cars, totalRounds)
     end(cars)
@@ -14,16 +15,15 @@ object Simulation {
   private fun start(cars: List<Car>, totalRounds: Int) {
     for (round in 1..totalRounds) {
       runSingleRound(cars)
+      SimulationOutput.addPadding()
     }
   }
 
   private fun runSingleRound(cars: List<Car>) {
-    SimulationOutput.addPadding()
     for (car in cars) {
       car.attemptMovement()
       SimulationOutput.round("${car.name} : ${car.progressBar()}")
     }
-    SimulationOutput.addPadding()
   }
 
   private fun end(cars: List<Car>) {

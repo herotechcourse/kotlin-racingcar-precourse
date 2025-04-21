@@ -1,10 +1,11 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console
+import racingcar.player.Car
+import racingcar.race.Simulation
 import racingcar.setup.PromptNames
 import racingcar.setup.PromptRounds
-import racingcar.race.Simulation
-import racingcar.player.Car
+
 
 fun main() {
   println("Enter the names of the cars (comma-separated):")
