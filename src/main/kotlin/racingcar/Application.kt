@@ -25,4 +25,9 @@ fun main() {
             }
         }
     }
+
+    for ((name, score) in results) {
+        println("$name : ${"-".repeat(score)}")
+    }
+
 }
