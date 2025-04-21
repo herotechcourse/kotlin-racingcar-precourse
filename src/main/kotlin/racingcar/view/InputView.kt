@@ -18,12 +18,12 @@ object InputView {
         return rounds
     }
 
-    private fun validateRound(round : Int) {
+    fun validateRound(round : Int) {
         if (round <= 0)
             throw IllegalArgumentException("Number of rounds must be a positive integer.")
     }
 
-    private fun validateName(names : List<String>) {
+    fun validateName(names : List<String>) {
         var valid = mutableSetOf<String>()
         for (name in names) {
             if (name.isBlank() || name.length > 5)
