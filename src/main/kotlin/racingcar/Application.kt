@@ -25,6 +25,5 @@ fun main() {
     } catch (e: IllegalArgumentException) {
         throw e
     } catch (e: Exception) {
-        // 채점 시스템에서 발생할 수 있는 read 에러 무시
     }
 }
