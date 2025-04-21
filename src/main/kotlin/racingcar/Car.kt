@@ -1,5 +1,7 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Randoms
+
 class Car (val name: String) {
     var steps: Int = 0
 
@@ -22,9 +24,5 @@ class Car (val name: String) {
             print("-")
         }
         println()
-    }
-
-    fun getSteps(): Int {
-        return steps
     }
 }
