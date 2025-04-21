@@ -3,13 +3,25 @@ package racingcar.view
 import camp.nextstep.edu.missionutils.Console
 
 class InputView {
+  private const val MAX_NAME_LENGTH = 5
+
   fun readCarNames() : List<String> {
     println("Enter the names of the cars (comma-separated):")
-    return Console.readLine().split(",")
+    val input = Console.readLine()
+    val names = input.split(",").map { it.trim() }
+
+    if(names.isEmpty() || names.any { it.isBlank() || it.length > MAX_NAME_LENGTH }) {
+      throw IllegalArgumentException("Invalid car names.")
+    }
+
+    return names.map { Car(it) }
   }
 
   fun readRounds() : Int {
     println("How many rounds will be played?")
-    return Console.readLine().toInt()
+    val input = Console.readLine()
+
+    return input.toIntOrNull()?.takeIf { it > 0 }
+      ?: throw IllegalArgumentException("Invalid number of rounds.")
   }
 }
