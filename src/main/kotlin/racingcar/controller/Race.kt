@@ -7,39 +7,24 @@ class Race(var cars: List<Car>, val rounds: Int) {
     fun start() {
         println()
         println("Race Results")
-        repeat(rounds)
-        {
+        repeat(rounds) {
             simulateRound()
             printStatus()
         }
         announceWinners()
     }
 
-    fun simulateRound()
-    {
-        for (car in cars)
-        {
+    fun simulateRound() {
+        for (car in cars) {
             car.simulateRound()
         }
     }
 
     fun printStatus() {
-        for (car in cars)
-        {
+        for (car in cars) {
             car.printStatus()
         }
         println()
-    }
-
-    fun determineWinners(): MutableList<Car> {
-        val maxDistance = cars.maxOf {it.distance}
-        val winners: MutableList<Car> = mutableListOf()
-        for (car in cars) {
-            if (car.distance == maxDistance) {
-                winners.add(car)
-            }
-        }
-        return winners
     }
 
     fun announceWinners() {
@@ -51,5 +36,16 @@ class Race(var cars: List<Car>, val rounds: Int) {
             winnerMessage += winner.name
         }
         println(winnerMessage)
+    }
+
+    fun determineWinners(): MutableList<Car> {
+        val maxDistance = cars.maxOf { it.distance }
+        val winners: MutableList<Car> = mutableListOf()
+        for (car in cars) {
+            if (car.distance == maxDistance) {
+                winners.add(car)
+            }
+        }
+        return winners
     }
 }
