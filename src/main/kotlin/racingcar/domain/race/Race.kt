@@ -1,6 +1,6 @@
 package racingcar.domain.race
 
-class Race(val round: Round, val cars: Cars) {
+class Race(private val round: Round, private val cars: Cars) {
 
     private val raceHistory = RaceHistory()
 
