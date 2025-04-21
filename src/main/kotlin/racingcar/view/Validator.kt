@@ -1,4 +1,4 @@
-package racingcar.input
+package racingcar.view
 
 import racingcar.constants.ErrorMessages
 
