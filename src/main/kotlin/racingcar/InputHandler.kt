@@ -6,7 +6,7 @@ import racingcar.validator.NumberValidator
 import camp.nextstep.edu.missionutils.Console
 
 class InputHandler {
-    fun getInputs(): RaceInputs? {
+    fun getInputs(): RaceInputs {
 
         println("Enter the names of the cars (comma-separated):")
         val carNames = Console.readLine()
