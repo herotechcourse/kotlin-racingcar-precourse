@@ -1,4 +1,4 @@
-package racingcar.presentation
+package racingcar.presentation.parser
 
 object CarNameParser {
 

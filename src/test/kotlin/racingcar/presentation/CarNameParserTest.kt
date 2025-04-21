@@ -2,6 +2,7 @@ package racingcar.presentation
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import racingcar.presentation.parser.CarNameParser
 
 class CarNameParserTest {
 

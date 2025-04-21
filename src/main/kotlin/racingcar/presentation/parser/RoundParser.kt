@@ -1,4 +1,4 @@
-package racingcar.presentation
+package racingcar.presentation.parser
 
 import racingcar.presentation.ErrorMessages.ROUND_NOT_INTEGER
 
