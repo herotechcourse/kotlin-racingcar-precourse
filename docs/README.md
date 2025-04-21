@@ -1,123 +1,76 @@
 # List of Features
 
-## 🏎 Game flow
-1. Start the program.
-2. Request user inputs (2ea)
-3. Validate the inputs.
-4. Execute the race.
-5. Print out the result of each round and final winner(s).
+## 👾 Feature Breakdown
+    ✅ All components are organized according to **MVC + SR principles.**
 
-````markdown
-    [game-start]                : request & validate input. 
-        ↓
-    [game-init]                 : split carNames, trim, create Car objects, parse nRounds.
-        ↓
-    [RaceExecution]             : move cars per round using random value >= 4.
-        ↓
-    [GameLoop / GameFlowManager]: repeat race-execution as many as nRounds, store each round states. 
-        ↓
-    [ProgressTracking]          : track car positions per round, store each progress
-        ↓
-    [GameEnd / Winners]         : check winners based on final position (! multiple winners)
-        ↓
-    [Output]                    : print round by round state and final result
-````
----
+### 🧩 Controller
+| Feature               | Description                                          | Test | Green  | Refactored | Done |
+|:----------------------|:-----------------------------------------------------|:----:|:------:|:----------:|:----:|
+| Game                  | Main orchestrator that controls game flow            |  ℹ️  |   ℹ️   | ✅ | ✅ |
+| GameConfigurator      | Collects and validates input, returns config object  |  ℹ️  |   ℹ️   | ✅ | ✅ |
 
-## 🏌️ Approach
-    Break down the Game flow into small,
-    testable feature modules like below.
+### 🧩 Service - Main Service
+| Feature  | Description                                          | Test code | Green | Refactored | Done |
+|:---------|:-----------------------------------------------------|:---------:|:-----:|:----:|:---:|
+| GameInit | Creates Car list and parses rounds from input	       |     ✅     |   ✅   | ✅ | ✅ |
+| GameLoop | Executes race flow per round and delegates to output |     ✅     |   ✅   | ✅ | ✅ |
 
----
+### 🧩 Service - RaceExecution
+| Feature                  | Description                                                             | Test | Green | Refactored | Done |
+|:-------------------------|:------------------------------------------------------------------------|:---------:|:-----:|:----:|:---:|
+| RaceGenerateRandomNumber | Random number between 0 - 9                                             |     ✅     |   ✅   |     ✅      |  ✅   |
+| RaceIsMoveConditionMet   | Return true if the random number meets or exceeds the movable condition |     ✅     |   ✅   |     ✅      |  ✅   |
+| RaceMoveCars             | Move cars forward only if they pass the random check condition          |     ✅     |   ✅   |     ✅      |  ✅   |
+| RaceUpdateTrack          | Calls RaceMoveCars to apply movement logic                              |     ✅     |   ✅   |     ✅      |  ✅   |
 
-## 👾 Feature Modules
-### 🧩 Game flow manager Module (MVC: "Controller")
-| Feature               | Description                                    | Test code | Green | Refactored | Done |
-|:----------------------|:-----------------------------------------------|:---------:|:-----:|:----------:|:----:|
-| game-configurator     | Handles user input collection and validation   |     ✅     |   ✅   |     ✅      |  ✅   |
-| game-init             | Make cars based on user input                  |     ✅     |   ✅   |     ✅      |  ✅   |
-| game-loop             | Repeat game as many as rounds                  |     ✅     |   ✅   |     ✅      |  ✅   |
-| game-class            | Controls the overall game flow by orchestrating configuration, initialization, and game loop execution.                 |     -     |   -   |     ✅      |  ✅   |
-| ❌ game-track-progress | Replaced with outputEachRoundResult() function |     ❌     |   ❌   |     ❌      |   ❌   |
-| ❌ game-end            | Replaced with outputFinalWinner() function     |     ❌     |   ❌   |     ❌      |   ❌   |
+### 🧩 Service - Validation
+| Feature            | Description                                          | Test | Green | Refactored | Done |
+|:-------------------|:-----------------------------------------------------|:---------:|:-----:|:----:|:---:|
+| validate-car-names | Validate car names for length, emptiness, and format |     ✅     |   ✅   | ✅ | ✅ |
+| validate-rounds    | Validate number of rounds for positivity and format  |     ✅     |   ✅   | ✅ | ✅ |
 
-### 🧩 Input Module
-| Feature | Description | Test code | Green | Refactored | Done |
-|:---|:---|:---------:|:---:|:----------:|:---:|
-| input-request | Display a message prompting the user for inputs |     ✅     | ✅ |      ✅      | ✅ |
-| input-read-car-names | Read input(1): car names from user |     ✅     | ✅ |     ✅      | ✅ |
-| input-read-rounds | Read input(2): the number of rounds from user |     ✅     | ✅ |     ✅      | ✅ |
- ⚠️ These three input-related responsibilities have been consolidated into InputModule and its implementation ConsoleInputModule for clearer separation of concerns and reusability.
+### 🧩 Model
+| Class / Data    | Description                                        | Defined |
+|:----------------|:---------------------------------------------------|:-------:|
+| Car             | Domain model representing a racing car             |    ✅    |
+| GameConfig      | Holds input configuration (car names, rounds)      |    ✅    |
+| GameInitResult  | Stores initialized cars and rounds                 |    ✅    |
 
-### 🧩 Validation Module
-| Feature | Description | Test code | Green | Refactored | Done |
-|:---|:---|:---------:|:-----:|:----:|:---:|
-| validate-car-names | Validate car names for length, emptiness, and format |     ✅     |   ✅   | - | - |
-| validate-rounds | Validate number of rounds for positivity and format |     ✅      |   ✅   | - | - |
+### 🧩 Interface Modules
+| Interface        | Description                                |    Implementation     | Defined |
+|:-----------------|:-------------------------------------------|:---------------------:|:---:|
+| InputModule      | Input abstraction for car names & rounds   |  ConsoleInputModule   | ✅ |
+| OutputModule     | Output abstraction for race result display |  ConsoleOutputModule  | ✅ |
 
-### 🧩 Race execution Module (MVC: "Model")
-| Feature                     | Description                                                               | Test code | Green | Refactored | Done |
-|:----------------------------|:--------------------------------------------------------------------------|:---------:|:-----:|:----------:|:----:|
-| ❌ race-start                | Omitted because it is already handled in gameInit()                       |     ❌     |   ❌   |     ❌      | ❌    |
-| race-generate-random-number | Random number between 0 - 9                                               |     ✅     |   ✅   |     -      |  -   |
-| race-is-move-condition-met  | Return true if the random number meets or exceeds the movable condition   |     ✅     |   ✅   |     -      |  -   |
-| race-move-cars              | Move cars forward only if they pass the random check condition            |     ✅     |   ✅   |     -      |  -   |
-| race-update-track           | Update track state after each round                                       |     ❌      |   ❌    |     -      |  -   |
+### 🧩 View
+| Feature             | Description                               | Test | Green | Refactored | Done |
+|:--------------------|:------------------------------------------|:----:|:---:|:----------:|:---:|
+| ConsoleInputModule  | Reads car names and round count from user |  ℹ️  |   ℹ️   | ✅ | ✅ |
+| ConsoleOutputModule | Prints round-by-round results and winners |  ℹ️  |   ℹ️   | ✅ | ✅ |
 
-### 🧩 Error handling Module
-| Feature        | Description                                                                                                     | Test code | Green | Refactored | Done |
-|:---------------|:----------------------------------------------------------------------------------------------------------------|:---------:|:---:|:----:|:---:|
-| ❌ error-input  | Replaced with IllegalArgumentException & println()                                                              | ❌ | ❌ | ❌ | ❌ |
-| ❌ error-output | Replaced with IllegalArgumentException & println()                                                              | ❌ | ❌ | ❌ | ❌ |
+### 🧩 Repository
+- Not currently implemented (in-memory only).
+- See [README](../README.md) for details and future extensibility.
 
-### 🧩 Output Module (MVC: "View")
+### ❌ Omitted Features
 | Feature                | Description                                            | Test code | Green | Refactored | Done |
 |:-----------------------|:-------------------------------------------------------|:---------:|:-----:|:----------:|:----:|
-| output-round-result    | Prints race results for each round                     |     ✅     |   ✅   |     -      |  -   |
-| output-final-winner    | Chcek who the winner(s) is based on the final position |     ✅     |   ✅   |     -      |  -   |
-| ❌ output-error-message | Replaced with IllegalArgumentException & println()     |     ❌     |   ❌   |      ❌      |   ❌   |
+| ❌ game-track-progress  | Replaced with outputEachRoundResult() function         | ❌ | ❌ | ❌ | ❌ |
+| ❌ game-end             | Replaced with outputFinalWinner() function             | ❌ | ❌ | ❌ | ❌ |
+| ❌ race-start           | Omitted because it is already handled in gameInit()    | ❌ | ❌ | ❌ | ❌ |
+| ❌ output-error-message | Replaced with IllegalArgumentException & println()     | ❌ | ❌ | ❌ | ❌ |
+| ❌ error-input          | Replaced with IllegalArgumentException & println()     | ❌ | ❌ | ❌ | ❌ |
+| ❌ error-output         | Replaced with IllegalArgumentException & println()     | ❌ | ❌ | ❌ | ❌ |
+| ❌ input-request        | ⚠️Display a message prompting the user for inputs      | ✅ | ✅ | ✅ | ✅ |
+| ❌ input-read-car-names | ⚠️Read input(1): car names from user                   | ✅ | ✅ | ✅ | ✅ |
+| ❌ input-read-rounds    | ⚠️Read input(2): the number of rounds from user        | ✅ | ✅ | ✅ | ✅ |
+| ❌ output-round-result  | Prints race results for each round                     | ✅ | ✅ | ✅ | ✅ |
+| ❌ output-final-winner  | Check who the winner(s) is based on the final position | ✅ | ✅ | ✅ | ✅ |
+⚠️ These three input-related responsibilities have been consolidated into InputModule and its implementation ConsoleInputModule for clearer separation of concerns and reusability.
 
-<br>
-Option for status columns (Test, Refactored, Done)<br>
+### Option for status columns <br>
 ✅ : Finished<br>
 ⏳ : In progress<br>
-—  : Not started or not applicable <br>
-❌ : Don't need to make
-
----
-
-## 🏷️ Variables
-| Variable | Role | Condition |
-|:---|:---|:---|
-| carName | - | 1. Each car must have a name<br> 2. Name can't exceed 5 characters |
-| nRounds | - | - |
-
----
-
-## 📘 Classes
-| Class | Role |
-|:---|:---|
-| - | - |
-
----
-
-## 🗒 Memo
-### 1. Input
-- Names of the cars, comma-separated, entered by the user <br>
-        ex) `pobi,woni,jun` <br>
-
-- The number of rounds<br>
-        ex) `5`
-
-### 2. Output
-- Race results by round <br>
-    ex) <br>
-    `pobi : --`  
-    `woni : ----`  
-    `jun  : ---`
-
-- Message for a single winner <br>
-    ex) `Winners : pobi`
-    
-- Message for multiple winners <br>
-    ex) `Winners : pobi, jun`
+—  : Not started yet or not applicable <br>
+❌ : Not needed or skipped
+ℹ️ : Itself were not tested directly, but all its internal logic is covered by unit tests
