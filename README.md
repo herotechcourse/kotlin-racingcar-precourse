@@ -15,8 +15,7 @@
   - Prompt user for the number of rounds  
   - Exception handling:  
     - Input is zero or negative  
-    - Non-numeric input  
-    - No input provided  
+    - Non-numeric input (blank, non-Integer value)
   - On any invalid data input, throw `IllegalArgumentException` and terminate
   
 - **Random Move Logic**  
