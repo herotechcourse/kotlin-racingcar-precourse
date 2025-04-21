@@ -48,6 +48,7 @@ fun simulateRace(cars: List<Car>, rounds: Int, generator: RandomNumberGenerator)
 fun moveCars(cars: List<Car>, generator: RandomNumberGenerator) {
     cars.forEach { car ->
         val randomNumber = generateRandomNumber(generator)
+        // println("DEBUG: Generated random number: $randomNumber") // Log the random number
         car.move(randomNumber)
     }
 }
@@ -62,12 +63,21 @@ fun generateRandomNumber(generator: RandomNumberGenerator): Int {
 fun displayProgress(cars: List<Car>) {
     cars.forEach { car ->
         println("${car.name} : ${"-".repeat(car.position)}")
+//        println("DEBUG: ${car.name} is at position ${car.position}") // Log each car's progress
     }
 }
 
 // Function to determine the winners based on their positions
 fun determineWinners(cars: List<Car>): String {
     val maxPosition = cars.maxOf { it.position }
+
+//    println("DEBUG: Maximum position reached by any car: $maxPosition") // Log the max position
+//
+//    // Count how many cars share the same position
+//    val positionCounts = cars.groupingBy { it.position }.eachCount()
+//    positionCounts.forEach { (position, count) ->
+//        println("DEBUG: Position $position is shared by $count car(s)")
+//    }
     val winners = cars.filter { it.position == maxPosition }.map { it.name }
     return winners.joinToString(", ")
 }
@@ -105,10 +115,17 @@ fun main() {
 fun getCarNames(inputHandler: InputHandler): List<String> {
     println("Enter the names of the cars (comma-separated):")
     val carNames = inputHandler.readLine().split(",").map { it.trim() }
+
     // Validate that each car name is non-empty and at most 5 characters long
     if (carNames.any { it.isEmpty() || it.length > 5 }) {
         throw IllegalArgumentException("Each car name must be non-empty and at most 5 characters long.")
     }
+
+    // Validate that all car names are unique
+    if (carNames.size != carNames.toSet().size) {
+        throw IllegalArgumentException("Car names must be unique.")
+    }
+
     return carNames
 }
 
