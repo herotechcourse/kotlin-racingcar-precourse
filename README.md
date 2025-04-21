@@ -44,15 +44,13 @@ Each of the following features will be implemented in a separate, well-scoped co
 - [x] Store each car’s progress internally
 - [x] Repeat this process for the number of rounds entered by the user
 
-### 5. Round Output
-- [ ] For each round, display:
+### 5. Round Process Result and Final Winner(s) Result
+- [x] For each round, display:
     - Each car's name
     - A dash (`-`) for every move the car makes
     - Example: `pobi : --`
-
-### 6. Final Winner(s) Result
-- [ ] Determine the car(s) that moved the furthest
-- [ ] Display the winner(s) in the following format:
+- [x] Determine the car(s) that moved the furthest
+- [x] Display the winner(s) in the following format:
     - Single winner: `Winners : pobi`
     - If multiple cars tie for the lead, show all as winners
     - For multiple winners case, display the winners in a comma-separated list
