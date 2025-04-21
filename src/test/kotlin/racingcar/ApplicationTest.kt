@@ -11,12 +11,26 @@ class ApplicationTest : NsTest() {
     @Test
     fun `feature test`() {
         assertRandomNumberInRangeTest(
-            {
-                run("pobi,woni", "1")
-                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
-            },
-            MOVING_FORWARD,
-            STOP,
+                {
+                    run("pobi,woni", "1")
+                    assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+                },
+                MOVING_FORWARD,
+                STOP,
+        )
+    }
+
+    @Test
+    fun `feature test 2`() {
+        assertRandomNumberInRangeTest(
+                {
+                    run("pobi,woni", "2")
+                    assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi, woni")
+                },
+                MOVING_FORWARD,
+                STOP,
+                STOP,
+                MOVING_FORWARD,
         )
     }
 
@@ -24,6 +38,20 @@ class ApplicationTest : NsTest() {
     fun `exception test`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+    @Test
+    fun `exception test b`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `test execution large number of rounds`() {
+        assertSimpleTest {
+            run("pobi, mobi", "300")
+            assertThat(output()).contains("pobi", "mobi")
         }
     }
 
@@ -36,4 +64,3 @@ class ApplicationTest : NsTest() {
         private const val STOP: Int = 3
     }
 }
-    
