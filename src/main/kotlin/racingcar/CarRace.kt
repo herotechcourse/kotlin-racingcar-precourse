@@ -3,7 +3,9 @@ package racingcar
 import camp.nextstep.edu.missionutils.Randoms
 
 
-class CarRace {
+
+class CarRace() {
+    private val randomGenerator:RandomGenerator = RandomImpl()
     fun run(carList: List<String>,roundCnt: String): MutableMap<String, String> {
         var roundResult= mutableMapOf<String,String>()
         var carDirect=carRace(carList)
@@ -22,7 +24,7 @@ class CarRace {
     }
 
 
-    private fun carRace(carList:List<String>): MutableMap<String,String>{ //Call carRandomNumber pick function
+    fun carRace(carList:List<String>): MutableMap<String,String>{ //Call carRandomNumber pick function
 
         val carDir = mutableMapOf<String,String>()
         for (car in carList){
@@ -32,27 +34,25 @@ class CarRace {
         return carDir
     }
 
-    private fun eachCar(): String {
-
-        val randomNum= Randoms.pickNumberInRange(0,9)
-        return if (randomNum>=4)
-        {
-            "MOVING_FORWARD"
-        }
-        else{
-            "STOP"
-        }
+    fun eachCar() :String{
+        return move(randomGenerator.randoms())
     }
 
-    private fun explainRace(carDirect:Map<String,String>, roundResult:MutableMap<String,String>) : MutableMap<String,String>{
+    fun move(randomNumber: Int):String{
+        if(randomNumber>=4)
+            return "MOVING_FORWARD"
+        else
+            return "STOP"
+    }
+
+    fun explainRace(carDirect:Map<String,String>, roundResult:MutableMap<String,String>) : MutableMap<String,String>{
         carDirect.forEach {
-            roundResult[it.key]+=forwardDirect(it.value)
+            roundResult[it.key]+=checkDirect(it.value)
         }
         println()
         return roundResult
     }
-
-    private fun forwardDirect(direct: String): String{
+    fun checkDirect(direct: String): String{
         if (direct == "MOVING_FORWARD") {
             return "-"
         }
@@ -61,3 +61,5 @@ class CarRace {
 
 
 }
+
+
