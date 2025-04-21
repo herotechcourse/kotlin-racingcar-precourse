@@ -12,6 +12,11 @@ fun main() {
     val carNames = input.split(",")
 
     val cars = mutableListOf<Car>()
+
+    if (carNames.size!=carNames.toSet().size) {
+        throw IllegalArgumentException("Car names must be unique")
+    }
+
     for (name in carNames) {
         val trimmedName = name.trim()
         if (trimmedName.isEmpty()) {
