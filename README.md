@@ -37,12 +37,12 @@ Each of the following features will be implemented in a separate, well-scoped co
     - [x] Movement logic
 
 ### 4. Game Logic
-- [ ] Initialize cars
-- [ ] Generate a random number from 0 to 9 for each car per round
+- [x] Initialize cars
+- [x] Generate a random number from 0 to 9 for each car per round
     - Use `Randoms.pickNumberInRange(0, 9)` from `camp.nextstep.edu.missionutils.Randoms`
-- [ ] Move car forward **only if** the random number is 4 or greater
-- [ ] Store each car’s progress internally (e.g., position counter)
-- [ ] Repeat this process for the number of rounds entered by the user
+- [x] Move car forward **only if** the random number is 4 or greater
+- [x] Store each car’s progress internally
+- [x] Repeat this process for the number of rounds entered by the user
 
 ### 5. Round Output
 - [ ] For each round, display:
