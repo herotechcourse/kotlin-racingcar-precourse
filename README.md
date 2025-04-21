@@ -44,6 +44,14 @@ Display the progress of each car, showing the car's name alongside its movement.
 
 Determine the winners after the race and display their names. If there are multiple winners, their names should be separated by commas.
 
+#### Checklist for Determine and Display Winners
+- [x] Implement the `determineWinners` function to find the car(s) with the maximum position.
+- [x] Ensure the function handles multiple winners by returning their names as a comma-separated string.
+- [x] Integrate the winners display into the `main` function after the race simulation.
+- [x] Write unit tests to verify the correctness of the `determineWinners` function:
+  - [x] Single winner scenario.
+  - [x] Multiple winners scenario.
+  - [x] All cars as winners scenario.
 ---
 
 ### Key Points
