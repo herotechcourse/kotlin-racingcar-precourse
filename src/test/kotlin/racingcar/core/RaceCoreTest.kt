@@ -67,4 +67,17 @@ class RaceCoreTest {
         core.run()
     }
 
+    @Test
+    fun `printWinner print winners who move max distance`() {
+        //given
+        val carNames = "poby,woni,jun"
+        val core = RaceCore(carNames, 5, CarRepository())
+
+        //when
+        //then
+        core.register()
+        core.run()
+        core.printWinner()
+    }
+
 }

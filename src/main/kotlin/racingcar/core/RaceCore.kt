@@ -1,6 +1,7 @@
 package racingcar.core
 
 import racingcar.repository.CarRepository
+import racingcar.util.Convertor.convertCarsToNames
 import racingcar.util.Convertor.convertNamesToCars
 import racingcar.util.Generator.generateRandomNumber
 import racingcar.util.Validator.validate
@@ -29,5 +30,13 @@ class RaceCore(
             }
             println()
         }
+    }
+
+    fun printWinner() {
+        val cars = carRepository.fetchAll()
+        val maxProgress = cars.maxOf { it.currentProgress }
+
+        val winners = convertCarsToNames(cars.filter { it.currentProgress == maxProgress })
+        println("Winners : " + winners)
     }
 }
