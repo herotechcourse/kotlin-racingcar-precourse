@@ -15,17 +15,25 @@ fun main() {
     val rounds = roundsInput.toInt()
     var round = 0
 
+    println("Race Results")
+
     while (round < rounds) {
         for (car in cars) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 car.move()
             }
         }
+
+        cars.forEach { car ->
+            val position = "-".repeat(car.getPosition())
+            println("${car.name} : $position")
+        }
+        println()
+
         round++
     }
 
     val maxPosition = cars.maxOf { car -> car.getPosition() }
     val winners = cars.filter { car -> car.getPosition() == maxPosition }
-    println("Race Results")
     println("Winners : ${winners.joinToString(", ") { it.name }}")
 }
