@@ -21,15 +21,68 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `exception test`() {
+    fun `does not move if random number is less than 4`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("pobi : ", "woni : " )
+            },
+            STOP,
+            STOP
+        )
+    }
+
+    @Test
+    fun `moves if random number is greater than 4`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("pobi : -", "woni : -" )
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun `prints all winners when there are multiple winners`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni,noni", "1")
+                assertThat(output()).contains("pobi : -", "woni : -", "noni : -", "Winners : pobi, woni, noni")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD,
+            MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun `throws exception when car name exceeds 5 characters`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `throws exception when car name is blank`(){
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi, , java", "1") }
+        }
+    }
+
+    @Test
+    fun `throws exception when round number is 0`(){
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi, , java", "0") }
         }
     }
 
     override fun runMain() {
         main()
     }
+
+
 
     companion object {
         private const val MOVING_FORWARD: Int = 4
