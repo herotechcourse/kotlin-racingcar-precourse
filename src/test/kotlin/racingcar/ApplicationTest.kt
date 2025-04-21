@@ -27,6 +27,27 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `car name should not be empty`() {
+        assertThrows<IllegalArgumentException> { runException(",jason", "1") }
+    }
+
+    @Test
+    fun `number of cars should be more than 1`() {
+        assertThrows<IllegalArgumentException> { runException("jason", "1") }
+    }
+
+    @Test
+    fun `round should be an integer`() {
+        assertThrows<IllegalArgumentException> { runException("ariel,jason", "not integer") }
+    }
+
+    @Test
+    fun `round should be an positive integer`() {
+        assertThrows<IllegalArgumentException> { runException("ariel,jason", "0") }
+        assertThrows<IllegalArgumentException> { runException("ariel,jason", "-1") }
+    }
+
     override fun runMain() {
         main()
     }
