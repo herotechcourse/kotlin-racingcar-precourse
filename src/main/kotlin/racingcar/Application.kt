@@ -5,15 +5,22 @@ import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
     val names = Console.readLine().split(",").map { it.trim() }
-    require(!names.any {!it.matches(Regex("^[A-Za-z]+$")) || it.length > 5 }) { "Invalid name" }
+    require(!names.any { !it.matches(Regex("^[A-Za-z]+$")) || it.length > 5 }) { "Invalid name" }
 
-    val rounds = Console.readLine().toInt()
+    val rounds = try {
+        Console.readLine().toInt()
+    } catch (e: NumberFormatException) {
+        throw IllegalArgumentException("Input must be a valid number.")
+    }
+
+    require(rounds > 0) { "Invalid number" }
 
     val results = names.associateWith { 0 }.toMutableMap()
 
     repeat(rounds) {
         for (name in names) {
             val randomNumber = Randoms.pickNumberInRange(0, 9)
+            results[name] = results[name]!! + 1
             if (randomNumber >= 4) {
                 results[name] = results[name]!! + 1
             }
