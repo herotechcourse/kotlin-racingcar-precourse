@@ -1,6 +1,5 @@
 package racingcar
 
-import racingcar.services.RaceResult
 import racingcar.services.ConsoleReaderService
 import racingcar.services.ReaderService
 import racingcar.services.executeRace
