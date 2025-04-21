@@ -4,20 +4,11 @@ class Winner(val cars: List<Car>) {
     var winners: MutableList<Car> = mutableListOf()
 
     fun findWinners() {
+        val max = cars.maxOfOrNull { it.position }
+
         for (car in cars) {
-            if (winners.isEmpty()) {
+            if (car.position == max) {
                 winners.add(car)
-                continue
-            }
-            if (car.position > winners.last().position) {
-                winners.clear()
-                winners.add(car)
-            } else if (car.position == winners.last().position) {
-                winners.add(car)
-            } else if (car.position < winners.last().position && winners.size > 1) {
-                winners.removeLast()
-            } else {
-                continue
             }
         }
     }
