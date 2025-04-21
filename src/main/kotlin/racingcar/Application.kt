@@ -19,13 +19,19 @@ class OutputView {
 }
 
 class InputView {
-    fun input(): String {
+    fun inputNames(): String {
         val input = Console.readLine()
-        validateInput(input)
+        validateIsEmpty(input)
         return input
     }
 
-    private fun validateInput(input: String) {
+    fun inputNumber(): String {
+        val input = Console.readLine()
+        validateIsEmpty(input)
+        return input
+    }
+
+    private fun validateIsEmpty(input: String) {
         if (input.isEmpty()) {
             throw IllegalArgumentException("Car name can't be empty.")
         }
@@ -35,9 +41,9 @@ class InputView {
 class RacingCar {
     fun execute() {
         OutputView().welcome()
-        val challengers = InputView().input()
+        val challengers = InputView().inputNames()
         OutputView().roundNumber()
-        val rounds = InputView().input()
+        val rounds = InputView().inputNumber()
 
         println()
         println("Race Results")
