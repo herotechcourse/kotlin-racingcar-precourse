@@ -1,6 +1,8 @@
 package racingcar.domain.car
 
-class Position(val value: Int = 0) {
+class Position(val value: Int) {
+
+    constructor() : this(0)
 
     fun increase(): Position {
         return Position(value + INCREMENT)
