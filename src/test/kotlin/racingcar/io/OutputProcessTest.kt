@@ -40,4 +40,5 @@ class OutputProcessTest {
         // Then
         assertThat(outputStreamCaptor.toString().trim()).isEqualTo("How many rounds will be played?")
     }
+
 }
