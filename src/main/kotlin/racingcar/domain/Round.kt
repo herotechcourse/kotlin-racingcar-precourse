@@ -11,7 +11,7 @@ data class Round(val index: Int, val cars: Cars) {
 
     override fun toString(): String {
         return StringBuilder().apply {
-            cars.forEach { car ->
+            cars.toList().forEach { car ->
                 append("${car.name} : ${"-".repeat(car.position)}\n")
             }
         }.toString()

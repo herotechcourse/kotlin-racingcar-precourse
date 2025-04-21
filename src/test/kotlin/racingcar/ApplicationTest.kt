@@ -104,9 +104,9 @@ class ApplicationTest : NsTest() {
             run(carNames, roundCount.toString())
 
             val outputText = output()
-            val count = countOccurrences(outputText, "pLose")
-            // roundCount == loserPrintCount
-            assertThat(count).isEqualTo(roundCount)
+            val loserCount = countOccurrences(outputText, "pLose")
+            // roundCount should equal to loserCount
+            assertThat(loserCount).isEqualTo(roundCount)
         },
             first, *rest
         )

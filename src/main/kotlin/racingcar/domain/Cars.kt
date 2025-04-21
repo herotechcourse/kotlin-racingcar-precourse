@@ -17,12 +17,12 @@ data class Cars(
         return Cars(cars.filter { it.position == maxPosition })
     }
 
-    fun forEach(action: (Car) -> Unit) {
-        cars.forEach(action)
+    fun toList(): List<Car> {
+        return cars.map { it.copy() }
     }
 
     fun createRound(index: Int): Round {
-        return Round(index, Cars(cars.map { it.copy() }))
+        return Round(index, Cars(this.toList()))
     }
 
     fun getCarNames(): List<String> {
