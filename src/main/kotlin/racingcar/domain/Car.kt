@@ -8,7 +8,7 @@ class Car(val name: String, private var position: Int = 0) {
 
     fun moveIfRandomNumberIsOverFour(){
         var randNum = getRandNumber()
-        if(randNum <= 4){
+        if(randNum >= 4){
             moveForward()
         }
     }
