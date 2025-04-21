@@ -37,7 +37,7 @@ class CarService (
         return cars.maxOf { it.getPosition() }
     }
 
-    fun getWinners(): List<Car> {
+    private fun getWinners(): List<Car> {
         val maxPosition = getMaxPosition(cars)
         return cars.filter {it.getPosition() == maxPosition}
     }

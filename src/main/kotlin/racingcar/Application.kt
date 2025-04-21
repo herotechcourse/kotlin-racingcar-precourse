@@ -12,10 +12,8 @@ fun main() {
     val carNames = inputView.readCarNames()
     val round = inputView.readRounds()
 
-    val cars = carNames.map { Car(it) }
+    val cars = carNames.mapIndexed { index, name -> Car(name, id = index + 1) }
 
     val service = CarService(cars, round, outputView)
     val result = service.startRace()
-
-
 }
