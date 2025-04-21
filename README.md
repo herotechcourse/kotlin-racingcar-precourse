@@ -20,6 +20,10 @@
   - Each car has name, current position
   - features
     - save each car's current position and name
+- Cars
+  - Cars have list of car
+  - feature
+    - manage list of car object
 - Game
   - Each game has each cars' dice number
   - features
@@ -29,10 +33,11 @@
   - features
     - input how many rounds be played
     - enter player names
-- Result
+- Winner
   - result has winners
   - features
     - print winners
+    - search winners
 - Exception
   - IllegalArgumentException and terminate. when inputs are invalid data.
 
