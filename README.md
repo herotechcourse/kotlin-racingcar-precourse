@@ -1,6 +1,6 @@
 # kotlin-racingcar-precourse
 
-A simple car racing game implemented in Kotlin as part of woowahan tech course mission.
+A simple car racing game implemented in Kotlin as part of hero tech course mission.
 
 ## 🧩 Features & Flow Description
 
