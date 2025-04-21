@@ -5,4 +5,5 @@ object Number {
     const val MINIMUM_ROUND_NUMBER = 0
     const val RANDOM_MIN_VALUE = 0
     const val RANDOM_MAX_VALUE = 9
+    const val POSSIBLE_MOVE_VALUE = 4
 }
