@@ -25,7 +25,6 @@ class CarTest {
                 assertThat(car.distance).isEqualTo("")
             }, 2
         )
-
     }
 
     @Test
