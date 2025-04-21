@@ -13,7 +13,7 @@
 
 - [x] Implement `RacingCar` class with name and position
 - [x] Add move logic (car moves when random number ≥ 4)
-- [ ] Create `RacingCars` class to manage car list
+- [x] Create `RacingCars` class to manage car list
 - [ ] Move all cars per round with `RandomNumberGenerator`
 - [ ] Determine winners after the final round
 
