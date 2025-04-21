@@ -1,5 +1,8 @@
 package racingcar
 
+/**
+ * Application entry point.
+ */
 fun main() {
-    // TODO: Implement the program
+
 }
