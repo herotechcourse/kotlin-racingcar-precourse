@@ -6,7 +6,7 @@
 
 - [ ] Implement user I/O processing
   - [x] Create data structure (car)
-  - [ ] Implement input validation logic
+  - [x] Implement input validation logic
   - [ ] Implement result output logic
   - [ ] Write test code
 - [ ] Implement game logic
