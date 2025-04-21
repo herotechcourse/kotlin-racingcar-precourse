@@ -2,12 +2,13 @@ package racingcar.model
 
 import racingcar.model.Car
 import camp.nextstep.edu.missionutils.Randoms
+import racingcar.io.OutputHandler
 
 class RacingGame(private val cars: List<Car>, private val totalRounds: Int) {
     private var currentRound = 0
 
     fun startRace() {
-        println("Race Results")
+        OutputHandler().printRaceResults(cars)
 
         while (currentRound < totalRounds) {
             for (car in cars) {
@@ -16,21 +17,16 @@ class RacingGame(private val cars: List<Car>, private val totalRounds: Int) {
                 }
             }
 
-            cars.forEach { car ->
-                val position = "-".repeat(car.getPosition())
-                println("${car.name} : $position")
-            }
-            println()
+            OutputHandler().printRoundResults(cars)
 
             currentRound++
         }
 
-        announceWinners()
+        OutputHandler().printWinners(getWinners())
     }
 
-    private fun announceWinners() {
-        val maxPosition = cars.maxOf { car -> car.getPosition() }
-        val winners = cars.filter { car -> car.getPosition() == maxPosition }
-        println("Winners : ${winners.joinToString(", ") { it.name }}")
+    fun getWinners(): List<Car> {
+        val maxPosition = cars.maxOfOrNull { it.getPosition() } ?: 0
+        return cars.filter { it.getPosition() == maxPosition }
     }
 }
