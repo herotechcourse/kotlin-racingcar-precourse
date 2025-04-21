@@ -22,4 +22,4 @@ The car(s) that reach the farthest distance at the end of all rounds are declare
 ### 3. Final Result
 - [x] Determine the winner(s) based on the farthest distance
 - [x] If multiple cars are tied for the farthest distance, declare all of them as winners
-- [ ] Print winners in the format: `Winners : carName1, carName2` (comma-separated for multiple winners)
+- [x] Print winners in the format: `Winners : carName1, carName2` (comma-separated for multiple winners)

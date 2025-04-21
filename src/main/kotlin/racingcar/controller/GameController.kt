@@ -13,6 +13,7 @@ class GameController {
         race(cars, round)
 
         val winners = cars.findWinners()
+        OutputView.printWinners(winners)
     }
 
     fun race(cars: Cars, round: Round) {
