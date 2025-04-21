@@ -7,20 +7,25 @@ import kotlin.collections.iterator
  * @fileName       : OutPut
  * @author         : yong
  * @date           : 4/18/25
- * @description    :
  */
-class Output {
-    fun displayRaceResults(raceResultsMap: MutableMap<String, MutableList<String>>) {
+class Output(val raceResultsMap: MutableMap<String, MutableList<String>>, val winners: String) {
+    init {
+        println("Race Results")
+        displayRaceResults()
+        displayWinners()
+    }
+
+    fun displayRaceResults() {
         val rounds = raceResultsMap.values.first().size
-        for(i in 0 until rounds) {
-            for((car, roundResult) in raceResultsMap) {
+        for (i in 0 until rounds) {
+            for ((car, roundResult) in raceResultsMap) {
                 println("$car : ${roundResult[i]}")
             }
             println()
         }
     }
 
-    fun displayWinners(winners: String) {
+    fun displayWinners() {
         println("Winners : ${winners}")
     }
 }

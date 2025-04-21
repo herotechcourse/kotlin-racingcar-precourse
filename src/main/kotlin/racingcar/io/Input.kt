@@ -7,7 +7,6 @@ import camp.nextstep.edu.missionutils.Console
  * @fileName       : Input
  * @author         : yong
  * @date           : 4/16/25
- * @description    :
  */
 class Input {
     companion object {
