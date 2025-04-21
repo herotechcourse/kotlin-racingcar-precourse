@@ -3,13 +3,13 @@ package racingcar
 import camp.nextstep.edu.missionutils.Console
 
 
-fun getValidName(): List<String> {
+fun getValidCarNames(): List<String> {
     while (true) {
         println("Enter the names of the cars (comma-separated):")
         val carNamesInput = Console.readLine().trim()
 
         if(carNamesInput.isBlank()) {
-            throw IllegalArgumentException("You didn't type anything!")
+            throw IllegalArgumentException("You didn't type anything.")
         }
 
         val carNames = carNamesInput.split(",").map { it.trim() }
@@ -29,12 +29,29 @@ fun getValidName(): List<String> {
 
 }
 
-fun main() {
-    val carNames = getValidName()
+fun getValidRoundCount(): Int {
+    while (true) {
+        println("How many rounds will be played?")
+        val roundInput = Console.readLine().trim()
+        val roundCount = roundInput.toIntOrNull()
 
-    println("How many rounds will be played?")
-    val roundInput = Console.readLine()
+        if (roundInput.isBlank()) {
+            throw IllegalArgumentException("You didn't type anything. Please enter a positive integer")
+        } else if (roundCount == null) {
+            throw IllegalArgumentException("Only number is allowed. Please enter a positive integer")
+        } else if (roundCount <= 0) {
+            throw IllegalArgumentException("Number of rounds must be a positive integer.")
+        } else {
+            return roundCount
+        }
+    }
+
+}
+
+fun main() {
+    val carNames = getValidCarNames()
+    val roundCount = getValidRoundCount()
 
     println("Car Names: ${carNames.joinToString(", ")}")
-    println("Racing Round: $roundInput Round")
+    println("Racing Round: $roundCount Round")
 }
