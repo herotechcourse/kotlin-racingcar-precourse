@@ -7,4 +7,9 @@ class OutputProcess {
 
     fun printRoundNumberInputMessage() =
         println("How many rounds will be played?")
+
+    fun printRaceResultsMessage() =
+        println("Race Results")
+
+
 }
