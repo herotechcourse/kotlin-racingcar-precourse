@@ -4,6 +4,11 @@ import racingcar.domain.Car
 
 class OutputView {
 
+    fun printResult() {
+        println()
+        println("Race Results")
+    }
+
     fun printCarPosition(cars: List<Car>) {
         for (car in cars) {
             val name = car.getName()

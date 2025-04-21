@@ -17,8 +17,6 @@ class InputView {
         println("How many rounds will be played?")
         val input = Console.readLine()
         Validator.roundValidate(input)
-        println()
-        println("Race Results")
         return input.toInt()
     }
 }

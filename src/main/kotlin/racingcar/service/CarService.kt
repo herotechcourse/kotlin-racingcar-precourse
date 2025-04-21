@@ -15,6 +15,7 @@ class CarService (
     }
 
     fun startRace() : List<Car> {
+        outputView.printResult()
         repeat(round) {
             for (car in cars) {
                 moveCar(car)
