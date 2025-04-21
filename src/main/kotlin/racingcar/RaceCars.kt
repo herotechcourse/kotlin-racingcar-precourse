@@ -95,7 +95,7 @@ class RaceCars {
         val advancement = "-".repeat(car.position)
         car.lastPosition = car.position
 
-        println("${car.name}: $advancement")
+        println("${car.name} : $advancement")
     }
 
     private fun race() {
@@ -110,7 +110,7 @@ class RaceCars {
         val winners = getWinners(highestPosition)
         val outputWinners = winners.joinToString(", ") { it.name }
 
-        println("Winners: $outputWinners")
+        println("Winners : $outputWinners")
     }
 
     private fun getHighestPosition(): Int {
