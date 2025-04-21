@@ -8,9 +8,16 @@ fun main() {
     val names= Console.readLine().split(",").map {it.trim()}
 
     println("How many rounds will be played?")
-    val rounds = Console.readLine().toIntOrNull() ?: throw IllegalArgumentException("Round count must be a valid integer.")
+    val input = Console.readLine()
+    validateRoundsInput(input)
+    val rounds = input.toInt()
 
     val cars = names.map {Car(it)}
+}
+
+fun validateRoundsInput(input: String) {
+    require(input.toIntOrNull() != null) { "Round count must be a valid integer." }
+    require(input.toInt() > 0) { "Round count must be greater than 0." }
 }
 
 class Car(val name: String) {

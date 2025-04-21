@@ -36,6 +36,24 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `should throw exception if round is not a number`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,jun", "abc")
+            }
+        }
+    }
+
+    @Test
+    fun `should throw exception if round is zero`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,jun", "0")
+            }
+        }
+    }
+
     override fun runMain() {
         main()
     }
