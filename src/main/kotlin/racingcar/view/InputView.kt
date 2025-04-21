@@ -14,6 +14,13 @@ class InputView {
 
     fun readNumberOfRounds(): Int {
         println("How many rounds will be played?")
-        return Console.readLine().toInt()
+        val input = Console.readLine()?.toIntOrNull()
+            ?: throw IllegalArgumentException("Input must be a number.")
+
+        require(input > 0) {
+            "Number of rounds must be a positive integer."
+        }
+
+        return input
     }
 }
