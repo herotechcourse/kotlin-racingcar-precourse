@@ -49,9 +49,10 @@ class ApplicationTest : NsTest() {
     @DisplayName("Name longer than five letters should throw")
     @Test
     fun nameLongerThanFiveThrows() {
-        assertThatThrownBy { Cars(listOf("monster")) }
-            .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessageContaining("cannot exceed 5")
+        val ex = assertThrows<IllegalArgumentException> {
+            Cars(listOf("monster"))
+        }
+        assertThat(ex).hasMessageContaining("cannot exceed 5")
     }
 
     @DisplayName("Creating Cars with valid names succeeds")
@@ -116,30 +117,34 @@ class ApplicationTest : NsTest() {
     @DisplayName("Throw when uppercase character is included in a name")
     @Test
     fun name_with_uppercase_should_throw() {
-        assertThatThrownBy { util.nameSplit("PoBi,woni") }
-            .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessageContaining("small letters")
+        val exception = assertThrows<IllegalArgumentException> {
+            util.nameSplit("PoBi,woni")
+        }
+        assertThat(exception).hasMessageContaining("small letters")
     }
 
     @DisplayName("Throw when a number is included in a name")
     @Test
     fun name_with_number_should_throw() {
-        assertThatThrownBy { util.nameSplit("car1,woni") }
-            .isInstanceOf(IllegalArgumentException::class.java)
+        assertThrows<IllegalArgumentException> {
+            util.nameSplit("car1,woni")
+        }
     }
 
     @DisplayName("Throw when a special character is included in a name")
     @Test
     fun name_with_special_character_should_throw() {
-        assertThatThrownBy { util.nameSplit("po@bi,woni") }
-            .isInstanceOf(IllegalArgumentException::class.java)
+        assertThrows<IllegalArgumentException> {
+            util.nameSplit("po@bi,woni")
+        }
     }
 
     @DisplayName("Throw when an empty element is provided as a name")
     @Test
     fun empty_name_should_throw() {
-        assertThatThrownBy { util.nameSplit("pobi,,woni") }
-            .isInstanceOf(IllegalArgumentException::class.java)
+        assertThrows<IllegalArgumentException> {
+            util.nameSplit("pobi,,woni")
+        }
     }
 
     override fun runMain() {
