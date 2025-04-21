@@ -38,6 +38,11 @@ class InputViewTest {
     @Test
     @DisplayName("Should throw exception when round number is not positive")
     fun shouldThrowExceptionWhenRoundNumberNotPositive() {
+        // Given
+        val input = "0"
+        System.setIn(ByteArrayInputStream(input.toByteArray()))
+        
+        // When/Then
         assertThatThrownBy { 
             inputView.readRounds()
         }
