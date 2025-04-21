@@ -67,10 +67,7 @@ fun playRace(carNames: List<String>?, numberOfRounds: Int): Map<String, Int> {
             moveCars(carNames, carPositions)
         }
 
-        for ((car, position) in carPositions) {
-            println("$car : ${"-".repeat(position)}")
-        }
-        println()
+        printRaceStatus(carPositions)
     }
     return carPositions
 }
@@ -93,3 +90,9 @@ fun moveCars(carNames: List<String>, carPositions: MutableMap<String, Int>) {
     }
 }
 
+fun printRaceStatus(carPositions: Map<String, Int>) {
+    for ((car, position) in carPositions) {
+        println("$car : ${"-".repeat(position)}")
+    }
+    println()
+}
