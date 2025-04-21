@@ -15,4 +15,5 @@
   - [x] Implement result verification logic
   - [ ] Write test code
 - [ ] Combine and execute overall logic
+  - [x] Implement execute overall logic
   - [ ] Write test code
