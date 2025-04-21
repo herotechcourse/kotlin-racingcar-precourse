@@ -6,7 +6,6 @@ import racingcar.model.Car
 class Game(private val cars: List<Car>, private val rounds: Int) {
 
   fun startRace() {
-    println("Race Results:")
     repeat(rounds) {
       cars.forEach(Car::tryMove)
       printRoundResult()
