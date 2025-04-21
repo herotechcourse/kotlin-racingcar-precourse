@@ -1,5 +1,9 @@
 package racingcar.validator
 
+import racingcar.constant.ErrorMessage.TOTAL_ROUND_BLANK
+import racingcar.constant.ErrorMessage.TOTAL_ROUND_NOT_NUMERIC
+import racingcar.constant.ErrorMessage.TOTAL_ROUND_NOT_POSITIVE
+
 object TotalRoundValidator {
 
     fun validate(totalRound: String) {
@@ -10,19 +14,19 @@ object TotalRoundValidator {
 
     private fun requireNotBlank(totalRound: String) {
         require(totalRound.isNotBlank()) {
-            "Total round cannot be blank."
+            TOTAL_ROUND_BLANK
         }
     }
 
     private fun requireOnlyDigits(totalRound: String) {
         require(totalRound.all { it.isDigit() }) {
-            "Only positive integers are allowed for total round."
+            TOTAL_ROUND_NOT_NUMERIC
         }
     }
 
     private fun requirePositive(totalRound: String) {
         require(totalRound.toInt() > 0) {
-            "Number of rounds must be greater than 0."
+            TOTAL_ROUND_NOT_POSITIVE
         }
     }
 }
