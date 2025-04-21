@@ -1,5 +1,8 @@
 package racingcar
 import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
+
+data class Car( val name: String, var position : Int = 0 )
 
 fun getNames(): List<String> {
     println("Please enter names of the cars separated by comma: ")
@@ -21,13 +24,31 @@ fun getRounds(): Int {
     val rounds = Console.readLine().toIntOrNull()
 
     if (rounds == null || rounds < 1 ) {
-        throw IllegalArgumentException("Rounds must a positive integer")
+        throw IllegalArgumentException("Rounds must be a positive integer")
     }
     return rounds
 }
 
 fun main() {
-    // Directly printing results of input functions
-    println(getNames())
-    println(getRounds())
+
+    val carNames = getNames()
+    val rounds = getRounds()
+    val cars: List<Car> = carNames.map { Car(it) }
+
+    repeat(rounds) {
+        cars.forEach { car ->
+            val randomNumber = Randoms.pickNumberInRange(0, 9)
+            if (randomNumber >= 4) {
+                car.position++
+            }
+            //TODO: print progress
+        }
+    }
+
+        //TODO: print winner(s)
+
+    cars.forEach { car: Car ->
+        println("${car.name} has position ${car.position}")
+    }
+
 }
