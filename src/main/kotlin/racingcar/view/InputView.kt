@@ -7,4 +7,9 @@ class InputView {
         println("Enter the names of the cars (comma-separated):")
         return Console.readLine().split(",")
     }
+
+    fun readNumberOfRounds(): Int {
+        println("How many rounds will be played?")
+        return Console.readLine().toInt()
+    }
 }

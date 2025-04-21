@@ -7,5 +7,6 @@ class RacingCarGameController(
 ) {
     fun run() {
         val carNames = inputView.readCarNames()
+        val rounds = inputView.readNumberOfRounds()
     }
 }
