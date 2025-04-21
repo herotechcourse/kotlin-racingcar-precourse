@@ -2,6 +2,7 @@ package racingcar
 
 import racingcar.factory.CarFactory
 import racingcar.input.CarInput
+import racingcar.input.RoundInput
 import racingcar.model.Winner
 import racingcar.validation.CarNameValidator
 import racingcar.validation.InputNumberValidator
@@ -15,9 +16,7 @@ fun main() {
     CarNameValidator.validateCarNames(carNames)
     val cars = CarFactory.createCars(carNames)
 
-    println("How many rounds will be played?")
-    val roundInput = readln()
-
+    val roundInput = RoundInput.readRound()
     val n = InputNumberValidator.validateInputNumber(roundInput)
 
     RaceView.printResultPerRound(n, cars)
