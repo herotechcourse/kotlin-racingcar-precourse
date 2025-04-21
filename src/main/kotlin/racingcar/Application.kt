@@ -1,5 +1,8 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Console
+import camp.nextstep.edu.missionutils.Randoms
+
 class Car(val name: String, private val canMove: () -> Boolean) {
     var position: Int = 0
         private set
@@ -56,6 +59,19 @@ class CarRacing(private val canMove: () -> Boolean) {
     }
 }
 
+
+
 fun main() {
-    // TODO: Implement the program
+    val canMove: () -> Boolean = { Randoms.pickNumberInRange(0, 9) >= 4 }
+    val carRacing = CarRacing(canMove)
+
+    println("Enter the names of the cars (comma-separated):")
+    val carInput = Console.readLine().trim()
+    carRacing.setCars(carInput)
+
+    println("How many rounds will be played?")
+    val roundInput = Console.readLine().trim().toInt()
+    carRacing.setRoundCount(roundInput)
+
+    carRacing.race()
 }
