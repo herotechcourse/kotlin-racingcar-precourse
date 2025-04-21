@@ -34,5 +34,5 @@ class RacingGame(private val cars: List<Car>, private val totalRounds: Int) {
 
     fun getCars(): List<Car> = cars
 
-    private fun shouldMove(car: Car): Boolean = Randoms.pickNumberInRange(0, 9) >= 4
+    private fun shouldMove(): Boolean = Randoms.pickNumberInRange(0, 9) >= 4
 }
