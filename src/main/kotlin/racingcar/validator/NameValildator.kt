@@ -2,6 +2,10 @@ package racingcar.validator
 
 class NameValidator {
     fun validate(list: List<String>): List<String> {
+        if (list.size < 2) {
+            throw IllegalArgumentException("You must enter at least two car names, separated by commas.")
+        }
+
         for (item in list) {
             isValidChar(item)
             isValidLength(item)

@@ -35,6 +35,19 @@ class InputHandlerTest : NsTest() {
     }
 
     @Test
+    fun `Throws an exception if the number of entered car names is smaller than two`() {
+        assertSimpleTest {
+            run("a/b", "3")
+
+            val inputHandler = InputHandler()
+
+            assertThrows<IllegalArgumentException> {
+                inputHandler.getInputs()
+            }
+        }
+    }
+
+    @Test
     fun `Throws an exception if the number of rounds is not a number`() {
         assertSimpleTest {
             run("car1,car2", "five")
