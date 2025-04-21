@@ -12,6 +12,10 @@ class Car(name: String) {
         this.name = name
     }
 
+    fun move(d: Int) {
+        position += d
+    }
+
     fun getPosition(): Int = position
 
     private fun validateName(name: String) {
