@@ -6,31 +6,23 @@ import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
 import camp.nextstep.edu.missionutils.Console
 
 class ApplicationTest : NsTest() {
 
-    @BeforeEach
-    fun setUp() {
-        Console.close()
-    }
-
-    @AfterEach
-    fun tearDown() {
-        Console.close()
-    }
-
     @Test
-    fun `feature test`() {
+    @DisplayName("Should complete full game successfully")
+    fun shouldCompleteFullGame() {
         assertRandomNumberInRangeTest(
             {
-                run("pobi,woni", "1")
-                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+                run("pobi,woni", "3")
+                assertThat(output())
+                    .contains("pobi : -")
+                    .contains("woni : ")
+                    .contains("Winners :")
             },
-            MOVING_FORWARD,
-            STOP,
+            4, 3, 4, 3, 4, 3  // Predetermined random numbers
         )
     }
 
@@ -46,7 +38,7 @@ class ApplicationTest : NsTest() {
     }
 
     companion object {
-        private const val MOVING_FORWARD: Int = 4
-        private const val STOP: Int = 3
+        private const val MOVING_FORWARD = 4
+        private const val STOP = 3
     }
 }

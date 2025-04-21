@@ -12,13 +12,13 @@ class CarTest {
     @ParameterizedTest
     @ValueSource(ints = [0, 1, 2, 3])
     fun shouldNotMoveWhenRandomNumberLessThanFour(randomNumber: Int) {
-        // given
+        // Given
         val car = Car("test")
         
-        // when
+        // When
         car.move(randomNumber)
         
-        // then
+        // Then
         assertThat(car.getPosition()).isEqualTo(0)
     }
     
@@ -26,29 +26,29 @@ class CarTest {
     @ParameterizedTest
     @ValueSource(ints = [4, 5, 6, 7, 8, 9])
     fun shouldMoveWhenRandomNumberGreaterThanOrEqualToFour(randomNumber: Int) {
-        // given
+        // Given
         val car = Car("test")
         
-        // when
+        // When
         car.move(randomNumber)
         
-        // then
+        // Then
         assertThat(car.getPosition()).isEqualTo(1)
     }
     
     @Test
     @DisplayName("Car can move multiple times")
     fun shouldMoveMultipleTimes() {
-        // given
+        // Given
         val car = Car("test")
         
-        // when
+        // When
         car.move(4)
         car.move(5)
         car.move(3)
         car.move(9)
         
-        // then
+        // Then
         assertThat(car.getPosition()).isEqualTo(3)
     }
 } 

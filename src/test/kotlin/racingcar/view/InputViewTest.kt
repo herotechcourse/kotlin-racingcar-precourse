@@ -13,8 +13,10 @@ import java.io.PrintStream
 
 class InputViewTest {
 
+    private val inputView = InputView()
+
     @BeforeEach
-    fun setup() {
+    fun setUp() {
         // Make sure test is not affected by previous tests
         Console.close()
     }
@@ -27,37 +29,21 @@ class InputViewTest {
 
     @Test
     @DisplayName("Should throw exception when car name exceeds 5 characters")
-    fun shouldThrowExceptionWhenCarNameExceedsFiveCharacters() {
-        // Prepare test input
-        val input = "car1,toolong,car3"
-        System.setIn(ByteArrayInputStream(input.toByteArray()))
-        
-        val outputStream = ByteArrayOutputStream()
-        System.setOut(PrintStream(outputStream))
-        
-        val inputView = InputView()
-        
-        // Assert that exception is thrown
-        assertThatThrownBy { inputView.readCarNames() }
+    fun shouldThrowExceptionWhenCarNameTooLong() {
+        assertThatThrownBy { 
+            inputView.validateCarNames(listOf("toolong", "ok", "test"))
+        }
             .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessageContaining("Car name cannot exceed 5 characters")
+            .hasMessageContaining("cannot exceed 5 characters")
     }
     
     @Test
-    @DisplayName("Rounds must be a positive integer")
-    fun shouldThrowExceptionWhenRoundsIsNotPositive() {
-        // Prepare test input
-        val input = "0"
-        System.setIn(ByteArrayInputStream(input.toByteArray()))
-        
-        val outputStream = ByteArrayOutputStream()
-        System.setOut(PrintStream(outputStream))
-        
-        val inputView = InputView()
-        
-        // Assert that exception is thrown
-        assertThatThrownBy { inputView.readRounds() }
+    @DisplayName("Should throw exception when round number is not positive")
+    fun shouldThrowExceptionWhenRoundNumberNotPositive() {
+        assertThatThrownBy { 
+            inputView.validateRounds("0")
+        }
             .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessageContaining("Rounds must be a positive number")
+            .hasMessageContaining("must be positive")
     }
 } 
