@@ -27,7 +27,7 @@ fun getRoundCount() : Int {
 fun validateSpecialCharacter(carNameInput: String): Unit {
     val regex = Regex("[0-9a-zA-Zㄱ-ㅎ가-힣, ]");
     val removeCharacters = regex.replace(carNameInput, "");
-    if (!removeCharacters.isEmpty()) {
+    if (removeCharacters.isNotEmpty()) {
         throw IllegalArgumentException("콤마를 제외한 특수문자는 사용할 수 없습니다.");
     }
 }
@@ -40,7 +40,7 @@ fun validateInputNameCount(carNames: List<String>) {
 
 fun validateBlankName(carNames: List<String>): Unit {
     for (name in carNames) {
-        if (name.equals(" ")) {
+        if (name == " ") {
             throw IllegalArgumentException("스페이스로만 이루어진 이름은 사용할 수 없습니다.");
         }
         if (name.isBlank()) {
@@ -57,7 +57,7 @@ fun validateNameLength(carNames: List<String>): Unit {
     }
 }
 
-fun validateDuplicateName(carNames: List<String>) : Unit {
+fun validateDuplicateName(carNames: List<String>): Unit {
     for ((index, name) in carNames.withIndex()) {
         if (carNames.indexOf(name) != index) {
             throw IllegalArgumentException("중복된 이름은 사용할 수 없습니다.");
@@ -65,10 +65,10 @@ fun validateDuplicateName(carNames: List<String>) : Unit {
     }
 }
 
-fun validateNumber(roundCountInput: String) : Unit {
+fun validateNumber(roundCountInput: String): Unit {
     val regex = Regex("[0-9-]");
     val removeCharacters = regex.replace(roundCountInput, "");
-    if (!removeCharacters.isEmpty()) {
+    if (removeCharacters.isNotEmpty()) {
         throw IllegalArgumentException("숫자만 입력 가능합니다.");
     }
 }
