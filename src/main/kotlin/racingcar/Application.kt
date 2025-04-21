@@ -36,19 +36,28 @@ fun readRound(): Int {
 
 fun printResult(names: List<String>, round: Int): MutableList<Int> {
     val winTimes = MutableList(names.size) { 0 }
-    repeat(round) {
-        for ((i, name) in names.withIndex()) {
-            if (racingResult()) {
-                winTimes[i] += 1
-            }
 
-            print("$name : ")
-            repeat(winTimes[i]) { print("-") }
-            println()
-        }
+    repeat(round) {
+        runRound(names, winTimes)
         println()
     }
+
     return winTimes
+}
+
+fun runRound(names: List<String>, winTimes: MutableList<Int>) {
+    for ((i, name) in names.withIndex()) {
+        if (racingResult()) {
+            winTimes[i] += 1
+        }
+        printProgress(name, winTimes[i])
+    }
+}
+
+fun printProgress(name: String, progress: Int) {
+    print("$name : ")
+    repeat(progress) { print("-") }
+    println()
 }
 
 fun racingResult(): Boolean {
