@@ -1,11 +1,11 @@
 package racingcar.game
 
-import camp.nextstep.edu.missionutils.Randoms
 import racingcar.car.Car
 import racingcar.constants.Constants
 import racingcar.constants.Messages
 import racingcar.io.InputHandler
 import racingcar.io.OutputPrinter
+import racingcar.util.generateRandomNumber
 import racingcar.validator.InputValidator
 
 object RacingGame {
@@ -42,10 +42,7 @@ object RacingGame {
 
     private fun playRound(cars: List<Car>) {
         cars.forEach { car ->
-            val randomNumber = Randoms.pickNumberInRange(
-                Constants.MIN_RANDOM_RANGE,
-                Constants.MAX_RANDOM_RANGE
-            )
+            val randomNumber = generateRandomNumber()
             car.tryMoveForward(randomNumber)
             OutputPrinter.printCarPosition(car.name, car.position)
         }
