@@ -8,8 +8,7 @@
     - Each name allowed up to 5 characters  
     - No input provided (at least one name required)  
     - Empty car names in input  
-    - Duplicate car names  
-    - Special characters other than comma used  
+    - Duplicate car names   
   - On any invalid data input, throw `IllegalArgumentException` and terminate
 
 - **Race Round Count Input**  
