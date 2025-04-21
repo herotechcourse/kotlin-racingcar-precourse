@@ -31,4 +31,13 @@ class OutputProcessTest {
 
         assertThat(outputStreamCaptor.toString().trim()).isEqualTo("Enter the names of the cars (comma-separated):")
     }
+
+    @Test
+    fun `printRoundNumberInputMessage should print correct message`() {
+        // When
+        outputProcess.printRoundNumberInputMessage()
+
+        // Then
+        assertThat(outputStreamCaptor.toString().trim()).isEqualTo("How many rounds will be played?")
+    }
 }
