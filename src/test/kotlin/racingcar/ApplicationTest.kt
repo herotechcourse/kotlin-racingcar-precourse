@@ -27,6 +27,34 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `exception repeated names test` () {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,dobi,dobi", "8")}
+        }
+    }
+
+    @Test
+    fun `exception negative round number` () {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi, woni", "-1")}
+        }
+    }
+
+    @Test
+    fun `exception not a number round` () {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi, woni", "one")}
+        }
+    }
+
+    @Test
+    fun `exception no input provided` () {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("", "1")}
+        }
+    }
+
     override fun runMain() {
         main()
     }
