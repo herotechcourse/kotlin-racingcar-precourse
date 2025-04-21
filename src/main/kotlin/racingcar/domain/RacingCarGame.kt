@@ -1,0 +1,23 @@
+package racingcar.domain
+
+import racingcar.model.Car
+
+class RacingCarGame {
+    private val cars: MutableList<Car> = mutableListOf()
+
+    val allCars: List<Car>
+        get() = cars.toList()
+
+    fun addCar(car: Car) {
+        cars.add(car)
+    }
+
+    fun moveCars() {
+        cars.forEach { it.move() }
+    }
+
+    fun findWinner(): List<Car> {
+        val maxPosition = cars.maxOf { it.position }
+        return cars.filter { it.position == maxPosition }
+    }
+}
