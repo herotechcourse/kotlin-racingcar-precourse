@@ -1,6 +1,7 @@
 package racingcar
 
 import racingcar.factory.CarFactory
+import racingcar.input.CarInput
 import racingcar.model.Winner
 import racingcar.validation.CarNameValidator
 import racingcar.validation.InputNumberValidator
@@ -9,10 +10,8 @@ import racingcar.view.ResultView
 
 fun main() {
     // TODO: Implement the program
-    println("Enter the names of the cars (comma-separated): ")
-    val carInput = readln()
 
-    val carNames = carInput.split(",")
+    val carNames = CarInput.readCarNames()
     CarNameValidator.validateCarNames(carNames)
     val cars = CarFactory.createCars(carNames)
 
