@@ -1,6 +1,6 @@
 package racingcar
 
-class Car(val name: String, var roundPoints: Int = 0) {
+class Car(val name: String) {
     init {
         if (name.isBlank()) {
             throw IllegalArgumentException("Car name cannot be blank.")

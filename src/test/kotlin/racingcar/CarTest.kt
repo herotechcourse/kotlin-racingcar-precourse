@@ -9,7 +9,6 @@ class CarTest {
     fun `should create a car with valid name`() {
         val car = Car("pobi")
         assertThat(car.name).isEqualTo("pobi")
-        assertThat(car.roundPoints).isEqualTo(0)
     }
 
     @Test

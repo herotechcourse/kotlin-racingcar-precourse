@@ -15,8 +15,9 @@ class RaceTest {
                 val cars = listOf(Car("pobi"), Car("woni"))
                 val race = Race(cars, 2)
                 race.runTheRace()
-                assertThat(cars[0].roundPoints).isEqualTo(2)
-                assertThat(cars[1].roundPoints).isEqualTo(0)
+                val positions = race.getPositions()
+                assertThat(positions[0]).isEqualTo(2)
+                assertThat(positions[1]).isEqualTo(0)
             },
             Race.MOVING_FORWARD,
             Race.STOP,

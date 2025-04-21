@@ -16,7 +16,7 @@ class Application {
         val race = Race(cars, rounds)
         race.runTheRace()
 
-        printRaceResults(cars)
+        printRaceResults(cars, race.getPositions())
         printRaceWinners(race.getWinners())
     }
 
@@ -44,9 +44,9 @@ class Application {
         return rounds
     }
 
-    private fun printRaceResults(results: List<Car>) {
+    private fun printRaceResults(results: List<Car>, positions: List<Int>) {
         println("Race Results")
-        results.forEach { println("${it.name} : ${"-".repeat(it.roundPoints)}") }
+        results.forEachIndexed { index, car -> println("${car.name} : ${"-".repeat(positions[index])}") }
     }
 
     private fun printRaceWinners(winners: List<Car>) {
