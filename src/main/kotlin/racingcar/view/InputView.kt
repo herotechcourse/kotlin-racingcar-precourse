@@ -8,7 +8,7 @@ object InputView {
         val input = Console.readLine()
         val names =  input.split(",").map { it.trim() }
         if (names.isEmpty() || names.any { it.isBlank() }) {
-            throw IllegalArgumentException("자동차 이름은 공백이거나 비어있을 수 없습니다.")
+            throw IllegalArgumentException("Car_names_cannot_be_blank_or_empty.")
         }
         return names
     }
@@ -17,6 +17,6 @@ object InputView {
         println("How many rounds will be played?")
         val input = Console.readLine()
         return input.toIntOrNull()?.takeIf { it > 0 }
-            ?: throw IllegalArgumentException("시도 횟수는 양의 정수여야 합니다.")
+            ?: throw IllegalArgumentException("throws_exception_when_attempt_count_is_not_positive")
     }
 }
