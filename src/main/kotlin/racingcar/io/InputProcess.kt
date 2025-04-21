@@ -15,12 +15,17 @@ class InputProcess {
             .map{it.trim()}
 
         names.forEach {validateCarNameExist(it)}
+        names.forEach {validateCarNameLength(it)}
 
         return names
     }
 
     fun validateCarNameExist(str:String){
         require(str.isNotEmpty()) {"Car names cannot be empty"}
+    }
+
+    fun validateCarNameLength(str:String){
+        require(str.length > 5) { "Car names cannot exceed 5 characters" }
     }
 
 }
