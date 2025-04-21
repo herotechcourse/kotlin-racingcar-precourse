@@ -31,7 +31,7 @@ Hero Tech Course 2025 Precourse Week 1 Mission
     Q. If none of the cars has moved during the race, are all the cars still to be declared winners?<br>
     A. No, none shall be declared winners. A car must have moved at least once to be declared a winner.<br>
 
-### [ ] Race configuration
+### [x] Race configuration
 
 1. Features
   * *Car names*
@@ -39,7 +39,7 @@ Hero Tech Course 2025 Precourse Week 1 Mission
     - 0 < length of name <= 5
     - Duplicate names are not accepted.
   * *Number of rounds*
-    - 0 < number of rounds <= 200
+    - 0 < number of rounds <= 500
 
 2. Design decisions
   * Use factory function to instantiate (private primary constructor)
@@ -50,7 +50,12 @@ Hero Tech Course 2025 Precourse Week 1 Mission
   * *Number of rounds*
     - Throw `IllegalArgumentException` for errors during converting (e.g., `NumberFormatException`)
 
-### [ ] Race
+### [x] Race configuration validator
+
+1. Design decisions
+  * Separate validator class to isolate validation logic
+
+### [x] Race
 
 1. Features
   * *Lane*s
@@ -63,13 +68,13 @@ Hero Tech Course 2025 Precourse Week 1 Mission
   * Race object is responsible for decision for winners.
   * Cars which have not moved at all during the race are excluded from winners.
 
-### [ ] Lane
+### [x] Lane
 
 1. Design decisions
   * Each lane can accommodate *exactly* one car.
   * No lane is empty; every lane is occupied by a car.
 
-### [ ] Car
+### [x] Car
 
 1. Features
   * *Car name*
