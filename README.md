@@ -3,8 +3,8 @@
 ## List of features
 
 ### User Input: Car Names
-- [ ] Car names should be comma‑separated when entered by the user.
-    - [ ] Trim any leading or trailing whitespace around each name.
+- [x] Car names should be comma‑separated when entered by the user.
+    - [x] Trim any leading or trailing whitespace around each name.
     - ex. `pobi,woni,jun`
 
 - [ ] If a name is missing or consists only of whitespace, throw
