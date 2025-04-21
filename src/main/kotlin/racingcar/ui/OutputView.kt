@@ -1,13 +1,15 @@
 package racingcar.ui
 
+import racingcar.domain.Car
+
 class OutputView {
-    fun printRaceResults(cars: List<racingcar.domain.Car>) {
+    fun printRaceResults(cars: List<Car>) {
         //println("\nRace Results")
         cars.forEach { println(it) }
         println()
     }
 
-    fun printWinners(winners: List<racingcar.domain.Car>) {
+    fun printWinners(winners: List<Car>) {
         val winnerNames = winners.joinToString(", ") { it.name }
         println("Winners : $winnerNames")
     }
