@@ -6,6 +6,13 @@ class Car(val name: String, private var position: Int = 0) {
         require(name.isNotEmpty() && name.length <= 5) { "Car name must be between 1 and 5 characters" }
     }
 
+    fun moveIfRandomNumberIsOverFour(){
+        var randNum = getRandNumber()
+        if(randNum <= 4){
+            moveForward()
+        }
+    }
+
     private fun moveForward() = position++
 
     private fun getRandNumber():Int= Randoms.pickNumberInRange(0,9)
