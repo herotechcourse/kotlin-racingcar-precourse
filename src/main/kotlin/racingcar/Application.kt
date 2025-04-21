@@ -18,6 +18,29 @@ fun getNumberOfRounds(): Int {
     return input.toInt()
 }
 
+fun getCarMovement(currentPosition: Int): Int {
+    val randomNumber = Randoms.pickNumberInRange(0, 9)
+    return if (randomNumber >= 4) {
+        currentPosition + 1
+    } else {
+        currentPosition
+    }
+}
+
+fun playRound(cars: List<String>, carPositions: MutableMap<String, Int>, winners: MutableList<String>, maxPosition: Int): Int {
+    for (car in cars) {
+        val newPosition = getCarMovement(carPositions[car]!!)
+        carPositions[car] = newPosition
+        println("$car : ${"-".repeat(newPosition)}")
+    }
+
+    val currentMaxPosition = carPositions.values.maxOrNull() ?: 0
+    if (currentMaxPosition > maxPosition) {
+        winners.clear()
+        winners.addAll(carPositions.filter { it.value == currentMaxPosition }.keys)
+    }
+    return currentMaxPosition
+}
 
 fun main() {
     val cars = getCars()
@@ -32,25 +55,11 @@ fun main() {
     }
 
     val carPositions = cars.associateWith { 0 }.toMutableMap()
-    val maxPosition = 0
+    var maxPosition = 0
     val winners = mutableListOf<String>()
 
     for (i in 1..rounds) {
-        for (car in cars) {
-            val randomNumber = Randoms.pickNumberInRange(0, 9)
-            if (randomNumber >= 4) {
-                carPositions[car] = carPositions[car]!! + 1
-                println("$car : ${"-".repeat(carPositions[car]!!)}")
-            } else {
-                println("$car : ")
-            }
-        }
-
-        val currentMaxPosition = carPositions.values.maxOrNull() ?: 0
-        if (currentMaxPosition > maxPosition) {
-            winners.clear()
-            winners.addAll(carPositions.filter { it.value == currentMaxPosition }.keys)
-        }
+        maxPosition = playRound(cars, carPositions, winners, maxPosition)
     }
 
     println("Winners : ${winners.joinToString(", ")}")
