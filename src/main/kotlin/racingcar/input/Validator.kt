@@ -3,6 +3,9 @@ package racingcar.input
 import racingcar.constants.ErrorMessages
 
 object Validator {
+    private const val MAX_CAR_NAME_LENGTH = 5
+    private const val MIN_ROUND_COUNT = 1
+
     fun validateNames(names: List<String>): List<String> {
         validateEmpty(names)
         validateLengthOfNames(names)
@@ -18,12 +21,12 @@ object Validator {
 
     private fun validateLengthOfNames(names: List<String>) {
         for (name in names) {
-            if (name.length > 5) throw IllegalArgumentException(ErrorMessages.Name.CANNOT_BE_TOO_LONG)
+            if (name.length > MAX_CAR_NAME_LENGTH) throw IllegalArgumentException(ErrorMessages.Name.CANNOT_BE_TOO_LONG)
         }
     }
 
     fun validateRounds(rounds: Int): Int {
-        if (rounds < 1) throw IllegalArgumentException(ErrorMessages.Round.MUST_BE_AT_LEAST_ONE)
+        if (rounds < MIN_ROUND_COUNT) throw IllegalArgumentException(ErrorMessages.Round.MUST_BE_AT_LEAST_ONE)
         return rounds
     }
 }

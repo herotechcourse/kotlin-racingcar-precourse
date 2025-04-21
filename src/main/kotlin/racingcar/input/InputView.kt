@@ -8,7 +8,8 @@ object InputView {
     fun getCarNames(): List<String> {
         try {
             println(InputMessages.CAR_NAMES)
-            val names: List<String> = Console.readLine().split(',')
+            val input: String = Console.readLine()
+            val names: List<String> = input.split(',')
             return Validator.validateNames(names)
         } catch (error: IllegalArgumentException) {
             throw error
@@ -18,8 +19,8 @@ object InputView {
     fun getRounds(): Int {
         try {
             println(InputMessages.ATTEMPTS)
-            val input = Console.readLine()
-            val rounds = input.toIntOrNull()
+            val input: String = Console.readLine()
+            val rounds: Int = input.toIntOrNull()
                 ?: throw IllegalArgumentException(ErrorMessages.Round.INVALID_FORMAT)
             return Validator.validateRounds(rounds)
         } catch (error: IllegalArgumentException) {
