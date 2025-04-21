@@ -27,8 +27,8 @@
 - [x] The number of rounds must be numeric.
     - [x] If the input is not a valid integer, throw IllegalArgumentException with message "Number of rounds is not a number."
 
-- [ ] The number of rounds must be at least 1.
-    - [ ]  If the value is less than 1, throw IllegalArgumentException with message "Number of rounds must be greater than 0."
+- [x] The number of rounds must be at least 1.
+    - [x]  If the value is less than 1, throw IllegalArgumentException with message "Number of rounds must be greater than 0."
 
 ### Racing Logic
 - [ ] For each car and each round, generate a random integer between 0 and 9 (inclusive).
