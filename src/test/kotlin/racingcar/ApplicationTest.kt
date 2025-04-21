@@ -21,6 +21,52 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `joint winners test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+
+                assertThat(output()).contains("pobi : -", "woni : -", "Winners : pobi, woni")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD
+        )
+    }
+
+    @Test
+    fun `every car stop test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+
+                assertThat(output()).contains("pobi : ", "woni : ", "Winners : pobi, woni")
+            },
+            STOP,
+            STOP
+        )
+    }
+
+    @Test
+    fun `car move availability test`() {
+        val car = Car("testCar", canMove = { true })
+        car.moveForward()
+        assertThat(car.position).isEqualTo(1)
+    }
+
+    @Test
+    fun `car move unavailability test`() {
+        val car = Car("testCar", canMove = { false })
+        car.moveForward()
+        assertThat(car.position).isEqualTo(0)
+    }
+
+    @Test
+    fun `valid round count test`() {
+        val validInput = validateRoundInput("3")
+        assertThat(validInput).isEqualTo(3)
+    }
+
+    @Test
     fun `exception test`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
