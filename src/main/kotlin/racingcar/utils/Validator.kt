@@ -28,7 +28,7 @@ object Validator {
         val round = input.toIntOrNull()
             ?: throw IllegalArgumentException(NUMERIC_ROUND)
 
-        if (round < Number.MINIMUM_ROUND_NUMBER) {
+        if (round <= Number.MINIMUM_ROUND_NUMBER) {
             throw IllegalArgumentException(MINIMUM_ROUND)
         }
     }
