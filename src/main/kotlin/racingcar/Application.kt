@@ -50,3 +50,46 @@ class Car(val name: String) {
         position++
     }
 }
+private fun inputCarNames(): List<String> {
+    println("Enter the names of the cars (comma-separated):")
+    val input = Console.readLine()
+    val carNames = input.split(",").map { it.trim() }
+
+    validateCarNames(carNames)
+
+    return carNames
+}
+
+private fun validateCarNames(carNames: List<String>) {
+    if (carNames.isEmpty()) {
+        throw IllegalArgumentException("Car names cannot be empty.")
+    }
+
+    for (name in carNames) {
+        if (name.isEmpty()) {
+            throw IllegalArgumentException("Car name cannot be empty.")
+        }
+        if (name.length > 5) {
+            throw IllegalArgumentException("Car name cannot exceed 5 characters: $name")
+        }
+    }
+}
+
+private fun inputRounds(): Int {
+    println("How many rounds will be played?")
+    val input = Console.readLine()
+
+    return try {
+        val rounds = input.toInt()
+        if (rounds <= 0) {
+            throw IllegalArgumentException("Number of rounds must be positive.")
+        }
+        rounds
+    } catch (e: NumberFormatException) {
+        throw IllegalArgumentException("Invalid number format for rounds.")
+    }
+}
+
+private fun createCars(carNames: List<String>): List<Car> {
+    return carNames.map { Car(it) }
+}
