@@ -20,8 +20,14 @@ class CarRacingGame {
     val carNames = readCarNames()
     val rounds = readRounds()
     val cars = carNames.map { Car(it) }
-    cars.forEach { it.moveIfPossible() }
+  
+    repeat(rounds) {
+      println("\nRound ${it + 1}:")
+      cars.forEach { it.moveIfPossible() }
+      printRaceProgress(cars)
+    }
   }
+  
 
   private fun readRounds(): Int {
     println("Enter number of rounds:")
@@ -30,3 +36,10 @@ class CarRacingGame {
     if (rounds <= 0) throw IllegalArgumentException("Rounds must be greater than zero.")
     return rounds
   }
+
+  private fun printRaceProgress(cars: List<Car>) {
+    cars.forEach {
+      println("${it.name}: ${"-".repeat(it.position)}")
+    }
+  }
+  
