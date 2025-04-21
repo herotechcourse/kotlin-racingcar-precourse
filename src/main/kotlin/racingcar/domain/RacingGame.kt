@@ -6,6 +6,9 @@ class RacingGame(private val cars: List<Car>, var curRoundNum:Int = 0) {
         return RacingGame(cars)
     }
 
-    fun executeRound() = cars.forEach{car-> car.moveIfRandomNumberIsOverFour()}
+    fun executeRound(){
+        curRoundNum++
+        cars.forEach{car-> car.moveIfRandomNumberIsOverFour()}
+    }
 
 }
