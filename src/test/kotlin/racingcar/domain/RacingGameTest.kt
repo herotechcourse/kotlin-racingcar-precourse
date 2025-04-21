@@ -13,4 +13,22 @@ class RacingGameTest {
 
         assertThat(game.findWinner().map { it.name }).containsExactlyInAnyOrder("chang", "seo", "deok")
     }
+
+    @Test
+    fun `executeRound should move all cars forward if random number is greater than or equal to 4`() {
+
+        val cars = listOf(
+            Car("chang") { 5 },
+            Car("deok") { 6 },
+            Car("seo") { 7 }
+        )
+        val game = RacingGame(cars)
+
+        game.executeRound()
+
+        cars.forEach {
+            assertThat(it.getPosition()).isEqualTo(1)
+        }
+        assertThat(game.curRoundNum).isEqualTo(1)
+    }
 }
