@@ -23,4 +23,9 @@ fun main() {
         }
         round++
     }
+
+    val maxPosition = cars.maxOf { car -> car.getPosition() }
+    val winners = cars.filter { car -> car.getPosition() == maxPosition }
+    println("Race Results")
+    println("Winners : ${winners.joinToString(", ") { it.name }}")
 }
