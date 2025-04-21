@@ -24,8 +24,8 @@
 
 
 ### User Input: Number of Rounds
-- [ ] The number of rounds must be numeric.
-    - [ ] If the input is not a valid integer, throw IllegalArgumentException with message "Number of rounds is not a number."
+- [x] The number of rounds must be numeric.
+    - [x] If the input is not a valid integer, throw IllegalArgumentException with message "Number of rounds is not a number."
 
 - [ ] The number of rounds must be at least 1.
     - [ ]  If the value is less than 1, throw IllegalArgumentException with message "Number of rounds must be greater than 0."
@@ -43,10 +43,10 @@
 - [ ] If multiple cars share the top distance, they all win.
 
 ### Console Output: Prompts
-- [ ]  Print the prompt for car names exactly as:
+- []  Print the prompt for car names exactly as:
     - `Enter the names of the cars (comma-separated):`
 
-- [ ]  Print the prompt for rounds exactly as:
+- [x]  Print the prompt for rounds exactly as:
     - `How many rounds will be played?`
 
 ### Console Output: Race Results
