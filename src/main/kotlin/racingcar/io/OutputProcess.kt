@@ -1,5 +1,5 @@
 package racingcar.io
-
+import racingcar.domain.Car
 
 class OutputProcess {
     fun printCarNameInputMessage() =
@@ -10,6 +10,14 @@ class OutputProcess {
 
     fun printRaceResultsMessage() =
         println("Race Results")
+
+    fun printRoundResult(cars: List<Car>) {
+        cars.forEach { car ->
+            println("${car.name} : ${"-".repeat(car.getPosition())}")
+        }
+        println()
+    }
+
 
 
 }
