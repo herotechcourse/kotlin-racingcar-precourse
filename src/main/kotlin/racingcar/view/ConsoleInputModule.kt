@@ -1,4 +1,4 @@
-package racingcar.input
+package racingcar.view
 
 class ConsoleInputModule : InputModule {
     // 1. Read carNames

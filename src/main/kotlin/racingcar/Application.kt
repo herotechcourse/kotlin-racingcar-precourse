@@ -1,8 +1,8 @@
 package racingcar
 
-import racingcar.gameflow.Game
-import racingcar.input.ConsoleInputModule
-import racingcar.output.ConsoleOutputModule
+import racingcar.controller.Game
+import racingcar.view.ConsoleInputModule
+import racingcar.view.ConsoleOutputModule
 
 fun main() {
     val input = ConsoleInputModule()

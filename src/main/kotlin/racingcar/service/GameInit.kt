@@ -1,8 +1,9 @@
-package racingcar.gameflow
+package racingcar.service
 
 import racingcar.model.Car
-data class GameInitResult(val cars: List<Car>, val rounds: Int)
+import racingcar.controller.GameConfig
 
+data class GameInitResult(val cars: List<Car>, val rounds: Int)
 /**
  *  [ Memo ]
  *  1. MutableList:

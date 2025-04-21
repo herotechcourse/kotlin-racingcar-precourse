@@ -1,4 +1,4 @@
-package racingcar.input
+package racingcar.view
 
 interface InputModule {
     fun readCarNames(): String

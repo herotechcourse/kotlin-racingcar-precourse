@@ -1,5 +1,6 @@
-package racingcar.raceexecution
+package racingcar.service.raceexecution
 
+// Used as specified in the mission description
 import camp.nextstep.edu.missionutils.Randoms
 
 /**

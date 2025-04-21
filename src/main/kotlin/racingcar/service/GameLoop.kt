@@ -1,8 +1,8 @@
-package racingcar.gameflow
+package racingcar.service
 
 import racingcar.model.Car
-import racingcar.output.OutputModule
-import racingcar.raceexecution.raceUpdateTrack
+import racingcar.view.OutputModule
+import racingcar.service.raceexecution.raceUpdateTrack
 
 /**
  *  Controls the racing loop

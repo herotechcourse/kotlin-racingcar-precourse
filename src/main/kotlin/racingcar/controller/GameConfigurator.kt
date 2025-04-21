@@ -1,8 +1,8 @@
-package racingcar.gameflow
+package racingcar.controller
 
-import racingcar.input.InputModule
-import racingcar.validation.validateCarNames
-import racingcar.validation.validateRounds
+import racingcar.view.InputModule
+import racingcar.service.validation.validateCarNames
+import racingcar.service.validation.validateRounds
 
 data class GameConfig(val carNames: String, val rounds: String)
 

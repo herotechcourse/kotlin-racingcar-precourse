@@ -1,9 +1,11 @@
-package racingcar.gameflow
+package racingcar.controller
 
-import racingcar.input.InputModule
-import racingcar.output.OutputModule
-import racingcar.raceexecution.generateRandomNumber
-import racingcar.raceexecution.isMoveConditionMet
+import racingcar.view.InputModule
+import racingcar.view.OutputModule
+import racingcar.service.raceexecution.generateRandomNumber
+import racingcar.service.raceexecution.isMoveConditionMet
+import racingcar.service.gameInit
+import racingcar.service.gameLoop
 
 /**
  *  [ Lambdas ]

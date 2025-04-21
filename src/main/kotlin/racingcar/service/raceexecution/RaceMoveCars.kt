@@ -1,4 +1,4 @@
-package racingcar.raceexecution
+package racingcar.service.raceexecution
 
 /**
  *  [ Goal ]
