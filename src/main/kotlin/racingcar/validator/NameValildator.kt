@@ -5,12 +5,13 @@ class NameValidator {
         if (list.size < 2) {
             throw IllegalArgumentException("You must enter at least two car names, separated by commas.")
         }
+        val names = list.map {it.trim()}
 
-        for (item in list) {
+        for (item in names) {
             isValidChar(item)
             isValidLength(item)
         }
-        return list
+        return names
     }
 
     private fun isValidChar(input: String): Boolean {
