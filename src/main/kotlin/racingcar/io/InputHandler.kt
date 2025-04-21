@@ -1,6 +1,7 @@
 package racingcar.io
 
 import camp.nextstep.edu.missionutils.Console
+import racingcar.model.Car
 
 class InputHandler {
     fun getCarNames(): List<String> {
@@ -15,12 +16,17 @@ class InputHandler {
     fun getRounds(): Int {
         println("How many rounds will be played?")
         val input = Console.readLine()
-        
+
         return validateRounds(input)
     }
 
     private fun validateCarNames(carNames: List<String>) {
         require(carNames.isNotEmpty()) { "At least one car name must be provided" }
+
+        for (name in carNames) {
+            require(name.isNotBlank()) { "Car name cannot be blank" }
+            require(name.length <= Car.MAX_NAME_LENGTH) { "Car name cannot exceed ${Car.MAX_NAME_LENGTH} characters: $name" }
+        }
     }
 
     private fun validateRounds(input: String): Int {
