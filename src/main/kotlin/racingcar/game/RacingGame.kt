@@ -2,8 +2,8 @@ package racingcar.game
 
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.car.Car
-import racingcar.car.Messages
 import racingcar.constants.Constants
+import racingcar.constants.Messages
 import racingcar.io.InputHandler
 import racingcar.io.OutputPrinter
 import racingcar.validator.InputValidator

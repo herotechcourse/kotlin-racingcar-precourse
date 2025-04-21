@@ -1,4 +1,4 @@
-package racingcar.car
+package racingcar.constants
 
 object Messages {
 

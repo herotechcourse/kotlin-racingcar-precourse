@@ -1,7 +1,7 @@
 package racingcar.validator
 
-import racingcar.car.Messages
 import racingcar.constants.Constants
+import racingcar.constants.Messages
 
 object InputValidator {
     fun checkEmptyInput(input: String?) {

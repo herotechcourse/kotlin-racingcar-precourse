@@ -1,7 +1,7 @@
 package racingcar.io
 
-import racingcar.car.Messages
 import racingcar.constants.Constants
+import racingcar.constants.Messages
 
 object OutputPrinter {
     fun printCarPosition(carName: String, position: Int) {
