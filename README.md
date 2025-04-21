@@ -14,6 +14,6 @@
   - [x] Implement overall round progression logic
   - [x] Implement result verification logic
   - [x] Write test code
-- [ ] Combine and execute overall logic
+- [x] Combine and execute overall logic
   - [x] Implement execute overall logic
-  - [ ] Write test code
+  - [x] Write test code
