@@ -7,14 +7,14 @@ import racingcar.output.RaceResultRenderer
 class RacingCarOrchestrator {
 
     fun carRace(){
-        val inputReader = InputReader();
+        val inputReader = InputReader()
         val carNames = inputReader.readAndGetCarNames()
         val rounds = inputReader.readAndGetRounds()
 
-        val raceExecutor = RaceExecutor();
+        val raceExecutor = RaceExecutor()
         val raceResults = raceExecutor.executeRaceAndGetResult(carNames, rounds)
 
-        val raceResultRenderer = RaceResultRenderer();
+        val raceResultRenderer = RaceResultRenderer()
         val perRound = raceResultRenderer.calculatePerRoundScores(raceResults, rounds)
         val renderedRounds = raceResultRenderer.renderPerRoundScores(perRound)
         println("\nRace Results")
