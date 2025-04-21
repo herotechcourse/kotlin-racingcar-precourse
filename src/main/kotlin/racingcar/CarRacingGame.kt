@@ -1,8 +1,10 @@
 package racingcar
 
-class CarRacingGame {
-    fun start() {
-      println("Starting game setup...")
+class Application {
+  companion object {
+    @JvmStatic
+    fun main(args: Array<String>) {
+      CarRacingGame().start()      
     }
   }
 
@@ -13,7 +15,9 @@ class CarRacingGame {
       if ((0..9).random() >= 4) position++
     }
   }
-  
+
+class CarRacingGame {
+
   private fun readCarNames(): List<String> {
     println("Enter car names (comma-separated, max 5 characters each):")
     val input = readLine() ?: throw IllegalArgumentException("Input cannot be null")
@@ -24,12 +28,25 @@ class CarRacingGame {
     return names
   }
 
+  private fun readRounds(): Int {
+    println("Enter number of rounds:")
+    val input = readLine() ?: throw IllegalArgumentException("Input cannot be null")
+    val rounds = input.toIntOrNull() ?: throw IllegalArgumentException("Must enter a valid number.")
+    if (rounds <= 0) throw IllegalArgumentException("Rounds must be greater than zero.")
+    return rounds
+  }
+
+  private fun printRaceProgress(cars: List<Car>) {
+    cars.forEach {
+      println("${it.name}: ${"-".repeat(it.position)}")
+    }
+    }
+
   private fun announceWinners(cars: List<Car>) {
     val max = cars.maxOf { it.position }
     val winners = cars.filter { it.position == max }.map { it.name }
     println("\nWinner${if (winners.size > 1) "s" else ""}: ${winners.joinToString(", ")}")
   }
-  
 
   fun start() {
     val carNames = readCarNames()
@@ -44,19 +61,9 @@ class CarRacingGame {
 
     announceWinners(cars)
   }
+  }     
+
+}
   
 
-  private fun readRounds(): Int {
-    println("Enter number of rounds:")
-    val input = readLine() ?: throw IllegalArgumentException("Input cannot be null")
-    val rounds = input.toIntOrNull() ?: throw IllegalArgumentException("Must enter a valid number.")
-    if (rounds <= 0) throw IllegalArgumentException("Rounds must be greater than zero.")
-    return rounds
-  }
-
-  private fun printRaceProgress(cars: List<Car>) {
-    cars.forEach {
-      println("${it.name}: ${"-".repeat(it.position)}")
-    }
-  }
   
