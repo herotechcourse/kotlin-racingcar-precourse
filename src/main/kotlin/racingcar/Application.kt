@@ -7,16 +7,16 @@ import racingcar.validation.InputNumberValidator
 fun main() {
     // TODO: Implement the program
     print("Names of the cars: ")
-    val input = readln()
+    val carInput = readln()
 
-    val carNames = input.split(",")
+    val carNames = carInput.split(",")
     CarNameValidator.validateCarNames(carNames)
     val cars = CarFactory.createCars(carNames)
 
     print("Number of rounds: ")
-    val n = readln().toInt()
+    val roundInput = readln()
 
-    InputNumberValidator.validateInputNumber(n)
+    val n = InputNumberValidator.validateInputNumber(roundInput)
 
     print("round input: $n")
 }
