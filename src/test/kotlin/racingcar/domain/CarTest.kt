@@ -3,6 +3,8 @@ package racingcar.domain
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
+import racingcar.domain.ErrorMessages.CAR_NAME_MISSING
+import racingcar.domain.ErrorMessages.CAR_NAME_TOO_LONG
 
 class CarTest {
 
@@ -29,7 +31,7 @@ class CarTest {
         //then
         assertThatThrownBy { Car(name) }
             .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessage(ErroMessages.NAME_BLANK)
+            .hasMessage(CAR_NAME_MISSING)
     }
 
     @Test
@@ -42,7 +44,7 @@ class CarTest {
         //then
         assertThatThrownBy { Car(name) }
             .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessage("Car name is missing.")
+            .hasMessage(CAR_NAME_MISSING)
     }
 
     @Test
@@ -55,6 +57,6 @@ class CarTest {
         //then
         assertThatThrownBy { Car(name) }
             .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessage(ErroMessages.NAME_TOO_LONG)
+            .hasMessage(CAR_NAME_TOO_LONG)
     }
 }

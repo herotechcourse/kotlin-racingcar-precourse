@@ -1,7 +1,7 @@
 package racingcar.domain
 
-import racingcar.domain.ErroMessages.NAME_BLANK
-import racingcar.domain.ErroMessages.NAME_TOO_LONG
+import racingcar.domain.ErrorMessages.CAR_NAME_MISSING
+import racingcar.domain.ErrorMessages.CAR_NAME_TOO_LONG
 
 class Car(name: String) {
     val name: String
@@ -16,11 +16,11 @@ class Car(name: String) {
 
     private fun validateName(name: String) {
         if(name.isBlank()) {
-            throw IllegalArgumentException(NAME_BLANK)
+            throw IllegalArgumentException(CAR_NAME_MISSING)
         }
 
         if(name.length > 5) {
-            throw IllegalArgumentException(NAME_TOO_LONG)
+            throw IllegalArgumentException(CAR_NAME_TOO_LONG)
         }
     }
 }
