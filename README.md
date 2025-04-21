@@ -9,3 +9,4 @@
     - [x] winners functions 
     - [x] printProgress functions 
 - [x] add InputValidator to validating Car names and Round validations
+- [x] create separate class for handling the user input
