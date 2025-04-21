@@ -3,45 +3,26 @@ package racingcar.model
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.assertj.core.api.SoftAssertions
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.EmptySource
-import org.junit.jupiter.params.provider.ValueSource
 
 class CarTest {
 
-    @ParameterizedTest
-    @ValueSource(strings = ["bmw", "benz"])
-    fun `should create Car when name is 5 characters or fewer`(name: String) {
-        // Act
-        val car = Car(name)
+    private val name: Name = Name("audi")
+    private lateinit var car: Car
 
+    @BeforeEach
+    fun setUp() {
+        car = Car(name)
+    }
+
+    @Test
+    fun `should create Car when name is valid`() {
         // Assert
         SoftAssertions.assertSoftly {
             assertThat(car.name).isEqualTo(name)
             assertThat(car.position).isEqualTo(0)
         }
-    }
-
-    @ParameterizedTest
-    @EmptySource
-    @ValueSource(strings = [" ", "   "])
-    fun `should throw exception when name is null or blank`(invalidName: String) {
-        // Act
-        // Assert
-        assertThatThrownBy { Car(invalidName) }
-            .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessage("Car must have a name.")
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = ["porsche", "lamborghini"])
-    fun `should throw exception when name exceeds 5 characters`(invalidName: String) {
-        // Act
-        // Assert
-        assertThatThrownBy { Car(invalidName) }
-            .isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessage("Name cannot exceed 5 characters.")
     }
 
     @Test
@@ -51,7 +32,7 @@ class CarTest {
 
         // Act
         // Assert
-        assertThatThrownBy { Car("audi", negativeValue) }
+        assertThatThrownBy { Car(name, negativeValue) }
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessage("Position cannot be negative.")
     }
@@ -59,7 +40,7 @@ class CarTest {
     @Test
     fun `Car should move when power is greater than or equal to threshold`() {
         // Arrange
-        val car = Car("audi")
+        val car = Car(name)
         val power = 4
 
         // Act
@@ -72,7 +53,7 @@ class CarTest {
     @Test
     fun `Car should not move when power is less than threshold`() {
         // Arrange
-        val car = Car("audi")
+        val car = Car(name)
         val power = 3
 
         // Act
@@ -85,8 +66,8 @@ class CarTest {
     @Test
     fun `Car should be comparable by position`() {
         // Arrange
-        val fast = Car("fast", 3)
-        val slow = Car("slow", 1)
+        val fast = Car(Name("fast"), 3)
+        val slow = Car(Name("slow"), 1)
 
         // Act
         // Assert
@@ -100,8 +81,8 @@ class CarTest {
     @Test
     fun `Cars with same position should be equal in comparison`() {
         // Arrange
-        val car1 = Car("a", 3)
-        val car2 = Car("b", 3)
+        val car1 = Car(Name("a"), 3)
+        val car2 = Car(Name("b"), 3)
 
         // Act
         // Assert
