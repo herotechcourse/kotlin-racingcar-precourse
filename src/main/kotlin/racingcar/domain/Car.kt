@@ -41,6 +41,10 @@ class Car(private val name: String, private val randomNumberPicker: NumberPicker
         return CarResultDto(name, distance)
     }
 
+    fun hasMaxDistance(maxDistance: Int) = distance == maxDistance
+
+    fun getName(): String = name
+
     fun getDistance(): Int = distance
 
     companion object {

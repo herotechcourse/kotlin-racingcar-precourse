@@ -1,5 +1,6 @@
 package racingcar.domain
 
+import racingcar.domain.dto.CarNameDto
 import racingcar.domain.dto.CarResultDto
 import racingcar.domain.dto.RoundResultDto
 
@@ -9,6 +10,16 @@ class Cars internal constructor(private val cars: List<Car>) {
         cars.forEach { car -> eachRoundResults.add(car.move()) }
 
         return RoundResultDto(eachRoundResults)
+    }
+
+    fun findMaxDistance(): Int {
+        return cars.maxOf { it.getDistance() }
+    }
+
+    fun findCarsWithMaxDistance(maxDistance: Int): List<CarNameDto> {
+        return cars.filter { it.hasMaxDistance(maxDistance) }
+            .map { car -> CarNameDto(car.getName()) }
+            .toList()
     }
 
     companion object {

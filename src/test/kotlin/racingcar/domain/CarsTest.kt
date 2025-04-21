@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import racingcar.domain.fixture.CarFixture
 
 class CarsTest {
     @Nested
@@ -38,6 +39,19 @@ class CarsTest {
         fun `test minimum count`() {
             val lessThanMinimum = "a"
             Assertions.assertThatIllegalArgumentException().isThrownBy { Cars.from(lessThanMinimum) }
+        }
+    }
+
+    @Nested
+    inner class DistanceTest {
+        @Test
+        @DisplayName("[Success] find the maximum distance")
+        fun `test maximum distance`() {
+            val fixture = CarFixture.VALID_CARS
+            val cars = fixture.toDomain()
+            for (i: Int in 1..6) cars.moveAll()
+
+            org.junit.jupiter.api.Assertions.assertEquals(fixture.five.getDistance(), cars.findMaxDistance())
         }
     }
 }
