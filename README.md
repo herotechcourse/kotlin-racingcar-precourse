@@ -19,24 +19,24 @@ A simple car racing game implemented in Kotlin 1.9.24 for the purpose of pre cou
 ---
 
 ### Core Game Logic
-- [ ] Initialize cars based on input names.
-- [ ] For each round:
-    - [ ] Generate a random number between 0 and 9 for each car using `Randoms.pickNumberInRange()`.
-    - [ ] If the number is **4 or greater**, move the car forward.
-    - [ ] Store and track each car's movement/progress.
+- [x] Initialize cars based on input names.
+- [x] For each round:
+    - [x] Generate a random number between 0 and 9 for each car using `Randoms.pickNumberInRange()`.
+    - [x] If the number is **4 or greater**, move the car forward.
+    - [x] Store and track each car's movement/progress.
 
 ---
 
 ### Output Handling
-- [ ] Print the race result after each round in the format:
+- [x] Print the race result after each round in the format:
   ```commandline
     pobi : --
     woni : -
     jun : ---
   ```
-- [ ] After all rounds, determine the winner(s):
-- [ ] Print a single winner like: `Winners : pobi`
-- [ ] Print multiple winners if tied like: `Winners : pobi, jun`
+- [x] After all rounds, determine the winner(s):
+- [x] Print a single winner like: `Winners : pobi`
+- [x] Print multiple winners if tied like: `Winners : pobi, jun`
 
 ---
 
@@ -51,13 +51,13 @@ A simple car racing game implemented in Kotlin 1.9.24 for the purpose of pre cou
 ---
 
 ### Technical Requirements
-- [ ] Entry point must be the `main()` function in `Application.kt`.
-- [ ] Use `Randoms.pickNumberInRange()` from `camp.nextstep.edu.missionutils`.
-- [ ] Use `Console.readLine()` from `camp.nextstep.edu.missionutils`.
-- [ ] Follow Kotlin coding conventions.
-- [ ] Do not exceed 2 levels of indentation.
-- [ ] Break down large functions into small, single-responsibility functions.
-- [ ] Do not use `System.exit()` or `exitProcess()`.
+- [x] Entry point must be the `main()` function in `Application.kt`.
+- [x] Use `Randoms.pickNumberInRange()` from `camp.nextstep.edu.missionutils`.
+- [x] Use `Console.readLine()` from `camp.nextstep.edu.missionutils`.
+- [x] Follow Kotlin coding conventions.
+- [x] Do not exceed 2 levels of indentation.
+- [x] Break down large functions into small, single-responsibility functions.
+- [x] Do not use `System.exit()` or `exitProcess()`.
 
 ---
 
