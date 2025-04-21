@@ -16,9 +16,9 @@ Game Rules
 
 Output
 
-- [ ] For each round, display the car's name and its progress (as a series of -)
-- [ ] After the race, display the final winner(s)
-- [ ] If there are multiple winners, display all names separated by commas
+- [x] For each round, display the car's name and its progress (as a series of -)
+- [x] After the race, display the final winner(s)
+- [x] If there are multiple winners, display all names separated by commas
 
 Exception Handling
 
