@@ -2,6 +2,16 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Console
 
+/**
+ * InputHandler object
+ *
+ * Responsible for reading and validating user input
+ * for the racing car game. It ensures that car name and round inputs
+ * adhere to specified constraints.
+ *
+ * @see getValidatedCarNames: reads and validates user input for car names
+ * @see getValidatedRounds: reads and validates user input for the number of rounds
+ */
 object InputHandler {
     private const val MAX_CAR_NAMES = 20
     private const val MIN_CAR_NAMES = 2
