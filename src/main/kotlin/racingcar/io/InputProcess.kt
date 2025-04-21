@@ -29,6 +29,6 @@ class InputProcess {
     }
 
     fun validateCarNameLength(str:String){
-        require(str.length > 5) { "Car names cannot exceed 5 characters" }
+        require(str.length <= 5) { "Car names cannot exceed 5 characters" }
     }
 }
