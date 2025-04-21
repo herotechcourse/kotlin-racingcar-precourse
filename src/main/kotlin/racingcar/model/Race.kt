@@ -1,13 +1,11 @@
 package racingcar.model
 
-import camp.nextstep.edu.missionutils.Randoms
-
 data class Race(val cars: Cars, val rounds: Rounds) {
 
-    fun play(): RaceResult {
+    fun play(powerGenerator: PowerGenerator): RaceResult {
         val raceLog = buildList {
             rounds.repeat {
-                cars.moveAll { Randoms.pickNumberInRange(0, 9) }
+                cars.moveAll(powerGenerator)
                 add(cars.toLapReport())
             }
         }
@@ -19,8 +17,8 @@ data class Race(val cars: Cars, val rounds: Rounds) {
 
 class Cars(private val cars: List<Car>) {
 
-    fun moveAll(powerGenerator: () -> Int) {
-        cars.forEach { it.move(powerGenerator()) }
+    fun moveAll(powerGenerator: PowerGenerator) {
+        cars.forEach { it.move(powerGenerator.generate()) }
     }
 
     fun toLapReport(): LapReport = LapReport.from(cars)
