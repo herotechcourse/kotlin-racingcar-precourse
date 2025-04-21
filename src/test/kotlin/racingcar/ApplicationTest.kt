@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeT
 import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
@@ -25,6 +26,19 @@ class ApplicationTest : NsTest() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
         }
+    }
+
+
+    @Test
+    fun `multiple winners`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("pobi : -", "woni : -", "Winners : pobi, woni")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD,
+        )
     }
 
     override fun runMain() {
