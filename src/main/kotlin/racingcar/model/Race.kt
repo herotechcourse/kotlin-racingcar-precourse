@@ -6,19 +6,35 @@ import kotlin.collections.maxOf
 class Race(private val cars: List<Car>) {
     fun play(rounds: Int): List<List<Car>> {
         val history = mutableListOf<List<Car>>()
-
         repeat(rounds) {
-            cars.forEach { car ->
-                val number = Randoms.pickNumberInRange(0, 9)
-                car.move(number)
-            }
+            playOneRound()
             history.add(cars.toList())
         }
         return history
     }
 
+    private fun playOneRound() {
+        cars.forEach { car ->
+            val number = generateRandomNumber()
+            car.move(number)
+        }
+    }
+
+    private fun generateRandomNumber(): Int {
+        return Randoms.pickNumberInRange(0, 9)
+    }
+
     fun findWinners(): List<String> {
-        val max = cars.maxOf { car -> car.position }
-        return cars.filter { car -> car.position == max }.map { car -> car.name }
+        val maxPosition = findMaxPosition()
+        return findCarsWithPosition(maxPosition)
+    }
+
+    private fun findMaxPosition(): Int {
+        return cars.maxOf { it.position }
+    }
+
+    private fun findCarsWithPosition(position: Int): List<String> {
+        return cars.filter { it.position == position }
+            .map { it.name }
     }
 }
