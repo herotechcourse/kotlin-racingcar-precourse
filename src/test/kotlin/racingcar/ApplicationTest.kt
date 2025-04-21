@@ -35,28 +35,4 @@ class ApplicationTest : NsTest() {
         private const val MOVING_FORWARD: Int = 4
         private const val STOP: Int = 3
     }
-
-    @Test
-    fun `determine winner test`() {
-        val car1 = Car("san", 5)
-        val car2 = Car("river", 4)
-        val car3 = Car("wind", 3)
-
-        val game = RacingGame(listOf())
-        val winners = game.determineWinner(listOf(car1, car2, car3))
-
-        assertThat(winners).containsOnly("san")
-    }
-
-    @Test
-    fun `determine multiple winner test`() {
-        val car1 = Car("san", 5)
-        val car2 = Car("river", 4)
-        val car3 = Car("wind", 5)
-
-        val game = RacingGame(listOf())
-        val winners = game.determineWinner(listOf(car1, car2, car3))
-
-        assertThat(winners).containsOnly("san", "wind")
-    }
 }

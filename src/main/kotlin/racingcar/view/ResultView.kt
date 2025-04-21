@@ -1,6 +1,6 @@
 package racingcar.view
 
-import racingcar.Car
+import racingcar.model.Car
 
 
 fun printRoundResult(cars: List<Car>) {
