@@ -1,12 +1,15 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest
+import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
+import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 
-class ApplicationTest {
+class ApplicationTest : NsTest() {
     // Mock implementation of InputHandler for testing purposes
     class MockInputHandler(private val inputs: List<String>) : InputHandler {
         private var index = 0
@@ -153,8 +156,6 @@ class ApplicationTest {
         }
     }
 
-    // The following tests are commented out as placeholders for future implementation
-    /*
     @Test
     fun `feature test`() {
         // Simulate a race with two cars and one round
@@ -188,5 +189,4 @@ class ApplicationTest {
         private const val MOVING_FORWARD: Int = 4 // Threshold for moving forward
         private const val STOP: Int = 3          // Threshold for stopping
     }
-    */
 }

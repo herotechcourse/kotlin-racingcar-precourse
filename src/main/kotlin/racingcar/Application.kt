@@ -48,7 +48,6 @@ fun simulateRace(cars: List<Car>, rounds: Int, generator: RandomNumberGenerator)
 fun moveCars(cars: List<Car>, generator: RandomNumberGenerator) {
     cars.forEach { car ->
         val randomNumber = generateRandomNumber(generator)
-        // println("DEBUG: Generated random number: $randomNumber") // Log the random number
         car.move(randomNumber)
     }
 }
@@ -63,7 +62,6 @@ fun generateRandomNumber(generator: RandomNumberGenerator): Int {
 fun displayProgress(cars: List<Car>) {
     cars.forEach { car ->
         println("${car.name} : ${"-".repeat(car.position)}")
-//        println("DEBUG: ${car.name} is at position ${car.position}") // Log each car's progress
     }
 }
 
@@ -71,13 +69,6 @@ fun displayProgress(cars: List<Car>) {
 fun determineWinners(cars: List<Car>): String {
     val maxPosition = cars.maxOf { it.position }
 
-//    println("DEBUG: Maximum position reached by any car: $maxPosition") // Log the max position
-//
-//    // Count how many cars share the same position
-//    val positionCounts = cars.groupingBy { it.position }.eachCount()
-//    positionCounts.forEach { (position, count) ->
-//        println("DEBUG: Position $position is shared by $count car(s)")
-//    }
     val winners = cars.filter { it.position == maxPosition }.map { it.name }
     return winners.joinToString(", ")
 }
