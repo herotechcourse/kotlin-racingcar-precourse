@@ -25,6 +25,41 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `feature test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("pobi : -", "woni : ", "Winners : pobi")
+            },
+            MOVING_FORWARD,
+            STOP,
+        )
+    }
+
+    @Test
+    fun `single car should move with value above or equal to 4`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi", "1")
+                assertThat(output()).contains("pobi : -", "Winners : pobi")
+            },
+            5 // movement
+        )
+    }
+
+    @Test
+    fun `multiple cars tie with same count`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "2")
+                assertThat(output()).contains("Winners : pobi, woni")
+            },
+            5, 5, // round 1: both move
+            6, 6  // round 2: both move again → both have 2
+        )
+    }
+
     override fun runMain() {
         main()
     }
