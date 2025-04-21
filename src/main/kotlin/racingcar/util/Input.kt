@@ -1,0 +1,94 @@
+package racingcar.util
+
+import camp.nextstep.edu.missionutils.Console
+
+fun getCarNames(): List<String> {
+    println("Enter the names of the cars (comma-separated):")
+    val carNameInput = Console.readLine()
+    validateSpecialCharacter(carNameInput)
+    val carNames = carNameInput.replace(" ", "").split(",")
+    validateInputNameCount(carNames)
+    validateBlankName(carNames)
+    validateNameLength(carNames)
+    validateDuplicateName(carNames)
+    return carNames
+}
+
+fun getRoundCount(): Int {
+    println("How many rounds will be played?")
+    val roundCountInput = Console.readLine()
+    validateNegativeNumber(roundCountInput)
+    validateNumber(roundCountInput)
+    validateNumberRange(roundCountInput)
+    val roundCount = roundCountInput.toInt()
+    validateZero(roundCount)
+    return roundCount
+}
+
+fun validateSpecialCharacter(carNameInput: String) {
+    val regex = Regex("[0-9a-zA-Zㄱ-ㅎ가-힣, ]")
+    val removeCharacters = regex.replace(carNameInput, "")
+    if (removeCharacters.isNotEmpty()) {
+        throw IllegalArgumentException("콤마를 제외한 특수문자는 사용할 수 없습니다.")
+    }
+}
+
+fun validateInputNameCount(carNames: List<String>) {
+    if (carNames.size == 1) {
+        throw IllegalArgumentException("이름은 최소 2개 이상 입력해야 합니다.")
+    }
+}
+
+fun validateBlankName(carNames: List<String>) {
+    for (name in carNames) {
+        if (name.isBlank()) {
+            throw IllegalArgumentException("이름은 공백이 아닌 최소 1자 이상 입력해야 합니다.")
+        }
+    }
+}
+
+fun validateNameLength(carNames: List<String>) {
+    for (name in carNames) {
+        if (name.length > 5) {
+            throw IllegalArgumentException("이름은 최대 5자까지 가능합니다.")
+        }
+    }
+}
+
+fun validateDuplicateName(carNames: List<String>) {
+    for ((index, name) in carNames.withIndex()) {
+        if (carNames.indexOf(name) != index) {
+            throw IllegalArgumentException("중복된 이름은 사용할 수 없습니다.")
+        }
+    }
+}
+
+fun validateNegativeNumber(roundCountInput: String) {
+    var regex = Regex("[^0-9-]")
+    val removeCharacters = regex.replace(roundCountInput, "")
+    regex = Regex("[0-9]")
+    val removeNumber = regex.replace(removeCharacters, "")
+    if (roundCountInput.startsWith("-") && removeNumber.length == 1) {
+        throw IllegalArgumentException("음수는 입력 불가능합니다.")
+    }
+}
+
+fun validateNumber(roundCountInput: String) {
+    val regex = Regex("[0-9]")
+    val removeCharacters = regex.replace(roundCountInput, "")
+    if (removeCharacters.isNotEmpty()) {
+        throw IllegalArgumentException("숫자만 입력 가능합니다.")
+    }
+}
+
+fun validateNumberRange(roundCountInput: String) {
+    if (roundCountInput.toIntOrNull() == null) {
+        throw IllegalArgumentException("라운드는 최대 2,147,483,647이하의 자연수만 입력 가능합니다.")
+    }
+}
+
+fun validateZero(roundCount: Int) {
+    if (roundCount == 0) {
+        throw IllegalArgumentException("라운드는 최대 2,147,483,647이하의 자연수만 입력 가능합니다.")
+    }
+}
