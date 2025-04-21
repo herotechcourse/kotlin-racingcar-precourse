@@ -8,3 +8,4 @@
     - [x] race functions 
     - [x] winners functions 
     - [x] printProgress functions 
+- [x] add InputValidator to validating Car names and Round validations
