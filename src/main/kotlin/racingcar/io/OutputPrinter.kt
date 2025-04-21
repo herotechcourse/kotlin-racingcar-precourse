@@ -1,5 +1,6 @@
 package racingcar.io
 
+import racingcar.car.Messages
 import racingcar.constants.Constants
 
 object OutputPrinter {
@@ -9,10 +10,15 @@ object OutputPrinter {
     }
 
     fun printWinners(winners: List<String>) {
-        println("Winners : ${winners.joinToString("${Constants.DELIMITER} ")}")
+        println("${Messages.Output.WINNERS_LABEL} ${winners.joinToString("${Constants.DELIMITER} ")}")
     }
 
     fun printRoundSeparator() {
         println()
+    }
+
+    fun printResultHeader() {
+        println()
+        println(Messages.Output.RESULT_TITLE)
     }
 }

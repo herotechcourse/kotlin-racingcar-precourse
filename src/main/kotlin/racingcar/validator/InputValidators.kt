@@ -1,11 +1,12 @@
 package racingcar.validator
 
+import racingcar.car.Messages
 import racingcar.constants.Constants
 
 object InputValidator {
     fun checkEmptyInput(input: String?) {
         if (input.isNullOrEmpty()) {
-            throw IllegalArgumentException("[ERROR] Input cannot be empty.\n")
+            throw IllegalArgumentException(Messages.Error.EMPTY_INPUT)
         }
     }
 
@@ -26,32 +27,37 @@ object InputValidator {
 
     private fun checkMaxCarLimit(cars: List<String>) {
         if (cars.size > Constants.MAX_CAR_COUNT) {
-            throw IllegalArgumentException("[ERROR] A maximum of ${Constants.MAX_CAR_COUNT} cars can be entered.\n")
+            throw IllegalArgumentException(Messages.Error.MAX_CAR_LIMIT.format(Constants.MAX_CAR_COUNT))
         }
     }
 
     private fun checkCarNameLength(carName: String) {
         if (carName.length < Constants.MIN_CAR_NAME_LENGTH || carName.length > Constants.MAX_CAR_NAME_LENGTH) {
-            throw IllegalArgumentException("[ERROR] Car names must be within ${Constants.MIN_CAR_NAME_LENGTH}–${Constants.MAX_CAR_NAME_LENGTH} characters.\n")
+            throw IllegalArgumentException(
+                Messages.Error.INVALID_CAR_NAME_LENGTH.format(
+                    Constants.MIN_CAR_NAME_LENGTH,
+                    Constants.MAX_CAR_NAME_LENGTH
+                )
+            )
         }
     }
 
     private fun checkCarNameOnlyLetterAndNumber(carName: String) {
         if (!carName.all { it.isLetterOrDigit() }) {
-            throw IllegalArgumentException("[ERROR] Car names can only contain letters and numbers.\n")
+            throw IllegalArgumentException(Messages.Error.INVALID_CAR_NAME_FORMAT)
         }
     }
 
     private fun checkDuplicateCarNames(carNames: List<String>) {
         if (carNames.size != carNames.toSet().size) {
-            throw IllegalArgumentException("[ERROR] Duplicate car names are not allowed\n")
+            throw IllegalArgumentException(Messages.Error.DUPLICATE_CAR_NAMES)
         }
     }
 
     private fun checkValidNumber(input: String) {
         val number = input.toIntOrNull()
         if (number == null || number <= 0) {
-            throw IllegalArgumentException("[ERROR] Number of rounds must be a positive integer\n")
+            throw IllegalArgumentException(Messages.Error.INVALID_ROUND_NUMBER)
         }
     }
 }

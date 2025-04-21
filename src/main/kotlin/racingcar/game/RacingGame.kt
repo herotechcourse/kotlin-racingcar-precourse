@@ -2,6 +2,7 @@ package racingcar.game
 
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.car.Car
+import racingcar.car.Messages
 import racingcar.constants.Constants
 import racingcar.io.InputHandler
 import racingcar.io.OutputPrinter
@@ -13,6 +14,7 @@ object RacingGame {
         val roundCount = readValidRoundCount()
         val cars = carNames.map { Car(it) }
 
+        OutputPrinter.printResultHeader()
         repeat(roundCount) {
             playRound(cars)
             OutputPrinter.printRoundSeparator()
@@ -23,7 +25,7 @@ object RacingGame {
     }
 
     private fun readValidCarNames(): List<String> {
-        val carNamesInput = InputHandler.readInput("Enter the names of the cars (comma-separated):")
+        val carNamesInput = InputHandler.readInput(Messages.Prompt.CAR_NAME_INPUT)
         InputValidator.checkEmptyInput(carNamesInput)
         val carNames = carNamesInput.split(Constants.DELIMITER).map { it.trim() }
         InputValidator.validateCarNames(carNames)
@@ -32,7 +34,7 @@ object RacingGame {
     }
 
     private fun readValidRoundCount(): Int {
-        val roundCountsInput = InputHandler.readInput("How many rounds will be played?").trim()
+        val roundCountsInput = InputHandler.readInput(Messages.Prompt.ROUND_COUNT_INPUT).trim()
         InputValidator.validateRoundCount(roundCountsInput)
 
         return roundCountsInput.toInt()
