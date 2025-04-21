@@ -6,9 +6,17 @@ import camp.nextstep.edu.missionutils.Randoms
 class RacingGame(private val cars: List<Car>, private val totalRounds: Int) {
     private var currentRound = 0
 
-    fun playRound() {
+    init {
+        require(cars.isNotEmpty()) { "At least one car is required" }
+        require(totalRounds > 0) { "Number of rounds must be positive" }
+    }
 
-        for (car in cars) {
+    fun playRound() {
+      if (isGameOver()) {
+            return
+        }
+
+        cars.forEach { car ->
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 car.move()
             }
