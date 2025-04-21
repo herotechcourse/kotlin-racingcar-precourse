@@ -24,7 +24,7 @@ fun getRoundCount() : Int {
     return roundCount;
 }
 
-fun validateSpecialCharacter(carNameInput: String) : Unit {
+fun validateSpecialCharacter(carNameInput: String): Unit {
     val regex = Regex("[0-9a-zA-Zㄱ-ㅎ가-힣, ]");
     val removeCharacters = regex.replace(carNameInput, "");
     if (!removeCharacters.isEmpty()) {
@@ -38,7 +38,7 @@ fun validateInputNameCount(carNames: List<String>) {
     }
 }
 
-fun validateBlankName(carNames: List<String>) : Unit {
+fun validateBlankName(carNames: List<String>): Unit {
     for (name in carNames) {
         if (name.equals(" ")) {
             throw IllegalArgumentException("스페이스로만 이루어진 이름은 사용할 수 없습니다.");
@@ -49,7 +49,7 @@ fun validateBlankName(carNames: List<String>) : Unit {
     }
 }
 
-fun validateNameLength(carNames: List<String>) : Unit {
+fun validateNameLength(carNames: List<String>): Unit {
     for (name in carNames) {
         if (name.length > 5) {
             throw IllegalArgumentException("이름은 최대 5자까지 가능합니다.")

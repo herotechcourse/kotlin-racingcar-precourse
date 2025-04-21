@@ -5,7 +5,7 @@ import racingcar.service.CarService
 import racingcar.util.*
 
 
-class Racing (
+class Racing(
     private var max: Int = 0,
     private val carService: CarService = CarService()
 ) {
@@ -47,7 +47,7 @@ class Racing (
         }
     }
 
-    fun isNewMaxScore(score: Int) : Boolean{
+    fun isNewMaxScore(score: Int): Boolean {
         return max < score;
     }
 
@@ -56,7 +56,7 @@ class Racing (
         printWinners(winners);
     }
 
-    fun findWinners(carNames: List<String>) : List<String>{
+    fun findWinners(carNames: List<String>): List<String> {
         val winners = carNames.filter { name ->
             carService.retrieveScore(name) == max
         }
