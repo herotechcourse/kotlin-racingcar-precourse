@@ -30,8 +30,9 @@
 - [x] Print each car's result after every round
 - [x] Determine the car(s) with the highest position
 - [x] Print winner(s) with names separated by commas
-- [ ] Throw IllegalArgumentException on invalid input
-- [ ] Add unit tests for RacingGame logic if possible
+- [x] Throw IllegalArgumentException on invalid input
+- [x] Add unit tests for RacingGame logic if possible
+
 ---
 
 ## Unit Testing
