@@ -1,8 +1,8 @@
 package racingcar
 
-import racingcar.models.Car
-import racingcar.models.InputHandler
-import racingcar.models.Race
+import racingcar.model.Car
+import racingcar.view.InputHandler
+import racingcar.controller.Race
 
 fun main() {
     // TODO: Implement the program

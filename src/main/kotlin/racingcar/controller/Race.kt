@@ -1,4 +1,6 @@
-package racingcar.models
+package racingcar.controller
+
+import racingcar.model.Car
 
 class Race(var cars: List<Car>, val rounds: Int) {
 
