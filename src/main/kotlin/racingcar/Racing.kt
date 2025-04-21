@@ -2,24 +2,22 @@ package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.service.CarService
-import racingcar.util.Input
-import racingcar.util.Output
+import racingcar.util.*
+
 
 class Racing (
     private var max: Int = 0,
-    private val input: Input = Input(),
-    private val output: Output = Output(),
     private val carService: CarService = CarService()
 ) {
     fun start() {
-        val carNames = input.getCarNames();
-        val roundCount = input.getRoundCount();
+        val carNames = getCarNames();
+        val roundCount = getRoundCount();
         generateResults(carNames, roundCount);
         generateWinners(carNames);
     }
 
     fun generateResults(carNames: List<String>, roundCount: Int) {
-        output.printResultPhrase();
+        printResultPhrase();
         for (round in 1..roundCount) {
             makeRoundResult(carNames);
         }
@@ -37,7 +35,7 @@ class Racing (
             }
             "$carName : ${"-".repeat(score)}"
         }
-        output.printRoundResult(results)
+        printRoundResult(results)
     }
 
     fun isNewMaxScore(score: Int) : Boolean{
@@ -46,7 +44,7 @@ class Racing (
 
     fun generateWinners(carNames: List<String>) {
         val winners = findWinners(carNames);
-        output.printWinners(winners);
+        printWinners(winners);
     }
 
     fun findWinners(carNames: List<String>) : List<String>{
