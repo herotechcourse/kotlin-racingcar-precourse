@@ -8,7 +8,7 @@ import racingcar.observer.ConsoleListener
 import racingcar.observer.RaceObserver
 import racingcar.strategy.RandomMovementStrategy
 import racingcar.validation.CarNameValidator
-import racingcar.validation.RoundValidator
+import racingcar.validation.RoundCountValidator
 
 /**
  * Application entry point.
@@ -19,7 +19,7 @@ fun main() {
     val carNames = CarNameValidator.validate(rawCarNames)
 
     val rawRounds = Frontend.readRounds()
-    val rounds = RoundValidator.validate(rawRounds)
+    val rounds = RoundCountValidator.validate(rawRounds)
 
     val cars = carNames.map { Car(it) }
     val observer = RaceObserver(listOf(ConsoleListener()))
