@@ -22,3 +22,9 @@ fun readCarNames(): List<String> {
 
   return names
 }
+fun readTryCount(): Int {
+  println("How many rounds will be played?")
+  val input = Console.readLine()
+  return input.toIntOrNull()?.takeIf { it > 0 }
+    ?: throw IllegalArgumentException("Number of rounds must be a positive integer.")
+}
