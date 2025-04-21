@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import racingcar.input.InputReader
+import java.io.ByteArrayInputStream
 
 class InputTest : NsTest() {
 
@@ -36,10 +38,13 @@ class InputTest : NsTest() {
 
     @Test
     fun `empty number rounds throw exception`() {
-        assertSimpleTest {
-            assertThrows<IllegalArgumentException> {
-                runException("bobi,woni", "")
-            }
+        // given
+        val input = "pobi,woni\n\n" // 자동차 이름 입력 후 라운드에서 엔터만 입력
+        System.setIn(ByteArrayInputStream(input.toByteArray()))
+
+        // when & then
+        assertThrows<IllegalArgumentException> {
+            InputReader.readNumberOfRounds("How many rounds?")
         }
     }
 
