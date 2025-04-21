@@ -86,3 +86,10 @@ Helper packages (`input/`, `util/`, `validator/`) support MVC by providing input
 
 - **RacingCarController** (`controller/`)  
   Orchestrates reading input, running the race, and displaying results.  
+
+### ✅ Tests
+
+The project includes feature and validation tests using JUnit 5 and AssertJ.
+
+- `InputTest`: Verifies input validation such as empty names, name length, empty or invalid round count, and accepts valid trimmed inputs.
+- `ApplicationTest`: Tests game flow including round results, exception handling, and multiple winner scenarios.
