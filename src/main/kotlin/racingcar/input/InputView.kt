@@ -12,4 +12,11 @@ class InputView {
         Validator.carValidate(carNames)
         return carNames
     }
+
+    fun readRounds(): Int {
+        println("How many rounds will be played?")
+        val input = Console.readLine()
+        Validator.roundValidate(input)
+        return input.toInt()
+    }
 }
