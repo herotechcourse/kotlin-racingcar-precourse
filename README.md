@@ -1,3 +1,4 @@
+
 # kotlin-racingcar-precourse 🚗
 
 A simple racing car game built with Kotlin, as part of the Hero Tech Course pre-course assignment.
