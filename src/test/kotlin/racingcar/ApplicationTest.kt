@@ -58,6 +58,15 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `adds numbering to duplicated names`() {
+        val input = listOf("aaa", "bbb", "aaa", "bbb", "ccc", "aaa")
+        val expected = listOf("aaa", "bbb", "aaa(2)", "bbb(2)", "ccc", "aaa(3)")
+        val result = input.withUniqueNames()
+
+        assertThat(result).isEqualTo(expected)
+    }
+
+    @Test
     fun `throws exception when car name exceeds 5 characters`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
