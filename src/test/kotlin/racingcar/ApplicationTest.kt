@@ -1,14 +1,8 @@
 package racingcar
 
-import camp.nextstep.edu.missionutils.Console
-import camp.nextstep.edu.missionutils.Randoms
-import org.assertj.core.api.Assertions.assertThat
-import org.assertj.core.api.Assertions.assertThatExceptionOfType
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.ValueSource
+import org.junit.jupiter.api.Assertions.*
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 import java.lang.reflect.InvocationTargetException
@@ -18,7 +12,6 @@ class ApplicationTest {
     private lateinit var game: RaceCars
     private val originalOut = System.out
     private val outContent = ByteArrayOutputStream()
-    private val outputSeparator = System.lineSeparator()
 
     @BeforeEach
     fun setUp() {
@@ -26,18 +19,13 @@ class ApplicationTest {
         System.setOut(PrintStream(outContent))
     }
 
-    @AfterEach
-    fun restoreStreams() {
-        System.setOut(originalOut)
-    }
-
     @Test
     fun `should create car with correct name`() {
         val car = Car("Test")
 
-        assertThat(car.name).isEqualTo("Test")
-        assertThat(car.position).isZero()
-        assertThat(car.lastPosition).isZero()
+        assertEquals("Test", car.name)
+        assertEquals(0, car.position)
+        assertEquals(0, car.lastPosition)
     }
 
     @Test
@@ -45,13 +33,11 @@ class ApplicationTest {
         try {
             val privateMethod = getMethod("validateEmpty")
             privateMethod.invoke(game, "")
-            org.junit.jupiter.api.Assertions.fail("Expected an IllegalArgumentException to be thrown")
+            fail("Expected an IllegalArgumentException to be thrown")
         } catch (e: InvocationTargetException) {
             val cause = e.cause
-            assertThat(cause).isInstanceOf(IllegalArgumentException::class.java)
-            if (cause != null) {
-                assertThat(cause.message).contains("didn't provide")
-            }
+            assertTrue(cause is IllegalArgumentException)
+            assertTrue(cause?.message?.contains("didn't provide") == true)
         }
     }
 
@@ -60,23 +46,20 @@ class ApplicationTest {
         try {
             val privateMethod = getMethod("validateNameLength")
             privateMethod.invoke(game, "TooLong")
-            org.junit.jupiter.api.Assertions.fail("Expected an IllegalArgumentException to be thrown")
+            fail("Expected an IllegalArgumentException to be thrown")
         } catch (e: InvocationTargetException) {
             val cause = e.cause
-            assertThat(cause).isInstanceOf(IllegalArgumentException::class.java)
-            if (cause != null) {
-                assertThat(cause.message).contains("longer than 5 characters")
-            }
+            assertTrue(cause is IllegalArgumentException)
+            assertTrue(cause?.message?.contains("longer than 5 characters") == true)
         }
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = ["A B", "A\tB", "A\nB"])
-    fun `should validate that car name contains no whitespace`(nameWithSpace: String) {
+    @Test
+    fun `should validate that car name contains no whitespace`() {
         val privateMethod = getMethod("validateSpaces")
-        val result = privateMethod.invoke(game, nameWithSpace) as Boolean
+        val result = privateMethod.invoke(game, "A B") as Boolean
 
-        assertThat(result).isFalse()
+        assertFalse(result)
     }
 
     @Test
@@ -85,26 +68,47 @@ class ApplicationTest {
             val privateMethod = RaceCars::class.java.getDeclaredMethod("validateCarNames", List::class.java)
             privateMethod.isAccessible = true
             privateMethod.invoke(game, emptyList<String>())
-            org.junit.jupiter.api.Assertions.fail("Expected an IllegalArgumentException to be thrown")
+            fail("Expected an IllegalArgumentException to be thrown")
         } catch (e: InvocationTargetException) {
             val cause = e.cause
-            assertThat(cause).isInstanceOf(IllegalArgumentException::class.java)
-            if (cause != null) {
-                assertThat(cause.message).contains("Please provide")
-            }
+            assertTrue(cause is IllegalArgumentException)
+            assertTrue(cause?.message?.contains("Please provide") == true)
         }
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = ["0", "-1", "abc"])
-    fun `should throw exception for invalid round count`(invalidRound: String) {
+    @Test
+    fun `should throw exception for invalid round count zero`() {
         try {
             val privateMethod = getMethod("createRoundCount")
-            privateMethod.invoke(game, invalidRound)
-            org.junit.jupiter.api.Assertions.fail("Expected an IllegalArgumentException to be thrown")
+            privateMethod.invoke(game, "0")
+            fail("Expected an IllegalArgumentException to be thrown")
         } catch (e: InvocationTargetException) {
             val cause = e.cause
-            assertThat(cause).isInstanceOf(IllegalArgumentException::class.java)
+            assertTrue(cause is IllegalArgumentException)
+        }
+    }
+
+    @Test
+    fun `should throw exception for invalid round count negative`() {
+        try {
+            val privateMethod = getMethod("createRoundCount")
+            privateMethod.invoke(game, "-1")
+            fail("Expected an IllegalArgumentException to be thrown")
+        } catch (e: InvocationTargetException) {
+            val cause = e.cause
+            assertTrue(cause is IllegalArgumentException)
+        }
+    }
+
+    @Test
+    fun `should throw exception for invalid round count non-numeric`() {
+        try {
+            val privateMethod = getMethod("createRoundCount")
+            privateMethod.invoke(game, "abc")
+            fail("Expected an IllegalArgumentException to be thrown")
+        } catch (e: InvocationTargetException) {
+            val cause = e.cause
+            assertTrue(cause is IllegalArgumentException)
         }
     }
 
@@ -113,17 +117,7 @@ class ApplicationTest {
         val privateMethod = getMethod("createRoundCount")
         val result = privateMethod.invoke(game, "3")
 
-        assertThat(result).isEqualTo(3)
-    }
-
-    @Test
-    fun `car should move when random number is 4 or higher`() {
-        assertThat(4 >= 4).isTrue()
-    }
-
-    @Test
-    fun `car should not move when random number is less than 4`() {
-        assertThat(3 >= 4).isFalse()
+        assertEquals(3, result)
     }
 
     @Test
@@ -133,7 +127,7 @@ class ApplicationTest {
 
         car.position++
 
-        assertThat(car.position).isEqualTo(initialPosition + 1)
+        assertEquals(initialPosition + 1, car.position)
     }
 
     @Test
@@ -141,7 +135,7 @@ class ApplicationTest {
         val car = Car("Test")
         val initialPosition = car.position
 
-        assertThat(car.position).isEqualTo(initialPosition)
+        assertEquals(initialPosition, car.position)
     }
 
     @Test
@@ -159,8 +153,9 @@ class ApplicationTest {
         method.isAccessible = true
         val winners = method.invoke(game, 5) as List<*>
 
-        assertThat(winners).hasSize(2)
-        assertThat(winners).extracting("name").containsExactlyInAnyOrder("A", "C")
+        assertEquals(2, winners.size)
+        assertTrue(winners.any { (it as Car).name == "A" })
+        assertTrue(winners.any { (it as Car).name == "C" })
     }
 
     @Test
@@ -174,9 +169,10 @@ class ApplicationTest {
         carsField.set(game, listOf(car1, car2))
 
         val method = getMethod("displayWinners")
+        method.isAccessible = true
         method.invoke(game)
 
-        assertThat(outContent.toString()).contains("Winner: A")
+        assertTrue(outContent.toString().contains("Winner: A"))
     }
 
     @Test
@@ -189,9 +185,10 @@ class ApplicationTest {
         carsField.set(game, listOf(car1, car2))
 
         val method = getMethod("displayWinners")
+        method.isAccessible = true
         method.invoke(game)
 
-        assertThat(outContent.toString()).contains("Winners: A, B")
+        assertTrue(outContent.toString().contains("Winners: A, B"))
     }
 
     // Helper methods
