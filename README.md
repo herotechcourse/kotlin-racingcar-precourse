@@ -43,7 +43,7 @@
 - [ ] If multiple cars share the top distance, they all win.
 
 ### Console Output: Prompts
-- []  Print the prompt for car names exactly as:
+- [x]  Print the prompt for car names exactly as:
     - `Enter the names of the cars (comma-separated):`
 
 - [x]  Print the prompt for rounds exactly as:
