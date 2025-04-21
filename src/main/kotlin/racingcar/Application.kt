@@ -11,3 +11,7 @@ class Application {
         }
     }
 }
+
+fun main() {
+    Application.main(arrayOf())
+}
