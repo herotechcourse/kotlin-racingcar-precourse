@@ -17,4 +17,5 @@ class Car(val name: String, private var position: Int = 0) {
 
     private fun getRandNumber():Int= Randoms.pickNumberInRange(0,9)
 
+    fun getPosition(): Int = position
 }
