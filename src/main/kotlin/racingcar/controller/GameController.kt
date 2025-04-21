@@ -3,6 +3,7 @@ package racingcar.controller
 import racingcar.domain.Cars
 import racingcar.domain.Round
 import racingcar.view.InputView
+import racingcar.view.OutputView
 
 class GameController {
     fun start() {
@@ -13,8 +14,11 @@ class GameController {
     }
 
     fun race(cars: Cars, round: Round) {
+        OutputView.printRaceHeader()
+
         repeat(round.round) {
             cars.moveAll()
+            OutputView.printRound(cars)
         }
     }
 }
