@@ -47,7 +47,7 @@ object Race {
         return cars.filter { it.getPosition() == maxPosition }.map { it.name }
     }
 
-    private fun validate(cars: List<Car>, rounds: Int) {
+    fun validate(cars: List<Car>, rounds: Int) {
         if (cars.isEmpty()) {
             throw IllegalArgumentException("At least one car is required")
         }
