@@ -1,5 +1,15 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    val application = Application()
+    application.run()
 }
+
+class Application {
+    fun run() {
+        val inputHandler = InputHandler()
+        val inputs = inputHandler.getInputs()
+        Race(inputs).run()
+    }
+}
+
