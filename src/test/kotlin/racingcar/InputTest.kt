@@ -2,7 +2,6 @@ package racingcar
 
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import racingcar.io.Input
@@ -12,7 +11,6 @@ import racingcar.io.Input
  * @fileName       : InputTest
  * @author         : yong
  * @date           : 4/17/25
- * @description    :
  */
 class InputTest {
     private val input = Input()

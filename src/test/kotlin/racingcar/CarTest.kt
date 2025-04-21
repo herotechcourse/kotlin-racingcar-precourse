@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test
  * @fileName       : CartTest
  * @author         : yong
  * @date           : 4/16/25
- * @description    :
  */
 class CarTest {
     @Test
