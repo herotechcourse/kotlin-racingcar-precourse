@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Console
 class InputView {
   private const val MAX_NAME_LENGTH = 5
 
-  fun readCarNames() : List<String> {
+  fun readCarNames() : List<Car> {
     println("Enter the names of the cars (comma-separated):")
     val input = Console.readLine()
     val names = input.split(",").map { it.trim() }
