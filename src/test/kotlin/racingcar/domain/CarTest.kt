@@ -38,6 +38,7 @@ class CarTest {
 
         assertThat(car.getPosition()).isGreaterThan(initialPosition)
     }
+
     @Test
     fun `car should not move when random number is less than 4`() {
 
