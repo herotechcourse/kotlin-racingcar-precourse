@@ -11,7 +11,7 @@ object InputValidator {
     fun allNamesLessThanMaxLength(names: List<String>, maxLength: Int) {
         names.forEach {
             if (it.length > maxLength) {
-                throw IllegalArgumentException("Length of name must be less than $maxLength")
+                throw IllegalArgumentException("Name length cannot exceed $maxLength characters")
             }
         }
     }
