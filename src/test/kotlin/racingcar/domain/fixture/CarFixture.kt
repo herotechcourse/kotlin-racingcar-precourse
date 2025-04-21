@@ -10,7 +10,5 @@ class CarFixture() {
 
     fun toDomain(): Cars = Cars(mutableListOf(pobi, won))
 
-    fun getPobi(): Car = pobi
-
     fun getWon(): Car = won
 }
