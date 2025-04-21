@@ -21,10 +21,29 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `exception test`() {
+    fun `car name validation test`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
         }
+    }
+
+    @Test
+    fun `round number validation test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,woni", "-1") }
+        }
+    }
+
+    @Test
+    fun `multiple winners test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni", "1")
+                assertThat(output()).contains("Winners : pobi, woni")
+            },
+            MOVING_FORWARD,
+            MOVING_FORWARD
+        )
     }
 
     override fun runMain() {
