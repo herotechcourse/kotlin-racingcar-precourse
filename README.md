@@ -5,6 +5,8 @@
 2. The user can enter the number of rounds.
 3. The program must validate input:
     - Car names must not exceed 5 characters and must be separated by commas.
+    - Car name should be unique.
+    - Car name should contain only letters or numbers.
     - The number of rounds must be an integer.
 4. The program must simulate the car race and its rounds.
     - The program should use random numbers generator to define if a car moves in this round. 
