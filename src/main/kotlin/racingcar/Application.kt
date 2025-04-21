@@ -5,9 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
     val names = Console.readLine().split(",").map { it.trim() }
-    if (names.any {!it.matches(Regex("^[A-Za-z]+$")) || it.length > 5 }) {
-        throw IllegalArgumentException("Invalid name")
-    }
+    require(!names.any {!it.matches(Regex("^[A-Za-z]+$")) || it.length > 5 }) { "Invalid name" }
 
     val rounds = Console.readLine().toInt()
 
