@@ -17,13 +17,11 @@ class InputViewTest {
 
     @BeforeEach
     fun setUp() {
-        // Make sure test is not affected by previous tests
         Console.close()
     }
     
     @AfterEach
     fun tearDown() {
-        // Reset Console state to not affect subsequent tests
         Console.close()
     }
 
@@ -41,7 +39,7 @@ class InputViewTest {
     @DisplayName("Should throw exception when round number is not positive")
     fun shouldThrowExceptionWhenRoundNumberNotPositive() {
         assertThatThrownBy { 
-            inputView.validateRounds("0")
+            inputView.readRounds()
         }
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessageContaining("must be positive")
