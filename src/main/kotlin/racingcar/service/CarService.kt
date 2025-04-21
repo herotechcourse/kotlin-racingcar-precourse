@@ -21,11 +21,24 @@ class CarService (
             }
             outputView.printCarPosition(cars)
         }
+
+        val winners = getWinners()
+        outputView.printWinner(winners)
         return cars
     }
+
 
     private fun moveCar(car: Car) {
         val randomValue = RandomNumberGenerator.generateRandom()
         car.movePosition(randomValue)
+    }
+
+    private fun getMaxPosition(cars: List<Car>) : Int {
+        return cars.maxOf { it.getPosition() }
+    }
+
+    fun getWinners(): List<Car> {
+        val maxPosition = getMaxPosition(cars)
+        return cars.filter {it.getPosition() == maxPosition}
     }
 }
