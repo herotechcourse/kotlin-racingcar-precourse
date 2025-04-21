@@ -5,7 +5,7 @@ import racingcar.repository.CarRepository
 class CarService {
     val carRepository = CarRepository()
 
-    fun canIncreaseScore(randomNumber: Int, carName: String): Boolean {
+    fun canIncreaseScore(randomNumber: Int): Boolean {
         return randomNumber >= 4
     }
 

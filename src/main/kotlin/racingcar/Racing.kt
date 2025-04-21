@@ -36,7 +36,7 @@ class Racing(
     }
 
     fun checkRandomNumber(randomNumber: Int, carName: String) {
-        if (carService.canIncreaseScore(randomNumber, carName)) {
+        if (carService.canIncreaseScore(randomNumber)) {
             carService.updateScore(carName)
         }
     }
