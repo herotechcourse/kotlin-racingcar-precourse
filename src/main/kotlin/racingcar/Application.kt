@@ -7,7 +7,7 @@ class Car(val name: String){
 class CarRacingGame {
     fun start() {   // 시작부
         val cars = inputCarNames()   // 이름들 입력부. 이름들 리스트 반환받음
-//        val rounds = inputRounds()   //
+        val rounds = inputRounds()   //
 
     }
 
@@ -24,7 +24,18 @@ class CarRacingGame {
         return names.map { Car(it) }
     }
 
+    private fun inputRounds(): Int {     // 라운드 수 입력부
+        print("How many rounds will be played?\n")
+        val input = readln()
 
+        val numInput: Int = input.toIntOrNull() ?: -1   //
+        if(numInput < 0) {
+            throw IllegalArgumentException("Number of rounds must be a positive integer.")
+        }
+        else{
+            return numInput
+        }
+    }
 
 }
 
