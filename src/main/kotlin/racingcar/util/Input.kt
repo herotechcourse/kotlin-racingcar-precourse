@@ -17,10 +17,11 @@ fun getCarNames() : List<String> {
 fun getRoundCount() : Int {
     println("How many rounds will be played?")
     val roundCountInput = Console.readLine()
+    validateNegativeNumber(roundCountInput)
     validateNumber(roundCountInput)
     validateNumberRange(roundCountInput)
     val roundCount = roundCountInput.toInt()
-    validateNegativeNumberOrZero(roundCount)
+    validateZero(roundCount)
     return roundCount
 }
 
@@ -62,8 +63,18 @@ fun validateDuplicateName(carNames: List<String>): Unit {
     }
 }
 
-fun validateNumber(roundCountInput: String): Unit {
-    val regex = Regex("[0-9-]")
+fun validateNegativeNumber(roundCountInput: String) {
+    var regex = Regex("[^0-9-]")
+    val removeCharacters = regex.replace(roundCountInput, "")
+    regex = Regex("[0-9]")
+    val removeNumber = regex.replace(removeCharacters, "")
+    if (roundCountInput.startsWith("-") && removeNumber.length == 1) {
+        throw IllegalArgumentException("음수는 입력 불가능합니다.")
+    }
+}
+
+fun validateNumber(roundCountInput: String) {
+    val regex = Regex("[0-9]")
     val removeCharacters = regex.replace(roundCountInput, "")
     if (removeCharacters.isNotEmpty()) {
         throw IllegalArgumentException("숫자만 입력 가능합니다.")
@@ -76,8 +87,8 @@ fun validateNumberRange(roundCountInput: String) {
     }
 }
 
-fun validateNegativeNumberOrZero(roundCount: Int) {
-    if (roundCount <= 0) {
+fun validateZero(roundCount: Int) {
+    if (roundCount == 0) {
         throw IllegalArgumentException("라운드는 최대 2,147,483,647이하의 자연수만 입력 가능합니다.")
     }
 }
