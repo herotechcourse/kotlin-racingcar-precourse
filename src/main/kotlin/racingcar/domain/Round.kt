@@ -1,9 +1,9 @@
 package racingcar.domain
 
-class Round(val leftRound: Int) {
+class Round(val value: Int) {
 
     init {
-        require(leftRound in MIN_ROUND..MAX_ROUND) { ROUND_OUT_OF_RANGE_ERROR }
+        require(value in MIN_ROUND..MAX_ROUND) { ROUND_OUT_OF_RANGE_ERROR }
     }
 
     companion object {
