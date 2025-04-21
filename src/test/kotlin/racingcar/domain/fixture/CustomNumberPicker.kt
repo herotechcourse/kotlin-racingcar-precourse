@@ -3,7 +3,7 @@ package racingcar.domain.fixture
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.domain.base.NumberPickerBase
 
-class Fixture {
+class CustomNumberPicker {
     object MovableNumberPicker : NumberPickerBase {
         override fun pick(): Int = Randoms.pickNumberInRange(4, 9)
     }
