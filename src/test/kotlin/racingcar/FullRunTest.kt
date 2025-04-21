@@ -10,19 +10,26 @@ import org.junit.jupiter.api.assertThrows
 class RacingCarDetailedTest : NsTest() {
 
     @Test
-    fun `car names validation test`() {
+    fun `should validate correct car names`() {
         assertSimpleTest {
-            // Test valid names
             val validCars = validateCarNames("car1,car2,car3")
             assertThat(validCars).hasSize(3)
             assertThat(validCars[0].name).isEqualTo("car1")
+        }
+    }
 
-            // Test name too long
+    @Test
+    fun `should throw error for name longer than limit`() {
+        assertSimpleTest {
             assertThrows<IllegalArgumentException> {
                 validateCarNames("car1,toolongname,car3")
             }
+        }
+    }
 
-            // Test empty name
+    @Test
+    fun `should throw error for empty car name`() {
+        assertSimpleTest {
             assertThrows<IllegalArgumentException> {
                 validateCarNames("car1,,car3")
             }
