@@ -34,16 +34,19 @@ A Kotlin implementation of a simple racing car game.
 - Create a list of cars
 
 
-### 3. The Race
+### 3. The Race (Complete)
 
-- Iterate through list of cars 
+- Iterate through list of cars
 - Random number generation
 - Car moves if number >= 4 (6/10 chance)
 - Round management:
 	- Display current round progress for each car
 
-### 4. The Winner
+### 4. The Winner (Complete)
+
 - Winner determination
+	- Find max score
+	- Filter and print all the winners
 - Multiple winners if applicable
 	
 
