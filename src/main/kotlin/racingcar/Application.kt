@@ -25,7 +25,7 @@ private fun runRacingGame() {
 
     val racingGame = RacingGame(cars, rounds)
 
-    outputHandler.printRaceResults(racingGame.getCars())
+    outputHandler.printRaceHeader()
 
     while(!racingGame.isGameOver()) {
         racingGame.playRound()
