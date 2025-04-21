@@ -1,5 +1,8 @@
 package racingcar
 
+/**
+ * Main function to call actual game controller.
+ */
 fun main() {
-    // TODO: Implement the program
+    GameController.run()
 }
