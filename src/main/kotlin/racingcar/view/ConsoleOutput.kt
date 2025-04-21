@@ -2,9 +2,8 @@ package racingcar.view
 
 import racingcar.model.Car
 
-object RaceView {
-
-    fun printResultPerRound(round: Int, cars: List<Car>){
+object ConsoleOutput : OutputView {
+    override fun printResultPerRound(round: Int, cars: List<Car>) {
         println("Race Results")
         repeat(round) {
             for (car in cars) {
@@ -15,5 +14,9 @@ object RaceView {
             }
             println()
         }
+    }
+
+    override fun displayWinners(winners: List<Car>) {
+        print("Winners : " + winners.joinToString(", ") { it.name })
     }
 }

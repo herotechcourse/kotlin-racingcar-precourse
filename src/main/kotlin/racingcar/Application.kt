@@ -6,8 +6,7 @@ import racingcar.input.InputView
 import racingcar.model.Winner
 import racingcar.validation.CarNameValidator
 import racingcar.validation.InputNumberValidator
-import racingcar.view.RaceView
-import racingcar.view.ResultView
+import racingcar.view.ConsoleOutput
 
 fun main() {
     // TODO: Implement the program
@@ -19,11 +18,11 @@ fun main() {
     val roundInput = ConsoleView.readRound()
     val n = InputNumberValidator.validateInputNumber(roundInput)
 
-    RaceView.printResultPerRound(n, cars)
+    ConsoleOutput.printResultPerRound(n, cars)
 
     val winner = Winner(cars)
     winner.findWinners()
 
-    ResultView.displayWinners(winner.winners)
+    ConsoleOutput.displayWinners(winner.winners)
 }
 
