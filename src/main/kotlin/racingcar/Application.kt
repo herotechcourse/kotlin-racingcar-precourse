@@ -20,6 +20,14 @@ fun inputCars(): List<String> {
     if (cars.size != cars.distinct().size) {
         throw IllegalArgumentException("Car name must be unique.");
     }
+
+    // Prohibit blank string
+    for (car in cars) {
+        // Prohibit blank string
+        if (car.isBlank()) {
+            throw IllegalArgumentException("Car name must not be blank");
+        }
+    }
     return cars;
 }
 
