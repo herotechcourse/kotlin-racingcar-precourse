@@ -5,7 +5,7 @@
 ### Feature & Test
 
 - [ ] Implement user I/O processing
-  - [ ] Create data structure (car)
+  - [x] Create data structure (car)
   - [ ] Implement input validation logic
   - [ ] Implement result output logic
   - [ ] Write test code
