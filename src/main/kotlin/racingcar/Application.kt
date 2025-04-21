@@ -14,11 +14,15 @@ fun main() {
     val inputHandle=InvalidHandler()
     inputHandle.handleCommas(str)
     val carList:List<String> = listOf(*str.split(',').toTypedArray()) //without 5char
+    inputHandle.handleNameEmpty(carList)
     inputHandle.handleNameLength(carList)
+
+    inputHandle.duplicatedName(carList)
 
 
     display.showQ2()
-    val roundCnt= Console.readLine().toInt()
+    val roundCnt= Console.readLine()
+    inputHandle.convertInt(roundCnt)
     println()
 
 
