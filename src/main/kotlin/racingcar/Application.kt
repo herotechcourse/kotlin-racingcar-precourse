@@ -13,6 +13,8 @@ class Application {
              val inputHandler = InputHandler()
              val inputs = inputHandler.getInputs()
 
+             Race(inputs).run()
+
              true
          } catch (error: Exception) {
              println(error.message)
