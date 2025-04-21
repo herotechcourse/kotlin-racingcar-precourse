@@ -36,6 +36,8 @@ fun main() {
         for (candidate in candidatesMapping.keys) {
             updateCandidate(candidate, candidatesMapping)
         }
+        // Add blank space after each round
+        println()
     }
 
     // After all rounds, find the highest score
