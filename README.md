@@ -6,23 +6,23 @@
 
 ### 📥 Input
 
-- [ ] Input car names from user (comma-separated)
-- [ ] Input number of rounds from user
+- [x] Input car names from user (comma-separated)
+- [x] Input number of rounds from user
 
 ### 🎮 Game
 
-- [ ] Implement `RacingCar` class with name and position
-- [ ] Add move logic (car moves when random number ≥ 4)
-- [ ] Add method to return progress string (e.g., "---")
-- [ ] Add method to compare positions between cars
-- [ ] Move each car based on random number per round
-- [ ] Repeat game for given number of rounds
-- [ ] Track car progress for each round
+- [x] Implement `RacingCar` class with name and position
+- [x] Add move logic (car moves when random number ≥ 4)
+- [ ] Create `RacingCars` class to manage car list
+- [ ] Move all cars per round with `RandomNumberGenerator`
+- [ ] Determine winners after the final round
 
-### 🖨 Output
+---
 
-- [ ] Print race status after each round
-- [ ] Determine final winner(s)
+### 🖨 Output Handling
+
+- [ ] Print race status for each round (car name + progress)
+- [ ] Print final winners (support multiple winners with comma separation)
 - [ ] Print winner names (support multiple winners with comma separation)
 
 ---
