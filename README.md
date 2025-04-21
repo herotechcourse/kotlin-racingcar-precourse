@@ -8,8 +8,8 @@
     - [x] Validate length of car names (1 to 5 characters)
     - [x] Throw IllegalArgumentException and terminate program in case of invalid input
 - [x] Read number of rounds from user input
-    - [ ] Validate data type to be a positive integer
-    - [ ] Throw IllegalArgumentException and terminate program in case of invalid input
+    - [x] Validate data type to be a positive integer
+    - [x] Throw IllegalArgumentException and terminate program in case of invalid input
 
 ### 🚗 Cars
 - [x] Simulate round

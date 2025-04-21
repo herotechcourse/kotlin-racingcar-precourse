@@ -26,8 +26,18 @@ class InputHandler {
 
         fun getNumberOfRounds(): Int {
             println("How many rounds will be played?")
-            val numOfRounds = Console.readLine()
-            return numOfRounds.toInt()
+            val input = Console.readLine()
+            val numOfRounds: Int;
+            try {
+                numOfRounds = input.toInt()
+            }
+            catch (e: NumberFormatException) {
+                throw IllegalArgumentException("Provided input is not an integer.")
+            }
+            if (numOfRounds < 1) {
+                throw IllegalArgumentException("Provided input is not a positive.")
+            }
+            return numOfRounds
         }
     }
 }
