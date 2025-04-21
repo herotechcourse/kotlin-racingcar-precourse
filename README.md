@@ -5,4 +5,3 @@
 ## 2. get numbers of rounds
 ## 3. show result of each round
 ## 4. show winner of the match
-## 5. test method
