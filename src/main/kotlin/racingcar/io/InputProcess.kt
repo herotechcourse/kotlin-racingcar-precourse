@@ -12,14 +12,14 @@ class InputProcess {
         val names = input.split(",")
             .map{it.trim()}
 
-        names.forEach {validateCarNameExist(it)}
+        names.forEach {validateEmptyString(it, "Car names")}
         names.forEach {validateCarNameLength(it)}
 
         return names
     }
 
-    fun validateCarNameExist(str:String){
-        require(str.isNotEmpty()) {"Car names cannot be empty"}
+    fun validateEmptyString(str:String, obj:String){
+        require(str.isNotEmpty()) {obj+" cannot be empty"}
     }
 
     fun validateCarNameLength(str:String){
