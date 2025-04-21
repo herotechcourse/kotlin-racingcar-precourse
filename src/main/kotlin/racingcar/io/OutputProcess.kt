@@ -18,6 +18,9 @@ class OutputProcess {
         println()
     }
 
-
+    fun printWinners(winners: List<Car>) {
+        val winnerNames = winners.joinToString(", ") { it.name }
+        println("Winners : $winnerNames")
+    }
 
 }
