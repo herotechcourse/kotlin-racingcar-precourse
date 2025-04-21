@@ -27,4 +27,23 @@ class RacingGameTest {
             "pobi" to 2, "woni" to 2, "jun" to 2
         )
     }
+
+    @Test
+    fun `getWinners returns multiple winners in input order when positions tie`() {
+        // given
+        val names = listOf("pobi", "woni", "jun")
+        val cars = Cars(names)
+        cars.cars[0].move(2)
+        cars.cars[1].move(2)
+        cars.cars[2].move(1)
+        val round = Round(5)
+        val strategy = RandomMoveStrategy(StubNumberGenerator(3))
+        val racingGame = RacingGame(cars, round, strategy)
+
+        // when
+        val winners = racingGame.getWinners()
+
+        //then
+        assertThat(winners).containsExactly("pobi", "woni")
+    }
 }
