@@ -22,6 +22,42 @@ class Util {
     }
 }
 
+class Game(val rounds: String, val challengerGroup: Cars) {
+    var currentRound = 0
+
+    fun start() {
+        while (currentRound != rounds.toInt()) {
+            randomDice()
+            printCurrentRaceStatus()
+            proceedRound()
+        }
+    }
+
+    private fun proceedRound() {
+        println()
+        currentRound += 1
+    }
+
+    private fun printCurrentRaceStatus() {
+        for (challenger in challengerGroup.names) {
+            print("${challenger.name} : ")
+            for (p in 1..challenger.currentPosition) {
+                print("-")
+            }
+            println()
+        }
+    }
+
+    private fun randomDice() {
+        for (challenger in challengerGroup.names) {
+            val diceNumber = Randoms.pickNumberInRange(0, 9)
+            if (diceNumber >= 4) {
+                challenger.currentPosition += 1
+            }
+        }
+    }
+}
+
 class Cars(cars: List<String>) {
     val names : MutableList<Car> = mutableListOf()
 
@@ -126,27 +162,7 @@ class RacingCar {
 
         OutputView().printResultMessage()
 
-//    Games()
-        var currentRound = 0
-        while (currentRound != rounds.toInt()) {
-            for (challenger in challengerGroup.names) {
-                val diceNumber = Randoms.pickNumberInRange(0, 9)
-                if (diceNumber >= 4) {
-                    challenger.currentPosition += 1
-                }
-            }
-
-//        print current racing status
-            for (challenger in challengerGroup.names) {
-                print("${challenger.name} : ")
-                for (p in 1..challenger.currentPosition) {
-                    print("-")
-                }
-                println()
-            }
-            println()
-            currentRound += 1
-        }
+        Game(rounds, challengerGroup).start()
 
         // search winners
         var winnerGroup = mutableListOf<String>()
