@@ -1,9 +1,12 @@
 package racingcar.io
 
+
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.BeforeEach
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
 import java.io.ByteArrayInputStream
 import java.io.InputStream
 import camp.nextstep.edu.missionutils.Console
@@ -62,6 +65,26 @@ class InputProcessTest {
         setInput(input)
 
         assertThrows<IllegalArgumentException> { inputProcess.processCarName() }
+    }
+
+    @Test
+    fun `processRoundNumber should return valid integer`() {
+
+        val input = "20"
+        setInput(input)
+
+        val rounds = inputProcess.processRoundNumber()
+
+        assertThat(rounds).isEqualTo(20)
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["0", "-123","-5231","123.421", "abc","500000000000", ""])
+    fun `processRoundNumber should throw exception for invalid input`(invalidInput: String) {
+
+        setInput(invalidInput)
+
+        assertThrows<IllegalArgumentException> { inputProcess.processRoundNumber() }
     }
 
 }
