@@ -1,11 +1,10 @@
 package racingcar
 
-import camp.nextstep.edu.missionutils.Randoms
 import racingcar.factory.CarFactory
-import racingcar.model.Car
 import racingcar.model.Winner
 import racingcar.validation.CarNameValidator
 import racingcar.validation.InputNumberValidator
+import racingcar.view.RaceView
 
 fun main() {
     // TODO: Implement the program
@@ -21,16 +20,7 @@ fun main() {
 
     val n = InputNumberValidator.validateInputNumber(roundInput)
 
-    println("Race Results")
-    repeat(n) {
-        for (car in cars) {
-            car.move()
-        }
-        for (car in cars) {
-            println("${car.name} : " + "-".repeat(car.position))
-        }
-        println()
-    }
+    RaceView.printResultPerRound(n, cars)
 
     val winner = Winner(cars)
     winner.findWinners()
