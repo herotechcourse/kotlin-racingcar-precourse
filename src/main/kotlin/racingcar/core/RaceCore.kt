@@ -12,6 +12,12 @@ class RaceCore(
     private val carRepository: CarRepository,
 ) {
 
+    fun run() {
+        register()
+        start()
+        printWinner()
+    }
+
     fun register() {
         convertNamesToCars(names).forEach {
             validate(it.name)
@@ -19,7 +25,7 @@ class RaceCore(
         }
     }
 
-    fun run() {
+    fun start() {
         println("Race Result")
         repeat(totalRound) {
             val cars = carRepository.fetchAll()

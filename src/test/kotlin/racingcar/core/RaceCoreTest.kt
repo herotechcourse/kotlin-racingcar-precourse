@@ -64,7 +64,7 @@ class RaceCoreTest {
         //when
         //then
         core.register()
-        core.run()
+        core.start()
     }
 
     @Test
@@ -76,7 +76,7 @@ class RaceCoreTest {
         //when
         //then
         core.register()
-        core.run()
+        core.start()
         core.printWinner()
     }
 
