@@ -3,12 +3,6 @@ package racingcar
 import camp.nextstep.edu.missionutils.Randoms
 
 class Game(val cars: List<Car>) {
-    companion object {
-        const val moveIndicator: Int = 4
-        const val randMin: Int = 0
-        const val randMax: Int = 9
-    }
-
     private var totalRounds = 0
 
     fun play(nRounds: Int = 0) {
@@ -35,5 +29,11 @@ class Game(val cars: List<Car>) {
         var maxWon = cars.maxOf { car -> car.getMovesMade() }
         val winners = cars.filter { car -> car.getMovesMade() == maxWon }
         print("Winners : " + winners.joinToString(", ") { it.getName() })
+    }
+
+    companion object {
+        const val moveIndicator: Int = 4
+        const val randMin: Int = 0
+        const val randMax: Int = 9
     }
 }
