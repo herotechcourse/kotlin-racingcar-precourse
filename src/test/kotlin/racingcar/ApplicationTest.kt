@@ -41,9 +41,9 @@ class ApplicationTest : NsTest() {
         }
     }
     @Test
-    fun `exception test b`() {
+    fun `exception test for empty input`() {
         assertSimpleTest {
-            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+            assertThrows<IllegalArgumentException> { runException("      ", "1") }
         }
     }
 
