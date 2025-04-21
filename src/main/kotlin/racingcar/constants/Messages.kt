@@ -5,6 +5,10 @@ object InputMessages {
     const val ATTEMPTS = "How many rounds will be played?"
 }
 
+object OutputMessages {
+    const val RESULT = "Race Results"
+}
+
 object ErrorMessages {
     object Name {
         const val LIST_CANNOT_BE_EMPTY = "Please enter at least one car name."
