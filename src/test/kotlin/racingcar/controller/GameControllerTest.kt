@@ -2,6 +2,7 @@ package racingcar.controller
 
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import racingcar.model.Car
 import racingcar.service.RoundHandler
 import racingcar.view.InputView
@@ -44,8 +45,10 @@ class GameControllerTest {
         // cause an exception
         testInputView.shouldThrowException = true
         
-        // this should not throw an exception
-        gameController.start()
+        // Now we expect the exception to be thrown
+        assertThrows<IllegalArgumentException> {
+            gameController.start()
+        }
     }
     
     // Test double for InputView
