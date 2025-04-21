@@ -47,5 +47,4 @@ class CarTest {
         //then
         car.printProgress()
     }
-
 }
