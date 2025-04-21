@@ -4,11 +4,11 @@
 
 ### Feature & Test
 
-- [ ] Implement user I/O processing
+- [x] Implement user I/O processing
   - [x] Create data structure (car)
   - [x] Implement input validation logic
   - [x] Implement result output logic
-  - [ ] Write test code
+  - [x] Write test code
 - [ ] Implement game logic
   - [x] Implement round progression logic
   - [x] Implement overall round progression logic
