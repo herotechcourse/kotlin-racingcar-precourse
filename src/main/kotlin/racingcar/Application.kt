@@ -1,5 +1,7 @@
 package racingcar
 
+import racingcar.controller.RaceController
+
 fun main() {
-    // TODO: Implement the program
+    RaceController().start()
 }
