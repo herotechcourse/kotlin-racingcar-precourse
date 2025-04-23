@@ -1,5 +1,35 @@
 package racingcar
 
+import camp.nextstep.edu.missionutils.Console
+import racingcar.domain.Car
+import racingcar.domain.Cars
+import racingcar.domain.Rounds
+
 fun main() {
-    // TODO: Implement the program
+    println("Enter the names of the cars (comma-separated):")
+    val rawCarNames = Console.readLine()
+        ?.split(",")
+        ?.map { it.trim() }
+        ?: throw IllegalArgumentException("Car names cannot be empty.")
+    val cars = Cars( rawCarNames.map { Car(it) })
+
+    println("Enter the number of rounds:")
+    val roundCount = Console.readLine()
+        ?.toIntOrNull()
+        ?.takeIf { it > 0 }
+        ?: throw IllegalArgumentException("Number of rounds must be a positive number.")
+
+    val results = race(cars, roundCount)
+    val winnersCarNames = results
+        .getWinners().getCarNames()
+    println("Race Results\n" + results.toString() + "Winners : ${winnersCarNames.joinToString(", ")}")
+}
+
+fun race(cars: Cars, roundCount: Int): Rounds {
+    val rounds = Rounds()
+    for (roundIndex in 1..roundCount) {
+        cars.moveRandomly()
+        rounds.add(cars.createRound(roundIndex))
+    }
+    return rounds
 }
