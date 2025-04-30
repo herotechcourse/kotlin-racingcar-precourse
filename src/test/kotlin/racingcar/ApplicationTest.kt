@@ -26,6 +26,9 @@ class ApplicationTest : NsTest() {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
         }
     }
+//    요소빈거
+//    횟수 음수
+//
 
     override fun runMain() {
         main()

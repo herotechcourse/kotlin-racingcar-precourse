@@ -1,25 +1,26 @@
 package racingcar
 
 interface Vihicle {
-    fun goForward(distance: Int = 0)
-    fun getName() : String
+    fun goForward(distance: Int = 1)
+    fun getname()
+    fun printInfo()
 }
+class Car(var position: Int = 0, var name: String) : Vihicle {
+    companion object{
 
-class Car : Vihicle {
-    var position : Int = 0
-    var name : String = ""
-    fun Car(position : Int, name : String) {
-        this.position = position
-        this.name = name
     }
 
     override fun goForward(distance: Int) {
         position += distance
     }
 
-    override fun getName() : String {
-        return name
+    override fun getname() {
+        print(name)
     }
 
+    override fun printInfo() {
+        val positionBar = "-".repeat(position)
+        println("$name : $positionBar")
+    }
 
 }
