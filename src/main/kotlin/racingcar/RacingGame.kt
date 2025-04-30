@@ -4,7 +4,8 @@ import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
 class RacingGame {
-    var list : List<Car> = mutableListOf<Car>()
+    var list : List<Car> = mutableListOf()
+    var realList = VehicleList()
 
     fun run(){
         //이거 예외만 던져주면 되는건가
@@ -20,30 +21,30 @@ class RacingGame {
         val winners = getWinners()
         printWinners(winners)
     }
+
     fun printWinners(winners: List<Car>) {
         val string = winners.joinToString(", ") { c -> c.name }
-        list.map { it.printInfo() }
+        list.map { print(it.getInfo()) }
         println("Winners : $string")
     }
+
     fun startGame(count : Int){
         for (i in 0 until count) {
            list.map {
                 val dice = Randoms.pickNumberInRange(0,9)
                 if(isMove(dice))it.goForward()
-                it.printInfo()
-
-            }
-            println()
+               print(it.getInfo())
+           }
+           println()
         }
     }
+
     fun getWinners() : List<Car> {
-        val maxValue = list.maxOf { it.position }
-        val winners = list.filter { it.position == maxValue }
+        val maxValue = list.maxOf { it.getPosition() }
+        val winners = list.filter { it.getPosition() == maxValue }
         return winners
     }
-    fun isMove(number : Int) : Boolean {
-        return number >= 4
-    }
+
     fun inputCars() : List<Car>{
         val list = mutableListOf<Car>()
 
@@ -65,22 +66,5 @@ class RacingGame {
         val count = input.trim().toInt()
         return count
     }
-    fun validString(string : String) : Boolean {
-        if(string.length>5)
-            return false
-        if(string == "")
-            return false
-        return true
-    }
 
-    /*
-    * 입력후
-    *
-    *
-    *
-    *
-    *
-    *
-    *
-    * */
 }
