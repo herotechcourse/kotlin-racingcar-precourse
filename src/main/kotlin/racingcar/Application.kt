@@ -31,7 +31,11 @@ fun getGameLengthInput() : Int {
     val gameLength= Console.readLine()
 
     return try {
-        gameLength.toInt()
+        val number =  gameLength.toInt()
+        if (number <= 0) {
+            throw IllegalArgumentException("1 이상의 값을 입력해 주세요.")
+        }
+        number
     } catch (e: Exception) {
         throw IllegalArgumentException("잘못된 입력입니다.")
     }
