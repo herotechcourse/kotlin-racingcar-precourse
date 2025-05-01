@@ -4,67 +4,54 @@ import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
 class RacingGame {
-    var list : List<Car> = mutableListOf()
-    var realList = VehicleList()
+    var vehicleList : List<Vehicle> = mutableListOf()
 
     fun run(){
-        //이거 예외만 던져주면 되는건가
+        println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,)를 기준으로 구분).")
+        vehicleList = inputVehicles()
 
-        list = inputCars()
-
-
-
-        val count = inputCout()
-        require(count>0){throw IllegalArgumentException("횟수작음")}
+        print("시도할 횟수는 몇 회인가요>")
+        val count = inputCount()
         println("실행 결과")
         startGame(count = count)
+
         val winners = getWinners()
-        printWinners(winners)
+        Output.printVehicleScores(vehicles = vehicleList)
+        Output.printVehicleWinners(winners)
     }
 
-    fun printWinners(winners: List<Car>) {
-        val string = winners.joinToString(", ") { c -> c.name }
-        list.map { print(it.getInfo()) }
-        println("Winners : $string")
+
+    private fun inputVehicles() : List<Vehicle> {
+        val input = Console.readLine()
+        val list = Input.nameToEntity<Car>(input)
+
+        return list
     }
 
-    fun startGame(count : Int){
-        for (i in 0 until count) {
-           list.map {
-                val dice = Randoms.pickNumberInRange(0,9)
-                if(isMove(dice))it.goForward()
-               print(it.getInfo())
-           }
-           println()
-        }
+    private fun inputCount() : Int {
+        val input = Console.readLine()
+        val count = input.trim().toInt()
+        require(count>0){throw IllegalArgumentException(myConstErrorMessage.WRONG_CONT)}
+
+        return count
     }
 
-    fun getWinners() : List<Car> {
-        val maxValue = list.maxOf { it.getPosition() }
-        val winners = list.filter { it.getPosition() == maxValue }
+    private fun getWinners() : List<Vehicle> {
+        val maxValue = vehicleList.maxOf { it.position }
+        val winners = vehicleList.filter { it.position == maxValue }
         return winners
     }
 
-    fun inputCars() : List<Car>{
-        val list = mutableListOf<Car>()
+    private fun startGame(count : Int){
 
-        println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,)를 기준으로 구분).")
-        val input = Console.readLine()
-        input.split(",").map {
-            it.trim()
-            if(validString(it)) {
-                list.add(Car(name = it))
+        for (i in 0 until count) {
+            vehicleList.map {
+                val dice = Randoms.pickNumberInRange(0,9)
+                if(it.isMove(dice))it.move()
             }
-            else throw IllegalArgumentException("이름 터짐")
+            Output.printVehicleScores(vehicles = vehicleList)
+            println()
         }
-        return list
-    }
-    fun inputCout() : Int {
-        print("시도할 횟수는 몇 회인가요>")
-        val input = Console.readLine()
-        //TODO 자체예외가 있는데 따로 처리해야하는가
-        val count = input.trim().toInt()
-        return count
     }
 
 }

@@ -1,25 +1,30 @@
 package racingcar
 
 abstract class Vehicle {
-    protected open lateinit var name : String
-    protected open var position : Int = 0
+    //TODO 캡슐화로 setter X getter O 하기
 
-    abstract fun goForward(distance: Int = 1)
-    abstract fun getInfo() : String
+    open lateinit var name : String
+    open var position : Int = 0
 
-    fun getName() : String = name
-    fun getPosition() : Int = position
+    abstract fun move(distance: Int = 1)
+    abstract fun positionLine() : String
+    abstract fun getScore() : Int
 
+    fun isMove(number : Int) : Boolean {
+        return number >= 4
+    }
 }
 
 class Car(override var name: String, override var position: Int = 0) : Vehicle() {
 
-    override fun goForward(distance: Int) {
+    override fun move(distance: Int) {
         position += distance
     }
 
-    override fun getInfo() : String{
+    override fun positionLine() : String{
         return "-".repeat(position)
     }
-
+    override fun getScore() : Int{
+        return position
+    }
 }
