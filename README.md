@@ -17,6 +17,7 @@
 - `src/main/kotlin/racingcar/Application.kt`
 - `src/main/kotlin/racingcar/RaceGame.kt`
 - `src/main/kotlin/racingcar/RacingCar.kt`
+- `src/main/kotlin/racingcar/Drivable.kt`
 
 - `src/test/kotlin/racingcar/ApplicationTest.kt`
 
