@@ -21,9 +21,64 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
+    fun `multiple winners test`() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni,jun", "2")
+                assertThat(output()).contains("pobi : --", "woni : --", "jun : ", "Winners : pobi, woni")
+            },
+            MOVING_FORWARD, MOVING_FORWARD, STOP, // 1st round
+            MOVING_FORWARD, MOVING_FORWARD, STOP  // 2nd round
+        )
+    }
+
+    @Test
     fun `exception test`() {
         assertSimpleTest {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
+        }
+    }
+
+    @Test
+    fun `no player name test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException(" ", "1") }
+        }
+    }
+
+    @Test
+    fun `not a number test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,java", "abc") }
+        }
+    }
+    @Test
+    fun `negative number test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,java", "-1") }
+        }
+    }
+    @Test
+    fun `empty number test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,java", " ") }
+        }
+    }
+
+
+    @Test
+    fun `no player name test 2`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException(",,", "1") }
+        }
+    }
+
+    @Test
+    fun `zero attempt test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> {
+                runException("pobi,woni", "0")
+            }
         }
     }
 
