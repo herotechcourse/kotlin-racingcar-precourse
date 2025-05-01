@@ -26,6 +26,20 @@ class ApplicationTest : NsTest() {
             assertThrows<IllegalArgumentException> { runException("pobi,javaji", "1") }
         }
     }
+    @Test
+    fun `count test`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("pobi,javaji", "-1") }
+        }
+    }
+    @Test
+    fun `player test`() {
+
+
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException(",,,", "1") }
+        }
+    }
 
     override fun runMain() {
         main()

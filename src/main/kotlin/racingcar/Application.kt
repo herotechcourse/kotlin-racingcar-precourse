@@ -1,5 +1,6 @@
 package racingcar
 
 fun main() {
-    // TODO: Implement the program
+    val racingGame = RacingGame();
+    racingGame.run()
 }
