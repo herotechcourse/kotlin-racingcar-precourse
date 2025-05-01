@@ -22,4 +22,8 @@ class RacingCar(val name: String) {
     private fun getStateBar() : String {
         return "-".repeat(distanceTraveled)
     }
+
+    fun getDistanceTraveled(): Int {
+        return distanceTraveled
+    }
 }
