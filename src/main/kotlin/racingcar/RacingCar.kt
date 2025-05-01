@@ -1,17 +1,17 @@
 package racingcar
 
-class RacingCar(val name: String) {
+class RacingCar(val name: String) : Drivable{
     private var distanceTraveled: Int = 0
     private var thresholdToMove: Int = 4
     private var distancePerStep: Int = 1
 
-    fun tryMove(chance : Int) {
-        if (isMoveable(chance)) {
+    override fun tryMove(chance : Int) {
+        if (isDrivable(chance)) {
             distanceTraveled += distancePerStep
         }
     }
 
-    private fun isMoveable(chance : Int) : Boolean {
+    private fun isDrivable(chance : Int) : Boolean {
         return chance >= thresholdToMove
     }
 
@@ -23,7 +23,7 @@ class RacingCar(val name: String) {
         return "-".repeat(distanceTraveled)
     }
 
-    fun getDistanceTraveled(): Int {
+    override fun getDistanceTraveled(): Int {
         return distanceTraveled
     }
 }
