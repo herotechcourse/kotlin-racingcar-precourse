@@ -2,12 +2,6 @@ package racingcar
 
 class OutputHandler () {
 
-    companion object{
-        val RACE_RESULT_HEADER = "Race Results"
-        val RACE_WINNER_MESSAGE = "Winners : "
-        val MOVEMENT_MARK = "-"
-    }
-
     fun printRaceHeader() {
         println()
         println(RACE_RESULT_HEADER)
@@ -27,5 +21,11 @@ class OutputHandler () {
     fun printWinners(winners: List<String>) {
         print(RACE_WINNER_MESSAGE)
         println(winners.joinToString(", "))
+    }
+
+    companion object{
+        const val RACE_RESULT_HEADER = "Race Results"
+        const val RACE_WINNER_MESSAGE = "Winners : "
+        const val MOVEMENT_MARK = "-"
     }
 }
