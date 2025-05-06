@@ -1,6 +1,6 @@
 package racingcar
 
-class OutputHandler () {
+class OutputHandler() {
 
     fun printRaceHeader() {
         println()
@@ -23,7 +23,7 @@ class OutputHandler () {
         println(winners.joinToString(", "))
     }
 
-    companion object{
+    companion object {
         const val RACE_RESULT_HEADER = "Race Results"
         const val RACE_WINNER_MESSAGE = "Winners : "
         const val MOVEMENT_MARK = "-"

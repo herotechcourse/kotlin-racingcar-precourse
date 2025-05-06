@@ -1,6 +1,6 @@
 package racingcar
 
-class RacingGame (
+class RacingGame(
     private val input: InputHandler,
     private val output: OutputHandler,
     private val validator: Validator

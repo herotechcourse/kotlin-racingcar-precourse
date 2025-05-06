@@ -5,7 +5,7 @@ class InputHandler {
     fun getCarsName(): List<String> {
         println(CARS_NAME_REQUEST_MESSAGE)
         val input = readln()
-        val carsName = input.split(",").map {it.trim()}
+        val carsName = input.split(",").map { it.trim() }
         return carsName
     }
 
