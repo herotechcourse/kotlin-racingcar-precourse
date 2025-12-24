@@ -1,1 +1,0 @@
-# kotlin-racingcar-precourse
